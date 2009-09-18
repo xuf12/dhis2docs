@@ -2,6 +2,7 @@
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
 "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
 <?altova_sps http://www.altova.com/sps/Template/Publishing/docbook.sps?>
+<?xml-stylesheet type="text/xsl" href="C:\Program Files\Altova\XMLSpy2008\Stylesheets\docbook\html\docbook.xsl"?>
 <article>
 	<articleinfo>
 		<date>17/09/09</date>
@@ -25,7 +26,6 @@
 	</articleinfo>
 	<sect1>
 		<title>Getting started with DHIS2</title>
-		<para/>
 		<highlights>
 			<para>After reading this chapter you will be able to understand:</para>
 			<itemizedlist>
@@ -40,13 +40,12 @@
 				</listitem>
 			</itemizedlist>
 		</highlights>
-		<para/>
 		<sect2>
 			<title>Downloading and installing the desktop version</title>
 			<para>The easist way to get started with the application is to download
       the DHIS2 Live package. This version of the applicaiton comes
       prepackaged, and requires on a single download. You can get the latest
-      version <ulink type="" url="???" userlevel="">here</ulink>.</para>
+      version <ulink type="" url="http://hispkerala.org/dhis2/release/dhis2-live-2.0.2.zip" userlevel="">here</ulink>.</para>
 		</sect2>
 		<sect2>
 			<title>Downloading and installing the server version</title>
@@ -55,13 +54,13 @@
       For larger, production installations with many users and large volumes
       of data (for instance as a national level server) it is reccomended to
       install the server version. The latest version of the application can be
-      found <ulink url="???">here</ulink>. A seperate <olink>guide</olink>
-      describing the installation and setup of the server version can be found
-      is also available. </para>
+      found <ulink url="http://code.launchpad.net/dhis2/2.0.2/2.0.2-release/+download/dhis.war">here</ulink>.
+      A seperate guide describing the installation and setup of
+      the server version can be found is also available.</para>
 		</sect2>
 		<sect2>
 			<title>Starting the DHIS2 Live package</title>
-			<para>Placeholder for this text. </para>
+			<para>Placeholder for this text.</para>
 		</sect2>
 	</sect1>
 	<sect1>
@@ -69,19 +68,19 @@
 		<para>Regardless of whether you have installed the server version of the
     desktop Live version, you will use a web-browser to logon to the
     application. DHIS 2 should be compatible with most modern web-browsers,
-    although you will need to ensure that JavaScript is enabled. </para>
+    although you will need to ensure that JavaScript is enabled.</para>
 		<para>To logon to the application just enter <ulink type="" url="???">http://localhost:8080/dhis</ulink> if you are using the DHIS2
     live package, or replace localhost with the name or IP address of the
-    server where the server version is installed. </para>
+    server where the server version is installed.</para>
 		<para>Once you have started DHIS2, either online or offline, the displayed
     screen will prompt you to enter your registered ‘user name’ and
     ‘password’. After entering the required information click on log-in button
-    to log into the application. </para>
+    to log into the application.</para>
 		<screenshot>
 			<screeninfo>DHIS2 Login screen</screeninfo>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="???"/>
+					<imagedata fileref="resources/images/dhis2_login_screen.jpg" format="JPG"/>
 				</imageobject>
 			</mediaobject>
 		</screenshot>
@@ -89,7 +88,7 @@
 	<sect1>
 		<title>Creating new users and roles</title>
 		<para>This section will describe how to add new users to the DHIS 2
-    application. </para>
+    application.</para>
 		<sect2>
 			<title>Open User Menu</title>
 			<para>To create or find a user begin with clicking on the ‘user’ module
@@ -101,7 +100,7 @@
 				<screeninfo>Select Users menu item</screeninfo>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="???"/>
+						<imagedata fileref="resources/images/select_user_menu.jpg"/>
 					</imageobject>
 				</mediaobject>
 			</screenshot>
@@ -109,7 +108,7 @@
 				<screeninfo>Search by user name</screeninfo>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="???"/>
+						<imagedata fileref="resources/images/search_user_by_name.jpg"/>
 					</imageobject>
 				</mediaobject>
 			</screenshot>
@@ -126,7 +125,7 @@
 				<screeninfo>Create new user role</screeninfo>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="???"/>
+						<imagedata fileref="resources/images/select_user_role.jpg"/>
 					</imageobject>
 				</mediaobject>
 			</screenshot>
@@ -136,7 +135,7 @@
 				<screeninfo>Add new user role</screeninfo>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="???"/>
+						<imagedata fileref="resources/images/add_user_role.jpg"/>
 					</imageobject>
 				</mediaobject>
 			</screenshot>
@@ -144,12 +143,12 @@
       need to give Name of the Role such as Super User, Admin User, etc. The
       second text box called ‘Description’ gives more information about the
       type of User Role that is being created for e.g. State Admin User,
-      District Data Entry. </para>
+      District Data Entry.</para>
 			<screenshot>
 				<screeninfo>Role maintaience page</screeninfo>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="???"/>
+						<imagedata fileref="resources/images/role_maintainence_page.jpg"/>
 					</imageobject>
 				</mediaobject>
 			</screenshot>
@@ -164,35 +163,37 @@
 				<screeninfo>Adding a dataset to a user role</screeninfo>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="???"/>
+						<imagedata fileref="resources/images/assign_one_dataset_user_role.png"/>
 					</imageobject>
 				</mediaobject>
 			</screenshot>
-			<para>You can also select multiple datasets individually by pressing the
-      Ctrl key on the keyboard and clicking on individual datasets. </para>
+			<para>In order for particular users to be able to enter data, you must
+      add them to both a dataset as well as an organizational unit level. You
+      can also select multiple datasets individually by pressing the Ctrl key
+      on the keyboard and clicking on individual datasets.</para>
 			<screenshot>
 				<screeninfo>Adding multiple datasets to user roles</screeninfo>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="???"/>
+						<imagedata fileref="resources/images/assign_multiple_datasets_user_role.png"/>
 					</imageobject>
 				</mediaobject>
 			</screenshot>
 			<para>Finally when you have entered the required fields click on
       <guibutton>Save</guibutton> which is located on the lower part of the
       displayed screen. The desired user role and related authorization will
-      be saved to the database, and can then be assigned to a particular user.
-      </para>
+      be saved to the database, and can then be assigned to a particular
+      user.</para>
 		</sect2>
 		<sect2>
 			<title>Add New User</title>
 			<para>Under particular user role there can be more than one user. To add
-      new users go to the User options under the Maintenance module. </para>
+      new users go to the User options under the Maintenance module.</para>
 			<screenshot>
 				<screeninfo>Add new user</screeninfo>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="???"/>
+						<imagedata fileref="resources/images/add_new_user.png"/>
 					</imageobject>
 				</mediaobject>
 			</screenshot>
@@ -230,7 +231,7 @@
 						<screeninfo>Add or edit users</screeninfo>
 						<mediaobject>
 							<imageobject>
-								<imagedata fileref="???"/>
+								<imagedata fileref="resources/images/add_edit_users.jpg"/>
 							</imageobject>
 						</mediaobject>
 					</screenshot>
@@ -238,7 +239,7 @@
 						<screeninfo>User management screen</screeninfo>
 						<mediaobject>
 							<imageobject>
-								<imagedata fileref="???"/>
+								<imagedata fileref="resources/images/user_management.jpg"/>
 							</imageobject>
 						</mediaobject>
 					</screenshot>
@@ -249,12 +250,12 @@
 	<sect1>
 		<title>Logging off of DHIS2</title>
 		<para>Just click on the <guibutton>Log off</guibutton> button to exit the
-    application. </para>
+    application.</para>
 		<screenshot>
 			<screeninfo>Logging off of DHIS 2</screeninfo>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="???"/>
+					<imagedata fileref="resources/images/dhis2_logoff.jpg"/>
 				</imageobject>
 			</mediaobject>
 		</screenshot>
