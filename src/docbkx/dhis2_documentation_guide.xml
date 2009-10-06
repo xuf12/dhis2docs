@@ -144,7 +144,7 @@
 
       <listitem>
         <para>To download the latest revision of the DHIS2 documents project
-        type: <command>bzr
+        type: <command>bzr branch
         lp:~dhis2-documenters/dhis2/dhis2-docbook-docs</command></para>
       </listitem>
 
@@ -213,7 +213,7 @@
     committed changes to your local branch, you can push them to the master
     branch with the following command: <blockquote>
         <para><command>bzr push
-        ~dhis2-documenters/dhis2/dhis2-docbook-docs</command></para>
+        lp:~dhis2-documenters/dhis2/dhis2-docbook-docs</command></para>
       </blockquote></para>
   </section>
 </article>
