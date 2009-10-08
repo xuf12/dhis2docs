@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<article>
+  <articleinfo>
+    <title>Data entry with DHIS2</title>
+
+    <author>
+      <firstname></firstname>
+
+      <surname></surname>
+
+      <affiliation>
+        <orgname></orgname>
+      </affiliation>
+    </author>
+
+    <pubdate></pubdate>
+  </articleinfo>
+
+  <sect1>
+    <title>Learning Objectives</title>
+
+    <highlights>
+      <para>After reading this chapter you will be able to understand:</para>
+
+      <itemizedlist>
+        <listitem>
+          <para>How to do data entry</para>
+        </listitem>
+
+        <listitem>
+          <para>How to do data validation</para>
+        </listitem>
+
+        <listitem>
+          <para>How to use standard and customized data entry screens</para>
+        </listitem>
+      </itemizedlist>
+    </highlights>
+  </sect1>
+
+  <sect1>
+    <title>Opening the “Data Entry” screen</title>
+
+    <para>Entering data in DHIS 2 is a very simple task, and involves the
+    following steps. Click on the services tab displayed on the main menu. A
+    drop down menu will appear listing the services provided by DHIS2. Click
+    on the <guibutton>Data Entry</guibutton> option.</para>
+
+    <screenshot>
+      <screeninfo>Open DHIS2 data entry screen</screeninfo>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resources/images/open_data_entry_screen.png" />
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+
+    <para>You will now enter the data entry module. This module is where the
+    services/ data values are captured / registered into the system. The
+    screen display will be like the screenshot shown below.</para>
+
+    <screenshot>
+      <screeninfo>Main data entry screen</screeninfo>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resources/images/data_entry_screen_main.png" />
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </sect1>
+
+  <sect1>
+    <title>Navigate organisation tree and select organisation unit</title>
+
+    <para>In order to enter data you will first have to select the particular
+    organization unit (e.g. Sub Centre/PHC/districts etc) for which you are
+    going to enter data. Simply clicking on the concerned organization unit
+    from the organization units hierarchy displayed on the left side of the
+    data entry screen.</para>
+
+    <screenshot>
+      <screeninfo>Select Organisational unit</screeninfo>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resources/images/data_entry_screen_select_org_unit.png" />
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </sect1>
+
+  <sect1>
+    <title>Entering data</title>
+
+    <para>When you select an organisational unit (or orgunit) from the
+    organisation unit tree, datasets available for this orgunit will then
+    appear as a drop-down list in the data set box as depicted below.</para>
+
+    <screenshot>
+      <screeninfo>Select dataset</screeninfo>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resources/images/data_entry_select_data_set.png" />
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+
+    <para>If the dataset field is disabled it means that there are no datasets
+    assigned for the selected organization unit or that your user role is not
+    authorized to enter data. For now we shall limit our concern to data
+    entry. You will learn to create and assign datasets to specific
+    organization unit in a later module. </para>
+  </sect1>
+</article>
