@@ -20,7 +20,7 @@
         <artifactId>docbkx-maven-plugin</artifactId>
 
         <configuration>
-          <htmlStylesheet>/resources/images/docbook_bsd.css</htmlStylesheet>
+          <htmlStylesheet>/resources/css/docbook_bsd.css</htmlStylesheet>
 
           <postProcess>
             <copy todir="target/site">
