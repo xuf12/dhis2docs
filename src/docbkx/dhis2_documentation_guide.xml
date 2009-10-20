@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<article>
+  <articleinfo>
+    <title>DHIS 2 Documentation Guide</title>
+
+    <author>
+      <firstname>Jason</firstname>
+
+      <surname>Pickering</surname>
+
+      <affiliation>
+        <orgname></orgname>
+      </affiliation>
+    </author>
+
+    <pubdate>14/09/09</pubdate>
+
+    <keywordset>
+      <keyword>DHIS2</keyword>
+
+      <keyword>documentation</keyword>
+
+      <keyword>DocBook</keyword>
+    </keywordset>
+
+    <revhistory>
+      <revision>
+        <date>29/09/09</date>
+
+        <revdescription>
+          <para>Added more information on getting started with bzr and
+          DocBook</para>
+        </revdescription>
+      </revision>
+    </revhistory>
+  </articleinfo>
+
+  <section>
+    <title>DHIS 2 Documentation System Overview</title>
+
+    <para remap="">DHIS 2 is a web-based information management system under
+    very active development. Currently, there are a large number of
+    disconnected pockets of documentation across in various formats (e.g.
+    MediaWiki, Word documents, Confluence). There is a need to consolidate the
+    documentation process and bring it more in-line with the distributed
+    nature of the development of the application itself. It has been suggested
+    therefore to move the current documentation to the DocBook platform. This
+    article will not discuss the relative merits of the DocBook platform, but
+    rather will serve as a brief guide to its use by DHIS 2 implementers,
+    users and developers. Readers are encouraged to make their own decision
+    about whether to use DocBook or not for documentation purposes.</para>
+  </section>
+
+  <section>
+    <title>Introduction</title>
+
+    <para>One of the main advantages of DocBook is that there is complete
+    separation between the content and presentation. DocBook is a pure XML
+    format, and is well documented. It is believed that only a very small
+    subset of its features will be required in order to achieve much higher
+    quality documentation for DHIS. There are some 400 separate mark-up
+    elements that cater to almost any level of technical documentation needs,
+    but in reality, only a few dozen of these element will probably need to be
+    employed to achieve high-quality documentation for DHIS 2, both for
+    printed as well as online formats such as HTML or integrated help systems
+    with the application itself. Therefore, there are wide range of
+    possibilities in terms of which editor can be used for the creation of
+    DocBook files. A fairly complete list of possibilities is located <ulink
+    url="http://wiki.docbook.org/topic/DocBookAuthoringTools">here</ulink>.
+    <ulink url="http://www.xmlmind.com/xmleditor/persoedition.html?">XMLmind
+    XML Editor Personal Edition</ulink> is a good balance between
+    functionality and simplicity.</para>
+
+    <para>One of the key concepts to keep in mind when authoring documentation
+    in DocBook, or other presentation neutral formats, is that the <emphasis
+    role="bold">content </emphasis>of the document should be considered in the
+    first instance. The <emphasis role="bold">presentation </emphasis>of the
+    document will take place in a separate step, where it will be rendered
+    into different formats, such as HTML and PDF. It is therefore important
+    that the document is will organized, and structured, with appropriate
+    DocBook tags and structural elements being considered.</para>
+
+    <para>It is good practice to break your document in to various sections
+    using the "sect", or section element. Section elements can also be nested
+    within each other, such as "Section 1" and "Section 2". This concept is
+    essentially the same as Microsoft Word or other word processing programs.
+    DocBook will automatically take care of numbering the sections for you
+    when the document is produced. Two other important elements are the
+    "itemizedlist" and "numberedlist". These are quite similar, but an
+    itemized list corresponds to a bulleted list, which a numbered list will
+    be rendered with each element being numbered sequentially. Other key
+    elements are "screenshot" and "table" which should be
+    self-explanatory.</para>
+  </section>
+
+  <section>
+    <title>Getting started with Launchpad</title>
+
+    <para>Currently, the documentation system is part of the source code
+    housed at <ulink url="https://launchpad.net/">Launchpad</ulink>. In order
+    to start adding or editing the documentation, you should first perform a
+    checkout of the source code. If you do not already have a Launchpad login
+    id, you will need to get one. This can be done <ulink
+    url="https://launchpad.net/+login">here</ulink>.</para>
+
+    <para>Once you register with Launchpad, you will need to request access to
+    the dhis2-documenters group. Login to Launchpad, and then request access
+    <ulink
+    url="https://code.launchpad.net/~dhis2-documenters/dhis2/dhis2-docbook-docs">here</ulink>.
+    Your request will need to be approved by the group administrators. Once
+    you have been granted access to the group, you can commit changes to the
+    documentation branch.</para>
+  </section>
+
+  <section>
+    <title>Getting the document source</title>
+
+    <para>In order to edit the documentation, you will need to download the
+    source pages of the documentation to your computer. Launchpad uses a
+    version control system known as bzr . There are different methods for
+    getting bzr working on your system, depending on which operating system
+    you are using. A good step-by-step guide for Microsoft operating systems
+    can be viewed <ulink
+    url="&quot;http://wiki.showmedo.com/index.php/Using_Launchpad_and_Bazaar#Steps_to_download_a_project_on_Launchpad_that_uses_Bazaar_with_only_one_branch&quot;">here</ulink>.
+    If you are using Linux, you will need to install bzr on your system
+    through your package manager, or from source code.</para>
+
+    <para>Once you have installed bzr on your system, you will need to
+    download the document source. Just follow this procedure:</para>
+
+    <orderedlist>
+      <listitem>
+        <para>Make sure you have Bazaar installed.</para>
+      </listitem>
+
+      <listitem>
+        <para>Start Bazzar by right-clicking a folder if you are using Windows
+        and selecting <command>Bzr Here</command>. If you use Linux, you can
+        just create a folder to hold the document sources. You can place the
+        document source in any folder you like.</para>
+      </listitem>
+
+      <listitem>
+        <para>To download the latest revision of the DHIS2 documents project
+        type: <command>bzr branch
+        lp:~dhis2-documenters/dhis2/dhis2-docbook-docs</command></para>
+      </listitem>
+
+      <listitem>
+        <para>The download process should start and all the documentation
+        source files will be downloaded to the folder that you
+        specified.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+
+  <section>
+    <title>Editing the documentation</title>
+
+    <para>Once you have downloaded the source, you should have a series of
+    folders inside of the dhis2-docbook-docs directory. All documents should
+    be placed in the <filename>dhis2-docbook-docs/src/docbkx</filename>
+    folder. Place any image files that may be linked to your document in the
+    /dhis2-docbook-docs/src/docbkx/resources/images folder and link these
+    inside your DocBook document using a relative file link. When the
+    documentation is built, in a separate step, the images will be
+    automatically copied over to the correct directory during the build
+    process.</para>
+  </section>
+
+  <section>
+    <title>Building the documentation</title>
+
+    <para>In order to transform the documentation source files to different
+    format, such as HTML or PDF, you will need to install the Apache Maven
+    program. You can get a copy <ulink
+    url="http://maven.apache.org/download.html">here</ulink> or by installing
+    it through your package manager if you are using Linux. A sample build
+    file has been included as part of the documentation source. Just execute
+    the command <command>build.bat</command> on Windows or
+    <command>build.sh</command> on Linux from the
+    <filename>/dhis2-docbook-docs </filename>directory. Maven will start to
+    download the necessary components to transform the documents into HMTL and
+    PDF. Once the process has completed (be patient the first time, as there
+    are a number of components that must be downloaded), all of the target
+    document types will be generated in the
+    /<filename>dhis2-docbook-docs/target/docbkx</filename> directory. HTML
+    documents will be in the HTML directory, and PDF documents will be in the
+    PDF directory.</para>
+  </section>
+
+  <section>
+    <title>Committing your changes back to Launchpad</title>
+
+    <para>Once you have finished editing your document, you will need to
+    commit your changes back to Launchpad. Open up a command prompt on Windows
+    or a shell on Linux, and navigate to the folder where you have placed your
+    documentation. If you have added any new files to your local branch, you
+    will need to add them to the source tree with the <command>bzr
+    add</command> command, followed by the file name(s) that you have added to
+    the src directory. Once you have added all of your new files, you will
+    need to commit them to your local branch with the following
+    command:</para>
+
+    <blockquote>
+      <para><command>bzr commit -m "Adding missing files from master
+      branch"</command></para>
+    </blockquote>
+
+    <para>Just add an informative message of what you have done. Once you have
+    committed changes to your local branch, you can push them to the master
+    branch with the following command: <blockquote>
+        <para><command>bzr push
+        lp:~dhis2-documenters/dhis2/dhis2-docbook-docs</command></para>
+      </blockquote></para>
+  </section>
+</article>
