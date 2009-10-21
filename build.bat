@@ -1,4 +1,4 @@
 echo "Building HTML files"
-mvn docbkx:generate-html
+mvn clean docbkx:generate-html
 echo "Building PDF files"
-mvn docbkx:generate-pdf
+mvn clean docbkx:generate-pdf
