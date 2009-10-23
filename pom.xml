@@ -23,7 +23,7 @@
           <htmlStylesheet>/resources/css/docbook_bsd.css</htmlStylesheet>
 
           <postProcess>
-            <copy todir="target/site/html">
+            <copy todir="target/site">
               <fileset dir="target/docbkx">
                 <include name="**/*.html" />
 
