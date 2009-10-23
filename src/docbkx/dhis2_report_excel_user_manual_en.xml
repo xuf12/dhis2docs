@@ -66,7 +66,7 @@
             <para>oAllow users to generate reports according to parameters: period of time, organization unit, organization unit group  and to generate group of reports to many sheets of 1 Excel file.</para>
           </listitem>
         </itemizedlist>
-        <para>-Import data from Excel file into Database of DHIS<itemizedlist>
+        <para>-Import data from Excel file into Database of DHIS (This feature is now in fixing bug stage, will be added later)<itemizedlist>
             <listitem>
               <para>oIn the need of saving and transmitting data between health workers or within the local organization units where internet is not available. User may need to enter data in excel file and import it into the database. This feature allows user to import data from a pre-designed excel template into DHIS database automatically or just import  some  data elements specified by users.</para>
             </listitem>
@@ -119,13 +119,13 @@
             <para><emphasis role="italic">Import excel files</emphasis>: imports data values from an Excel file to the DHIS’s database</para>
           </listitem>
           <listitem>
-            <para><emphasis role="italic">Data Set completed reports</emphasis>: generates the report status of completeness of entering data .</para>
+            <para><emphasis role="italic">Data Set completed reports</emphasis>: generates the report which show status of completeness of entering data .</para>
           </listitem>
           <listitem>
             <para><emphasis role="italic">Data entry Status</emphasis>: views data entry status.</para>
           </listitem>
           <listitem>
-            <para><emphasis role="italic">Individual reports</emphasis>: generates user’s defined reports</para>
+            <para><emphasis role="italic">Individual reports</emphasis>: generates user’s defined reports which list data elements and list of periods were chosen by user.</para>
           </listitem>
         </itemizedlist>
         <screenshot>
@@ -280,7 +280,7 @@
             <para>Organization unit Group    <inlinegraphic fileref="resources/images/ExcelReportModule/assign_org_unit_group.jpg" align="center"/>: For choose which organization group would be list in the report. This button only appear when the Report Type is Organization Unit Listing</para>
           </listitem>
           <listitem>
-            <para>Data element groups <inlinegraphic fileref="resources/images/ExcelReportModule/assign_data_element_group.jpg" align="center"/> : This button only available when report type is Category. This button for create Data element group and these groups of data elements would be list in the report.</para>
+            <para>Data element groups <inlinegraphic fileref="resources/images/ExcelReportModule/assign_data_element_group.jpg" align="center"/> : This button for create Data element group and these groups of data elements would be list in the report. This button only available when report type is Category. </para>
           </listitem>
         </itemizedlist>
       </sect3>
@@ -568,62 +568,13 @@
             </screenshot>
           </listitem>
         </orderedlist>
+        <para>The Data entry status is displayed as percent number. This is mean that how many percent of data values (text box) users had entered in the data entry from. </para>
       </sect3>
     </sect2>
     <sect2>
       <title>Import data values from Excel file to DHIS</title>
-      <para>This feature allows users to import data from Excel file to DHIS’s database. </para>
-      <screenshot>
-        <graphic fileref="resources/images/ExcelReportModule/import_data_from_excel_file.jpg" align="center"/>
-      </screenshot>
-      <para>The steps to import data from Excel file to data base</para>
-      <orderedlist>
-        <listitem>
-          <para>Select Org Unit name</para>
-        </listitem>
-        <listitem>
-          <para>Select and upload excel file which contains data values</para>
-        </listitem>
-        <listitem>
-          <para>Select template excel file</para>
-        </listitem>
-        <listitem>
-          <para>Select period</para>
-        </listitem>
-        <listitem>
-          <para>Press Preview button, the system show data elements and correspondent data values, as follow picture</para>
-        </listitem>
-        <listitem>
-          <para>Check to select data elements to import</para>
-        </listitem>
-        <listitem>
-          <para>Press <emphasis role="italic">Import data</emphasis> button</para>
-        </listitem>
-      </orderedlist>
-      <graphic fileref="resources/images/ExcelReportModule/import_data_from_excel.jpg" align="center"/>
-      <para>Requirement for importing the data with Excel reporting module: Excel files which contains data values must have formatted in the same form with the items in the predefined Excel template file.</para>
-      <para>Example with an Excel file contains data values</para>
-      <screenshot>
-        <graphic fileref="resources/images/ExcelReportModule/excel_template_file_with_data_values.jpg" align="center"/>
-      </screenshot>
-      <para>This is Excel template file which is same format with above Excel file.</para>
-      <graphic fileref="resources/images/ExcelReportModule/excel_template_file.jpg" align="center"/>
-      <table frame="all">
-        <title/>
-        <tgroup cols="2">
-          <colspec colnum="1"/>
-          <colspec colnum="2"/>
-          <tbody>
-            <row>
-              <entry>
-                <graphic fileref="resources/images/ExcelReportModule/note.jpg" align="center"/>
-              </entry>
-              <entry>Both Excel file with data values and Excel template file must be same at format</entry>
-            </row>
-          </tbody>
-        </tgroup>
-      </table>
-      <para>The <emphasis role="bold">EXCEL REPORTING</emphasis> module is continuing develop and the documentation of it for users will be updated. All feedback will be appreciated, please inform us at <emphasis role="underline">dhis2-documenters@lists.launchpad.net</emphasis>.</para>
+      <para>This feature is in fixing bug stage. Will be updated soon. </para>
+      <para>The <emphasis role="bold">EXCEL REPORTING</emphasis> module is continuing develop and the documentation of it for users will be updated. If there is any other type of report template which are not supported by DHIS, feel free to send the requirements. All feedback will be appreciated, please inform us at <emphasis role="underline">dhis2-documenters@lists.launchpad.net</emphasis>.</para>
     </sect2>
   </sect1>
 </article>
