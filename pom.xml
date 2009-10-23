@@ -23,7 +23,7 @@
           <htmlStylesheet>/resources/css/docbook_bsd.css</htmlStylesheet>
 
           <postProcess>
-            <copy todir="target/site">
+            <copy todir="target/site/html">
               <fileset dir="target/docbkx">
                 <include name="**/*.html" />
 
@@ -31,7 +31,7 @@
               </fileset>
             </copy>
 
-            <copy todir="target/site/html/images">
+            <copy todir="target/site/html/resources/images">
               <fileset dir="src/docbkx/resources/images">
                 <include name="**/*.png" />
 
@@ -40,7 +40,7 @@
                 <include name="**/*.jpg" />
               </fileset>
             </copy>
-			<copy todir="target/site/html/images">
+			<copy todir="target/site/html/resources/css">
               <fileset dir="src/docbkx/resources/css">
                 <include name="**/*.css" />
               </fileset>
