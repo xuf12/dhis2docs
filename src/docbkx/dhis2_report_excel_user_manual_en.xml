@@ -377,17 +377,29 @@
           </tgroup>
         </table>
         <para><emphasis role="bold">Copy selected items to</emphasis> button: To copy the report items when the new report has an item which can be reused from the existing report. </para>
-        <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/copy_report_item.jpg" align="center"/>
-        </screenshot>
-        <itemizedlist>
+        <orderedlist>
+          <listitem>
+            <para>From list of reports page, Add  new report</para>
+          </listitem>
+          <listitem>
+            <para>From source report, select report items need to be coppied.</para>
+          </listitem>
+          <listitem>
+            <para>Click the <emphasis role="bold">Coppy selected items to</emphasis> button</para>
+          </listitem>
           <listitem>
             <para><emphasis role="italic">List of report</emphasis>: chose a destination report</para>
           </listitem>
           <listitem>
             <para><emphasis role="italic">Sheet No</emphasis>: Choose the Sheet No which report Item would be display.</para>
           </listitem>
-        </itemizedlist>
+          <listitem>
+            <para>Click Ok button to coppy</para>
+          </listitem>
+        </orderedlist>
+        <screenshot>
+          <graphic fileref="resources/images/ExcelReportModule/copy_report_item.jpg" align="center"/>
+        </screenshot>
         <table frame="all">
           <title>Tip</title>
           <tgroup cols="2">
