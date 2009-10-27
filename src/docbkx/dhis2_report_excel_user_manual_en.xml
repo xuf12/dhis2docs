@@ -5,8 +5,8 @@
     <title>DHIS 2 Excel Reporting User Manual</title>
     <keywordset>
       <keyword>DHIS</keyword>
-      <keyword>ExcelReport</keyword>
-      <keyword>ExcelReport</keyword>
+      <keyword>Excel</keyword>
+      <keyword>Report</keyword>
     </keywordset>
     <author>
       <surname>Nguyen Tran Do Xuan </surname>
@@ -18,64 +18,65 @@
     </author>
     <revhistory>
       <revision>
-        <revnumber>1</revnumber>
+        <revnumber> 1</revnumber>
         <date>15/10/2009</date>
         <authorinitials>JPP</authorinitials>
         <revdescription>
-          <para>Initial conversion of document to DocBook format</para>
+          <para>Edits to original document</para>
         </revdescription>
       </revision>
     </revhistory>
   </articleinfo>
   <sect1>
-    <title>1 – Introduction </title>
-    <para>-The fact that almost health workers are familiar with office softwares, such as: Microsoft Office, Open Office, etc. to make reports is demanding. For the health workers, the statistical reports are very important to submit to the managers with Excel format file which is easy to modify, customize and transmit. </para>
-    <para>-Users, esp. the health workers, can use DHIS 2 easily with the new Excel reporting tool developed by HISP Vietnam team, based on HISP India team’s ideas and technologies HISP India and Vietnam team and embedded into DHIS 2 for local users in Vietnam. This reporting tool with Excel output files uses less memory and  is comparatively faster when compared to other reporting module.</para>
+    <title> Introduction </title>
+    <para>The fact that almost health workers are familiar with office softwares, such as: Microsoft Office, Open Office, etc. to make reports is demanding. For the health workers, the statistical reports are very important to submit to the managers with Excel format file which is easy to modify, customize and transmit. </para>
+    <para>Users, esp. the health workers, can use DHIS 2 easily with the new Excel reporting tool developed by HISP Vietnam team, based on HISP India team’s ideas and technologies HISP India and Vietnam team and embedded into DHIS 2 for local users in Vietnam. This reporting tool with Excel output files uses less memory and  is comparatively faster when compared to other reporting module.</para>
   </sect1>
   <sect1>
-    <title>2 – Advantages of Excel report module</title>
-    <para>-User-friendly</para>
-    <para>-Open and Easy to be customized for reports</para>
-    <para>-Fast to edit, modify and generate report
-</para>
-    <para>-Do not require large memory but allow large number of users generating report at same time without out of memory exception.
-</para>
+    <title> Advantages of the Excel report module</title>
+    <itemizedlist>
+      <listitem>
+        <para>Fast to edit, modify and generate report</para>
+      </listitem>
+      <listitem>
+        <para>User-friendly</para>
+      </listitem>
+      <listitem>
+        <para>Do not require large memory but allow large number of users generating report at same time without out of memory exception.</para>
+      </listitem>
+      <listitem>
+        <para>Open and Easy to be customized for reports</para>
+      </listitem>
+    </itemizedlist>
   </sect1>
   <sect1>
-    <title>3 – Requirement of Excel report module</title>
-    <para>-User’s computer has to be installed Microsoft Office or Open office. However, this may be solved by Preview function to view report via web.</para>
+    <title> Requirements of the Excel report module</title>
+    <para>The eser’s computer must be installed with either Microsoft Excel or OpenOffice.  It is also possible to view the report directly with the web browser, for users that may not have access to either of these programmes. </para>
   </sect1>
   <sect1>
-    <title>4 – Main features in Excel Report module</title>
+    <title>Main features in Excel Report module</title>
     <screenshot>
       <screeninfo>Main features in Excel Report module</screeninfo>
       <graphic fileref="resources/images/ExcelReportModule/main_feature_of_excel_report_module.jpg" align="center"/>
     </screenshot>
     <itemizedlist>
       <listitem>
-        <para>-Create report</para>
-        <itemizedlist>
-          <listitem>
-            <para>oTo create many types of report, such as: report containing standard data elements, report listing organization unit groups as rows, report listing period of time as columns, report generating data elements combined with categories.</para>
-            <para>oThe report item types for designing reports, such as: data element, indicator, serial no (for generating sequence no in report), data element name, data element code, organization unit name, and organization unit group.</para>
-          </listitem>
-        </itemizedlist>
-        <para>-Generate report</para>
-        <itemizedlist>
-          <listitem>
-            <para>oAllow users to generate reports according to parameters: period of time, organization unit, organization unit group  and to generate group of reports to many sheets of 1 Excel file.</para>
-          </listitem>
-        </itemizedlist>
-        <para>-Import data from Excel file into Database of DHIS (This feature is now in fixing bug stage, will be added later)<itemizedlist>
-            <listitem>
-              <para>oIn the need of saving and transmitting data between health workers or within the local organization units where internet is not available. User may need to enter data in excel file and import it into the database. This feature allows user to import data from a pre-designed excel template into DHIS database automatically or just import  some  data elements specified by users.</para>
-            </listitem>
-          </itemizedlist></para>
+        <para>Import data from Excel file into DHIS database</para>
+        <para>In the need of saving and transmitting data between health workers or within the local organization units where internet is not available. User may need to enter data in excel file and import it into the database. This feature allows user to import data from a pre-designed excel template into DHIS database automatically or just import  some  data elements specified by users.</para>
+      </listitem>
+      <listitem>
+        <para>Create report</para>
+        <para>To create many types of report, such as: report containing standard data elements, report listing organization unit groups as rows, report listing period of time as columns, report generating data elements combined with categories.</para>
+        <para>The report item types for designing reports, such as: data element, indicator, serial no (for generating sequence no in report), data element name, data element code, organization unit name, and organization unit group.</para>
+      </listitem>
+      <listitem>
+        <para>Generate report</para>
+        <para>Allow users to generate reports according to parameters: period of time, organization unit, organization unit group  and to generate group of reports to many sheets of 1 Excel file.</para>
       </listitem>
     </itemizedlist>
   </sect1>
   <sect1>
-    <title>5 – How to use Excel Reporting Module</title>
+    <title>How to use Excel Reporting Module</title>
     <para>To start using Excel Report Module, from the <emphasis role="bold">Main menu</emphasis>, chose <emphasis role="bold">Services</emphasis>, then click <emphasis role="bold">Excel Reports</emphasis>. See below:</para>
     <screenshot>
       <graphic fileref="resources/images/ExcelReportModule/open_excel_report_module.jpg" align="center"/>
@@ -408,7 +409,7 @@
             <tbody>
               <row>
                 <entry align="center">Tips</entry>
-                <entry>-Copy selected items to other report for fast developing many reports with the same data elements but with the difference from period aggregated data values.</entry>
+                <entry>Copy selected items to other report for fast developing many reports with the same data elements but with the difference from period aggregated data values.</entry>
               </row>
             </tbody>
           </tgroup>
@@ -586,7 +587,9 @@
     <sect2>
       <title>Import data values from Excel file to DHIS</title>
       <para>This feature is in fixing bug stage. Will be updated soon. </para>
-      <para>The <emphasis role="bold">EXCEL REPORTING</emphasis> module is continuing develop and the documentation of it for users will be updated. If there is any other type of report template which are not supported by DHIS, feel free to send the requirements. All feedback will be appreciated, please inform us at <emphasis role="underline">dhis2-documenters@lists.launchpad.net</emphasis>.</para>
+      <para>The <emphasis role="bold">EXCEL REPORTING</emphasis> module is continuing develop and the documentation of it for users will be updated. If there is any other type of report template which are not supported by DHIS, feel free to send the requirements. All feedback will be appreciated, please inform us at <emphasis role="underline">
+          <email>dhis2-documenters@lists.launchpad.net</email>
+        </emphasis>.</para>
     </sect2>
   </sect1>
 </article>
