@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="file:/home/bobj/src/dhis2-docbook-docs/src/schemas/dxf_v1_schema/dxf2.rng" type="xml"?>
+<dxf:dxf xmlns:dxf="http://dhis2.org/ns/schema/dxf2">
+
+    <categories>
+        <category>
+            <id>1</id>
+            <uuid/>
+            <name>Gender</name>
+            <alternativename/>
+            <shortname>Gender</shortname>
+            <code>CL_GENDER</code>
+            <description/>
+            <categoryOption>
+                <id>1</id>
+                <uuid/>
+                <name>Male</name>
+                <alternativename/>
+                <shortname>Male</shortname>
+                <code>MALE</code>
+                <description/>
+            </categoryOption>
+            <categoryOption>
+                <id>2</id>
+                <uuid/>
+                <name>Female</name>
+                <alternativename/>
+                <shortname>Female</shortname>
+                <code>FEMALE</code>
+                <description/>
+            </categoryOption>
+        </category>
+        <category>
+            <id>2</id>
+            <uuid/>
+            <name>Age</name>
+            <alternativename/>
+            <shortname>Age</shortname>
+            <code>CL_AGE</code>
+            <description/>
+            <categoryOption>
+                <id>3</id>
+                <uuid/>
+                <name>Under 5</name>
+                <alternativename/>
+                <shortname>Under 5</shortname>
+                <code>UNDER_5</code>
+                <description/>
+            </categoryOption>
+            <categoryOption>
+                <id>4</id>
+                <uuid/>
+                <name>5 to 10</name>
+                <alternativename/>
+                <shortname>5 to 10</shortname>
+                <code>5_TO_10</code>
+                <description/>
+            </categoryOption>
+        </category>
+    </categories>
+
+    <categoryCombos>
+
+        <!--        The default categoryCombo has no categories-->
+        <categoryCombo>
+            <id>1</id>
+            <name>default</name>
+            <categories/>
+        </categoryCombo>
+
+        <categoryCombo>
+            <id>2</id>
+            <name>Age - Sex combination</name>
+            <categories>
+                <categoryId>1</categoryId>
+                <categoryId>2</categoryId>
+            </categories>
+        </categoryCombo>
+    </categoryCombos>
+
+    <categoryOptionCombos>
+
+        <!--        default has no values-->
+        <categoryOptionCombo>
+            <id>1</id>
+            <uuid/>
+            <name>default</name>
+            <alternativename/>
+            <shortname>default</shortname>
+            <code/>
+            <description/>
+            <categoryComboId>1</categoryComboId>
+        </categoryOptionCombo>
+
+
+        <categoryOptionCombo>
+            <id>2</id>
+            <uuid/>
+            <name>Male under 5</name>
+            <alternativename/>
+            <shortname>Male under 5</shortname>
+            <code/>
+            <description/>
+            <categoryComboId>2</categoryComboId>
+            <categoryOptionId>1</categoryOptionId>
+            <categoryOptionId>3</categoryOptionId>
+        </categoryOptionCombo>
+        <categoryOptionCombo>
+            <id>3</id>
+            <uuid/>
+            <name>Female under 5</name>
+            <alternativename/>
+            <shortname>Female under 5</shortname>
+            <code/>
+            <description/>
+            <categoryComboId>2</categoryComboId>
+            <categoryOptionId>3</categoryOptionId>
+        </categoryOptionCombo>
+        <categoryOptionCombo>
+            <id>4</id>
+            <uuid/>
+            <name>Male between 5 and 10</name>
+            <alternativename/>
+            <shortname>Male between 5 and 10</shortname>
+            <code/>
+            <description/>
+            <categoryComboId>2</categoryComboId>
+            <categoryOptionId>1</categoryOptionId>
+            <categoryOptionId>4</categoryOptionId>
+        </categoryOptionCombo>
+        <categoryOptionCombo>
+            <id>5</id>
+            <uuid/>
+            <name>Female between 5 and 10</name>
+            <alternativename/>
+            <shortname>Female between 5 and 10</shortname>
+            <code/>
+            <description/>
+            <categoryComboId>2</categoryComboId>
+            <categoryOptionId>2</categoryOptionId>
+            <categoryOptionId>4</categoryOptionId>
+        </categoryOptionCombo>
+
+    </categoryOptionCombos>
+
+    <dataElements>
+
+        <!--        this one is multidimensional-->
+        <dataElement>
+            <id>1</id>
+            <uuid/>
+            <name>Malaria diagnosed</name>
+            <alternativename/>
+            <shortname>Malaria diagnosed</shortname>
+            <code>MALARIA_DIAG</code>
+            <description/>
+            <active>true</active>
+            <type>int</type>
+            <aggregationOperator/>
+            <categoryCombo>2</categoryCombo>
+        </dataElement>
+
+        <!--        the following 4 are uni-dimensional -->
+        <dataElement>
+            <id>2</id>
+            <uuid/>
+            <name>Malaria diagnosed Male under 5</name>
+            <alternativename/>
+            <shortname>Malaria diagnosed Male under 5</shortname>
+            <code>MALARIA_DIAG_MALE_UNDER5</code>
+            <description/>
+            <active>true</active>
+            <type>int</type>
+            <aggregationOperator/>
+            <categoryCombo>1</categoryCombo>
+        </dataElement>
+
+        <dataElement>
+            <id>3</id>
+            <uuid/>
+            <name>Malaria diagnosed Female under 5</name>
+            <alternativename/>
+            <shortname>Malaria diagnosed Female under 5</shortname>
+            <code>MALARIA_DIAG_FEMALE_UNDER5</code>
+            <description/>
+            <active>true</active>
+            <type>int</type>
+            <aggregationOperator/>
+            <categoryCombo>1</categoryCombo>
+        </dataElement>
+
+        <dataElement>
+            <id>4</id>
+            <uuid/>
+            <name>Malaria diagnosed Female over 5</name>
+            <alternativename/>
+            <shortname>Malaria diagnosed Female over 5</shortname>
+            <code>MALARIA_DIAG_FEMALE_OVER5</code>
+            <description/>
+            <active>true</active>
+            <type>int</type>
+            <aggregationOperator/>
+            <categoryCombo>1</categoryCombo>
+        </dataElement>
+
+        <dataElement>
+            <id>5</id>
+            <uuid/>
+            <name>Malaria diagnosed Male over 5</name>
+            <alternativename/>
+            <shortname>Malaria diagnosed Male over 5</shortname>
+            <code>MALARIA_DIAG_MALE_OVER5</code>
+            <description/>
+            <active>true</active>
+            <type>int</type>
+            <aggregationOperator/>
+            <categoryCombo>1</categoryCombo>
+        </dataElement>
+
+    </dataElements>
+
+    <dataElementGroupSets>
+        <dataElementGroupSet>
+            <id>1</id>
+            <uuid/>
+            <name>Age</name>
+            <alternativename/>
+            <shortname>Age</shortname>
+            <code>AGE</code>
+            <description/>
+            <dataElementGroup>
+                <id>1</id>
+                <uuid/>
+                <name>Under 5</name>
+                <alternativename/>
+                <shortname>Under 5</shortname>
+                <code/>
+                <description/>
+                <dataElementId>2</dataElementId>
+                <dataElementId>3</dataElementId>
+            </dataElementGroup>
+            <dataElementGroup>
+                <id>2</id>
+                <uuid/>
+                <name>Over 5</name>
+                <alternativename/>
+                <shortname>Over 5</shortname>
+                <code/>
+                <description/>
+                <dataElementId>4</dataElementId>
+                <dataElementId>5</dataElementId>
+            </dataElementGroup>
+        </dataElementGroupSet>
+        <dataElementGroupSet>
+            <id>2</id>
+            <uuid/>
+            <name>Sex</name>
+            <alternativename/>
+            <shortname>Sex</shortname>
+            <code/>
+            <description/>
+            <dataElementGroup>
+                <id>3</id>
+                <uuid/>
+                <name>Male</name>
+                <alternativename/>
+                <shortname>Male</shortname>
+                <code/>
+                <description/>
+                <dataElementId>2</dataElementId>
+                <dataElementId>5</dataElementId>
+            </dataElementGroup>
+        </dataElementGroupSet>
+
+    </dataElementGroupSets>
+
+    <indicatorTypes/>
+    <indicators/>
+    <!-- these are formatted the same as dataElementGroupSet -->
+    <IndicatorGroupSets/>
+
+    <organisationUnits>
+        <organisationUnit>
+            <id>1</id>
+            <uuid/>
+            <name>Bobs Clinic</name>
+            <shortName>Bobs Clinic</shortName>
+            <code/>
+            <openingDate/>
+            <closedDate/>
+            <active>true</active>
+            <comment/>
+            <geoCode/>
+        </organisationUnit>
+    </organisationUnits>
+
+    <organisationUnitRelationships/>
+    <organisationUnitGroups/>
+    <organisationUnitGroupMembers/>
+    <groupSets/>
+    <groupSetMembers/>
+    <organisationUnitLevels/>
+    <dataSetSourceAssociations/>
+
+
+    <periods>
+        <period>
+            <id>1</id>
+            <periodType>Monthly</periodType>
+            <startDate>2009-06-01</startDate>
+            <endDate>2009-06-30</endDate>
+        </period>
+    </periods>
+
+    <dataValues>
+        <!--        Note @comment, @storedBy and @timestamp are optional attributes-->
+        <dataValue dataElement="1" period="1" source="1" value="23" categoryOptionCombo="3"/>
+        <dataValue dataElement="1" period="1" source="1" value="23" categoryOptionCombo="2"/>
+    </dataValues>
+</dxf:dxf>
