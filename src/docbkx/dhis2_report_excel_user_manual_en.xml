@@ -29,8 +29,8 @@
   </articleinfo>
   <sect1>
     <title> Introduction </title>
-    <para>The fact that almost health workers are familiar with office softwares, such as: Microsoft Office, Open Office, etc. to make reports is demanding. For the health workers, the statistical reports are very important to submit to the managers with Excel format file which is easy to modify, customize and transmit. </para>
-    <para>Users, esp. the health workers, can use DHIS 2 easily with the new Excel reporting tool developed by HISP Vietnam team, based on HISP India team’s ideas and technologies HISP India and Vietnam team and embedded into DHIS 2 for local users in Vietnam. This reporting tool with Excel output files uses less memory and  is comparatively faster when compared to other reporting module.</para>
+    <para> A key requirement of a health information system is that the information contained in the system is available in many different formats that are familar to the end-users. Many health information personell are familiar with standard office productivity packages such as Microsoft Office or OpenOffice. Production of reports in Excel format allows health workers to submit reports to managers and other persons that may not have access to the HMIS, or lack training in its use. Excel offers the capability to deliver powerful, user-friendly reports to many different clients of the information system.   </para>
+    <para>Users, especially health workers, can use DHIS 2 easily with the new Excel reporting tool developed by HISP Vietnam team.  This module has been  based on HISP India team’s ideas and technologies.  The module has subsequently been merged into the main DHIS2 application.  This reporting tool with Excel output files uses less memory and  is comparatively faster when compared to other reporting modules.</para>
   </sect1>
   <sect1>
     <title> Advantages of the Excel report module</title>
@@ -42,42 +42,41 @@
         <para>User-friendly</para>
       </listitem>
       <listitem>
-        <para>Do not require large memory but allow large number of users generating report at same time without out of memory exception.</para>
+        <para>Does not require large memory and allows large numbers of users to generate reports at at the same time. </para>
       </listitem>
       <listitem>
-        <para>Open and Easy to be customized for reports</para>
+        <para>Easily customizable</para>
       </listitem>
     </itemizedlist>
   </sect1>
   <sect1>
     <title> Requirements of the Excel report module</title>
-    <para>The eser’s computer must be installed with either Microsoft Excel or OpenOffice.  It is also possible to view the report directly with the web browser, for users that may not have access to either of these programmes. </para>
+    <para>The user’s computer must be installed with either Microsoft Excel or OpenOffice.  It is also possible to view the report directly with the web browser, for users that may not have access to either of these programmes. </para>
   </sect1>
   <sect1>
     <title>Main features in Excel Report module</title>
     <screenshot>
-      <screeninfo>Main features in Excel Report module</screeninfo>
+<!--I think this is not really a screen shot and is a bit redundant. All of the relevant information is contained in the itemized list below. -->      <screeninfo>Main features in Excel Report module</screeninfo>
       <graphic fileref="resources/images/ExcelReportModule/main_feature_of_excel_report_module.jpg" align="center"/>
     </screenshot>
     <itemizedlist>
       <listitem>
-        <para>Import data from Excel file into DHIS database</para>
-        <para>In the need of saving and transmitting data between health workers or within the local organization units where internet is not available. User may need to enter data in excel file and import it into the database. This feature allows user to import data from a pre-designed excel template into DHIS database automatically or just import  some  data elements specified by users.</para>
+        <para>Import data from an Excel file into DHIS database</para>
+        <para>In many situations, health workers in the field may not have good internet access, and will therefore need to enter data &quot;offline&quot; and transmit this data via email or other means, for subsequent importation into the DHIS database.  The Excel Report dta import  feature allows users to import data from a pre-designed Excel templates directly into the DHIS database automatically. Alternatively, selected elements may be imported. </para>
       </listitem>
       <listitem>
-        <para>Create report</para>
-        <para>To create many types of report, such as: report containing standard data elements, report listing organization unit groups as rows, report listing period of time as columns, report generating data elements combined with categories.</para>
-        <para>The report item types for designing reports, such as: data element, indicator, serial no (for generating sequence no in report), data element name, data element code, organization unit name, and organization unit group.</para>
+        <para>Create reports</para>
+        <para>The Excel reporting module is capable of creating many different type of reports, such as a report containing standard data elements,  a report listing organization unit groups as rows, a report listing period of time as columns, a report generating data elements combined with categories.</para>
       </listitem>
       <listitem>
         <para>Generate report</para>
-        <para>Allow users to generate reports according to parameters: period of time, organization unit, organization unit group  and to generate group of reports to many sheets of 1 Excel file.</para>
+        <para>Allow users to generate reports according to parameters such as time period, organization unit, organization unit group  and to generate group of reports to many sheets of a single  Excel file.</para>
       </listitem>
     </itemizedlist>
   </sect1>
   <sect1>
     <title>How to use Excel Reporting Module</title>
-    <para>To start using Excel Report Module, from the <emphasis role="bold">Main menu</emphasis>, chose <emphasis role="bold">Services</emphasis>, then click <emphasis role="bold">Excel Reports</emphasis>. See below:</para>
+    <para>To start using Excel Report Module, from the <emphasis role="bold">Main menu</emphasis>, chose <emphasis role="bold">Services</emphasis>, then click <emphasis role="bold">Excel Reports</emphasis> as depicted  below:</para>
     <screenshot>
       <graphic fileref="resources/images/ExcelReportModule/open_excel_report_module.jpg" align="center"/>
     </screenshot>
@@ -85,11 +84,11 @@
     <screenshot>
       <graphic fileref="resources/images/ExcelReportModule/excel_report_left_menu.jpg" align="center"/>
     </screenshot>
-    <para>At the Left menu, there are 2 main functions: Administration and Generate Report</para>
+    <para>At the Left menu, there are two  main functions: Administration and Generate Report</para>
     <orderedlist>
       <listitem>
         <itemizedlist>
-          <para><emphasis role="bold">Administration</emphasis> function includes</para>
+          <para>The<emphasis role="bold"> Administration</emphasis> function includes</para>
           <listitem>
             <para><emphasis role="italic">Configurations</emphasis>: Set a path to the directory where the excel template files are stored.</para>
           </listitem>
@@ -97,10 +96,10 @@
             <para><emphasis role="italic">List of reports</emphasis>: Allows users to create reports and its items and to assign the organization units or the organization unit groups to the reports. </para>
           </listitem>
           <listitem>
-            <para><emphasis role="italic">Data Entry Status</emphasis> (or view the status of the data entry): View the data entry status to know about data  entered, report finished or not finished yet with data entry. In order to view the data entry status, adding data sets which is equivalent to the data entry is mandatory. </para>
+            <para><emphasis role="italic">Data Entry Status</emphasis> (or view the status of the data entry): View the data entry status to know about data  entered, reports finished or not finished yet with data entry. In order to view the data entry status, adding data sets which is equivalent to the data entry is mandatory. </para>
           </listitem>
           <listitem>
-            <para><emphasis role="italic">Clean temporary directory</emphasis>: Every time a user generates a report, the system creates an excel file in the temporary directory (excelreporttemplate directory). This directory would be larger and larger after some time and occupy a lot of memory. This function will clean those files from temporary directory.</para>
+            <para><emphasis role="italic">Clean temporary directory</emphasis>: Every time a user generates a report, the system creates an Excel file in the temporary directory (<envar>excelreporttemplate</envar> directory). This directory would be larger and larger after some time and occupy a lot of memory. This function will clean those files from temporary directory.</para>
           </listitem>
         </itemizedlist>
         <screenshot>
@@ -108,25 +107,25 @@
         </screenshot>
       </listitem>
       <listitem>
-        <para><emphasis role="bold">Generate Report</emphasis> function has sub functions</para>
+        <para><emphasis role="bold">Generate Report</emphasis> function has several sub-functions including:</para>
         <itemizedlist>
           <listitem>
             <para><emphasis role="italic">Generate Report</emphasis>: generates reports</para>
           </listitem>
           <listitem>
-            <para><emphasis role="italic">Generate advanced report</emphasis>: Generates reports by Org Unit group.</para>
+            <para><emphasis role="italic">Generate advanced report</emphasis>: Generates reports by OrgUnit group.</para>
           </listitem>
           <listitem>
-            <para><emphasis role="italic">Import excel files</emphasis>: imports data values from an Excel file to the DHIS’s database</para>
+            <para><emphasis role="italic">Import excel files</emphasis>: Imports data values from an Excel file to the DHIS database</para>
           </listitem>
           <listitem>
-            <para><emphasis role="italic">Data Set completed reports</emphasis>: generates the report which show status of completeness of entering data .</para>
+            <para><emphasis role="italic">Data Set completed reports</emphasis>: Generates the report which show status of completeness of entering data .</para>
           </listitem>
           <listitem>
-            <para><emphasis role="italic">Data entry Status</emphasis>: views data entry status.</para>
+            <para><emphasis role="italic">Data entry Status</emphasis>: View data entry status.</para>
           </listitem>
           <listitem>
-            <para><emphasis role="italic">Individual reports</emphasis>: generates user’s defined reports which list data elements and list of periods were chosen by user.</para>
+            <para><emphasis role="italic">Individual reports</emphasis>: Generate user defined reports which list data elements and a list of periods  which can be chosen by the user.</para>
           </listitem>
         </itemizedlist>
         <screenshot>
@@ -134,7 +133,7 @@
         </screenshot>
       </listitem>
     </orderedlist>
-    <para>User can generate reports using Excel Reporting module steps by steps as below</para>
+    <para>User can generate reports using the Excel Reporting module as outlined below:</para>
     <screenshot>
       <graphic fileref="resources/images/ExcelReportModule/steps_generate_report.jpg" align="center"/>
     </screenshot>
@@ -142,16 +141,16 @@
       <title>Create Excel Report template file and configure the path to folder where contains Excel report template file</title>
       <sect3>
         <title>Types of report</title>
-        <para>Before generating reports we need to have Excel template files and  the reports will be generated in the standard forms following the templates. Currently, there are 4 report types that the module can support.</para>
+        <para>Before generating reports, there is a need to create  Excel report template files.  Reports will be generated in a standard format according to the structure defined in the template. Currently, there are four report types that the module can support.</para>
         <sect4>
           <title>Standard reports contain default data elements and indicators</title>
-          <para>Standard reports have fix model in which number of the columns and the rows are unchangeable. And normally, this report is generated by only 1 organization unit or 1  organization unit group at a specified period of time.</para>
+          <para>Standard reports have a fixed model in which number of the columns and the rows are unchangeable. Normally, this report is generated by only one organization unit or one  organization unit group at a specified period of time. An example is show below. </para>
           <screenshot>
             <graphic fileref="resources/images/ExcelReportModule/standard_report_template.jpg" align="center"/>
           </screenshot>
         </sect4>
         <sect4>
-          <title>Reports list the organization units in the rows</title>
+          <title>Row-based reports with multiple organizational units</title>
           <para>This type of report displays data elements’ name in the fixed columns, and organization units are be displayed automatically according to the selected parents organization unit in a period of time. These organization units are also grouped together following the administrative level, such as: province, district, commune, etc.</para>
           <screenshot>
             <graphic fileref="resources/images/ExcelReportModule/list_org_unit_group_report_template.jpg" align="center"/>
@@ -166,7 +165,7 @@
           </screenshot>
         </sect4>
         <sect4>
-          <title>Reports with data values are the combination between data elements and categories </title>
+          <title>Reports with data elements and categories</title>
           <para>This type of report displays data values which are combined of data elements and category combination. Data element names display as rows and category options are displayed as columns. Data elements’ names, codes may be displayed automatically as well as the sequence numbers of the rows.</para>
           <screenshot>
             <graphic fileref="resources/images/ExcelReportModule/dataelement_category_report_template.jpg" align="center"/>
@@ -175,8 +174,8 @@
       </sect3>
       <sect3>
         <title>Directory Configuration </title>
-        <para>Directory Configuration is to set the path of the directory containing the ExcelTemplate (.xls) file. </para>
-        <para>Steps to set the directory’s path: Administrator &gt; Configuration&gt; Set path to folder contains excel file </para>
+        <para>The directory configuration is to set the path of the directory containing the ExcelTemplate (.xls) file. </para>
+        <para>In ordre to set the directory, choose  Administrator &gt; Configuration&gt; Set path and specify the path. The procedure is outlined in more detail below. </para>
         <orderedlist>
           <listitem>
             <para>Click <emphasis role="bold">Administration</emphasis> to open Administrator page.</para>
@@ -189,7 +188,7 @@
           </listitem>
           <listitem>
             <para>Set a path to the folder containing excel file </para>
-            <para>Excel template directory is a directory created in the system, recommended inside the folder of DHIS 2.</para>
+            <para>An Excel template directory is simply a directory that will be used to contain all the necessary files. It is recommended  to create this folder inside the <envar>DHIS2_HOME</envar> folder. </para>
             <screenshot>
               <graphic fileref="resources/images/ExcelReportModule/configure_directory1.jpg" align="center"/>
             </screenshot>
@@ -260,7 +259,7 @@
         <screenshot>
           <graphic fileref="resources/images/ExcelReportModule/list_of_reports.jpg" align="center"/>
         </screenshot>
-        <para>There are 4 operating buttons</para>
+        <para>There are four buttons that can be used for various actions as depicted below: </para>
         <screenshot>
           <graphic fileref="resources/images/ExcelReportModule/operating_buttons.jpg" align="center"/>
         </screenshot>
