@@ -20,19 +20,22 @@
         <artifactId>docbkx-maven-plugin</artifactId>
 
         <configuration>
-          <htmlStylesheet>/resources/css/docbook_bsd.css</htmlStylesheet>
+ <sourceDirectory>${basedir}/src/docbkx/en/</sourceDirectory>
+<includes>*.xml</includes>
+ 
+<htmlStylesheet>/resources/css/docbook_bsd.css</htmlStylesheet>
 
           <postProcess>
-            <copy todir="target/site">
-              <fileset dir="target/docbkx">
+            <copy todir="target/site/en">
+              <fileset dir="target/docbkx/">
                 <include name="**/*.html" />
 
                 <include name="**/*.pdf" />
               </fileset>
             </copy>
 
-            <copy todir="target/site/html/resources/images">
-              <fileset dir="src/docbkx/resources/images">
+            <copy todir="target/site/resources/images">
+              <fileset dir="src/resources/images">
                 <include name="**/*.png" />
 
                 <include name="**/*.gif" />
@@ -40,8 +43,8 @@
                 <include name="**/*.jpg" />
               </fileset>
             </copy>
-			<copy todir="target/site/html/resources/css">
-              <fileset dir="src/docbkx/resources/css">
+			<copy todir="target/site/resources/css">
+              <fileset dir="src/resources/css">
                 <include name="**/*.css" />
               </fileset>
             </copy>
