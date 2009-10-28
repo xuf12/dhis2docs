@@ -1,34 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" []>
 <article>
   <articleinfo>
     <title>DHIS 2 Documentation Guide</title>
-
     <author>
       <firstname>Jason</firstname>
-
       <surname>Pickering</surname>
-
       <affiliation>
-        <orgname></orgname>
+        <orgname/>
       </affiliation>
     </author>
-
     <pubdate>14/09/09</pubdate>
-
     <keywordset>
       <keyword>DHIS2</keyword>
-
       <keyword>documentation</keyword>
-
       <keyword>DocBook</keyword>
     </keywordset>
-
     <revhistory>
       <revision>
+        <revnumber>2</revnumber>
+        <date>28/10/09</date>
+        <revdescription>
+          <para>
+          Added some more information on multilingual documents and editors.</para>
+        </revdescription>
+      </revision>
+      <revision>
+        <revnumber>1</revnumber>
         <date>29/09/09</date>
-
         <revdescription>
           <para>Added more information on getting started with bzr and
           DocBook</para>
@@ -36,10 +35,8 @@
       </revision>
     </revhistory>
   </articleinfo>
-
   <section>
     <title>DHIS 2 Documentation System Overview</title>
-
     <para remap="">DHIS 2 is a web-based information management system under
     very active development. Currently, there are a large number of
     disconnected pockets of documentation across in various formats (e.g.
@@ -52,10 +49,8 @@
     users and developers. Readers are encouraged to make their own decision
     about whether to use DocBook or not for documentation purposes.</para>
   </section>
-
   <section>
     <title>Introduction</title>
-
     <para>One of the main advantages of DocBook is that there is complete
     separation between the content and presentation. DocBook is a pure XML
     format, and is well documented. It is believed that only a very small
@@ -65,89 +60,68 @@
     but in reality, only a few dozen of these element will probably need to be
     employed to achieve high-quality documentation for DHIS 2, both for
     printed as well as online formats such as HTML or integrated help systems
-    with the application itself. Therefore, there are wide range of
+    within the application itself. Therefore, there are wide range of
     possibilities in terms of which editor can be used for the creation of
-    DocBook files. A fairly complete list of possibilities is located <ulink
-    url="http://wiki.docbook.org/topic/DocBookAuthoringTools">here</ulink>.
-    <ulink url="http://www.xmlmind.com/xmleditor/persoedition.html?">XMLmind
-    XML Editor Personal Edition</ulink> is a good balance between
-    functionality and simplicity.</para>
-
+    DocBook files. A fairly complete list of possibilities is located <ulink url="http://wiki.docbook.org/topic/DocBookAuthoringTools">here</ulink>.  It is currently reccomended to use <ulink url="http://www.syntext.com/products/serna-free/ ">Syntext Serna Free</ulink> for authoring of DocBook source files with a WYSIWYG editor.  It is not reccomended to use the editor XXE Personal, as the editor &quot;silently&quot; places uneeded whitspace and other ornementation to the DocBook source which makes collaborative editing of documents very difficult. </para>
     <para>One of the key concepts to keep in mind when authoring documentation
-    in DocBook, or other presentation neutral formats, is that the <emphasis
-    role="bold">content </emphasis>of the document should be considered in the
+    in DocBook, or other presentation neutral formats, is that the <emphasis role="bold">content </emphasis>of the document should be considered in the
     first instance. The <emphasis role="bold">presentation </emphasis>of the
     document will take place in a separate step, where it will be rendered
     into different formats, such as HTML and PDF. It is therefore important
-    that the document is will organized, and structured, with appropriate
+    that the document is will organized  and structured, with appropriate
     DocBook tags and structural elements being considered.</para>
-
     <para>It is good practice to break your document in to various sections
-    using the "sect", or section element. Section elements can also be nested
-    within each other, such as "Section 1" and "Section 2". This concept is
-    essentially the same as Microsoft Word or other word processing programs.
+    using the &quot;sect&quot;, or section element. Section elements can also be nested
+    within each other, such as &quot;Section 1&quot; and &quot;Section 2&quot;. This concept is
+    essentially the same as <productname>Microsoft Word</productname> or other word processing programs.
     DocBook will automatically take care of numbering the sections for you
     when the document is produced. Two other important elements are the
-    "itemizedlist" and "numberedlist". These are quite similar, but an
+    &quot;itemizedlist&quot; and &quot;numberedlist&quot;. These are quite similar, but an
     itemized list corresponds to a bulleted list, which a numbered list will
     be rendered with each element being numbered sequentially. Other key
-    elements are "screenshot" and "table" which should be
+    elements are &quot;screenshot&quot; and &quot;table&quot; which should be
     self-explanatory.</para>
   </section>
-
   <section>
     <title>Getting started with Launchpad</title>
-
     <para>Currently, the documentation system is part of the source code
-    housed at <ulink url="https://launchpad.net/">Launchpad</ulink>. In order
+    housed at <ulink url="https://launchpad.net/">Launchpad</ulink>. Launchpad is a collaborative platform that enables multiple people to work on software projects collaboratively.  In order for this to be possible, a version control system is necessary in order to manage all the changes that multiple users may make. Launchpad uses the <emphasis>Bazaar</emphasis> source control system. While it is beyond the scope of this document to describe the functionality of <emphasis>Bazaar</emphasis>, users who wish to create documentation will need to gain at least a basic understanding of how the system works. A basic guide is provided in the next section. </para>
+    <para> In order
     to start adding or editing the documentation, you should first perform a
     checkout of the source code. If you do not already have a Launchpad login
-    id, you will need to get one. This can be done <ulink
-    url="https://launchpad.net/+login">here</ulink>.</para>
-
-    <para>Once you register with Launchpad, you will need to request access to
-    the dhis2-documenters group. Login to Launchpad, and then request access
-    <ulink
-    url="https://code.launchpad.net/~dhis2-documenters/dhis2/dhis2-docbook-docs">here</ulink>.
+    id, you will need to get one. This can be done <ulink url="https://launchpad.net/+login">here</ulink>. Once you register with Launchpad, you will need to request access to
+    the<emphasis> dhis2-documenters</emphasis> group. Login to Launchpad, and then request access
+    <ulink url="https://code.launchpad.net/~dhis2-documenters/dhis2/dhis2-docbook-docs">here</ulink>.
     Your request will need to be approved by the group administrators. Once
     you have been granted access to the group, you can commit changes to the
-    documentation branch.</para>
+    documentation branch and send and receive emails on the groups&apos; list. </para>
   </section>
-
   <section>
     <title>Getting the document source</title>
-
     <para>In order to edit the documentation, you will need to download the
     source pages of the documentation to your computer. Launchpad uses a
     version control system known as bzr . There are different methods for
-    getting bzr working on your system, depending on which operating system
-    you are using. A good step-by-step guide for Microsoft operating systems
-    can be viewed <ulink
-    url="&quot;http://wiki.showmedo.com/index.php/Using_Launchpad_and_Bazaar#Steps_to_download_a_project_on_Launchpad_that_uses_Bazaar_with_only_one_branch&quot;">here</ulink>.
+    getting Bazaar working on your system, depending on which operating system
+    you are using. A good step-by-step guide for <productname>Microsoft</productname> operating systems
+    can be viewed <ulink url="http://wiki.showmedo.com/index.php/Using_Launchpad_and_Bazaar#Steps_to_download_a_project_on_Launchpad_that_uses_Bazaar_with_only_one_branch">here</ulink>.
     If you are using Linux, you will need to install bzr on your system
     through your package manager, or from source code.</para>
-
     <para>Once you have installed bzr on your system, you will need to
     download the document source. Just follow this procedure:</para>
-
     <orderedlist>
       <listitem>
         <para>Make sure you have Bazaar installed.</para>
       </listitem>
-
       <listitem>
-        <para>Start Bazzar by right-clicking a folder if you are using Windows
+        <para>Start Bazzar by right-clicking a folder if you are using <productname>Windows</productname>
         and selecting <command>Bzr Here</command>. If you use Linux, you can
         just create a folder to hold the document sources. You can place the
         document source in any folder you like.</para>
       </listitem>
-
       <listitem>
         <para>To download the latest revision of the DHIS2 documents project
-        type: <command>bzr branch
-        lp:~dhis2-documenters/dhis2/dhis2-docbook-docs</command></para>
+        type: <command>bzr branch lp:~dhis2-documenters/dhis2/dhis2-docbook-docs</command> if you are using Linux, or alternatively if you are using <productname>Windows</productname> type the url to the source code repository &quot;<ulink url="https://www.launchpad.net/~dhis2-documenters/dhis2/dhis2-docbook-docs">https://www.launchpad.net/~dhis2-documenters/dhis2/dhis2-docbook-docs</ulink>&quot;</para>
       </listitem>
-
       <listitem>
         <para>The download process should start and all the documentation
         source files will be downloaded to the folder that you
@@ -155,28 +129,27 @@
       </listitem>
     </orderedlist>
   </section>
-
   <section>
     <title>Editing the documentation</title>
-
     <para>Once you have downloaded the source, you should have a series of
     folders inside of the dhis2-docbook-docs directory. All documents should
-    be placed in the <filename>dhis2-docbook-docs/src/docbkx</filename>
-    folder. Place any image files that may be linked to your document in the
-    /dhis2-docbook-docs/src/docbkx/resources/images folder and link these
+    be placed in the <filename>dhis2-docbook-docs/src/docbkx/XX</filename>
+    folder. Note that the <filename>XX</filename> represents the ISO 639-1 (two-letter) language code of the documentation.  Place any image files that may be linked to your document in the
+    <filename>/dhis2-docbook-docs/src/docbkx/XX/resources/images</filename> folder and link these
     inside your DocBook document using a relative file link. When the
     documentation is built, in a separate step, the images will be
     automatically copied over to the correct directory during the build
     process.</para>
   </section>
-
+  <section>
+    <title>Handling multilingual documentation</title>
+    <para>The directory structure of the documentation has been created in order to facilitate the creation of documents in any language. If you want to create a new set of documents in a given language, simply create a new directory in the <filename>dhis2-docbook-docs/src/docbkx/</filename> directory. Be sure to use the ISO 639-1 code for the language you are going to create documents in. A complete list of these codes can be found <ulink url="http://en.wikipedia.org/wiki/ISO_639-1">here</ulink>. Add a new folder for images in a sub-directory , replacing XX with the actual ISO 639-1 code for the language you will create documents in. You will also need to edit the pom.xml file in the main dhis2-docbook-docs directory. If you are unsure of what changes need to be made to this file, ask on the mailing list first, as this file controls the generation of all the documentation. </para>
+  </section>
   <section>
     <title>Building the documentation</title>
-
     <para>In order to transform the documentation source files to different
     format, such as HTML or PDF, you will need to install the Apache Maven
-    program. You can get a copy <ulink
-    url="http://maven.apache.org/download.html">here</ulink> or by installing
+    program. You can get a copy <ulink url="http://maven.apache.org/download.html">here</ulink> or by installing
     it through your package manager if you are using Linux. A sample build
     file has been included as part of the documentation source. Just execute
     the command <command>build.bat</command> on Windows or
@@ -190,30 +163,23 @@
     documents will be in the HTML directory, and PDF documents will be in the
     PDF directory.</para>
   </section>
-
   <section>
     <title>Committing your changes back to Launchpad</title>
-
     <para>Once you have finished editing your document, you will need to
     commit your changes back to Launchpad. Open up a command prompt on Windows
     or a shell on Linux, and navigate to the folder where you have placed your
-    documentation. If you have added any new files to your local branch, you
-    will need to add them to the source tree with the <command>bzr
-    add</command> command, followed by the file name(s) that you have added to
-    the src directory. Once you have added all of your new files, you will
+    documentation. If you have added any new files or folders to your local branch, you
+    will need to add them to the source tree with the <command>bzr add</command> command, followed by the folder or file name(s) that you have added . Once you have added all of your new files, you will
     need to commit them to your local branch with the following
     command:</para>
-
     <blockquote>
-      <para><command>bzr commit -m "Adding missing files from master
-      branch"</command></para>
+      <para><command>bzr commit -m &quot;Created Amharic translation of documentation&quot;</command></para>
     </blockquote>
-
     <para>Just add an informative message of what you have done. Once you have
     committed changes to your local branch, you can push them to the master
     branch with the following command: <blockquote>
-        <para><command>bzr push
-        lp:~dhis2-documenters/dhis2/dhis2-docbook-docs</command></para>
+        <para><command>bzr push lp:~dhis2-documenters/dhis2/dhis2-docbook-docs</command></para>
       </blockquote></para>
+    <para>If you have any questions, or cannot find that you can get started, just send an email with your problem to <email>dhis2-documenters@lists.launchpad.net</email>.</para>
   </section>
 </article>
