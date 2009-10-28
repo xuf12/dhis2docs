@@ -23,7 +23,7 @@
  <sourceDirectory>${basedir}/src/docbkx/en/</sourceDirectory>
 <includes>*.xml</includes>
  
-<htmlStylesheet>/resources/css/docbook_bsd.css</htmlStylesheet>
+<htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
 
           <postProcess>
             <copy todir="target/site/en">
@@ -34,8 +34,8 @@
               </fileset>
             </copy>
 
-            <copy todir="target/site/resources/images">
-              <fileset dir="src/resources/images">
+            <copy todir="target/site/en/html/resources/images">
+              <fileset dir="src/docbkx/en/resources/images">
                 <include name="**/*.png" />
 
                 <include name="**/*.gif" />
@@ -43,8 +43,8 @@
                 <include name="**/*.jpg" />
               </fileset>
             </copy>
-			<copy todir="target/site/resources/css">
-              <fileset dir="src/resources/css">
+			<copy todir="target/site/en/html/resources/css">
+              <fileset dir="src/docbkx/en/resources/css">
                 <include name="**/*.css" />
               </fileset>
             </copy>
