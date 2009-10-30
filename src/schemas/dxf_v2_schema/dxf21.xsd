@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://dhis2.org/ns/schema/dxf2" xmlns:dxf2="http://dhis2.org/ns/schema/dxf2">
+  <xs:import schemaLocation="dxf2.xsd"/>
+  <xs:element name="dxf">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="dxf2:metadata"/>
+        <xs:element minOccurs="0" ref="dataValues"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="metadata">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:group minOccurs="0" ref="MultiDimensionalElements"/>
+        <xs:group minOccurs="0" ref="DataElementDefinition"/>
+        <xs:group minOccurs="0" ref="IndicatorDefinition"/>
+        <xs:group minOccurs="0" ref="DataDictionaryDefinition"/>
+        <xs:group minOccurs="0" ref="DataSetDefinition"/>
+        <xs:group minOccurs="0" ref="OrgUnitDefinition"/>
+        <xs:element minOccurs="0" ref="periods"/>
+        <xs:group minOccurs="0" ref="ReportTableDefinition"/>
+        <xs:element minOccurs="0" ref="completeDataSetRegistrations"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

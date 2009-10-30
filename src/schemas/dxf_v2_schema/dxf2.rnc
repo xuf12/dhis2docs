@@ -1,4 +1,4 @@
-namespace ns1 = "http://dhis2.org/ns/schema/dxf2"
+default namespace = "http://dhis2.org/ns/schema/dxf2"
 
 # dxf2.rng - is "the source"
 # dxf2.rnc and dxf.xsd are derived using jing
@@ -8,20 +8,22 @@ namespace ns1 = "http://dhis2.org/ns/schema/dxf2"
 
 # These are toplevel elements of dxf format
 start =
-  element ns1:dxf {
-    # Metadata section
-    # This is a rough grouping of the sections
-    # as they appear in the file.
-    # Each section is optional.
-    MultiDimensionalElements?,
-    DataElementDefinition?,
-    IndicatorDefinition?,
-    DataDictionaryDefinition?,
-    DataSetDefinition?,
-    OrgUnitDefinition?,
-    periods?,
-    ReportTableDefinition?,
-    completeDataSetRegistrations?,
+  element dxf {
+    element metadata {
+      # Metadata section
+      # This is a rough grouping of the sections
+      # as they appear in the file.
+      # Each section is optional.
+      MultiDimensionalElements?,
+      DataElementDefinition?,
+      IndicatorDefinition?,
+      DataDictionaryDefinition?,
+      DataSetDefinition?,
+      OrgUnitDefinition?,
+      periods?,
+      ReportTableDefinition?,
+      completeDataSetRegistrations?
+    },
     # DataValues
     dataValues?
   }

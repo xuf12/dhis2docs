@@ -11,39 +11,42 @@
   <!-- These are toplevel elements of dxf format -->
   <start>
     <element name="dxf" ns="http://dhis2.org/ns/schema/dxf2">
-      <optional>
-        <!--
+      <element name="metadata">
+        <optional>
+          <!--
           Metadata section
           This is a rough grouping of the sections
           as they appear in the file.
           Each section is optional.
         -->
-        <ref name="MultiDimensionalElements"/>
-      </optional>
-      <optional>
-        <ref name="DataElementDefinition"/>
-      </optional>
-      <optional>
-        <ref name="IndicatorDefinition"/>
-      </optional>
-      <optional>
-        <ref name="DataDictionaryDefinition"/>
-      </optional>
-      <optional>
-        <ref name="DataSetDefinition"/>
-      </optional>
-      <optional>
-        <ref name="OrgUnitDefinition"/>
-      </optional>
-      <optional>
-        <ref name="periods"/>
-      </optional>
-      <optional>
-        <ref name="ReportTableDefinition"/>
-      </optional>
-      <optional>
-        <ref name="completeDataSetRegistrations"/>
-      </optional>
+          <ref name="MultiDimensionalElements"/>
+        </optional>
+        <optional>
+          <ref name="DataElementDefinition"/>
+        </optional>
+        <optional>
+          <ref name="IndicatorDefinition"/>
+        </optional>
+        <optional>
+          <ref name="DataDictionaryDefinition"/>
+        </optional>
+        <optional>
+          <ref name="DataSetDefinition"/>
+        </optional>
+        <optional>
+          <ref name="OrgUnitDefinition"/>
+        </optional>
+        <optional>
+          <ref name="periods"/>
+        </optional>
+        <optional>
+          <ref name="ReportTableDefinition"/>
+        </optional>
+        <optional>
+          <ref name="completeDataSetRegistrations"/>
+        </optional>
+      </element>
+
       <optional>
         <!-- DataValues -->
         <ref name="dataValues"/>
@@ -102,7 +105,7 @@
 
 
   <!-- common base for identifiable objects -->
-  <define name="identifiableObject">
+  <define name="identifiableObject" ns="http://dhis2.org/ns/schema/dxf2">
     <element name="id">
       <text/>
     </element>
@@ -134,7 +137,7 @@
   -->
   <!-- MultiDimensionalElements -->
   <define name="categories">
-    <element name="categories">
+    <element name="categories" ns="http://dhis2.org/ns/schema/dxf2">
       <oneOrMore>
         <element name="category">
           <ref name="identifiableObject"/>
@@ -149,7 +152,7 @@
   </define>
 
   <define name="categoryCombos">
-    <element name="categoryCombos">
+    <element name="categoryCombos" ns="http://dhis2.org/ns/schema/dxf2">
       <oneOrMore>
         <ref name="categoryCombo"/>
       </oneOrMore>
@@ -157,7 +160,7 @@
   </define>
 
   <define name="categoryCombo">
-    <element name="categoryCombo">
+    <element name="categoryCombo" ns="http://dhis2.org/ns/schema/dxf2">
       <element name="id">
         <data type="integer"/>
       </element>
@@ -175,7 +178,7 @@
   </define>
 
   <define name="categoryOptionCombos">
-    <element name="categoryOptionCombos">
+    <element name="categoryOptionCombos" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="categoryOptionCombo">
           <ref name="identifiableObject"/>
@@ -194,14 +197,14 @@
 
   <!-- DataElementDefinition -->
   <define name="dataElements">
-    <element name="dataElements">
+    <element name="dataElements" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <ref name="dataElement"/>
       </zeroOrMore>
     </element>
   </define>
   <define name="dataElement">
-    <element name="dataElement">
+    <element name="dataElement" ns="http://dhis2.org/ns/schema/dxf2">
       <ref name="identifiableObject"/>
       <element name="active">
         <text/>
@@ -219,7 +222,7 @@
   </define>
 
   <define name="dataElementGroupSets">
-    <element name="dataElementGroupSets">
+    <element name="dataElementGroupSets" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="dataElementGroupSet">
           <ref name="identifiableObject"/>
@@ -240,7 +243,7 @@
 
   <!-- IndicatorDefinition -->
   <define name="indicatorTypes">
-    <element name="indicatorTypes">
+    <element name="indicatorTypes" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="indicatorType">
           <element name="id">
@@ -257,7 +260,7 @@
     </element>
   </define>
   <define name="indicators">
-    <element name="indicators">
+    <element name="indicators" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="indicator">
           <ref name="identifiableObject"/>
@@ -290,7 +293,7 @@
     </element>
   </define>
   <define name="IndicatorGroupSets">
-    <element name="IndicatorGroupSets">
+    <element name="IndicatorGroupSets" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="IndicatorGroupSet">
           <ref name="identifiableObject"/>
@@ -308,7 +311,7 @@
   </define>
   <!-- Data Dictionary Definition -->
   <define name="dataDictionaries">
-    <element name="dataDictionaries">
+    <element name="dataDictionaries" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="dataDictionary">
           <element name="id">
@@ -328,7 +331,7 @@
     </element>
   </define>
   <define name="dataDictionaryDataElements">
-    <element name="dataDictionaryDataElements">
+    <element name="dataDictionaryDataElements" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="dataDictionaryDataElement">
           <element name="dataDictionary">
@@ -342,7 +345,7 @@
     </element>
   </define>
   <define name="dataDictionaryIndicators">
-    <element name="dataDictionaryIndicators">
+    <element name="dataDictionaryIndicators" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="dataDictionaryIndicator">
           <element name="dataDictionary">
@@ -357,7 +360,7 @@
   </define>
   <!-- DataSet Definition -->
   <define name="dataSets">
-    <element name="dataSets">
+    <element name="dataSets" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="dataSet">
           <element name="id">
@@ -380,21 +383,21 @@
     </element>
   </define>
   <define name="dataSetMembers">
-    <element name="dataSetMembers">
+    <element name="dataSetMembers" ns="http://dhis2.org/ns/schema/dxf2">
       <!-- TODO: check dataSetMembers -->
       <ref name="anyElements"/>
     </element>
   </define>
   <!-- Organisation Unit Definition -->
   <define name="organisationUnits">
-    <element name="organisationUnits">
+    <element name="organisationUnits" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <ref name="organisationUnit"/>
       </zeroOrMore>
     </element>
   </define>
   <define name="organisationUnit">
-    <element name="organisationUnit">
+    <element name="organisationUnit" ns="http://dhis2.org/ns/schema/dxf2">
       <group>
         <element name="id">
           <data type="integer"/>
@@ -433,7 +436,7 @@
     </element>
   </define>
   <define name="organisationUnitRelationships">
-    <element name="organisationUnitRelationships">
+    <element name="organisationUnitRelationships" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="organisationUnitRelationship">
           <element name="parent">
@@ -447,7 +450,7 @@
     </element>
   </define>
   <define name="organisationUnitGroups">
-    <element name="organisationUnitGroups">
+    <element name="organisationUnitGroups" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="organisationUnitGroup">
           <element name="id">
@@ -464,7 +467,7 @@
     </element>
   </define>
   <define name="organisationUnitGroupMembers">
-    <element name="organisationUnitGroupMembers">
+    <element name="organisationUnitGroupMembers" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="organisationUnitGroupMember">
           <element name="organisationUnitGroup">
@@ -478,7 +481,7 @@
     </element>
   </define>
   <define name="groupSets">
-    <element name="groupSets">
+    <element name="groupSets" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="groupSet">
           <element name="id">
@@ -506,7 +509,7 @@
       </zeroOrMore>
     </element>
   </define>
-  <define name="groupSetMembers">
+  <define name="groupSetMembers" ns="http://dhis2.org/ns/schema/dxf2">
     <element name="groupSetMembers">
       <zeroOrMore>
         <element name="groupSetMember">
@@ -520,8 +523,8 @@
       </zeroOrMore>
     </element>
   </define>
-  <define name="organisationUnitLevels">
-    <element name="organisationUnitLevels">
+  <define name="organisationUnitLevels" >
+    <element name="organisationUnitLevels" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="organisationUnitLevel">
           <element name="id">
@@ -538,7 +541,7 @@
     </element>
   </define>
   <define name="dataSetSourceAssociations">
-    <element name="dataSetSourceAssociations">
+    <element name="dataSetSourceAssociations" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="dataSetSourceAssociation">
           <element name="dataSet">
@@ -553,7 +556,7 @@
   </define>
   <!-- Periods -->
   <define name="periods">
-    <element name="periods">
+    <element name="periods" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="period">
           <element name="id">
@@ -574,7 +577,7 @@
   </define>
   <!-- ReportTable Definition -->
   <define name="reportTables">
-    <element name="reportTables">
+    <element name="reportTables" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="reportTable">
           <element name="id">
@@ -723,21 +726,21 @@
     </element>
   </define>
   <define name="reportTableDataElements">
-    <element name="reportTableDataElements">
+    <element name="reportTableDataElements" ns="http://dhis2.org/ns/schema/dxf2">
       <!-- TODO: check for proper children -->
       <ref name="anyElements"/>
     </element>
   </define>
   <!-- ReportTableCategoryOptionCombos -->
   <define name="reportTableCategoryOptionCombos">
-    <element name="reportTableCategoryOptionCombos">
+    <element name="reportTableCategoryOptionCombos" ns="http://dhis2.org/ns/schema/dxf2">
       <!-- TODO: check for proper children -->
       <ref name="anyElements"/>
     </element>
   </define>
   <!-- ReportTableIndicators -->
   <define name="reportTableIndicators">
-    <element name="reportTableIndicators">
+    <element name="reportTableIndicators" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="reportTableIndicator">
           <element name="reportTable">
@@ -755,7 +758,7 @@
   </define>
   <!-- ReportTableDataSets -->
   <define name="reportTableDataSets">
-    <element name="reportTableDataSets">
+    <element name="reportTableDataSets" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="reportTableDataSet">
           <element name="reportTable">
@@ -773,14 +776,14 @@
   </define>
   <!-- ReportTablePeriods -->
   <define name="reportTablePeriods">
-    <element name="reportTablePeriods">
+    <element name="reportTablePeriods" ns="http://dhis2.org/ns/schema/dxf2">
       <!-- TODO: check for proper children -->
       <ref name="anyElements"/>
     </element>
   </define>
   <!-- ReportTableOrganisationUnits -->
   <define name="reportTableOrganisationUnits">
-    <element name="reportTableOrganisationUnits">
+    <element name="reportTableOrganisationUnits" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="reportTableOrganisationUnit">
           <element name="reportTable">
@@ -798,14 +801,14 @@
   </define>
   <!-- TODO: What are these? -->
   <define name="completeDataSetRegistrations">
-    <element name="completeDataSetRegistrations">
+    <element name="completeDataSetRegistrations" ns="http://dhis2.org/ns/schema/dxf2">
       <!-- TODO: check completeDataSetRegistrations -->
       <ref name="anyElements"/>
     </element>
   </define>
   <!-- DataValue Section -->
   <define name="dataValues">
-    <element name="dataValues">
+    <element name="dataValues" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="dataValue">
           <attribute name="dataElement">
