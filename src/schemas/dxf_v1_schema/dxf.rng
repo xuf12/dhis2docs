@@ -9,7 +9,7 @@
   -->
   <!-- These are toplevel elements of dxf format -->
   <start>
-    <element name="dxf">
+    <element name="dxf" ns="http://dhis2.org/ns/schema/dxf1.1">
       <optional>
         <!--
           Metadata section
@@ -870,38 +870,77 @@
       <ref name="anyElements"/>
     </element>
   </define>
+  
+  
   <!-- DataValue Section -->
+  <define name="datavalue_elements">
+    <element name="dataElement">
+      <data type="integer"/>
+    </element>
+    <element name="period">
+      <data type="integer"/>
+    </element>
+    <element name="source">
+      <data type="integer"/>
+    </element>
+    <element name="value">
+      <text/>
+    </element>
+    <!-- TODO: Don't use storedBy -->
+    <element name="storedBy">
+      <optional>
+        <data type="integer"/>
+      </optional>
+    </element>
+    <element name="timeStamp">
+      <text/>
+    </element>
+    <element name="comment">
+      <text/>
+    </element>
+    <element name="categoryOptionCombo">
+      <data type="integer"/>
+    </element>
+  </define>
+
+  <define name="datavalue_attributes">
+    <attribute name="dataElement">
+      <data type="integer"/>
+    </attribute>
+    <attribute name="period">
+      <data type="integer"/>
+    </attribute>
+    <attribute name="source">
+      <data type="integer"/>
+    </attribute>
+    <attribute name="value">
+      <text/>
+    </attribute>
+    <optional>
+      <attribute name="storedBy">
+        <data type="integer"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="timeStamp">
+        <text/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="comment">
+        <text/>
+      </attribute>
+    </optional>
+    
+  </define>
+ 
+  
   <define name="dataValues">
     <element name="dataValues">
       <zeroOrMore>
         <element name="dataValue">
-          <element name="dataElement">
-            <data type="integer"/>
-          </element>
-          <element name="period">
-            <data type="integer"/>
-          </element>
-          <element name="source">
-            <data type="integer"/>
-          </element>
-          <element name="value">
-            <text/>
-          </element>
-          <!-- TODO: Don't use storedBy -->
-          <element name="storedBy">
-            <optional>
-              <data type="integer"/>
-            </optional>
-          </element>
-          <element name="timeStamp">
-            <text/>
-          </element>
-          <element name="comment">
-            <text/>
-          </element>
-          <element name="categoryOptionCombo">
-            <data type="integer"/>
-          </element>
+          <choice><ref name="datavalue_elements"/></choice>
+          <choice><ref name="datavalue_attributes"/></choice>
         </element>
       </zeroOrMore>
     </element>

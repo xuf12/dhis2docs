@@ -1,92 +1,71 @@
+namespace ns1 = "http://dhis2.org/ns/schema/dxf1.1"
+
 # dxf.rnc - the compact syntax is "the source"
 # dxf.rng and dxf.xsd are derived using jing
-#
+# 
 # TODO:
 # ns="http://www.dhis2.org/schema/dxf" >
 
 # These are toplevel elements of dxf format
 start =
-   element dxf {
-      # Metadata section
-      # This is a rough grouping of the sections
-      # as they appear in the file.
-      # Each section is optional.
-      MultiDimensionalElements?,
-      DataElementDefinition?,
-      IndicatorDefinition?,
-      DataDictionaryDefinition?,
-      DataSetDefinition?,
-      OrgUnitDefinition?,
-      periods?,
-      ReportTableDefinition?,
-      completeDataSetRegistrations?,
-
-      # DataValues
-      dataValues?
-   }
-
-
-#
+  element ns1:dxf {
+    # Metadata section
+    # This is a rough grouping of the sections
+    # as they appear in the file.
+    # Each section is optional.
+    MultiDimensionalElements?,
+    DataElementDefinition?,
+    IndicatorDefinition?,
+    DataDictionaryDefinition?,
+    DataSetDefinition?,
+    OrgUnitDefinition?,
+    periods?,
+    ReportTableDefinition?,
+    completeDataSetRegistrations?,
+    # DataValues
+    dataValues?
+  }
+# 
 # Each of the MetaData groups is a sequence of elements
+# 
 #
-#
-
 MultiDimensionalElements =
-   categoryOptions,
-   categories,
-   categoryCombos,
-   categoryOptionCombos,
-   categoryCategoryOptionAssociations,
-   categoryComboCategoryAssociations
-
+  categoryOptions,
+  categories,
+  categoryCombos,
+  categoryOptionCombos,
+  categoryCategoryOptionAssociations,
+  categoryComboCategoryAssociations
 DataElementDefinition =
-   dataElements,
-   dataElementGroups,
-   dataElementGroupMembers
-
+  dataElements, dataElementGroups, dataElementGroupMembers
 IndicatorDefinition =
-   indicatorTypes,
-   indicators,
-   indicatorGroups,
-   indicatorGroupMembers
-
+  indicatorTypes, indicators, indicatorGroups, indicatorGroupMembers
 DataDictionaryDefinition =
-   dataDictionaries,
-   dataDictionaryDataElements,
-   dataDictionaryIndicators
-
-DataSetDefinition =
-   dataSets,
-   dataSetMembers
-
+  dataDictionaries, dataDictionaryDataElements, dataDictionaryIndicators
+DataSetDefinition = dataSets, dataSetMembers
 OrgUnitDefinition =
-   organisationUnits,
-   organisationUnitRelationships,
-   organisationUnitGroups,
-   organisationUnitGroupMembers,
-   groupSets,
-   groupSetMembers,
-   organisationUnitLevels,
-   dataSetSourceAssociations
-
+  organisationUnits,
+  organisationUnitRelationships,
+  organisationUnitGroups,
+  organisationUnitGroupMembers,
+  groupSets,
+  groupSetMembers,
+  organisationUnitLevels,
+  dataSetSourceAssociations
 ReportTableDefinition =
-   reportTables,
-   reportTableDataElements,
-   reportTableCategoryOptionCombos,
-   reportTableIndicators,
-   reportTableDataSets,
-   reportTablePeriods,
-   reportTableOrganisationUnits
-
-
-#
+  reportTables,
+  reportTableDataElements,
+  reportTableCategoryOptionCombos,
+  reportTableIndicators,
+  reportTableDataSets,
+  reportTablePeriods,
+  reportTableOrganisationUnits
+# 
 # The ugly detail of each element follows ...
+# 
 #
-#
-
 
 # MultiDimensionalElements
-
 categoryOptions =
   element categoryOptions {
     element categoryOption {
@@ -94,7 +73,6 @@ categoryOptions =
       element name { text }
     }+
   }
-
 categories =
   element categories {
     element category {
@@ -102,14 +80,12 @@ categories =
       element name { text }
     }+
   }
-
 categoryCombos = element categoryCombos { categoryCombo+ }
 categoryCombo =
   element categoryCombo {
     element id { xsd:integer },
     element name { text }
   }
-
 categoryOptionCombos =
   element categoryOptionCombos {
     element categoryOptionCombo {
@@ -118,25 +94,21 @@ categoryOptionCombos =
       categoryOptions
     }*
   }
-
 categoryCategoryOptionAssociations =
   element categoryCategoryOptionAssociations {
-     element categoryCategoryOptionAssociation {
-        element category { xsd:integer },
-        element categoryOption { xsd:integer }
-     }*
+    element categoryCategoryOptionAssociation {
+      element category { xsd:integer },
+      element categoryOption { xsd:integer }
+    }*
   }
-
 categoryComboCategoryAssociations =
   element categoryComboCategoryAssociations {
-     element categoryComboCategoryAssociation {
-        element categoryCombo { xsd:integer },
-        element category { xsd:integer }
-     }*
+    element categoryComboCategoryAssociation {
+      element categoryCombo { xsd:integer },
+      element category { xsd:integer }
+    }*
   }
-
 # DataElementDefinition
-
 dataElements = element dataElements { dataElement* }
 dataElement =
   element dataElement {
@@ -152,26 +124,22 @@ dataElement =
     element aggregationOperator { text },
     element categoryCombo { xsd:integer }
   }
-
-dataElementGroups = 
-   element dataElementGroups { 
-      element dataElementGroup {
-         element id { xsd:integer },
-         element uuid { text },
-         element name { text }
-      }*
-   }
-
-dataElementGroupMembers =
-  element dataElementGroupMembers { 
-     element dataElementGroupMember {
-        element dataElementGroup { xsd:integer },
-        element dataElement { xsd:integer }
-     }*
+dataElementGroups =
+  element dataElementGroups {
+    element dataElementGroup {
+      element id { xsd:integer },
+      element uuid { text },
+      element name { text }
+    }*
   }
-
+dataElementGroupMembers =
+  element dataElementGroupMembers {
+    element dataElementGroupMember {
+      element dataElementGroup { xsd:integer },
+      element dataElement { xsd:integer }
+    }*
+  }
 # IndicatorDefinition
-
 indicatorTypes =
   element indicatorTypes {
     element indicatorType {
@@ -180,7 +148,6 @@ indicatorTypes =
       element factor { xsd:integer }
     }*
   }
-
 indicators =
   element indicators {
     element indicator {
@@ -201,7 +168,6 @@ indicators =
       element denominatorAggregationOperator { text }
     }*
   }
-
 indicatorGroups =
   element indicatorGroups {
     element indicatorGroup {
@@ -210,17 +176,14 @@ indicatorGroups =
       element name { text }
     }*
   }
-
 indicatorGroupMembers =
-  element indicatorGroupMembers { 
-     element indicatorGroupMember {
-        element indicatorGroup { xsd:integer },
-        element indicator { xsd:integer }
-     }*
+  element indicatorGroupMembers {
+    element indicatorGroupMember {
+      element indicatorGroup { xsd:integer },
+      element indicator { xsd:integer }
+    }*
   }
-
 # Data Dictionary Definition
-
 dataDictionaries =
   element dataDictionaries {
     element dataDictionary {
@@ -230,7 +193,6 @@ dataDictionaries =
       element region { text }
     }*
   }
-
 dataDictionaryDataElements =
   element dataDictionaryDataElements {
     element dataDictionaryDataElement {
@@ -238,7 +200,6 @@ dataDictionaryDataElements =
       element dataElement { xsd:integer }
     }*
   }
-
 dataDictionaryIndicators =
   element dataDictionaryIndicators {
     element dataDictionaryIndicator {
@@ -246,43 +207,38 @@ dataDictionaryIndicators =
       element indicator { xsd:integer }
     }*
   }
-
 # DataSet Definition
-
-dataSets = 
-   element dataSets {
-      element dataSet {
-         element id { xsd:integer },
-         element name { text },
-         element shortName { text },
-         element code { text },
-         element periodType { text }
-      }*
-   }
-
+dataSets =
+  element dataSets {
+    element dataSet {
+      element id { xsd:integer },
+      element name { text },
+      element shortName { text },
+      element code { text },
+      element periodType { text }
+    }*
+  }
 dataSetMembers =
   element dataSetMembers {
     # TODO: check dataSetMembers
     anyElements
   }
-
 # Organisation Unit Definition
-
 organisationUnits = element organisationUnits { organisationUnit* }
 organisationUnit =
   element organisationUnit {
-    element id { xsd:integer },
-    element uuid { text },
-    element name { text },
-    element shortName { text },
-    element code { text },
-    # <element name="openingDate"><data type="date"/></element>
-    element openingDate { text },
-    # TODO: accept Date or nothing
-    element closedDate { text },
-    element active { text },
-    element comment { text },
-    element geoCode { text }
+    (element id { xsd:integer },
+     element uuid { text },
+     element name { text },
+     element shortName { text },
+     element code { text },
+     # <element name="openingDate"><data type="date"/></element>
+     element openingDate { text },
+     # TODO: accept Date or nothing
+     element closedDate { text },
+     element active { text },
+     element comment { text },
+     element geoCode { text })
     # TODO: URL in dxf?
     
   }
@@ -293,7 +249,6 @@ organisationUnitRelationships =
       element child { xsd:integer }
     }*
   }
-
 organisationUnitGroups =
   element organisationUnitGroups {
     element organisationUnitGroup {
@@ -302,7 +257,6 @@ organisationUnitGroups =
       element name { text }
     }*
   }
-
 organisationUnitGroupMembers =
   element organisationUnitGroupMembers {
     element organisationUnitGroupMember {
@@ -310,7 +264,6 @@ organisationUnitGroupMembers =
       element organisationUnit { xsd:integer }
     }*
   }
-
 groupSets =
   element groupSets {
     element groupSet {
@@ -321,7 +274,6 @@ groupSets =
       element exclusive { "true" | "false" }
     }*
   }
-
 groupSetMembers =
   element groupSetMembers {
     element groupSetMember {
@@ -329,7 +281,6 @@ groupSetMembers =
       element organisationUnitGroup { xsd:integer }
     }*
   }
-
 organisationUnitLevels =
   element organisationUnitLevels {
     element organisationUnitLevel {
@@ -338,7 +289,6 @@ organisationUnitLevels =
       element name { text }
     }*
   }
-
 dataSetSourceAssociations =
   element dataSetSourceAssociations {
     element dataSetSourceAssociation {
@@ -346,9 +296,7 @@ dataSetSourceAssociations =
       element source { xsd:integer }
     }*
   }
-
 # Periods
-
 periods =
   element periods {
     element period {
@@ -358,123 +306,116 @@ periods =
       element endDate { xsd:date }
     }*
   }
-
 # ReportTable Definition
-
 reportTables =
-   element reportTables {
-      element reportTable {
-         element id {xsd:integer },
-         element name {text },
-         element tableName {text },
-         element existingTableName {text },
-         element mode {text },
-         element regression {"true"|"false" },
-         element doIndicators {"true"|"false" },
-         element doCategoryOptionCombos {"true"|"false" },
-         element doPeriods {"true"|"false" },
-         element doOrganisationUnits {"true"|"false" },
-         element reportingMonth {"true"|"false" },
-         element last3Months {"true"|"false" },
-         element last6Months {"true"|"false" },
-         element last9Months {"true"|"false" },
-         element last12Months {"true"|"false" },
-         element soFarThisYear {"true"|"false" },
-         element soFarThisFinancialYear {"true"|"false" },
-         element last3To6Months {"true"|"false" },
-         element last6To9Months {"true"|"false" },
-         element last9To12Months {"true"|"false" },
-         element last12IndividualMonths {"true"|"false" },
-         element individualMonthsThisYear {"true"|"false" },
-         element individualQuartersThisYear {"true"|"false" },
-         element paramReportingMonth {"true"|"false" },
-         element paramParentOrganisationUnit {"true"|"false" },
-         element paramOrganisationUnit {"true"|"false" }
-      }*
-   }
-
+  element reportTables {
+    element reportTable {
+      element id { xsd:integer },
+      element name { text },
+      element tableName { text },
+      element existingTableName { text },
+      element mode { text },
+      element regression { "true" | "false" },
+      element doIndicators { "true" | "false" },
+      element doCategoryOptionCombos { "true" | "false" },
+      element doPeriods { "true" | "false" },
+      element doOrganisationUnits { "true" | "false" },
+      element reportingMonth { "true" | "false" },
+      element last3Months { "true" | "false" },
+      element last6Months { "true" | "false" },
+      element last9Months { "true" | "false" },
+      element last12Months { "true" | "false" },
+      element soFarThisYear { "true" | "false" },
+      element soFarThisFinancialYear { "true" | "false" },
+      element last3To6Months { "true" | "false" },
+      element last6To9Months { "true" | "false" },
+      element last9To12Months { "true" | "false" },
+      element last12IndividualMonths { "true" | "false" },
+      element individualMonthsThisYear { "true" | "false" },
+      element individualQuartersThisYear { "true" | "false" },
+      element paramReportingMonth { "true" | "false" },
+      element paramParentOrganisationUnit { "true" | "false" },
+      element paramOrganisationUnit { "true" | "false" }
+    }*
+  }
 reportTableDataElements =
-   element reportTableDataElements { 
+  element reportTableDataElements {
     # TODO: check for proper children
-      anyElements
-   }
-
+    anyElements
+  }
 # ReportTableCategoryOptionCombos
 reportTableCategoryOptionCombos =
-   element reportTableCategoryOptionCombos { 
+  element reportTableCategoryOptionCombos {
     # TODO: check for proper children
-      anyElements
-   }
-
+    anyElements
+  }
 # ReportTableIndicators
 reportTableIndicators =
-   element reportTableIndicators { 
-      element reportTableIndicator {
-         element reportTable {xsd:integer},
-         element indicator {xsd:integer}, 
-         element sortOrder {xsd:integer}
-      }*
-   }
-
+  element reportTableIndicators {
+    element reportTableIndicator {
+      element reportTable { xsd:integer },
+      element indicator { xsd:integer },
+      element sortOrder { xsd:integer }
+    }*
+  }
 # ReportTableDataSets
 reportTableDataSets =
-   element reportTableDataSets { 
-      element reportTableDataSet {
-         element reportTable {xsd:integer},
-         element dataSet {xsd:integer}, 
-         element sortOrder {xsd:integer}
-      }*
-   }
-
+  element reportTableDataSets {
+    element reportTableDataSet {
+      element reportTable { xsd:integer },
+      element dataSet { xsd:integer },
+      element sortOrder { xsd:integer }
+    }*
+  }
 # ReportTablePeriods
 reportTablePeriods =
-   element reportTablePeriods { 
+  element reportTablePeriods {
     # TODO: check for proper children
-      anyElements
-   }
-
+    anyElements
+  }
 # ReportTableOrganisationUnits
 reportTableOrganisationUnits =
-   element reportTableOrganisationUnits { 
-      element reportTableOrganisationUnit {
-         element reportTable {xsd:integer},
-         element organisationUnit {xsd:integer}, 
-         element sortOrder {xsd:integer}
-      }*
-   }
-
-
+  element reportTableOrganisationUnits {
+    element reportTableOrganisationUnit {
+      element reportTable { xsd:integer },
+      element organisationUnit { xsd:integer },
+      element sortOrder { xsd:integer }
+    }*
+  }
 # TODO: What are these?
 completeDataSetRegistrations =
   element completeDataSetRegistrations {
     # TODO: check completeDataSetRegistrations
     anyElements
   }
-
-
 # DataValue Section
-
+datavalue_elements =
+  element dataElement { xsd:integer },
+  element period { xsd:integer },
+  element source { xsd:integer },
+  element value { text },
+  # TODO: Don't use storedBy
+  element storedBy { xsd:integer? },
+  element timeStamp { text },
+  element comment { text },
+  element categoryOptionCombo { xsd:integer }
+datavalue_attributes =
+  attribute dataElement { xsd:integer },
+  attribute period { xsd:integer },
+  attribute source { xsd:integer },
+  attribute value { text },
+  attribute storedBy { xsd:integer }?,
+  attribute timeStamp { text }?,
+  attribute comment { text }?
 dataValues =
   element dataValues {
-    element dataValue {
-      element dataElement { xsd:integer },
-      element period { xsd:integer },
-      element source { xsd:integer },
-      element value { text },
-      # TODO: Don't use storedBy
-      element storedBy { xsd:integer? },
-      element timeStamp { text },
-      element comment { text },
-      element categoryOptionCombo { xsd:integer }
-    }*
+    element dataValue { (datavalue_elements), (datavalue_attributes) }*
   }
-
 # Convenience (from odf spec) for filling in the "dark spots"
 anyAttListOrElements =
-   attribute * { text }*,
-   anyElements
+  attribute * { text }*,
+  anyElements
 anyElements =
-   element * {
-      mixed { anyAttListOrElements }
-   }*
-   
+  element * {
+    mixed { anyAttListOrElements }
+  }*
