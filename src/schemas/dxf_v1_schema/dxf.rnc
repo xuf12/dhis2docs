@@ -390,27 +390,29 @@ completeDataSetRegistrations =
   }
 # DataValue Section
 datavalue_elements =
-  element dataElement { xsd:integer },
-  element period { xsd:integer },
-  element source { xsd:integer },
-  element value { text },
-  # TODO: Don't use storedBy
-  element storedBy { xsd:integer? },
-  element timeStamp { text },
-  element comment { text },
-  element categoryOptionCombo { xsd:integer }
-datavalue_attributes =
-  attribute dataElement { xsd:integer },
-  attribute period { xsd:integer },
-  attribute source { xsd:integer },
-  attribute value { text },
-  attribute storedBy { xsd:integer }?,
-  attribute timeStamp { text }?,
-  attribute comment { text }?
-dataValues =
-  element dataValues {
-    element dataValue { (datavalue_elements), (datavalue_attributes) }*
+  element dataValue {
+    element dataElement { xsd:integer },
+    element period { xsd:integer },
+    element source { xsd:integer },
+    element value { text },
+    # TODO: Don't use storedBy
+    element storedBy { xsd:integer? },
+    element timeStamp { text },
+    element comment { text },
+    element categoryOptionCombo { xsd:integer }
   }
+datavalue_attributes =
+  element dataValue {
+    attribute dataElement { xsd:integer },
+    attribute period { xsd:integer },
+    attribute source { xsd:integer },
+    attribute value { text },
+    attribute storedBy { xsd:integer }?,
+    attribute timeStamp { text }?,
+    attribute comment { text }?
+  }
+dataValues =
+  element dataValues { (datavalue_elements | datavalue_attributes)* }
 # Convenience (from odf spec) for filling in the "dark spots"
 anyAttListOrElements =
   attribute * { text }*,

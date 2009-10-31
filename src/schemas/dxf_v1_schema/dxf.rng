@@ -874,74 +874,76 @@
   
   <!-- DataValue Section -->
   <define name="datavalue_elements">
-    <element name="dataElement">
-      <data type="integer"/>
-    </element>
-    <element name="period">
-      <data type="integer"/>
-    </element>
-    <element name="source">
-      <data type="integer"/>
-    </element>
-    <element name="value">
-      <text/>
-    </element>
-    <!-- TODO: Don't use storedBy -->
-    <element name="storedBy">
-      <optional>
+    <element name="dataValue">
+      <element name="dataElement">
         <data type="integer"/>
-      </optional>
-    </element>
-    <element name="timeStamp">
-      <text/>
-    </element>
-    <element name="comment">
-      <text/>
-    </element>
-    <element name="categoryOptionCombo">
-      <data type="integer"/>
+      </element>
+      <element name="period">
+        <data type="integer"/>
+      </element>
+      <element name="source">
+        <data type="integer"/>
+      </element>
+      <element name="value">
+        <text/>
+      </element>
+      <!-- TODO: Don't use storedBy -->
+      <element name="storedBy">
+        <optional>
+          <data type="integer"/>
+        </optional>
+      </element>
+      <element name="timeStamp">
+        <text/>
+      </element>
+      <element name="comment">
+        <text/>
+      </element>
+      <element name="categoryOptionCombo">
+        <data type="integer"/>
+      </element>
     </element>
   </define>
 
   <define name="datavalue_attributes">
-    <attribute name="dataElement">
-      <data type="integer"/>
-    </attribute>
-    <attribute name="period">
-      <data type="integer"/>
-    </attribute>
-    <attribute name="source">
-      <data type="integer"/>
-    </attribute>
-    <attribute name="value">
-      <text/>
-    </attribute>
-    <optional>
-      <attribute name="storedBy">
+    <element name="dataValue">
+      <attribute name="dataElement">
         <data type="integer"/>
       </attribute>
-    </optional>
-    <optional>
-      <attribute name="timeStamp">
+      <attribute name="period">
+        <data type="integer"/>
+      </attribute>
+      <attribute name="source">
+        <data type="integer"/>
+      </attribute>
+      <attribute name="value">
         <text/>
       </attribute>
-    </optional>
-    <optional>
-      <attribute name="comment">
-        <text/>
-      </attribute>
-    </optional>
-    
+      <optional>
+        <attribute name="storedBy">
+          <data type="integer"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="timeStamp">
+          <text/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="comment">
+          <text/>
+        </attribute>
+      </optional>
+    </element>
   </define>
- 
-  
+   
   <define name="dataValues">
     <element name="dataValues">
       <zeroOrMore>
-        <element name="dataValue">
-          <choice><ref name="datavalue_elements"/></choice>
-          <choice><ref name="datavalue_attributes"/></choice>
-        </element>
+          <choice>
+            <ref name="datavalue_elements"/>
+            <ref name="datavalue_attributes"/>
+          </choice>
       </zeroOrMore>
     </element>
   </define>

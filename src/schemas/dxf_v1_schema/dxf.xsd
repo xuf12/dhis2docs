@@ -176,30 +176,28 @@
   <!-- DataElementDefinition -->
   <xs:element name="dataElements">
     <xs:complexType>
-      <xs:group minOccurs="0" maxOccurs="unbounded" ref="dataElement"/>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="dataElement"/>
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:group name="dataElement">
-    <xs:sequence>
-      <xs:element name="dataElement">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element ref="id"/>
-            <xs:element ref="uuid"/>
-            <xs:element ref="name"/>
-            <xs:element ref="alternativeName"/>
-            <xs:element ref="shortName"/>
-            <xs:element ref="code"/>
-            <xs:element ref="description"/>
-            <xs:element ref="active"/>
-            <xs:element ref="type"/>
-            <xs:element ref="aggregationOperator"/>
-            <xs:element name="categoryCombo" type="xs:integer"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-    </xs:sequence>
-  </xs:group>
+  <xs:element name="dataElement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="id"/>
+        <xs:element ref="uuid"/>
+        <xs:element ref="name"/>
+        <xs:element ref="alternativeName"/>
+        <xs:element ref="shortName"/>
+        <xs:element ref="code"/>
+        <xs:element ref="description"/>
+        <xs:element ref="active"/>
+        <xs:element ref="type"/>
+        <xs:element ref="aggregationOperator"/>
+        <xs:element name="categoryCombo" type="xs:integer"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="uuid" type="xs:string"/>
   <xs:element name="alternativeName" type="xs:string"/>
   <xs:element name="shortName" type="xs:string"/>
@@ -852,19 +850,24 @@
     </xs:complexType>
   </xs:element>
   <!-- DataValue Section -->
-  <xs:complexType name="datavalue_elements">
+  <xs:group name="datavalue_elements">
     <xs:sequence>
-      <xs:element name="dataElement" type="xs:integer"/>
-      <xs:element ref="period"/>
-      <xs:element ref="source"/>
-      <xs:element ref="value"/>
-      <xs:element ref="storedBy"/>
-      <xs:element ref="timeStamp"/>
-      <xs:element ref="comment"/>
-      <xs:element ref="categoryOptionCombo"/>
+      <xs:element name="dataValue">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="dataElement" type="xs:integer"/>
+            <xs:element name="period" type="xs:integer"/>
+            <xs:element ref="source"/>
+            <xs:element ref="value"/>
+            <xs:element ref="storedBy"/>
+            <xs:element ref="timeStamp"/>
+            <xs:element ref="comment"/>
+            <xs:element name="categoryOptionCombo" type="xs:integer"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:sequence>
-  </xs:complexType>
-  <xs:element name="period" type="xs:integer"/>
+  </xs:group>
   <xs:element name="value" type="xs:string"/>
   <xs:element name="storedBy">
     <xs:simpleType>
@@ -878,30 +881,27 @@
     </xs:simpleType>
   </xs:element>
   <xs:element name="timeStamp" type="xs:string"/>
-  <xs:element name="categoryOptionCombo" type="xs:integer"/>
-  <xs:attributeGroup name="datavalue_attributes">
-    <xs:attribute name="dataElement" use="required" type="xs:integer"/>
-    <xs:attribute name="period" use="required" type="xs:integer"/>
-    <xs:attribute name="source" use="required" type="xs:integer"/>
-    <xs:attribute name="value" use="required"/>
-    <xs:attribute name="storedBy" type="xs:integer"/>
-    <xs:attribute name="timeStamp"/>
-    <xs:attribute name="comment"/>
-  </xs:attributeGroup>
+  <xs:group name="datavalue_attributes">
+    <xs:sequence>
+      <xs:element name="dataValue">
+        <xs:complexType>
+          <xs:attribute name="dataElement" use="required" type="xs:integer"/>
+          <xs:attribute name="period" use="required" type="xs:integer"/>
+          <xs:attribute name="source" use="required" type="xs:integer"/>
+          <xs:attribute name="value" use="required"/>
+          <xs:attribute name="storedBy" type="xs:integer"/>
+          <xs:attribute name="timeStamp"/>
+          <xs:attribute name="comment"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
   <xs:element name="dataValues">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="dataValue"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="dataValue">
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="datavalue_elements">
-          <xs:attributeGroup ref="datavalue_attributes"/>
-        </xs:extension>
-      </xs:complexContent>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="datavalue_elements"/>
+        <xs:group ref="datavalue_attributes"/>
+      </xs:choice>
     </xs:complexType>
   </xs:element>
   <!-- Convenience (from odf spec) for filling in the "dark spots" -->
