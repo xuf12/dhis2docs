@@ -105,7 +105,7 @@
       <xs:element ref="dxf2:description"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="id" type="xs:string"/>
+  <xs:element name="id" type="xs:integer"/>
   <xs:element name="uuid" type="xs:string"/>
   <xs:element name="name" type="xs:string"/>
   <xs:element name="alternativename" type="xs:string"/>
@@ -148,7 +148,7 @@
   <xs:element name="categoryCombo">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="id" type="xs:integer"/>
+        <xs:element ref="dxf2:id"/>
         <xs:element ref="dxf2:name"/>
         <xs:element name="categories">
           <xs:complexType>
@@ -244,7 +244,7 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" name="indicatorType">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" type="xs:integer"/>
+              <xs:element ref="dxf2:id"/>
               <xs:element ref="dxf2:name"/>
               <xs:element ref="dxf2:factor"/>
             </xs:sequence>
@@ -322,7 +322,7 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" name="dataDictionary">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" type="xs:integer"/>
+              <xs:element ref="dxf2:id"/>
               <xs:element ref="dxf2:name"/>
               <xs:element ref="dxf2:description"/>
               <xs:element ref="dxf2:region"/>
@@ -370,7 +370,7 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" name="dataSet">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" type="xs:integer"/>
+              <xs:element ref="dxf2:id"/>
               <xs:element ref="dxf2:name"/>
               <xs:element ref="dxf2:shortName"/>
               <xs:element ref="dxf2:code"/>
@@ -399,7 +399,7 @@
   <xs:element name="organisationUnit">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="id" type="xs:integer"/>
+        <xs:element ref="dxf2:id"/>
         <xs:element ref="dxf2:uuid"/>
         <xs:element ref="dxf2:name"/>
         <xs:element ref="dxf2:shortName"/>
@@ -439,7 +439,7 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" name="organisationUnitGroup">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" type="xs:integer"/>
+              <xs:element ref="dxf2:id"/>
               <xs:element ref="dxf2:uuid"/>
               <xs:element ref="dxf2:name"/>
             </xs:sequence>
@@ -469,7 +469,7 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" name="groupSet">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" type="xs:integer"/>
+              <xs:element ref="dxf2:id"/>
               <xs:element ref="dxf2:name"/>
               <xs:element ref="dxf2:description"/>
               <xs:element ref="dxf2:compulsory"/>
@@ -521,7 +521,7 @@
   <xs:element name="organisationUnitLevel">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="id" type="xs:integer"/>
+        <xs:element ref="dxf2:id"/>
         <xs:element ref="dxf2:level"/>
         <xs:element ref="dxf2:name"/>
       </xs:sequence>
@@ -555,7 +555,7 @@
   <xs:element name="period">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="id" type="xs:integer"/>
+        <xs:element ref="dxf2:id"/>
         <xs:element ref="dxf2:periodType"/>
         <xs:element ref="dxf2:startDate"/>
         <xs:element ref="dxf2:endDate"/>
@@ -571,7 +571,7 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" name="reportTable">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" type="xs:integer"/>
+              <xs:element ref="dxf2:id"/>
               <xs:element ref="dxf2:name"/>
               <xs:element ref="dxf2:tableName"/>
               <xs:element ref="dxf2:existingTableName"/>

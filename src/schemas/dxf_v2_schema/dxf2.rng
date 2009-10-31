@@ -107,7 +107,7 @@
   <!-- common base for identifiable objects -->
   <define name="identifiableObject" ns="http://dhis2.org/ns/schema/dxf2">
     <element name="id">
-      <text/>
+      <data type="integer"></data>
     </element>
     <element name="uuid">
       <text/>

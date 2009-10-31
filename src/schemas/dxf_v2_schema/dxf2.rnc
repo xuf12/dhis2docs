@@ -57,7 +57,7 @@ ReportTableDefinition =
   reportTableOrganisationUnits
 # common base for identifiable objects
 identifiableObject =
-  element id { text },
+  element id { xsd:integer },
   element uuid { text },
   element name { text },
   element alternativename { text },
