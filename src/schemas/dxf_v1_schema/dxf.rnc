@@ -1,14 +1,12 @@
-namespace ns1 = "http://dhis2.org/ns/schema/dxf1.1"
-
 # dxf.rnc - the compact syntax is "the source"
 # dxf.rng and dxf.xsd are derived using jing
 # 
 # TODO:
-# ns="http://www.dhis2.org/schema/dxf" >
+# ns="http://www.dhis2.org/schema/dxfv1.1" >
 
 # These are toplevel elements of dxf format
 start =
-  element ns1:dxf {
+  element dxf {
     # Metadata section
     # This is a rough grouping of the sections
     # as they appear in the file.
@@ -37,7 +35,7 @@ MultiDimensionalElements =
   categoryCategoryOptionAssociations,
   categoryComboCategoryAssociations
 DataElementDefinition =
-  dataElements, dataElementGroups, dataElementGroupMembers
+  dataElements, (dataElementGroups, dataElementGroupMembers)?
 IndicatorDefinition =
   indicatorTypes, indicators, indicatorGroups, indicatorGroupMembers
 DataDictionaryDefinition =
@@ -46,11 +44,11 @@ DataSetDefinition = dataSets, dataSetMembers
 OrgUnitDefinition =
   organisationUnits,
   organisationUnitRelationships,
-  organisationUnitGroups,
-  organisationUnitGroupMembers,
-  groupSets,
-  groupSetMembers,
-  organisationUnitLevels,
+  (organisationUnitGroups,
+   organisationUnitGroupMembers,
+   groupSets,
+   groupSetMembers,
+   organisationUnitLevels)?,
   dataSetSourceAssociations
 ReportTableDefinition =
   reportTables,
@@ -98,7 +96,8 @@ categoryCategoryOptionAssociations =
   element categoryCategoryOptionAssociations {
     element categoryCategoryOptionAssociation {
       element category { xsd:integer },
-      element categoryOption { xsd:integer }
+      element categoryOption { xsd:integer },
+      element sortOrder { xsd:integer }?
     }*
   }
 categoryComboCategoryAssociations =
@@ -396,7 +395,7 @@ datavalue_elements =
     element source { xsd:integer },
     element value { text },
     # TODO: Don't use storedBy
-    element storedBy { xsd:integer? },
+    element storedBy { text },
     element timeStamp { text },
     element comment { text },
     element categoryOptionCombo { xsd:integer }
@@ -409,7 +408,8 @@ datavalue_attributes =
     attribute value { text },
     attribute storedBy { xsd:integer }?,
     attribute timeStamp { text }?,
-    attribute comment { text }?
+    attribute comment { text }?,
+    attribute categoryOptionCombo { xsd:integer }
   }
 dataValues =
   element dataValues { (datavalue_elements | datavalue_attributes)* }

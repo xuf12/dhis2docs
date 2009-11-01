@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" >
   <!--
     dxf.rnc - the compact syntax is "the source"
     dxf.rng and dxf.xsd are derived using jing
     
     TODO:
-    ns="http://www.dhis2.org/schema/dxf" >
+    ns="http://www.dhis2.org/schema/dxfv1.1" >
   -->
   <!-- These are toplevel elements of dxf format -->
   <start>
-    <element name="dxf" ns="http://dhis2.org/ns/schema/dxf1.1">
+    <element name="dxf">
       <optional>
         <!--
           Metadata section
@@ -65,8 +65,10 @@
   </define>
   <define name="DataElementDefinition">
     <ref name="dataElements"/>
-    <ref name="dataElementGroups"/>
-    <ref name="dataElementGroupMembers"/>
+    <optional>
+      <ref name="dataElementGroups"/>
+      <ref name="dataElementGroupMembers"/>
+    </optional>
   </define>
   <define name="IndicatorDefinition">
     <ref name="indicatorTypes"/>
@@ -86,11 +88,13 @@
   <define name="OrgUnitDefinition">
     <ref name="organisationUnits"/>
     <ref name="organisationUnitRelationships"/>
-    <ref name="organisationUnitGroups"/>
-    <ref name="organisationUnitGroupMembers"/>
-    <ref name="groupSets"/>
-    <ref name="groupSetMembers"/>
-    <ref name="organisationUnitLevels"/>
+    <optional>
+      <ref name="organisationUnitGroups"/>
+      <ref name="organisationUnitGroupMembers"/>
+      <ref name="groupSets"/>
+      <ref name="groupSetMembers"/>
+      <ref name="organisationUnitLevels"/>
+    </optional>
     <ref name="dataSetSourceAssociations"/>
   </define>
   <define name="ReportTableDefinition">
@@ -177,6 +181,11 @@
           <element name="categoryOption">
             <data type="integer"/>
           </element>
+          <optional>
+            <element name="sortOrder">
+              <data type="integer"/>
+            </element>
+          </optional>
         </element>
       </zeroOrMore>
     </element>
@@ -889,9 +898,7 @@
       </element>
       <!-- TODO: Don't use storedBy -->
       <element name="storedBy">
-        <optional>
-          <data type="integer"/>
-        </optional>
+        <text/>
       </element>
       <element name="timeStamp">
         <text/>
@@ -934,6 +941,9 @@
           <text/>
         </attribute>
       </optional>
+      <attribute name="categoryOptionCombo">
+        <data type="integer"></data>
+      </attribute>    
     </element>
   </define>
    
@@ -947,6 +957,8 @@
       </zeroOrMore>
     </element>
   </define>
+
+  
   <!-- Convenience (from odf spec) for filling in the "dark spots" -->
   <define name="anyAttListOrElements">
     <zeroOrMore>

@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:dxf1.1="http://dhis2.org/ns/schema/dxf1.1">
-  <xs:import namespace="http://dhis2.org/ns/schema/dxf1.1" schemaLocation="dxf1.1.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
   <!--
     dxf.rnc - the compact syntax is "the source"
     dxf.rng and dxf.xsd are derived using jing
     
     TODO:
-    ns="http://www.dhis2.org/schema/dxf" >
+    ns="http://www.dhis2.org/schema/dxfv1.1" >
   -->
   <!-- These are toplevel elements of dxf format -->
+  <xs:element name="dxf">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:group minOccurs="0" ref="MultiDimensionalElements"/>
+        <xs:group minOccurs="0" ref="DataElementDefinition"/>
+        <xs:group minOccurs="0" ref="IndicatorDefinition"/>
+        <xs:group minOccurs="0" ref="DataDictionaryDefinition"/>
+        <xs:group minOccurs="0" ref="DataSetDefinition"/>
+        <xs:group minOccurs="0" ref="OrgUnitDefinition"/>
+        <xs:element minOccurs="0" ref="periods"/>
+        <xs:group minOccurs="0" ref="ReportTableDefinition"/>
+        <xs:element minOccurs="0" ref="completeDataSetRegistrations"/>
+        <xs:element minOccurs="0" ref="dataValues"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <!--
     
     Each of the MetaData groups is a sequence of elements
@@ -28,8 +43,10 @@
   <xs:group name="DataElementDefinition">
     <xs:sequence>
       <xs:element ref="dataElements"/>
-      <xs:element ref="dataElementGroups"/>
-      <xs:element ref="dataElementGroupMembers"/>
+      <xs:sequence minOccurs="0">
+        <xs:element ref="dataElementGroups"/>
+        <xs:element ref="dataElementGroupMembers"/>
+      </xs:sequence>
     </xs:sequence>
   </xs:group>
   <xs:group name="IndicatorDefinition">
@@ -57,11 +74,13 @@
     <xs:sequence>
       <xs:element ref="organisationUnits"/>
       <xs:element ref="organisationUnitRelationships"/>
-      <xs:element ref="organisationUnitGroups"/>
-      <xs:element ref="organisationUnitGroupMembers"/>
-      <xs:element ref="groupSets"/>
-      <xs:element ref="groupSetMembers"/>
-      <xs:element ref="organisationUnitLevels"/>
+      <xs:sequence minOccurs="0">
+        <xs:element ref="organisationUnitGroups"/>
+        <xs:element ref="organisationUnitGroupMembers"/>
+        <xs:element ref="groupSets"/>
+        <xs:element ref="groupSetMembers"/>
+        <xs:element ref="organisationUnitLevels"/>
+      </xs:sequence>
       <xs:element ref="dataSetSourceAssociations"/>
     </xs:sequence>
   </xs:group>
@@ -155,9 +174,11 @@
       <xs:sequence>
         <xs:element name="category" type="xs:integer"/>
         <xs:element name="categoryOption" type="xs:integer"/>
+        <xs:element minOccurs="0" ref="sortOrder"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="sortOrder" type="xs:integer"/>
   <xs:element name="categoryComboCategoryAssociations">
     <xs:complexType>
       <xs:sequence>
@@ -802,7 +823,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="sortOrder" type="xs:integer"/>
   <!-- ReportTableDataSets -->
   <xs:element name="reportTableDataSets">
     <xs:complexType>
@@ -869,17 +889,7 @@
     </xs:sequence>
   </xs:group>
   <xs:element name="value" type="xs:string"/>
-  <xs:element name="storedBy">
-    <xs:simpleType>
-      <xs:union memberTypes="xs:integer">
-        <xs:simpleType>
-          <xs:restriction base="xs:token">
-            <xs:length value="0"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:union>
-    </xs:simpleType>
-  </xs:element>
+  <xs:element name="storedBy" type="xs:string"/>
   <xs:element name="timeStamp" type="xs:string"/>
   <xs:group name="datavalue_attributes">
     <xs:sequence>
@@ -892,6 +902,7 @@
           <xs:attribute name="storedBy" type="xs:integer"/>
           <xs:attribute name="timeStamp"/>
           <xs:attribute name="comment"/>
+          <xs:attribute name="categoryOptionCombo" use="required" type="xs:integer"/>
         </xs:complexType>
       </xs:element>
     </xs:sequence>
