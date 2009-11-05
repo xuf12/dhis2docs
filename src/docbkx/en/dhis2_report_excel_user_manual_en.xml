@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. -->
-<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3b2/docbookx.dtd" []>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3b2/docbookx.dtd" []>
 <article>
   <articleinfo>
     <title>DHIS 2 Excel Reporting User Manual</title>
@@ -528,9 +527,41 @@
       </sect3>
       <sect3>
         <title>View data set complete reports</title>
-        <para>When users finish entering data for a data set, they need to click the <emphasis role="bold">COMPLETE</emphasis> button to identify that the data set is completely entered. The View Data set complete report function takes care of this completeness. There are two ways of viewing data set complete reports: View as Period or Dataset. When viewing with Period, users can see the datasets according to different periods of time. When using the &quot;Viewing with Data set&quot; option, users can see many data sets in only a specified period.</para>
+        <para>When users finish entering data for a data set, they need to click the <emphasis role="bold">COMPLETE</emphasis> button to identify that the data set is completely entered. The View Data set complete report function takes care of this completeness. There are two ways of viewing data set complete reports: View as Period or Dataset. When viewing by Period, users can see complete status of 1 dataset in many  periods of time. When view by Dataset , users can see many data sets in only a specified period. This function is only used for management users in the upper Organisation Unit. </para>
+        <para>To view data set complete reports, do steps below</para>
+        <orderedlist>
+          <listitem>
+            <para>From the left menu, click Dataset complete reports</para>
+          </listitem>
+          <listitem>
+            <para>Choose Orgunit name. (Parent Organistaion Units)</para>
+          </listitem>
+          <listitem>
+            <para>Select Period Type</para>
+          </listitem>
+          <listitem>
+            <para>Select View Type.</para>
+          </listitem>
+          <listitem>
+            <para>Select data set (Select only 1 data set if view by Period)</para>
+          </listitem>
+          <listitem>
+            <para>Select Period (Select only 1 period if view by Dataset)</para>
+          </listitem>
+          <listitem>
+            <para>Click View Report button</para>
+          </listitem>
+        </orderedlist>
         <screenshot>
           <graphic fileref="resources/images/ExcelReportModule/view_data_set_completed_report.jpg" align="center"/>
+        </screenshot>
+        <para>Example of view report by Period</para>
+        <screenshot>
+          <graphic fileref="resources/images/ExcelReportModule/view_data_set_completed_report_period.jpg" align="center"/>
+        </screenshot>
+        <para>Example of view report by data set</para>
+        <screenshot>
+          <graphic fileref="resources/images/ExcelReportModule/view_data_set_completed_report_dataset.jpg" align="center"/>
         </screenshot>
       </sect3>
       <sect3>
@@ -555,7 +586,7 @@
             <para>View Data entry status</para>
             <para>From Left menu, click Data Entry Status &gt; Select Org Unit name to view.</para>
             <screenshot>
-              <graphic fileref="resources/images/ExcelReportModule/view_data_entry_status.jpg" align="center"/>
+              <graphic fileref="resources/images/ExcelReportModule/data_entry_status1.jpg" align="center"/>
             </screenshot>
           </listitem>
         </orderedlist>
