@@ -1,0 +1,108 @@
+	<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<article>
+  <articleinfo>
+    <title>Aggregation of data</title>
+
+    <author>
+      <firstname>Ola</firstname>
+
+      <surname>Titlestad</surname>
+
+      <affiliation>
+        <orgname>HISP</orgname>
+      </affiliation>
+    </author>
+
+    <pubdate>2009-11-14</pubdate>
+  </articleinfo>
+
+  <sect1>
+    <title>An overview of how aggregation takes place and rules of the system</title>
+
+<para>
+In the bigger picture of HIS terminology all data in DHIS are usually called aggregated as they are aggregates (e.g. monthly summaries) of medical records or some kind of service regiters reported from the health facilities. Aggregation inside DHIS however, which is the topic here, is concerned with how the raw data captured in DHIS (through data entry or import)are further aggregated over time (e.g. from monthly to quarterly values) or up the organisational hierarchy (e.g. from facility to district values). 
+</para>
+<sect2>
+<title>Terminology</title>
+<itemizedlist>
+        <listitem>
+          <para><emphasis>Raw data</emphasis> refers to data that is registered into the DHIS 2 either through data entry or data import, and has not been manipulated by the DHIS aggregation process. All these data are stored in the table (or Java object if you prefer) called DataValue.
+        <listitem>
+          <para><emphasis>Aggregated data</emphasis>refers to data that has been aggregated by the DHIS2, meaning it is no longer raw data, but some kind of aggregate of the raw data.</para>
+		  </listitem>
+		    <listitem>
+          <para><emphasis>Indicator values</emphasis> can also be understood as aggregated data, but these are special in the way that they are calculated based on user defined formulas (factor * numerator/denominator). Indicator values are therefore processed data and not raw data, and are located in the aggregatedindicatorvalue table/object. Indicators are calculated at any level of the organisational hierarchy and these calculations are then based on the aggregated data values available at each level. A level attribute in the aggregateddatavalue table refers to the organisational level of the orgunit the value has been calculated for.
+		  </para>
+		  </listitem>
+		    <listitem>
+          <para>
+		  <emphasis>Period and Period type</emphasis> are used to specify the time dimension of the raw or aggregated values, and data can be aggregated from one period type to another, e.g from monthly to quarterly, or daily to monthly. Each data value has one period and that period has one period type. E.g data values for the periods Jan, Feb, and Mar 2009, all of the monthly period type can be aggregated together to an aggregated data value with the period “Q1 2009” and period type “Quarterly”.</para>
+		  </listit>
+		  </itemizedlist>
+</sect2>
+<sect2>
+<title>Basic rules of aggregation</title>
+<sect3>
+<title>What is added together</title>
+<para>Data (raw) can be registered at any organisational level, e.g. at at national hospital at level 2, a health facility at level 5, or at a bigger PHC at level 4. This varies form country to country, but DHIS is flexible in allowing data entry or data import to take place at any level. This means that orgunits that themselves have children can register data, sometimes the same data elements as their children units. The basic rule of aggregation in DHIS 2 is that <emphasis>all raw data is aggregated together</emphasis>, meaning data registered at a facility on level 5 is added to the data registered for a PHC at level 4.</para>
+<para>
+It is up to the user/system administrator/designer to make sure that no duplication of data entry is taking place and that e.g. data entered at level 4 are not about the same services/visits that are reported by orgunit children at level 5. NOTE that in some cases you want to have “duplication” of data in the system, but in a controlled manner. E.g. when you have two different sources of data for population estimates, both level 5 catchment population data and another population data source for level 4 based on census data (because sum of level 5 catchments is not always the same as level 4 census data). Then you can specify using advanced aggregation settings (see further down) that the system should e.g. not add level 5 population data to the level 4 population data, and that level 3,2,1 population data aggregates are only based on level 4 data and does not include level 5 pop data.</para>
+</sect3>
+<sect3>
+<title>How data gets added together</title>
+<para>How data is aggregated depends on the dimension of aggregation (see further down).</para>
+<para>Along the orgunit level dimension data is always summed up, simply added together. Note that raw data is never percentages, and therefore can be summed together. Indicator values that can be percentages are treated differently (re-calculated at each level, never summed up).</para>
+<para>
+Along the time dimension there are several possibilities, the two most common ways to aggregate are sum and average. The user can specify for each data element which method to use by setting the aggregation operator (see further down). Monthly service data are normally summed together over time, e.g. the number of vaccines given in a year is the sum of the vaccines given for each month of that year. For population, equipment, staff and other kind of what is often called semi-permanent data the average method is often the one to use, as, e.g. “number of nurses” working at a facility in a year would not be the sum of the two numbers reported in the six-monthly staffing report, but rather the average of the two numbers. More details further down under “aggregation operators”. 
+</para>
+</sect3>
+</sect2>
+<sect2>
+<title>Dimensions of aggregation</title>
+</sect2>
+<sect3>
+<title>Orgunits and levels</title>
+</sect>
+<sect3>
+<title>Period</title>
+</sect3>
+<sect3>
+<title>Data Element Categories</title>
+</sect3>
+</sect2>
+ <sect2>
+<title>Aggregation operators, methods for aggregation</title>
+</sect2>
+<sect3>
+<title>Sum</title>
+</sect>
+<sect3>
+<title>Average</title>
+</sect3>
+<sect3>
+<title>Count</title>
+</sect3>
+<sect3>
+<title>Where to specify </title>
+</sect3>
+</sect2>
+
+ <sect2>
+<title>Advanced aggregation settings (aggregation levels)</title>
+</sect2>
+<sect3>
+<title>Aggregation levels</title>
+<para>The normal rule of the system is to aggregate all raw data together when moving up the organisational hierarchy, and the system assumes that data entry is not being duplicated by entering “the same services provided to the same clients” at both facility level and also entering an “aggregated” (sum of all facilities) number at a higher level. This is to more easily facilitate aggregation when the same services are provided but to different clients/catchment populations at facilities on level 5 and a PHC (the parent of the same facilities) at level 4. In this way a facility at level 5 and a PHC at level 4 can share the same data elements and simply add together their numbers to provide the total of services provided in the geographical area.</para>
+<para>Sometimes such an aggregation is not desired, simply because it would mean duplicating data about the same population. This is the case when you have two different sources of data for two different orgunit levels. E.g. catchment population for facilities can come from a different source than district populations and therefore the sum of the facility catchment populations do not match the district population provided by e.g. census data. If this is the case we would actually want “duplicated” data in the system so that each level can have as accurate numbers as possible, but then we do NOT want to aggregate these data sources together.
+</para>
+<para>In the Data Element section you can edit data elements and for each of them specify how aggregation is done for each level. In the case described above we need to tell the system NOT to include facility data on population in any of the aggregations above that level, as the level above, in this case the districts have registered their population directly as raw data. The district population data should then be used at all levels above and including the district level, while facility level should use its own data.</para>
+</sect3>
+<sect3>
+<title>How to edit data element aggregation</title>
+<para>This is controlled through something called aggregation levels and at the end of the edit data element screen there is a tick-box called Aggregation Levels. If you tick that one you will see a list of aggregation levels, available and selected. Default is to have no aggregation levels defined, then all raw data in the hierarchy will be added together. To specify the rule described above, and given a hierarchy of Country, Province, District, Facility: select Facility and District as your aggregation levels. Basically you select where you have data. Selecting Facility means that Facilities will use data from facilities (given since this is the lowest level). Selecting District means that the District level raw data will be used when aggregating data for District level (hence no aggregation will take place at that level), and the facility data will not be part of the aggregated District values. When aggregating data at Province level the District level raw data will be used since this is the highest available aggregation level selected. Also for Country level aggregates the District raw data will be used. Just to repeat, if we had not specified that District level was an aggregation level, then the facility data and district data would have been added together and caused duplicate (double) population data for districts and all levels above.</para>
+</sect3>
+</sect2>
+  </sect1>
+</article>
