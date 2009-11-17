@@ -1,0 +1,356 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. -->
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" []>
+<article>
+  <articleinfo>
+    <date>2009-11-15</date>
+    <title>Data Quality and Validation</title>
+    <author>
+      <surname>Unknown</surname>
+      <affiliation>
+        <orgname/>
+      </affiliation>
+    </author>
+    <revhistory>
+      <revision>
+        <revnumber>1</revnumber>
+        <date>2009-11-15</date>
+        <authorinitials>KNS</authorinitials>
+        <revdescription>
+          <para>Initial conversion from MS Word format to DocBook</para>
+        </revdescription>
+      </revision>
+    </revhistory>
+  </articleinfo>
+  <sect1>
+    <title>Learning objectives:</title>
+    <para>After reading this module you will be able to understand:</para>
+    <highlights>
+      <orderedlist>
+        <listitem>
+          <para>What is data quality and its importance for HMIS.</para>
+        </listitem>
+        <listitem>
+          <para>How to do data quality check at point of data entry.</para>
+        </listitem>
+        <listitem>
+          <para>How to create data validation rules.</para>
+        </listitem>
+        <listitem>
+          <para>How to carry out data triangulation.</para>
+        </listitem>
+        <listitem>
+          <para>How to analyze data status.</para>
+        </listitem>
+      </orderedlist>
+    </highlights>
+    <sect2>
+      <title>Overview of data quality check</title>
+      <highlights>
+        <para>Ensuring data quality is a key concern in building an effective HMIS. Data quality has different dimensions including:</para>
+        <itemizedlist>
+          <listitem>
+            <para><emphasis>Correctness:</emphasis> Data should be within the normal range for data collected at that facility. There should be no gross discrepancies when compared with data from related data elements.</para>
+          </listitem>
+          <listitem>
+            <para><emphasis>Completeness:</emphasis> Data for all data elements for all health facilities/blocks/Taluka/districts should have been submitted.</para>
+          </listitem>
+          <listitem>
+            <para><emphasis>Consistency:</emphasis> Data should be consistent with data entered during earlier months and years while allowing for changes with reorganization, increased work load, etc. and consistent with other similar facilities.</para>
+          </listitem>
+          <listitem>
+            <para><emphasis>Timeliness:</emphasis> All data from all health facilities/blocks/Taluka/districts should be submitted at the appointed time.</para>
+          </listitem>
+        </itemizedlist>
+      </highlights>
+      <para>If we have poor quality data, we will have “garbage in and garbage out” situations. Use of poor quality data leads to ill informed decisions. So, the HMIS software should be built in with different tools to do data quality checks and validation.</para>
+      <sect3>
+        <title>Data quality checks</title>
+        <para>Data quality checking can be done through various means, including:</para>
+        <orderedlist>
+          <listitem>
+            <para>At point of data entry, the software can check the data entered to see if it falls within the min-max ranges of that data element over the last six months or as defined by the user.</para>
+          </listitem>
+          <listitem>
+            <para>Defining various validation rules, which can be run once the user has finished data entry. The user can also check the entered data for a particular period and Organization Unit(s) against the validation rules, and display the violations for these validation rules. </para>
+          </listitem>
+          <listitem>
+            <para>Analysis of data sets, IE, examining gaps in data.</para>
+          </listitem>
+          <listitem>
+            <para>Data triangulation which is comparing the same data or indicator from different sources.</para>
+          </listitem>
+        </orderedlist>
+      </sect3>
+    </sect2>
+    <sect2>
+      <title>Data quality check at the point of data entry </title>
+      <para>
+ Data quality can be checked at the point of data entry through setting the minimum and maximum value range for each element manually or generating the min-max values using the DHIS 2 if there is historical data available for that data element.
+    </para>
+      <sect3>
+        <title>Setting the minimum and maximum value range manually </title>
+        <para>If you are using the default entry screen click on the element for which you want to set the min-max value, as shown below. </para>
+        <figure>
+          <title>The health information cycle </title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="/resources/images/dhis2UserManual/dhis2_information_cycle.png"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+        <para>A pop up window will appear as shown below. Here you can enter the min-max values.</para>
+        <figure>
+          <title>The health information cycle </title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="/resources/images/dhis2UserManual/dhis2_information_cycle.png"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+        <para>On subsequent data entry if the value entered does not fall within the set min-max range the text box will change colour to red. The user will also get a pop-up as shown below. This change in colour is a prompt to check the data entered and make necessary correction.</para>
+        <figure>
+          <title>The health information cycle </title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="/resources/images/dhis2UserManual/dhis2_information_cycle.png"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+        <para>On the data entry screen the users also have the option to add a comment on how the discrepant figure might be explained (if required). This you can do by using the drop down menu of the ‘comment’ box. </para>
+        <figure>
+          <title>The health information cycle </title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="/resources/images/dhis2UserManual/dhis2_information_cycle.png"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+        <para>In case you are using the custom data entry screen which is displayed when you deselect the ‘default data entry form’ option on the top right corner of the screen. In this case the minimum and maximum values can be added by double-clicking on the data entry box instead of the data element.</para>
+      </sect3>
+      <sect3>
+        <title>Generated min-max values </title>
+        <para>It is possible to generate the min-max value, element-wise, using the DHIS2. In such case you merely need to click on the ‘Generate min-max’ tab as shown below.</para>
+        <figure>
+          <title>The health information cycle </title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="/resources/images/dhis2UserManual/dhis2_information_cycle.png"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+        <para>In case of default data entry screen the min and max values, when generated, will appear on the left and right side of the data entry box. In case you deselect the default data entry form the generated values will appear on the top right end of the screen as shown in the following picture 
+</para>
+        <figure>
+          <title>The health information cycle </title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="/resources/images/dhis2UserManual/dhis2_information_cycle.png"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+      </sect3>
+    </sect2>
+    <sect2>
+      <title>Defining Validation Rules </title>
+      <para>Validation rules are data quality check mechanism based on verification of the logic of relation between related data elements. Validation rules are relational expressions comprising of related data elements and an operator that states the expected / logical relation between the elements. For example number of infant deaths cannot be greater than the number of deliveries. As can be seen from the example a validation rule comprises of a left and a right side. On the left side of the expression, there must be a data element or a combination of data elements, and the same on the right side. The left and right hand sides of the expression are separated with a validation operator which states the relation between the elements.  As validation rules have a relational property there must be at least two data elements for which the validation rules may be applied. </para>
+      <figure>
+        <title>The health information cycle </title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="/resources/images/dhis2UserManual/dhis2_information_cycle.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <para>DHIS 2 supports the different facets of the information cycle
+      including:<itemizedlist>
+          <listitem>
+            <para>Collecting data.</para>
+          </listitem>
+          <listitem>
+            <para>Running quality checks.</para>
+          </listitem>
+          <listitem>
+            <para>Data access at multiple levels.</para>
+          </listitem>
+          <listitem>
+            <para>Reporting.</para>
+          </listitem>
+          <listitem>
+            <para>Making graphs and maps and other forms of analysis.</para>
+          </listitem>
+          <listitem>
+            <para>Enabling comparison across time (for example, previous
+            months) and space (for example, across facilities and
+            districts).</para>
+          </listitem>
+          <listitem>
+            <para>See trends (displaying data in time series to see their min
+            and max levels).</para>
+          </listitem>
+        </itemizedlist></para>
+      <para>As a first step, DHIS 2 serves as a data collection, recording and
+      compilation tool, and all data (be it in numbers or text form) can be
+      entered into it. Data entry can be done in lists of data elements or in
+      customized user defined forms based on the paper forms. </para>
+      <para>As a next step, DHIS 2 can be used to increase data quality.
+      Firstly, at the point of data entry, a check can be made to see if data
+      falls within acceptable range levels of minimum and maximum values for
+      any particular data element. Such checking, for example, can help to
+      identify typing errors at the time of data entry. Further, user can
+      define various validation rules, and DHIS 2 can run the data through the
+      validation rules to identify violations.</para>
+      <para>When data has been entered and verified, DHIS 2 can help to make
+      different kinds of reports. The first kind are the routine reports that
+      can be predefined, so that all those reports that need to be routine
+      generated can be done on a click of a button. Further, DHIS 2 can help
+      in the generation of analytical reports through comparisons of for
+      example indicators across facilities or over time. Graphs, maps, reports
+      and health profiles are amongst the outputs that DHIS 2 can produce, and
+      these should routinely be produced, analyzed, and acted upon by health
+      managers.</para>
+    </sect2>
+    <sect2>
+      <title>Overview of DHIS 2.0</title>
+      <sect3>
+        <title>The different modules of DHIS 2</title>
+        <para>DHIS is based on a modular approach of design. A module can be
+        seen as an independent component of application that is capable of
+        both processing inputs as well as outputs, that is used to communicate
+        with other modules. The modules are flexible enough to allow changes
+        in one module without having any effect on other modules. As long as
+        input and output stays the same, it doesn’t matter what happens inside
+        a module. A module can then be changed without affecting other
+        modules, which will be working as long as the output from the first
+        module comes out as normal. This modular feature allows DHIS 2 to be
+        constantly upgraded in terms of functionality, integrated with other
+        applications such as Excel pivot tables and GIS. Thus modularity
+        allows DHIS 2 to be flexible, and changes can take place in the
+        different modules without affecting others.</para>
+        <para>Currently, DHIS2 has several modules for functions such as data
+        entry, data quality checks, report generation etc. These modules have
+        been categorised and presented under two core categories namely
+        Maintenance and Services. The Services module supports data record,
+        analysis, report generation etc. And the Maintenance module allows you
+        to set the content and structure of the Services module.</para>
+      </sect3>
+      <sect3>
+        <title>Web-based versus standalone HMIS and their suitability</title>
+        <para>DHIS 2 can run both as a web based and offline application. As a
+        web based application, the DHIS 2 application can run on a central
+        server and make use of client-server architecture. For example, at the
+        state level, the DHIS 2 can run on a server, and the different
+        districts act as clients, drawing upon the server application through
+        the Internet for local use of the application. </para>
+        <para>In a standalone application, the DHIS 2 can run as an
+        independent application on individual computers in different sites
+        such as PHCs, CHCs etc. So, if computerization is taking place at the
+        Block level, then the DHIS 2 will be installed separately on each of
+        the block level computers. The disadvantage of a standalone
+        application is that of platform dependency – where the application
+        needs to be configured to the platform on each of the respective
+        machines. A thick client requires a local runtime environment. For
+        example a Windows Form application will only run on a Windows platform
+        with the .Net framework installed. The major advantage of the offline
+        version is that it can run without any dependency on the Internet.
+        This allows the application to run in remote locations where there is
+        limited or no Internet connectivity. </para>
+        <para>The main advantage of a web based solution is that it is
+        centralized, which enables easy, online updating and deployment of the
+        application. The only requirements on the clients’ side are to have
+        web browser installed on the used computer and have an Internet
+        connection. The hardware on the server is often more powerful than the
+        single computer. Another advantage of the web application is that is
+        platform independent, allowing the same software to be accessed
+        through a web browser regardless of the client’s operating system.
+        </para>
+        <para>Where connectivity is available, and there is need for
+        centralized management, a web based application is useful, and a
+        standalone application is preferred when these conditions are not
+        available or required. However, in most cases, a mix of these two
+        approaches would be required, with a server based deployment working
+        for district-state-national level processing, and a standalone
+        deployment at lower levels where connectivity is limited. The
+        advantage of such an approach is that it is flexible, inclusive, and
+        scalable because as facilities get internet connectivity they can be
+        hooked up to the network.</para>
+      </sect3>
+      <sect3>
+        <title>Free and Open Source Software (FOSS): benefits and challenges </title>
+        <para>Software carries the instructions that tell a computer how to
+        operate. The human authored and human readable form of those
+        instructions is called source code. Before the computer can actually
+        execute the instructions, the source code must be translated into a
+        machine readable (binary) format, called the object code. All
+        distributed software includes the object code, but FOSS makes the
+        source code available as well. </para>
+        <para>Proprietary software owners license their copyrighted object
+        code to a user, which allows the user to run the program. FOSS
+        programs, on the other hand, license both the object and the source
+        code, permitting the user to run, modify and possibly redistribute the
+        programs. With access to the source code, the users have the freedom
+        to run the program for any purpose, redistribute, probe, adapt, learn
+        from, customize the software to suit their needs, and release
+        improvements to the public for the good of the community. Hence, some
+        FOSS is also known as free software, where “free” refers, first and
+        foremost, to the above freedoms rather than in the monetary sense of
+        the word.</para>
+        <para>Within the public health sector, FOSS can potentially have a
+        range of benefits, including:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Lower costs as it does not involve paying for prohibitive
+            license costs.</para>
+          </listitem>
+          <listitem>
+            <para>Given the information needs for the health sector are
+            constantly changing and evolving, there is a need for the user to
+            have the freedom to make the changes as per the user requirements.
+            This is often limited in proprietary systems.</para>
+          </listitem>
+          <listitem>
+            <para>In the health sector, including in NRHM; a key agenda is
+            that of integration, which involves the technical linking of
+            different pieces of software (for example, DHIS 2 and RIMS). For
+            this, the source code needs to be made available to the developers
+            to create the integration. This availability is often not possible
+            in the case of proprietary software. And when it is, it comes at a
+            high cost and contractual obligations.</para>
+          </listitem>
+          <listitem>
+            <para>FOSS applications like DHIS2 typically are supported by a
+            global network of developers, and thus have access to cutting edge
+            research and development knowledge. </para>
+          </listitem>
+        </itemizedlist>
+      </sect3>
+      <sect3>
+        <title>Understanding platform independency</title>
+        <para>All computers have an Operating System (OS) to manage it and the
+        programs running it. Such OS serve as the middle layer between the
+        software application, such as DHIS 2, and the hardware, such as the
+        CPU and RAM. The most popularly used OS is Microsoft Windows, which
+        comes in various versions (such as XP, Vista). However, this OS costs
+        money, and have also been reported to have security issues that makes
+        it vulnerable to virus attacks. Operating Systems like Linux are free,
+        and are more secure with respect to virus attacks. Usually, many of
+        the applications will work on one OS, and not on others. Platform
+        independency implies that the software application can run on ANY OS -
+        Windows, Linux, Macintosh etc. DHIS 2 is platform independent, and is
+        extremely useful in the context of public health when typically you
+        have systems in different places running different kinds of OS.
+        </para>
+      </sect3>
+      <sect3>
+        <title>Auxiliary software that can be used with DHIS</title>
+        <para>A variety of auxiliary software can be run with DHIS 2, such as
+        GIS (for mapping), BIRT (for reporting), Excel (for analysis through
+        pivot table operations), Open MRS (for patient based management), and
+        CRIS (for HIV/AIDS management). Being based on Open Standards and an
+        Open Architecture, DHIS 2 can build bridges to speak to the other
+        systems. Further, auxiliary modules can be developed and integrated
+        with the core DHIS 2 application. </para>
+      </sect3>
+    </sect2>
+  </sect1>
+</article>

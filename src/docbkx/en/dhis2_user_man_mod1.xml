@@ -140,7 +140,7 @@
     warehousing principles. DHIS 2 is built on Java based frameworks. It is
     platform independent, can run on both online and offline modes, is multi
     language enabled and integrated with various other applications such as
-    Geographic Information Systems and Excel. </para>
+    Geographic Information Systems and Excel.</para>
 
     <para>The WHO and HMN (Health Metrics Network) are currently using DHIS 2
     for implementing an integrated solution in the first HMN country – Sierra
@@ -156,21 +156,21 @@
     <sect2>
       <title>Purpose of DHIS2</title>
 
-      <para>The purpose of DHIS can be summarized as follows: </para>
+      <para>The purpose of DHIS can be summarized as follows:</para>
 
       <orderedlist>
         <listitem>
           <para>Provide a comprehensive HMIS solution based on data
           warehousing principles and a modular structure which can easily be
           customized to the needs of different health systems - nations,
-          states, districts, and facilities. </para>
+          states, districts, and facilities.</para>
         </listitem>
 
         <listitem>
           <para>Provide data entry facilities which can either be in the form
           of standard (scroll down) lists (of data elements), or can be
           customized to replicate paper forms – to make easy the process of
-          data entry. </para>
+          data entry.</para>
         </listitem>
 
         <listitem>
@@ -202,10 +202,10 @@
         </listitem>
 
         <listitem>
-          <para> Functionalities of export-import, so that data entered on an
+          <para>Functionalities of export-import, so that data entered on an
           offline version can be exported to the district or higher level
           systems. Export import can also be made in relation to other
-          applications such as Excel and Epi Info. </para>
+          applications such as Excel and Epi Info.</para>
         </listitem>
 
         <listitem>
@@ -225,7 +225,7 @@
 
         <listitem>
           <para>Further modules can be developed (such as for human resources
-          management) and integrated as per user needs. </para>
+          management) and integrated as per user needs.</para>
         </listitem>
       </orderedlist>
 
@@ -236,7 +236,7 @@
     </sect2>
 
     <sect2>
-      <title>Difference between Aggregated and Patient data in a HMIS </title>
+      <title>Difference between Aggregated and Patient data in a HMIS</title>
 
       <para><emphasis>Patient data</emphasis> is data relating to ONE patient,
       such as his/her diagnosis, name, age, earlier medical history etc.
@@ -244,14 +244,14 @@
       the progress of a patient over time. For example, if we want to track
       how a patient is adhering to and responding to the process of TB
       treatment (typically taking place over 6-9 months), we would need
-      patient based data. </para>
+      patient based data.</para>
 
       <para><emphasis>Aggregated data</emphasis> is the consolidation of data
       relating to multiple patients, and therefore cannot be traced back to a
       specific patient. They are merely counts, such as incidences of Malaria,
       TB, or other diseases. Typically, the routine data that a health
       facility deals with is this kind of aggregated statistics, and is used
-      for the generation of routine reports and indicators. </para>
+      for the generation of routine reports and indicators.</para>
 
       <para>Patient data is highly confidential and therefore must be
       protected so that no one other than doctors can get it. When in paper,
@@ -267,7 +267,7 @@
 
     <sect2>
       <title>Use of DHIS 2 in HMIS: data collection, processing,
-      interpretation, and analysis. </title>
+      interpretation, and analysis.</title>
 
       <para>The wider context of HMIS can be comprehensively described through
       the information cycle presented in Figure 1.1 below. The information
@@ -276,11 +276,11 @@
       analyzed and used.</para>
 
       <figure>
-        <title>The health information cycle </title>
+        <title>The health information cycle</title>
 
         <mediaobject>
           <imageobject>
-            <imagedata fileref="/resources/images/dhis2UserManual/dhis2_information_cycle.png" />
+            <imagedata fileref="resources/images/dhis2UserManual/dhis2_information_cycle.png" />
           </imageobject>
         </mediaobject>
       </figure>
@@ -322,7 +322,7 @@
       <para>As a first step, DHIS 2 serves as a data collection, recording and
       compilation tool, and all data (be it in numbers or text form) can be
       entered into it. Data entry can be done in lists of data elements or in
-      customized user defined forms based on the paper forms. </para>
+      customized user defined forms based on the paper forms.</para>
 
       <para>As a next step, DHIS 2 can be used to increase data quality.
       Firstly, at the point of data entry, a check can be made to see if data
@@ -379,7 +379,7 @@
         server and make use of client-server architecture. For example, at the
         state level, the DHIS 2 can run on a server, and the different
         districts act as clients, drawing upon the server application through
-        the Internet for local use of the application. </para>
+        the Internet for local use of the application.</para>
 
         <para>In a standalone application, the DHIS 2 can run as an
         independent application on individual computers in different sites
@@ -393,7 +393,7 @@
         with the .Net framework installed. The major advantage of the offline
         version is that it can run without any dependency on the Internet.
         This allows the application to run in remote locations where there is
-        limited or no Internet connectivity. </para>
+        limited or no Internet connectivity.</para>
 
         <para>The main advantage of a web based solution is that it is
         centralized, which enables easy, online updation and deployment of the
@@ -402,8 +402,8 @@
         connection. The hardware on the server is often more powerful than the
         single computer. Another advantage of the web application is that is
         platform independent, allowing the same software to be accessed
-        through a web browser regardless of the client’s operating system.
-        </para>
+        through a web browser regardless of the client’s operating
+        system.</para>
 
         <para>Where connectivity is available, and there is need for
         centralized management, a web based application is useful, and a
@@ -418,8 +418,8 @@
       </sect3>
 
       <sect3>
-        <title>Free and Open Source Software (FOSS): benefits and challenges
-        </title>
+        <title>Free and Open Source Software (FOSS): benefits and
+        challenges</title>
 
         <para>Software carries the instructions that tell a computer how to
         operate. The human authored and human readable form of those
@@ -427,7 +427,7 @@
         execute the instructions, the source code must be translated into a
         machine readable (binary) format, called the object code. All
         distributed software includes the object code, but FOSS makes the
-        source code available as well. </para>
+        source code available as well.</para>
 
         <para>Proprietary software owners license their copyrighted object
         code to a user, which allows the user to run the program. FOSS
@@ -470,7 +470,7 @@
           <listitem>
             <para>FOSS applications like DHIS2 typically are supported by a
             global network of developers, and thus have access to cutting edge
-            research and development knowledge. </para>
+            research and development knowledge.</para>
           </listitem>
         </itemizedlist>
       </sect3>
@@ -490,8 +490,7 @@
         independency implies that the software application can run on ANY OS -
         Windows, Linux, Macintosh etc. DHIS 2 is platform independent, and is
         extremely useful in the context of public health when typically you
-        have systems in different places running different kinds of OS.
-        </para>
+        have systems in different places running different kinds of OS.</para>
       </sect3>
 
       <sect3>
@@ -503,7 +502,7 @@
         CRIS (for HIV/AIDS management). Being based on Open Standards and an
         Open Architecture, DHIS 2 can build bridges to speak to the other
         systems. Further, auxiliary modules can be developed and integrated
-        with the core DHIS 2 application. </para>
+        with the core DHIS 2 application.</para>
       </sect3>
     </sect2>
   </sect1>
