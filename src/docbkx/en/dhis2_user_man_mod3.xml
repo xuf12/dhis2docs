@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. -->
-<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <article>
   <articleinfo>
     <title>Data entry with DHIS2</title>
@@ -13,7 +12,7 @@
     </author>
     <pubdate/>
   </articleinfo>
-  <sect1 id="sect1_1">
+  <sect1 id="mod3_1">
     <title>Learning Objectives</title>
     <highlights>
       <para>After reading this chapter you will be able to understand:</para>
@@ -30,7 +29,7 @@
       </itemizedlist>
     </highlights>
   </sect1>
-  <sect1 id="sect1_2">
+  <sect1 id="mod3_2">
     <title>Opening the “Data Entry” screen</title>
     <para>Entering data in DHIS 2 is a very simple task, and involves the
     following steps. Click on the services tab displayed on the main menu. A
@@ -40,7 +39,7 @@
       <screeninfo>Open DHIS2 data entry screen</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/dhis2UserManual/open_data_entry_screen.png"/>
+          <imagedata fileref="resources/images/dhis2UserManual/open_data_entry_screen.png" width="80%" align="center"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -51,12 +50,12 @@
       <screeninfo>Main data entry screen</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/dhis2UserManual/data_entry_screen_main.png"/>
+          <imagedata fileref="resources/images/dhis2UserManual/data_entry_screen_main.png" width="80%" align="center"/>
         </imageobject>
       </mediaobject>
     </screenshot>
   </sect1>
-  <sect1 id="sect1_3">
+  <sect1 id="mod3_3">
     <title>Navigate organisation tree and select organisation unit</title>
     <para>In order to enter data you will first have to select the particular
     organization unit (e.g. Sub Centre/PHC/districts etc) for which you are
@@ -67,12 +66,12 @@
       <screeninfo>Select Organisational unit</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/dhis2UserManual/data_entry_screen_select_org_unit.png"/>
+          <imagedata fileref="resources/images/dhis2UserManual/data_entry_screen_select_org_unit.png" width="80%" align="center"/>
         </imageobject>
       </mediaobject>
     </screenshot>
   </sect1>
-  <sect1 id="sect1_4">
+  <sect1 id="mod3_4">
     <title>Entering data</title>
     <para>When you select an organisational unit (or orgunit) from the
     organisation unit tree, datasets available for this orgunit will then
@@ -81,7 +80,7 @@
       <screeninfo>Select dataset</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/dhis2UserManual/data_entry_select_data_set.png"/>
+          <imagedata fileref="resources/images/dhis2UserManual/data_entry_select_data_set.png" width="80%" align="center"/>
         </imageobject>
       </mediaobject>
     </screenshot>

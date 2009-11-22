@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <article>
   <articleinfo>
     <title>DHIS 2 Excel Reporting User Manual</title>
@@ -27,12 +27,12 @@
       </revision>
     </revhistory>
   </articleinfo>
-  <sect1>
+  <sect1 id="excel_1">
     <title> Introduction </title>
     <para> A key requirement of a health information system is that the information contained in the system is available in many different formats that are familiar to the end-users. Many health information personnel are familiar with standard office productivity packages such as <productname>Microsoft Office</productname> or OpenOffice. Production of reports in Excel format allows health workers to submit reports to managers and other persons that may not have access to the HMIS, or lack training in its use. Excel offers the capability to deliver powerful, user-friendly reports to many different clients of the information system.   </para>
     <para>Users, especially health workers, can use DHIS 2 easily with the new Excel reporting tool developed by HISP Vietnam team.  This module has been  based on HISP India team’s ideas and technologies.  The module has subsequently been merged into the main DHIS2 application.  This reporting tool with Excel output files uses less memory and  is comparatively faster when compared to other reporting modules.</para>
   </sect1>
-  <sect1>
+  <sect1 id="excel_2">
     <title> Advantages of the Excel report module</title>
     <itemizedlist>
       <listitem>
@@ -49,15 +49,15 @@
       </listitem>
     </itemizedlist>
   </sect1>
-  <sect1>
+  <sect1 id="excel_3">
     <title> Requirements of the <productname>Excel</productname> report module</title>
     <para>In order to utilize the Excel report module, the user’s computer must be installed with either <productname>Microsoft Excel</productname> or Open Office.  It is also possible to view the report directly with the web browser, for users that may not have access to either of these programmes. </para>
   </sect1>
-  <sect1>
+  <sect1 id="excel_4">
     <title>Main features in Excel Report module</title>
     <screenshot>
 <!--I think this is not really a screen shot and is a bit redundant. All of the relevant information is contained in the itemized list below. -->      <screeninfo>Main features in Excel Report module</screeninfo>
-      <graphic fileref="resources/images/ExcelReportModule/main_feature_of_excel_report_module.jpg" align="center"/>
+      <graphic fileref="resources/images/ExcelReportModule/main_feature_of_excel_report_module.jpg" width="80%" align="center"/>
     </screenshot>
     <itemizedlist>
       <listitem>
@@ -74,15 +74,15 @@
       </listitem>
     </itemizedlist>
   </sect1>
-  <sect1>
+  <sect1 id="excel_5">
     <title>How to use Excel Reporting Module</title>
     <para>To start using the Excel Report Module, from the <emphasis role="bold">Main menu</emphasis> chose <emphasis role="bold">Services</emphasis>  then click <emphasis role="bold">Excel Reports</emphasis> as depicted  below:</para>
     <screenshot>
-      <graphic fileref="resources/images/ExcelReportModule/open_excel_report_module.jpg" align="center"/>
+      <graphic fileref="resources/images/ExcelReportModule/open_excel_report_module.jpg" width="80%" align="center"/>
     </screenshot>
     <para>Then a new page appears as following </para>
     <screenshot>
-      <graphic fileref="resources/images/ExcelReportModule/excel_report_left_menu.jpg" align="center"/>
+      <graphic fileref="resources/images/ExcelReportModule/excel_report_left_menu.jpg" width="80%" align="center"/>
     </screenshot>
     <para>The left menu region contains  two  main functions: Administration and Generate Report</para>
     <orderedlist>
@@ -103,7 +103,7 @@
           </listitem>
         </itemizedlist>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/administration_page.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/administration_page.jpg" width="80%" align="center"/>
         </screenshot>
       </listitem>
       <listitem>
@@ -129,13 +129,13 @@
           </listitem>
         </itemizedlist>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/generate_report_introduce.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/generate_report_introduce.jpg" width="80%" align="center"/>
         </screenshot>
       </listitem>
     </orderedlist>
     <para>User can generate reports using the Excel Reporting module as outlined below:</para>
     <screenshot>
-      <graphic fileref="resources/images/ExcelReportModule/steps_generate_report.jpg" align="center"/>
+      <graphic fileref="resources/images/ExcelReportModule/steps_generate_report.jpg" width="80%" align="center"/>
     </screenshot>
     <sect2>
       <title>Creating an Excel Report template file </title>
@@ -146,14 +146,14 @@
           <title>Standard reports contain default data elements and indicators</title>
           <para>Standard reports have a fixed model in which number of the columns and the rows are unchangeable. Normally, this report is generated by only one organization unit or one  organization unit group at a specified period of time. An example is show below. </para>
           <screenshot>
-            <graphic fileref="resources/images/ExcelReportModule/standard_report_template.jpg" align="center"/>
+            <graphic fileref="resources/images/ExcelReportModule/standard_report_template.jpg" width="80%" align="center"/>
           </screenshot>
         </sect4>
         <sect4>
           <title>Row-based reports with multiple organizational units</title>
           <para>This type of report displays data elements’ name in the fixed columns, and organization units are be displayed automatically according to the selected parents organization unit in a period of time. These organization units are also grouped together following the administrative level, such as: province, district, commune, etc.</para>
           <screenshot>
-            <graphic fileref="resources/images/ExcelReportModule/list_org_unit_group_report_template.jpg" align="center"/>
+            <graphic fileref="resources/images/ExcelReportModule/list_org_unit_group_report_template.jpg" width="80%" align="center"/>
           </screenshot>
         </sect4>
         <sect4>
@@ -161,14 +161,14 @@
           <title>Reports list time periods in the columns</title>
           <para>This report display data values according to the fixed data element names, and the list of time periods are displayed automatically.</para>
           <screenshot>
-            <graphic fileref="resources/images/ExcelReportModule/list_time_period_report_template.jpg" align="center"/>
+            <graphic fileref="resources/images/ExcelReportModule/list_time_period_report_template.jpg" width="80%" align="center"/>
           </screenshot>
         </sect4>
         <sect4>
           <title>Reports with data elements and categories</title>
           <para>This type of report displays data values which are combined of data elements and category combination. Data element names display as rows and category options are displayed as columns. Data elements’ names, codes may be displayed automatically as well as the sequence numbers of the rows.</para>
           <screenshot>
-            <graphic fileref="resources/images/ExcelReportModule/dataelement_category_report_template.jpg" align="center"/>
+            <graphic fileref="resources/images/ExcelReportModule/dataelement_category_report_template.jpg" width="80%" align="center"/>
           </screenshot>
         </sect4>
       </sect3>
@@ -180,7 +180,7 @@
           <listitem>
             <para>Click <emphasis role="bold">Administration</emphasis> to open Administrator page.</para>
             <screenshot>
-              <graphic fileref="resources/images/ExcelReportModule/configure_directory.jpg" align="center"/>
+              <graphic fileref="resources/images/ExcelReportModule/configure_directory.jpg" width="80%" align="center"/>
             </screenshot>
           </listitem>
           <listitem>
@@ -190,7 +190,7 @@
             <para>Set a path to the folder containing excel file </para>
             <para>An Excel template directory is simply a directory that will be used to contain all the necessary files. It is recommended  to create this folder inside the <envar>DHIS2_HOME</envar> folder. </para>
             <screenshot>
-              <graphic fileref="resources/images/ExcelReportModule/configure_directory1.jpg" align="center"/>
+              <graphic fileref="resources/images/ExcelReportModule/configure_directory1.jpg" width="80%" align="center"/>
             </screenshot>
             <para>Click <emphasis role="bold">OK</emphasis> to save</para>
           </listitem>
@@ -212,15 +212,15 @@
         <title>Create new report </title>
         <para>Click <emphasis role="bold">List Of Reports</emphasis> </para>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/create_new_report.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/create_new_report.jpg" width="80%" align="center"/>
         </screenshot>
         <para>Add new report: Click Add button to add new report</para>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/add_new_report_button.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/add_new_report_button.jpg" width="80%" align="center"/>
         </screenshot>
         <para>Fill report information in this form</para>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/enter_report_information.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/enter_report_information.jpg" width="80%" align="center"/>
         </screenshot>
         <itemizedlist>
           <listitem>
@@ -257,30 +257,30 @@
           </listitem>
         </itemizedlist>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/list_of_reports.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/list_of_reports.jpg" width="80%" align="center"/>
         </screenshot>
         <para>There are four buttons that can be used for various actions as depicted below: </para>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/operating_buttons.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/operating_buttons.jpg" width="80%" align="center"/>
         </screenshot>
         <itemizedlist>
           <listitem>
-            <para>Report Associations    <inlinegraphic fileref="resources/images/ExcelReportModule/association_org_unit.jpg" align="center"/>For assigning reports to organization units</para>
+            <para>Report Associations    <inlinegraphic fileref="resources/images/ExcelReportModule/association_org_unit.jpg"/>For assigning reports to organization units</para>
           </listitem>
           <listitem>
-            <para>Report Item  <inlinegraphic fileref="resources/images/ExcelReportModule/report_item.jpg" align="center"/>For creating report items in the report</para>
+            <para>Report Item  <inlinegraphic fileref="resources/images/ExcelReportModule/report_item.jpg"/>For creating report items in the report</para>
           </listitem>
           <listitem>
-            <para>Remove  <inlinegraphic fileref="resources/images/ExcelReportModule/remove_report.jpg" align="center"/>For removing report</para>
+            <para>Remove  <inlinegraphic fileref="resources/images/ExcelReportModule/remove_report.jpg"/>For removing report</para>
           </listitem>
           <listitem>
-            <para>Edit  <inlinegraphic fileref="resources/images/ExcelReportModule/edit_report.jpg" align="center"/>for editing report’s information.</para>
+            <para>Edit  <inlinegraphic fileref="resources/images/ExcelReportModule/edit_report.jpg"/>for editing report’s information.</para>
           </listitem>
           <listitem>
-            <para>Organization unit Group    <inlinegraphic fileref="resources/images/ExcelReportModule/assign_org_unit_group.jpg" align="center"/>: For choose which organization group would be list in the report. This button only appear when the Report Type is Organization Unit Listing</para>
+            <para>Organization unit Group    <inlinegraphic fileref="resources/images/ExcelReportModule/assign_org_unit_group.jpg"/>: For choose which organization group would be list in the report. This button only appear when the Report Type is Organization Unit Listing</para>
           </listitem>
           <listitem>
-            <para>Data element groups <inlinegraphic fileref="resources/images/ExcelReportModule/assign_data_element_group.jpg" align="center"/> : This button for create Data element group and these groups of data elements would be list in the report. This button only available when report type is Category. </para>
+            <para>Data element groups <inlinegraphic fileref="resources/images/ExcelReportModule/assign_data_element_group.jpg"/> : This button for create Data element group and these groups of data elements would be list in the report. This button only available when report type is Category. </para>
           </listitem>
         </itemizedlist>
       </sect3>
@@ -288,15 +288,15 @@
         <title>Create report items</title>
         <para>Click <emphasis role="bold">Create Report Item</emphasis> button</para>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/create_item.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/create_item.jpg" width="80%" align="center"/>
         </screenshot>
         <para>Click <emphasis role="bold">Add</emphasis> button to open a form</para>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/report_item_function.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/report_item_function.jpg" width="80%" align="center"/>
         </screenshot>
         <para>Fill the report item’s information</para>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/enter_report_item_infor.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/enter_report_item_infor.jpg" width="80%" align="center"/>
         </screenshot>
         <itemizedlist>
           <listitem>
@@ -334,10 +334,10 @@
           <listitem>
             <para>Expression *: Click Expression button to choose Data element, Indicator, Or just type excel formula if Item type is Excel formula.</para>
             <screenshot>
-              <graphic fileref="resources/images/ExcelReportModule/create_expression.jpg" align="center"/>
+              <graphic fileref="resources/images/ExcelReportModule/create_expression.jpg" width="80%" align="center"/>
             </screenshot>
             <screenshot>
-              <graphic fileref="resources/images/ExcelReportModule/create_expression1.jpg" align="center"/>
+              <graphic fileref="resources/images/ExcelReportModule/create_expression1.jpg" width="80%" align="center"/>
             </screenshot>
             <para>The category option would be  <emphasis role="italic">default</emphasis> if data element hasn’t been combined with any category combo. Other options are described below:</para>
           </listitem>
@@ -355,11 +355,11 @@
           </listitem>
         </itemizedlist>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/new_report_item.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/new_report_item.jpg" width="80%" align="center"/>
         </screenshot>
         <para>New report item has been created</para>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/NewReportItem.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/NewReportItem.jpg" width="60%" align="center"/>
         </screenshot>
         <tip>
           <para>There must be at least one period type in a report.</para>
@@ -386,7 +386,7 @@
           </listitem>
         </orderedlist>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/copy_report_item.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/copy_report_item.jpg" width="80%" align="center"/>
         </screenshot>
         <tip>
           <para>Copy selected items to other reports for quickly developing many reports with the same data elements but with the different periods.</para>
@@ -399,21 +399,21 @@
         <title>Assign report to Org Units </title>
         <para>Click <emphasis role="bold">Report Associations</emphasis> button:</para>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/report_association.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/report_association.jpg" width="80%" align="center"/>
         </screenshot>
         <para>Chose Org Units to assign and click Save button</para>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/select_org_unit.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/select_org_unit.jpg" width="80%" align="center"/>
         </screenshot>
         <para>Select Org Unit groups which would be available in the report by clicking on each organizational unit. <!--This is not clear. Rephrase. -->There is a difference between Select Org Units to assign to report for OrgUnit generate reports later, which select org unit groups are list of OrgUnit groups would be available in reports.</para>
         <para>This function only appears in <emphasis role="bold">Organization Unit Listing</emphasis> report type. </para>
         <para>Click <emphasis role="bold">Organization Unit group</emphasis> button.</para>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/select_org_unit_group.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/select_org_unit_group.jpg" width="80%" align="center"/>
         </screenshot>
         <para>Select Organisation unit groups, arrange sequence of these groups, and click <emphasis role="bold">OK</emphasis> to save.</para>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/select_org_unit_group1.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/select_org_unit_group1.jpg" width="80%" align="center"/>
         </screenshot>
       </sect3>
       <sect3>
@@ -426,19 +426,19 @@
           <listitem>
             <para>From Left menu, chose User Role</para>
             <screenshot>
-              <graphic fileref="resources/images/ExcelReportModule/assign_user_role.jpg" align="center"/>
+              <graphic fileref="resources/images/ExcelReportModule/assign_user_role.jpg" width="80%" align="center"/>
             </screenshot>
           </listitem>
           <listitem>
             <para>Click <emphasis role="bold">Edit</emphasis> button to edit User role’s information</para>
             <screenshot>
-              <graphic fileref="resources/images/ExcelReportModule/edit_user_role.jpg" align="center"/>
+              <graphic fileref="resources/images/ExcelReportModule/edit_user_role.jpg" width="80%" align="center"/>
             </screenshot>
           </listitem>
           <listitem>
             <para>Select Excel reports, click <emphasis role="bold">Save</emphasis> button to assign excel reports to user role.</para>
             <screenshot>
-              <graphic fileref="resources/images/ExcelReportModule/select_excel_report.jpg" align="center"/>
+              <graphic fileref="resources/images/ExcelReportModule/select_excel_report.jpg" width="80%" align="center"/>
             </screenshot>
           </listitem>
         </orderedlist>
@@ -471,7 +471,7 @@
           <listitem>
             <para>Click Generate Report button</para>
             <screenshot>
-              <graphic fileref="resources/images/ExcelReportModule/generate_report.jpg" align="center"/>
+              <graphic fileref="resources/images/ExcelReportModule/generate_report.jpg" width="80%" align="center"/>
             </screenshot>
           </listitem>
         </orderedlist>
@@ -480,7 +480,7 @@
         <title>Generate advanced report</title>
         <para>This <emphasis role="italic">Generate Advanced Report</emphasis> function allow users to generate a report according to the parameters such as: <emphasis role="italic">Report group name</emphasis>, <emphasis role="italic">Report name</emphasis>, <emphasis role="italic">selected period</emphasis>, and <emphasis role="italic">organization unit</emphasis> <emphasis role="italic">group name</emphasis>. The difference between <emphasis role="italic">Generate Advanced Report</emphasis> function and <emphasis role="italic">Generate Report</emphasis> function is that  the advanced function is capable of  generating reports according to groups of Org Units withing the same level as depicted below.</para>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/advanced_generate_report.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/advanced_generate_report.jpg" width="80%" align="center"/>
         </screenshot>
       </sect3>
       <sect3>
@@ -519,10 +519,10 @@
           </listitem>
         </orderedlist>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/generate_individual_report1.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/generate_individual_report1.jpg" width="80%" align="center"/>
         </screenshot>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/generate_individual_report.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/generate_individual_report.jpg" width="80%" align="center"/>
         </screenshot>
       </sect3>
       <sect3>
@@ -553,15 +553,15 @@
           </listitem>
         </orderedlist>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/view_data_set_completed_report.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/view_data_set_completed_report.jpg" width="80%" align="center"/>
         </screenshot>
         <para>Example of view report by Period</para>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/view_data_set_completed_report_period.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/view_data_set_completed_report_period.jpg" width="80%" align="center"/>
         </screenshot>
         <para>Example of view report by data set</para>
         <screenshot>
-          <graphic fileref="resources/images/ExcelReportModule/view_data_set_completed_report_dataset.jpg" align="center"/>
+          <graphic fileref="resources/images/ExcelReportModule/view_data_set_completed_report_dataset.jpg" width="80%" align="center"/>
         </screenshot>
       </sect3>
       <sect3>
@@ -571,22 +571,22 @@
           <listitem>
             <para>Add data set to view</para>
             <screenshot>
-              <graphic fileref="resources/images/ExcelReportModule/data_entry_status.jpg" align="center"/>
+              <graphic fileref="resources/images/ExcelReportModule/data_entry_status.jpg" width="80%" align="center"/>
             </screenshot>
             <para><emphasis role="bold">Data Entry Status</emphasis> page would be displayed. Click <emphasis role="bold">Add</emphasis> button to add data set.</para>
             <screenshot>
-              <graphic fileref="resources/images/ExcelReportModule/add_dataset.jpg" align="center"/>
+              <graphic fileref="resources/images/ExcelReportModule/add_dataset.jpg" width="80%" align="center"/>
             </screenshot>
             <para>Select the desired data set and OrgUnit from the menu.</para>
             <screenshot>
-              <graphic fileref="resources/images/ExcelReportModule/add_dataset1.jpg" align="center"/>
+              <graphic fileref="resources/images/ExcelReportModule/add_dataset1.jpg" width="80%" align="center"/>
             </screenshot>
           </listitem>
           <listitem>
             <para>View Data entry status</para>
             <para>From Left menu, click Data Entry Status &gt; Select Org Unit name to view.</para>
             <screenshot>
-              <graphic fileref="resources/images/ExcelReportModule/data_entry_status1.jpg" align="center"/>
+              <graphic fileref="resources/images/ExcelReportModule/data_entry_status1.jpg" width="80%" align="center"/>
             </screenshot>
           </listitem>
         </orderedlist>

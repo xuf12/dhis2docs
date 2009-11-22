@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. -->
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <article>
   <articleinfo>
@@ -27,7 +28,7 @@
       </revision>
     </revhistory>
   </articleinfo>
-  <sect1>
+  <sect1 id="gis_1">
     <title>Conversion of geographical data to GeoJSON format</title>
     <para>The DHIS2 mapping client relies on GeoJSON files in order to display
     a map in the browser window. Often times, geographical data is received in
@@ -41,8 +42,8 @@
       <para>Geoserver is capable of outputting GeoJSON formats. If you have
       geoserver running someplace, you can execute the following query.</para>
       <para><ulink url="http://localhost:8080/geoserver/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typename=topp:states&amp;outputformat=json&amp;srs_name=EPSG:4326">http://localhost:8080/geoserver/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typename=topp:states&amp;outputformat=json&amp;srs_name=EPSG:4326</ulink></para>
-<para> Take note that you need to specify the spatial coordinate system. By defualt, Geoserver will return GeoJSON files with the format "long/lat" while
-the DHIS mapping client expects the ordering of the coordinates in "lat/long" format.  The expllicit declartaion of the spatial reference system will ensure that coordinates are returned in the proper order. At the time of writing, the DHIS mapping client does not support spatial reference systems other than EPSG 4326. If you are using Geoserver, the application will handle the reprojection from the native format of the geographical data to EPSG 4326. If you are using other methods as described below to generate the GeoJSON file, you will need to ensure that the GeoJSON output is set to EPSG 4326 (Geographical Lat/long). </para>
+      <para> Take note that you need to specify the spatial coordinate system. By defualt, Geoserver will return GeoJSON files with the format &quot;long/lat&quot; while
+the DHIS mapping client expects the ordering of the coordinates in &quot;lat/long&quot; format.  The expllicit declartaion of the spatial reference system will ensure that coordinates are returned in the proper order. At the time of writing, the DHIS mapping client does not support spatial reference systems other than EPSG 4326. If you are using Geoserver, the application will handle the reprojection from the native format of the geographical data to EPSG 4326. If you are using other methods as described below to generate the GeoJSON file, you will need to ensure that the GeoJSON output is set to EPSG 4326 (Geographical Lat/long). </para>
       <para>You will need to adjust the host destination if the machine is not
       your local machine as well as defining the actual layer in Geoserver
       which should be output to GeoJSON (in this case
@@ -78,7 +79,7 @@ the DHIS mapping client expects the ordering of the coordinates in "lat/long" fo
       it manually and copy your GeoJSON files there.</para>
     </sect2>
   </sect1>
-  <sect1>
+  <sect1 id="gis_2">
     <title>Administrator panel</title>
     <screenshot>
       <graphic fileref="resources/images/GIS/admin_panel.png" align="center"/>
@@ -109,7 +110,7 @@ the DHIS mapping client expects the ordering of the coordinates in "lat/long" fo
         </varlistentry>
       </variablelist></para>
   </sect1>
-  <sect1>
+  <sect1 id="gis_3">
     <title>Registering geographical information</title>
     <para>In order to view data in the GIS module, you must import your
     geographical data into your DHIS installation. Once you have produced
@@ -120,7 +121,7 @@ the DHIS mapping client expects the ordering of the coordinates in "lat/long" fo
       <screeninfo>Register Geodata Panel</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/GIS/register_geodata.png"/>
+          <imagedata fileref="resources/images/GIS/register_geodata.png" width="80%" align="center"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -159,7 +160,7 @@ the DHIS mapping client expects the ordering of the coordinates in "lat/long" fo
             <screeninfo>Identification of the name column with Geoserver&apos;s OpenLayers client</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/GIS/get_name_geoserver.png"/>
+                <imagedata fileref="resources/images/GIS/get_name_geoserver.png" width="80%" align="center"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -167,7 +168,7 @@ the DHIS mapping client expects the ordering of the coordinates in "lat/long" fo
             <screeninfo>Identification of the name column directly in the GeoJSON file</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/GIS/get_name_geojson.png"/>
+                <imagedata fileref="resources/images/GIS/get_name_geojson.png" width="80%" align="center"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -188,7 +189,7 @@ the DHIS mapping client expects the ordering of the coordinates in "lat/long" fo
             <screeninfo>Using Geoserver OpenLayers client to get the map center point</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/GIS/geoserver_center_point.png"/>
+                <imagedata fileref="resources/images/GIS/geoserver_center_point.png" width="80%" align="center"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -196,7 +197,7 @@ the DHIS mapping client expects the ordering of the coordinates in "lat/long" fo
             <screeninfo>Using DHIS GIS Module to get the map center point</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/GIS/dhis_gis_center_point.png"/>
+                <imagedata fileref="resources/images/GIS/dhis_gis_center_point.png" width="80%" align="center"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -213,7 +214,7 @@ the DHIS mapping client expects the ordering of the coordinates in "lat/long" fo
       </varlistentry>
     </variablelist>
   </sect1>
-  <sect1>
+  <sect1 id="gis_4">
     <title>Assign organization units to map</title>
     <para>Select a registered map and wait for it to load. The organisation
     units (OU) in your database on this level will appear in the list and
@@ -229,7 +230,7 @@ the DHIS mapping client expects the ordering of the coordinates in "lat/long" fo
       <screeninfo>Assigning Organizational Units to the map</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata width="" scale="100" scalefit="" fileref="resources/images/GIS/assign_org_units.png" vendor="" xml:base=""/>
+          <imagedata fileref="resources/images/GIS/assign_org_units.png" width="80%" align="center"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -237,7 +238,7 @@ the DHIS mapping client expects the ordering of the coordinates in "lat/long" fo
     link. The remove all button removes all OU links for the selected
     map.</para>
   </sect1>
-  <sect1>
+  <sect1 id="gis_5">
     <title>Register overlays</title>
     <para>Overlays are geographical layers that do not have any direct linkage
     to data in the database. Example include roads, rivers, airports, ports,
@@ -273,7 +274,7 @@ the DHIS mapping client expects the ordering of the coordinates in "lat/long" fo
       </listitem>
     </itemizedlist>
   </sect1>
-  <sect1>
+  <sect1 id="gis_6">
     <title>Thematic map</title>
     <para>This panel should be rather self-explanatory . Calculation method
     alludes to the legend interval size and set to <guimenuitem>Equal intervals</guimenuitem> they will be “highest map value – lowest map value
@@ -281,7 +282,7 @@ the DHIS mapping client expects the ordering of the coordinates in "lat/long" fo
     you may set your own legend limits, e.g. “20,40,60” using a comma to
     seperate each of the class break values. </para>
   </sect1>
-  <sect1>
+  <sect1 id="gis_7">
     <title>Register views</title>
     <para>This panel will save the current thematic map view in order to
     restore it whenever you want via the <guimenuitem>Map view </guimenuitem>combo box in the <guimenu>Thematic map</guimenu> panel. By
@@ -289,7 +290,7 @@ the DHIS mapping client expects the ordering of the coordinates in "lat/long" fo
     inserting <guimenuitem>Map views</guimenuitem> into one of link
     areas.</para>
   </sect1>
-  <sect1>
+  <sect1 id="gis_8">
     <title>Register legend sets</title>
     <para>A legend set may be connected to many indicators, but an indicator
     may only have one legend set. Thus, you may select many indicators when
