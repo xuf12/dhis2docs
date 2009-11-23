@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
 <!ENTITY br ''>]>
 <article>
   <articleinfo>
@@ -121,7 +121,7 @@
       </listitem>
       <listitem>
         <para>To download the latest revision of the DHIS2 documents project
-        type: <command>bzr branch lp:~dhis2-documenters/dhis2/dhis2-docbook-docs</command> if you are using Linux, or alternatively if you are using <productname>Windows</productname> type the url to the source code repository &quot;<ulink url="https://www.launchpad.net/~dhis2-documenters/dhis2/dhis2-docbook-docs">https://www.launchpad.net/~dhis2-documenters/dhis2/dhis2-docbook-docs</ulink>&quot;</para>
+        type: <command>bzr branch https://bazaar.launchpad.net/%7Edhis2-documenters/dhis2/dhis2-docbook-docs</command> if you are using Linux, or alternatively if you are using <productname>Windows</productname> type the url to the source code repository &quot;<ulink url="https://bazaar.launchpad.net/%7Edhis2-documenters/dhis2/dhis2-docbook-docs">http://bazaar.launchpad.net/%7Edhis2-documenters/dhis2/dhis2-docbook-docs</ulink>&quot;</para>
       </listitem>
       <listitem>
         <para>The download process should start and all the documentation
@@ -206,7 +206,7 @@
     <para>Just add an informative message of what you have done. Once you have
     committed changes to your local branch, you can push them to the master
     branch with the following command: <blockquote>
-        <para><command>bzr push lp:~dhis2-documenters/dhis2/dhis2-docbook-docs</command></para>
+        <para><command>bzr push https://bazaar.launchpad.net/%7Edhis2-documenters/dhis2/dhis2-docbook-docs </command></para>
       </blockquote></para>
     <para>If you have any questions, or cannot find that you can get started, just send an email with your problem to <email>dhis2-documenters@lists.launchpad.net</email>.</para>
   </section>
