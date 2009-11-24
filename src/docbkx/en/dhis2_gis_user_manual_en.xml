@@ -60,7 +60,7 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
       <title>Production of GeoJSON files with GDAL</title>
       <para>GDAL is a multi-platform toolkit for the manipulation of
       geographical data. It is freely available for a wide-range of platforms
-      at <ulink url="???">http://gdal.org</ulink></para>
+      at <ulink url="http://gdal.org">http://gdal.org</ulink></para>
       <para>Production of GeoJSON files are straightforward with GDAL. Just
       execute (on Windows)</para>
       <programlisting>ogr2ogr.exe -f &quot;GeoJSON&quot; dst_datasource_name src_datasource_name</programlisting>
@@ -82,7 +82,7 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
   <sect1 id="gis_2">
     <title>Administrator panel</title>
     <screenshot>
-      <graphic fileref="resources/images/GIS/admin_panel.png" align="center"/>
+      <graphic fileref="resources/images/GIS/admin_panel.png" align="center" />
     </screenshot>
     <para><variablelist>
         <varlistentry>
@@ -121,7 +121,7 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
       <screeninfo>Register Geodata Panel</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/GIS/register_geodata.png" width="80%" align="center"/>
+          <imagedata fileref="resources/images/GIS/register_geodata.png" align="center"/>
         </imageobject>
       </mediaobject>
     </screenshot>
