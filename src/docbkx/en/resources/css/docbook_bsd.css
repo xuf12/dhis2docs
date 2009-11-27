@@ -35,11 +35,14 @@ BODY BLOCKQUOTE {
 	margin-top: .75em; 
 	line-height: 1.5; 
 	margin-bottom: .75em; 
+	
 } 
  
 HTML BODY { 
-	margin: 1em 8% 1em 10%; 
+	margin: 2em 8% 1em 10%; 
 	line-height: 1.2; 
+	background-image:  url(/resources/images/HTMLStyle/Background.png);
+	background-repeat:no-repeat;
 } 
  
 .LEGALNOTICE { 
@@ -49,6 +52,7 @@ HTML BODY {
  
 BODY DIV { 
 	margin: 0; 
+	
 } 
  
 DL { 
@@ -65,7 +69,7 @@ DIV.EXAMPLE P B,
 .QUESTION, 
 DIV.TABLE P B, 
 DIV.PROCEDURE P B { 
-	color: #990000; 
+	color: #0099CC; 
 } 
  
 BODY H1, BODY H2, BODY H3, BODY H4, BODY H5, BODY H6 { 
