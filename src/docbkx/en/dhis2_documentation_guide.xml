@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. -->
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
 <!ENTITY br ''>]>
 <article>
@@ -36,7 +37,7 @@
       </revision>
     </revhistory>
   </articleinfo>
-  <section>
+  <section id="docs_1">
     <title>DHIS 2 Documentation System Overview</title>
     <para remap="">DHIS 2 is a web-based aggregate information management system under
     very active development. While primarily intended for management of aggregate, georeferenced health data, it should be possible to use the system for other purposes as well. Currently, there are a large number of
@@ -50,7 +51,7 @@
     users and developers. Readers are encouraged to make their own decision
     about whether to use DocBook or not for documentation purposes.</para>
   </section>
-  <section>
+  <section id="docs_2">
     <title>Introduction</title>
     <para>One of the main advantages of DocBook is that there is complete
     separation between the content and presentation. DocBook is a pure XML
@@ -83,7 +84,7 @@
     elements are &quot;screenshot&quot; and &quot;table&quot; which should be
     self-explanatory.</para>
   </section>
-  <section>
+  <section id="docs_3">
     <title>Getting started with Launchpad</title>
     <para>Currently, the documentation system is part of the source code
     housed at <ulink url="https://launchpad.net/">Launchpad</ulink>. Launchpad is a collaborative platform that enables multiple people to work on software projects collaboratively.  In order for this to be possible, a version control system is necessary in order to manage all the changes that multiple users may make. Launchpad uses the <emphasis>Bazaar</emphasis> source control system. While it is beyond the scope of this document to describe the functionality of <emphasis>Bazaar</emphasis>, users who wish to create documentation will need to gain at least a basic understanding of how the system works. A basic guide is provided in the next section. </para>
@@ -97,7 +98,7 @@
     you have been granted access to the group, you can commit changes to the
     documentation branch and send and receive emails on the groups&apos; list. </para>
   </section>
-  <section>
+  <section id="docs_4">
     <title>Getting the document source</title>
     <para>In order to edit the documentation, you will need to download the
     source pages of the documentation to your computer. Launchpad uses a
@@ -130,7 +131,7 @@
       </listitem>
     </orderedlist>
   </section>
-  <section>
+  <section id="docs_5">
     <title>Editing the documentation</title>
     <para>Once you have downloaded the source, you should have a series of
     folders inside of the dhis2-docbook-docs directory. All documents should
@@ -142,7 +143,7 @@
     automatically copied over to the correct directory during the build
     process.</para>
   </section>
-  <section>
+  <section id="docs_6">
     <title>Using images</title>
     <para>Screenshots are very useful for providing information to users on how particular actions should be performed. DocBook has no intrinsic mechanisms to know exactly how an image should be rendered in the final document. Therefore, it is necessary to provide instructions through element attributes.    
  The following XML code fragment demonstrates how an image can be specified to occupy 80% of the available page width. For screenshots in landscape format, this seems to be an appropriate amount. </para>
@@ -156,7 +157,7 @@
     &lt;/screenshot&gt;</literallayout>
     <para>For other images, depending on their size, a different value may be necessary. If you do not specify a width for you image, and its intrinsic size is larger than the available screen width, the image may overflow in certain document types with a fixed width, such as PDF. </para>
   </section>
-  <section>
+  <section id="docs_7">
     <title>Linking documents together</title>
     <para>DocBook provides a modular framework where many seperate documents can be linked together into a master document. Fragments from different documents can also be reused in different contexts. DocBook provides a mechanism to assign an id to a XML .  In the example below, a section has been assigned an id. This id must be unique within the document. </para>
     <para><literallayout>  &lt;sect1 id=&quot;mod2_1&quot;&gt;
@@ -169,11 +170,11 @@
 </literallayout></para>
     <para>Note that the filename and id have been assigned in the parent document, referring to the actual file (href) and particular fragment of the child document that should be referenced in the parent document (xpointer). </para>
   </section>
-  <section>
+  <section id="docs_8">
     <title>Handling multilingual documentation</title>
     <para>The directory structure of the documentation has been created in order to facilitate the creation of documents in any language. If you want to create a new set of documents in a given language, simply create a new directory in the <filename>dhis2-docbook-docs/src/docbkx/</filename> directory. Be sure to use the ISO 639-1 code for the language you are going to create documents in. A complete list of these codes can be found <ulink url="http://en.wikipedia.org/wiki/ISO_639-1">here</ulink>. Add a new folder for images in a sub-directory , replacing XX with the actual ISO 639-1 code for the language you will create documents in. You will also need to edit the pom.xml file in the main dhis2-docbook-docs directory. If you are unsure of what changes need to be made to this file, ask on the mailing list first, as this file controls the generation of all the documentation. </para>
   </section>
-  <section>
+  <section id="docs_9">
     <title>Building the documentation</title>
     <para>In order to transform the documentation source files to different
     format, such as HTML or PDF, you will need to install the Apache Maven
@@ -191,7 +192,7 @@
     documents will be in the HTML directory, and PDF documents will be in the
     PDF directory.</para>
   </section>
-  <section>
+  <section id="docs_10">
     <title>Committing your changes back to Launchpad</title>
     <para>Once you have finished editing your document, you will need to
     commit your changes back to Launchpad. Open up a command prompt on Windows
