@@ -1,25 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <book>
   <title>DHIS 2 User Manual</title>
-  <chapter>
-    <title>What is DHIS 2?</title>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_mod1.xml" xpointer="mod1_1" encoding="UTF-8"/>
-  </chapter>
-  <chapter>
-    <title>Getting started with DHIS2</title>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_mod2.xml" xpointer="mod2_1" encoding="UTF-8"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_mod2.xml" xpointer="mod2_2" encoding="UTF-8"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_mod2.xml" xpointer="mod2_3" encoding="UTF-8"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_mod2.xml" xpointer="mod2_4" encoding="UTF-8"/>
-  </chapter>
-  <chapter>
-    <title>Data entry with DHIS2</title>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_mod3.xml" xpointer="mod3_1" encoding="UTF-8"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_mod3.xml" xpointer="mod3_2" encoding="UTF-8"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_mod3.xml" xpointer="mod3_3" encoding="UTF-8"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_mod3.xml" xpointer="mod3_4" encoding="UTF-8"/>
-  </chapter>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_mod1.xml" encoding="UTF-8"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_mod2.xml" encoding="UTF-8"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_mod3.xml" encoding="UTF-8"/>
   <appendix>
     <title>DHIS2 GIS Module User Manual</title>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_gis_user_manual_en.xml" xpointer="gis_1" encoding="UTF-8"/>
@@ -40,26 +25,34 @@
   </appendix>
   <appendix>
     <title> DHIS Documentation Guide</title>
-     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_1" encoding="UTF-8"/>
-     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_2" encoding="UTF-8"/>
-     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_3" encoding="UTF-8"/>
-     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_4" encoding="UTF-8"/>
-     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_5" encoding="UTF-8"/>
-     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_6" encoding="UTF-8"/>
-     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_7" encoding="UTF-8"/>
-     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_8" encoding="UTF-8"/>
-     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_9" encoding="UTF-8"/>
-     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_10" encoding="UTF-8"/>
-   </appendix>
-   <appendix>
-     <title> DHIS Technical Architecture Guide</title>
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_technical_architechture_guide.xml" xpointer="arch_1" encoding="UTF-8"/>
-        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_technical_architechture_guide.xml" xpointer="arch_2" encoding="UTF-8"/>
-        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_technical_architechture_guide.xml" xpointer="arch_3" encoding="UTF-8"/>
-        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_technical_architechture_guide.xml" xpointer="arch_4" encoding="UTF-8"/>
-        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_technical_architechture_guide.xml" xpointer="arch_5" encoding="UTF-8"/>
-        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_technical_architechture_guide.xml" xpointer="arch_6" encoding="UTF-8"/>
-        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_technical_architechture_guide.xml" xpointer="arch_7" encoding="UTF-8"/>
-        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_technical_architechture_guide.xml" xpointer="arch_8" encoding="UTF-8"/>
-     </appendix>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_1" encoding="UTF-8"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_2" encoding="UTF-8"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_3" encoding="UTF-8"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_4" encoding="UTF-8"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_5" encoding="UTF-8"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_6" encoding="UTF-8"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_7" encoding="UTF-8"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_8" encoding="UTF-8"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_9" encoding="UTF-8"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" xpointer="docs_10" encoding="UTF-8"/>
+  </appendix>
+  <appendix>
+    <title> DHIS Technical Architecture Guide</title>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_technical_architechture_guide.xml" xpointer="arch_1" encoding="UTF-8"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_technical_architechture_guide.xml" xpointer="arch_2" encoding="UTF-8"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_technical_architechture_guide.xml" xpointer="arch_3" encoding="UTF-8"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_technical_architechture_guide.xml" xpointer="arch_4" encoding="UTF-8"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_technical_architechture_guide.xml" xpointer="arch_5" encoding="UTF-8"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_technical_architechture_guide.xml" xpointer="arch_6" encoding="UTF-8"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_technical_architechture_guide.xml" xpointer="arch_7" encoding="UTF-8"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_technical_architechture_guide.xml" xpointer="arch_8" encoding="UTF-8"/>
+  </appendix>
+  <!-- <glossary role="auto">
+    <glossentry>
+      <glossterm>Bogus</glossterm>
+      <glossdef>
+        <para>If you see this, the  <parameter>glossary.collection</parameter> was not set. </para>
+      </glossdef>
+    </glossentry>
+  </glossary> -->
 </book>

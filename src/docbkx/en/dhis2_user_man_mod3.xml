@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
-<article>
-  <articleinfo>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<chapter>
+  <chapterinfo>
     <title>Data entry with DHIS2</title>
     <author>
       <firstname/>
@@ -11,8 +11,9 @@
       </affiliation>
     </author>
     <pubdate/>
-  </articleinfo>
-  <sect1 id="mod3_1">
+  </chapterinfo>
+  <title>Data entry with DHIS2</title> 
+  <section id="mod3_1">
     <title>Learning Objectives</title>
     <highlights>
       <para>After reading this chapter you will be able to understand:</para>
@@ -28,8 +29,8 @@
         </listitem>
       </itemizedlist>
     </highlights>
-  </sect1>
-  <sect1 id="mod3_2">
+  </section>
+  <section id="mod3_2">
     <title>Opening the “Data Entry” screen</title>
     <para>Entering data in DHIS 2 is a very simple task, and involves the
     following steps. Click on the services tab displayed on the main menu. A
@@ -54,8 +55,8 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-  </sect1>
-  <sect1 id="mod3_3">
+  </section>
+  <section id="mod3_3">
     <title>Navigate organisation tree and select organisation unit</title>
     <para>In order to enter data you will first have to select the particular
     organization unit (e.g. Sub Centre/PHC/districts etc) for which you are
@@ -70,8 +71,8 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-  </sect1>
-  <sect1 id="mod3_4">
+  </section>
+  <section id="mod3_4">
     <title>Entering data</title>
     <para>When you select an organisational unit (or orgunit) from the
     organisation unit tree, datasets available for this orgunit will then
@@ -89,5 +90,5 @@
     authorized to enter data. For now we shall limit our concern to data
     entry. You will learn to create and assign datasets to specific
     organization unit in a later module. </para>
-  </sect1>
-</article>
+  </section>
+</chapter>

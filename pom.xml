@@ -41,7 +41,13 @@
           <sourceDirectory>${basedir}/src/docbkx/en/</sourceDirectory>
 	 <xincludeSupported>true</xincludeSupported>
           <includes>*.xml</includes>
-          
+<customizationParameters>
+    <parameter>
+      <name>glossary.collection</name>
+
+<value>${basedir}/src/docbkx/en/resources/glossary/glossary_en.xml</value>
+    </parameter>
+  </customizationParameters>
           <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
 
           <postProcess>

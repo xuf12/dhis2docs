@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
-<article>
-  <articleinfo>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<chapter>
+  <chapterinfo>
     <date>17/09/09</date>
     <title>Getting started with DHIS 2</title>
     <author>
@@ -20,8 +20,9 @@
         </revdescription>
       </revision>
     </revhistory>
-  </articleinfo>
-  <sect1 id="mod2_1">
+  </chapterinfo>
+<title>Getting started with DHIS 2</title>  
+<section id="mod2_1">
     <title>Getting started with DHIS2</title>
     <highlights>
       <para>After reading this chapter you will be able to understand:</para>
@@ -37,14 +38,14 @@
         </listitem>
       </itemizedlist>
     </highlights>
-    <sect2>
+    <section>
       <title>Downloading and installing the desktop version</title>
       <para>The easist way to get started with the application is to download
       the DHIS2 Live package. This version of the applicaiton comes
       prepackaged, and requires on a single download. You can get the latest
       version <ulink url="http://hispkerala.org/dhis2/release/dhis2-live-2.0.2.zip" type="" userlevel="">here</ulink>.</para>
-    </sect2>
-    <sect2>
+    </section>
+    <section>
       <title>Downloading and installing the server version</title>
       <para>As described in the previous module, DHIS2 functions both as a
       desktop application, as well as a web-enabled client-server application.
@@ -54,13 +55,13 @@
       found <ulink url="http://code.launchpad.net/dhis2/2.0.2/2.0.2-release/+download/dhis.war">here</ulink>.
       A seperate guide describing the installation and setup of the server
       version can be found is also available.</para>
-    </sect2>
-    <sect2>
+    </section>
+    <section>
       <title>Starting the DHIS2 Live package</title>
       <para>Placeholder for this text.</para>
-    </sect2>
-  </sect1>
-  <sect1 id="mod2_2">
+    </section>
+  </section>
+  <section id="mod2_2">
     <title>Logging on to DHIS2</title>
     <para>Regardless of whether you have installed the server version of the
     desktop Live version, you will use a web-browser to logon to the
@@ -81,12 +82,12 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-  </sect1>
-  <sect1 id="mod2_3">
+  </section>
+  <section id="mod2_3">
     <title>Creating new users and roles</title>
     <para>This section will describe how to add new users to the DHIS 2
     application.</para>
-    <sect2>
+    <section>
       <title>Open User Menu</title>
       <para>To create or find a user begin with clicking on the ‘user’ module
       displayed in the drop down menu of the Maintenance module located on the
@@ -112,8 +113,8 @@
       <para>You can search for specific user names in the user list by
       entering the name in the ‘filter by username’ field as shown
       above.</para>
-    </sect2>
-    <sect2>
+    </section>
+    <section>
       <title>Define a new role</title>
       <para>As part of creating a username you are required to define the user
       role. Do so by clicking on the ‘user role’ appearing on the left side of
@@ -181,8 +182,8 @@
       displayed screen. The desired user role and related authorization will
       be saved to the database, and can then be assigned to a particular
       user.</para>
-    </sect2>
-    <sect2>
+    </section>
+    <section>
       <title>Add New User</title>
       <para>Under particular user role there can be more than one user. To add
       new users go to the User options under the Maintenance module.</para>
@@ -240,9 +241,9 @@
           </screenshot>
         </listitem>
       </itemizedlist>
-    </sect2>
-  </sect1>
-  <sect1 id="mod2_4">
+    </section>
+  </section>
+  <section id="mod2_4">
     <title>Logging off of DHIS2</title>
     <para>Just click on the <guibutton>Log off</guibutton> button to exit the
     application.</para>
@@ -254,5 +255,5 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-  </sect1>
-</article>
+  </section>
+</chapter>
