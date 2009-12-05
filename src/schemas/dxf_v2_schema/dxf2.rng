@@ -6,38 +6,51 @@
     dxf2.rnc and dxf.xsd are derived using jing
     
     TODO:
-    ns="http://www.dhis2.org/schema/dxf" >
+    fix up consistent naming of idref attributes
+    fix sample data
+    add missing elements
   -->
   <!-- These are toplevel elements of dxf format -->
+  
   <start>
     <element name="dxf" ns="http://dhis2.org/ns/schema/dxf2">
+
+      <!--
+        Metadata section
+        This is a rough grouping of the sections
+        as they appear in the file.
+        Currently each section is optional.
+      -->
+      
       <element name="metadata">
+
         <optional>
-          <!--
-          Metadata section
-          This is a rough grouping of the sections
-          as they appear in the file.
-          Each section is optional.
-        -->
-          <ref name="MultiDimensionalElements"/>
+          <ref name="OrgUnitDefinition"/>
         </optional>
+
+        <optional>
+          <ref name="CategoryDimensions"/>
+        </optional>
+
         <optional>
           <ref name="DataElementDefinition"/>
         </optional>
         <optional>
           <ref name="IndicatorDefinition"/>
         </optional>
+
         <optional>
-          <ref name="DataDictionaryDefinition"/>
+          <ref name="GroupSetDimensions"/>
         </optional>
+        
         <optional>
           <ref name="DataSetDefinition"/>
         </optional>
         <optional>
-          <ref name="OrgUnitDefinition"/>
+          <ref name="DataDictionaryDefinition"/>
         </optional>
         <optional>
-          <ref name="periods"/>
+          <ref name="Periods"/>
         </optional>
         <optional>
           <ref name="ReportTableDefinition"/>
@@ -47,9 +60,11 @@
         </optional>
       </element>
 
+      <!-- DataValues -->
       <optional>
-        <!-- DataValues -->
-        <ref name="dataValues"/>
+        <element name="dataValues" ns="http://dhis2.org/ns/schema/dxf2">
+          <ref name="dataValues"/>
+        </element>
       </optional>
     </element>
   </start>
@@ -58,40 +73,41 @@
     
     Each of the MetaData groups is a sequence of elements
     
-    
   -->
-  <define name="MultiDimensionalElements">
+  <define name="DataDictionaryDefinition">
+    <ref name="dataDictionaries"/>
+  </define>
+  
+  <define name="CategoryDimensions">
     <ref name="categories"/>
     <ref name="categoryCombos"/>
     <ref name="categoryOptionCombos"/>
   </define>
+
   <define name="DataElementDefinition">
     <ref name="dataElements"/>
-    <ref name="dataElementGroupSets"/>
   </define>
+
   <define name="IndicatorDefinition">
     <ref name="indicatorTypes"/>
     <ref name="indicators"/>
-    <ref name="IndicatorGroupSets"/>
   </define>
-  <define name="DataDictionaryDefinition">
-    <ref name="dataDictionaries"/>
-    <ref name="dataDictionaryDataElements"/>
-    <ref name="dataDictionaryIndicators"/>
+
+  <define name="GroupSetDimensions">
+    <ref name="dataElementGroupSets"/>
+    <ref name="indicatorGroupSets"/>
   </define>
+  
   <define name="DataSetDefinition">
     <ref name="dataSets"/>
-    <ref name="dataSetMembers"/>
   </define>
   <define name="OrgUnitDefinition">
-    <ref name="organisationUnits"/>
-    <ref name="organisationUnitRelationships"/>
-    <ref name="organisationUnitGroups"/>
-    <ref name="organisationUnitGroupMembers"/>
-    <ref name="groupSets"/>
-    <ref name="groupSetMembers"/>
-    <ref name="organisationUnitLevels"/>
-    <ref name="dataSetSourceAssociations"/>
+    <element name="orgUnitStructure" ns="http://dhis2.org/ns/schema/dxf2">
+      <ref name="organisationGroupSets"/>
+      <ref name="organisationUnitGroups"/>
+      <ref name="organisationUnits"/>
+      <ref name="organisationUnitLevels"/>
+    </element>
   </define>
   <define name="ReportTableDefinition">
     <ref name="reportTables"/>
@@ -106,9 +122,9 @@
 
   <!-- common base for identifiable objects -->
   <define name="identifiableObject" ns="http://dhis2.org/ns/schema/dxf2">
-    <element name="id">
-      <data type="integer"></data>
-    </element>
+    <attribute name="id">
+      <data type="ID"/>
+    </attribute>
     <element name="uuid">
       <text/>
     </element>
@@ -161,9 +177,9 @@
 
   <define name="categoryCombo">
     <element name="categoryCombo" ns="http://dhis2.org/ns/schema/dxf2">
-      <element name="id">
-        <data type="integer"/>
-      </element>
+      <attribute name="id">
+        <data type="ID"/>
+      </attribute>
       <element name="name">
         <text/>
       </element>
@@ -182,12 +198,14 @@
       <zeroOrMore>
         <element name="categoryOptionCombo">
           <ref name="identifiableObject"/>
-          <element name="categoryComboId">
-            <data type="integer"/>
-          </element>
+          <attribute name="categoryComboId">
+            <data type="IDREF"/>
+          </attribute>
           <zeroOrMore>
-            <element name="categoryOptionId">
-              <data type="integer"/>
+            <element name="categoryoptionID">
+              <attribute name="id">
+                <data type="IDREF"></data>
+              </attribute>
             </element>
           </zeroOrMore>
         </element>
@@ -195,6 +213,54 @@
     </element>
   </define>
 
+  <define name="dataElementGroupSets">
+    <element name="dataElementGroupSets" ns="http://dhis2.org/ns/schema/dxf2">
+      <zeroOrMore>
+        <element name="dataElementGroupSet">
+          <ref name="identifiableObject"/>
+          <element name="Groups">
+            <zeroOrMore>
+              <element name="dataElementGroup">
+                <ref name="identifiableObject"/>
+                <zeroOrMore>
+                  <element name="dataElementID">
+                    <attribute name="id">
+                      <data type="ID"/>
+                    </attribute>
+                  </element>
+                </zeroOrMore>
+              </element>
+            </zeroOrMore>
+          </element>
+        </element>
+      </zeroOrMore>
+    </element>
+  </define>
+  
+  <define name="indicatorGroupSets">
+    <element name="indicatorGroupSets" ns="http://dhis2.org/ns/schema/dxf2">
+      <zeroOrMore>
+        <element name="indicatorGroupSet">
+          <ref name="identifiableObject"/>
+          <element name="Groups">
+            <zeroOrMore>
+              <element name="indicatorGroup">
+                <ref name="identifiableObject"/>
+                <zeroOrMore>
+                  <element name="indicator">
+                    <attribute name="id">
+                      <data type="ID"/>
+                    </attribute>
+                  </element>
+                </zeroOrMore>
+              </element>
+            </zeroOrMore>
+          </element>
+        </element>
+      </zeroOrMore>
+    </element>
+  </define>
+  
   <!-- DataElementDefinition -->
   <define name="dataElements">
     <element name="dataElements" ns="http://dhis2.org/ns/schema/dxf2">
@@ -205,6 +271,9 @@
   </define>
   <define name="dataElement">
     <element name="dataElement" ns="http://dhis2.org/ns/schema/dxf2">
+      <attribute name="categoryCombo">
+        <data type="IDREF"/>
+      </attribute>
       <ref name="identifiableObject"/>
       <element name="active">
         <text/>
@@ -215,29 +284,6 @@
       <element name="aggregationOperator">
         <text/>
       </element>
-      <element name="categoryCombo">
-        <data type="integer"/>
-      </element>
-    </element>
-  </define>
-
-  <define name="dataElementGroupSets">
-    <element name="dataElementGroupSets" ns="http://dhis2.org/ns/schema/dxf2">
-      <zeroOrMore>
-        <element name="dataElementGroupSet">
-          <ref name="identifiableObject"/>
-          <oneOrMore>
-            <element name="dataElementGroup">
-              <ref name="identifiableObject"/>
-              <oneOrMore>
-                <element name="dataElementId">
-                  <data type="integer"/>
-                </element>
-              </oneOrMore>
-            </element>
-          </oneOrMore>
-        </element>
-      </zeroOrMore>
     </element>
   </define>
 
@@ -246,9 +292,9 @@
     <element name="indicatorTypes" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="indicatorType">
-          <element name="id">
-            <data type="integer"/>
-          </element>
+          <attribute name="id">
+            <data type="ID"/>
+          </attribute>
           <element name="name">
             <text/>
           </element>
@@ -259,6 +305,7 @@
       </zeroOrMore>
     </element>
   </define>
+  
   <define name="indicators">
     <element name="indicators" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
@@ -267,9 +314,9 @@
           <element name="annualized">
             <text/>
           </element>
-          <element name="indicatorType">
-            <data type="integer"/>
-          </element>
+          <attribute name="indicatorType">
+            <data type="IDREF"/>
+          </attribute>
           <element name="numerator">
             <text/>
           </element>
@@ -287,6 +334,15 @@
           </element>
           <element name="denominatorAggregationOperator">
             <text/>
+          </element>
+          <element name="dataDictionaries">
+            <zeroOrMore>
+              <element name="datadictionary">
+                <attribute name="id">
+                  <data type="IDREF"/>
+                </attribute>
+              </element>
+            </zeroOrMore>
           </element>
         </element>
       </zeroOrMore>
@@ -309,14 +365,15 @@
       </zeroOrMore>
     </element>
   </define>
+  
   <!-- Data Dictionary Definition -->
   <define name="dataDictionaries">
     <element name="dataDictionaries" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="dataDictionary">
-          <element name="id">
-            <data type="integer"/>
-          </element>
+          <attribute name="id">
+            <data type="ID"/>
+          </attribute>
           <element name="name">
             <text/>
           </element>
@@ -326,46 +383,26 @@
           <element name="region">
             <text/>
           </element>
-        </element>
-      </zeroOrMore>
-    </element>
-  </define>
-  <define name="dataDictionaryDataElements">
-    <element name="dataDictionaryDataElements" ns="http://dhis2.org/ns/schema/dxf2">
-      <zeroOrMore>
-        <element name="dataDictionaryDataElement">
-          <element name="dataDictionary">
-            <data type="integer"/>
-          </element>
-          <element name="dataElement">
-            <data type="integer"/>
+          <element name="dataelements">
+            <zeroOrMore>
+              <element name="dataelementid">
+                <data type="integer"/>
+              </element>
+            </zeroOrMore>
           </element>
         </element>
       </zeroOrMore>
     </element>
   </define>
-  <define name="dataDictionaryIndicators">
-    <element name="dataDictionaryIndicators" ns="http://dhis2.org/ns/schema/dxf2">
-      <zeroOrMore>
-        <element name="dataDictionaryIndicator">
-          <element name="dataDictionary">
-            <data type="integer"/>
-          </element>
-          <element name="indicator">
-            <data type="integer"/>
-          </element>
-        </element>
-      </zeroOrMore>
-    </element>
-  </define>
+  
   <!-- DataSet Definition -->
   <define name="dataSets">
     <element name="dataSets" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="dataSet">
-          <element name="id">
-            <data type="integer"/>
-          </element>
+          <attribute name="id">
+            <data type="ID"/>
+          </attribute>
           <element name="name">
             <text/>
           </element>
@@ -378,115 +415,29 @@
           <element name="periodType">
             <text/>
           </element>
-        </element>
-      </zeroOrMore>
-    </element>
-  </define>
-  <define name="dataSetMembers">
-    <element name="dataSetMembers" ns="http://dhis2.org/ns/schema/dxf2">
-      <!-- TODO: check dataSetMembers -->
-      <ref name="anyElements"/>
-    </element>
-  </define>
-  <!-- Organisation Unit Definition -->
-  <define name="organisationUnits">
-    <element name="organisationUnits" ns="http://dhis2.org/ns/schema/dxf2">
-      <zeroOrMore>
-        <ref name="organisationUnit"/>
-      </zeroOrMore>
-    </element>
-  </define>
-  <define name="organisationUnit">
-    <element name="organisationUnit" ns="http://dhis2.org/ns/schema/dxf2">
-      <group>
-        <element name="id">
-          <data type="integer"/>
-        </element>
-        <element name="uuid">
-          <text/>
-        </element>
-        <element name="name">
-          <text/>
-        </element>
-        <element name="shortName">
-          <text/>
-        </element>
-        <element name="code">
-          <text/>
-        </element>
-        <!-- <element name="openingDate"><data type="date"/></element> -->
-        <element name="openingDate">
-          <text/>
-        </element>
-        <!-- TODO: accept Date or nothing -->
-        <element name="closedDate">
-          <text/>
-        </element>
-        <element name="active">
-          <text/>
-        </element>
-        <element name="comment">
-          <text/>
-        </element>
-        <element name="geoCode">
-          <text/>
-        </element>
-      </group>
-      <!-- TODO: URL in dxf? -->
-    </element>
-  </define>
-  <define name="organisationUnitRelationships">
-    <element name="organisationUnitRelationships" ns="http://dhis2.org/ns/schema/dxf2">
-      <zeroOrMore>
-        <element name="organisationUnitRelationship">
-          <element name="parent">
-            <data type="integer"/>
-          </element>
-          <element name="child">
-            <data type="integer"/>
+          <element name="dataelements">
+            <zeroOrMore>
+              <element name="dataelement">
+                <attribute name="id">
+                  <data type="ID"/>
+                </attribute>
+              </element>
+            </zeroOrMore>
           </element>
         </element>
       </zeroOrMore>
     </element>
   </define>
-  <define name="organisationUnitGroups">
-    <element name="organisationUnitGroups" ns="http://dhis2.org/ns/schema/dxf2">
-      <zeroOrMore>
-        <element name="organisationUnitGroup">
-          <element name="id">
-            <data type="integer"/>
-          </element>
-          <element name="uuid">
-            <text/>
-          </element>
-          <element name="name">
-            <text/>
-          </element>
-        </element>
-      </zeroOrMore>
-    </element>
-  </define>
-  <define name="organisationUnitGroupMembers">
-    <element name="organisationUnitGroupMembers" ns="http://dhis2.org/ns/schema/dxf2">
-      <zeroOrMore>
-        <element name="organisationUnitGroupMember">
-          <element name="organisationUnitGroup">
-            <data type="integer"/>
-          </element>
-          <element name="organisationUnit">
-            <data type="integer"/>
-          </element>
-        </element>
-      </zeroOrMore>
-    </element>
-  </define>
-  <define name="groupSets">
+  
+  
+    <!-- Organisation Unit Definition -->
+  <define name="organisationGroupSets">
     <element name="groupSets" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="groupSet">
-          <element name="id">
-            <data type="integer"/>
-          </element>
+          <attribute name="id">
+            <data type="ID"/>
+          </attribute>
           <element name="name">
             <text/>
           </element>
@@ -509,27 +460,94 @@
       </zeroOrMore>
     </element>
   </define>
-  <define name="groupSetMembers" ns="http://dhis2.org/ns/schema/dxf2">
-    <element name="groupSetMembers">
+  
+  <define name="organisationUnitGroups">
+    <element name="organisationUnitGroups" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
-        <element name="groupSetMember">
-          <element name="groupSet">
-            <data type="integer"/>
+        <element name="organisationUnitGroup">
+          <attribute name="id">
+            <data type="ID"/>
+          </attribute>
+          <element name="uuid">
+            <text/>
           </element>
-          <element name="organisationUnitGroup">
-            <data type="integer"/>
+          <element name="name">
+            <text/>
+          </element>
+          <!--An organisation group can be a member of zero or more groupsets          -->
+          <element name="groupSets">
+            <zeroOrMore>
+              <element name="groupSet">
+                <attribute name="id">
+                  <data type="ID"/>
+                </attribute>
+              </element>
+            </zeroOrMore>
           </element>
         </element>
       </zeroOrMore>
     </element>
   </define>
-  <define name="organisationUnitLevels" >
+  
+  <define name="organisationUnits">
+    <element name="organisationUnits" ns="http://dhis2.org/ns/schema/dxf2">
+      <zeroOrMore>
+        <ref name="organisationUnit"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="organisationUnit">
+    <element name="organisationUnit" ns="http://dhis2.org/ns/schema/dxf2">
+      <ref name="identifiableObject"/>
+        <!-- <element name="openingDate"><data type="date"/></element> -->
+        <element name="openingDate">
+          <text/>
+        </element>
+        <!-- TODO: accept Date or nothing -->
+        <element name="closedDate">
+          <text/>
+        </element>
+        <element name="active">
+          <text/>
+        </element>
+        <element name="comment">
+          <text/>
+        </element>
+        <element name="geoCode">
+          <text/>
+        </element>
+        <!--        An orgunit has zero or more dataSets associated with it-->
+        <element name="dataSets">
+          <zeroOrMore>
+            <element name="dataSetID">
+              <data type="integer"/>
+            </element>
+          </zeroOrMore>
+        </element>
+        <!--An organisation can be a member of zero or more groups          -->
+        <element name="organisationGroups">
+          <zeroOrMore>
+            <element name="OrganisationGroup">
+              <data type="integer"/>
+            </element>
+          </zeroOrMore>
+        </element>
+<!--        An organisation unit is part of a hierarchical tree-->
+        <element name="children">
+          <zeroOrMore>
+            <ref name="organisationUnit"/>
+          </zeroOrMore>
+        </element>
+    </element>
+  </define>
+  
+  <define name="organisationUnitLevels">
     <element name="organisationUnitLevels" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="organisationUnitLevel">
-          <element name="id">
-            <data type="integer"/>
-          </element>
+          <attribute name="id">
+            <data type="ID"/>
+          </attribute>
           <element name="level">
             <data type="integer"/>
           </element>
@@ -540,28 +558,15 @@
       </zeroOrMore>
     </element>
   </define>
-  <define name="dataSetSourceAssociations">
-    <element name="dataSetSourceAssociations" ns="http://dhis2.org/ns/schema/dxf2">
-      <zeroOrMore>
-        <element name="dataSetSourceAssociation">
-          <element name="dataSet">
-            <data type="integer"/>
-          </element>
-          <element name="source">
-            <data type="integer"/>
-          </element>
-        </element>
-      </zeroOrMore>
-    </element>
-  </define>
+  
   <!-- Periods -->
-  <define name="periods">
+  <define name="Periods">
     <element name="periods" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="period">
-          <element name="id">
-            <data type="integer"/>
-          </element>
+          <attribute name="id">
+            <data type="ID"/>
+          </attribute>
           <element name="periodType">
             <text/>
           </element>
@@ -575,14 +580,15 @@
       </zeroOrMore>
     </element>
   </define>
+
   <!-- ReportTable Definition -->
   <define name="reportTables">
     <element name="reportTables" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
         <element name="reportTable">
-          <element name="id">
-            <data type="integer"/>
-          </element>
+          <attribute name="id">
+            <data type="ID"/>
+          </attribute>
           <element name="name">
             <text/>
           </element>
@@ -721,23 +727,50 @@
               <value>false</value>
             </choice>
           </element>
+          
+          <element name="dataelements">
+            <zeroOrMore>
+              <element name="dataelement">
+                <attribute name="id">
+                  <data type="ID"/>
+                </attribute>
+              </element>
+            </zeroOrMore>
+          </element>
+            
+          
         </element>
       </zeroOrMore>
     </element>
   </define>
+  
   <define name="reportTableDataElements">
     <element name="reportTableDataElements" ns="http://dhis2.org/ns/schema/dxf2">
       <!-- TODO: check for proper children -->
-      <ref name="anyElements"/>
+      <element name="reportTableDataElement">
+        <attribute name="reportTable">
+          <data type="IDREF"/>
+        </attribute>
+        <attribute name="dataElement">
+          <data type="IDREF"/>
+        </attribute>
+        <attribute name="sortOrder">
+          <data type="integer"/>
+        </attribute>
+      </element>
     </element>
   </define>
+  
   <!-- ReportTableCategoryOptionCombos -->
   <define name="reportTableCategoryOptionCombos">
     <element name="reportTableCategoryOptionCombos" ns="http://dhis2.org/ns/schema/dxf2">
       <!-- TODO: check for proper children -->
-      <ref name="anyElements"/>
+      <optional>
+        <element name="TODO"><data type="integer"></data></element>
+      </optional>
     </element>
   </define>
+  
   <!-- ReportTableIndicators -->
   <define name="reportTableIndicators">
     <element name="reportTableIndicators" ns="http://dhis2.org/ns/schema/dxf2">
@@ -756,6 +789,7 @@
       </zeroOrMore>
     </element>
   </define>
+  
   <!-- ReportTableDataSets -->
   <define name="reportTableDataSets">
     <element name="reportTableDataSets" ns="http://dhis2.org/ns/schema/dxf2">
@@ -774,13 +808,20 @@
       </zeroOrMore>
     </element>
   </define>
+  
   <!-- ReportTablePeriods -->
   <define name="reportTablePeriods">
     <element name="reportTablePeriods" ns="http://dhis2.org/ns/schema/dxf2">
       <!-- TODO: check for proper children -->
-      <ref name="anyElements"/>
+      <zeroOrMore>
+      <element name="ReportTablePeriod">
+        <attribute name="id"><data type="IDREF"></data></attribute>
+        <attribute name="sortOrder"><data type="integer"></data></attribute>
+      </element>
+      </zeroOrMore>
     </element>
   </define>
+  
   <!-- ReportTableOrganisationUnits -->
   <define name="reportTableOrganisationUnits">
     <element name="reportTableOrganisationUnits" ns="http://dhis2.org/ns/schema/dxf2">
@@ -799,33 +840,39 @@
       </zeroOrMore>
     </element>
   </define>
+  
   <!-- TODO: What are these? -->
   <define name="completeDataSetRegistrations">
     <element name="completeDataSetRegistrations" ns="http://dhis2.org/ns/schema/dxf2">
       <!-- TODO: check completeDataSetRegistrations -->
-      <ref name="anyElements"/>
+      <zeroOrMore>
+        <element name="completeDataSetRegistrationPeriod">
+          <attribute name="id"><data type="IDREF"></data></attribute>
+          <attribute name="sortOrder"><data type="integer"></data></attribute>
+        </element>
+      </zeroOrMore>
     </element>
   </define>
+  
   <!-- DataValue Section -->
   <define name="dataValues">
-    <element name="dataValues" ns="http://dhis2.org/ns/schema/dxf2">
       <zeroOrMore>
-        <element name="dataValue">
+        <element name="dataValue" ns="http://dhis2.org/ns/schema/dxf2">
           <attribute name="dataElement">
-            <data type="integer"/>
+            <data type="IDREF"/>
           </attribute>
           <attribute name="period">
-            <data type="integer"/>
+            <data type="IDREF"/>
           </attribute>
           <attribute name="source">
-            <data type="integer"/>
+            <data type="IDREF"/>
           </attribute>
           <attribute name="value">
             <text/>
           </attribute>
           <optional>
             <attribute name="storedBy">
-              <data type="integer"/>
+              <data type="IDREF"/>
             </attribute>
           </optional>
           <optional>
@@ -839,29 +886,10 @@
             </attribute>
           </optional>
           <attribute name="categoryOptionCombo">
-            <data type="integer"/>
+            <data type="IDREF"/>
           </attribute>
         </element>
       </zeroOrMore>
-    </element>
   </define>
-  <!-- Convenience (from odf spec) for filling in the "dark spots" -->
-  <define name="anyAttListOrElements">
-    <zeroOrMore>
-      <attribute>
-        <anyName/>
-      </attribute>
-    </zeroOrMore>
-    <ref name="anyElements"/>
-  </define>
-  <define name="anyElements">
-    <zeroOrMore>
-      <element>
-        <anyName/>
-        <mixed>
-          <ref name="anyAttListOrElements"/>
-        </mixed>
-      </element>
-    </zeroOrMore>
-  </define>
+  
 </grammar>
