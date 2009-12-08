@@ -41,14 +41,9 @@
           <sourceDirectory>${basedir}/src/docbkx/en/</sourceDirectory>
 	 <xincludeSupported>true</xincludeSupported>
           <includes>*.xml</includes>
-<customizationParameters>
-    <parameter>
-      <name>glossary.collection</name>
+          <!--<htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>-->
+          <htmlCustomization>${basedir}/src/docbkx/en/resources/xsl/docbook-fo.xsl</htmlCustomization>
 
-<value>${basedir}/src/docbkx/en/resources/glossary/glossary_en.xml</value>
-    </parameter>
-  </customizationParameters>
-          <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
 
           <postProcess>
             <copy todir="target/site/en">

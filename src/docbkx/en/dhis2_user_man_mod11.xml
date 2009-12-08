@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. -->
-<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
-<article>
-  <articleinfo>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<chapter>
+  <chapterinfo>
     <title>Aggregation and reporting</title>
     <author>
       <firstname>Ola</firstname>
@@ -12,13 +12,14 @@
       </affiliation>
     </author>
     <pubdate>2009-11-14</pubdate>
-  </articleinfo>
-  <sect1>
+  </chapterinfo>
+  <title>Aggregation and reporting</title>
+  <section>
     <title>An overview of how aggregation takes place and rules of the system</title>
     <para>
 In the bigger picture of HIS terminology all data in DHIS are usually called aggregated as they are aggregates (e.g. monthly summaries) of medical records or some kind of service regiters reported from the health facilities. Aggregation inside DHIS however, which is the topic here, is concerned with how the raw data captured in DHIS (through data entry or import)are further aggregated over time (e.g. from monthly to quarterly values) or up the organisational hierarchy (e.g. from facility to district values). 
 </para>
-    <sect2>
+    <section>
       <title>Terminology</title>
       <itemizedlist>
         <listitem>
@@ -38,69 +39,69 @@ In the bigger picture of HIS terminology all data in DHIS are usually called agg
    </para>
         </listitem>
       </itemizedlist>
-    </sect2>
-    <sect2>
+    </section>
+    <section>
       <title>Basic rules of aggregation</title>
-      <sect3>
+      <section>
         <title>What is added together</title>
         <para>Data (raw) can be registered at any organisational level, e.g. at at national hospital at level 2, a health facility at level 5, or at a bigger PHC at level 4. This varies form country to country, but DHIS is flexible in allowing data entry or data import to take place at any level. This means that orgunits that themselves have children can register data, sometimes the same data elements as their children units. The basic rule of aggregation in DHIS 2 is that <emphasis>all raw data is aggregated together</emphasis>, meaning data registered at a facility on level 5 is added to the data registered for a PHC at level 4.</para>
         <para>
 It is up to the user/system administrator/designer to make sure that no duplication of data entry is taking place and that e.g. data entered at level 4 are not about the same services/visits that are reported by orgunit children at level 5. NOTE that in some cases you want to have “duplication” of data in the system, but in a controlled manner. E.g. when you have two different sources of data for population estimates, both level 5 catchment population data and another population data source for level 4 based on census data (because sum of level 5 catchments is not always the same as level 4 census data). Then you can specify using advanced aggregation settings (see further down) that the system should e.g. not add level 5 population data to the level 4 population data, and that level 3,2,1 population data aggregates are only based on level 4 data and does not include level 5 pop data.</para>
-      </sect3>
-      <sect3>
+      </section>
+      <section>
         <title>How data gets added together</title>
         <para>How data is aggregated depends on the dimension of aggregation (see further down).</para>
         <para>Along the orgunit level dimension data is always summed up, simply added together. Note that raw data is never percentages, and therefore can be summed together. Indicator values that can be percentages are treated differently (re-calculated at each level, never summed up).</para>
         <para>
 Along the time dimension there are several possibilities, the two most common ways to aggregate are sum and average. The user can specify for each data element which method to use by setting the aggregation operator (see further down). Monthly service data are normally summed together over time, e.g. the number of vaccines given in a year is the sum of the vaccines given for each month of that year. For population, equipment, staff and other kind of what is often called semi-permanent data the average method is often the one to use, as, e.g. “number of nurses” working at a facility in a year would not be the sum of the two numbers reported in the six-monthly staffing report, but rather the average of the two numbers. More details further down under “aggregation operators”. 
 </para>
-      </sect3>
-    </sect2>
-    <sect2>
+      </section>
+    </section>
+    <section>
       <title>Dimensions of aggregation</title>
-      <sect3>
+      <section>
         <title>Orgunits and levels</title>
-      </sect3>
-      <sect3>
+      </section>
+      <section>
         <title>Period</title>
-      </sect3>
-      <sect3>
+      </section>
+      <section>
         <title>Data Element Categories</title>
-      </sect3>
-    </sect2>
-    <sect2>
+      </section>
+    </section>
+    <section>
       <title>Aggregation operators, methods for aggregation</title>
-      <sect3>
+      <section>
         <title>Sum</title>
-      </sect3>
-      <sect3>
+      </section>
+      <section>
         <title>Average</title>
-      </sect3>
-      <sect3>
+      </section>
+      <section>
         <title>Count</title>
-      </sect3>
-      <sect3>
+      </section>
+      <section>
         <title>Where to specify </title>
-      </sect3>
-    </sect2>
-    <sect2>
+      </section>
+    </section>
+    <section>
       <title>Advanced aggregation settings (aggregation levels)</title>
-      <sect3>
+      <section>
         <title>Aggregation levels</title>
         <para>The normal rule of the system is to aggregate all raw data together when moving up the organisational hierarchy, and the system assumes that data entry is not being duplicated by entering “the same services provided to the same clients” at both facility level and also entering an “aggregated” (sum of all facilities) number at a higher level. This is to more easily facilitate aggregation when the same services are provided but to different clients/catchment populations at facilities on level 5 and a PHC (the parent of the same facilities) at level 4. In this way a facility at level 5 and a PHC at level 4 can share the same data elements and simply add together their numbers to provide the total of services provided in the geographical area.</para>
         <para>Sometimes such an aggregation is not desired, simply because it would mean duplicating data about the same population. This is the case when you have two different sources of data for two different orgunit levels. E.g. catchment population for facilities can come from a different source than district populations and therefore the sum of the facility catchment populations do not match the district population provided by e.g. census data. If this is the case we would actually want “duplicated” data in the system so that each level can have as accurate numbers as possible, but then we do NOT want to aggregate these data sources together.
 </para>
         <para>In the Data Element section you can edit data elements and for each of them specify how aggregation is done for each level. In the case described above we need to tell the system NOT to include facility data on population in any of the aggregations above that level, as the level above, in this case the districts have registered their population directly as raw data. The district population data should then be used at all levels above and including the district level, while facility level should use its own data.</para>
-      </sect3>
-      <sect3>
+      </section>
+      <section>
         <title>How to edit data element aggregation</title>
         <para>This is controlled through something called aggregation levels and at the end of the edit data element screen there is a tick-box called Aggregation Levels. If you tick that one you will see a list of aggregation levels, available and selected. Default is to have no aggregation levels defined, then all raw data in the hierarchy will be added together. To specify the rule described above, and given a hierarchy of Country, Province, District, Facility: select Facility and District as your aggregation levels. Basically you select where you have data. Selecting Facility means that Facilities will use data from facilities (given since this is the lowest level). Selecting District means that the District level raw data will be used when aggregating data for District level (hence no aggregation will take place at that level), and the facility data will not be part of the aggregated District values. When aggregating data at Province level the District level raw data will be used since this is the highest available aggregation level selected. Also for Country level aggregates the District raw data will be used. Just to repeat, if we had not specified that District level was an aggregation level, then the facility data and district data would have been added together and caused duplicate (double) population data for districts and all levels above.</para>
-      </sect3>
-    </sect2>
-  </sect1>
-  <sect1>
+      </section>
+    </section>
+  </section>
+  <section>
     <title>Reports</title>
-    <sect2>
+    <section>
       <title>Report tables</title>
       <para>
 Report tables are meant to be database tables fulfilling the specific data needs of a report, chart, pivot table or other output format. It can be understood as a mini datamart that contains only the data needed for its purpose (the report). The rationale behind this concept is to automatically provide the data sources for reports without bothering the users every time, like a normal datamart, and to speed up the data processing and aggregation (small targeted datamarts are obviously faster than big ones). 
@@ -123,21 +124,21 @@ Cross tabbing is a very powerful functionality in report design as the typical D
       <para>
 All in all, by combining the functionality of cross tabbing, relative periods and report table parameters you should have a tool to support most report scenarios. If not we would be very happy to receive suggestions to further improvements to report tables. As already mentioned we have started to look at more fine-grained parameters for the period dimension as the Reporting Month does not cover or at least is not intuitive enough when it comes to e.g. quarterly reports.
 </para>
-    </sect2>
-    <sect2>
+    </section>
+    <section>
       <title>BIRT reports</title>
-      <sect3>
+      <section>
         <title>Create a report table in DHIS 2</title>
         <para>- create a report table in DHIS 2 is to create so-called report tables in DHIS, found under Reports module, which will serve as the data table for your report. Normally one table per report, but multiple tables for one report is also possible. A report table can be a cross tabulated table on any of the dimensions period/indicator/data element / orgunit, and also in combination, like “BCG &lt; 1 coverage + last 3 months” and “BCG coverage &lt; 1 year+ last month”. This cross-tabulation makes it a lot easier to control the design of the report which is then done with dragging and dropping column headings onto the report. The report table can also have report parameters like reporting month, organisation unit and organisation unit parent (if you are e.g. listing all sub-districts in a given district).</para>
-      </sect3>
-      <sect3>
+      </section>
+      <section>
         <title>Design the report in BIRT</title>
         <para>Then you design the report in the stand-alone BIRT designer (based on the Eclipse platform) and access the report table in the DHIS 2 database using a jdbc connection and an sql query (all using the BIRT user interface). When you have connected to the table and selected which columns to use they will be available as fields that you can drag and drop onto your report design. In BIRT you can preview the report at any point, and when you&apos;re done you can save the report as an xml file (.rptdesign). More instructions here: http://208.76.222.114/confluence/display/HISP/Birt+designer%27s+notes</para>
-      </sect3>
-      <sect3>
+      </section>
+      <section>
         <title>Define and run the report in DHIS</title>
         <para>(the very first time you need to configure where the BIRT report viewer is installed, go to Reports→Report→Configure report) In DHIS 2 you can define a report in the Reports module that you link to a report table and provide with a name. Then the report is ready to be generated and displayed, and this can be done in two ways, 1) run report with new data or run report with existing data. This all depends on whether your report table is populated already or not. Most likely you will have to run it with new data and then you are asked to provide values for the report parameters (if defined in the report table) and then the table will be populated in teh background and a new window will show the report as soon as it is ready. The new window will actually be generated by the BIRT report viewer, which is a separate web application running on the same tomcat instance.</para>
-      </sect3>
-    </sect2>
-  </sect1>
-</article>
+      </section>
+    </section>
+  </section>
+</chapter>
