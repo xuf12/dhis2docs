@@ -41,10 +41,8 @@
           <sourceDirectory>${basedir}/src/docbkx/en/</sourceDirectory>
 	 <xincludeSupported>true</xincludeSupported>
           <includes>*.xml</includes>
-          <!--<htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>-->
-          <htmlCustomization>${basedir}/src/docbkx/en/resources/xsl/docbook-fo.xsl</htmlCustomization>
-
-
+          <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
+          <!-- <htmlCustomization>${basedir}/src/docbkx/en/resources/xsl/docbook-fo.xsl</htmlCustomization> -->
           <postProcess>
             <copy todir="target/site/en">
               <fileset dir="target/docbkx/">
