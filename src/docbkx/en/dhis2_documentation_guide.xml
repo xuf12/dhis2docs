@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. -->
-<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
 <!ENTITY br ''>]>
 <article>
   <articleinfo>
@@ -176,13 +175,16 @@
   </section>
   <section id="docs_9">
     <title>Building the documentation</title>
-    <para>In order to transform the documentation source files to different
+    <para/>
+    <section>
+      <title>Building the documentation with Apache maven</title>
+      <para>In order to transform the documentation source files to different
     format, such as HTML or PDF, you will need to install the Apache Maven
     program. You can get a copy <ulink url="http://maven.apache.org/download.html">here</ulink> or by installing
     it through your package manager if you are using Linux. A sample build
     file has been included as part of the documentation source. Just execute
-    the command <command>build.bat</command> on Windows or
-    <command>build.sh</command> on Linux from the
+    the command <command>mvn clean package</command> on Windows or
+     on Linux from the
     <filename>/dhis2-docbook-docs </filename>directory. Maven will start to
     download the necessary components to transform the documents into HMTL and
     PDF. Once the process has completed (be patient the first time, as there
@@ -191,6 +193,11 @@
     /<filename>dhis2-docbook-docs/target/docbkx</filename> directory. HTML
     documents will be in the HTML directory, and PDF documents will be in the
     PDF directory.</para>
+    </section>
+    <section>
+      <title>Building with xmlto</title>
+      <para><command>xmlto</command> is a useful utility available on Linux platforms for transforming DocBook documents into many different formats. More informtion on the package can be found <ulink url="http://cyberelk.net/tim/software/xmlto/">here</ulink>. If you do not want to use Apache Maven for some reason, you can install <command>xmlto</command> through your package manager. Once you have installed <command>xmlto</command> you can just execute <command>xmlto <parameter>html</parameter> <parameter>file_to_transform</parameter></command> where the <parameter>file_to_transform</parameter> paramater is the name of the file you wish to transform. There are many other formats available, such as PDF, PS, JavaHelp and others. </para>
+    </section>
   </section>
   <section id="docs_10">
     <title>Committing your changes back to Launchpad</title>
