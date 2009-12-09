@@ -1,8 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. -->
-<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
-<article>
-  <articleinfo>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<chapter>
+  <chapterinfo>
     <title>DHIS 2 GIS User Manual</title>
     <keywordset>
       <keyword>DHIS</keyword>
@@ -27,8 +26,9 @@
         </revdescription>
       </revision>
     </revhistory>
-  </articleinfo>
-  <sect1 id="gis_1">
+  </chapterinfo>
+  <title>DHIS 2 GIS User Manual</title>
+  <section id="gis_1">
     <title>Conversion of geographical data to GeoJSON format</title>
     <para>The DHIS2 mapping client relies on GeoJSON files in order to display
     a map in the browser window. Often times, geographical data is received in
@@ -37,7 +37,7 @@
     not required, that the names in your geographical data match those in the
     DHIS2 organizational hierarchy. If they do not, you will need to manually
     match them in a later step</para>
-    <sect2>
+    <section>
       <title>Production of GeoJSON files with Geoserver</title>
       <para>Geoserver is capable of outputting GeoJSON formats. If you have
       geoserver running someplace, you can execute the following query.</para>
@@ -55,8 +55,8 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
       type (e.g. “admin” for administrative layers, “health” for health
       administrative boundaries). For instance, the first administrative layer
       for Zambia would be named as &quot;zm_admin1&quot;.</para>
-    </sect2>
-    <sect2>
+    </section>
+    <section>
       <title>Production of GeoJSON files with GDAL</title>
       <para>GDAL is a multi-platform toolkit for the manipulation of
       geographical data. It is freely available for a wide-range of platforms
@@ -70,16 +70,16 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
       convention described above) and
       <parameter>src_datasource_name</parameter> with the source geographical
       data file. Take note that you may need to specify input and output coordinate systems as described above.</para>
-    </sect2>
-    <sect2>
+    </section>
+    <section>
       <title>Copying files to the DHIS application</title>
       <para>Currently, your GeoJSON files should be placed in the
       DHIS_HOME/geoson of your DHIS application to be accessible to the GIS
       module. If the GeoJSON directory does not exist, you will need to create
       it manually and copy your GeoJSON files there.</para>
-    </sect2>
-  </sect1>
-  <sect1 id="gis_2">
+    </section>
+  </section>
+  <section id="gis_2">
     <title>Administrator panel</title>
     <screenshot>
       <graphic fileref="resources/images/GIS/admin_panel.png" align="center" />
@@ -109,8 +109,8 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
           </listitem>
         </varlistentry>
       </variablelist></para>
-  </sect1>
-  <sect1 id="gis_3">
+  </section>
+  <section id="gis_3">
     <title>Registering geographical information</title>
     <para>In order to view data in the GIS module, you must import your
     geographical data into your DHIS installation. Once you have produced
@@ -213,8 +213,8 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
         </listitem>
       </varlistentry>
     </variablelist>
-  </sect1>
-  <sect1 id="gis_4">
+  </section>
+  <section id="gis_4">
     <title>Assign organization units to map</title>
     <para>Select a registered map and wait for it to load. The organisation
     units (OU) in your database on this level will appear in the list and
@@ -237,8 +237,8 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
     <para>The remove button at the button tool bar removes the selected OU’s
     link. The remove all button removes all OU links for the selected
     map.</para>
-  </sect1>
-  <sect1 id="gis_5">
+  </section>
+  <section id="gis_5">
     <title>Register overlays</title>
     <para>Overlays are geographical layers that do not have any direct linkage
     to data in the database. Example include roads, rivers, airports, ports,
@@ -273,29 +273,29 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
         0 and 4.</para>
       </listitem>
     </itemizedlist>
-  </sect1>
-  <sect1 id="gis_6">
+  </section>
+  <section id="gis_6">
     <title>Thematic map</title>
     <para>This panel should be rather self-explanatory . Calculation method
     alludes to the legend interval size and set to <guimenuitem>Equal intervals</guimenuitem> they will be “highest map value – lowest map value
     / number of classes”. Choose <guimenuitem>Fixed bounds </guimenuitem>and
     you may set your own legend limits, e.g. “20,40,60” using a comma to
     seperate each of the class break values. </para>
-  </sect1>
-  <sect1 id="gis_7">
+  </section>
+  <section id="gis_7">
     <title>Register views</title>
     <para>This panel will save the current thematic map view in order to
     restore it whenever you want via the <guimenuitem>Map view </guimenuitem>combo box in the <guimenu>Thematic map</guimenu> panel. By
     adding your views to DHIS 2 Dashboard you may access them there by
     inserting <guimenuitem>Map views</guimenuitem> into one of link
     areas.</para>
-  </sect1>
-  <sect1 id="gis_8">
+  </section>
+  <section id="gis_8">
     <title>Register legend sets</title>
     <para>A legend set may be connected to many indicators, but an indicator
     may only have one legend set. Thus, you may select many indicators when
     you create a legend set. When an indicator that has a legend set is
     selected in the <guimenu>Thematic map</guimenu> panel, the number of
     classes, low color and high color is automatically set.</para>
-  </sect1>
-</article>
+  </section>
+</chapter>

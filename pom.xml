@@ -42,7 +42,7 @@
 	 <xincludeSupported>true</xincludeSupported>
           <includes>*.xml</includes>
           <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
-          <glossaryCollection>resources/glossary_en.xml</glossaryCollection>
+          <!-- <glossaryCollection>resources/glossary_en.xml</glossaryCollection> -->
           <postProcess>
             <copy todir="target/site/en">
               <fileset dir="target/docbkx/">
