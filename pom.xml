@@ -16,7 +16,7 @@
     <plugins>
       <plugin>
         <groupId>com.agilejava.docbkx</groupId>
-
+        <!-- <version>2.0.10-SNAPSHOT</version> -->
         <artifactId>docbkx-maven-plugin</artifactId>
 
         <executions>
@@ -42,7 +42,7 @@
 	 <xincludeSupported>true</xincludeSupported>
           <includes>*.xml</includes>
           <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
-          <!-- <htmlCustomization>${basedir}/src/docbkx/en/resources/xsl/docbook-fo.xsl</htmlCustomization> -->
+          <glossaryCollection>resources/glossary_en.xml</glossaryCollection>
           <postProcess>
             <copy todir="target/site/en">
               <fileset dir="target/docbkx/">
