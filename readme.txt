@@ -6,4 +6,5 @@ Otherwise, just execute
 
 mvn package
 
-
+For further information, contact the groups mailing list at
+dhis2-documenters@lists.launchpad.net

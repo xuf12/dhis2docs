@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
+<chapter>
+  <title>Import and export of data with DHIS2</title>
+  <highlights>
+    <para><emphasis>Learning objectives:</emphasis></para>
+    <para>
+After reading this module you will be able to understand:</para>
+    <itemizedlist>
+      <listitem>
+        <para>
+Why do we need functions of export and import data.</para>
+      </listitem>
+      <listitem>
+        <para>How to export data from DHIS2</para>
+      </listitem>
+      <listitem>
+        <para>
+How to import data into DHIS2</para>
+      </listitem>
+    </itemizedlist>
+  </highlights>
+  <section>
+    <title>What is import and export?</title>
+    <para>In a primary health system, the HMIS typically involves a distributed application, where the same application is running in different geographical locations (PHCs,CHCs, hospitals, districts, and state). Most of these physical locations do not have Internet connectivity, and hence they work offline. At some point (normally at the district level), the data needs to be synchronized in order to have a consolidated database for the a particular geographical region. For this, it is important to be able to export data from one location (which is working offline, say at the health facility  level) to another one say at the district level where the data would need to be imported. This feature of exporting and importing is thus a crucial function of a HMIS. This feature also helps us overcome the dependency on Internet to some degree, as data updates can be transferred via USB key where there is no connectivity, or through email where there is limited Internet connectivity. DHIS 2 provides robust export-import functionality to fulfill these needs.
+</para>
+    <section>
+      <title>Online and offline export </title>
+      <para>In the case on online data entry, all data is saved into one database only. In an offline deployment, each deployment will have a separate database in their local system. So the data will be stored in their local database. In an offline deployment, after the data entry is finished, it will need to be manually sent to the next level of where the application is running. In an online application, however, that is not required, as all data is stored at a central location using the Internet.
+</para>
+    </section>
+    <section>
+      <title>Exporting from DHIS2</title>
+      <para>The export option can be made use of by selecting it as follows. 
+The import or export is available only when the selected organization (source/destination) has defined datasets. This is because datasets help to define which data is to be or is being exported. Further, which specific data elements get exported is determined by the composition of the dataset being exported.
+If there are no datasets defined for an organization unit, it indicates that no data values are registered for this level of organization or lower.
+To access the main Import-Export module, choose <guimenu>Services-&gt;Import-Export</guimenu></para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resources/images/import_export/Import_export_main.png"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>The exported data values are stored in an ‘xml file’. The file name is defined by the name of the source organization unit and the period to allow the receiving organization unit to identify the source and the period of the export file. The xml is placed in your home directory (On Windows this is normally <filename>C:\Documents and Settings\</filename> under the subdirectories <filename>/dhis / import-export</filename>.
+</para>
+      <section>
+        <title>Exporting data to other DHIS2 systems</title>
+        <para>Once the data export screen is displayed, select the Organisation unit, period and dataset for which data export should be selected.Finally click on the export option that will be available on the lower left side of displayed screen.
+If there are no datasets defined for an organization unit, it indicates that no data values are registered for this level of organization or lower.
+</para>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="resources/images/import_export/export_to_dhis2.png"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>A popup save option will appear on the displayed screen (see picture below) prompting the saving of the exported data. You may save the export folder on your desktop or any other folder by selecting the ‘Save to Disk’ option from the popup prompt.
+</para>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="resources/images/import_export/export_file_popup.png"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+      </section>
+      <section>
+        <title>Exporting metadata to other DHIS2 systems</title>
+        <para/>
+        <section>
+          <title>Metadata export</title>
+          <para>Metadata is &quot;data about data&quot;. In the context of DHIS2, metadata consists of definitions of data elements, indicators, the structure and names contained in the organizational hierarchy, and other options. Click on the &quot;Metadata export&quot; link from the main &quot;Data export&quot; screen in order to access this. Just select the feature that you wish to export and click &quot;Export&quot;. This metadata file can then be transmitted just like  a data file, except it will contain information on the definitions of the various features, as opposed to the values of the data themselves. </para>
+          <screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/import_export/metdata_export.png"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </section>
+        <section>
+          <title>Detailed metadata export</title>
+          <para>The &quot;Detailed metadata&quot; function will allow you to export specifc data element and indicator definitions. Just click &quot;Detailed Metadata Export&quot; and select the data elements and indicators that you wish to export. Click &quot;Export&quot; and save the file to a desired location. This file can then be transmitted via email or USB key to other DHIS2 installations. </para>
+          <screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/import_export/metadata_detail.png"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </section>
+      </section>
+      <section>
+        <title>IXF data export</title>
+        <para>DHIS2 support export to the Indicator Exchange Format 2  developed by UNAIDS. The IXF data exchange standard has been implented  ,with various levels of compatibility, between several information management systems including CRIS version 2, DevInfo version 5, KIDS developed by FAO, DHIS 1.4, DHIS2, and HealthMapper version 4 developed by WHO. A more detailed discussion on the use of the IXF data exchange format is discussed in depth <ulink url="http://data.unaids.org/pub/BaseDocument/2007/cris_de_web_final_en.pdf">here</ulink>.  </para>
+        <para>The IXF data export is essentially the same as a standard DHIS 2 DXF export, but results in a file format that is compatible with IXF 2. </para>
+      </section>
+      <section>
+        <title>IXF Metadata export</title>
+        <para>The IXF detailed metadata export provides the same functionality of the standard DHIS2 detailed metadata export, except that the resulting file is compatible with the IXF data exchange format. </para>
+      </section>
+      <section>
+        <title>DHIS 1.4 Metadata export</title>
+        <para>The DHIS 1.4 Metadata export functionality provides the same functionality as the standard DHIS2 metadata export, except that the resulting file can be used to transmit metadata information to DHIS 1.4 systems. </para>
+      </section>
+      <section>
+        <title>DHIS 1.4 Detailed Metadata Export</title>
+        <para>The DHIS 1.4 Metadata export functionality provides the same functionality as the detailed DHIS2 metadata export, except that the resulting file can be used to transmit metadata information to DHIS 1.4 systems. Simply select the data elements and indicators that you want and click &quot;Export&quot; to begin the export process.</para>
+      </section>
+      <section>
+        <title>PDF Metadata Export</title>
+        <para/>
+      </section>
+    </section>
+  </section>
+</chapter>
