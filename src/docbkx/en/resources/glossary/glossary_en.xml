@@ -27,7 +27,28 @@
     </glossentry>
   </glossdiv>
   <glossdiv>
+    <title>C</title>
+    <glossentry>
+      <glossterm>Category</glossterm>
+      <glossdef>
+        <para>Categories are used to disaggreate data elements. As an example, the data element &quot;Number of confirmed cases of malaria&quot; could be disaggregated into an &quot;Age&quot; category, consisting of category options of &quot;Under 1&quot;, 1-5&quot; and &quot;Over 5&quot;. Category options are used during data entry to simplify the number of data elements that need to be created. During analysis of data, categories function essentially as dimensions. </para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Category option</glossterm>
+      <glossdef>
+        <para>Category options are atomic elements that are grouped into cagtegories. Category options are used during data entry to disaggregate data elements into atomic pieces of information. </para>
+      </glossdef>
+    </glossentry>
+  </glossdiv>
+  <glossdiv>
     <title>D</title>
+    <glossentry>
+      <glossterm>Data exchange format</glossterm>
+      <glossdef>
+        <para>In the context of DHIS2, the &quot;data exchange format&quot; refers to a XML schema that enables the transportation of data and metadata between disconnected DHIS instances, as well as between different applications that suppor the DXF schema. </para>
+      </glossdef>
+    </glossentry>
     <glossentry>
       <glossterm>Datamart</glossterm>
       <glossdef>
@@ -45,6 +66,10 @@
       <glossdef>
         <para>A dimension is used to categorize data elements during analysis. Dimensions provide a mechanism to group and filter data based on common characteristics. Typically, related data elements may be aggregated or filtered during analysis with the use of dimensions. Dimensions may be a member of a hierarchy. For instance the &quot;Period&quot; dimension may be broken down into &quot;Day-&gt;Month-&gt;Quarter-&gt;Year&quot;. </para>
       </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>DXF</glossterm>
+      <glosssee> Data exchange format</glosssee>
     </glossentry>
   </glossdiv>
 <!-- <glossdiv>

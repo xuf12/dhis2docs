@@ -1,6 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <chapter>
+  <chapterinfo>
+    <revhistory>
+      <revision>
+        <revnumber>1</revnumber>
+        <date>10/12/2009</date>
+        <revdescription>
+          <para>Initial revision from Indian documentation. </para>
+        </revdescription>
+      </revision>
+    </revhistory>
+    <author>
+      <othername>DHIS2 Documentation Team</othername>
+    </author>
+  </chapterinfo>
   <title>Import and export of data with DHIS2</title>
   <highlights>
     <para><emphasis>Learning objectives:</emphasis></para>
@@ -24,11 +38,11 @@ How to import data into DHIS2</para>
     <title>What is import and export?</title>
     <para>In a primary health system, the HMIS typically involves a distributed application, where the same application is running in different geographical locations (PHCs,CHCs, hospitals, districts, and state). Most of these physical locations do not have Internet connectivity, and hence they work offline. At some point (normally at the district level), the data needs to be synchronized in order to have a consolidated database for the a particular geographical region. For this, it is important to be able to export data from one location (which is working offline, say at the health facility  level) to another one say at the district level where the data would need to be imported. This feature of exporting and importing is thus a crucial function of a HMIS. This feature also helps us overcome the dependency on Internet to some degree, as data updates can be transferred via USB key where there is no connectivity, or through email where there is limited Internet connectivity. DHIS 2 provides robust export-import functionality to fulfill these needs.
 </para>
-    <section>
-      <title>Online and offline export </title>
-      <para>In the case on online data entry, all data is saved into one database only. In an offline deployment, each deployment will have a separate database in their local system. So the data will be stored in their local database. In an offline deployment, after the data entry is finished, it will need to be manually sent to the next level of where the application is running. In an online application, however, that is not required, as all data is stored at a central location using the Internet.
+  </section>
+  <section>
+    <title>Exporting data</title>
+    <para>In the case on online data entry, all data is saved into one database only. In an offline deployment, each deployment will have a separate database in their local system. So the data will be stored in their local database. In an offline deployment, after the data entry is finished, it will need to be manually sent to the next level of where the application is running. In an online application, however, that is not required, as all data is stored at a central location using the Internet.
 </para>
-    </section>
     <section>
       <title>Exporting from DHIS2</title>
       <para>The export option can be made use of by selecting it as follows. 
@@ -38,7 +52,7 @@ To access the main Import-Export module, choose <guimenu>Services-&gt;Import-Exp
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/import_export/Import_export_main.png"/>
+            <imagedata width="80%" align="center" fileref="resources/images/import_export/Import_export_main.png"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -52,7 +66,7 @@ If there are no datasets defined for an organization unit, it indicates that no 
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="resources/images/import_export/export_to_dhis2.png"/>
+              <imagedata width="80%" align="center" fileref="resources/images/import_export/export_to_dhis2.png"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -61,7 +75,7 @@ If there are no datasets defined for an organization unit, it indicates that no 
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="resources/images/import_export/export_file_popup.png"/>
+              <imagedata width="60%" align="center" fileref="resources/images/import_export/export_file_popup.png"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -75,7 +89,7 @@ If there are no datasets defined for an organization unit, it indicates that no 
           <screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/import_export/metdata_export.png"/>
+                <imagedata width="80%" align="center" fileref="resources/images/import_export/metdata_export.png"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -86,7 +100,7 @@ If there are no datasets defined for an organization unit, it indicates that no 
           <screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/import_export/metadata_detail.png"/>
+                <imagedata width="80%" align="center" fileref="resources/images/import_export/metadata_detail.png"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -111,7 +125,39 @@ If there are no datasets defined for an organization unit, it indicates that no 
       </section>
       <section>
         <title>PDF Metadata Export</title>
-        <para/>
+        <para>Auctor natoque ve vulputate quam. Quam duis posuere risus felis mus class tempor eu sociosqu. Risus duis penatibus turpis, tristique dictum enim est. Quisque mi pulvinar ultrices, fusce diam porttitor mi hendrerit viverra, augue leo vestibulum rutrum. Ridiculus dictumst luctus. Eros.</para>
+      </section>
+    </section>
+    <section>
+      <title>Importing data </title>
+      <para>The import option allows differnt instance of DHIS2 to receive standardized set of data in the absence of a networked system. Typically, a data set is exported from one DHIS instance (e.g. a district level system) to another system (e.g. a provincial level system).  DHIS2 is capable of importing data from other systems that either support the DXF of IXF formats. DHIS2 is capable of importing data directly from a DHIS 1.4 Access database. Each of these options will be discussed in the following sections. </para>
+      <para>DHIS2 is also capable of importing data through the Excel reporting module. The reader is referred to the appropriate chapter for detailed information. </para>
+      <section>
+        <title>Importing data from other DHIS2 systems</title>
+        <para>Data can be imported into different instances of DHIS2 through the use of the DXF data exchange format. There are two screens that are used to import data, with default and advanced options. </para>
+        <para>The default data import menu can be accessed by clicking the <guimenuitem>&quot;Import&quot;</guimenuitem> from the main <guimenuitem>Import-Export</guimenuitem> screen. By clicking the <guibutton>&quot;Browse&quot;</guibutton> button, you can select a file from you local file system. This file may have been received by email, copied from another users system, or received on a CD for example. Simply select the file that you wish to import. </para>
+        <para>There are three seperate options for importing data. </para>
+        <table frame="all">
+          <title/>
+          <tgroup cols="2">
+            <colspec colnum="1" colname="c0" colwidth="30%"/>
+            <colspec colnum="2" colname="c1" colwidth="70%"/>
+            <tbody>
+              <row>
+                <entry>Import</entry>
+                <entry>Odio sem. Nunc, aliquet quisque tempor enim pellentesque at sodales elit. </entry>
+              </row>
+              <row>
+                <entry>Preview</entry>
+                <entry>Faucibus aenean. Ligula porta congue mattis quis in bibendum quisque. </entry>
+              </row>
+              <row>
+                <entry>Analysis</entry>
+                <entry>Donec. Arcu felis taciti tempus aliquam ve, lectus.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
       </section>
     </section>
   </section>
