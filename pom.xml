@@ -11,44 +11,37 @@
   <version>0.1-SNAPSHOT</version>
 
   <description>DHIS 2 Documentation</description>
-
+  <packaging>pom</packaging>
   <build>
     <plugins>
       <plugin>
         <groupId>com.agilejava.docbkx</groupId>
         <!-- <version>2.0.10-SNAPSHOT</version> -->
         <artifactId>docbkx-maven-plugin</artifactId>
-
+        <configuration>
+         <includes>*.xml</includes>
+         <sourceDirectory>${basedir}/src/docbkx/en/</sourceDirectory>
+         <xincludeSupported>true</xincludeSupported> 
+        </configuration> 
         <executions>
           <execution>
+	    <id>html-docs</id>
             <phase>package</phase>
             <goals>
               <goal>generate-html</goal>
-              <goal>generate-pdf</goal>
             </goals>
-          </execution>
-        </executions>
-        <dependencies>
-          <dependency>
-            <groupId>org.docbook</groupId>
-            <artifactId>docbook-xml</artifactId>
-            <version>4.4</version>
-            <scope>runtime</scope>
-          </dependency>
-        </dependencies>
+
        
         <configuration>
-          <sourceDirectory>${basedir}/src/docbkx/en/</sourceDirectory>
-	 <xincludeSupported>true</xincludeSupported>
-          <includes>*.xml</includes>
           <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
           <!-- <glossaryCollection>resources/glossary_en.xml</glossaryCollection> -->
+          <sectionAutolabel>1</sectionAutolabel>
+          <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
+
           <postProcess>
             <copy todir="target/site/en">
               <fileset dir="target/docbkx/">
                 <include name="**/*.html" />
-
-                <include name="**/*.pdf" />
               </fileset>
             </copy>
 
@@ -68,7 +61,37 @@
             </copy>
           </postProcess>
         </configuration>
+       </execution>
+        <execution>
+          <id>pdf-docs</id>
+             <phase>package</phase>
+              <goals>
+                <goal>generate-pdf</goal>
+               </goals>
+                <configuration>
+                 <argLine>-Xmx1024m</argLine>
+                  <foCustomization>${basedir}/src/docbkx/en/resources/xsl/fop-cust.xsl</foCustomization> 
+                  <doubleSided>1</doubleSided>
+           <postProcess>
+            <copy todir="target/site/en">
+              <fileset dir="target/docbkx/">
+                <include name="**/*.pdf" />
+              </fileset>
+            </copy> 
+            </postProcess> 
+                    </configuration> 
+                    </execution>
+      </executions>
+                         <dependencies>
+                    <dependency>
+                        <groupId>org.docbook</groupId>
+                        <artifactId>docbook-xml</artifactId>
+                        <version>4.4</version>
+                        <scope>runtime</scope>
+                    </dependency>
+                    </dependencies>
       </plugin>
+       
     </plugins>
   </build>
 
