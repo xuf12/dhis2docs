@@ -6,8 +6,6 @@
     dxf2.rnc and dxf.xsd are derived using jing
     
     TODO:
-    fix up consistent naming of idref attributes
-    fix sample data
     add missing elements
   -->
   <!-- These are toplevel elements of dxf format -->
@@ -258,7 +256,7 @@
                 <ref name="identifiableObject"/>
                 <zeroOrMore>
                   <element name="indicator">
-                    <attribute name="idref">
+                    <attribute name="ref">
                       <ref name="dxfIDRef"/>
                     </attribute>
                   </element>
@@ -354,23 +352,6 @@
               </element>
             </zeroOrMore>
           </element>
-        </element>
-      </zeroOrMore>
-    </element>
-  </define>
-  <define name="IndicatorGroupSets">
-    <element name="IndicatorGroupSets" ns="http://dhis2.org/ns/schema/dxf2">
-      <zeroOrMore>
-        <element name="IndicatorGroupSet">
-          <ref name="identifiableObject"/>
-          <oneOrMore>
-            <element name="IndicatorGroup">
-              <ref name="identifiableObject"/>
-              <element name="IndicatorId">
-                <data type="integer"/>
-              </element>
-            </element>
-          </oneOrMore>
         </element>
       </zeroOrMore>
     </element>
