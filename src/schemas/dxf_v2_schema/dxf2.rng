@@ -120,10 +120,20 @@
   </define>
 
 
+  <!-- dxf2 ids -->
+  <define name="dxfID" ns="http://dhis2.org/ns/schema/dxf2">
+    <data type="int"/>
+  </define>
+  
+  <!-- dxf2 idrefs -->
+  <define name="dxfIDRef" ns="http://dhis2.org/ns/schema/dxf2">
+    <data type="int"/>
+  </define>
+  
   <!-- common base for identifiable objects -->
   <define name="identifiableObject" ns="http://dhis2.org/ns/schema/dxf2">
     <attribute name="id">
-      <data type="ID"/>
+      <ref name="dxfID"/>
     </attribute>
     <element name="uuid">
       <text/>
@@ -178,7 +188,7 @@
   <define name="categoryCombo">
     <element name="categoryCombo" ns="http://dhis2.org/ns/schema/dxf2">
       <attribute name="id">
-        <data type="ID"/>
+        <ref name="dxfID"/>
       </attribute>
       <element name="name">
         <text/>
@@ -198,13 +208,13 @@
       <zeroOrMore>
         <element name="categoryOptionCombo">
           <ref name="identifiableObject"/>
-          <attribute name="categoryComboId">
-            <data type="IDREF"/>
+          <attribute name="categoryComboRef">
+            <ref name="dxfIDRef"/>
           </attribute>
           <zeroOrMore>
-            <element name="categoryoptionID">
-              <attribute name="id">
-                <data type="IDREF"></data>
+            <element name="categoryoption">
+              <attribute name="ref">
+                <ref name="dxfIDRef"/>
               </attribute>
             </element>
           </zeroOrMore>
@@ -223,9 +233,9 @@
               <element name="dataElementGroup">
                 <ref name="identifiableObject"/>
                 <zeroOrMore>
-                  <element name="dataElementID">
-                    <attribute name="id">
-                      <data type="ID"/>
+                  <element name="dataElement">
+                    <attribute name="ref">
+                      <ref name="dxfIDRef"/>
                     </attribute>
                   </element>
                 </zeroOrMore>
@@ -248,8 +258,8 @@
                 <ref name="identifiableObject"/>
                 <zeroOrMore>
                   <element name="indicator">
-                    <attribute name="id">
-                      <data type="ID"/>
+                    <attribute name="idref">
+                      <ref name="dxfIDRef"/>
                     </attribute>
                   </element>
                 </zeroOrMore>
@@ -271,8 +281,8 @@
   </define>
   <define name="dataElement">
     <element name="dataElement" ns="http://dhis2.org/ns/schema/dxf2">
-      <attribute name="categoryCombo">
-        <data type="IDREF"/>
+      <attribute name="categoryComboRef">
+        <ref name="dxfIDRef"/>
       </attribute>
       <ref name="identifiableObject"/>
       <element name="active">
@@ -293,7 +303,7 @@
       <zeroOrMore>
         <element name="indicatorType">
           <attribute name="id">
-            <data type="ID"/>
+            <ref name="dxfID"/>
           </attribute>
           <element name="name">
             <text/>
@@ -315,7 +325,7 @@
             <text/>
           </element>
           <attribute name="indicatorType">
-            <data type="IDREF"/>
+            <ref name="dxfIDRef"/>
           </attribute>
           <element name="numerator">
             <text/>
@@ -338,8 +348,8 @@
           <element name="dataDictionaries">
             <zeroOrMore>
               <element name="datadictionary">
-                <attribute name="id">
-                  <data type="IDREF"/>
+                <attribute name="ref">
+                  <ref name="dxfIDRef"/>
                 </attribute>
               </element>
             </zeroOrMore>
@@ -372,7 +382,7 @@
       <zeroOrMore>
         <element name="dataDictionary">
           <attribute name="id">
-            <data type="ID"/>
+            <ref name="dxfID"/>
           </attribute>
           <element name="name">
             <text/>
@@ -401,7 +411,7 @@
       <zeroOrMore>
         <element name="dataSet">
           <attribute name="id">
-            <data type="ID"/>
+            <ref name="dxfID"/>
           </attribute>
           <element name="name">
             <text/>
@@ -418,8 +428,8 @@
           <element name="dataelements">
             <zeroOrMore>
               <element name="dataelement">
-                <attribute name="id">
-                  <data type="ID"/>
+                <attribute name="ref">
+                  <ref name="dxfIDRef"/>
                 </attribute>
               </element>
             </zeroOrMore>
@@ -436,7 +446,7 @@
       <zeroOrMore>
         <element name="groupSet">
           <attribute name="id">
-            <data type="ID"/>
+            <ref name="dxfID"/>
           </attribute>
           <element name="name">
             <text/>
@@ -466,7 +476,7 @@
       <zeroOrMore>
         <element name="organisationUnitGroup">
           <attribute name="id">
-            <data type="ID"/>
+            <ref name="dxfID"/>
           </attribute>
           <element name="uuid">
             <text/>
@@ -479,7 +489,7 @@
             <zeroOrMore>
               <element name="groupSet">
                 <attribute name="id">
-                  <data type="ID"/>
+                  <ref name="dxfID"/>
                 </attribute>
               </element>
             </zeroOrMore>
@@ -546,7 +556,7 @@
       <zeroOrMore>
         <element name="organisationUnitLevel">
           <attribute name="id">
-            <data type="ID"/>
+            <ref name="dxfID"/>
           </attribute>
           <element name="level">
             <data type="integer"/>
@@ -565,7 +575,7 @@
       <zeroOrMore>
         <element name="period">
           <attribute name="id">
-            <data type="ID"/>
+            <ref name="dxfID"/>
           </attribute>
           <element name="periodType">
             <text/>
@@ -587,7 +597,7 @@
       <zeroOrMore>
         <element name="reportTable">
           <attribute name="id">
-            <data type="ID"/>
+            <ref name="dxfID"/>
           </attribute>
           <element name="name">
             <text/>
@@ -732,7 +742,7 @@
             <zeroOrMore>
               <element name="dataelement">
                 <attribute name="id">
-                  <data type="ID"/>
+                  <ref name="dxfID"/>
                 </attribute>
               </element>
             </zeroOrMore>
@@ -749,10 +759,10 @@
       <!-- TODO: check for proper children -->
       <element name="reportTableDataElement">
         <attribute name="reportTable">
-          <data type="IDREF"/>
+          <ref name="dxfIDRef"/>
         </attribute>
         <attribute name="dataElement">
-          <data type="IDREF"/>
+          <ref name="dxfIDRef"/>
         </attribute>
         <attribute name="sortOrder">
           <data type="integer"/>
@@ -815,7 +825,7 @@
       <!-- TODO: check for proper children -->
       <zeroOrMore>
       <element name="ReportTablePeriod">
-        <attribute name="id"><data type="IDREF"></data></attribute>
+        <attribute name="period"><ref name="dxfIDRef"/></attribute>
         <attribute name="sortOrder"><data type="integer"></data></attribute>
       </element>
       </zeroOrMore>
@@ -847,7 +857,7 @@
       <!-- TODO: check completeDataSetRegistrations -->
       <zeroOrMore>
         <element name="completeDataSetRegistrationPeriod">
-          <attribute name="id"><data type="IDREF"></data></attribute>
+          <attribute name="period"><ref name="dxfIDRef"/></attribute>
           <attribute name="sortOrder"><data type="integer"></data></attribute>
         </element>
       </zeroOrMore>
@@ -859,20 +869,20 @@
       <zeroOrMore>
         <element name="dataValue" ns="http://dhis2.org/ns/schema/dxf2">
           <attribute name="dataElement">
-            <data type="IDREF"/>
+            <ref name="dxfIDRef"/>
           </attribute>
           <attribute name="period">
-            <data type="IDREF"/>
+            <ref name="dxfIDRef"/>
           </attribute>
           <attribute name="source">
-            <data type="IDREF"/>
+            <ref name="dxfIDRef"/>
           </attribute>
           <attribute name="value">
             <text/>
           </attribute>
           <optional>
             <attribute name="storedBy">
-              <data type="IDREF"/>
+              <text/>
             </attribute>
           </optional>
           <optional>
@@ -886,7 +896,7 @@
             </attribute>
           </optional>
           <attribute name="categoryOptionCombo">
-            <data type="IDREF"/>
+            <ref name="dxfIDRef"/>
           </attribute>
         </element>
       </zeroOrMore>
