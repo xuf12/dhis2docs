@@ -23,10 +23,6 @@
       <element name="metadata">
 
         <optional>
-          <ref name="OrgUnitDefinition"/>
-        </optional>
-
-        <optional>
           <ref name="CategoryDimensions"/>
         </optional>
 
@@ -44,9 +40,15 @@
         <optional>
           <ref name="DataSetDefinition"/>
         </optional>
+
         <optional>
           <ref name="DataDictionaryDefinition"/>
         </optional>
+        
+        <optional>
+          <ref name="OrgUnitDefinition"/>
+        </optional>
+                
         <optional>
           <ref name="Periods"/>
         </optional>
@@ -101,10 +103,10 @@
   </define>
   <define name="OrgUnitDefinition">
     <element name="orgUnitStructure" ns="http://dhis2.org/ns/schema/dxf2">
-      <ref name="organisationGroupSets"/>
-      <ref name="organisationUnitGroups"/>
-      <ref name="organisationUnits"/>
       <ref name="organisationUnitLevels"/>
+      <ref name="organisationUnits"/>
+      <ref name="organisationUnitGroups"/>
+      <ref name="organisationGroupSets"/>
     </element>
   </define>
   <define name="ReportTableDefinition">
@@ -165,11 +167,13 @@
       <oneOrMore>
         <element name="category">
           <ref name="identifiableObject"/>
-          <oneOrMore>
-            <element name="categoryOption">
-              <ref name="identifiableObject"/>
-            </element>
-          </oneOrMore>
+          <element name="categoryOptions">
+            <oneOrMore>
+              <element name="categoryOption">
+                <ref name="identifiableObject"/>
+              </element>
+            </oneOrMore>
+          </element>
         </element>
       </oneOrMore>
     </element>
@@ -447,6 +451,15 @@
               <value>false</value>
             </choice>
           </element>
+          <element name="groups">
+            <zeroOrMore>
+              <element name="group">
+                <attribute name="ref">
+                  <ref name="dxfIDRef"/>
+                </attribute>
+              </element>
+            </zeroOrMore>
+          </element>
         </element>
       </zeroOrMore>
     </element>
@@ -465,12 +478,11 @@
           <element name="name">
             <text/>
           </element>
-          <!--An organisation group can be a member of zero or more groupsets          -->
-          <element name="groupSets">
+          <element name="orgUnits">
             <zeroOrMore>
-              <element name="groupSet">
-                <attribute name="id">
-                  <ref name="dxfID"/>
+              <element name="orgUnit">
+                <attribute name="ref">
+                  <ref name="dxfIDRef"/>
                 </attribute>
               </element>
             </zeroOrMore>
@@ -487,48 +499,63 @@
       </zeroOrMore>
     </element>
   </define>
+  
   <define name="organisationUnit">
     <element name="organisationUnit" ns="http://dhis2.org/ns/schema/dxf2">
       <ref name="identifiableObject"/>
-        <!-- <element name="openingDate"><data type="date"/></element> -->
-        <element name="openingDate">
-          <text/>
-        </element>
+      <!-- <element name="openingDate"><data type="date"/></element> -->
+      <element name="dataSets">
+        <zeroOrMore>
+          <element name="dataSet">
+            <attribute name="ref">
+              <ref name="dxfIDRef"/>
+            </attribute>
+          </element>
+        </zeroOrMore>
+      </element>
+      <element name="openingDate">
         <!-- TODO: accept Date or nothing -->
-        <element name="closedDate">
-          <text/>
-        </element>
-        <element name="active">
-          <text/>
-        </element>
-        <element name="comment">
-          <text/>
-        </element>
-        <element name="geoCode">
-          <text/>
-        </element>
-        <!--        An orgunit has zero or more dataSets associated with it-->
-        <element name="dataSets">
-          <zeroOrMore>
-            <element name="dataSetID">
-              <data type="integer"/>
-            </element>
-          </zeroOrMore>
-        </element>
-        <!--An organisation can be a member of zero or more groups          -->
-        <element name="organisationGroups">
-          <zeroOrMore>
-            <element name="OrganisationGroup">
-              <data type="integer"/>
-            </element>
-          </zeroOrMore>
-        </element>
-<!--        An organisation unit is part of a hierarchical tree-->
-        <element name="children">
-          <zeroOrMore>
-            <ref name="organisationUnit"/>
-          </zeroOrMore>
-        </element>
+        <!--        <data type="date"/>-->
+        <text/>
+      </element>
+      <element name="closedDate">
+        <!-- TODO: accept Date or nothing -->
+        <!--        <data type="date"/>-->
+        <text/>
+      </element>
+      <element name="active">
+        <text/>
+      </element>
+      <element name="comment">
+        <text/>
+      </element>
+      <element name="geoCode">
+        <text/>
+      </element>
+      <element name="polygonCoordinates">
+        <text/>
+      </element>
+      <element name="latitude">
+        <text/>
+      </element>
+      <element name="longitude">
+        <text/>
+      </element>
+      <element name="url">
+        <text/>
+      </element>
+      <element name="lastUpdated">
+        <!-- TODO: accept Date or nothing -->
+        <!--        <data type="date"/>-->
+        <text/>
+      </element>
+
+      <!--        An organisation unit is part of a hierarchical tree-->
+      <element name="children">
+        <zeroOrMore>
+          <ref name="organisationUnit"/>
+        </zeroOrMore>
+      </element>
     </element>
   </define>
   

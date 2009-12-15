@@ -2,85 +2,9 @@
 <?oxygen RNGSchema="dxf2.rng" type="xml"?>
 
 <dxf xmlns="http://dhis2.org/ns/schema/dxf2" >
-
+ 
     <metadata>
-               
-        <orgUnitStructure>
-            <groupSets/>
-            <organisationUnitGroups/>
-            <organisationUnits>
-                <organisationUnit id="1">
-                    <uuid/>
-                    <name>Bob's District</name>
-                    <alternativename>Bob's District</alternativename>
-                    <shortname>Bob's District</shortname>
-                    <code>DISTRICT_BOB</code>
-                    <description/>
-                    <openingDate/>
-                    <closedDate/>
-                    <active/>
-                    <comment/>
-                    <geoCode/>
-                    <dataSets/>
-                    <organisationGroups/>
-                    <children>
-                        <organisationUnit id="2">
-                            <uuid></uuid>
-                            <name>Bob's Clinic</name>
-                            <alternativename>Bob's Clinic</alternativename>
-                            <shortname>Bob's Clinic</shortname>
-                            <code></code>
-                            <description></description>
-                            <openingDate></openingDate>
-                            <closedDate></closedDate>
-                            <active></active>
-                            <comment></comment>
-                            <geoCode></geoCode>
-                            <dataSets></dataSets>
-                            <organisationGroups></organisationGroups>
-                            <children></children>
-                        </organisationUnit>
-                        <organisationUnit id="3">
-                            <uuid></uuid>
-                            <name></name>
-                            <alternativename></alternativename>
-                            <shortname></shortname>
-                            <code></code>
-                            <description></description>
-                            <openingDate></openingDate>
-                            <closedDate></closedDate>
-                            <active></active>
-                            <comment></comment>
-                            <geoCode></geoCode>
-                            <dataSets></dataSets>
-                            <organisationGroups></organisationGroups>
-                            <children>
-                                <organisationUnit id="4">
-                                    <uuid></uuid>
-                                    <name></name>
-                                    <alternativename></alternativename>
-                                    <shortname></shortname>
-                                    <code></code>
-                                    <description></description>
-                                    <openingDate></openingDate>
-                                    <closedDate></closedDate>
-                                    <active></active>
-                                    <comment></comment>
-                                    <geoCode></geoCode>
-                                    <dataSets></dataSets>
-                                    <organisationGroups></organisationGroups>
-                                    <children></children>
-                                </organisationUnit>
-                                
-                            </children>
-                        </organisationUnit>
-                        
-                    </children>
-                </organisationUnit>
-            </organisationUnits>
-            <organisationUnitLevels/>    
-        </orgUnitStructure>
-        
+       
         <categories>
             <category id="1">
                 <uuid/>
@@ -89,22 +13,24 @@
                 <shortname>Gender</shortname>
                 <code>CL_GENDER</code>
                 <description/>
-                <categoryOption id="1">
-                    <uuid/>
-                    <name>Male</name>
-                    <alternativename/>
-                    <shortname>Male</shortname>
-                    <code>MALE</code>
-                    <description/>
-                </categoryOption>
-                <categoryOption id="2">
-                    <uuid/>
-                    <name>Female</name>
-                    <alternativename/>
-                    <shortname>Female</shortname>
-                    <code>FEMALE</code>
-                    <description/>
-                </categoryOption>
+                <categoryOptions>
+                    <categoryOption id="1">
+                        <uuid/>
+                        <name>Male</name>
+                        <alternativename/>
+                        <shortname>Male</shortname>
+                        <code>MALE</code>
+                        <description/>
+                    </categoryOption>
+                    <categoryOption id="2">
+                        <uuid/>
+                        <name>Female</name>
+                        <alternativename/>
+                        <shortname>Female</shortname>
+                        <code>FEMALE</code>
+                        <description/>
+                    </categoryOption>
+                </categoryOptions>
             </category>
             <category id="2">
                 <uuid/>
@@ -113,22 +39,24 @@
                 <shortname>Age</shortname>
                 <code>CL_AGE</code>
                 <description/>
-                <categoryOption id="3">
-                    <uuid/>
-                    <name>Under 5</name>
-                    <alternativename/>
-                    <shortname>Under 5</shortname>
-                    <code>UNDER_5</code>
-                    <description/>
-                </categoryOption>
-                <categoryOption id="4">
-                    <uuid/>
-                    <name>5 to 10</name>
-                    <alternativename/>
-                    <shortname>5 to 10</shortname>
-                    <code>5_TO_10</code>
-                    <description/>
-                </categoryOption>
+                <categoryOptions>
+                    <categoryOption id="3">
+                        <uuid/>
+                        <name>Under 5</name>
+                        <alternativename/>
+                        <shortname>Under 5</shortname>
+                        <code>UNDER_5</code>
+                        <description/>
+                    </categoryOption>
+                    <categoryOption id="4">
+                        <uuid/>
+                        <name>5 to 10</name>
+                        <alternativename/>
+                        <shortname>5 to 10</shortname>
+                        <code>5_TO_10</code>
+                        <description/>
+                    </categoryOption>
+                </categoryOptions>
             </category>
         </categories>
 
@@ -343,6 +271,96 @@
             </dataSet>
         </dataSets>
         <dataDictionaries/> 
+
+        <orgUnitStructure>
+            <organisationUnitLevels/>    
+            <organisationUnits>
+                <organisationUnit id="2000">
+                    <uuid/>
+                    <name>Bob's District</name>
+                    <alternativename>Bob's District</alternativename>
+                    <shortname>Bob's District</shortname>
+                    <code>DISTRICT_BOB</code>
+                    <description/>
+                    <dataSets/>
+                    <openingDate/>
+                    <closedDate/>
+                    <active/>
+                    <comment/>
+                    <geoCode/>
+                    <polygonCoordinates/>
+                    <latitude/>
+                    <longitude/>
+                    <url/>
+                    <lastUpdated/>
+                    <children>
+                        <organisationUnit id="2001">
+                            <uuid></uuid>
+                            <name>Bob's Clinic</name>
+                            <alternativename>Bob's Clinic</alternativename>
+                            <shortname>Bob's Clinic</shortname>
+                            <code></code>
+                            <description></description>
+                            <dataSets/>
+                            <openingDate/>
+                            <closedDate/>
+                            <active/>
+                            <comment/>
+                            <geoCode/>
+                            <polygonCoordinates/>
+                            <latitude/>
+                            <longitude/>
+                            <url/>
+                            <lastUpdated/>
+                            <children></children>
+                        </organisationUnit>
+                        <organisationUnit id="3000">
+                            <uuid></uuid>
+                            <name></name>
+                            <alternativename></alternativename>
+                            <shortname></shortname>
+                            <code></code>
+                            <description></description>
+                            <dataSets/>
+                            <openingDate/>
+                            <closedDate/>
+                            <active/>
+                            <comment/>
+                            <geoCode/>
+                            <polygonCoordinates/>
+                            <latitude/>
+                            <longitude/>
+                            <url/>
+                            <lastUpdated/>
+                            <children>
+                                <organisationUnit id="3000">
+                                    <uuid></uuid>
+                                    <name></name>
+                                    <alternativename></alternativename>
+                                    <shortname></shortname>
+                                    <code></code>
+                                    <description></description>
+                                    <dataSets/>
+                                    <openingDate/>
+                                    <closedDate/>
+                                    <active/>
+                                    <comment/>
+                                    <geoCode/>
+                                    <polygonCoordinates/>
+                                    <latitude/>
+                                    <longitude/>
+                                    <url/>
+                                    <lastUpdated/>
+                                    <children/>
+                                </organisationUnit>
+                            </children>
+                        </organisationUnit>
+                    </children>
+                </organisationUnit>
+            </organisationUnits>
+            <organisationUnitGroups/>
+            <groupSets/>
+        </orgUnitStructure>
         
         <periods>
             <period id="1">
