@@ -349,8 +349,8 @@
           </element>
           <element name="dataDictionaries">
             <zeroOrMore>
-              <element name="datadictionary">
-                <attribute name="ref">
+              <element name="dataDictionaryRef">
+                <attribute name="id">
                   <ref name="dxfIDRef"/>
                 </attribute>
               </element>
