@@ -4,49 +4,46 @@ default namespace = "http://dhis2.org/ns/schema/dxf2"
 # dxf2.rnc and dxf.xsd are derived using jing
 # 
 # TODO:
-# ns="http://www.dhis2.org/schema/dxf" >
+# add missing elements
 
 # These are toplevel elements of dxf format
 start =
   element dxf {
+    # Metadata section
+    # This is a rough grouping of the sections
+    # as they appear in the file.
+    # Currently each section is optional.
     element metadata {
-      # Metadata section
-      # This is a rough grouping of the sections
-      # as they appear in the file.
-      # Each section is optional.
-      MultiDimensionalElements?,
+      CategoryDimensions?,
       DataElementDefinition?,
       IndicatorDefinition?,
-      DataDictionaryDefinition?,
+      GroupSetDimensions?,
       DataSetDefinition?,
+      DataDictionaryDefinition?,
       OrgUnitDefinition?,
-      periods?,
+      Periods?,
       ReportTableDefinition?,
       completeDataSetRegistrations?
     },
     # DataValues
-    dataValues?
+    element dataValues { dataValues }?
   }
 # 
 # Each of the MetaData groups is a sequence of elements
-# 
 #
-MultiDimensionalElements =
-  categories, categoryCombos, categoryOptionCombos
-DataElementDefinition = dataElements, dataElementGroupSets
-IndicatorDefinition = indicatorTypes, indicators, IndicatorGroupSets
-DataDictionaryDefinition =
-  dataDictionaries, dataDictionaryDataElements, dataDictionaryIndicators
-DataSetDefinition = dataSets, dataSetMembers
+DataDictionaryDefinition = dataDictionaries
+CategoryDimensions = categories, categoryCombos, categoryOptionCombos
+DataElementDefinition = dataElements
+IndicatorDefinition = indicatorTypes, indicators
+GroupSetDimensions = dataElementGroupSets, indicatorGroupSets
+DataSetDefinition = dataSets
 OrgUnitDefinition =
-  organisationUnits,
-  organisationUnitRelationships,
-  organisationUnitGroups,
-  organisationUnitGroupMembers,
-  groupSets,
-  groupSetMembers,
-  organisationUnitLevels,
-  dataSetSourceAssociations
+  element orgUnitStructure {
+    organisationUnitLevels,
+    organisationUnits,
+    organisationUnitGroups,
+    organisationGroupSets
+  }
 ReportTableDefinition =
   reportTables,
   reportTableDataElements,
@@ -55,9 +52,13 @@ ReportTableDefinition =
   reportTableDataSets,
   reportTablePeriods,
   reportTableOrganisationUnits
+# dxf2 ids
+dxfID = xsd:int
+# dxf2 idrefs
+dxfIDRef = xsd:int
 # common base for identifiable objects
 identifiableObject =
-  element id { xsd:integer },
+  attribute id { dxfID },
   element uuid { text },
   element name { text },
   element alternativename { text },
@@ -74,51 +75,75 @@ categories =
   element categories {
     element category {
       identifiableObject,
-      element categoryOption { identifiableObject }+
+      element categoryOptions {
+        element categoryOption { identifiableObject }+
+      }
     }+
   }
 categoryCombos = element categoryCombos { categoryCombo+ }
 categoryCombo =
   element categoryCombo {
-    element id { xsd:integer },
+    attribute id { dxfID },
     element name { text },
-    element categories {
-      element categoryId { xsd:integer }*
+    element categoryRefs {
+      element categoryRef {
+        attribute ref { dxfIDRef }
+      }*
     }
   }
 categoryOptionCombos =
   element categoryOptionCombos {
     element categoryOptionCombo {
       identifiableObject,
-      element categoryComboId { xsd:integer },
-      element categoryOptionId { xsd:integer }*
+      attribute categoryComboRef { dxfIDRef },
+      element categoryOptionRef {
+        attribute ref { dxfIDRef }
+      }*
+    }*
+  }
+dataElementGroupSets =
+  element dataElementGroupSets {
+    element dataElementGroupSet {
+      identifiableObject,
+      element Groups {
+        element dataElementGroup {
+          identifiableObject,
+          element dataElementRef {
+            attribute ref { dxfIDRef }
+          }*
+        }*
+      }
+    }*
+  }
+indicatorGroupSets =
+  element indicatorGroupSets {
+    element indicatorGroupSet {
+      identifiableObject,
+      element Groups {
+        element indicatorGroup {
+          identifiableObject,
+          element indicatorRef {
+            attribute ref { dxfIDRef }
+          }*
+        }*
+      }
     }*
   }
 # DataElementDefinition
 dataElements = element dataElements { dataElement* }
 dataElement =
   element dataElement {
+    attribute categoryComboRef { dxfIDRef },
     identifiableObject,
     element active { text },
     element type { text },
-    element aggregationOperator { text },
-    element categoryCombo { xsd:integer }
-  }
-dataElementGroupSets =
-  element dataElementGroupSets {
-    element dataElementGroupSet {
-      identifiableObject,
-      element dataElementGroup {
-        identifiableObject,
-        element dataElementId { xsd:integer }+
-      }+
-    }*
+    element aggregationOperator { text }
   }
 # IndicatorDefinition
 indicatorTypes =
   element indicatorTypes {
     element indicatorType {
-      element id { xsd:integer },
+      attribute id { dxfID },
       element name { text },
       element factor { xsd:integer }
     }*
@@ -128,7 +153,7 @@ indicators =
     element indicator {
       identifiableObject,
       element annualized { text },
-      element indicatorType { xsd:integer },
+      attribute indicatorTypeRef { dxfIDRef },
       element numerator { text },
       element numeratorDescription { text },
       element numeratorAggregationOperator { text },
@@ -137,134 +162,107 @@ indicators =
       element denominatorAggregationOperator { text }
     }*
   }
-IndicatorGroupSets =
-  element IndicatorGroupSets {
-    element IndicatorGroupSet {
-      identifiableObject,
-      element IndicatorGroup {
-        identifiableObject,
-        element IndicatorId { xsd:integer }
-      }+
-    }*
-  }
 # Data Dictionary Definition
 dataDictionaries =
   element dataDictionaries {
     element dataDictionary {
-      element id { xsd:integer },
+      attribute id { dxfID },
       element name { text },
       element description { text },
-      element region { text }
-    }*
-  }
-dataDictionaryDataElements =
-  element dataDictionaryDataElements {
-    element dataDictionaryDataElement {
-      element dataDictionary { xsd:integer },
-      element dataElement { xsd:integer }
-    }*
-  }
-dataDictionaryIndicators =
-  element dataDictionaryIndicators {
-    element dataDictionaryIndicator {
-      element dataDictionary { xsd:integer },
-      element indicator { xsd:integer }
+      element region { text },
+      element dataElements {
+        element dataElementRef {
+          attribute ref { dxfIDRef }
+        }*
+      }
     }*
   }
 # DataSet Definition
 dataSets =
   element dataSets {
     element dataSet {
-      element id { xsd:integer },
+      attribute id { dxfID },
       element name { text },
       element shortName { text },
       element code { text },
-      element periodType { text }
+      element periodType { text },
+      element dataElements {
+        element dataElementRef {
+          attribute ref { dxfIDRef }
+        }*
+      }
     }*
   }
-dataSetMembers =
-  element dataSetMembers {
-    # TODO: check dataSetMembers
-    anyElements
-  }
 # Organisation Unit Definition
-organisationUnits = element organisationUnits { organisationUnit* }
-organisationUnit =
-  element organisationUnit {
-    (element id { xsd:integer },
-     element uuid { text },
-     element name { text },
-     element shortName { text },
-     element code { text },
-     # <element name="openingDate"><data type="date"/></element>
-     element openingDate { text },
-     # TODO: accept Date or nothing
-     element closedDate { text },
-     element active { text },
-     element comment { text },
-     element geoCode { text })
-    # TODO: URL in dxf?
-    
-  }
-organisationUnitRelationships =
-  element organisationUnitRelationships {
-    element organisationUnitRelationship {
-      element parent { xsd:integer },
-      element child { xsd:integer }
+organisationGroupSets =
+  element groupSets {
+    element groupSet {
+      attribute id { dxfID },
+      element name { text },
+      element description { text },
+      element compulsory { "true" | "false" },
+      element exclusive { "true" | "false" },
+      element groups {
+        element groupRef {
+          attribute ref { dxfIDRef }
+        }*
+      }
     }*
   }
 organisationUnitGroups =
   element organisationUnitGroups {
     element organisationUnitGroup {
-      element id { xsd:integer },
+      attribute id { dxfID },
       element uuid { text },
-      element name { text }
-    }*
-  }
-organisationUnitGroupMembers =
-  element organisationUnitGroupMembers {
-    element organisationUnitGroupMember {
-      element organisationUnitGroup { xsd:integer },
-      element organisationUnit { xsd:integer }
-    }*
-  }
-groupSets =
-  element groupSets {
-    element groupSet {
-      element id { xsd:integer },
       element name { text },
-      element description { text },
-      element compulsory { "true" | "false" },
-      element exclusive { "true" | "false" }
+      element orgUnits {
+        element orgUnitRef {
+          attribute ref { dxfIDRef }
+        }*
+      }
     }*
   }
-groupSetMembers =
-  element groupSetMembers {
-    element groupSetMember {
-      element groupSet { xsd:integer },
-      element organisationUnitGroup { xsd:integer }
-    }*
+organisationUnits = element organisationUnits { organisationUnit* }
+organisationUnit =
+  element organisationUnit {
+    identifiableObject,
+    # <element name="openingDate"><data type="date"/></element>
+    element dataSets {
+      element dataSetRef {
+        attribute ref { dxfIDRef }
+      }*
+    }?,
+    element openingDate { xsd:date }?,
+    element closedDate { xsd:date }?,
+    element active { xsd:boolean }?,
+    element comment { text }?,
+    element geoCode { text }?,
+    element polygonCoordinates { text }?,
+    element latitude { text }?,
+    element longitude { text }?,
+    element url { text }?,
+    element lastUpdated {
+      # TODO: accept Date or nothing
+      
+      #         <data type="date"/>
+      xsd:date
+    }?,
+    #         An organisation unit is part of a hierarchical tree
+    element children { organisationUnit* }
   }
 organisationUnitLevels =
   element organisationUnitLevels {
     element organisationUnitLevel {
-      element id { xsd:integer },
+      attribute id { dxfID },
       element level { xsd:integer },
       element name { text }
     }*
   }
-dataSetSourceAssociations =
-  element dataSetSourceAssociations {
-    element dataSetSourceAssociation {
-      element dataSet { xsd:integer },
-      element source { xsd:integer }
-    }*
-  }
 # Periods
-periods =
+Periods =
   element periods {
     element period {
-      element id { xsd:integer },
+      attribute id { dxfID },
       element periodType { text },
       element startDate { xsd:date },
       element endDate { xsd:date }
@@ -274,7 +272,7 @@ periods =
 reportTables =
   element reportTables {
     element reportTable {
-      element id { xsd:integer },
+      attribute id { dxfID },
       element name { text },
       element tableName { text },
       element existingTableName { text },
@@ -299,19 +297,28 @@ reportTables =
       element individualQuartersThisYear { "true" | "false" },
       element paramReportingMonth { "true" | "false" },
       element paramParentOrganisationUnit { "true" | "false" },
-      element paramOrganisationUnit { "true" | "false" }
+      element paramOrganisationUnit { "true" | "false" },
+      element dataelements {
+        element dataelement {
+          attribute id { dxfID }
+        }*
+      }
     }*
   }
 reportTableDataElements =
   element reportTableDataElements {
     # TODO: check for proper children
-    anyElements
+    element reportTableDataElement {
+      attribute reportTableRef { dxfIDRef },
+      attribute dataElementRef { dxfIDRef },
+      attribute sortOrder { xsd:integer }
+    }
   }
 # ReportTableCategoryOptionCombos
 reportTableCategoryOptionCombos =
   element reportTableCategoryOptionCombos {
     # TODO: check for proper children
-    anyElements
+    element TODO { xsd:integer }?
   }
 # ReportTableIndicators
 reportTableIndicators =
@@ -335,7 +342,10 @@ reportTableDataSets =
 reportTablePeriods =
   element reportTablePeriods {
     # TODO: check for proper children
-    anyElements
+    element ReportTablePeriod {
+      attribute periodRef { dxfIDRef },
+      attribute sortOrder { xsd:integer }
+    }*
   }
 # ReportTableOrganisationUnits
 reportTableOrganisationUnits =
@@ -350,27 +360,20 @@ reportTableOrganisationUnits =
 completeDataSetRegistrations =
   element completeDataSetRegistrations {
     # TODO: check completeDataSetRegistrations
-    anyElements
+    element completeDataSetRegistrationPeriod {
+      attribute periodRef { dxfIDRef },
+      attribute sortOrder { xsd:integer }
+    }*
   }
 # DataValue Section
 dataValues =
-  element dataValues {
-    element dataValue {
-      attribute dataElement { xsd:integer },
-      attribute period { xsd:integer },
-      attribute source { xsd:integer },
-      attribute value { text },
-      attribute storedBy { xsd:integer }?,
-      attribute timeStamp { text }?,
-      attribute comment { text }?,
-      attribute categoryOptionCombo { xsd:integer }
-    }*
-  }
-# Convenience (from odf spec) for filling in the "dark spots"
-anyAttListOrElements =
-  attribute * { text }*,
-  anyElements
-anyElements =
-  element * {
-    mixed { anyAttListOrElements }
+  element dataValue {
+    attribute dataElement { dxfIDRef },
+    attribute period { dxfIDRef },
+    attribute source { dxfIDRef },
+    attribute value { text },
+    attribute storedBy { text }?,
+    attribute timeStamp { text }?,
+    attribute comment { text }?,
+    attribute categoryOptionCombo { dxfIDRef }
   }*

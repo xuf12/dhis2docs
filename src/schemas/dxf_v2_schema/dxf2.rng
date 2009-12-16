@@ -195,10 +195,12 @@
       <element name="name">
         <text/>
       </element>
-      <element name="categories">
+      <element name="categoryRefs">
         <zeroOrMore>
-          <element name="categoryId">
-            <data type="integer"/>
+          <element name="categoryRef">
+            <attribute name="ref">
+              <ref name="dxfIDRef"/>
+            </attribute>
           </element>
         </zeroOrMore>
       </element>
@@ -214,7 +216,7 @@
             <ref name="dxfIDRef"/>
           </attribute>
           <zeroOrMore>
-            <element name="categoryoption">
+            <element name="categoryOptionRef">
               <attribute name="ref">
                 <ref name="dxfIDRef"/>
               </attribute>
@@ -235,7 +237,7 @@
               <element name="dataElementGroup">
                 <ref name="identifiableObject"/>
                 <zeroOrMore>
-                  <element name="dataElement">
+                  <element name="dataElementRef">
                     <attribute name="ref">
                       <ref name="dxfIDRef"/>
                     </attribute>
@@ -259,7 +261,7 @@
               <element name="indicatorGroup">
                 <ref name="identifiableObject"/>
                 <zeroOrMore>
-                  <element name="indicator">
+                  <element name="indicatorRef">
                     <attribute name="ref">
                       <ref name="dxfIDRef"/>
                     </attribute>
@@ -326,7 +328,7 @@
           <element name="annualized">
             <text/>
           </element>
-          <attribute name="indicatorType">
+          <attribute name="indicatorTypeRef">
             <ref name="dxfIDRef"/>
           </attribute>
           <element name="numerator">
@@ -346,15 +348,6 @@
           </element>
           <element name="denominatorAggregationOperator">
             <text/>
-          </element>
-          <element name="dataDictionaries">
-            <zeroOrMore>
-              <element name="dataDictionaryRef">
-                <attribute name="id">
-                  <ref name="dxfIDRef"/>
-                </attribute>
-              </element>
-            </zeroOrMore>
           </element>
         </element>
       </zeroOrMore>
@@ -378,10 +371,12 @@
           <element name="region">
             <text/>
           </element>
-          <element name="dataelements">
+          <element name="dataElements">
             <zeroOrMore>
-              <element name="dataelementid">
-                <data type="integer"/>
+              <element name="dataElementRef">
+                <attribute name="ref">
+                  <ref name="dxfIDRef"/>
+                </attribute>
               </element>
             </zeroOrMore>
           </element>
@@ -410,9 +405,9 @@
           <element name="periodType">
             <text/>
           </element>
-          <element name="dataelements">
+          <element name="dataElements">
             <zeroOrMore>
-              <element name="dataelement">
+              <element name="dataElementRef">
                 <attribute name="ref">
                   <ref name="dxfIDRef"/>
                 </attribute>
@@ -453,7 +448,7 @@
           </element>
           <element name="groups">
             <zeroOrMore>
-              <element name="group">
+              <element name="groupRef">
                 <attribute name="ref">
                   <ref name="dxfIDRef"/>
                 </attribute>
@@ -480,7 +475,7 @@
           </element>
           <element name="orgUnits">
             <zeroOrMore>
-              <element name="orgUnit">
+              <element name="orgUnitRef">
                 <attribute name="ref">
                   <ref name="dxfIDRef"/>
                 </attribute>
@@ -504,52 +499,69 @@
     <element name="organisationUnit" ns="http://dhis2.org/ns/schema/dxf2">
       <ref name="identifiableObject"/>
       <!-- <element name="openingDate"><data type="date"/></element> -->
-      <element name="dataSets">
-        <zeroOrMore>
-          <element name="dataSet">
-            <attribute name="ref">
-              <ref name="dxfIDRef"/>
-            </attribute>
-          </element>
-        </zeroOrMore>
-      </element>
-      <element name="openingDate">
-        <!-- TODO: accept Date or nothing -->
-        <!--        <data type="date"/>-->
-        <text/>
-      </element>
-      <element name="closedDate">
-        <!-- TODO: accept Date or nothing -->
-        <!--        <data type="date"/>-->
-        <text/>
-      </element>
-      <element name="active">
-        <text/>
-      </element>
-      <element name="comment">
-        <text/>
-      </element>
-      <element name="geoCode">
-        <text/>
-      </element>
-      <element name="polygonCoordinates">
-        <text/>
-      </element>
-      <element name="latitude">
-        <text/>
-      </element>
-      <element name="longitude">
-        <text/>
-      </element>
-      <element name="url">
-        <text/>
-      </element>
-      <element name="lastUpdated">
-        <!-- TODO: accept Date or nothing -->
-        <!--        <data type="date"/>-->
-        <text/>
-      </element>
-
+      <optional>
+        <element name="dataSets">
+          <zeroOrMore>
+            <element name="dataSetRef">
+              <attribute name="ref">
+                <ref name="dxfIDRef"/>
+              </attribute>
+            </element>
+          </zeroOrMore>
+        </element>
+      </optional>
+      <optional>
+        <element name="openingDate">
+          <data type="date"/>
+        </element>
+      </optional>
+      <optional>
+        <element name="closedDate">
+          <data type="date"/>
+        </element>
+      </optional>
+      <optional>
+        <element name="active">
+          <data type="boolean"/>
+        </element>
+      </optional>
+      <optional>
+        <element name="comment">
+          <text/>
+        </element>
+      </optional>
+      <optional>
+        <element name="geoCode">
+          <text/>
+        </element>
+      </optional>
+      <optional>
+        <element name="polygonCoordinates">
+          <text/>
+        </element>
+      </optional>
+      <optional>
+        <element name="latitude">
+          <text/>
+        </element>
+      </optional>
+      <optional>
+        <element name="longitude">
+          <text/>
+        </element>
+      </optional>
+      <optional>
+        <element name="url">
+          <text/>
+        </element>
+      </optional>
+      <optional>
+        <element name="lastUpdated">
+          <!-- TODO: accept Date or nothing -->
+          <!--        <data type="date"/>-->
+          <data type="date"/>
+        </element>
+      </optional>
       <!--        An organisation unit is part of a hierarchical tree-->
       <element name="children">
         <zeroOrMore>
@@ -766,10 +778,10 @@
     <element name="reportTableDataElements" ns="http://dhis2.org/ns/schema/dxf2">
       <!-- TODO: check for proper children -->
       <element name="reportTableDataElement">
-        <attribute name="reportTable">
+        <attribute name="reportTableRef">
           <ref name="dxfIDRef"/>
         </attribute>
-        <attribute name="dataElement">
+        <attribute name="dataElementRef">
           <ref name="dxfIDRef"/>
         </attribute>
         <attribute name="sortOrder">
@@ -833,8 +845,12 @@
       <!-- TODO: check for proper children -->
       <zeroOrMore>
       <element name="ReportTablePeriod">
-        <attribute name="period"><ref name="dxfIDRef"/></attribute>
-        <attribute name="sortOrder"><data type="integer"></data></attribute>
+        <attribute name="periodRef">
+          <ref name="dxfIDRef"/>
+        </attribute>
+        <attribute name="sortOrder">
+          <data type="integer"/>
+        </attribute>
       </element>
       </zeroOrMore>
     </element>
@@ -865,8 +881,12 @@
       <!-- TODO: check completeDataSetRegistrations -->
       <zeroOrMore>
         <element name="completeDataSetRegistrationPeriod">
-          <attribute name="period"><ref name="dxfIDRef"/></attribute>
-          <attribute name="sortOrder"><data type="integer"></data></attribute>
+          <attribute name="periodRef">
+            <ref name="dxfIDRef"/>
+          </attribute>
+          <attribute name="sortOrder">
+            <data type="integer"/>
+          </attribute>
         </element>
       </zeroOrMore>
     </element>

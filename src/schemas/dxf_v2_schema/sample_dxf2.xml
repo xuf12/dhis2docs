@@ -4,7 +4,7 @@
 <dxf xmlns="http://dhis2.org/ns/schema/dxf2" >
  
     <metadata>
-       
+      
         <categories>
             <category id="1">
                 <uuid/>
@@ -65,15 +65,15 @@
             <!--        The default categoryCombo has no categories-->
             <categoryCombo id="1">
                 <name>default</name>
-                <categories/>
+                <categoryRefs/>
             </categoryCombo>
 
             <categoryCombo id="2">
                 <name>Age - Sex combination</name>
-                <categories>
-                    <categoryId>1</categoryId>
-                    <categoryId>2</categoryId>
-                </categories>
+                <categoryRefs>
+                    <categoryRef ref="1"/>
+                    <categoryRef ref="2"/>
+                </categoryRefs>
             </categoryCombo>
         </categoryCombos>
 
@@ -97,8 +97,8 @@
                 <shortname>Male under 5</shortname>
                 <code/>
                 <description/>
-                <categoryoption ref="1"/>
-                <categoryoption ref="3"/>
+                <categoryOptionRef ref="1"/>
+                <categoryOptionRef ref="3"/>
             </categoryOptionCombo>
             <categoryOptionCombo id="2" categoryComboRef="1">
                 <uuid/>
@@ -107,7 +107,7 @@
                 <shortname>Female under 5</shortname>
                 <code/>
                 <description/>
-                <categoryoption ref="3"/>
+                <categoryOptionRef ref="3"/>
             </categoryOptionCombo>
             <categoryOptionCombo id="3" categoryComboRef="1">
                 <uuid/>
@@ -116,8 +116,8 @@
                 <shortname>Male between 5 and 10</shortname>
                 <code/>
                 <description/>
-                <categoryoption ref="1"/>
-                <categoryoption ref="4"/>
+                <categoryOptionRef ref="1"/>
+                <categoryOptionRef ref="4"/>
             </categoryOptionCombo>
             <categoryOptionCombo id="5" categoryComboRef="2">
                 <uuid/>
@@ -126,8 +126,8 @@
                 <shortname>Female between 5 and 10</shortname>
                 <code/>
                 <description/>
-                <categoryoption ref="2"/>
-                <categoryoption ref="4"/>
+                <categoryOptionRef ref="2"/>
+                <categoryOptionRef ref="4"/>
             </categoryOptionCombo>
 
         </categoryOptionCombos>
@@ -218,8 +218,8 @@
                         <shortname>Under 5</shortname>
                         <code/>
                         <description/>
-                        <dataElement ref="2"/>
-                        <dataElement ref="3"/>
+                        <dataElementRef ref="2"/>
+                        <dataElementRef ref="3"/>
                     </dataElementGroup>
                     <dataElementGroup id="2">
                         <uuid/>
@@ -228,8 +228,8 @@
                         <shortname>Over 5</shortname>
                         <code/>
                         <description/>
-                        <dataElement ref="4"/>
-                        <dataElement ref="5"/>
+                        <dataElementRef ref="4"/>
+                        <dataElementRef ref="5"/>
                     </dataElementGroup>
                 </Groups>
             </dataElementGroupSet>
@@ -248,8 +248,8 @@
                         <shortname>Male</shortname>
                         <code/>
                         <description/>
-                        <dataElement ref="2"/>
-                        <dataElement ref="5"/>
+                        <dataElementRef ref="2"/>
+                        <dataElementRef ref="5"/>
                     </dataElementGroup>
                 </Groups>
             </dataElementGroupSet>
@@ -264,13 +264,25 @@
                 <shortName>Ante-Natal monthly</shortName>
                 <code></code>
                 <periodType>Monthly</periodType>
-                <dataelements>
-                    <dataelement ref="2"/>
-                    <dataelement ref="3"/>
-                </dataelements>
+                <dataElements>
+                    <dataElementRef ref="2"/>
+                    <dataElementRef ref="3"/>
+                </dataElements>
             </dataSet>
         </dataSets>
-        <dataDictionaries/> 
+        
+        <dataDictionaries>
+            <dataDictionary id="1">
+                <name>Oxford</name>
+                <description>Test dictionary</description>
+                <region>County Meath</region>
+                <dataElements>
+                    <dataElementRef ref="1"/>
+                    <dataElementRef ref="2"/>
+                </dataElements>
+            </dataDictionary>
+            
+        </dataDictionaries> 
 
         <orgUnitStructure>
             <organisationUnitLevels/>    
@@ -283,16 +295,16 @@
                     <code>DISTRICT_BOB</code>
                     <description/>
                     <dataSets/>
-                    <openingDate/>
-                    <closedDate/>
-                    <active/>
-                    <comment/>
+                    <openingDate>2009-01-01</openingDate>
+                    <closedDate>2009-02-01</closedDate>
+                    <active>true</active>
+                    <comment>Only opened for one month then closed</comment>
                     <geoCode/>
                     <polygonCoordinates/>
                     <latitude/>
                     <longitude/>
-                    <url/>
-                    <lastUpdated/>
+                    <url>http://www.bdistrict.gov.ie</url>
+                    <lastUpdated>2009-01-03</lastUpdated>
                     <children>
                         <organisationUnit id="2001">
                             <uuid></uuid>
@@ -301,17 +313,6 @@
                             <shortname>Bob's Clinic</shortname>
                             <code></code>
                             <description></description>
-                            <dataSets/>
-                            <openingDate/>
-                            <closedDate/>
-                            <active/>
-                            <comment/>
-                            <geoCode/>
-                            <polygonCoordinates/>
-                            <latitude/>
-                            <longitude/>
-                            <url/>
-                            <lastUpdated/>
                             <children></children>
                         </organisationUnit>
                         <organisationUnit id="3000">
@@ -321,17 +322,6 @@
                             <shortname></shortname>
                             <code></code>
                             <description></description>
-                            <dataSets/>
-                            <openingDate/>
-                            <closedDate/>
-                            <active/>
-                            <comment/>
-                            <geoCode/>
-                            <polygonCoordinates/>
-                            <latitude/>
-                            <longitude/>
-                            <url/>
-                            <lastUpdated/>
                             <children>
                                 <organisationUnit id="3000">
                                     <uuid></uuid>
@@ -340,17 +330,6 @@
                                     <shortname></shortname>
                                     <code></code>
                                     <description></description>
-                                    <dataSets/>
-                                    <openingDate/>
-                                    <closedDate/>
-                                    <active/>
-                                    <comment/>
-                                    <geoCode/>
-                                    <polygonCoordinates/>
-                                    <latitude/>
-                                    <longitude/>
-                                    <url/>
-                                    <lastUpdated/>
                                     <children/>
                                 </organisationUnit>
                             </children>
