@@ -758,9 +758,9 @@
             </choice>
           </element>
           
-          <element name="dataelements">
+          <element name="dataElements">
             <zeroOrMore>
-              <element name="dataelement">
+              <element name="dataElement">
                 <attribute name="id">
                   <ref name="dxfID"/>
                 </attribute>
