@@ -129,8 +129,8 @@
     <xs:sequence>
       <xs:element ref="dxf2:uuid"/>
       <xs:element ref="dxf2:name"/>
-      <xs:element ref="dxf2:alternativename"/>
-      <xs:element ref="dxf2:shortname"/>
+      <xs:element ref="dxf2:alternativeName"/>
+      <xs:element ref="dxf2:shortName"/>
       <xs:element ref="dxf2:code"/>
       <xs:element ref="dxf2:description"/>
     </xs:sequence>
@@ -138,8 +138,8 @@
   </xs:complexType>
   <xs:element name="uuid" type="xs:string"/>
   <xs:element name="name" type="xs:string"/>
-  <xs:element name="alternativename" type="xs:string"/>
-  <xs:element name="shortname" type="xs:string"/>
+  <xs:element name="alternativeName" type="xs:string"/>
+  <xs:element name="shortName" type="xs:string"/>
   <xs:element name="code" type="xs:string"/>
   <xs:element name="description" type="xs:string"/>
   <!--
@@ -396,7 +396,6 @@
   <xs:element name="region" type="xs:string"/>
   <!-- DataSet Definition -->
   <xs:element name="dataSets" substitutionGroup="dxf2:DataSetDefinition"/>
-  <xs:element name="shortName" type="xs:string"/>
   <xs:element name="periodType" type="xs:string"/>
   <!-- Organisation Unit Definition -->
   <xs:element name="groupSets">
@@ -600,7 +599,17 @@
               <xs:element ref="dxf2:paramReportingMonth"/>
               <xs:element ref="dxf2:paramParentOrganisationUnit"/>
               <xs:element ref="dxf2:paramOrganisationUnit"/>
-              <xs:element ref="dxf2:dataelements"/>
+              <xs:element name="dataElements">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="dataElement">
+                      <xs:complexType>
+                        <xs:attribute name="id" use="required" type="dxf2:dxfID"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
             </xs:sequence>
             <xs:attribute name="id" use="required" type="dxf2:dxfID"/>
           </xs:complexType>
@@ -778,18 +787,6 @@
         <xs:enumeration value="false"/>
       </xs:restriction>
     </xs:simpleType>
-  </xs:element>
-  <xs:element name="dataelements">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="dxf2:dataelement"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="dataelement">
-    <xs:complexType>
-      <xs:attribute name="id" use="required" type="dxf2:dxfID"/>
-    </xs:complexType>
   </xs:element>
   <xs:element name="reportTableDataElements">
     <xs:complexType>

@@ -61,8 +61,8 @@ identifiableObject =
   attribute id { dxfID },
   element uuid { text },
   element name { text },
-  element alternativename { text },
-  element shortname { text },
+  element alternativeName { text },
+  element shortName { text },
   element code { text },
   element description { text }
 # 
@@ -298,8 +298,8 @@ reportTables =
       element paramReportingMonth { "true" | "false" },
       element paramParentOrganisationUnit { "true" | "false" },
       element paramOrganisationUnit { "true" | "false" },
-      element dataelements {
-        element dataelement {
+      element dataElements {
+        element dataElement {
           attribute id { dxfID }
         }*
       }
