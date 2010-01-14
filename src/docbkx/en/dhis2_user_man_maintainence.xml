@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. -->
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.5/docbookx.dtd" []>
+<chapter>
+  <title>Maintainence module</title>
+  <section>
+    <title>Introduction</title>
+    <para>When the cursor hovers on the ‘Maintenance’ module, a drop-down menu appears with the following options: </para>
+    <itemizedlist>
+      <listitem>
+        <para>Data administation </para>
+      </listitem>
+      <listitem>
+        <para>Data elements and indicators</para>
+      </listitem>
+      <listitem>
+        <para>Datasets</para>
+      </listitem>
+      <listitem>
+        <para>Configuration</para>
+      </listitem>
+      <listitem>
+        <para>Organisation units</para>
+      </listitem>
+      <listitem>
+        <para>Settings</para>
+      </listitem>
+      <listitem>
+        <para>Users</para>
+      </listitem>
+    </itemizedlist>
+    <para>Each of these options will be described in a dedicated section in the remainder of this document. </para>
+  </section>
+  <section>
+    <title>Data administration</title>
+    <section>
+      <title>Data locking</title>
+      <para>This module gives users the privilege of locking certain datasets for chosen organization units. This encourages timely data entry. When the ‘Data Administration’ option is chosen the data locking interface is displayed. The user has to select the periodicity of the report e.g. monthly, quarterly or
+yearly for which the data is to be locked. The month, quarter or year for which the reports are to be locked is then specified. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" fileref="resources/images/maintainence/data_locking_select1.png" format="PNG" align="center"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>The unlocked data sets for the period are displayed and the user will then have to choose the data sets to be locked.
+</para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" fileref="resources/images/maintainence/data_locking_select2.png" format="PNG" align="center"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>After choosing the datasets to be locked, double click on each one by one to display the organization unit tree in the field below. Click on the organization unit to lock the dataset.
+</para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" fileref="resources/images/maintainence/data_locking_select3.png" format="PNG" align="center"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>The <guibutton>Apply Locks on All</guibutton> button locks the dataset for all the organization units to which that dataset has been assigned. <guibutton>‘Remove locks on All’</guibutton> removes all locks put on the organization units corresponding to the selected dataset. After the operations are completed the user must click <guibutton>‘Save’</guibutton> to apply the settings. The <guibutton>‘Lock at level’</guibutton> button locks datasets at a particular level that the user chooses. . <guibutton>‘Unlock at Level’</guibutton> removes locks that have been put on the organization units corresponding to the selected dataset at the selected level. After the operations are completed, the user must click <guibutton>‘Save’</guibutton> to apply the settings. The <guibutton>‘Save’</guibutton> button will also lock those organization unit datasets that have been specified by the user.
+</para>
+    </section>
+    <section>
+      <title>Data browser</title>
+      <para>The data browser maintainence module allows the user to produce a summary of the data contained in the DHIS2 database. This summary provides the number of data element values that have been recorded for a given time interval and then groupded by the following options:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Data sets</para>
+        </listitem>
+        <listitem>
+          <para>Data element groups</para>
+        </listitem>
+        <listitem>
+          <para>Organisational unit groups</para>
+        </listitem>
+        <listitem>
+          <para>Organisational units</para>
+        </listitem>
+      </itemizedlist>
+      <para>Each of these options can be accessed by selecting the desired option from  <guilabel>&quot;Browse by&quot; </guilabel>drop-down menu. </para>
+      <para>In order to produce a summary of submitted data for a given period and grouped by data sets, the user should follow this procedure. Begin by selecting a given periodicity type (e.g. Weekly, monthly, yearly, etc) and then a time interval (e.g. January 2009 to March 2009). Select the type of summary to be produced (e.g. Dataset) from the &quot;Browse by&quot; drop-down menu. Click the &quot;Browse&quot; button to view the summary. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resources/images/maintainence/data_browser1.png" format="PNG" width="70%" align="center"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>A summary of the number  of data element values that have been submitted over the user selected time period is shown below. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resources/images/maintainence/data_browsing_data_sets.png" format="PNG" width="80%" align="center"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para> By clicking on the name of the individual dataset, a more detailed summary of each data element can be obtained as shown below.  A crosstab table summarizing each time period will be shown. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" fileref="resources/images/maintainence/data_browser_dataset_detail.png" format="PNG" align="center"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>The functionality of the grouping by Datasets, Data element groups, and Organisational groups is essentially the same. </para>
+      <para>The functionality of grouping by organisation units will be discussed below. Begin by selecting &quot;Organisation units&quot; from the &quot;Browse by&quot; drop-down menu. The organisational hierarchy present in the database will now be displayed. Organisational units can be expanded by clicking on the plus symbol in the organisational tree view.</para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="60%" fileref="resources/images/maintainence/data_browser_org_unit1.png" format="PNG" align="center"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para> By clicking on an organisational unit, and the clicking the &quot;Browse&quot; button, a summary of submitted data elements present in the database is returned for all immediate children of the selected organisational as shown below</para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="60%" fileref="resources/images/maintainence/data_browser_orgunit2a.png" format="PNG" align="center"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>By clicking on one of the organisational units, a detailed list of data elements is presented by each time period as shown below. <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="resources/images/maintainence/data_browser_orgunit2.png" format="PNG" width="60%" align="center"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot></para>
+      <para>For each of the data browser summaries, a PDF export can be produced by specifying a filename in the &quot;Filename&quot; field, selecting a font size, a page layout (Landscape or Portrait) and pressing  the <guibutton>&quot;Export PDF&quot;</guibutton> button. You will then be prompted to select a location to save the file to, which can then be viewed with any PDF reader (e.g. Adobe Acrobat Reader, xpdf, etc). </para>
+    </section>
+  </section>
+</chapter>

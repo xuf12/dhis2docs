@@ -161,4 +161,20 @@ If there are no datasets defined for an organization unit, it indicates that no 
       </section>
     </section>
   </section>
+  <section>
+    <title>Importing data</title>
+    <section>
+      <title>DXF Import</title>
+      <para>The Data Exchange Format (DXF) is the default XML schema that is used to transport data between two disconnected DHIS2 systems. Importing data from another DHIS2 system is simple. Just select &quot;Services-&gt;Import-Export-Import&quot;. Click the &quot;Browse&quot; button, and select the name of the file that you wish to import as shown below. </para>
+      <screenshot>
+        <screeninfo>Default import screen</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resources/images/import_export/import_default.png" align="center" width="40%"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para/>
+    </section>
+  </section>
 </chapter>
