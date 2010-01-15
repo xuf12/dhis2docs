@@ -143,67 +143,67 @@ yearly for which the data is to be locked. The month, quarter or year for which 
     </section>
     <section>
       <title>Data elements without groups</title>
-      <para/>
+      <para>Some Data Elements have been allocated to several Data Element Groups. This is currently not allowed, because it will result in duplication of linked data records in the PivotSource recordsets that `feed` the pivot tables. Go to Maintenance -&gt; Data Element Groups to review each Data Element identified and remove the incorrect Group allocations.</para>
     </section>
     <section>
       <title>Data elements assigned to data sets with different period types</title>
-      <para/>
+      <para>Data elements should not be assigned to two seperate data sets whose period types differ. The reccomended approach would be to create two seperate data elements (for instance a monthly and yearly data element) and assign these to respective datasets. </para>
     </section>
     <section>
       <title>Data sets not assigned to organisation units</title>
-      <para/>
+      <para>All data sets should be assigned to at least one organisation unit. </para>
     </section>
     <section>
       <title>Indicators with identical formulas</title>
-      <para/>
+      <para>Although this rule will not affect data quality, it generally does not make sense to have two indicators with the exact same definition. Review the identified indicators and their formulas and delete or modify  any indicator that appears to be the duplicate.</para>
     </section>
     <section>
       <title>Indicators without groups</title>
-      <para/>
+      <para>All Data Elements and Indicators MUST be assigned to ONE group, so these Indicators need to be allocated to their correct Data Element and Indicator Group. Go to Maintenance -&gt; Indicator Groups, and allocate each of the `Orphaned` Indicators to its correct group.</para>
     </section>
     <section>
       <title>Invalid indicator numerators</title>
-      <para/>
+      <para>Violations of this rule may be caused by an incorrect reference to a deleted or modified data element. Review the indicator and make corrections ot the numerator definition. </para>
     </section>
     <section>
       <title>Invalid indicator denominators</title>
-      <para/>
+      <para>Violations of this rule may be caused by an incorrect reference to a deleted or modified data element. Review the indicator and make corrections ot the denominator definition. </para>
     </section>
     <section>
       <title> Organisation units with cyclic references</title>
-      <para/>
+      <para>Organisation rules cannot be both parent and children of each other. </para>
     </section>
     <section>
       <title>Orphaned organisation units</title>
-      <para/>
+      <para>All organisation units must exist within the organisation unit hierarchy. Go to Organisation-&gt;Hiearchy Operations and move the offending organisation unit into the proper position in the hieararchy. </para>
     </section>
     <section>
       <title>Organisation units without groups</title>
-      <para/>
+      <para>All organisation units <emphasis>must</emphasis> be allocated to at least <emphasis>one</emphasis> group. The problem might either be that you have not defined any `compulsory` OrgUnit Group Set at all, or that there are violations of the `compulsory` rule for some OrgUnits . NOTE: If you have defined no `compulsory` OrgUnit Group Sets, then you must first define them by going to  Maintenance -&gt; Organisation units-&gt;Organisation unit group sets and define at least one `compulsory` Group Set (the group set `OrgUnitType` are nearly universally relevant). If you have the relevant group sets, go to Maintenance -&gt; OrgUnit Groups to review each OrgUnit identified and add the relevant Group allocation.</para>
     </section>
     <section>
       <title>Organisation units violating compulsory group sets</title>
-      <para/>
+      <para>These organisation units have not been assigned to the any organisation unit group within one of the  <emphasis>compulsory</emphasis> organisation unit group sets. When a group set is defined as `compulsory`, it means that an organisation unit must be allocated to at least one organisation unit within that group set. For instance, all organisation units must belong to one of the groups with the `organisation unitType` group set. It might belong to  the `Hospital` or the `Clinic` or any other `type` group - but it must belong to exactly one of them.  Go to Maintenance -&gt; organisation unit-&gt;Organisation unit groups to review each organisation unit identified in the integrity check. Allocate all organisation units to exactly one group. </para>
     </section>
     <section>
       <title>Organisation units violating exclusive group sets</title>
-      <para/>
+      <para>Some organisation units have been allocated to several organisation unit groups that are members of the same exclusive organisation unit group set. When a group set is defined as exclusive, it means that an organisation unit can <emphasis>only</emphasis> be allocated to <emphasis>one</emphasis> organisation unit group within that Group Set. For instance, one organisation unit cannot normally belong to the both the &apos;Hospital&apos; and &apos;Clinic&apos; groups , but rather to only to one of them. Go to Maintenance -&gt; organisation unit-&gt;Organisation unit groups to review each organisation unit identified in the integrity check. Remove the organisation unit from all groups except the one that it should be allocated to. </para>
     </section>
     <section>
       <title> Organisation unit groups without group sets</title>
-      <para/>
+      <para>The organisation unit groups listed here have not been allocated to a group set. Go to Maintainence-&gt;Organisation unit-&gt;Organisation unit group sets and allocate the Organisation unit group to the appropriate group set. </para>
     </section>
     <section>
       <title>Validation rules without groups</title>
-      <para/>
+      <para>All validation rules must be assinged to a group. Go to <command>Services-&gt;Data quality-&gt;Validation rule group</command> and assign the offending validation rule to a group. </para>
     </section>
     <section>
       <title>Invalid validation rule left side expressions</title>
-      <para/>
+      <para>An error exists in the left-side validation rule definition. Go to <command>Services-&gt;Data quality-&gt;Validation rule</command> and click the &quot;Edit&quot; icon on the offending rule. Press &quot;Edit left side&quot; and make the corrections that are required. </para>
     </section>
     <section>
       <title>Invalid validation rule right side expressions</title>
-      <para/>
+      <para>An error exists in the left-side validation rule definition. Go to <command>Services-&gt;Data quality-&gt;Validation rule</command> and click the &quot;Edit&quot; icon on the offending rule. Press &quot;Edit right side&quot; and make the corrections that are required.</para>
     </section>
   </section>
 </chapter>
