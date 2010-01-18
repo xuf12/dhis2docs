@@ -44,6 +44,12 @@
   <glossdiv>
     <title>D</title>
     <glossentry>
+      <glossterm>Data dictionary</glossterm>
+      <glossdef>
+        <para>A collection of data elements and indicators, which can be exchanged with other DHIS systems. Typically used to define a set of data elements and indicators when setting up the DHIS system. </para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
       <glossterm>Data exchange format</glossterm>
       <glossdef>
         <para>In the context of DHIS2, the &quot;data exchange format&quot; refers to a XML schema that enables the transportation of data and metadata between disconnected DHIS instances, as well as between different applications that suppor the DXF schema. </para>
