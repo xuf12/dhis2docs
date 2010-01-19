@@ -15,8 +15,7 @@
   <section>
     <title>Data elements</title>
     <para>Data elements form the basis of DHIS2. Data elements define what is actually recorded in system, e.g. number of immunizations or number of cases of malaria. The actual creation and defition of the data elements themselves are far beyond the scope of this manual to describe, but it is assumed that an administrator will be provided with a list of standardized data elements for inclusion into the DHIS2 system. </para>
-    <para>There are XXX main options for data elements, each of which will be described below. </para>
-    <para/>
+    <para>Each of the options for maintainence of  data elements will be described in the following section.</para>
     <itemizedlist>
       <listitem>
         <para>Data element</para>
@@ -57,85 +56,151 @@ into the search field andany matching data elements are displayed below.
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>To add a new data element, click the &apos;Add new&apos; button. There are various options available from this page that allow the user to modify data elements already present in the database. Click the &quot;Edit&quot;<inlinegraphic fileref="resources/images/dhis2_images/edit.png" align="center"/> button to modify the properties of a data element that has been previouly defined. Each of the options are described below.   </para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_edit.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <itemizedlist>
-        <listitem>
-          <para>Name: Define the precise name of the data element in this field. Each data element must have a unique name. </para>
-        </listitem>
-        <listitem>
-          <para>Short name: Typically, an abbreviation of the full data element name. This attribute is often used in reports to display the name of the data element, where there is limited space available. </para>
-        </listitem>
-        <listitem>
-          <para>Alternative name: Allows the defintion of an alternative name of the data element. </para>
-        </listitem>
-        <listitem>
-          <para>Code: In many countries, data elements are assigned a code. This code can be entered in thsi field. </para>
-        </listitem>
-        <listitem>
-          <para>Description: Allows a full textual description of the data element to be entered. The user should be as precise as possible, and include full information on how the data element is measured and what its meaning is. </para>
-        </listitem>
-        <listitem>
-          <para>Active: Defines whether a given data element is active or not. Data elements marked as inactive, will not be displayed in the data entry screens. </para>
-        </listitem>
-        <listitem>
-          <para>Domain type: Defines whether a data element is an aggregate or patient type of data element. </para>
-        </listitem>
-        <listitem>
-          <para>Value type: Defines the type of data this data element will be used to record. Currently there are four options: number, text, yes/no (boolean), and date. </para>
-        </listitem>
-        <listitem>
-          <para>Aggregation operator: Defines the default aggregation operation that will be used on this data element. </para>
-        </listitem>
-        <listitem>
-          <para>URL:        A URL having an in-depth description of the data element can be
+      <para>To add a new data element, click the &apos;Add new&apos; button. There are various options available from this page that allow the user to modify data elements already present in the database. Each of the options are described below in the &quot;Editing data elements&quot;. </para>
+      <section>
+        <title>Editing data elements</title>
+        <para>Click the &quot;Edit&quot;<inlinegraphic fileref="resources/images/dhis2_images/edit.png" align="center"/> button to modify the properties of a data element that has been previouly defined. </para>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_edit.png" format="PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <itemizedlist>
+          <listitem>
+            <para>Name: Define the precise name of the data element in this field. Each data element must have a unique name. </para>
+          </listitem>
+          <listitem>
+            <para>Short name: Typically, an abbreviation of the full data element name. This attribute is often used in reports to display the name of the data element, where there is limited space available. </para>
+          </listitem>
+          <listitem>
+            <para>Alternative name: Allows the defintion of an alternative name of the data element. </para>
+          </listitem>
+          <listitem>
+            <para>Code: In many countries, data elements are assigned a code. This code can be entered in thsi field. </para>
+          </listitem>
+          <listitem>
+            <para>Description: Allows a full textual description of the data element to be entered. The user should be as precise as possible, and include full information on how the data element is measured and what its meaning is. </para>
+          </listitem>
+          <listitem>
+            <para>Active: Defines whether a given data element is active or not. Data elements marked as inactive, will not be displayed in the data entry screens. </para>
+          </listitem>
+          <listitem>
+            <para>Domain type: Defines whether a data element is an aggregate or patient type of data element. </para>
+          </listitem>
+          <listitem>
+            <para>Value type: Defines the type of data this data element will be used to record. Currently there are four options: number, text, yes/no (boolean), and date. </para>
+          </listitem>
+          <listitem>
+            <para>Aggregation operator: Defines the default aggregation operation that will be used on this data element. </para>
+          </listitem>
+          <listitem>
+            <para>URL:        A URL having an in-depth description of the data element can be
 entered in the ‘URL’ field.
  This could be for instance, a link to a metadata repository or registry that contains detailed technical information about the definition and measurement of the data element. </para>
-        </listitem>
-        <listitem>
-          <para>Combination of categories: Defines which category combination the data element should have. </para>
-        </listitem>
-        <listitem>
-          <para>Data element group sets: Click the check box to activate this option  hen choose which data element group sets this data element should belong to. Available data element group sets are displaye din the upper window. Click the desired data element group set, then the <guibutton>&quot;Add selected&quot;</guibutton> button to add the data element to the group set. To remove a data element from a group set, click the data element group set in the lower list, and then click<guibutton> &quot;Remove selected&quot;</guibutton>. </para>
-          <screenshot>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_elements_group_sets.png" format="PNG"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
-        </listitem>
-        <listitem>
-          <para>Calculated: This option is available only when a data element is created. </para>
-          <para>Select the data elements that will be used to define the calculated data element, and then click &quot;Add selected&quot; to add them calculated data element composition list. Fill in the correct factor for the data element calculation component (defaults to 1). Component elements of the calculated data element can be removed from the definition by pressing the &quot;Remove&quot; button. <screenshot>
+          </listitem>
+          <listitem>
+            <para>Combination of categories: Defines which category combination the data element should have. </para>
+          </listitem>
+          <listitem>
+            <para>Data element group sets: Click the check box to activate this option  hen choose which data element group sets this data element should belong to. Available data element group sets are displaye din the upper window. Click the desired data element group set, then the <guibutton>&quot;Add selected&quot;</guibutton> button to add the data element to the group set. To remove a data element from a group set, click the data element group set in the lower list, and then click<guibutton> &quot;Remove selected&quot;</guibutton>. </para>
+            <screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_calculated_define.png" format="PNG"/>
+                  <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_elements_group_sets.png" format="PNG"/>
                 </imageobject>
               </mediaobject>
-            </screenshot></para>
-        </listitem>
-        <listitem>
-          <para>Aggregation levels:         The Aggregation Levels option allows the data element to be
+            </screenshot>
+          </listitem>
+          <listitem>
+            <para>Calculated: This option is available only when a data element is created. </para>
+            <para>Select the data elements that will be used to define the calculated data element, and then click &quot;Add selected&quot; to add them calculated data element composition list. Fill in the correct factor for the data element calculation component (defaults to 1). Component elements of the calculated data element can be removed from the definition by pressing the &quot;Remove&quot; button. <screenshot>
+                <mediaobject>
+                  <imageobject>
+                    <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_calculated_define.png" format="PNG"/>
+                  </imageobject>
+                </mediaobject>
+              </screenshot></para>
+          </listitem>
+          <listitem>
+            <para>Aggregation levels:         The Aggregation Levels option allows the data element to be
 aggregated at one or more levels. When the user clicks on the Aggregation
 levels option, a drop down menu appears which displays available
 aggregation levels. The desired aggregation level is then selected by clicking
 the ‘Add Selected’ button.
  By default, the aggregation will start at the lowest assgined organisation unit. <screenshot>
-              <mediaobject>
-                <imageobject>
-                  <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_aggregation_levels.png" format="PNG"/>
-                </imageobject>
-              </mediaobject>
-            </screenshot></para>
-        </listitem>
-      </itemizedlist>
+                <mediaobject>
+                  <imageobject>
+                    <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_aggregation_levels.png" format="PNG"/>
+                  </imageobject>
+                </mediaobject>
+              </screenshot></para>
+          </listitem>
+        </itemizedlist>
+        <para>After making the required changes, click ‘Save’ to institute them. The ‘Cancel’
+button aborts all changes made.
+</para>
+      </section>
+      <section>
+        <title>Data element translation</title>
+        <para>DHIS2 provides functionality to translate existing data elements into other languages. Simply press the translate button <inlinegraphic fileref="resources/images/dhis2_images/i18n.png" align="center"/> to get stared. The following dialog will appear. </para>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="70%" align="center" fileref="resources/images/maintainence/data_element_translate.png" format="PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>The reference language is displayed in the upper right portion of the dialog. Choose a locale to translate the data element into by selecting an option from the locale drop-down menu. Specify the name, short-name and description in the target language. Press &quot;Save&quot; to save your changes. </para>
+        <para>The &quot;Details&quot; section of this dialog will allow you add a new locale if it is not already present in the database. There are two options:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Language code</para>
+            <para>Refers to the ISO 639-1 (two-letter code) language code. Refer to this <ulink url="http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">web page</ulink> for a detailed listing of language codes. </para>
+          </listitem>
+          <listitem>
+            <para>Country code</para>
+            <para>Refers to the ISO 3166-1-alpha-2 code. A complete listing is available <ulink url="http://www.iso.org/iso/country_codes/iso_3166_code_lists/english_country_names_and_code_elements.htm">here</ulink>. </para>
+          </listitem>
+        </itemizedlist>
+        <para>The combination of these two codes together, forms a &quot;locale&quot; code, which is composed of the combination of the location and language. A very comprehensive discsussion of the technical standard (RFC 3066) is available <ulink url="http://www.ietf.org/rfc/rfc3066.txt">here</ulink>.  This <ulink url="http://www.i18nguy.com/unicode/language-identifiers.html">page</ulink> provides a very comprehensive list of recognized locale codes. </para>
+      </section>
+      <section>
+        <title>Deleting a data element</title>
+        <para>Simply press the delete button <inlinegraphic fileref="resources/images/dhis2_images/delete.png" align="center"/> to delete a data element. Note that this operation is only possible if there is no data attached to the data element itself.  The user will be prompted to ensure that the data element should be deleted. </para>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="80%" align="center" fileref="resources/images/maintainence/data_element_delete.png" format="PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+      </section>
+      <section>
+        <title>Displaying data element details</title>
+        <para>This operation displays an in-line panel in the browser which displays all metadata about a given data element. Press the information button <inlinegraphic fileref="resources/images/dhis2_images/information.png" align="center"/>to access this view. </para>
+      </section>
+    </section>
+    <section>
+      <title>Data element group maintainece</title>
+      <para>Data element groups provide a mechanism for classifying related data elements into a common theme. For instance, two data elements &quot;Measles immunization&quot; and  &quot;BCG Immunization&quot; might be grouped together into a data element group &quot;Childhood immunization&quot;. To access the data element group maintainence page, click Maintainence-&gt;Data elements and indicators-&gt;Data Element Group . The following screen will be displayed. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resources/images/maintainence/data_element_groups_main.png" align="center" format="PNG" width="70%"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Similar to the &quot;Data element&quot; maintainence page, data elements groups can be searched with by entering a search string in the &quot;Filter by name&quot; field. </para>
+      <para>To add a new data element group, click the <guibutton>&quot;Add new&quot;</guibutton> button. <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="resources/images/maintainence/data_element_group_add.png" align="center" width="80%" format="PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot></para>
+      <para>Fill in the &quot;Name&quot; field and then select all data elements that should belong to the group from the left panel. Click the &quot;Move selected&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/>button to add the selected data elements to the data element group. Finally, click the &quot;Add&quot; button to save changes, or the &quot;Cancel&quot; button to discard any changes. </para>
     </section>
   </section>
 </chapter>
