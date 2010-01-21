@@ -40,8 +40,8 @@
     </highlights>
     <section>
       <title>Downloading and installing the desktop version</title>
-      <para>The easist way to get started with the application is to download
-      the DHIS2 Live package. This version of the applicaiton comes
+      <para>The easiest way to get started with the application is to download
+      the DHIS2 Live package. This version of the application comes
       prepackaged, and requires on a single download. You can get the latest
       version <ulink url="http://hispkerala.org/dhis2/release/dhis2-live-2.0.2.zip" type="" userlevel="">here</ulink>.</para>
     </section>
@@ -50,10 +50,10 @@
       <para>As described in the previous module, DHIS2 functions both as a
       desktop application, as well as a web-enabled client-server application.
       For larger, production installations with many users and large volumes
-      of data (for instance as a national level server) it is reccomended to
+      of data (for instance as a national level server) it is recommended to
       install the server version. The latest version of the application can be
       found <ulink url="http://code.launchpad.net/dhis2/2.0.2/2.0.2-release/+download/dhis.war">here</ulink>.
-      A seperate guide describing the installation and setup of the server
+      A separate guide describing the installation and setup of the server
       version can be found is also available.</para>
     </section>
     <section>
@@ -64,10 +64,10 @@
   <section id="mod2_2">
     <title>Logging on to DHIS2</title>
     <para>Regardless of whether you have installed the server version of the
-    desktop Live version, you will use a web-browser to logon to the
+    desktop Live version, you will use a web-browser to log on to the
     application. DHIS 2 should be compatible with most modern web-browsers,
-    although you will need to ensure that JavaScript is enabled.</para>
-    <para>To logon to the application just enter <ulink url="http://localhost:8080/dhis" type="">http://localhost:8080/dhis</ulink> if you
+    although you will need to ensure that Java Script is enabled.</para>
+    <para>To log on to the application just enter <ulink url="http://localhost:8080/dhis" type="">http://localhost:8080/dhis</ulink> if you
     are using the DHIS2 live package, or replace localhost with the name or IP
     address of the server where the server version is installed.</para>
     <para>Once you have started DHIS2, either online or offline, the displayed
@@ -92,7 +92,7 @@
       <para>To create or find a user begin with clicking on the ‘user’ module
       displayed in the drop down menu of the Maintenance module located on the
       main tool bar on the top part of the displayed screen. User names
-      already registered will appear as a list as seen in the screenshot
+      already registered will appear as a list as seen in the screen shot
       below.</para>
       <screenshot>
         <screeninfo>Select Users menu item</screeninfo>
@@ -150,7 +150,7 @@
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>Next you will specify the particular dataset(s) that are to be
+      <para>Next you will specify the particular data set(s) that are to be
       made available to the particular role. You will also need to specify the
       type of ‘authority’ to be given to the particular user. For each of the
       three options namely Datasets, Reports and Authorities user can select

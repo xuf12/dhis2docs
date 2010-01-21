@@ -36,7 +36,7 @@ How to import data into DHIS2</para>
   </highlights>
   <section>
     <title>What is import and export?</title>
-    <para>In a primary health system, the HMIS typically involves a distributed application, where the same application is running in different geographical locations (PHCs,CHCs, hospitals, districts, and state). Most of these physical locations do not have Internet connectivity, and hence they work offline. At some point (normally at the district level), the data needs to be synchronized in order to have a consolidated database for the a particular geographical region. For this, it is important to be able to export data from one location (which is working offline, say at the health facility  level) to another one say at the district level where the data would need to be imported. This feature of exporting and importing is thus a crucial function of a HMIS. This feature also helps us overcome the dependency on Internet to some degree, as data updates can be transferred via USB key where there is no connectivity, or through email where there is limited Internet connectivity. DHIS 2 provides robust export-import functionality to fulfill these needs.
+    <para>In a primary health system, the HMIS typically involves a distributed application, where the same application is running in different geographical locations (PHCs,CHCs, hospitals, districts, and state). Most of these physical locations do not have Internet connectivity, and hence they work offline. At some point (normally at the district level), the data needs to be synchronised in order to have a consolidated database for the a particular geographical region. For this, it is important to be able to export data from one location (which is working offline, say at the health facility  level) to another one say at the district level where the data would need to be imported. This feature of exporting and importing is thus a crucial function of a HMIS. This feature also helps us overcome the dependency on Internet to some degree, as data updates can be transferred via USB key where there is no connectivity, or through email where there is limited Internet connectivity. DHIS 2 provides robust export-import functionality to fulfil these needs.
 </para>
   </section>
   <section>
@@ -46,8 +46,8 @@ How to import data into DHIS2</para>
     <section>
       <title>Exporting from DHIS2</title>
       <para>The export option can be made use of by selecting it as follows. 
-The import or export is available only when the selected organization (source/destination) has defined datasets. This is because datasets help to define which data is to be or is being exported. Further, which specific data elements get exported is determined by the composition of the dataset being exported.
-If there are no datasets defined for an organization unit, it indicates that no data values are registered for this level of organization or lower.
+The import or export is available only when the selected organisation (source/destination) has defined datasets. This is because datasets help to define which data is to be or is being exported. Further, which specific data elements get exported is determined by the composition of the dataset being exported.
+If there are no datasets defined for an organisation unit, it indicates that no data values are registered for this level of organisation or lower.
 To access the main Import-Export module, choose <guimenu>Services-&gt;Import-Export</guimenu></para>
       <screenshot>
         <mediaobject>
@@ -56,12 +56,12 @@ To access the main Import-Export module, choose <guimenu>Services-&gt;Import-Exp
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>The exported data values are stored in an ‘xml file’. The file name is defined by the name of the source organization unit and the period to allow the receiving organization unit to identify the source and the period of the export file. The xml is placed in your home directory (On Windows this is normally <filename>C:\Documents and Settings\</filename> under the subdirectories <filename>/dhis / import-export</filename>.
+      <para>The exported data values are stored in an ‘xml file’. The file name is defined by the name of the source organisation unit and the period to allow the receiving organisation unit to identify the source and the period of the export file. The XML is placed in your home directory (On Windows this is normally <filename>C:\Documents and Settings\</filename> under the sub-directories <filename>/dhis / import-export</filename>.
 </para>
       <section>
         <title>Exporting data to other DHIS2 systems</title>
         <para>Once the data export screen is displayed, select the Organisation unit, period and dataset for which data export should be selected.Finally click on the export option that will be available on the lower left side of displayed screen.
-If there are no datasets defined for an organization unit, it indicates that no data values are registered for this level of organization or lower.
+If there are no datasets defined for an organisation unit, it indicates that no data values are registered for this level of organisation or lower.
 </para>
         <screenshot>
           <mediaobject>
@@ -70,7 +70,7 @@ If there are no datasets defined for an organization unit, it indicates that no 
             </imageobject>
           </mediaobject>
         </screenshot>
-        <para>A popup save option will appear on the displayed screen (see picture below) prompting the saving of the exported data. You may save the export folder on your desktop or any other folder by selecting the ‘Save to Disk’ option from the popup prompt.
+        <para>A pop-up save option will appear on the displayed screen (see picture below) prompting the saving of the exported data. You may save the export folder on your desktop or any other folder by selecting the ‘Save to Disk’ option from the pop-up prompt.
 </para>
         <screenshot>
           <mediaobject>
@@ -108,7 +108,7 @@ If there are no datasets defined for an organization unit, it indicates that no 
       </section>
       <section>
         <title>IXF data export</title>
-        <para>DHIS2 support export to the Indicator Exchange Format 2  developed by UNAIDS. The IXF data exchange standard has been implented  ,with various levels of compatibility, between several information management systems including CRIS version 2, DevInfo version 5, KIDS developed by FAO, DHIS 1.4, DHIS2, and HealthMapper version 4 developed by WHO. A more detailed discussion on the use of the IXF data exchange format is discussed in depth <ulink url="http://data.unaids.org/pub/BaseDocument/2007/cris_de_web_final_en.pdf">here</ulink>.  </para>
+        <para>DHIS2 support export to the Indicator Exchange Format 2  developed by UNAIDS. The IXF data exchange standard has been implemented  ,with various levels of compatibility, between several information management systems including CRIS version 2, DevInfo version 5, KIDS developed by FAO, DHIS 1.4, DHIS2, and HealthMapper version 4 developed by WHO. A more detailed discussion on the use of the IXF data exchange format is discussed in depth <ulink url="http://data.unaids.org/pub/BaseDocument/2007/cris_de_web_final_en.pdf">here</ulink>.  </para>
         <para>The IXF data export is essentially the same as a standard DHIS 2 DXF export, but results in a file format that is compatible with IXF 2. </para>
       </section>
       <section>
@@ -130,13 +130,13 @@ If there are no datasets defined for an organization unit, it indicates that no 
     </section>
     <section>
       <title>Importing data </title>
-      <para>The import option allows differnt instance of DHIS2 to receive standardized set of data in the absence of a networked system. Typically, a data set is exported from one DHIS instance (e.g. a district level system) to another system (e.g. a provincial level system).  DHIS2 is capable of importing data from other systems that either support the DXF of IXF formats. DHIS2 is capable of importing data directly from a DHIS 1.4 Access database. Each of these options will be discussed in the following sections. </para>
+      <para>The import option allows differnt instance of DHIS2 to receive standardised set of data in the absence of a networked system. Typically, a data set is exported from one DHIS instance (e.g. a district level system) to another system (e.g. a provincial level system).  DHIS2 is capable of importing data from other systems that either support the DXF of IXF formats. DHIS2 is capable of importing data directly from a DHIS 1.4 Access database. Each of these options will be discussed in the following sections. </para>
       <para>DHIS2 is also capable of importing data through the Excel reporting module. The reader is referred to the appropriate chapter for detailed information. </para>
       <section>
         <title>Importing data from other DHIS2 systems</title>
         <para>Data can be imported into different instances of DHIS2 through the use of the DXF data exchange format. There are two screens that are used to import data, with default and advanced options. </para>
         <para>The default data import menu can be accessed by clicking the <guimenuitem>&quot;Import&quot;</guimenuitem> from the main <guimenuitem>Import-Export</guimenuitem> screen. By clicking the <guibutton>&quot;Browse&quot;</guibutton> button, you can select a file from you local file system. This file may have been received by email, copied from another users system, or received on a CD for example. Simply select the file that you wish to import. </para>
-        <para>There are three seperate options for importing data. </para>
+        <para>There are three separate options for importing data. </para>
         <table frame="all">
           <title/>
           <tgroup cols="2">

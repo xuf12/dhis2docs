@@ -37,7 +37,7 @@
     <glossentry>
       <glossterm>Category option</glossterm>
       <glossdef>
-        <para>Category options are atomic elements that are grouped into cagtegories. Category options are used during data entry to disaggregate data elements into atomic pieces of information. </para>
+        <para>Category options are atomic elements that are grouped into categories. Category options are used during data entry to disaggregate data elements into atomic pieces of information. </para>
       </glossdef>
     </glossentry>
   </glossdiv>
@@ -65,6 +65,18 @@
       <glossterm>Data element</glossterm>
       <glossdef>
         <para>A data element is the fundemental building block of DHIS2. It is an atomic unit of data with well-defined meaning. Essentially it is a data value that has been actually observed or recorded which is further characterized by a number of dimensions. As an example the data element &quot;Number of fully immunized children&quot; would refer to the number of children that received this particular service. Data elements are always linked to a period as as well as an organizational unit. They optionally may be linked to other dimensions. </para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Data element group</glossterm>
+      <glossdef>
+        <para>Data element groups are used to categorize multiple data elements according to a common theme, such as &quot;Immunization&quot; or &quot;ART&quot;. Typically, they are used during reporting and analysis to allow related data elements to be analyzed together. </para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Data element group sets</glossterm>
+      <glossdef>
+        <para>Data element groups are used to categorize multiple data element groups into a common theme. </para>
       </glossdef>
     </glossentry>
     <glossentry>

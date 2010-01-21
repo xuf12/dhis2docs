@@ -188,7 +188,7 @@ button aborts all changes made.
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/maintainence/data_element_groups_main.png" align="center" format="PNG" width="70%"/>
+            <imagedata width="70%" align="center" fileref="resources/images/maintainence/data_element_groups_main.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -196,11 +196,33 @@ button aborts all changes made.
       <para>To add a new data element group, click the <guibutton>&quot;Add new&quot;</guibutton> button. <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="resources/images/maintainence/data_element_group_add.png" align="center" width="80%" format="PNG"/>
+              <imagedata width="80%" align="center" fileref="resources/images/maintainence/data_element_group_add.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot></para>
-      <para>Fill in the &quot;Name&quot; field and then select all data elements that should belong to the group from the left panel. Click the &quot;Move selected&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/>button to add the selected data elements to the data element group. Finally, click the &quot;Add&quot; button to save changes, or the &quot;Cancel&quot; button to discard any changes. </para>
+      <para>Fill in the &quot;Name&quot; field and then select all data elements that should belong to the group from the left panel. Click the &quot;Move selected&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/>button to add the selected data elements to the data element group. Click the &quot;Remove selected&quot; button to remove all data elements from the group that have been selected in the right panel.  Finally, click the &quot;Add&quot; button to save changes, or the &quot;Cancel&quot; button to discard any changes. </para>
+    </section>
+    <section>
+      <title>Data element group editor</title>
+      <para>The data element group  editor provides advanced functionality to the administrator to allow multiple data elements to be added or removed from a group. It is also possible to create new data element groups, rename existing groups, and delete groups entirely. To access the data element group editor, press <guimenu>&quot;Maintaience-&gt;Data elements and indicators-&gt;Data element group editor&quot;</guimenu> from the main DHIS2 menu. The following screen will appear. <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="resources/images/maintainence/data_element_group_editor_start.png" align="center" width="80%" format="PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot></para>
+      <para>Data element groups area listed alphabetically in the leftmost panel. By clicking on a data element group, the current members of that group (data elements) are listed in the center panel. Available data elements that can be added to the data element group appear are listed alphabetically in the rightmost panel. To remove an existing data element from the group, click the name of the data element in the center panel, and then press the &quot;Move right&quot;  <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/> button. To add data elements to the group, select them from the leftmost panel, and click the &quot;Move left&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_left.png" align="center"/> button. Press the <guibutton>&quot;Update data element group member&quot;</guibutton> button to save your changes. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resources/images/maintainence/data_element_group_editor_select.png" align="center" width="80%" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </section>
+    <section>
+      <title>Data element group sets</title>
+      <para>Data element group sets allow multiple data element groups to be categorized into a set. </para>
     </section>
   </section>
 </chapter>
