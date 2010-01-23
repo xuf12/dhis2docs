@@ -1,5 +1,3 @@
-<?xml version="1.0"?>
-
 <!-- 
 
     This is the XSL FO (PDF) stylesheet for the Spring reference
@@ -11,7 +9,6 @@
 -->
 
 <!DOCTYPE xsl:stylesheet [
-    <!ENTITY admon_gfx_path     "../images/admons/">
     <!ENTITY copyright "&#xA9;">
 ]>
 
@@ -59,13 +56,13 @@
                     <fo:table-row>
                         <fo:table-cell text-align="center">
                             <fo:block padding-before="45mm">
-                                <fo:external-graphic height="5cm" scaling="uniform" src="file:documentation/src/docbkx/images/logo.jpg"/>
+                                <fo:external-graphic height="5cm" scaling="uniform" src="file:./resources/images/dhis2_images/logo.jpg"/>
                             </fo:block>
-                            <fo:block font-family="Helvetica" font-size="16pt" padding-before="40mm">
-                                <xsl:value-of select="bookinfo/title"/>
-                            </fo:block>
+			    <fo:block>
+                                  <xsl:value-of select="bookinfo/title" /> 
+                              </fo:block>
                             <fo:block font-family="Helvetica" font-size="14pt">
-                                <xsl:value-of select="bookinfo/subtitle"/> 
+                                <xsl:text>The Complete Guide</xsl:text>  
                             </fo:block>
 			    <fo:block font-family="Helvetica" font-size="12pt">
                                 <xsl:text>Version </xsl:text><xsl:value-of select="bookinfo/releaseinfo"/>  
@@ -75,15 +72,15 @@
                     <fo:table-row>
                         <fo:table-cell text-align="center">
                             <fo:block font-family="Helvetica" font-size="12pt">
-                                <xsl:value-of select="bookinfo/pubdate"/>
+                                <xsl:value-of select="book/bookinfo/pubdate"/>
                             </fo:block>
                         </fo:table-cell>
                     </fo:table-row>
                     <fo:table-row>
                         <fo:table-cell text-align="center">
                             <fo:block font-family="Helvetica" font-size="10pt" padding-before="80mm">
-                                <xsl:text>Copyright &copyright; 2004-2008 </xsl:text>
-                                <xsl:for-each select="bookinfo/authorgroup/author">
+                                <xsl:text>Copyright &copyright; 2006-2010 </xsl:text>
+                                <xsl:for-each select="book/bookinfo/authorgroup/author">
                                     <xsl:if test="position() > 1">
                                         <xsl:text>, </xsl:text>
                                     </xsl:if>
@@ -93,7 +90,7 @@
                                 </xsl:for-each>
                             </fo:block>
                             <fo:block font-family="Helvetica" font-size="9pt" padding="1mm">
-                                <xsl:value-of select="bookinfo/legalnotice"/>  
+                                <xsl:value-of select="book/bookinfo/legalnotice"/>  
                             </fo:block>
                         </fo:table-cell>
                     </fo:table-row>
@@ -402,7 +399,7 @@
 
     <!-- Left aligned text and no hyphenation -->
     <xsl:param name="alignment">justify</xsl:param>
-    <xsl:param name="hyphenate">true</xsl:param>
+    <xsl:param name="hyphenate">false</xsl:param>
 
     <!-- Default Font size -->
 	<xsl:param name="body.font.family">Times-Roman</xsl:param>
@@ -622,7 +619,6 @@
 
     <!-- Use nice graphics for admonitions -->
     <xsl:param name="admon.graphics">'1'</xsl:param>
-    <xsl:param name="admon.graphics.path">&admon_gfx_path;</xsl:param>
 
 <!--###################################################
                           Misc

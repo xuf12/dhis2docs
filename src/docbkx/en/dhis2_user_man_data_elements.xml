@@ -207,7 +207,7 @@ button aborts all changes made.
       <para>The data element group  editor provides advanced functionality to the administrator to allow multiple data elements to be added or removed from a group. It is also possible to create new data element groups, rename existing groups, and delete groups entirely. To access the data element group editor, press <guimenu>&quot;Maintaience-&gt;Data elements and indicators-&gt;Data element group editor&quot;</guimenu> from the main DHIS2 menu. The following screen will appear. <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="resources/images/maintainence/data_element_group_editor_start.png" align="center" width="80%" format="PNG"/>
+              <imagedata width="80%" align="center" fileref="resources/images/maintainence/data_element_group_editor_start.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot></para>
@@ -215,14 +215,93 @@ button aborts all changes made.
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/maintainence/data_element_group_editor_select.png" align="center" width="80%" format="PNG"/>
+            <imagedata width="80%" align="center" fileref="resources/images/maintainence/data_element_group_editor_select.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
     </section>
     <section>
       <title>Data element group sets</title>
-      <para>Data element group sets allow multiple data element groups to be categorized into a set. </para>
+      <para>Data element group sets allow multiple data element groups to be categorized into a set. Data element group sets are used during analysis and reporting to combine similar data element groups into a common theme. To access the data element group set maintainence module, choose &quot;Maintainence-&gt;Data elements and indicators-&gt;Data element group set&quot;.  Similar to the other data element maintainence modules, new data element group sets can be added by pressing the &quot;Add new button&quot;.  Other operations include Edit, Translate, Delete and Information, similar to the other modules in this section. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="70%" align="center" fileref="resources/images/maintainence/data_element_group_set_start.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Existing data element group  set members can be edited by clicking the &quot;Edit&quot; button <inlinegraphic fileref="resources/images/dhis2_images/edit.png" align="center"/> of the desired data element group set as seen below.</para>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="70%" align="center" fileref="resources/images/maintainence/data_element_group_set.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+      <para>Available data element groups are displayed in the left panel. They can be moved into the selected data element group set by pressing the &quot;Move right&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/> button. Data element groups that are currently members of the data element group set are displayed in the right hand panel. They can be removed from the data elemente group set by clicking the desired data element group and pressing the &quot;Move left&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_left.png" align="center"/> button.  The ordering of the data element groups can be set with the &quot;Move Up&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_up.png" align="center"/> and &quot;Move Down&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_down.png" align="center"/>arrows. This ordering will be used in the datamart and reports to order the data element groups.  Press the <guibutton>&quot;Update&quot;</guibutton> button to save any changes and the <guibutton>&quot;Cancel&quot;</guibutton> button to discard all changes. </para>
+    </section>
+    <section>
+      <title>Data element categories</title>
+      <para>Data element categories can be used to disaggregate data elements into individual atomic components. Data element categories are typically a concept, such as Gender, Age or  Disease Status. Data elements such as &quot;Number of cases of confirmed malaria&quot; are often broken into smaller component parts to determine, for instance, the number of confirmed malaria cases of particular age groups. As an example, three data element categories: Under 1, 1-5 and Over 5 could be created. They could be assigned as categories to the data element, which would then create in the data entry screens, three seperate fields for this data element namely: </para>
+      <itemizedlist>
+        <listitem>
+          <para>Number of confirmed malaria cases (Under 1)</para>
+        </listitem>
+        <listitem>
+          <para>Number of confirmed malaria cases (1-5)</para>
+        </listitem>
+        <listitem>
+          <para>Number of confirmed malaria cases (Over 5)</para>
+        </listitem>
+      </itemizedlist>
+      <para>Effective use of data element categories greatly simplifies the process of setting up the DHIS2 system, as the data element categories can be reused to disaggregate many different data elements. Otherwise, each of the data elements listed above, would need to be created seperately. Judicious use of data element categories will greatly simplify the DHIS2 implementation, and allow for subsequent advanced analysis. </para>
+      <para>Data element categories are composed of category options. Category options must be defined when a data element category is created for the first time. Subsequent changes to the data element category, i.e.  adding or deleting new category options, are not allowed once the data element category has been created. </para>
+      <caution>
+        <para>It is critical that the proper categories and category options are defined in the intial definition step, as further changes to the category and its options will are not possible. </para>
+      </caution>
+      <para>To access the data element category maintaince module, press &quot;Maintainance-&gt;Data elements and indicators-&gt;Data element category&quot;. The following screen will be displayed. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="70%" align="center" fileref="resources/images/maintainence/data_element_categories_start.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Similar to the other data element maintiance modules, data element categories can be filtered by typing the name of the data element category (or a portion of it) into the &quot;Filter by name&quot; field. To add a new data element category, press the &quot;Add new&quot; button which will then display the following screen. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="40%" align="center" fileref="resources/images/maintainence/data_element_categories_add_new.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Type the name of the new data element category in the &quot;Name&quot; field in the &quot;Details&quot; region. Category options can be added by typing the name of the category option in the &quot;Category option&quot; region and pressing the <guibutton>&quot;Add category option&quot;</guibutton> button. Category options can be reordered using the &quot;MoveUp&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_up.png" align="center"/> and &quot;Move Down&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_down.png" align="center"/> buttons. Categories options can be deleted by selecting the data element category option and pressing the &quot;Delete&quot;<inlinegraphic fileref="resources/images/dhis2_images/delete.png" align="center"/> button. Once all data element categories options have been added to the data elemente category, press the <guibutton>&quot;Add&quot;</guibutton> button to save all changes or the <guibutton>&quot;Cancel&quot;</guibutton>  button to discard any changes.<caution>
+          <para>All data element category options must be added and defined properly in this step. Subsequent alterations to the data element category (other than reordering of the category options themselves) is not possible. </para>
+        </caution></para>
+    </section>
+    <section>
+      <title>Data element category combinations</title>
+      <para>Data element category combinations allow multiple data element categories to be combined into a related set. As an example, a data element &quot;Number of new HIV infections&quot; might be disaagrgated according to the following categories. </para>
+      <itemizedlist>
+        <listitem>
+          <para>Age: &quot;Under 5&quot;, &quot;5-15&quot;, &quot;15-24&quot;, &quot;24 and above&quot;</para>
+        </listitem>
+        <listitem>
+          <para>Gender: Male, Female</para>
+        </listitem>
+      </itemizedlist>
+      <para> In this example, there would be two levels of disaggreation, consisting of two seperate data element categories, each consisting of several data element category options. In most HMIS systems, different data elements are disaggregated according to a common set of categories. By combining these different categories into a data element category combination and assigning these combinations to data elements, the appropriate disaggregation levels can be applied efficiently and quickly to a large number of data elements. </para>
+      <para>To access the data element category combination maintainence module, select &quot;Maintainence-&gt;Data element and indicators-&gt;Data element category combinations&quot; from the main DHIS2 menu. As with the  other maintaince modules, you can filter the listed cateogry combinations by entering the name (or portion thereof) of the category combination. Other operations such as &quot;Edit&quot;, &quot;Delete&quot; and &quot;Information&quot; should be familiar to the reader. </para>
+      <para>To add a new category combination, click the &quot;Add new&quot; button. The following dialog will be displayed. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" align="center" fileref="resources/images/maintainence/data_element_category_combo_add_new.png"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Type the name of the category combination in the &quot;Name&quot; field, and then select the desired categories from the left panel. Press the &quot;Move right&quot; button to add the selected categories to the category combination. Press &quot;Move left&quot; to remove any categories that should not be part of the category combination. </para>
+      <caution>
+        <para>Categories can only be added to a category combination at this step. Categories can be removed from category combinations later by editing the category combination, however, it is not allowed to add additional categories once the combination has been created. Ensure that the category combination and its respective categories is final before you create the category combination and assign it to a data element. </para>
+      </caution>
     </section>
   </section>
 </chapter>
