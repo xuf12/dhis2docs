@@ -15,7 +15,7 @@
   <section>
     <title>Data elements</title>
     <para>Data elements form the basis of DHIS2. Data elements define what is actually recorded in system, e.g. number of immunizations or number of cases of malaria. The actual creation and defition of the data elements themselves are far beyond the scope of this manual to describe, but it is assumed that an administrator will be provided with a list of standardized data elements for inclusion into the DHIS2 system. </para>
-    <para>Each of the options for maintainence of  data elements will be described in the following section.</para>
+    <para>Each of the options for maintenance of  data elements will be described in the following section.</para>
     <itemizedlist>
       <listitem>
         <para>Data element</para>
@@ -39,10 +39,10 @@
       </listitem>
     </itemizedlist>
     <section>
-      <title>Data element maintence</title>
-      <para>To access the data element maintainence mage, choose Maintainence-&gt;Data elements-&gt;Data element. </para>
+      <title>Data element maintenance</title>
+      <para>To access the data element maintenance module, choose Maintenance-&gt;Data elements-&gt;Data element. </para>
       <para>The ‘Filter by name’ will allow you to filter a range of data elements if you know either the full name of the data element, or just a part of it. Type the name
-into the search field andany matching data elements are displayed below.
+into the search field and any matching data elements are displayed below.
                                                                                             
                You can also choose ‘Filter by group/view all’ to narrow down a data
                element search within a particular data element group. In default mode, this
@@ -59,7 +59,7 @@ into the search field andany matching data elements are displayed below.
       <para>To add a new data element, click the &apos;Add new&apos; button. There are various options available from this page that allow the user to modify data elements already present in the database. Each of the options are described below in the &quot;Editing data elements&quot;. </para>
       <section>
         <title>Editing data elements</title>
-        <para>Click the &quot;Edit&quot;<inlinegraphic fileref="resources/images/dhis2_images/edit.png" align="center"/> button to modify the properties of a data element that has been previouly defined. </para>
+        <para>Click the &quot;Edit&quot;<inlinegraphic fileref="resources/images/dhis2_images/edit.png" align="center"/> button to modify the properties of a data element that has been previously defined. </para>
         <screenshot>
           <mediaobject>
             <imageobject>
@@ -75,10 +75,10 @@ into the search field andany matching data elements are displayed below.
             <para>Short name: Typically, an abbreviation of the full data element name. This attribute is often used in reports to display the name of the data element, where there is limited space available. </para>
           </listitem>
           <listitem>
-            <para>Alternative name: Allows the defintion of an alternative name of the data element. </para>
+            <para>Alternative name: Allows the definition of an alternative name of the data element. </para>
           </listitem>
           <listitem>
-            <para>Code: In many countries, data elements are assigned a code. This code can be entered in thsi field. </para>
+            <para>Code: In many countries, data elements are assigned a code. This code can be entered in this field. </para>
           </listitem>
           <listitem>
             <para>Description: Allows a full textual description of the data element to be entered. The user should be as precise as possible, and include full information on how the data element is measured and what its meaning is. </para>
@@ -104,7 +104,7 @@ entered in the ‘URL’ field.
             <para>Combination of categories: Defines which category combination the data element should have. </para>
           </listitem>
           <listitem>
-            <para>Data element group sets: Click the check box to activate this option  hen choose which data element group sets this data element should belong to. Available data element group sets are displaye din the upper window. Click the desired data element group set, then the <guibutton>&quot;Add selected&quot;</guibutton> button to add the data element to the group set. To remove a data element from a group set, click the data element group set in the lower list, and then click<guibutton> &quot;Remove selected&quot;</guibutton>. </para>
+            <para>Data element group sets: Click the check box to activate this option  hen choose which data element group sets this data element should belong to. Available data element group sets are displayed din the upper window. Click the desired data element group set, then the <guibutton>&quot;Add selected&quot;</guibutton> button to add the data element to the group set. To remove a data element from a group set, click the data element group set in the lower list, and then click<guibutton> &quot;Remove selected&quot;</guibutton>. </para>
             <screenshot>
               <mediaobject>
                 <imageobject>
@@ -129,7 +129,7 @@ aggregated at one or more levels. When the user clicks on the Aggregation
 levels option, a drop down menu appears which displays available
 aggregation levels. The desired aggregation level is then selected by clicking
 the ‘Add Selected’ button.
- By default, the aggregation will start at the lowest assgined organisation unit. <screenshot>
+ By default, the aggregation will start at the lowest assigned organisation unit. <screenshot>
                 <mediaobject>
                   <imageobject>
                     <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_aggregation_levels.png" format="PNG"/>
@@ -164,7 +164,7 @@ button aborts all changes made.
             <para>Refers to the ISO 3166-1-alpha-2 code. A complete listing is available <ulink url="http://www.iso.org/iso/country_codes/iso_3166_code_lists/english_country_names_and_code_elements.htm">here</ulink>. </para>
           </listitem>
         </itemizedlist>
-        <para>The combination of these two codes together, forms a &quot;locale&quot; code, which is composed of the combination of the location and language. A very comprehensive discsussion of the technical standard (RFC 3066) is available <ulink url="http://www.ietf.org/rfc/rfc3066.txt">here</ulink>.  This <ulink url="http://www.i18nguy.com/unicode/language-identifiers.html">page</ulink> provides a very comprehensive list of recognized locale codes. </para>
+        <para>The combination of these two codes together, forms a &quot;locale&quot; code, which is composed of the combination of the location and language. A very comprehensive discussion of the technical standard (RFC 3066) is available <ulink url="http://www.ietf.org/rfc/rfc3066.txt">here</ulink>.  This <ulink url="http://www.i18nguy.com/unicode/language-identifiers.html">page</ulink> provides a very comprehensive list of recognized locale codes. </para>
       </section>
       <section>
         <title>Deleting a data element</title>
@@ -183,8 +183,8 @@ button aborts all changes made.
       </section>
     </section>
     <section>
-      <title>Data element group maintainece</title>
-      <para>Data element groups provide a mechanism for classifying related data elements into a common theme. For instance, two data elements &quot;Measles immunization&quot; and  &quot;BCG Immunization&quot; might be grouped together into a data element group &quot;Childhood immunization&quot;. To access the data element group maintainence page, click Maintainence-&gt;Data elements and indicators-&gt;Data Element Group . The following screen will be displayed. </para>
+      <title>Data element group maintenance</title>
+      <para>Data element groups provide a mechanism for classifying related data elements into a common theme. For instance, two data elements &quot;Measles immunization&quot; and  &quot;BCG Immunization&quot; might be grouped together into a data element group &quot;Childhood immunization&quot;. To access the data element group maintenance page, click Maintenance-&gt;Data elements and indicators-&gt;Data Element Group . The following screen will be displayed. </para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -192,7 +192,7 @@ button aborts all changes made.
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>Similar to the &quot;Data element&quot; maintainence page, data elements groups can be searched with by entering a search string in the &quot;Filter by name&quot; field. </para>
+      <para>Similar to the &quot;Data element&quot; maintenance page, data elements groups can be searched with by entering a search string in the &quot;Filter by name&quot; field. </para>
       <para>To add a new data element group, click the <guibutton>&quot;Add new&quot;</guibutton> button. <screenshot>
           <mediaobject>
             <imageobject>
@@ -204,7 +204,7 @@ button aborts all changes made.
     </section>
     <section>
       <title>Data element group editor</title>
-      <para>The data element group  editor provides advanced functionality to the administrator to allow multiple data elements to be added or removed from a group. It is also possible to create new data element groups, rename existing groups, and delete groups entirely. To access the data element group editor, press <guimenu>&quot;Maintaience-&gt;Data elements and indicators-&gt;Data element group editor&quot;</guimenu> from the main DHIS2 menu. The following screen will appear. <screenshot>
+      <para>The data element group  editor provides advanced functionality to the administrator to allow multiple data elements to be added or removed from a group. It is also possible to create new data element groups, rename existing groups, and delete groups entirely. To access the data element group editor, press <guimenu>&quot;Maintainers-&gt;Data elements and indicators-&gt;Data element group editor&quot;</guimenu> from the main DHIS2 menu. The following screen will appear. <screenshot>
           <mediaobject>
             <imageobject>
               <imagedata width="80%" align="center" fileref="resources/images/maintainence/data_element_group_editor_start.png" format="PNG"/>
@@ -222,7 +222,7 @@ button aborts all changes made.
     </section>
     <section>
       <title>Data element group sets</title>
-      <para>Data element group sets allow multiple data element groups to be categorized into a set. Data element group sets are used during analysis and reporting to combine similar data element groups into a common theme. To access the data element group set maintainence module, choose &quot;Maintainence-&gt;Data elements and indicators-&gt;Data element group set&quot;.  Similar to the other data element maintainence modules, new data element group sets can be added by pressing the &quot;Add new button&quot;.  Other operations include Edit, Translate, Delete and Information, similar to the other modules in this section. </para>
+      <para>Data element group sets allow multiple data element groups to be categorized into a set. Data element group sets are used during analysis and reporting to combine similar data element groups into a common theme. To access the data element group set maintenance module, choose &quot;Maintenance-&gt;Data elements and indicators-&gt;Data element group set&quot;.  Similar to the other data element maintenance modules, new data element group sets can be added by pressing the &quot;Add new button&quot;.  Other operations include Edit, Translate, Delete and Information, similar to the other modules in this section. </para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -236,11 +236,11 @@ button aborts all changes made.
           <imagedata width="70%" align="center" fileref="resources/images/maintainence/data_element_group_set.png" format="PNG"/>
         </imageobject>
       </mediaobject>
-      <para>Available data element groups are displayed in the left panel. They can be moved into the selected data element group set by pressing the &quot;Move right&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/> button. Data element groups that are currently members of the data element group set are displayed in the right hand panel. They can be removed from the data elemente group set by clicking the desired data element group and pressing the &quot;Move left&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_left.png" align="center"/> button.  The ordering of the data element groups can be set with the &quot;Move Up&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_up.png" align="center"/> and &quot;Move Down&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_down.png" align="center"/>arrows. This ordering will be used in the datamart and reports to order the data element groups.  Press the <guibutton>&quot;Update&quot;</guibutton> button to save any changes and the <guibutton>&quot;Cancel&quot;</guibutton> button to discard all changes. </para>
+      <para>Available data element groups are displayed in the left panel. They can be moved into the selected data element group set by pressing the &quot;Move right&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/> button. Data element groups that are currently members of the data element group set are displayed in the right hand panel. They can be removed from the data element group set by clicking the desired data element group and pressing the &quot;Move left&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_left.png" align="center"/> button.  The ordering of the data element groups can be set with the &quot;Move Up&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_up.png" align="center"/> and &quot;Move Down&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_down.png" align="center"/>arrows. This ordering will be used in the datamart and reports to order the data element groups.  Press the <guibutton>&quot;Update&quot;</guibutton> button to save any changes and the <guibutton>&quot;Cancel&quot;</guibutton> button to discard all changes. </para>
     </section>
     <section>
       <title>Data element categories</title>
-      <para>Data element categories can be used to disaggregate data elements into individual atomic components. Data element categories are typically a concept, such as Gender, Age or  Disease Status. Data elements such as &quot;Number of cases of confirmed malaria&quot; are often broken into smaller component parts to determine, for instance, the number of confirmed malaria cases of particular age groups. As an example, three data element categories: Under 1, 1-5 and Over 5 could be created. They could be assigned as categories to the data element, which would then create in the data entry screens, three seperate fields for this data element namely: </para>
+      <para>Data element categories can be used to disaggregate data elements into individual atomic components. Data element categories are typically a concept, such as Gender, Age or  Disease Status. Data elements such as &quot;Number of cases of confirmed malaria&quot; are often broken into smaller component parts to determine, for instance, the number of confirmed malaria cases of particular age groups. As an example, three data element categories: Under 1, 1-5 and Over 5 could be created. They could be assigned as categories to the data element, which would then create in the data entry screens, three separate fields for this data element namely: </para>
       <itemizedlist>
         <listitem>
           <para>Number of confirmed malaria cases (Under 1)</para>
@@ -252,12 +252,12 @@ button aborts all changes made.
           <para>Number of confirmed malaria cases (Over 5)</para>
         </listitem>
       </itemizedlist>
-      <para>Effective use of data element categories greatly simplifies the process of setting up the DHIS2 system, as the data element categories can be reused to disaggregate many different data elements. Otherwise, each of the data elements listed above, would need to be created seperately. Judicious use of data element categories will greatly simplify the DHIS2 implementation, and allow for subsequent advanced analysis. </para>
+      <para>Effective use of data element categories greatly simplifies the process of setting up the DHIS2 system, as the data element categories can be reused to disaggregate many different data elements. Otherwise, each of the data elements listed above, would need to be created separately. Judicious use of data element categories will greatly simplify the DHIS2 implementation, and allow for subsequent advanced analysis. </para>
       <para>Data element categories are composed of category options. Category options must be defined when a data element category is created for the first time. Subsequent changes to the data element category, i.e.  adding or deleting new category options, are not allowed once the data element category has been created. </para>
       <caution>
-        <para>It is critical that the proper categories and category options are defined in the intial definition step, as further changes to the category and its options will are not possible. </para>
+        <para>It is critical that the proper categories and category options are defined in the initial definition step, as further changes to the category and its options will are not possible. </para>
       </caution>
-      <para>To access the data element category maintaince module, press &quot;Maintainance-&gt;Data elements and indicators-&gt;Data element category&quot;. The following screen will be displayed. </para>
+      <para>To access the data element category maintenance module, press &quot;Maintenance-&gt;Data elements and indicators-&gt;Data element category&quot;. The following screen will be displayed. </para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -265,7 +265,7 @@ button aborts all changes made.
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>Similar to the other data element maintiance modules, data element categories can be filtered by typing the name of the data element category (or a portion of it) into the &quot;Filter by name&quot; field. To add a new data element category, press the &quot;Add new&quot; button which will then display the following screen. </para>
+      <para>Similar to the other data element maintains modules, data element categories can be filtered by typing the name of the data element category (or a portion of it) into the &quot;Filter by name&quot; field. To add a new data element category, press the &quot;Add new&quot; button which will then display the following screen. </para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -273,13 +273,13 @@ button aborts all changes made.
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>Type the name of the new data element category in the &quot;Name&quot; field in the &quot;Details&quot; region. Category options can be added by typing the name of the category option in the &quot;Category option&quot; region and pressing the <guibutton>&quot;Add category option&quot;</guibutton> button. Category options can be reordered using the &quot;MoveUp&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_up.png" align="center"/> and &quot;Move Down&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_down.png" align="center"/> buttons. Categories options can be deleted by selecting the data element category option and pressing the &quot;Delete&quot;<inlinegraphic fileref="resources/images/dhis2_images/delete.png" align="center"/> button. Once all data element categories options have been added to the data elemente category, press the <guibutton>&quot;Add&quot;</guibutton> button to save all changes or the <guibutton>&quot;Cancel&quot;</guibutton>  button to discard any changes.<caution>
+      <para>Type the name of the new data element category in the &quot;Name&quot; field in the &quot;Details&quot; region. Category options can be added by typing the name of the category option in the &quot;Category option&quot; region and pressing the <guibutton>&quot;Add category option&quot;</guibutton> button. Category options can be reordered using the &quot;Move Up&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_up.png" align="center"/> and &quot;Move Down&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_down.png" align="center"/> buttons. Categories options can be deleted by selecting the data element category option and pressing the &quot;Delete&quot;<inlinegraphic fileref="resources/images/dhis2_images/delete.png" align="center"/> button. Once all data element categories options have been added to the data element category, press the <guibutton>&quot;Add&quot;</guibutton> button to save all changes or the <guibutton>&quot;Cancel&quot;</guibutton>  button to discard any changes.<caution>
           <para>All data element category options must be added and defined properly in this step. Subsequent alterations to the data element category (other than reordering of the category options themselves) is not possible. </para>
         </caution></para>
     </section>
     <section>
       <title>Data element category combinations</title>
-      <para>Data element category combinations allow multiple data element categories to be combined into a related set. As an example, a data element &quot;Number of new HIV infections&quot; might be disaagrgated according to the following categories. </para>
+      <para>Data element category combinations allow multiple data element categories to be combined into a related set. As an example, a data element &quot;Number of new HIV infections&quot; might be disaggregated according to the following categories. </para>
       <itemizedlist>
         <listitem>
           <para>Age: &quot;Under 5&quot;, &quot;5-15&quot;, &quot;15-24&quot;, &quot;24 and above&quot;</para>
@@ -288,8 +288,8 @@ button aborts all changes made.
           <para>Gender: Male, Female</para>
         </listitem>
       </itemizedlist>
-      <para> In this example, there would be two levels of disaggreation, consisting of two seperate data element categories, each consisting of several data element category options. In most HMIS systems, different data elements are disaggregated according to a common set of categories. By combining these different categories into a data element category combination and assigning these combinations to data elements, the appropriate disaggregation levels can be applied efficiently and quickly to a large number of data elements. </para>
-      <para>To access the data element category combination maintainence module, select &quot;Maintainence-&gt;Data element and indicators-&gt;Data element category combinations&quot; from the main DHIS2 menu. As with the  other maintaince modules, you can filter the listed cateogry combinations by entering the name (or portion thereof) of the category combination. Other operations such as &quot;Edit&quot;, &quot;Delete&quot; and &quot;Information&quot; should be familiar to the reader. </para>
+      <para> In this example, there would be two levels of disaggregation, consisting of two separate data element categories, each consisting of several data element category options. In most HMIS systems, different data elements are disaggregated according to a common set of categories. By combining these different categories into a data element category combination and assigning these combinations to data elements, the appropriate disaggregation levels can be applied efficiently and quickly to a large number of data elements. </para>
+      <para>To access the data element category combination maintenance module, select &quot;Maintenance-&gt;Data element and indicators-&gt;Data element category combinations&quot; from the main DHIS2 menu. As with the  other maintains modules, you can filter the listed category combinations by entering the name (or portion thereof) of the category combination. Other operations such as &quot;Edit&quot;, &quot;Delete&quot; and &quot;Information&quot; should be familiar to the reader. </para>
       <para>To add a new category combination, click the &quot;Add new&quot; button. The following dialog will be displayed. </para>
       <screenshot>
         <mediaobject>
@@ -303,5 +303,141 @@ button aborts all changes made.
         <para>Categories can only be added to a category combination at this step. Categories can be removed from category combinations later by editing the category combination, however, it is not allowed to add additional categories once the combination has been created. Ensure that the category combination and its respective categories is final before you create the category combination and assign it to a data element. </para>
       </caution>
     </section>
+  </section>
+  <section>
+    <title>Indicator maintenance</title>
+    <para>Indicator maintenance functions essentially the same as each of the respective sections in the previous section on data elements. The basic operations will be described in this section, but the reader should  refer to the corresponding sections above for detailed instructions. </para>
+    <para>Indicators are composed of multiple data elements, and typically consist of a numerator and denominator. Indicators are never entered in DHIS2, but are derived from combinations of data elements and factors. Indicators are used to calculate coverage rates, incidence and other values are are a result of data element values that have been entered into the system. </para>
+    <para>To access the Indicator maintains page, press Maintenance-&gt;Data element and indicators-&gt;Indicators from the main DHIS2 menu. Similar to data elements, you can add, delete, modify and view extra information about the indicators in the system. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resources/images/maintainence/inidcator_maintainance_main.png" format="PNG" width="60%" align="center"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>Indicators can be filtered by entering the name or a part of the indicator name in the &quot;Filter by name&quot; field. Similar to data elements, indicators can be added by pressing the &quot;Add new&quot; button. Other operations available from this menu are as follows. </para>
+    <itemizedlist>
+      <listitem>
+        <para><inlinegraphic fileref="resources/images/dhis2_images/edit.png"/> Existing indicators can be edited. </para>
+      </listitem>
+      <listitem>
+        <para><inlinegraphic fileref="resources/images/dhis2_images/i18n.png"/> Translate an existing indicator. </para>
+      </listitem>
+      <listitem>
+        <para><inlinegraphic fileref="resources/images/dhis2_images/delete.png"/> Delete an existing indicator. </para>
+      </listitem>
+      <listitem>
+        <para><inlinegraphic fileref="resources/images/dhis2_images/information.png"/> Get detailed information about this indicator. </para>
+      </listitem>
+    </itemizedlist>
+    <para>To add a new indicator, click the &quot;Add new&quot; button. The following screen is displayed. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resources/images/maintainence/indicator_add.png" format="PNG" width="30%" align="center"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>Each of the fields marked with an asterisk are compulsory. A description of each field is provided below. </para>
+    <itemizedlist>
+      <listitem>
+        <para>Name: The full name of the indicator, such as &quot;Incidence of confirmed malaria cases per 1000 population&quot;</para>
+      </listitem>
+      <listitem>
+        <para>Short name: An abbreviated name of the indicator such as &quot;Inc conf. malaria per 1000 pop&quot;</para>
+      </listitem>
+      <listitem>
+        <para>Alternative name: An additional field for a possible alternative name of the indicator. </para>
+      </listitem>
+      <listitem>
+        <para>Code: In many countries, indicator are often assigned a particular code. This code can be entered here. </para>
+      </listitem>
+      <listitem>
+        <para>Description: A brief, informative description of the indicator and how it is calculated can be entered here. </para>
+      </listitem>
+      <listitem>
+        <para>Annualized: Determines whether or not an annualization factor is applied during the calculation of the indicator. Typically, annualized indicator&apos;s numerator are multiplied by a factor of 12, and the denominator is for instance a yearly population figure. This allows for monthly coverage values to be calculated with yearly population figures. <!--This needs a better technical description. 
+--></para>
+      </listitem>
+      <listitem>
+        <para>Type: This field will determine a factor that will automatically be applied during the calculation of the indicator. Possible choices are determined by the Indicator Types (described below). For instance, a &quot;Percent&quot; indicator will automatically be multiplied by a factor of 100 when exported to the data mart, so that it will display as a percentage. </para>
+      </listitem>
+      <listitem>
+        <para>URL: Can be used as a link to an indicator registry, where a full metadata description of the indicator can be made available. </para>
+      </listitem>
+    </itemizedlist>
+    <para>To define the numerator and denominator, simply press the respective button, and the following dialog will be displayed. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resources/images/maintainence/indicator_numerator_denominator.png" format="PNG" align="center" width="50%"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>Essentially, an indicator is a formula that can be composed of multiple data element, constant factors, and mathematical operators. In order to define a new indicator proceed with the following steps.  </para>
+    <orderedlist>
+      <listitem>
+        <para>Provide a description of the numerator can be provided in the &quot;Description field&quot;. </para>
+      </listitem>
+      <listitem>
+        <para>Choose the aggregation operator, either as a SUM or COUNT. </para>
+      </listitem>
+      <listitem>
+        <para>Define the formula of the indicator by selecting the data elements that should compose the numerator from the &quot;Data elements&quot; field. Simply select the data element, and double click it. It will now appear in the formula. You formula must be mathematically valid, including the proper use of parentheses when necessary. You can double click on each of the mathematical operator buttons below the indicator formula definition  to add them to your formula. </para>
+      </listitem>
+      <listitem>
+        <para>Click the Save button to save all changes to the numerator. Click cancel to discard any changes that you have made. </para>
+      </listitem>
+      <listitem>
+        <para>Follow the same procedure in order to define the denominator. </para>
+      </listitem>
+    </orderedlist>
+    <section>
+      <title>Indicator types</title>
+      <para>Indicator types simply define a factor that will be applied during aggregation. Indicator values that are calculate during a data mart export or report table generation process will appear properly formatted, and will therefore not require an additional multiplier (e.g. 100 in the case of percents) for the values to appear correctly formatted. </para>
+      <para>The indicator type maintenance panel has all of the same functions (Add new, Edit, Translate, Delete, and Information) as the Indicator maintenance section. </para>
+      <para>There are only two fields that need to be filled-in to create an indicator type, Name and Factor, as seen below. Name refers to the Indicator type (e.g. Per cent, Per thousand, Per ten thousand, etc). The factor is the numeric factor that will be applied during the calculation of the indicator. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resources/images/maintainence/indicator_type.png" format="PNG" width="25%" align="center"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para/>
+    </section>
+    <section>
+      <title>Indicator groups</title>
+      <para>Indicator groups function essentially the same as data element groups. Multiple indicators can be assigned to a group for easy filtering and analysis. To assign indicators to groups, simple press Maintenance-&gt;Data elements and indicators-&gt;Indicator groups.  See the section on Data element groups for detailed instructions of how to use this module. </para>
+    </section>
+    <section>
+      <title>Indicator group editor</title>
+      <para>The indicator group editor module functions essentially the same as the data element group editor module, except on indicators. You can easily rearrange the groups that indicators belong to with this module. To access it, choose To assign indicators to groups, simple press Maintenance-&gt;Data elements and indicators-&gt;Indicator group editor from the main menu. See the section on Data element group editor for further instructions. </para>
+    </section>
+    <section>
+      <title>Indicator group sets</title>
+      <para>Similar to data element group sets, indicator group sets serve to create combined groups of similar indicators. For instance, you might have a group of indicators called &quot;Malaria&quot; and &quot;Leishmaniasis&quot;. Both of these groups could be combined into a group set called &quot;Vector-borne diseases&quot;. Indicator groups sets are used during analysis of data to combine similar themes of indicators. To access this module choose Maintenance-&gt;Data elements and indicators-&gt;Indicator group sets from the main menu. The following dialog will appear. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resources/images/maintainence/indicator_group_sets.png" format="PNG" width="70%" align="center"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Supply a name for the indicator group set, and then move the desired members from the &quot;Available Indicator Groups&quot; to the &quot;Group members&quot;. Click &quot;Add&quot; to save your changes and &quot;Cancel&quot; to discard any changes. </para>
+    </section>
+  </section>
+  <section>
+    <title>Data dictionary</title>
+    <para>Data dictionaries are used to group data elements and indicators during filtering operations. They are useful for combining related groups of data elements and indicators according to the programs to which they belong. For instance a data dictionary called &quot;MCH&quot; could be created, and all maternal and child health data elements and indicators could be added to the dictionary. The data dictionary can be access by choosing Maintenance-&gt;Data elements and indicators-&gt;Data dictionary. The following screen will be displayed in the browser. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resources/images/maintainence/data_dictionary.png" align="center" width="80%" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>Provide a name for the data dictionary in the &quot;Name&quot; field and a description of its contents. Data elements and indicators can be added or removed from the dictionary. Click &quot;Save&quot; if you are creating a new data dictionary or &quot;Add&quot; if you are editing the contents of an existing data dictionary.   </para>
   </section>
 </chapter>
