@@ -41,7 +41,7 @@ How to import data into DHIS2</para>
   </section>
   <section>
     <title>Exporting data</title>
-    <para>In the case on online data entry, all data is saved into one database only. In an offline deployment, each deployment will have a separate database in their local system. So the data will be stored in their local database. In an offline deployment, after the data entry is finished, it will need to be manually sent to the next level of where the application is running. In an online application, however, that is not required, as all data is stored at a central location using the Internet.
+    <para>In the case on on-line data entry, all data is saved into one database only. In an offline deployment, each deployment will have a separate database in their local system. So the data will be stored in their local database. In an offline deployment, after the data entry is finished, it will need to be manually sent to the next level of where the application is running. In an on-line application, however, that is not required, as all data is stored at a central location using the Internet.
 </para>
     <section>
       <title>Exporting from DHIS2</title>
@@ -96,7 +96,7 @@ If there are no datasets defined for an organisation unit, it indicates that no 
         </section>
         <section>
           <title>Detailed metadata export</title>
-          <para>The &quot;Detailed metadata&quot; function will allow you to export specifc data element and indicator definitions. Just click &quot;Detailed Metadata Export&quot; and select the data elements and indicators that you wish to export. Click &quot;Export&quot; and save the file to a desired location. This file can then be transmitted via email or USB key to other DHIS2 installations. </para>
+          <para>The &quot;Detailed metadata&quot; function will allow you to export specific data element and indicator definitions. Just click &quot;Detailed Metadata Export&quot; and select the data elements and indicators that you wish to export. Click &quot;Export&quot; and save the file to a desired location. This file can then be transmitted via email or USB key to other DHIS2 installations. </para>
           <screenshot>
             <mediaobject>
               <imageobject>
@@ -130,7 +130,7 @@ If there are no datasets defined for an organisation unit, it indicates that no 
     </section>
     <section>
       <title>Importing data </title>
-      <para>The import option allows differnt instance of DHIS2 to receive standardised set of data in the absence of a networked system. Typically, a data set is exported from one DHIS instance (e.g. a district level system) to another system (e.g. a provincial level system).  DHIS2 is capable of importing data from other systems that either support the DXF of IXF formats. DHIS2 is capable of importing data directly from a DHIS 1.4 Access database. Each of these options will be discussed in the following sections. </para>
+      <para>The import option allows different instance of DHIS2 to receive standardised set of data in the absence of a networked system. Typically, a data set is exported from one DHIS instance (e.g. a district level system) to another system (e.g. a provincial level system).  DHIS2 is capable of importing data from other systems that either support the DXF of IXF formats. DHIS2 is capable of importing data directly from a DHIS 1.4 Access database. Each of these options will be discussed in the following sections. </para>
       <para>DHIS2 is also capable of importing data through the Excel reporting module. The reader is referred to the appropriate chapter for detailed information. </para>
       <section>
         <title>Importing data from other DHIS2 systems</title>
@@ -170,7 +170,7 @@ If there are no datasets defined for an organisation unit, it indicates that no 
         <screeninfo>Default import screen</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/import_export/import_default.png" align="center" width="40%"/>
+            <imagedata width="40%" align="center" fileref="resources/images/import_export/import_default.png"/>
           </imageobject>
         </mediaobject>
       </screenshot>

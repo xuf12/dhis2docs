@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
 <!ENTITY br ''>]>
-<article>
-  <articleinfo>
+<chapter>
+  <chapternfo>
     <title>DHIS 2 Documentation Guide</title>
     <author>
       <firstname>Jason</firstname>
@@ -35,7 +35,7 @@
         </revdescription>
       </revision>
     </revhistory>
-  </articleinfo>
+  </chapterinfo>
   <section id="docs_1">
     <title>DHIS 2 Documentation System Overview</title>
     <para remap="">DHIS 2 is a web-based aggregate information management system under
@@ -60,10 +60,10 @@
     elements that cater to almost any level of technical documentation needs,
     but in reality, only a few dozen of these element will probably need to be
     employed to achieve high-quality documentation for DHIS 2, both for
-    printed as well as online formats such as HTML or integrated help systems
+    printed as well as on-line formats such as HTML or integrated help systems
     within the application itself. Therefore, there are wide range of
     possibilities in terms of which editor can be used for the creation of
-    DocBook files. A fairly complete list of possibilities is located <ulink url="http://wiki.docbook.org/topic/DocBookAuthoringTools">here</ulink>.  It is currently recommended to use <ulink url="http://www.syntext.com/products/serna-free/ ">Syntext Serna Free</ulink> for editing DocBook source files as WYSIWYG.  It is not recommended to use the editor XMLmind XML Editor Personal Edition (also known as XXE Personal), as the editor &quot;silently&quot; places unneeded whitspace and other ornamentation to the DocBook source which makes collaborative editing of documents very difficult. </para>
+    DocBook files. A fairly complete list of possibilities is located <ulink url="http://wiki.docbook.org/topic/DocBookAuthoringTools">here</ulink>.  It is currently recommended to use <ulink url="http://www.syntext.com/products/serna-free/ ">Syntext Serna Free</ulink> for editing DocBook source files as WYSIWYG.  It is not recommended to use the editor XMLmind XML Editor Personal Edition (also known as XXE Personal), as the editor &quot;silently&quot; places unneeded whitespace and other ornamentation to the DocBook source which makes collaborative editing of documents very difficult. </para>
     <para>One of the key concepts to keep in mind when authoring documentation
     in DocBook, or other presentation neutral formats, is that the <emphasis role="bold">content </emphasis>of the document should be considered in the
     first instance. The <emphasis role="bold">presentation </emphasis>of the
@@ -144,8 +144,8 @@
   </section>
   <section id="docs_6">
     <title>Using images</title>
-    <para>Screenshots are very useful for providing information to users on how particular actions should be performed. DocBook has no intrinsic mechanisms to know exactly how an image should be rendered in the final document. Therefore, it is necessary to provide instructions through element attributes.    
- The following XML code fragment demonstrates how an image can be specified to occupy 80% of the available page width. For screenshots in landscape format, this seems to be an appropriate amount. You may need to experiment a bit to obtain a proper width for your image. Alternatively, you can edit the resolution of the image itself, in order to obtain a proper size during rendering.  </para>
+    <para>Screen shots are very useful for providing information to users on how particular actions should be performed. DocBook has no intrinsic mechanisms to know exactly how an image should be rendered in the final document. Therefore, it is necessary to provide instructions through element attributes.    
+ The following XML code fragment demonstrates how an image can be specified to occupy 80% of the available page width. For screen shots in landscape format, this seems to be an appropriate amount. You may need to experiment a bit to obtain a proper width for your image. Alternatively, you can edit the resolution of the image itself, in order to obtain a proper size during rendering.  </para>
     <literallayout>&lt;screenshot&gt;
       &lt;screeninfo&gt;DHIS2 Login screen&lt;/screeninfo&gt;
       &lt;mediaobject&gt;
@@ -202,7 +202,7 @@ mod1.xml&quot; encoding=&quot;UTF-8&quot;/&gt;
     </section>
     <section>
       <title>Building with xmlto</title>
-      <para><command>xmlto</command> is a useful utility available on Linux platforms for transforming DocBook documents into many different formats. More informtion on the package can be found <ulink url="http://cyberelk.net/tim/software/xmlto/">here</ulink>. If you do not want to use Apache Maven for some reason, you can install <command>xmlto</command> through your package manager. Once you have installed <command>xmlto</command> you can just execute <command>xmlto <parameter>html</parameter><parameter>file_to_transform</parameter></command> where the <parameter>file_to_transform</parameter> parameter is the name of the file you wish to transform. There are many other formats available, such as PDF, PS, JavaHelp and others. </para>
+      <para><command>xmlto</command> is a useful utility available on Linux platforms for transforming DocBook documents into many different formats. More information on the package can be found <ulink url="http://cyberelk.net/tim/software/xmlto/">here</ulink>. If you do not want to use Apache Maven for some reason, you can install <command>xmlto</command> through your package manager. Once you have installed <command>xmlto</command> you can just execute <command>xmlto <parameter>html</parameter><parameter>file_to_transform</parameter></command> where the <parameter>file_to_transform</parameter> parameter is the name of the file you wish to transform. There are many other formats available, such as PDF, PS, JavaHelp and others. </para>
     </section>
   </section>
   <section id="docs_10">
@@ -224,4 +224,4 @@ mod1.xml&quot; encoding=&quot;UTF-8&quot;/&gt;
       </blockquote></para>
     <para>If you have any questions, or cannot find that you can get started, just send an email with your problem to <email>dhis2-documenters@lists.launchpad.net</email>.</para>
   </section>
-</article>
+</chapter>

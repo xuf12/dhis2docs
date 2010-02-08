@@ -12,7 +12,7 @@
     </author>
     <pubdate/>
   </chapterinfo>
-  <title>Data entry with DHIS2</title> 
+  <title>Data entry with DHIS2</title>
   <section id="mod3_1">
     <title>Learning Objectives</title>
     <highlights>
@@ -25,7 +25,7 @@
           <para>How to do data validation</para>
         </listitem>
         <listitem>
-          <para>How to use standard and customized data entry screens</para>
+          <para>How to use standard and customised data entry screens</para>
         </listitem>
       </itemizedlist>
     </highlights>
@@ -40,18 +40,18 @@
       <screeninfo>Open DHIS2 data entry screen</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/dhis2UserManual/open_data_entry_screen.png" width="80%" align="center"/>
+          <imagedata width="80%" align="center" fileref="resources/images/dhis2UserManual/open_data_entry_screen.png"/>
         </imageobject>
       </mediaobject>
     </screenshot>
     <para>You will now enter the data entry module. This module is where the
     services/ data values are captured / registered into the system. The
-    screen display will be like the screenshot shown below.</para>
+    screen display will be like the screen-shot shown below.</para>
     <screenshot>
       <screeninfo>Main data entry screen</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/dhis2UserManual/data_entry_screen_main.png" width="80%" align="center"/>
+          <imagedata width="80%" align="center" fileref="resources/images/dhis2UserManual/data_entry_screen_main.png"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -59,15 +59,15 @@
   <section id="mod3_3">
     <title>Navigate organisation tree and select organisation unit</title>
     <para>In order to enter data you will first have to select the particular
-    organization unit (e.g. Sub Centre/PHC/districts etc) for which you are
-    going to enter data. Simply clicking on the concerned organization unit
-    from the organization units hierarchy displayed on the left side of the
+    organisation unit (e.g. Sub Centre/PHC/districts etc) for which you are
+    going to enter data. Simply clicking on the concerned organisation unit
+    from the organisation units hierarchy displayed on the left side of the
     data entry screen.</para>
     <screenshot>
       <screeninfo>Select Organisational unit</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/dhis2UserManual/data_entry_screen_select_org_unit.png" width="80%" align="center"/>
+          <imagedata width="80%" align="center" fileref="resources/images/dhis2UserManual/data_entry_screen_select_org_unit.png"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -81,14 +81,14 @@
       <screeninfo>Select dataset</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/dhis2UserManual/data_entry_select_data_set.png" width="80%" align="center"/>
+          <imagedata width="80%" align="center" fileref="resources/images/dhis2UserManual/data_entry_select_data_set.png"/>
         </imageobject>
       </mediaobject>
     </screenshot>
     <para>If the dataset field is disabled it means that there are no datasets
-    assigned for the selected organization unit or that your user role is not
-    authorized to enter data. For now we shall limit our concern to data
+    assigned for the selected organisation unit or that your user role is not
+    authorised to enter data. For now we shall limit our concern to data
     entry. You will learn to create and assign datasets to specific
-    organization unit in a later module. </para>
+    organisation unit in a later module. </para>
   </section>
 </chapter>

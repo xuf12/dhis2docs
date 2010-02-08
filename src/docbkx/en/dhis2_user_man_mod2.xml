@@ -45,7 +45,7 @@
     </section>
     <section>
       <title>Starting the DHIS2 Live package</title>
-      <para>The DHIS2 Live package is the easiest way to get started with DHIS2. DHIS2 Live is appropirate for a stand-alone type of installation.  Simply download the application from <ulink url="http://www.dhis2.org/downloads">here</ulink>. Once the file is downloaded,  you can simply double-click the downloaded file, and get started using DHIS2. </para>
+      <para>The DHIS2 Live package is the easiest way to get started with DHIS2. DHIS2 Live is appropriate for a stand-alone type of installation.  Simply download the application from <ulink url="http://www.dhis2.org/downloads">here</ulink>. Once the file is downloaded,  you can simply double-click the downloaded file, and get started using DHIS2. </para>
     </section>
     <section>
       <title>Downloading and installing the server version</title>
@@ -56,25 +56,23 @@
       install the server version. The latest version of the application can be
       found <ulink url="http://code.launchpad.net/dhis2/2.0.2/2.0.2-release/+download/dhis.war">here</ulink>.
       </para>
-      <para>There are many permutations of getting a server installation up and running, and will depend very much on the nature of the installation. A typical installation for a single machine, running Ubuntu Linux will be described in the discussion that follows. This type of single-installation would be appropriate for a small workgroup. There are so many different ways to get the application running, and this will depend to a large extent on the number of users you will be catering to, the type of hardware you have available, and the nature of the implementation of the application (e.g one central server as opposed to multiple subnational installations). The example provided here is meant to be a rough guide for those that are setting up a DHIS2 server instance from scratch, however, you should consider all security requirements of your implementation before blindly following this example. </para>
-      <para>You will need to decide which backend database system you will use. DHIS2 is a database agnostic application in principle, and should run on any system with a compatible JDBC driver. However, it is recommended either to use Postgresql or MySQL, as these systems are widely used by other members of the DHIS2 community. In addition to a backend database system, you will need a compatible servlet container. Apache Tomcat 6 is reccomended by the developers, however in principle, the application should run in any  container that conforms to the Servlet 2.5 specification. </para>
-      <para>It is certainly possible to install all packages from source code, but it is suggested that you install most of the basic packages through your systems package manager. Depending on which version of Linux that you may be using, you may need to install a newer version of both the backend database system (such as Postgresql and MySQL) and Servlet container. It is reccomended to use at least Postgresl version 8.3 or MySQL 5.0. </para>
+      <para>There are many permutations of getting a server installation up and running, and will depend very much on the nature of the installation. A typical installation for a single machine, running Ubuntu Linux will be described in the discussion that follows. This type of single-installation would be appropriate for a small work-group. There are so many different ways to get the application running, and this will depend to a large extent on the number of users you will be catering to, the type of hardware you have available, and the nature of the implementation of the application (e.g one central server as opposed to multiple subnational installations). The example provided here is meant to be a rough guide for those that are setting up a DHIS2 server instance from scratch, however, you should consider all security requirements of your implementation before blindly following this example. </para>
+      <para>You will need to decide which back-end database system you will use. DHIS2 is a database agnostic application in principle, and should run on any system with a compatible JDBC driver. However, it is recommended either to use Postgresql or MySQL, as these systems are widely used by other members of the DHIS2 community. In addition to a back-end database system, you will need a compatible servlet container. Apache Tomcat 6 is recommended by the developers, however in principle, the application should run in any  container that conforms to the Servlet 2.5 specification. </para>
+      <para>It is certainly possible to install all packages from source code, but it is suggested that you install most of the basic packages through your systems package manager. Depending on which version of Linux that you may be using, you may need to install a newer version of both the back-end database system (such as Postgresql and MySQL) and Servlet container. It is recommended to use at least Postgresl version 8.3 or MySQL 5.0. </para>
       <para>To get started downloading the necessary packages, execute the following commands. Note that you may need to add the <command>sudo</command> command before these commands, if you are not running as root. </para>
-      <para><userinput>apt-get install nano </userinput></para>
-      <para><userinput>wget nano /etc/apt/sources.list </userinput></para>
+      <para><programlisting><userinput>apt-get install nano <userinput>wget nano /etc/apt/sources.list </userinput></userinput></programlisting></para>
       <para>Uncomment and add “multiverse” after “universe” in each line of this file. </para>
       <para>After editing the sources.list execute these commands. </para>
-      <para><userinput>apt-get update </userinput></para>
-      <para><userinput>apt-get install sun-java6-jdk postgresql postgresql-client postgresql-contrib postgresql-8.3-postgis</userinput></para>
-      <para>This will install a number of packages on your system, including Java and the Postgresql database system. In principle, DHIS2 will run under any servlet container, but it is reccomended to use Apache Tomcat. Check with the DHIS2 developers if you have questions about using other servlet containers. To get Tomcat, execute the following commands</para>
-      <para><userinput>wget http://apache.mirror.testserver.li/tomcat/tomcat-6/v6.0.20/bin/apache-tomcat-6.0.20.tar.gz </userinput></para>
-      <para><userinput>tar xvzf apache-tomcat-6.0.20.tar.gz</userinput></para>
-      <para><userinput>mv apache-tomcat-6.0.20 /usr/local/tomcat</userinput></para>
-      <para>If you need plan on installing Geoserver as part of your DHIS2 installation, go ahead and download and install it. You should check on the <ulink url="http://www.geoserver.org">Geoserver webpage</ulink> for the latest version.  </para>
+      <para><programlisting><userinput>apt-get update </userinput>
+<userinput>apt-get install sun-java6-jdk postgresql postgresql-client</userinput>
+<userinput>postgresql-contrib postgresql-8.3-postgis</userinput></programlisting></para>
+      <para>This will install a number of packages on your system, including Java and the Postgresql database system. In principle, DHIS2 will run under any servlet container, but it is recommended to use Apache Tomcat. Check with the DHIS2 developers if you have questions about using other servlet containers. To get Tomcat, execute the following commands</para>
+      <para><programlisting><userinput><userinput>wget http://apache.mirror.testserver.li/tomcat/tomcat-6/v6.0.20/bin/apache-tomcat-6.0.20.tar.gz</userinput> tar xvzf apache-tomcat-6.0.20.tar.gz mv apache-tomcat-6.0.20 /usr/local/tomcat</userinput></programlisting></para>
+      <para>If you need plan on installing Geoserver as part of your DHIS2 installation, go ahead and download and install it. You should check on the <ulink url="http://www.geoserver.org">Geoserver web page</ulink> for the latest version.  </para>
       <para>
 
 <userinput>wget http://downloads.sourceforge.net/geoserver/geoserver-2.0.0a-war.zip</userinput></para>
-      <para><userinput> unzip geoserver-2.0.0a-war.zip</userinput></para>
+      <para><userinput>unzip geoserver-2.0.0a-war.zip</userinput></para>
       <para>
 <userinput>unzip geoserver.war -d /usr/local/tomcat/webapps </userinput></para>
       <para>
@@ -94,8 +92,8 @@
       <para>Assuming that you have installed the postgresql database system, you can create a new database with the following commands. </para>
       <para><userinput>sudo su - postgres</userinput></para>
       <para><userinput>createdb createdb -E utf-8 <parameter>dhis</parameter></userinput></para>
-      <para>Note that you can change the name of the database to anything that suits your enviornment. </para>
-      <para> To tell the DHIS2 application where to find its database you need a <filename>hibernate.properties</filename> file in <envar>DHIS2_HOME</envar> . For a postgres database connection to a database called &apos;dhis&apos;, with username and password &apos;dhis&apos;, you need to put the following inside your file /root/dhis/dhis2/hibernate.properties: </para>
+      <para>Note that you can change the name of the database to anything that suits your environment. </para>
+      <para> To tell the DHIS2 application where to find its database you need a <filename>hibernate.properties</filename> file in <envar>DHIS2_HOME</envar> . For a postgres database connection to a database called &apos;dhis&apos;, with user name and password &apos;dhis&apos;, you need to put the following inside your file /root/dhis/dhis2/hibernate.properties: </para>
       <para><userinput>hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect</userinput></para>
       <para><userinput>hibernate.connection.driver_class = org.postgresql.Driver</userinput>
 </para>
@@ -104,24 +102,24 @@
       <para><userinput>hibernate.connection.password = dhis</userinput>
 </para>
       <para><userinput>hibernate.hbm2ddl.auto = update</userinput></para>
-      <para>Save this file in the DHIS2_HOME directory.  Exit the current shell in order to reload the enviornment variables and open a new shell. You will need to start both postgresql as well as the tomcat server. If you installed postgresql with the apt-get command, you can start this from the /etc/init.d/ directory with the commands.  </para>
+      <para>Save this file in the DHIS2_HOME directory.  Exit the current shell in order to reload the environment variables and open a new shell. You will need to start both postgresql as well as the tomcat server. If you installed postgresql with the apt-get command, you can start this from the /etc/init.d/ directory with the commands.  </para>
       <para><userinput>sudo su - </userinput></para>
       <para><userinput>cd /etc/init.d/</userinput></para>
       <para><userinput>./S18postgresql start</userinput></para>
       <para>Note that you may need to alter this command to your particular system. </para>
-      <para>It is good security practice to run the tomcat application as a seperate user. If you do not already have a seperate user account, you can create one with the following commands.  </para>
+      <para>It is good security practise to run the tomcat application as a separate user. If you do not already have a separate user account, you can create one with the following commands.  </para>
       <para>    <userinput>sudo useradd -d /home/tomcat6 -m tomcat6</userinput></para>
       <para><userinput>sudo passwd tomcat6 </userinput></para>
-      <para>You should not change the file permissions for the entire directory that you intsalled tomcat to, with the following command. </para>
-      <para>sudo chown -R tomcat6:tomcat6 /usr/local/tomcat</para>
-      <para>To start the application, login as the user, navigate to the <filename>/usr/local/tomcat/bin/</filename> directory, and exectute the <filename>start.sh</filename> script. </para>
+      <para>You should not change the file permissions for the entire directory that you installed Tomcat to, with the following command. </para>
+      <para><userinput>sudo chown -R tomcat6:tomcat6 /usr/local/tomcat</userinput></para>
+      <para>To start the application, login as the user, navigate to the <filename>/usr/local/tomcat/bin/</filename> directory, and execute the <filename>start.sh</filename> script. </para>
       <para><userinput>sudo su - tomcat6</userinput></para>
       <para><userinput>cd /usr/local/tomcat/bin</userinput></para>
       <para><userinput>./startup.sh</userinput></para>
     </section>
     <section>
       <title>Installing DHIS2 with the Debian install package</title>
-      <para>If you are using Ubuntu or Debian, a seperate Debian installation package has been created to simplify the installation process. You can simply download this <ulink url="http://www.dhis2.org/download/dhis2-2.0.3.deb">file</ulink> and then install DHIS2 from the command line with the following command. </para>
+      <para>If you are using Ubuntu or Debian, a separate Debian installation package has been created to simplify the installation process. You can simply download this <ulink url="http://www.dhis2.org/download/dhis2-2.0.3.deb">file</ulink> and then install DHIS2 from the command line with the following command. </para>
       <para><userinput>sudo dpkg -i dhis2-2.0.3.deb</userinput></para>
       <para>You can also install this Debian package from your systems package manager. </para>
     </section>
@@ -135,7 +133,7 @@
     <para>To log on to the application just enter <ulink url="http://localhost:8080/dhis" type="">http://localhost:8080/dhis</ulink> if you
     are using the DHIS2 live package, or replace localhost with the name or IP
     address of the server where the server version is installed.</para>
-    <para>Once you have started DHIS2, either online or offline, the displayed
+    <para>Once you have started DHIS2, either on-line or offline, the displayed
     screen will prompt you to enter your registered ‘user name’ and
     ‘password’. After entering the required information click on log-in button
     to log into the application. The default user name and password are &apos;admin&apos; and &apos;district&apos;. They should be changed immediately upon logging on the first time. </para>
@@ -176,12 +174,12 @@
         </mediaobject>
       </screenshot>
       <para>You can search for specific user names in the user list by
-      entering the name in the ‘filter by username’ field as shown
+      entering the name in the ‘filter by user name’ field as shown
       above.</para>
     </section>
     <section>
       <title>Define a new role</title>
-      <para>As part of creating a username you are required to define the user
+      <para>As part of creating a user name you are required to define the user
       role. Do so by clicking on the ‘user role’ appearing on the left side of
       the displayed screen.</para>
       <screenshot>
@@ -208,7 +206,7 @@
       type of User Role that is being created for e.g. State Admin User,
       District Data Entry.</para>
       <screenshot>
-        <screeninfo>Role maintainence page</screeninfo>
+        <screeninfo>Role maintenance page</screeninfo>
         <mediaobject>
           <imageobject>
             <imagedata width="80%" align="center" fileref="resources/images/dhis2UserManual/role_maintainence_page.jpg"/>
@@ -231,7 +229,7 @@
         </mediaobject>
       </screenshot>
       <para>In order for particular users to be able to enter data, you must
-      add them to both a dataset as well as an organizational unit level. You
+      add them to both a dataset as well as an organisational unit level. You
       can also select multiple datasets individually by pressing the Ctrl key
       on the keyboard and clicking on individual datasets.</para>
       <screenshot>
@@ -244,7 +242,7 @@
       </screenshot>
       <para>Finally when you have entered the required fields click on
       <guibutton>Save</guibutton> which is located on the lower part of the
-      displayed screen. The desired user role and related authorization will
+      displayed screen. The desired user role and related authorisation will
       be saved to the database, and can then be assigned to a particular
       user.</para>
     </section>

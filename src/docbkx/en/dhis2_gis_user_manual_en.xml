@@ -35,15 +35,15 @@
     many different formats, but the ESRI shape file format is one of the most
     common. Several procedures will be described below. It is important, but
     not required, that the names in your geographical data match those in the
-    DHIS2 organizational hierarchy. If they do not, you will need to manually
+    DHIS2 organisational hierarchy. If they do not, you will need to manually
     match them in a later step</para>
     <section>
       <title>Production of GeoJSON files with Geoserver</title>
       <para>Geoserver is capable of outputting GeoJSON formats. If you have
       geoserver running someplace, you can execute the following query.</para>
       <para><ulink url="http://localhost:8080/geoserver/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typename=topp:states&amp;outputformat=json&amp;srs_name=EPSG:4326">http://localhost:8080/geoserver/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typename=topp:states&amp;outputformat=json&amp;srs_name=EPSG:4326</ulink></para>
-      <para> Take note that you need to specify the spatial coordinate system. By defualt, Geoserver will return GeoJSON files with the format &quot;long/lat&quot; while
-the DHIS mapping client expects the ordering of the coordinates in &quot;lat/long&quot; format.  The expllicit declartaion of the spatial reference system will ensure that coordinates are returned in the proper order. At the time of writing, the DHIS mapping client does not support spatial reference systems other than EPSG 4326. If you are using Geoserver, the application will handle the reprojection from the native format of the geographical data to EPSG 4326. If you are using other methods as described below to generate the GeoJSON file, you will need to ensure that the GeoJSON output is set to EPSG 4326 (Geographical Lat/long). </para>
+      <para> Take note that you need to specify the spatial coordinate system. By default, Geoserver will return GeoJSON files with the format &quot;long/lat&quot; while
+the DHIS mapping client expects the ordering of the coordinates in &quot;lat/long&quot; format.  The explicit declaration of the spatial reference system will ensure that coordinates are returned in the proper order. At the time of writing, the DHIS mapping client does not support spatial reference systems other than EPSG 4326. If you are using Geoserver, the application will handle the reprojection from the native format of the geographical data to EPSG 4326. If you are using other methods as described below to generate the GeoJSON file, you will need to ensure that the GeoJSON output is set to EPSG 4326 (Geographical Lat/long). </para>
       <para>You will need to adjust the host destination if the machine is not
       your local machine as well as defining the actual layer in Geoserver
       which should be output to GeoJSON (in this case
@@ -63,8 +63,8 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
       at <ulink url="http://gdal.org">http://gdal.org</ulink></para>
       <para>Production of GeoJSON files are straightforward with GDAL. Just
       execute (on Windows)</para>
-      <programlisting>ogr2ogr.exe -f &quot;GeoJSON&quot; dst_datasource_name src_datasource_name</programlisting>
-      <para>or on Linux<programlisting>ogr2ogr -f &quot;GeoJSON&quot;dst_datasource_name src_datasource_name</programlisting></para>
+      <programlisting><userinput>ogr2ogr.exe -f &quot;GeoJSON&quot; dst_datasource_name src_datasource_name</userinput></programlisting>
+      <para>or on Linux<programlisting><userinput>ogr2ogr -f &quot;GeoJSON&quot;dst_datasource_name src_datasource_name</userinput></programlisting></para>
       <para>Replace <parameter>dst_datasource_name</parameter> with the path
       to the destination geographical data file (following the naming
       convention described above) and
@@ -82,7 +82,7 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
   <section id="gis_2">
     <title>Administrator panel</title>
     <screenshot>
-      <graphic fileref="resources/images/GIS/admin_panel.png" align="center" />
+      <graphic fileref="resources/images/GIS/admin_panel.png" align="center"/>
     </screenshot>
     <para><variablelist>
         <varlistentry>
@@ -121,7 +121,7 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
       <screeninfo>Register Geodata Panel</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/GIS/register_geodata.png" align="center"/>
+          <imagedata align="center" fileref="resources/images/GIS/register_geodata.png"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -160,7 +160,7 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
             <screeninfo>Identification of the name column with Geoserver&apos;s OpenLayers client</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/GIS/get_name_geoserver.png" width="80%" align="center"/>
+                <imagedata width="80%" align="center" fileref="resources/images/GIS/get_name_geoserver.png"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -168,7 +168,7 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
             <screeninfo>Identification of the name column directly in the GeoJSON file</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/GIS/get_name_geojson.png" width="80%" align="center"/>
+                <imagedata width="80%" align="center" fileref="resources/images/GIS/get_name_geojson.png"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -189,7 +189,7 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
             <screeninfo>Using Geoserver OpenLayers client to get the map center point</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/GIS/geoserver_center_point.png" width="80%" align="center"/>
+                <imagedata width="80%" align="center" fileref="resources/images/GIS/geoserver_center_point.png"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -197,7 +197,7 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
             <screeninfo>Using DHIS GIS Module to get the map center point</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/GIS/dhis_gis_center_point.png" width="80%" align="center"/>
+                <imagedata width="80%" align="center" fileref="resources/images/GIS/dhis_gis_center_point.png"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -230,7 +230,7 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
       <screeninfo>Assigning Organizational Units to the map</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/GIS/assign_org_units.png" width="80%" align="center"/>
+          <imagedata width="80%" align="center" fileref="resources/images/GIS/assign_org_units.png"/>
         </imageobject>
       </mediaobject>
     </screenshot>

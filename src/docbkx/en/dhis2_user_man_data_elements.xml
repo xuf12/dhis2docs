@@ -2,7 +2,7 @@
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <chapter>
   <title>Data elements and indicators</title>
-  <para>This sub module is required for the management of the data elements and indicators used by the application. When the ‘Data Elements and Indicators’ options is chosen from the main Maintance menu, the following screen appears:
+  <para>This sub module is required for the management of the data elements and indicators used by the application. When the ‘Data Elements and Indicators’ options is chosen from the main Maintenance menu, the following screen appears:
 </para>
   <screenshot>
     <mediaobject>
@@ -11,10 +11,10 @@
       </imageobject>
     </mediaobject>
   </screenshot>
-  <para>There are three main functions of this module: addition and attribution of data elements and indicators, and the defintion of a data dictionary . </para>
+  <para>There are three main functions of this module: addition and attribution of data elements and indicators, and the definition of a data dictionary . </para>
   <section>
     <title>Data elements</title>
-    <para>Data elements form the basis of DHIS2. Data elements define what is actually recorded in system, e.g. number of immunizations or number of cases of malaria. The actual creation and defition of the data elements themselves are far beyond the scope of this manual to describe, but it is assumed that an administrator will be provided with a list of standardized data elements for inclusion into the DHIS2 system. </para>
+    <para>Data elements form the basis of DHIS2. Data elements define what is actually recorded in system, e.g. number of immunisations or number of cases of malaria. The actual creation and definition of the data elements themselves are far beyond the scope of this manual to describe, but it is assumed that an administrator will be provided with a list of standardised data elements for inclusion into the DHIS2 system. </para>
     <para>Each of the options for maintenance of  data elements will be described in the following section.</para>
     <itemizedlist>
       <listitem>
@@ -144,7 +144,7 @@ button aborts all changes made.
       </section>
       <section>
         <title>Data element translation</title>
-        <para>DHIS2 provides functionality to translate existing data elements into other languages. Simply press the translate button <inlinegraphic fileref="resources/images/dhis2_images/i18n.png" align="center"/> to get stared. The following dialog will appear. </para>
+        <para>DHIS2 provides functionality to translate existing data elements into other languages. Simply press the translate button <inlinegraphic fileref="resources/images/dhis2_images/i18n.png" align="center"/> to get stared. The following dialogue will appear. </para>
         <screenshot>
           <mediaobject>
             <imageobject>
@@ -152,8 +152,8 @@ button aborts all changes made.
             </imageobject>
           </mediaobject>
         </screenshot>
-        <para>The reference language is displayed in the upper right portion of the dialog. Choose a locale to translate the data element into by selecting an option from the locale drop-down menu. Specify the name, short-name and description in the target language. Press &quot;Save&quot; to save your changes. </para>
-        <para>The &quot;Details&quot; section of this dialog will allow you add a new locale if it is not already present in the database. There are two options:</para>
+        <para>The reference language is displayed in the upper right portion of the dialogue. Choose a locale to translate the data element into by selecting an option from the locale drop-down menu. Specify the name, short-name and description in the target language. Press &quot;Save&quot; to save your changes. </para>
+        <para>The &quot;Details&quot; section of this dialogue will allow you add a new locale if it is not already present in the database. There are two options:</para>
         <itemizedlist>
           <listitem>
             <para>Language code</para>
@@ -164,7 +164,7 @@ button aborts all changes made.
             <para>Refers to the ISO 3166-1-alpha-2 code. A complete listing is available <ulink url="http://www.iso.org/iso/country_codes/iso_3166_code_lists/english_country_names_and_code_elements.htm">here</ulink>. </para>
           </listitem>
         </itemizedlist>
-        <para>The combination of these two codes together, forms a &quot;locale&quot; code, which is composed of the combination of the location and language. A very comprehensive discussion of the technical standard (RFC 3066) is available <ulink url="http://www.ietf.org/rfc/rfc3066.txt">here</ulink>.  This <ulink url="http://www.i18nguy.com/unicode/language-identifiers.html">page</ulink> provides a very comprehensive list of recognized locale codes. </para>
+        <para>The combination of these two codes together, forms a &quot;locale&quot; code, which is composed of the combination of the location and language. A very comprehensive discussion of the technical standard (RFC 3066) is available <ulink url="http://www.ietf.org/rfc/rfc3066.txt">here</ulink>.  This <ulink url="http://www.i18nguy.com/unicode/language-identifiers.html">page</ulink> provides a very comprehensive list of recognised locale codes. </para>
       </section>
       <section>
         <title>Deleting a data element</title>
@@ -184,7 +184,7 @@ button aborts all changes made.
     </section>
     <section>
       <title>Data element group maintenance</title>
-      <para>Data element groups provide a mechanism for classifying related data elements into a common theme. For instance, two data elements &quot;Measles immunization&quot; and  &quot;BCG Immunization&quot; might be grouped together into a data element group &quot;Childhood immunization&quot;. To access the data element group maintenance page, click Maintenance-&gt;Data elements and indicators-&gt;Data Element Group . The following screen will be displayed. </para>
+      <para>Data element groups provide a mechanism for classifying related data elements into a common theme. For instance, two data elements &quot;Measles immunisation&quot; and  &quot;BCG Immunisation&quot; might be grouped together into a data element group &quot;Childhood immunisation&quot;. To access the data element group maintenance page, click Maintenance-&gt;Data elements and indicators-&gt;Data Element Group . The following screen will be displayed. </para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -211,7 +211,7 @@ button aborts all changes made.
             </imageobject>
           </mediaobject>
         </screenshot></para>
-      <para>Data element groups area listed alphabetically in the leftmost panel. By clicking on a data element group, the current members of that group (data elements) are listed in the center panel. Available data elements that can be added to the data element group appear are listed alphabetically in the rightmost panel. To remove an existing data element from the group, click the name of the data element in the center panel, and then press the &quot;Move right&quot;  <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/> button. To add data elements to the group, select them from the leftmost panel, and click the &quot;Move left&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_left.png" align="center"/> button. Press the <guibutton>&quot;Update data element group member&quot;</guibutton> button to save your changes. </para>
+      <para>Data element groups area listed alphabetically in the leftmost panel. By clicking on a data element group, the current members of that group (data elements) are listed in the centre panel. Available data elements that can be added to the data element group appear are listed alphabetically in the rightmost panel. To remove an existing data element from the group, click the name of the data element in the centre panel, and then press the &quot;Move right&quot;  <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/> button. To add data elements to the group, select them from the leftmost panel, and click the &quot;Move left&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_left.png" align="center"/> button. Press the <guibutton>&quot;Update data element group member&quot;</guibutton> button to save your changes. </para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -222,7 +222,7 @@ button aborts all changes made.
     </section>
     <section>
       <title>Data element group sets</title>
-      <para>Data element group sets allow multiple data element groups to be categorized into a set. Data element group sets are used during analysis and reporting to combine similar data element groups into a common theme. To access the data element group set maintenance module, choose &quot;Maintenance-&gt;Data elements and indicators-&gt;Data element group set&quot;.  Similar to the other data element maintenance modules, new data element group sets can be added by pressing the &quot;Add new button&quot;.  Other operations include Edit, Translate, Delete and Information, similar to the other modules in this section. </para>
+      <para>Data element group sets allow multiple data element groups to be categorised into a set. Data element group sets are used during analysis and reporting to combine similar data element groups into a common theme. To access the data element group set maintenance module, choose &quot;Maintenance-&gt;Data elements and indicators-&gt;Data element group set&quot;.  Similar to the other data element maintenance modules, new data element group sets can be added by pressing the &quot;Add new button&quot;.  Other operations include Edit, Translate, Delete and Information, similar to the other modules in this section. </para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -290,7 +290,7 @@ button aborts all changes made.
       </itemizedlist>
       <para> In this example, there would be two levels of disaggregation, consisting of two separate data element categories, each consisting of several data element category options. In most HMIS systems, different data elements are disaggregated according to a common set of categories. By combining these different categories into a data element category combination and assigning these combinations to data elements, the appropriate disaggregation levels can be applied efficiently and quickly to a large number of data elements. </para>
       <para>To access the data element category combination maintenance module, select &quot;Maintenance-&gt;Data element and indicators-&gt;Data element category combinations&quot; from the main DHIS2 menu. As with the  other maintains modules, you can filter the listed category combinations by entering the name (or portion thereof) of the category combination. Other operations such as &quot;Edit&quot;, &quot;Delete&quot; and &quot;Information&quot; should be familiar to the reader. </para>
-      <para>To add a new category combination, click the &quot;Add new&quot; button. The following dialog will be displayed. </para>
+      <para>To add a new category combination, click the &quot;Add new&quot; button. The following dialogue will be displayed. </para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -312,7 +312,7 @@ button aborts all changes made.
     <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/maintainence/inidcator_maintainance_main.png" format="PNG" width="60%" align="center"/>
+          <imagedata width="60%" align="center" fileref="resources/images/maintainence/inidcator_maintainance_main.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -335,7 +335,7 @@ button aborts all changes made.
     <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/maintainence/indicator_add.png" format="PNG" width="30%" align="center"/>
+          <imagedata width="30%" align="center" fileref="resources/images/maintainence/indicator_add.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -367,11 +367,11 @@ button aborts all changes made.
         <para>URL: Can be used as a link to an indicator registry, where a full metadata description of the indicator can be made available. </para>
       </listitem>
     </itemizedlist>
-    <para>To define the numerator and denominator, simply press the respective button, and the following dialog will be displayed. </para>
+    <para>To define the numerator and denominator, simply press the respective button, and the following dialogue will be displayed. </para>
     <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/maintainence/indicator_numerator_denominator.png" format="PNG" align="center" width="50%"/>
+          <imagedata width="50%" align="center" fileref="resources/images/maintainence/indicator_numerator_denominator.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -401,7 +401,7 @@ button aborts all changes made.
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/maintainence/indicator_type.png" format="PNG" width="25%" align="center"/>
+            <imagedata width="25%" align="center" fileref="resources/images/maintainence/indicator_type.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -417,11 +417,11 @@ button aborts all changes made.
     </section>
     <section>
       <title>Indicator group sets</title>
-      <para>Similar to data element group sets, indicator group sets serve to create combined groups of similar indicators. For instance, you might have a group of indicators called &quot;Malaria&quot; and &quot;Leishmaniasis&quot;. Both of these groups could be combined into a group set called &quot;Vector-borne diseases&quot;. Indicator groups sets are used during analysis of data to combine similar themes of indicators. To access this module choose Maintenance-&gt;Data elements and indicators-&gt;Indicator group sets from the main menu. The following dialog will appear. </para>
+      <para>Similar to data element group sets, indicator group sets serve to create combined groups of similar indicators. For instance, you might have a group of indicators called &quot;Malaria&quot; and &quot;Leishmaniasis&quot;. Both of these groups could be combined into a group set called &quot;Vector-borne diseases&quot;. Indicator groups sets are used during analysis of data to combine similar themes of indicators. To access this module choose Maintenance-&gt;Data elements and indicators-&gt;Indicator group sets from the main menu. The following dialogue will appear. </para>
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/maintainence/indicator_group_sets.png" format="PNG" width="70%" align="center"/>
+            <imagedata width="70%" align="center" fileref="resources/images/maintainence/indicator_group_sets.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -434,7 +434,7 @@ button aborts all changes made.
     <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/maintainence/data_dictionary.png" align="center" width="80%" format="PNG"/>
+          <imagedata width="80%" align="center" fileref="resources/images/maintainence/data_dictionary.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>

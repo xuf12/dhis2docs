@@ -22,11 +22,11 @@
   <sect1 id="arch_1">
     <title>Overview</title>
     <para>This document outlines the technical architecture for the District Health Information Software 2 (DHIS 2). The DHIS 2 is a routine data based health information system which allows for data capture, aggregation, analysis, and reporting of data. </para>
-    <para>DHIS 2 is written in Java and has a three-layer architecture. The presentation layer is web-based, and the system can be used online as well as stand-alone.</para>
+    <para>DHIS 2 is written in Java and has a three-layer architecture. The presentation layer is web-based, and the system can be used on-line as well as stand-alone.</para>
     <screenshot>
       <graphic fileref="resources/images/dhis2_technical_architecture/over_view.jpg" align="center"/>
     </screenshot>
-    <para>Fig. Overall architechture</para>
+    <para>Fig. Overall architecture</para>
   </sect1>
   <sect1 id="arch_2">
     <title>Technical Requirements</title>
@@ -42,7 +42,7 @@
         <para>Extensibility and modularity in order to address local functional requirements</para>
       </listitem>
       <listitem>
-        <para>Ability to run online/on the web</para>
+        <para>Ability to run on-line/on the web</para>
       </listitem>
       <listitem>
         <para>Flexible data model to allow for a variety of data capture requirements</para>
@@ -51,7 +51,7 @@
   </sect1>
   <sect1 id="arch_3">
     <title>Project Structure</title>
-    <para>DHIS 2 is made up of 42 Maven projects, out of which 18 are web modules. The root POM is located in /dhis-2 and contains project aggregation for all projects excluding the /dhis-2/dhis-web folder. The /dhis-2/dhis-web folder has a web root POM which contains project aggregation for all projects within that folder. The contents of the modules are described later on.</para>
+    <para>DHIS 2 is made up of 42 Maven projects, out of which 18 are web modules. The root POM is located in <filename>/dhis-2</filename> and contains project aggregation for all projects excluding the <filename>/dhis-2/dhis-web</filename> folder. The <filename>/dhis-2/dhis-web</filename> folder has a web root POM which contains project aggregation for all projects within that folder. The contents of the modules are described later on.</para>
     <screenshot>
       <graphic fileref="resources/images/dhis2_technical_architecture/project_structure.jpg" align="center"/>
     </screenshot>
@@ -60,10 +60,10 @@
   <sect1 id="arch_4">
     <title>The Data Model</title>
     <para>The data model is flexible in all dimensions in order to allow for capture of any item of data. The model is based on the notion of a DataValue. A DataValue can be captured for any DataElement (which represents the captured item, occurrence or phenomena), Period (which represents the time dimension), and Source (which represents the space dimension, i.e. an organisational unit in a hierarchy).</para>
-    <screenshot>
-      <graphic fileref="resources/images/dhis2_technical_architecture/data_value_diagram.jpg" align="center"/>
-    </screenshot>
-    <para>Fig. DataValue diagram</para>
+    <figure>
+      <title>Data value structure</title>
+      <graphic fileref="resources/images/dhis2_technical_architecture/data_value_diagram.jpg"/>
+    </figure>
     <para>A central concept for data capture is the DataSet. The DataSet is a collection of DataElements for which there is entered data presented as a list, a grid and a custom designed form. A DataSet is associated with a PeriodType, which represents the frequency of data capture.</para>
     <para>A central concept for data analysis and reporting is the Indicator. An Indicator is basically a mathematical formula consisting of DataElements and numbers. An Indicator is associated with an IndicatorType, which indicates the factor of which the output should be multiplied with. A typical IndicatorType is percentage, which means the output should be multiplied by 100. The formula is split into a numerator and denominator.</para>
     <para>Most objects have corresponding group objects, which are intended to improve and enhance data analysis. The data model source code can be found in the API project and could be explored in entirety there. A selection of the most important objects can be view in the diagram below.</para>
@@ -304,7 +304,7 @@
         <para>The portal requires the web modules to adhere to a few principles:</para>
         <itemizedlist>
           <listitem>
-            <para>The web resources must be located in a folder src/main/webapp/&lt;module-artifact-id &gt;.</para>
+            <para>The web resources must be located in a folder <filename>src/main/webapp/&lt;module-artifact-id &gt;</filename>.</para>
           </listitem>
           <listitem>
             <para>The xwork.xml configuration file must extend the dhis-web-commons.xml configuration file.</para>
