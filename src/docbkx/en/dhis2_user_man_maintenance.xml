@@ -106,7 +106,7 @@
       <para>DHIS2 can perform a wide range of data integrity checks on the data contained in the database. Identifying and correcting data integrity issues is extremely important for ensuring that the data used for analysis purposes is valid. Each of the data integrity checks that are performed by the system will be described, along with general procedures that can be performed to resolve these issues. </para>
       <section>
         <title>Data elements without data set</title>
-        <para>Each data element much be assigned to a data set. Values for data elements will not be able to be entered into the system if a data element is not assigned to a data set. Choose Maintenance-&gt;Datasets-&gt;Edit from the main menu and then add the &quot;orphaned&quot; data element to the appropriate data set. </para>
+        <para>Each data element must be assigned to a data set. Values for data elements will not be able to be entered into the system if a data element is not assigned to a data set. Choose Maintenance-&gt;Datasets-&gt;Edit from the main menu and then add the &quot;orphaned&quot; data element to the appropriate data set. </para>
       </section>
       <section>
         <title>Data elements without groups</title>
@@ -114,7 +114,7 @@
       </section>
       <section>
         <title>Data elements assigned to data sets with different period types</title>
-        <para>Data elements should not be assigned to two separate data sets whose period types differ. The recommended approach would be to create two separate data elements (for instance a monthly and yearly data element) and assign these to respective datasets. </para>
+        <para>Data Elements should not be assigned to two separate data sets whose period types differ. The recommended approach would be to create two separate data elements (for instance a monthly and yearly data element) and assign these to respective datasets. </para>
       </section>
       <section>
         <title>Data sets not assigned to organisation units</title>
@@ -126,7 +126,7 @@
       </section>
       <section>
         <title>Indicators without groups</title>
-        <para>All Data Elements and Indicators MUST be assigned to ONE group, so these Indicators need to be allocated to their correct Data Element and Indicator Group. Go to Maintenance -&gt; Indicator Groups, and allocate each of the `Orphaned` Indicators to its correct group.</para>
+        <para>All Data Elements and Indicators must be assigned to at least one group, so these Indicators need to be allocated to their correct Data Element and Indicator Group. Go to Maintenance -&gt; Indicator Groups, and allocate each of the `Orphaned` Indicators to its correct group.</para>
       </section>
       <section>
         <title>Invalid indicator numerators</title>
@@ -138,7 +138,7 @@
       </section>
       <section>
         <title> Organisation units with cyclic references</title>
-        <para>Organisation rules cannot be both parent and children of each other. </para>
+        <para>Organisation units cannot be both parent and children of each other, directly nor indirectly.</para>
       </section>
       <section>
         <title>Orphaned organisation units</title>
@@ -150,7 +150,7 @@
       </section>
       <section>
         <title>Organisation units violating compulsory group sets</title>
-        <para>These organisation units have not been assigned to the any organisation unit group within one of the  <emphasis>compulsory</emphasis> organisation unit group sets. When a group set is defined as `compulsory`, it means that an organisation unit must be allocated to at least one organisation unit within that group set. For instance, all organisation units must belong to one of the groups with the `organisation unitType` group set. It might belong to  the `Hospital` or the `Clinic` or any other `type` group - but it must belong to exactly one of them.  Go to Maintenance -&gt; organisation unit-&gt;Organisation unit groups to review each organisation unit identified in the integrity check. Allocate all organisation units to exactly one group. </para>
+        <para>These organisation units have not been assigned to the any organisation unit group within one of the  <emphasis>compulsory</emphasis> organisation unit group sets. When a group set is defined as `compulsory`, it means that an organisation unit must be allocated to at least one organisation unit group within that group set. For instance, all organisation units must belong to one of the groups in the `organisation unitType` group set. It might belong to  the `Hospital` or the `Clinic` or any other `type` group - but it must belong to exactly one of them.  Go to Maintenance -&gt; organisation unit-&gt;Organisation unit groups to review each organisation unit identified in the integrity check. Allocate all organisation units to exactly one group. </para>
       </section>
       <section>
         <title>Organisation units violating exclusive group sets</title>
@@ -175,7 +175,7 @@
     </section>
     <section>
       <title>Resource tables</title>
-      <para>Resource tables are supporting tables that are used during analysis of data. Simply select the tables that should be regenerated, and press &quot;Generate tables&quot;. Regeneration of the resource tables should only be done once all data integrity issues are resolved. </para>
+      <para>Resource tables are supporting tables that are used during analysis of data. One would typically join the contents of these tables with the data value table when doing queries from third-party applications like Microsoft Excel. Simply select the tables that should be regenerated and press &quot;Generate tables&quot;. Regeneration of the resource tables should only be done once all data integrity issues are resolved. </para>
       <itemizedlist>
         <listitem>
           <para>Organisation unit structure (orgunitstructure)
@@ -193,7 +193,7 @@
         </listitem>
         <listitem>
           <para>Data element category option combo name (categoryoptioncomboname)</para>
-          <para>This table should be regenerated any time there have been changes made to the category combination names. </para>
+          <para>This table should be regenerated any time there have been changes made to the category combination names. It contains readable names for the various combinations of categories.</para>
         </listitem>
       </itemizedlist>
     </section>
