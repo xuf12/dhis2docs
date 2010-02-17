@@ -174,6 +174,36 @@
       </section>
     </section>
     <section>
+      <title>Maintenance</title>
+      <para>The data maintenance module has five options, each described below. </para>
+      <itemizedlist>
+        <listitem>
+          <para>Clear hierarchy history</para>
+          <para>DHIS 2 maintains an audit trail of changes to the organisation unit hierarchy for aggregation purposes. This function clears the hierarchy history.</para>
+        </listitem>
+        <listitem>
+          <para>Clear data mart (aggregated datavalues)</para>
+          <para>The data mart is where DHIS 2 stores aggregated data produced during the export to data mart process. This function clears the database table which contains aggregated data element values.</para>
+        </listitem>
+        <listitem>
+          <para>Clear data mart (aggregated indicatorvalues)</para>
+          <para>The data mart is where DHIS 2 stores aggregated data produced during the export to data mart process. This function clears the database table which contains aggregated indicator  values.</para>
+        </listitem>
+        <listitem>
+          <para>Clear zero values</para>
+          <para>This function removes zero data values from the database. Values registered for data elements with aggregation operator <emphasis role="italic">average</emphasis> is not removed, as such values will be significant when aggregating the data, contrary to values registered for data elements with aggregation operator <emphasis role="italic">sum</emphasis>. Reducing the number of data values will improve system performance.</para>
+        </listitem>
+        <listitem>
+          <para>Clear dataset completeness</para>
+          <para>This function removes aggregated dataset completeness values. This data is produced and used by report tables.</para>
+        </listitem>
+        <listitem>
+          <para>Prune periods</para>
+          <para>This function removes all periods which have no registered data values. Reducing the number of periods will improve system performance.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section>
       <title>Resource tables</title>
       <para>Resource tables are supporting tables that are used during analysis of data. One would typically join the contents of these tables with the data value table when doing queries from third-party applications like Microsoft Excel. Simply select the tables that should be regenerated and press &quot;Generate tables&quot;. Regeneration of the resource tables should only be done once all data integrity issues are resolved. </para>
       <itemizedlist>
@@ -208,6 +238,18 @@
           <para>This table should be regenerated any time there have been changes made to the category combination names. It contains readable names for the various combinations of categories.</para>
         </listitem>
       </itemizedlist>
+    </section>
+    <section>
+      <title>Organisation unit merge</title>
+      <para>This function is useful when two organisation units need to be merged, eg. it is decided that one facility will be shut down and its services will be provided by a nearby facility.</para>
+      <para>Start by selecting the organisation unit to eliminate from the tree and click <emphasis role="italic">confirm</emphasis>.  Then select the organisation unit to keep and click <emphasis role="italic">confirm</emphasis> again. Finally, verify the selection and click <emphasis role="italic">merge</emphasis>.  </para>
+      <para>In the sitation where data exist  for the organisation unit to eliminate and not for the one to keep, the data will be moved to the one to keep. When data exists for both organisation units, the data will be summarized and moved to the one to keep. When data exists only for the one to keep, no action is taken. The organisation unit to eliminate will eventually be deleted.</para>
+    </section>
+    <section>
+      <title>Duplicate data elimination</title>
+      <para>This function is useful when data has been entered mistakenly for two data elements which represents the same phenomena.</para>
+      <para>Start by selecting the data element to eliminate from the list and click confirm. Then select the data element to keep and click confirm again. Finally, verify the selection and click merge.</para>
+      <para>In the situation where data exists for the data element to eliminate and not for the one to keep, the data will be moved to the one to keep. When data exists for both data elements, the data which was updated last will be used. When data exists only for the one to keep, no action will be taken. The data element to eliminate will eventually be deleted, except when it is a multidimensional data element and has other data registered.</para>
     </section>
     <section>
       <title>Data statistics</title>
@@ -254,35 +296,8 @@ yearly for which the data is to be locked. The month, quarter or year for which 
 </para>
     </section>
     <section>
-      <title>Maintenance</title>
-      <para>The data maintenance module has five options, each described below. </para>
-      <para/>
-      <itemizedlist>
-        <listitem>
-          <para>Clear hierarchy history</para>
-          <para>Est sodales pharetra aptent, augue hymenaeos dui neque parturient maecenas posuere egestas. Facilisi nostra. Hymenaeos mi porta scelerisque. Nam orci neque convallis hendrerit vestibulum dapibus eni cubilia ve nunc.</para>
-        </listitem>
-        <listitem>
-          <para>Clear aggregated data values</para>
-          <para>This option will erase all data values that have resulted from a data mart export. </para>
-        </listitem>
-        <listitem>
-          <para>Clear aggregated indicatorvalues</para>
-          <para>This option will erase all aggregated indicator values that have resulted from a data mart export. </para>
-        </listitem>
-        <listitem>
-          <para>Clear zero values</para>
-          <para>This option will clear all values from the raw data tables that are equal to zero. </para>
-        </listitem>
-        <listitem>
-          <para>Clear dataset completeness</para>
-          <para>At mollis pulvinar adipiscing hymenaeos condimentum non cras ante, aliquet eu mi turpis. Leo. Montes aliquam ut, cras. Magnis.</para>
-        </listitem>
-        <listitem>
-          <para>Prune periods</para>
-          <para>This function will delete all periods from the database that do not have data attached to them. </para>
-        </listitem>
-      </itemizedlist>
+      <title>Zero value storage</title>
+      <para>The zero value storage function makes it possible to define for which data elements the system should store zero values. In most cases zeros are significant only for a subset of the data elements in the database. Zero values will be ignored during data entry for selected data elements.</para>
     </section>
     <section>
       <title>Cache Statistics </title>
