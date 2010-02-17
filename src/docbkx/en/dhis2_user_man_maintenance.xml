@@ -181,15 +181,27 @@
           <para>Organisation unit structure (orgunitstructure)
 
 </para>
-          <para>This table should be regenerated any time there have been any changes made to the organisational unit hierarchy. </para>
+          <para>This table should be regenerated any time there have been any changes made to the organisational unit hierarchy. This table provides information about the organisation unit hierarchy. It has one row for each organisation unit, one  column for each organisation unit level and the organisation unit identifiers for all parents in the lineage as values.</para>
         </listitem>
         <listitem>
-          <para>Exclusive organisation unit groupset structure (orgunitgroupsetstructure)</para>
-          <para>Lacinia est at mollis non erat. At sem ac curae mus vitae integer vehicula. Nostra nisi eget venenatis sociis molestie ullamcorper cum elit. Magna mi amet tempus id elementum tristique nisi vivamus donec ve dolor.</para>
+          <para>Exclusive organisation unit groupset structure normalized (orgunitgroupsetstructure)</para>
+          <para>This table provides information about the which organisation units are member of which organisation unit group sets.</para>
         </listitem>
         <listitem>
-          <para>Exclusive organisation unit groupset structure (orgunitgroupsetstructure)</para>
-          <para>Blandit risus adipiscing rhoncus leo vestibulum ipsum arcu. Ornare imperdiet ac, litora etiam quis, arcu magnis, parturient risus duis. Condimentum. Conubia.</para>
+          <para>Data element group set structure (_dataelementgroupsetstructure)</para>
+          <para>This table provides information about which data elements are members of which data element group sets. The table has one row for each data element,  one column for each data element group set and the names of the data element group as values.</para>
+        </listitem>
+        <listitem>
+          <para>Indicator group set structure (_indicatorgroupsetstructure)</para>
+          <para>This table provides information about which indicators are members of which indicator group sets. The table has one row for each indicator, one column for each indicator group set and the names of the indicator group as values.</para>
+        </listitem>
+        <listitem>
+          <para>Organisation unit group set structure (_organisationunitgroupsetstructure)</para>
+          <para>This table provides information about which organisation units are members of which organisation unit group sets. The table has one row for each organisation unit, one column for each organisation unit group set and the names of the organisation unit groups as values.</para>
+        </listitem>
+        <listitem>
+          <para>Category structure (_categorystructure)</para>
+          <para>This table provides information about which data elements are members of which categories. The table has one row for each data element, one column for each category and the names of the category options as values.</para>
         </listitem>
         <listitem>
           <para>Data element category option combo name (categoryoptioncomboname)</para>
