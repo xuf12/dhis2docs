@@ -6,7 +6,6 @@
   <section>
     <title>Learning Objectives</title>
     <para>After reading this module you will be able to understand:</para>
-    <highlights>
       <orderedlist>
         <listitem>
           <para>What is data quality and its importance for HMIS.</para>
@@ -24,12 +23,10 @@
           <para>How to analyze data status.</para>
         </listitem>
       </orderedlist>
-    </highlights>
   </section>
   <section>
     <title>Overview of data quality check</title>
     <para>Ensuring data quality is a key concern in building an effective HMIS. Data quality has different dimensions including:</para>
-    <highlights>
       <itemizedlist>
         <listitem>
           <para><emphasis>Correctness:</emphasis> Data should be within the normal range for data collected at that facility. There should be no gross discrepancies when compared with data from related data elements.</para>
@@ -44,7 +41,6 @@
           <para><emphasis>Timeliness:</emphasis> All data from all health facilities/blocks/Taluka/districts should be submitted at the appointed time.</para>
         </listitem>
       </itemizedlist>
-    </highlights>
   </section>
   <section>
     <title>Data quality checks</title>
@@ -94,7 +90,7 @@
     <para>The validation rule analysis function will test validation rules against the data in the system. Validation violations will be reported in cases where the condition defined through the validation rule expression is not met, ie. the condition is false. </para>
     <para>First, enter a start date and an end date for which data should be included in the analysis. The date picker widget may be used to select dates. Second, choose between including all validation rules or a single group. Third, choose between including the selected organisation unit only or the selected organisation unit with all children in the analysis. Fourth, select the organisation unit. Finally, click <emphasis role="italic">validate</emphasis>.</para>
     <para>The analysis process while run for a while dependending on the amount of data that is being anaylysed. If there were no violations of the validation rules a message saying <emphasis role="italic">validation passed successfully</emphasis> is displayed. If there were validation violations they will be presented in a list. The organisation unit, period, left side description and value, operator, and right side value and description for each validation violation are displayed. The show details icon can be clicked in order to get more information about a validation violation. This will open a popup screen that provides information about the data elements included in the validation rules and their corresponding data values. This information can be used in order to correct incorrect data.</para>
-    <para>The validation violations can be exported to  PDF document by clicking on the export to pdf button and to a Microsoft Excel workbook by clicking on the export to workbook button.</para>
+    <para>The validation violations can be exported to a PDF document by clicking on the export to PDF button and to a Microsoft Excel workbook by clicking on the export to workbook button.</para>
   </section>
   <section>
     <title>Std Dev Outlier Analysis</title>
