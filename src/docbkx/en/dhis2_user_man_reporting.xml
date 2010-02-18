@@ -2,7 +2,7 @@
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <chapterinfo>
-    <title>Aggregation and reporting</title>
+    <title>Reporting</title>
     <author>
       <firstname>Ola</firstname>
       <surname>Titlestad</surname>
@@ -12,9 +12,9 @@
     </author>
     <pubdate>2009-11-14</pubdate>
   </chapterinfo>
-  <title>Aggregation and reporting</title>
+  <title>Reporting</title>
   <section>
-    <title>An overview of how aggregation takes place and rules of the system</title>
+    <title>An overview of how reporting and aggregation works</title>
     <para>
 In the bigger picture of HIS terminology all data in DHIS are usually called aggregated as they are aggregates (e.g. monthly summaries) of medical records or some kind of service registers reported from the health facilities. Aggregation inside DHIS however, which is the topic here, is concerned with how the raw data captured in DHIS (through data entry or import)are further aggregated over time (e.g. from monthly to quarterly values) or up the organisational hierarchy (e.g. from facility to district values). 
 </para>

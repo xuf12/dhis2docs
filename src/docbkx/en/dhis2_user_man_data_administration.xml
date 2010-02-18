@@ -1,37 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.5/docbookx.dtd" []>
 <chapter>
-  <title>Maintenance module</title>
-  <section>
-    <title>Introduction</title>
-    <para>When the cursor hovers on the ‘Maintenance’ module, a drop-down menu appears with the following options: </para>
-    <itemizedlist>
-      <listitem>
-        <para>Data administration </para>
-      </listitem>
-      <listitem>
-        <para>Data elements and indicators</para>
-      </listitem>
-      <listitem>
-        <para>Datasets</para>
-      </listitem>
-      <listitem>
-        <para>Configuration</para>
-      </listitem>
-      <listitem>
-        <para>Organisation units</para>
-      </listitem>
-      <listitem>
-        <para>Settings</para>
-      </listitem>
-      <listitem>
-        <para>Users</para>
-      </listitem>
-    </itemizedlist>
-    <para>Each of these options will be described in a dedicated section in the remainder of this document. </para>
-  </section>
-  <section>
-    <title>Data administration</title>
+  <title>Data Administration in DHIS 2</title>
     <para>The data administration module provides a range of functions to ensure that the data stored in the DHIS2 database is integral and that the database performance is optimised. These functions should be executed on a regular basis by a data administrator to ensure that the quality of the data stored is optimal. </para>
     <section>
       <title>Data browser</title>
@@ -303,5 +273,4 @@ yearly for which the data is to be locked. The month, quarter or year for which 
       <title>Cache Statistics </title>
       <para>Cum nam pretium at, vel venenatis taciti sit et congue blandit. Elementum morbi quisque, integer orci ante curae cum nisi nam a. Tempor. Quis tincidunt mi, eu purus.</para>
     </section>
-  </section>
 </chapter>
