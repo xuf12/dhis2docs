@@ -1,21 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <project>
   <modelVersion>4.0.0</modelVersion>
-
   <groupId>org.hisp.dhis</groupId>
-
   <artifactId>dhis-documentation-docbook</artifactId>
-
   <name>DHIS 2 Documentation</name>
-
   <version>0.1-SNAPSHOT</version>
-
   <description>DHIS 2 Documentation</description>
   <packaging>pom</packaging>
   <properties>
-      <docbook.source>${project.basedir}/src/docbkx</docbook.source>
-      <docbook.target>${project.basedir}/target/site</docbook.target>
-   </properties>
+    <docbook.source>${project.basedir}/src/docbkx</docbook.source>
+    <docbook.target>${project.basedir}/target/site</docbook.target>
+  </properties>
   <build>
     <plugins>
       <plugin>
@@ -23,103 +18,99 @@
         <!-- <version>2.0.10-SNAPSHOT</version> -->
         <artifactId>docbkx-maven-plugin</artifactId>
         <configuration>
-         <includes>dhis2_user_manual_en.xml</includes>
-         <sourceDirectory>${docbook.source}/en/</sourceDirectory>
-         <xincludeSupported>true</xincludeSupported> 
-        </configuration> 
+          <includes>dhis2_user_manual_en.xml</includes>
+          <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+          <xincludeSupported>true</xincludeSupported>
+        </configuration>
         <executions>
           <execution>
-	    <id>chunked-html-docs</id>
-             <phase>package</phase>
-               <goals>
-                <goal>generate-html</goal>
-               </goals>
+            <id>chunked-html-docs</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-html</goal>
+            </goals>
             <configuration>
-             <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
+              <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
               <glossaryCollection>resources/glossary_en.xml</glossaryCollection>
-               <sectionAutolabel>1</sectionAutolabel>
-               <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
-               <chunkedOutput>true</chunkedOutput>
-          <postProcess>
-            <copy todir="${docbook.target}/en/">
-              <fileset dir="target/docbkx/">
-                <include name="**/*.html" />
-              </fileset>
-            </copy>
-
-            <copy todir="${docbook.target}/en/html/resources/images">
-              <fileset dir="src/docbkx/en/resources/images">
-                <include name="**/*.png" />
-                <include name="**/*.gif" />
-                <include name="**/*.jpg" />
-              </fileset>
-            </copy>
-	    <copy todir="${docbook.target}/en/html/resources/css">
-              <fileset dir="src/docbkx/en/resources/css">
-                <include name="**/*.css" />
-              </fileset>
-            </copy> 
-            <!-- delete the file to force the regeneration in the next phase -->
-            <delete file="target/docbkx/html/dhis2_user_manual_en.html" />
-          </postProcess>
-        </configuration>
-       </execution>
-        <execution>
+              <sectionAutolabel>1</sectionAutolabel>
+              <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
+              <chunkedOutput>true</chunkedOutput>
+              <postProcess>
+                <copy todir="${docbook.target}/en/">
+                  <fileset dir="target/docbkx/">
+                    <include name="**/*.html"/>
+                  </fileset>
+                </copy>
+                <copy todir="${docbook.target}/en/html/resources/images">
+                  <fileset dir="src/docbkx/en/resources/images">
+                    <include name="**/*.png"/>
+                    <include name="**/*.gif"/>
+                    <include name="**/*.jpg"/>
+                  </fileset>
+                </copy>
+                <copy todir="${docbook.target}/en/html/resources/css">
+                  <fileset dir="src/docbkx/en/resources/css">
+                    <include name="**/*.css"/>
+                  </fileset>
+                </copy>
+                <!-- delete the file to force the regeneration in the next phase -->
+                <delete file="target/docbkx/html/dhis2_user_manual_en.html"/>
+              </postProcess>
+            </configuration>
+          </execution>
+          <execution>
             <id>html-docs</id>
-             <phase>package</phase>
-               <goals>
-                <goal>generate-html</goal>
-               </goals>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-html</goal>
+            </goals>
             <configuration>
-             <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
+              <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
               <glossaryCollection>resources/glossary_en.xml</glossaryCollection>
-               <sectionAutolabel>1</sectionAutolabel>
-               <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
-               <chunkedOutput>false</chunkedOutput>
-          <postProcess>
-              <move
-                 file="target/docbkx/html/dhis2_user_manual_en.html"
-                 tofile="target/docbkx/html/dhis2_user_manual_full.html"/>
-            <copy todir="${docbook.target}/en/">
-              <fileset dir="target/docbkx/">
-                <include name="**/dhis2_user_manual_full.html" />
-              </fileset>
-            </copy>
-          </postProcess>
-        </configuration>
-       </execution>
-        <execution>
-          <id>pdf-docs</id>
-             <phase>package</phase>
-              <goals>
-                <goal>generate-pdf</goal>
-               </goals>
-                <configuration>
-                 <argLine>-Xmx1024m</argLine>
-                  <foCustomization>${docbook.source}/en/resources/xsl/fop-cust.xsl</foCustomization> 
-                  <doubleSided>1</doubleSided>
-                  <includes>*.xml</includes>
-                  <sourceDirectory>${docbook.source}/en/</sourceDirectory>
-
-           	  <postProcess>
-            		<copy todir="target/site/en">
-              		<fileset dir="target/docbkx/">
-                	<include name="**/*.pdf" />
-              		</fileset>
-            		</copy> 
-            	 </postProcess> 
-                 </configuration> 
-           </execution>
-         </executions>
-         <dependencies>
-           <dependency>
-             <groupId>org.docbook</groupId>
-               <artifactId>docbook-xml</artifactId>
-                 <version>4.4</version>
-                 <scope>runtime</scope>
-            </dependency>
-         </dependencies>
-     </plugin>
+              <sectionAutolabel>1</sectionAutolabel>
+              <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
+              <chunkedOutput>false</chunkedOutput>
+              <postProcess>
+                <move file="target/docbkx/html/dhis2_user_manual_en.html" tofile="target/docbkx/html/dhis2_user_manual_full.html"/>
+                <copy todir="${docbook.target}/en/">
+                  <fileset dir="target/docbkx/">
+                    <include name="**/dhis2_user_manual_full.html"/>
+                  </fileset>
+                </copy>
+              </postProcess>
+            </configuration>
+          </execution>
+          <execution>
+            <id>pdf-docs</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-pdf</goal>
+            </goals>
+            <configuration>
+              <argLine>-Xmx1024m</argLine>
+              <foCustomization>${docbook.source}/en/resources/xsl/fop-cust.xsl</foCustomization>
+              <doubleSided>1</doubleSided>
+              <includes>*.xml</includes>
+              <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+              <postProcess>
+                <copy todir="target/site/en">
+                  <fileset dir="target/docbkx/">
+                    <include name="**/*.pdf"/>
+                  </fileset>
+                </copy>
+              </postProcess>
+            </configuration>
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>org.docbook</groupId>
+            <artifactId>docbook-xml</artifactId>
+            <version>4.4</version>
+            <scope>runtime</scope>
+          </dependency>
+        </dependencies>
+      </plugin>
     </plugins>
   </build>
 </project>

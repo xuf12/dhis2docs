@@ -1,9 +1,9 @@
-<?xml version='1.0' encoding='UTF-8'?>
+﻿<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.5/docbookx.dtd" []>
 <chapter>
   <title>Data Administration in DHIS 2</title>
     <para>The data administration module provides a range of functions to ensure that the data stored in the DHIS2 database is integral and that the database performance is optimised. These functions should be executed on a regular basis by a data administrator to ensure that the quality of the data stored is optimal. </para>
-    <section>
+    <section id="dataBrowser">
       <title>Data browser</title>
       <para>The data browser maintenance module allows the user to produce a summary of the data contained in the DHIS2 database. This summary provides the number of data element values that have been recorded for a given time interval and then grouped by the following options:</para>
       <itemizedlist>
@@ -71,7 +71,7 @@
         </screenshot></para>
       <para>For each of the data browser summaries, a PDF export can be produced by specifying a filename in the &quot;Filename&quot; field, selecting a font size, a page layout (Landscape or Portrait) and pressing  the <guibutton>&quot;Export PDF&quot;</guibutton> button. You will then be prompted to select a location to save the file to, which can then be viewed with any PDF reader (e.g. Adobe Acrobat Reader, xpdf, etc). </para>
     </section>
-    <section>
+    <section id="dataIntegrity">
       <title>Data integrity</title>
       <para>DHIS2 can perform a wide range of data integrity checks on the data contained in the database. Identifying and correcting data integrity issues is extremely important for ensuring that the data used for analysis purposes is valid. Each of the data integrity checks that are performed by the system will be described, along with general procedures that can be performed to resolve these issues. </para>
       <section>
@@ -143,7 +143,7 @@
         <para>An error exists in the left-side validation rule definition. Go to <command>Services-&gt;Data quality-&gt;Validation rule</command> and click the &quot;Edit&quot; icon on the offending rule. Press &quot;Edit right side&quot; and make the corrections that are required.</para>
       </section>
     </section>
-    <section>
+    <section id="maintenance">
       <title>Maintenance</title>
       <para>The data maintenance module has five options, each described below. </para>
       <itemizedlist>
@@ -173,14 +173,12 @@
         </listitem>
       </itemizedlist>
     </section>
-    <section>
+    <section id="resourceTables">
       <title>Resource tables</title>
       <para>Resource tables are supporting tables that are used during analysis of data. One would typically join the contents of these tables with the data value table when doing queries from third-party applications like Microsoft Excel. Simply select the tables that should be regenerated and press &quot;Generate tables&quot;. Regeneration of the resource tables should only be done once all data integrity issues are resolved. </para>
       <itemizedlist>
         <listitem>
-          <para>Organisation unit structure (orgunitstructure)
-
-</para>
+          <para>Organisation unit structure (orgunitstructure)</para>
           <para>This table should be regenerated any time there have been any changes made to the organisational unit hierarchy. This table provides information about the organisation unit hierarchy. It has one row for each organisation unit, one  column for each organisation unit level and the organisation unit identifiers for all parents in the lineage as values.</para>
         </listitem>
         <listitem>
@@ -209,19 +207,19 @@
         </listitem>
       </itemizedlist>
     </section>
-    <section>
+    <section id="organisationUnitMerge">
       <title>Organisation unit merge</title>
       <para>This function is useful when two organisation units need to be merged, eg. it is decided that one facility will be shut down and its services will be provided by a nearby facility.</para>
       <para>Start by selecting the organisation unit to eliminate from the tree and click <emphasis role="italic">confirm</emphasis>.  Then select the organisation unit to keep and click <emphasis role="italic">confirm</emphasis> again. Finally, verify the selection and click <emphasis role="italic">merge</emphasis>.  </para>
       <para>In the sitation where data exist  for the organisation unit to eliminate and not for the one to keep, the data will be moved to the one to keep. When data exists for both organisation units, the data will be summarized and moved to the one to keep. When data exists only for the one to keep, no action is taken. The organisation unit to eliminate will eventually be deleted.</para>
     </section>
-    <section>
+    <section id="duplicateDataElimination">
       <title>Duplicate data elimination</title>
       <para>This function is useful when data has been entered mistakenly for two data elements which represents the same phenomena.</para>
       <para>Start by selecting the data element to eliminate from the list and click confirm. Then select the data element to keep and click confirm again. Finally, verify the selection and click merge.</para>
       <para>In the situation where data exists for the data element to eliminate and not for the one to keep, the data will be moved to the one to keep. When data exists for both data elements, the data which was updated last will be used. When data exists only for the one to keep, no action will be taken. The data element to eliminate will eventually be deleted, except when it is a multidimensional data element and has other data registered.</para>
     </section>
-    <section>
+    <section id="dataStatistics">
       <title>Data statistics</title>
       <para>The data statistics module provides an overview of the number of objects stored in the DHIS2 database. </para>
       <screenshot>
@@ -233,7 +231,7 @@
       </screenshot>
       <para>The total number of each type of object is presented in a table, as well as a graph. </para>
     </section>
-    <section>
+    <section id="dataLocking">
       <title>Data locking</title>
       <para>This module gives users the privilege of locking certain datasets for chosen organisation units. This encourages timely data entry and prevents unwanted to changes to the data once it has been entered. When the ‘Data Administration’ option is chosen the data locking interface is displayed. The user has to select the periodicity of the report e.g. monthly, quarterly or
 yearly for which the data is to be locked. The month, quarter or year for which the reports are to be locked is then specified. </para>
@@ -265,12 +263,12 @@ yearly for which the data is to be locked. The month, quarter or year for which 
       <para>The <guibutton>Apply Locks on All</guibutton> button locks the dataset for all the organisation units to which that dataset has been assigned. <guibutton>‘Remove locks on All’</guibutton> removes all locks put on the organisation units corresponding to the selected dataset. After the operations are completed the user must click <guibutton>‘Save’</guibutton> to apply the settings. The <guibutton>‘Lock at level’</guibutton> button locks datasets at a particular level that the user chooses. . <guibutton>‘Unlock at Level’</guibutton> removes locks that have been put on the organisation units corresponding to the selected dataset at the selected level. After the operations are completed, the user must click <guibutton>‘Save’</guibutton> to apply the settings. The <guibutton>‘Save’</guibutton> button will also lock those organisation unit datasets that have been specified by the user.
 </para>
     </section>
-    <section>
+    <section id="zeroValueStorage">
       <title>Zero value storage</title>
       <para>The zero value storage function makes it possible to define for which data elements the system should store zero values. In most cases zeros are significant only for a subset of the data elements in the database. Zero values will be ignored during data entry for selected data elements.</para>
     </section>
-    <section>
+    <section id="cacheStatistics">
       <title>Cache Statistics </title>
-      <para>Cum nam pretium at, vel venenatis taciti sit et congue blandit. Elementum morbi quisque, integer orci ante curae cum nisi nam a. Tempor. Quis tincidunt mi, eu purus.</para>
+      <para>This option is for system administrators only to use. The cache statistics shows the status of the application level cache. The application level cache refers to the objects and query results that the application is caching in order to speed up performance. If the database has been modified directly the application cache needs to be cleared for it to take effect.</para>
     </section>
 </chapter>
