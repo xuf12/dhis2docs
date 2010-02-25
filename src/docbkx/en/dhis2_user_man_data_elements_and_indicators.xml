@@ -2,8 +2,7 @@
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <chapter>
   <title>Data elements and indicators</title>
-  <para>This sub module is required for the management of the data elements and indicators used by the application. When the ‘Data Elements and Indicators’ options is chosen from the main Maintenance menu, the following screen appears:
-</para>
+  <para>This sub module is required for the management of the data elements and indicators used by the application. When the ‘Data Elements and Indicators’ options is chosen from the main Maintenance menu, the following screen appears:</para>
   <screenshot>
     <mediaobject>
       <imageobject>
@@ -13,7 +12,7 @@
   </screenshot>
   <para>There are three main functions of this module: addition and attribution of data elements and indicators, and the definition of a data dictionary . </para>
   <section>
-    <title>Data elements</title>
+    <title>Data element maintenance</title>
     <para>Each of the options for maintenance of  data elements will be described in the following section.</para>
     <itemizedlist>
       <listitem>
@@ -38,7 +37,7 @@
       </listitem>
     </itemizedlist>
     <section id="dataElement">
-      <title>Data element maintenance</title>
+      <title>Data elements</title>
       <para>Data elements form the basis of DHIS2. Data elements define what is actually recorded in system, e.g. number of immunisations or number of cases of malaria. The actual creation and definition of the data elements themselves are far beyond the scope of this manual to describe, but it is assumed that an administrator will be provided with a list of standardised data elements for inclusion into the DHIS2 system. </para>
       <para>To access the data element maintenance module, choose Maintenance-&gt;Data elements-&gt;Data element. </para>
       <para>The ‘Filter by name’ will allow you to filter a range of data elements if you know either the full name of the data element, or just a part of it. Type the name
@@ -172,8 +171,8 @@
         <para>This operation displays an in-line panel in the browser which displays all metadata about a given data element. Press the information button <inlinegraphic fileref="resources/images/dhis2_images/information.png" align="center"/>to access this view. </para>
       </section>
     </section>
-    <section>
-      <title id="dataElementGroup">Data element group maintenance</title>
+    <section id="dataElementGroup">
+      <title>Data element groups</title>
       <para>Data element groups provide a mechanism for classifying related data elements into a common theme. For instance, two data elements &quot;Measles immunisation&quot; and  &quot;BCG Immunisation&quot; might be grouped together into a data element group &quot;Childhood immunisation&quot;. To access the data element group maintenance page, click Maintenance-&gt;Data elements and indicators-&gt;Data Element Group . The following screen will be displayed. </para>
       <screenshot>
         <mediaobject>
