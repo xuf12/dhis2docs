@@ -15,8 +15,9 @@
     <plugins>
       <plugin>
         <groupId>com.agilejava.docbkx</groupId>
-        <!-- <version>2.0.10-SNAPSHOT</version> -->
         <artifactId>docbkx-maven-plugin</artifactId>
+        <version>2.0.10-SNAPSHOT</version> 
+        <!-- Checkout and install with svn from http://docbkx-tools.googlecode.com/svn/trunk/docbkx-tools-read-only -->
         <configuration>
           <includes>dhis2_user_manual_en.xml</includes>
           <sourceDirectory>${docbook.source}/en/</sourceDirectory>
@@ -96,6 +97,28 @@
                 <copy todir="target/site/en">
                   <fileset dir="target/docbkx/">
                     <include name="**/*.pdf"/>
+                  </fileset>
+                </copy>
+              </postProcess>
+            </configuration>
+          </execution>
+          <execution>
+            <id>xhtml-docs</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-xhtml</goal>
+            </goals>
+            <configuration>
+              <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
+              <glossaryCollection>resources/glossary_en.xml</glossaryCollection>
+              <sectionAutolabel>1</sectionAutolabel>
+              <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
+              <chunkedOutput>false</chunkedOutput>
+              <postProcess>
+                <move file="target/docbkx/xhtml/dhis2_user_manual_en.xhtml" tofile="target/docbkx/xhtml/dhis2_user_manual_full.xhtml"/>
+                <copy todir="${docbook.target}/en/">
+                  <fileset dir="target/docbkx/">
+                    <include name="**/dhis2_user_manual_full.xhtml"/>
                   </fileset>
                 </copy>
               </postProcess>

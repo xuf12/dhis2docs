@@ -6,5 +6,9 @@ Otherwise, just execute
 
 mvn package
 
+The latest maven docbook plugin can be checked out with subersion like this:
+
+svn checkout http://docbkx-tools.googlecode.com/svn/trunk/docbkx-tools-read-only
+
 For further information, contact the groups mailing list at
 dhis2-documenters@lists.launchpad.net
