@@ -306,6 +306,8 @@ button aborts all changes made.
   <section>
     <title>Indicator maintenance</title>
     <para>Indicator maintenance functions essentially the same as each of the respective sections in the previous section on data elements. The basic operations will be described in this section, but the reader should  refer to the corresponding sections above for detailed instructions. </para>
+    <section id="indicator">
+    <title>Indicators</title>
     <para>Indicators are composed of multiple data elements, and typically consist of a numerator and denominator. Indicators are never entered in DHIS2, but are derived from combinations of data elements and factors. Indicators are used to calculate coverage rates, incidence and other values are are a result of data element values that have been entered into the system. </para>
     <para>To access the Indicator maintains page, press Maintenance-&gt;Data element and indicators-&gt;Indicators from the main DHIS2 menu. Similar to data elements, you can add, delete, modify and view extra information about the indicators in the system. </para>
     <screenshot>
@@ -391,7 +393,8 @@ button aborts all changes made.
         <para>Follow the same procedure in order to define the denominator. </para>
       </listitem>
     </orderedlist>
-    <section>
+    </section>
+    <section id="indicatorType">
       <title>Indicator types</title>
       <para>Indicator types simply define a factor that will be applied during aggregation. Indicator values that are calculate during a data mart export or report table generation process will appear properly formatted, and will therefore not require an additional multiplier (e.g. 100 in the case of percents) for the values to appear correctly formatted. </para>
       <para>The indicator type maintenance panel has all of the same functions (Add new, Edit, Translate, Delete, and Information) as the Indicator maintenance section. </para>
@@ -405,15 +408,15 @@ button aborts all changes made.
       </screenshot>
       <para/>
     </section>
-    <section>
+    <section id="indicatorGroup">
       <title>Indicator groups</title>
       <para>Indicator groups function essentially the same as data element groups. Multiple indicators can be assigned to a group for easy filtering and analysis. To assign indicators to groups, simple press Maintenance-&gt;Data elements and indicators-&gt;Indicator groups.  See the section on Data element groups for detailed instructions of how to use this module. </para>
     </section>
-    <section>
+    <section id="indicatorGroupEditor">
       <title>Indicator group editor</title>
       <para>The indicator group editor module functions essentially the same as the data element group editor module, except on indicators. You can easily rearrange the groups that indicators belong to with this module. To access it, choose To assign indicators to groups, simple press Maintenance-&gt;Data elements and indicators-&gt;Indicator group editor from the main menu. See the section on Data element group editor for further instructions. </para>
     </section>
-    <section>
+    <section id="indicatorGroupSet">
       <title>Indicator group sets</title>
       <para>Similar to data element group sets, indicator group sets serve to create combined groups of similar indicators. For instance, you might have a group of indicators called &quot;Malaria&quot; and &quot;Leishmaniasis&quot;. Both of these groups could be combined into a group set called &quot;Vector-borne diseases&quot;. Indicator groups sets are used during analysis of data to combine similar themes of indicators. To access this module choose Maintenance-&gt;Data elements and indicators-&gt;Indicator group sets from the main menu. The following dialogue will appear. </para>
       <screenshot>
@@ -426,7 +429,7 @@ button aborts all changes made.
       <para>Supply a name for the indicator group set, and then move the desired members from the &quot;Available Indicator Groups&quot; to the &quot;Group members&quot;. Click &quot;Add&quot; to save your changes and &quot;Cancel&quot; to discard any changes. </para>
     </section>
   </section>
-  <section>
+  <section id="dataDictionary">
     <title>Data dictionary</title>
     <para>Data dictionaries are used to group data elements and indicators during filtering operations. They are useful for combining related groups of data elements and indicators according to the programs to which they belong. For instance a data dictionary called &quot;MCH&quot; could be created, and all maternal and child health data elements and indicators could be added to the dictionary. The data dictionary can be access by choosing Maintenance-&gt;Data elements and indicators-&gt;Data dictionary. The following screen will be displayed in the browser. </para>
     <screenshot>
