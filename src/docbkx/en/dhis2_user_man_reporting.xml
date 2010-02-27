@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+﻿<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>Reporting</title>
@@ -96,7 +96,8 @@ Along the time dimension there are several possibilities, the two most common wa
   </section>
   <section>
     <title>Reports</title>
-    <section>
+    <para>The reporting module in DHIS 2 provides a range of reporting alternatives, including canned reports using either JasperReports or BIRT, data set reports, charts, pivot tables and report tables.</para>
+    <section id="reportTable">
       <title>Report tables</title>
       <para>
 Report tables are meant to be database tables fulfilling the specific data needs of a report, chart, pivot table or other output format. It can be understood as a mini datamart that contains only the data needed for its purpose (the report). The rationale behind this concept is to automatically provide the data sources for reports without bothering the users every time, like a normal datamart, and to speed up the data processing and aggregation (small targeted datamarts are obviously faster than big ones). 
@@ -124,7 +125,7 @@ All in all, by combining the functionality of cross tabbing, relative periods an
       <title>BIRT reports</title>
       <section>
         <title>Create a report table in DHIS 2</title>
-        <para>- create a report table in DHIS 2 is to create so-called report tables in DHIS, found under Reports module, which will serve as the data table for your report. Normally one table per report, but multiple tables for one report is also possible. A report table can be a cross tabulated table on any of the dimensions period/indicator/data element / orgunit, and also in combination, like “BCG &lt; 1 coverage + last 3 months” and “BCG coverage &lt; 1 year+ last month”. This cross-tabulation makes it a lot easier to control the design of the report which is then done with dragging and dropping column headings onto the report. The report table can also have report parameters like reporting month, organisation unit and organisation unit parent (if you are e.g. listing all sub-districts in a given district).</para>
+        <para>To create a report table in DHIS 2 is to create so-called report tables in DHIS, found under Reports module, which will serve as the data table for your report. Normally one table per report, but multiple tables for one report is also possible. A report table can be a cross tabulated table on any of the dimensions period/indicator/data element / orgunit, and also in combination, like “BCG &lt; 1 coverage + last 3 months” and “BCG coverage &lt; 1 year+ last month”. This cross-tabulation makes it a lot easier to control the design of the report which is then done with dragging and dropping column headings onto the report. The report table can also have report parameters like reporting month, organisation unit and organisation unit parent (if you are e.g. listing all sub-districts in a given district).</para>
       </section>
       <section>
         <title>Design the report in BIRT</title>
