@@ -115,11 +115,7 @@
               <goal>generate-xhtml</goal>
             </goals>
             <configuration>
-              <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
-              <glossaryCollection>resources/glossary_en.xml</glossaryCollection>
-              <sectionAutolabel>1</sectionAutolabel>
-              <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
-              <chunkedOutput>false</chunkedOutput>
+			<xhtmlCustomization>${docbook.source}/en/resources/xsl/html-inline-help.xsl</xhtmlCustomization>
               <postProcess>
                 <move file="target/docbkx/xhtml/dhis2_user_manual_en.xhtml" tofile="target/docbkx/xhtml/dhis2_user_manual_full.xhtml"/>
                 <copy todir="${docbook.target}/en/">
