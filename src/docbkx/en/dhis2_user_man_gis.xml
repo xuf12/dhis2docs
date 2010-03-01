@@ -1,8 +1,8 @@
-<?xml version='1.0' encoding='UTF-8'?>
+﻿<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
-  <title>DHIS 2 GIS User Manual</title>
-  <section id="gis_1">
+  <title>GIS</title>
+  <section>
     <title>Conversion of geographical data to GeoJSON format</title>
     <para>The DHIS2 mapping client relies on GeoJSON files in order to display
     a map in the browser window. Often times, geographical data is received in
@@ -53,7 +53,7 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
       it manually and copy your GeoJSON files there.</para>
     </section>
   </section>
-  <section id="gis_2">
+  <section id="administration">
     <title>Administrator panel</title>
     <screenshot>
       <graphic fileref="resources/images/GIS/admin_panel.png" align="center"/>
@@ -84,7 +84,7 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
         </varlistentry>
       </variablelist></para>
   </section>
-  <section id="gis_3">
+  <section id="map">
     <title>Registering geographical information</title>
     <para>In order to view data in the GIS module, you must import your
     geographical data into your DHIS installation. Once you have produced
@@ -188,7 +188,7 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
       </varlistentry>
     </variablelist>
   </section>
-  <section id="gis_4">
+  <section id="mapOrganisationUnitRelation">
     <title>Assign organization units to map</title>
     <para>Select a registered map and wait for it to load. The organisation
     units (OU) in your database on this level will appear in the list and
@@ -212,7 +212,7 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
     link. The remove all button removes all OU links for the selected
     map.</para>
   </section>
-  <section id="gis_5">
+  <section id="overlay">
     <title>Register overlays</title>
     <para>Overlays are geographical layers that do not have any direct linkage
     to data in the database. Example include roads, rivers, airports, ports,
@@ -248,7 +248,7 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
       </listitem>
     </itemizedlist>
   </section>
-  <section id="gis_6">
+  <section id="thematicMap">
     <title>Thematic map</title>
     <para>This panel should be rather self-explanatory . Calculation method
     alludes to the legend interval size and set to <guimenuitem>Equal intervals</guimenuitem> they will be “highest map value – lowest map value
@@ -256,15 +256,15 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
     you may set your own legend limits, e.g. “20,40,60” using a comma to
     seperate each of the class break values. </para>
   </section>
-  <section id="gis_7">
-    <title>Register views</title>
+  <section id="favoriteMapView">
+    <title>Register favorite map views</title>
     <para>This panel will save the current thematic map view in order to
     restore it whenever you want via the <guimenuitem>Map view </guimenuitem>combo box in the <guimenu>Thematic map</guimenu> panel. By
     adding your views to DHIS 2 Dashboard you may access them there by
     inserting <guimenuitem>Map views</guimenuitem> into one of link
     areas.</para>
   </section>
-  <section id="gis_8">
+  <section id="legendSet">
     <title>Register legend sets</title>
     <para>A legend set may be connected to many indicators, but an indicator
     may only have one legend set. Thus, you may select many indicators when
