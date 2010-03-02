@@ -1,0 +1,496 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
+<chapter>
+  <title>Data dimensions in DHIS2</title>
+  <section>
+    <title>The core building blocks describing the data</title>
+    <para>A data value in DHIS2 is at minimum described by three dimensions, 1) data element, 2) organisation unit, and 3) period, which also forms the core building blocks of the data model. E.g. if you want to know how many children that were immunised for measles in Gerehun CHC in December 2009, the three dimensions to that value are the Data Element &quot;Measles doses given&quot;, the Organisation Unit &quot;Gerehun CHC&quot;, and the Period &quot;Dec-09&quot;. All data values have at least these three dimensions describing what, where and when.</para>
+    <para><table frame="all">
+        <title/>
+        <tgroup cols="4">
+          <colspec colname="c1"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <colspec colname="c4"/>
+          <thead>
+            <row>
+              <entry>Organisation Unit</entry>
+              <entry>Data Element</entry>
+              <entry>Period</entry>
+              <entry>Value</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Gerehun CHC</entry>
+              <entry>Measles doses given</entry>
+              <entry>Dec-09</entry>
+              <entry>22</entry>
+            </row>
+            <row>
+              <entry>Tugbebu CHP</entry>
+              <entry>Measles doses given</entry>
+              <entry>Dec-09</entry>
+              <entry>18</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table></para>
+  </section>
+  <section>
+    <title>The data element dimension</title>
+    <section>
+      <title>Data element categories</title>
+      <para>The data element above called &quot;Measles doses given&quot;, although capturing the core essence of what the data is can be further elaborated and disaggregated into what is called data element categories. The system administrators of DHIS are free to define any data element category dimensions to data elements using the user interface for this is the data element maintenance section, but here are some examples of possible categories to use.</para>
+      <para>If you want to know whether these vaccines were given at the facility (fixed) or out in the community as part of the outreach services then you could add a dimension e.g. &quot;Place of service&quot; with the two possible options &quot;Fixed&quot; and &quot;Outreach&quot;. Then all data collected on measles immunisation would have to be disaggregated along these to options. In addition to this you might be interested in knowing how many of these children who were under 1 year and above 1 year of age. If so you can add an Age dimension to the data element with the two possible options &quot;&lt;1 y&quot; and &quot;&gt;1 y&quot;. This implies further detail of the data collection process. You can also apply both categories Place of service and Age and thereby you would be able to look at 4 different values in stead of 1 as in the example above for the data element &quot;Measles doses given&quot;: 1) &quot;Fixed and &lt;1 y, 2) Fixed and &gt;1 y, 3) Outreach and &lt;1 y, and 4) Outreach and &gt;1 y. This adds complexity to how data is collected by the health facilities, but at the same time opens up for new possibilities of detailed data analysis of Measles immunisation.</para>
+      <para><table frame="all">
+          <title> Example of detailed storage of data values when using data element categories &quot;Place of Service&quot; and &quot;Age&quot; (simplified for readability compared to the actual database table)</title>
+          <tgroup cols="6">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <colspec colname="c6"/>
+            <thead>
+              <row>
+                <entry>Organisation Unit</entry>
+                <entry>Data Element</entry>
+                <entry>Place of service</entry>
+                <entry>Age</entry>
+                <entry>Period</entry>
+                <entry>Value</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>Gerehun CHC</entry>
+                <entry>Measles doses given</entry>
+                <entry>Fixed</entry>
+                <entry>&lt;1 y</entry>
+                <entry>Dec-09</entry>
+                <entry>12</entry>
+              </row>
+              <row>
+                <entry>Gerehun CHC</entry>
+                <entry>Measles doses given</entry>
+                <entry>Outreach</entry>
+                <entry>&lt;1 y</entry>
+                <entry>Dec-09</entry>
+                <entry>4</entry>
+              </row>
+              <row>
+                <entry>Gerehun CHC</entry>
+                <entry>Measles doses given</entry>
+                <entry>Fixed</entry>
+                <entry>&gt;1 y</entry>
+                <entry>Dec-09</entry>
+                <entry>4</entry>
+              </row>
+              <row>
+                <entry>Gerehun CHC</entry>
+                <entry>Measles doses given</entry>
+                <entry>Outreach</entry>
+                <entry>&gt;1 y</entry>
+                <entry>Dec-09</entry>
+                <entry>2</entry>
+              </row>
+              <row>
+                <entry>Tugbebu CHP</entry>
+                <entry>Measles doses given</entry>
+                <entry>Fixed</entry>
+                <entry>&lt;1 y</entry>
+                <entry>Dec-09</entry>
+                <entry>10</entry>
+              </row>
+              <row>
+                <entry>Tugbebu CHP</entry>
+                <entry>Measles doses given</entry>
+                <entry>Outreach</entry>
+                <entry>&lt;1 y</entry>
+                <entry>Dec-09</entry>
+                <entry>4</entry>
+              </row>
+              <row>
+                <entry>Tugbebu CHP</entry>
+                <entry>Measles doses given</entry>
+                <entry>Fixed</entry>
+                <entry>&gt;1 y</entry>
+                <entry>Dec-09</entry>
+                <entry>3</entry>
+              </row>
+              <row>
+                <entry>Tugbebu CHP</entry>
+                <entry>Measles doses given</entry>
+                <entry>Outreach</entry>
+                <entry>&gt;1 y</entry>
+                <entry>Dec-09</entry>
+                <entry>1</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table></para>
+    </section>
+    <section>
+      <title>Data element group sets</title>
+      <para>While the data element categories and their options described above dictated the level of detail (disaggregation) at the point of data collection and how data values get stored in the database, the data element group sets and groups can be used to add more information to data elements after data collection. E.g. if looking at a lot of data elements at the same time in a report you would want to group these based on some criteria, e.g. if looking at all the data captured in the PHUF 2 form for immunisation and nutrition you might want to separate or group data elements along a programme dimension where &quot;Immunisation&quot; (or EPI) and &quot;Nutrition&quot; would be the two options. Expanding the report to include data from other programs or larger themes of health data would mean more options to such a dimensions, like &quot;Malaria&quot;, &quot;Reproductive Health&quot;, &quot;Stocks&quot;. For this example you would create a data element group set called &quot;Programme&quot; (or whatever name you find appropriate), and to represent the options you would define data elements groups called &quot;EPI&quot;, &quot;Nutrition&quot;, &quot;Malaria&quot;, &quot;Reproductive health&quot; and so on, and add all these groups to the &quot;Programme&quot; group set. To link or tag the data element &quot;Measles doses given&quot; to such a dimension you must (in our example) add it to the &quot;EPI&quot; group. Which groups you add &quot;Measles doses given&quot; to does not affect how health facilities collect the data, but adds more possibilities to your data analysis.</para>
+      <para>Indicators can be grouped into indicator groups and further into indicator group sets (dimensions) in exactly the same way as data elements.</para>
+      <para><table frame="all">
+          <title/>
+          <tgroup cols="5">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <thead>
+              <row>
+                <entry>Organisation Unit</entry>
+                <entry>Data Element</entry>
+                <entry>Programme</entry>
+                <entry>Period</entry>
+                <entry>Value</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>Gerehun CHC</entry>
+                <entry>Measles doses given</entry>
+                <entry>EPI</entry>
+                <entry>Dec-09</entry>
+                <entry>22</entry>
+              </row>
+              <row>
+                <entry>Gerehun CHC</entry>
+                <entry>Vitamin A given</entry>
+                <entry>Nutrition</entry>
+                <entry>Dec-09</entry>
+                <entry>16</entry>
+              </row>
+              <row>
+                <entry>Tugbebu CHP</entry>
+                <entry>Measles doses given</entry>
+                <entry>EPI</entry>
+                <entry>Dec-09</entry>
+                <entry>18</entry>
+              </row>
+              <row>
+                <entry>Tugbebu CHP</entry>
+                <entry>Vitamin A given</entry>
+                <entry>Nutrition</entry>
+                <entry>Dec-09</entry>
+                <entry>12</entry>
+              </row>
+              <row>
+                <entry>Gerehun CHC</entry>
+                <entry>Malaria new cases</entry>
+                <entry>Malaria</entry>
+                <entry>Dec-09</entry>
+                <entry>32</entry>
+              </row>
+              <row>
+                <entry>Tugbebu CHP</entry>
+                <entry>Malaria new cases</entry>
+                <entry>Malaria</entry>
+                <entry>Dec-09</entry>
+                <entry>23</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table></para>
+    </section>
+  </section>
+  <section>
+    <title>The organisation unit dimension</title>
+    <para>Organisation units in DHIS2 can be either any type of health facility like Community Health Centres or referral hospitals, or an administrative unit like &quot;MoHS Sierra Leone&quot;, &quot;Bo District&quot; or &quot;Baoma Chiefdom&quot;. Orgunits are represented in a default hierarchy following the health system at large, and are therefore assigned an organisational level. Sierra Leone has 4 levels; National, District, Chiefdom, and PHU, and all orgunits are linked to one of these levels. Normally data is collected at the lowest level, at the PHUs, and then data values are linked to individual PHUs.  When designing reports at higher levels like data aggregated by chiefdom or district the DHIS will use the hierarchy to sum up all the health facilities&apos; data for any given unit at any level. The orgunit level capturing the data always represents the lowest level of detail that is possible to use in data analysis, and the organisational levels define the available levels of aggregation along a geographical dimension.</para>
+    <section>
+      <title>Organisation unit group sets and groups</title>
+      <para>While PHU is the lowest geographical level for disaggregation in DHIS2 there are ways to flexibly group organisation units into any number of dimensions by using the group set and group functionality. E.g. if all PHUs are given a official type like CHC, CHP, MCHP etc. it is possible to create an orgunit group set called &quot;Orgunit type&quot; and add groups like the types mentioned above. Then you can link your orgunits to their corresponding groups (types). Other common orgunit dimensions are Rural/Urban (Rural, Urbal, Peri-urban), and Ownership (Public, Private. NGO etc.). When analysing data from the PHU level it then becomes possible to aggregate data by these dimensions, e.g. look at Measles immunisation in BO district by the type of PHU in stead of the PHUs themselves.</para>
+      <section>
+        <title>Alternative orgunit hierarchies - advanced use of group sets and groups</title>
+        <para>A more advanced use of orgunit group sets and groups is to create alternative hierarchies e.g. use administrative borders from other ministries. In Sierra Leone that could mean an alternative hierarchy based on local councils instead of chiefdoms. E.g. if all PHUs where linked to a specific local council it would be possible to look at data by local council instead of chiefdom. Then you would first need to create a group set called &quot;Local council&quot; and then create one orgunit group for every local council, and finally link all PHUs to their corresponding local council group.</para>
+        <para><table frame="all">
+            <title/>
+            <tgroup cols="5">
+              <colspec colname="c1"/>
+              <colspec colname="c2"/>
+              <colspec colname="c3"/>
+              <colspec colname="c4"/>
+              <colspec colname="c5"/>
+              <thead>
+                <row>
+                  <entry>District</entry>
+                  <entry>OrgUnit Type</entry>
+                  <entry>Data Element</entry>
+                  <entry>Period</entry>
+                  <entry>Value</entry>
+                </row>
+              </thead>
+              <tbody>
+                <row>
+                  <entry>Bo</entry>
+                  <entry>CHC</entry>
+                  <entry>Measles doses given</entry>
+                  <entry>Dec-09</entry>
+                  <entry>121</entry>
+                </row>
+                <row>
+                  <entry>Bo</entry>
+                  <entry>CHP</entry>
+                  <entry>Measles doses given</entry>
+                  <entry>Dec-09</entry>
+                  <entry>98</entry>
+                </row>
+                <row>
+                  <entry>Bo</entry>
+                  <entry>MCHP</entry>
+                  <entry>Measles doses given</entry>
+                  <entry>Dec-09</entry>
+                  <entry>87</entry>
+                </row>
+                <row>
+                  <entry>Bombali</entry>
+                  <entry>CHC</entry>
+                  <entry>Measles doses given</entry>
+                  <entry>Dec-09</entry>
+                  <entry>110</entry>
+                </row>
+                <row>
+                  <entry>Bombali</entry>
+                  <entry>CHP</entry>
+                  <entry>Measles doses given</entry>
+                  <entry>Dec-09</entry>
+                  <entry>67</entry>
+                </row>
+                <row>
+                  <entry>Bombali</entry>
+                  <entry>MCHP</entry>
+                  <entry>Measles doses given</entry>
+                  <entry>Dec-09</entry>
+                  <entry>59</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </table></para>
+      </section>
+    </section>
+    <section>
+      <title>Best practice on the use of group sets and groups</title>
+      <para>Groups that are not members of group sets are more or less useless for analysis (should we allow this at all?). With all the groups you get by e.g. including all different diagnoses as groups the full list of groups does not makes sense in any pivot table, and you easily get duplicates in your pivot tables since data elements or indicators are members of multiple groups. This can be controlled by the use of group sets.</para>
+      <para>Recommended to have one group set that is used for the major organising of all data in e.g. a pivot table, e.g use health programs or other larger themes for data elements or indiactors that together cover all the data.</para>
+      <para>The resource table gives all groupsets as columns with groups as rows, and 1 DE per row.
+This means that all groupsets are joined in when e.g. creating a view to a pivot table.
+</para>
+    </section>
+  </section>
+  <section>
+    <title>The time (period) dimension</title>
+    <para>The period dimension becomes an important factor when analysing data over time e.g. when looking at cumulative data, when creating quarterly or annual aggregated reports, or when doing analysis of data with different characteristics like monthly routine data, annual census/population data or six-monthly staff data.</para>
+    <section>
+      <title>Period Types</title>
+      <para>In DHIS2 the periods are organised according to a set of fixed period types: 1) Daily, 2) Weekly, 3) Monthly, 4) Quarterly, 5) Six-monthly, 6) Yearly, 7) Two-yearly, and 8) a special period type called Relative.
+
+</para>
+      <para>As a rule of thumb all organisation units have to collect the same data using the same frequency or periodicity, so first of all the periods play an important role in standardising data collection across the country. A data entry form therefore needs to know its period type to make sure data is always collected according to the correct and same periodicity across the country.</para>
+    </section>
+    <section>
+      <title>Relative periods</title>
+      <para>When creating reports within the DHIS (report tables, standard reports, charts) it is possible to make use of the relative periods functionality. E.g. if you want to make a monthly summary report for immunisation you might want to look at the data from the current (reporting) month together with a cumulative value for the year so far. The relative period called &quot;So far this year&quot; provides such a cumulative value relative to the reporting month selecting when running the report. Other relative periods are the last 3,6, 9 or 12 months periods which are cumulative values calculated back from the selected reporting month. If you want to create a report with data aggregated by quarters (the ones that have passed so far in the year) you can select &quot;Individual quarters this year&quot;. Other relative periods are described under the reporting table section of the manual. Common for all the relative periods is that they are relative to a selected reporting month. Even quarterly or annual reports need to know their reporting month to derive the year, the quarter and so on. The reporting month then becomes one of the report parameters the users have to select when running a report based on relative periods.</para>
+      <para><table frame="all">
+          <title/>
+          <tgroup cols="5">
+            <colspec colname="c1"/>
+            <colspec colname="c2"/>
+            <colspec colname="c3"/>
+            <colspec colname="c4"/>
+            <colspec colname="c5"/>
+            <thead>
+              <row>
+                <entry>Organisation Unit</entry>
+                <entry>Data Element</entry>
+                <entry>Reporting month</entry>
+                <entry>So far this year</entry>
+                <entry>Reporting month name</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>Gerehun CHC</entry>
+                <entry>Measles doses given</entry>
+                <entry>15</entry>
+                <entry>167</entry>
+                <entry>Oct-09</entry>
+              </row>
+              <row>
+                <entry>Tugbebu CHP</entry>
+                <entry>Measles doses given</entry>
+                <entry>17</entry>
+                <entry>155</entry>
+                <entry>Oct-09</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table></para>
+    </section>
+    <section>
+      <title>Aggregation of periods</title>
+      <para>While data needs to be collected on a given frequency this does not put limitations on the period types that can be used in data analysis and reports. Just like data gets aggregated up the organisational hierarchy, data is also aggregated according to a period hierarchy, so you can create quarterly and annual reports based on data that is being collected on a Monthly basis. The defined period type for a data entry form defines the lowest level of period detail possible in a report.</para>
+      <section>
+        <title>Sum and average aggregation along the period dimension</title>
+        <para>When aggregating data on the period dimension there are two options for how the calculation is done; 1) sum and 2) average which is specified per data element in the DHIS2.
+
+</para>
+        <para>Most of the data collected on a routinely basis should be aggregated by summing up the months or weeks, e.g. you create a quarterly report on Measles immunisation by summing up the three monthly values for &quot;Measles doses given&quot;. 
+
+</para>
+        <para>Other types of data that are more permanently valid over time like &quot;Number of staff in the PHU&quot; or an annual population estimate of &quot;Population under 1 year&quot; need to be aggregated differently. These values are static for all months as long as there are valid data. E.g. the estimated population under 1 calculated from the census data is the same for all months in a year, or the number of nurses working in a PHU is the same for every month in the 6 months period the number is reported for. 
+
+</para>
+        <para>This difference e.g. becomes important when calculating the indicator morbidity service burden for a PHU. The monthly headcounts are summed up for the 12 months to get the annual headcount while the number of staff for the PHU is calculated as the average of the two 6-monthly values reported through the 6-monthly staff report. 
+
+</para>
+        <para>Another important feature of average data elements is the validity period concept. Average data values are standing values for any period type within the borders of the period they are registered for. E.g. an annual population estimate following the calendar year will have the same value for any period that falls within that year no matter what the period type. E.g. if the population under 1 for a Tugbebu CHP is 250 for the year of 2009 that means that the value will be 250 for Jan-09, for Q3-09, for Week 12 of 2009 and for any period within 2009. This has implications for how e.g coverage indicators are calculated as the full annual population will be used as denominator value even when doing monthly reports. If you want to look at an estimated annual coverage value for a given month then you will have the option of setting the indicator to &quot;Annualised&quot; which means that a monthly coverage value will be multiplied by 12, a quarterly value by 4 etc. The annualised indicator feature can therefore be used to mimic the use of monthly population estimates.
+</para>
+      </section>
+    </section>
+  </section>
+  <section>
+    <title>Data collection vs. data analysis</title>
+    <section>
+      <title>Data collection and storage</title>
+      <para>Dataset determine what data that is available in the system as they describe how data is collected. Through the data sets we define the building blocks of the data to be captured and stored in the data warehouse. For each data dimension we decide what level of detail the data should be collected on; 1) the data element (e.g. diagnosis, vaccine, or any event taking place) and its categories (e.g. age and gender), 2) the period/frequency dimension, and 3) the orgunit dimension.  You can never retrieve more detailed data than what is defined in the datasets so the design of the datasets and their corresponding data entry forms (the data collection tools) dictate what kind of data analysis that will be possible.</para>
+    </section>
+    <section>
+      <title>INPUT != OUTPUT</title>
+      <para>It is important to understand that the data entry forms or datasets themselves are not linked to the data (values) and that data is only described by the data element. This makes it perfectly safe to modify datasets and forms without altering the data. This loose coupling between forms and data makes DHIS much more flexible when it comes to designing and changing new forms and in providing exactly the form the users wants. Another benefit of only linking data to data elements and not to forms is the flexibility of creating indicators and validation rules based on data elements, and also in providing any kind of output report (in pivot tables, charts, maps etc) that can combine data individually or across forms, e.g. to correlate data from different health programs. Following from this flexibility of enabling integration of data from various programs (forms) and sources (routine and semi permanent (population, staff, equipment)) a DHIS database is often referred to as an integrated data repository. The figure below illustrates this flexibility.</para>
+      <para>
+<screenshot>
+          <screeninfo>DHIS2 Login screen</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="80%" fileref="resources/images/data_dimensions/dhis_input_output.JPG" format="JPG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+</para>
+    </section>
+  </section>
+  <section>
+    <title>Some more examples</title>
+    <para>The table below combinies data element group sets Diagnosis and Morbidity/Mortality with the data element category PHU/Community. Deaths are captured in a separate form with other dimensions than morbidity.</para>
+    <para>
+<screenshot>
+        <screeninfo>DHIS2 Login screen</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" fileref="resources/images/data_dimensions/Ex_table1.jpg" format="JPG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+</para>
+    <para>This output table combines the two data element categories HIV_Age and Gender with the data element group set ART Group. The group enables subtotals for staging and entry points summing up the data elements in that group. Subtotals for either age groups and gender would be other possible outputs here.</para>
+    <para>
+<screenshot>
+        <screeninfo>DHIS2 Login screen</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" fileref="resources/images/data_dimensions/Ex_table2.jpg" format="JPG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+</para>
+  </section>
+  <section>
+    <title>How this works in pivot tables</title>
+    <para>Using the example of morbidity and mortality data, an excel pivot table example can show how the groups and dimensions can be used to view data for different aggregation levels.
+
+</para>
+    <para>In the pivot table for Sierra Leone, there are two different worksheets where morbidity and mortality can be viewed for chiefdoms. The worksheet &quot;Chiefdom_morb_mort&quot; has been customized to show the specific morbidity and mortality data by default, but the worksheet &quot;Chiefdom raw data&quot; contains all the data available at chiefdom level, including morbidity and mortality. This example looks at the latter worksheet, and how the categories and group sets can be used in a pivot table.
+
+</para>
+    <para>The completely aggregated number is viewed when none of the pivot fields are arranged in the table proper, as column or row fields, but are listed above the table itself.
+</para>
+    <para>
+<screenshot>
+        <screeninfo>DHIS2 Login screen</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" fileref="resources/images/data_dimensions/pivot1.jpg" format="JPG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+</para>
+    <para>Here we have selected to look at the Morbidity total. The various diagnoses have been ordered into the main_de_groups Morbidity (we will get back to Mortality later). The fields above the table itself are all set to &quot;All&quot;, meaning that the totals in the table will contain data from all Countries, Districts, Chiefdom, ou_type, year, months, the various categories as listed in the red fields, and diagnoses.</para>
+    <para>As we have seen, this is not a very useful representation, as Morbidity is organized into new cases, follow-ups, referrals, and them again in age groups. Also, we do not see the various diagnoses. The first step is to include the diagnoses, which is done by dragging the &quot;diagnosis&quot; field down to be a row field, as shown in the figure below, and to add the group set called &quot;morbiditymortality&quot; in the column field to display new cases, follow-up, and referrals.</para>
+    <para>
+<screenshot>
+        <screeninfo>DHIS2 Login screen</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" fileref="resources/images/data_dimensions/pivot2.jpg" format="JPG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+</para>
+    <para>Contrast this figure above to the one below.</para>
+    <para>
+<screenshot>
+        <screeninfo>DHIS2 Login screen</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" fileref="resources/images/data_dimensions/pivot3.jpg" format="JPG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+</para>
+    <para>They both show the same data, albeit in a different way. </para>
+    <itemizedlist>
+      <listitem>
+        <para>The &quot;dataelement&quot; field, used in the bottom figure, displays each diagnosis as three elements; one follow-up, one new, and one referrals. This is the way the data elements have been defined in DHIS, as this makes sense for aggregation. You would not like to aggregate follow-ups and new, thus these have not been made as categories, the whole point of is to ease aggregation and disaggregation.</para>
+      </listitem>
+      <listitem>
+        <para>The &quot;diagnosis&quot; group set has instead been made to lump these three (follow-up, new, referrals) together, which can then be split with another group set, namely the one called &quot;morbiditymortality&quot;. This allows us to organize the data as in the first of the two figures, where we have the single diagnosis per row, and the groups new, follow-up, referrals as rows.</para>
+      </listitem>
+    </itemizedlist>
+    <para>The idea of using group sets is that you can combine, in any set, different data elements. Thus, if we add the mortality data (by checking it from the drop-down menu of the main_de_groups field, and moving this field out of the table) we can see also the deaths, since the mortality data elements have been included as a &quot;death&quot; group in the &quot;morbiditymortality&quot; group set. The result is shown below.</para>
+    <para>
+<screenshot>
+        <screeninfo>DHIS2 Login screen</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" fileref="resources/images/data_dimensions/pivot4.jpg" format="JPG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+</para>
+    <para>The result is a much more user-friendly pivot table. Now, another figure shows the relationship between the group sets and elements.</para>
+    <para>
+<screenshot>
+        <screeninfo>DHIS2 Login screen</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" fileref="resources/images/data_dimensions/pivot5.jpg" format="JPG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+</para>
+    <para>This small detail of the pivot table show how the actual data elements link to the group sets: </para>
+    <itemizedlist>
+      <listitem>
+        <para>The four data elements, as defined in DHIS, are Measles death, Measles follow-up, Measles new, and Measles referrals</para>
+      </listitem>
+      <listitem>
+        <para>They all belong to the group set &quot;diagnosis&quot;, where they have been lumped together in the group Measles</para>
+      </listitem>
+      <listitem>
+        <para>The group set &quot;morbiditymortality&quot; contains the groups New cases, Follow-up, Referrals, and Deaths.</para>
+      </listitem>
+      <listitem>
+        <para>Only the data element Measles deaths has data related to the group Deaths, thus this is where the data value (2) is shown, at the upper right corner. The same for Measles new; the value (132) is shown at the intersection of the data element Measles new and the group New cases (in the group set morbiditymortality)</para>
+      </listitem>
+      <listitem>
+        <para>All the intersections where the data element does not link with the groups in morbiditymortality are left blank. Thus in this case we would get a nice table if we excluded the dataelement from the table, and just had diagnosis and the group set morbiditymortality, as in the figure shown earlier.</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+</chapter>
