@@ -431,7 +431,7 @@
     </screenshot>
     <para>Provide a name for the data dictionary in the &quot;Name&quot; field and a description of its contents. Data elements and indicators can be added or removed from the dictionary. Click &quot;Save&quot; if you are creating a new data dictionary or &quot;Add&quot; if you are editing the contents of an existing data dictionary.   </para>
   </section>
-  <section>
+  <section id="translation">
     <title>Translations</title>
     <para>DHIS 2 provides functionality for translations of data element, data element group, indicator, indicator group, and data element category names.  These elements can be translated to any number of locales. A locale  represents a specific geographical, political, or cultural region. </para>
     <para>To add a translation click the Translate icon next to the element you would like to translate. Start by selecting the desired locale from the Locale select box. If your locale is not in the list you need to add it first. Fill in locale language and locale country code. The locale language is a lower-case, two-letter valid ISO Language Code. The locale country is a upper-case, two-letter valid ISO Country Code. Then in the Translate section, select your locale, then enter values for the avaliable element properties. You can select the reference locale, that is the locale the current element is displayed in, from the select box to the right. Translations can be enabled by selecting the desired locale under Database Language under User Settings in the Settings module.</para>
