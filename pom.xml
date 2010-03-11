@@ -136,6 +136,124 @@
           </dependency>
         </dependencies>
       </plugin>
+	  
+	  <!-- Vietnamese Document -->
+	   <plugin>
+        <groupId>com.agilejava.docbkx</groupId>
+        <artifactId>docbkx-maven-plugin</artifactId>
+        <version>2.0.10-SNAPSHOT</version> 
+        <configuration>
+          <includes>dhis2_user_manual_vn.xml</includes>
+          <sourceDirectory>${docbook.source}/vn/</sourceDirectory>
+          <xincludeSupported>true</xincludeSupported>
+        </configuration>
+        <executions>
+          <execution>
+            <id>chunked-html-docs</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-html</goal>
+            </goals>
+            <configuration>
+              <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
+              <glossaryCollection>resources/glossary_vn.xml</glossaryCollection>
+              <sectionAutolabel>1</sectionAutolabel>
+              <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
+              <chunkedOutput>true</chunkedOutput>
+              <postProcess>
+                <copy todir="${docbook.target}/vn/">
+                  <fileset dir="target/docbkx/">
+                    <include name="**/*.html"/>
+                  </fileset>
+                </copy>
+                <copy todir="${docbook.target}/vn/html/resources/images">
+                  <fileset dir="src/docbkx/vn/resources/images">
+                    <include name="**/*.png"/>
+                    <include name="**/*.gif"/>
+                    <include name="**/*.jpg"/>
+                  </fileset>
+                </copy>
+                <copy todir="${docbook.target}/vn/html/resources/css">
+                  <fileset dir="src/docbkx/vn/resources/css">
+                    <include name="**/*.css"/>
+                  </fileset>
+                </copy>
+                <!-- delete the file to force the regeneration in the next phase -->
+                <delete file="target/docbkx/html/dhis2_user_manual_vn.html"/>
+              </postProcess>
+            </configuration>
+          </execution>
+          <execution>
+            <id>html-docs</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-html</goal>
+            </goals>
+            <configuration>
+              <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
+              <glossaryCollection>resources/glossary_vn.xml</glossaryCollection>
+              <sectionAutolabel>1</sectionAutolabel>
+              <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
+              <chunkedOutput>false</chunkedOutput>
+              <postProcess>
+                <move file="target/docbkx/html/dhis2_user_manual_vn.html" tofile="target/docbkx/html/dhis2_user_manual_full.html"/>
+                <copy todir="${docbook.target}/vn/">
+                  <fileset dir="target/docbkx/">
+                    <include name="**/dhis2_user_manual_full.html"/>
+                  </fileset>
+                </copy>
+              </postProcess>
+            </configuration>
+          </execution>
+          <execution>
+            <id>pdf-docs</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-pdf</goal>
+            </goals>
+            <configuration>
+              <argLine>-Xmx1024m</argLine>
+              <foCustomization>${docbook.source}/vn/resources/xsl/fop-cust.xsl</foCustomization>
+              <doubleSided>1</doubleSided>
+              <includes>*.xml</includes>
+              <sourceDirectory>${docbook.source}/vn/</sourceDirectory>
+              <postProcess>
+                <copy todir="target/site/vn">
+                  <fileset dir="target/docbkx/">
+                    <include name="**/*.pdf"/>
+                  </fileset>
+                </copy>
+              </postProcess>
+            </configuration>
+          </execution>
+          <execution>
+            <id>xhtml-docs</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-xhtml</goal>
+            </goals>
+            <configuration>
+			<xhtmlCustomization>${docbook.source}/vn/resources/xsl/html-inline-help.xsl</xhtmlCustomization>
+              <postProcess>
+                <move file="target/docbkx/xhtml/dhis2_user_manual_vn.xhtml" tofile="target/docbkx/xhtml/dhis2_user_manual_full.xhtml"/>
+                <copy todir="${docbook.target}/vn/">
+                  <fileset dir="target/docbkx/">
+                    <include name="**/dhis2_user_manual_full.xhtml"/>
+                  </fileset>
+                </copy>
+              </postProcess>
+            </configuration>
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>org.docbook</groupId>
+            <artifactId>docbook-xml</artifactId>
+            <version>4.4</version>
+            <scope>runtime</scope>
+          </dependency>
+        </dependencies>
+      </plugin>
     </plugins>
   </build>
 </project>
