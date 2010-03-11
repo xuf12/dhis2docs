@@ -58,36 +58,29 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
     <screenshot>
       <graphic fileref="resources/images/GIS/admin_panel.png" align="center"/>
     </screenshot>
-    <para><variablelist>
-        <varlistentry>
-          <term>Map source</term>
-          <listitem>
-            <para><guilabel>GeoJSON files:</guilabel> you will find your own
-            registered maps in the Map combo box in the Thematic map panel.
-            The Admin panels check box will become visible.</para>
-            <para><guilabel>Shapefiles:</guilabel> same as GeoJSON files, except that the files are generated from shapefiles installed in your running version of Geoserver on the fly. </para>
-            <para><guilabel>DHIS database:</guilabel> the Map combo box will
-            simply be populated by the existing organisation unit levels and
-            GeoJSON files will be created by the application automatically
-            Organisation units must have coordinates stored in the database in
-            order to be displayed in the map. This function is mainly intended
-            for the facility level as it is easy to maintain and thus will
-            offer up-to-date shapefiles.</para>
+    <para>
+        <itemizedlist>
+            <listitem>
+                <para>Map source</para>
+                <para><guilabel>GeoJSON files:</guilabel> you will find your own
+                registered maps in the Map combo box in the Thematic map panel.
+                The Admin panels check box will become visible.</para>
+                <para><guilabel>Shapefiles:</guilabel> same as GeoJSON files, except that the files are generated from shapefiles installed in your running version of Geoserver on the fly.</para>
+                <para><guilabel>DHIS database:</guilabel> the Map combo box will
+                simply be populated by the existing organisation unit levels and
+                GeoJSON files will be created by the application automatically
+                Organisation units must have coordinates stored in the database in
+                order to be displayed in the map. This function is mainly intended
+                for the facility level as it is easy to maintain and thus will
+                offer up-to-date shapefiles.</para>
           </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>Admin panels</term>
           <listitem>
-            <para>Show/hide the shapefile management panels.</para>
+                <para>Admin panels: Show/hide the shapefile management panels.</para>
           </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>Longitude/latitude</term>
           <listitem>
-            <para>The base coordinate for the current country. This coordinate will appear as default when registering maps and overlays.</para>
+                <para>Longitude/latitude: The base coordinate for the current country. This coordinate will appear as default when registering maps and overlays.</para>
           </listitem>
-        </varlistentry>
-      </variablelist></para>
+        </itemizedlist>
   </section>
   <section id="gisMap">
     <title>Registering geographical information</title>
@@ -104,33 +97,21 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
         </imageobject>
       </mediaobject>
     </screenshot>
-    <variablelist>
-      <varlistentry>
-        <term>Organisation unit level</term>
-        <listitem>
-          <para>The level of the organization units displayed in the GeoJSON
-          file.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>Map source file</term>
-        <listitem>
-          <para>The GeoJSON file name. These files must be placed in the
+    <itemizedlist>
+      <listitem>
+        <para><guilabel>Display name:</guilabel> Represents your map in the Map combo box in the Thematic map panel.</para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Organisation unit level:</guilabel> The level of the organization units displayed in the GeoJSON file.</para>
+      </listitem>
+      <listitem>
+        <para><guilabel>Map source file:</guilabel> The GeoJSON file name. These files must be placed in the
           mapping/geojson folder. Use e.g. Geoserver 2.0 (currently RC1) to
           easily produce GeoJSON from your shapefiles.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>Display name</term>
-        <listitem>
-          <para>Represents your map in the Map combo box in the Thematic map
-          panel.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>Name column</term>
-        <listitem>
-          <para>The shapefile data column (case sensitive!) that will be
+      </listitem>
+      
+      <listitem>
+        <para><guilabel>Name column:</guilabel> The shapefile data column (case sensitive!) that will be
           matched against DHIS organisation unit names. If you have an
           instance of Geoserver installed, you can view the layer through the
           built-in OpenLayers client. Click on a particular area, and the
@@ -151,12 +132,9 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
               </imageobject>
             </mediaobject>
           </screenshot>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>Longitude / latitude</term>
-        <listitem>
-          <para>The longitude and latitude refer to the approximate point
+      </listitem>
+      <listitem>
+        <para><guilabel>Longitude / latitude:</guilabel> The longitude and latitude refer to the approximate point
           where the map will be centered after rendering. If you have
           Geoserver running, you can view the layer through the integrated
           OpenLayers client and determine a good center point for your map.
@@ -180,18 +158,14 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
               </imageobject>
             </mediaobject>
           </screenshot>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>Zoom</term>
-        <listitem>
-          <para>The zoom level controls the extent of the map. Some
+      </listitem>
+      <listitem>
+        <para><guilabel>Zoom:</guilabel> The zoom level controls the extent of the map. Some
           experimentation will be required to get the correct zoom level.
           Start with a value of &quot;7&quot; and increase or decrease the zoom level
           depending on the extent of the map that should be displayed.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
+      </listitem>
+    </itemizedlist>
   </section>
   <section id="gisMapOrganisationUnitRelation">
     <title>Assign organization units to map</title>
@@ -228,7 +202,7 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
     map. </para>
     <itemizedlist>
       <listitem>
-        <para><guilabel>Display name:</guilabel> Represents your overlay in
+        <para><guilabel>Display name: </guilabel>Represents your overlay in
         the layer tree in the upper right corner.</para>
       </listitem>
       <listitem>
@@ -265,10 +239,10 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
   </section>
   <section id="gisFavoriteMapView">
     <title>Register favorite map views</title>
-    <para>This panel will save the current thematic map view in order to
-    restore it whenever you want via the <guimenuitem>Map view </guimenuitem>combo box in the <guimenu>Thematic map</guimenu> panel. By
+    <para>This window will save the current thematic map view in order to
+    restore it whenever you want via the <guimenuitem>map view</guimenuitem> combo box in the <guimenu>thematic map</guimenu> panel. By
     adding your views to DHIS 2 Dashboard you may access them there by
-    inserting <guimenuitem>Map views</guimenuitem> into one of link
+    inserting <guimenuitem>map views</guimenuitem> into one of the link
     areas.</para>
   </section>
   <section id="gisLegendSet">
@@ -276,7 +250,7 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
     <para>A legend set may be connected to many indicators, but an indicator
     may only have one legend set. Thus, you may select many indicators when
     you create a legend set. When an indicator that has a legend set is
-    selected in the <guimenu>Thematic map</guimenu> panel, the number of
+    selected in the <guimenu>thematic map</guimenu> panel, the number of
     classes, low color and high color is automatically set.</para>
   </section>
   <section id="gisPdfPrint">
