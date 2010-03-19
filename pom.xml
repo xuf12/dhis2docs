@@ -136,9 +136,9 @@
           </dependency>
         </dependencies>
       </plugin>
-	  
+	 
 	  <!-- Vietnamese Document -->
-	   <!--
+	 <!--
 	   <plugin>
         <groupId>com.agilejava.docbkx</groupId>
         <artifactId>docbkx-maven-plugin</artifactId>
@@ -179,7 +179,7 @@
                     <include name="**/*.css"/>
                   </fileset>
                 </copy>
-		-->
+	-->
                 <!-- delete the file to force the regeneration in the next phase -->
         <!--
 			<delete file="target/docbkx/html/dhis2_user_manual_vn.html"/>
