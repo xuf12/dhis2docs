@@ -368,10 +368,9 @@ This means that all groupsets are joined in when e.g. creating a view to a pivot
       <para>Another benefit of only linking data to data elements and not to forms is the flexibility of creating indicators and validation rules based on data elements, and also in providing any kind of output report (in pivot tables, charts, maps etc) that can combine data individually or across forms, e.g. to correlate data from different health programs. Due to this flexibility of enabling integration of data from various programs (forms) and sources (routine and semi permanent (population, staff, equipment)) a DHIS database is used as an integrated data repository for many or all parts of the aggregated data in a larger HIS. The figure below illustrates this flexibility.</para>
       <para>
 <screenshot>
-          <screeninfo>DHIS2 Login screen</screeninfo>
           <mediaobject>
             <imageobject>
-              <imagedata width="80%" fileref="resources/images/data_dimensions/dhis_input_output.JPG" format="JPG"/>
+              <imagedata width="80%" align="center" fileref="resources/images/data_dimensions/dhis_input_output.JPG" format="JPG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -383,10 +382,9 @@ This means that all groupsets are joined in when e.g. creating a view to a pivot
     <para>The table below combines data element the two group sets Diagnosis (all the diseases) and Morbidity/Mortality (New cases, Follow-ups, Refrerrals, Deaths) with the data element category PHU/Community. Deaths are captured in a separate form with other dimensions (e.g. the PHU/Community) than morbidity.</para>
     <para>
 <screenshot>
-        <screeninfo>DHIS2 Login screen</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="80%" fileref="resources/images/data_dimensions/Ex_table1.jpg" format="JPG"/>
+            <imagedata width="80%" align="center" fileref="resources/images/data_dimensions/Ex_table1.jpg" format="JPG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -413,10 +411,9 @@ This means that all groupsets are joined in when e.g. creating a view to a pivot
 </para>
     <para>
 <screenshot>
-        <screeninfo>DHIS2 Login screen</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata align="center" fileref="resources/images/data_dimensions/pivot_overview_1.jpg" format="JPG"/>
+            <imagedata width="80%" align="center" fileref="resources/images/data_dimensions/pivot_overview_1.jpg" format="JPG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -436,10 +433,9 @@ This means that all groupsets are joined in when e.g. creating a view to a pivot
     <para>Contrast this figure above to the one below.</para>
     <para>
 <screenshot>
-        <screeninfo>DHIS2 Login screen</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="80" align="center" fileref="resources/images/data_dimensions/pivot_dataelements.jpg" format="JPG"/>
+            <imagedata width="80%" align="center" fileref="resources/images/data_dimensions/pivot_dataelements.jpg" format="JPG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -459,7 +455,7 @@ This means that all groupsets are joined in when e.g. creating a view to a pivot
         <screeninfo>DHIS2 Login screen</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata align="center" fileref="resources/images/data_dimensions/pivot_diagnoses_all.jpg" format="JPG"/>
+            <imagedata align="center" width="80%" fileref="resources/images/data_dimensions/pivot_diagnoses_all.jpg" format="JPG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -470,7 +466,7 @@ This means that all groupsets are joined in when e.g. creating a view to a pivot
         <screeninfo>DHIS2 Login screen</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="80" fileref="resources/images/data_dimensions/pivot_dataelements_diagnoses.jpg" format="JPG"/>
+            <imagedata width="80%" align="80%" fileref="resources/images/data_dimensions/pivot_dataelements_diagnoses.jpg" format="JPG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -497,7 +493,7 @@ This means that all groupsets are joined in when e.g. creating a view to a pivot
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata align="center" fileref="resources/images/data_dimensions/pivot_morb_age.jpg"/>
+            <imagedata align="center" width="80%" fileref="resources/images/data_dimensions/pivot_morb_age.jpg"/>
           </imageobject>
         </mediaobject>
       </screenshot></para>
@@ -505,7 +501,7 @@ This means that all groupsets are joined in when e.g. creating a view to a pivot
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata align="center" fileref="resources/images/data_dimensions/pivot_hiv_age.jpg"/>
+            <imagedata align="center" width="80%" fileref="resources/images/data_dimensions/pivot_hiv_age.jpg"/>
           </imageobject>
         </mediaobject>
       </screenshot>  </para>
@@ -513,7 +509,7 @@ This means that all groupsets are joined in when e.g. creating a view to a pivot
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="80" fileref="resources\images\data_dimensions\pivot_hiv_age_gender.jpg" format="JPG"/>
+            <imagedata width="80%" align="center" fileref="resources\images\data_dimensions\pivot_hiv_age_gender.jpg" format="JPG"/>
           </imageobject>
         </mediaobject>
       </screenshot></para>
@@ -555,7 +551,7 @@ This means that all groupsets are joined in when e.g. creating a view to a pivot
       <para><screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="80" fileref="resources\images\data_dimensions\PHUF3.jpg" format="JPG"/>
+              <imagedata width="80%" align="center" fileref="resources\images\data_dimensions\PHUF3.jpg" format="JPG"/>
             </imageobject>
           </mediaobject>
         </screenshot> </para>
