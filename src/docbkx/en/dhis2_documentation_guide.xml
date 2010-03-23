@@ -278,7 +278,7 @@ mod1.xml&quot; encoding=&quot;UTF-8&quot;/&gt;
     <para>Just add an informative message of what you have done. Once you have committed changes to
       your local branch, you can push them to the master branch with the following command: <blockquote>
         <para><command>bzr push
-            https://bazaar.launchpad.net/%7Edhis2-documenters/dhis2/dhis2-docbook-docs
+            bzr+ssh://bazaar.launchpad.net/%7Edhis2-documenters/dhis2/dhis2-docbook-docs
           </command></para>
       </blockquote></para>
     <para>If you have any questions, or cannot find that you can get started, just send an email
