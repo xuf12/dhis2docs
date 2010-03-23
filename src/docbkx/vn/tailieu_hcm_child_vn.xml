@@ -6,28 +6,53 @@
     <title>Đăng Nhập Vào Hệ Thống DHIS2.0</title>
     <para>1.  Mở trình duyệt Internet “Mozilla Firefox” sau đó nhập địa chỉ: <emphasis role="bold">http://www.dhisvn.org</emphasis> hoặc <emphasis role="bold">http://ytct.gov.vn:9000/dhis</emphasis> nhấn bàn phím nút <emphasis role="bold">Enter </emphasis></para>
     <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="80%" align="center" fileref="resources/images/images_hcm/web_dhisvn_hcm.JPG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+<!--
       <graphic fileref="resources/images/images_hcm/web_dhisvn_hcm.JPG" align="center"/>
     </screenshot>
-    <para>2. - Xuất hiện màn hình đăng nhập vào hệ thống DHIS 2.0 như sau:</para>
-    <para><graphic fileref="resources/images/images_hcm/Login_hcm.JPG" align="center"/></para>
+ -->    <para>2. - Xuất hiện màn hình đăng nhập vào hệ thống DHIS 2.0 như sau:</para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="80%" align="center" fileref="resources/images/images_hcm/Login_hcm.JPG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
     <para><para>+ Username: (Nhập vào tên đơn vị)</para><para>+ Password: (Nhập vào mật khẩu)</para><para>Ví dụ: Username: skte_quan1</para><para>Password: *****</para></para>
     <section>
       <title>Nhập Dữ Liệu</title>
       <para>- Sau khi đăng nhập bằng tên của đơn vị vào hệ thống thành công, giao diện <emphasis role="bold">Nhập Dữ Liệu</emphasis> hiện thị như sau:</para>
       <screenshot>
-        <graphic fileref="resources/images/images_hcm/nhaplieu_hcm.JPG" align="center"/>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" align="center" fileref="resources/images/images_hcm/nhaplieu_hcm.JPG"/>
+          </imageobject>
+        </mediaobject>
       </screenshot>
-      <para><emphasis role="bold">1.1.0.1</emphasis> - Cài đặt ngôn ngữ (Tiếng Việt):
+      <para>1 - Cài đặt ngôn ngữ (Tiếng Việt):
 - Khi đăng nhập vào hệ thống ngôn ngữ mặc định bằng “Tiếng Anh”, muốn chuyển đổi ngôn ngữ sang “Tiếng Việt” thực hiện các bước như sau:</para>
       <para>+ Trỏ chuột chọn “<emphasis role="bold">Maintenance</emphasis>” <inlinegraphic fileref="resources/images/images_hcm/caidattiengviet_hcm.JPG" align="center"/> chọn tiếp “<emphasis role="bold">Settings</emphasis>”,
 bên trái màn hình</para>
       <screenshot><emphasis role="bold">Settings</emphasis>chọn <emphasis role="bold">“User settings”</emphasis>bên phải màn hình màu trắng chọn cột <emphasis role="bold">“Interface Language”</emphasis>tìm chọn <inlinegraphic fileref="resources/images/images_hcm/tiengviet_hcm.JPG" align="center"/>, ngay lập tức lúc này giao diện của hệ thống chuyển sang ngôn ngữ Tiếng Việt.</screenshot>
       <screenshot>
-        <graphic fileref="resources/images/images_hcm/manhinhTV_hcm.JPG" align="center"/>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" align="center" fileref="resources/images/images_hcm/manhinhTV_hcm.JPG"/>
+          </imageobject>
+        </mediaobject>
       </screenshot>
-      <para><para><emphasis role="bold">1.1.0.2</emphasis> Nhập dữ liệu:</para><para>- Nhập trỏ chuột chọn &quot;<inlinegraphic fileref="resources/images/images_hcm/chucnang01_hcm.JPG" align="center"/>&quot; chọn tiếp &quot;<inlinegraphic fileref="resources/images/images_hcm/chucnang02_hcm.JPG" align="center"/>&quot; xuất hiện màn hình nhập dữ liệu:</para></para>
+      <para><para><emphasis role="bold">2</emphasis> Nhập dữ liệu:</para><para>- Nhập trỏ chuột chọn &quot;<inlinegraphic fileref="resources/images/images_hcm/chucnang01_hcm.JPG" align="center"/>&quot; chọn tiếp &quot;<inlinegraphic fileref="resources/images/images_hcm/chucnang02_hcm.JPG" align="center"/>&quot; xuất hiện màn hình nhập dữ liệu:</para></para>
       <screenshot>
-        <graphic fileref="resources/images/images_hcm/nhaplieu01_hcm.JPG" align="center"/>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" align="center" fileref="resources/images/images_hcm/nhaplieu01_hcm.JPG"/>
+          </imageobject>
+        </mediaobject>
       </screenshot>
       <para/>
       <para><para> • Bên trái màn hình chọn đơn vị: Nhấp chuột vào dấu   để liệt kê các đơn vị con cần nhập báo cáo (Khi nhấp vào cây thư mục đơn vị thấy màu in đậm đen là thành công)
@@ -37,23 +62,43 @@ bên trái màn hình</para>
 </para><para>Ví dụ: Nhập báo cáo hàng tháng theo các bước sau:
 </para></para>
       <screenshot>
-        <graphic fileref="resources/images/images_hcm/nhaplieu04_hcm.JPG" align="center"/>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" align="center" fileref="resources/images/images_hcm/nhaplieu04_hcm.JPG"/>
+          </imageobject>
+        </mediaobject>
       </screenshot>
       <para/>
       <screenshot>
-        <graphic fileref="resources/images/images_hcm/nhaplieu02_hcm.JPG" align="center"/>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" align="center" fileref="resources/images/images_hcm/nhaplieu02_hcm.JPG"/>
+          </imageobject>
+        </mediaobject>
       </screenshot>
       <para/>
       <para>- Sau khi nhập dữ liệu thấy, di chuyển sang ô dữ liệu khác, ô dữ liệu đã nhập chuyển sang màu XANH nghĩa là dữ liệu được lưu lại thành công.</para>
       <screenshot>
-        <graphic fileref="resources/images/images_hcm/nhaplieu05_hcm.JPG" align="center"/>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" align="center" fileref="resources/images/images_hcm/nhaplieu05_hcm.JPG"/>
+          </imageobject>
+        </mediaobject>
       </screenshot>
       <screenshot>
-        <graphic fileref="resources/images/images_hcm/luu_y_hcm.JPG" align="center"/>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" align="center" fileref="resources/images/images_hcm/luu_y_hcm.JPG"/>
+          </imageobject>
+        </mediaobject>
       </screenshot>
       <para>- Sau khi nhập dữ liệu xong, nhìn phía dưới màn hình nhấp chuột chọn nút &quot;<emphasis role="bold">Hoàn Chỉnh</emphasis>&quot;</para>
       <screenshot>
-        <graphic fileref="resources/images/images_hcm/nopbaocao_hcm.JPG" align="center"/>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" align="center" fileref="resources/images/images_hcm/nopbaocao_hcm.JPG"/>
+          </imageobject>
+        </mediaobject>
       </screenshot>
       <section>
         <title>IN BÁO CÁO</title>
@@ -61,7 +106,11 @@ bên trái màn hình</para>
         <para><emphasis role="bold">a. Xem trước báo cáo</emphasis></para>
         <para> - Nhấp chuột chọn <inlinegraphic fileref="resources/images/images_hcm/chucnang01_hcm.JPG" align="center"/>    chọn tiếp    <inlinegraphic fileref="resources/images/images_hcm/chucnang_excel_hcm.JPG" align="center"/>sau đó xuất hện giao diện xuất báo cáo như sau:</para>
         <screenshot>
-          <graphic fileref="resources/images/images_hcm/xuatbaocao_hcm.JPG" align="center"/>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="80%" align="center" fileref="resources/images/images_hcm/xuatbaocao_hcm.JPG"/>
+            </imageobject>
+          </mediaobject>
         </screenshot>
         <para/>
         <para> - Bên phải màn hình ta chọn  <inlinegraphic fileref="resources/images/images_hcm/nut_xuatbaocao_hcm.JPG" align="center"/>, tiếp theo chọn đơn vị.</para>
@@ -69,12 +118,20 @@ bên trái màn hình</para>
         <para> - Kết thúc nhấp chuột chọn nút <inlinegraphic fileref="resources/images/images_hcm/xembaocao_hcm.JPG" align="center"/></para>
         <para>Ví dụ: Xem trước báo cáo.</para>
         <screenshot>
-          <graphic fileref="resources/images/images_hcm/xuatbaocao01_hcm.JPG" align="center"/>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="80%" align="center" fileref="resources/images/images_hcm/xuatbaocao01_hcm.JPG"/>
+            </imageobject>
+          </mediaobject>
         </screenshot>
         <para> </para>
         <para>- Xuất hiện màn hình xem trước báo cáo dưới đây.</para>
         <screenshot>
-          <graphic fileref="resources/images/images_hcm/xuatbaocao02_hcm.JPG" align="center"/>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="80%" align="center" fileref="resources/images/images_hcm/xuatbaocao02_hcm.JP"/>
+            </imageobject>
+          </mediaobject>
         </screenshot>
         <para/>
         <para><emphasis role="bold">b. Xuất báo cáo ra file MS Excel</emphasis></para>
@@ -84,11 +141,23 @@ bên trái màn hình</para>
         <para> - Kết thúc nhấp chuột chọn nút <inlinegraphic fileref="resources/images/images_hcm/nut_xuatbaocao01_hcm.JPG" align="center"/></para>
         <para>- Sau khi nhấp nút <inlinegraphic fileref="resources/images/images_hcm/nut_xuatbaocao01_hcm.JPG" align="center"/>    xuất hiện hộp thoại như sau:
 </para>
-        <para><graphic fileref="resources/images/images_hcm/xuatbaocao04_hcm.JPG" align="center"/></para>
+        <screenshot>
+		<mediaobject>
+            <imageobject>
+          <imagedata width="80%" align="center" fileref="resources/images/images_hcm/xuatbaocao04_hcm.JPG"/>
+		  </imageobject>
+          </mediaobject>
+        </screenshot>
         <para>- Sau khi xuất hiện hộp thoại, có hai phương thức để lựa chọn</para>
         <para> + Chọn   <inlinegraphic fileref="resources/images/images_hcm/123.JPG" align="center"/> mở trược tiếp biểu mẫu báo cáo để In,</para>
         <para>+ Tiếp theo nhấp chuột chọn nút &quot;<emphasis role="bold">OK</emphasis>&quot;</para>
-        <para><graphic fileref="resources/images/images_hcm/Excel_hcm.JPG" align="center"/></para>
+        <screenshot>
+		<mediaobject>
+            <imageobject>
+          <imagedata width="80%" align="center" fileref="resources/images/images_hcm/Excel_hcm.JPG"/>
+		  </imageobject>
+          </mediaobject>
+        </screenshot>
         <para/>
         <para/>
         <para/>
@@ -96,7 +165,13 @@ bên trái màn hình</para>
         <para/>
         <para> <emphasis role="bold">c. In báo cáo </emphasis></para>
         <para>  -  Vào File -&gt; <emphasis role="bold">PRINT</emphasis> xuất hiện hộp thoại.</para>
-        <para><graphic fileref="resources/images/images_hcm/print_hcm.JPG" align="center"/></para>
+        <screenshot>
+		<mediaobject>
+            <imageobject>
+          <imagedata width="80%" align="center" fileref="resources/images/images_hcm/print_hcm.JPG"/>
+		  </imageobject>
+          </mediaobject>
+        </screenshot>
         <para> - Sau đó chọn máy IN để in ra giấy.</para>
       </section>
     </section>
