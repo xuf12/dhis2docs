@@ -2,6 +2,34 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>GIS</title>
+    <section>
+      <title>OpenHealthMapper</title>
+    <para>The DHIS 2 GIS module is inspired by the WHO HealthMapper application.
+    </para>
+  </section>
+  <section>
+    <title>Identifying map data</title>
+    <para>Geographical data can be divided in two basic groups - raster and vector. 
+      
+      <section><title>Raster images</title>Raster can be thought of as pictures such as 
+      sattelite images. Images can be used as background for maps, and the OHM can pull them in from any standard compliant 
+      <ulink url="http://en.wikipedia.org/wiki/Web_Map_Service">Web Map Service (WMS)</ulink>. It is also of great interest to
+      combine the DHIS2 installation with a <ulink url="http://geoserver.org/display/GEOS/Welcome">GeoServer</ulink> instance, 
+      which can be downloaded as a .war-file and run in the same servlet container (e.g. Tomcat, Jetty, Resin). Geoserver can provide
+      both background layers such as roads, lakes etc. or also display thematic data as an alternative to the browser-rendered 
+      main mode which uses GeoJSON.
+      </section>
+  <section><title>Vector data</title>
+    In order to create thematic maps (also known as <ulink url="http://en.wikipedia.org/wiki/Choropleth_map">choropleth maps</ulink>)
+    we need to have vector polygons (e.g. for facility catchment areas or administrative regions). Also, vector files are required for 
+    points (e.g. health facility locations or even different wards within a hospital). Such vector files consist of a collection of (x,y)
+    coordinates with a number of associated attributes (at least a name). Vector data can come in a lot of formats, such as GPS 
+    coordinates for facilities. The most common is the <ulink url="http://en.wikipedia.org/wiki/Shapefile">ESRI shapefile format</ulink>. 
+    In order to make web maps interactive, DHIS 2 uses the <ulink url="http://en.wikipedia.org/wiki/GeoJSON">javascript GeoJSON format</ulink>..
+  </section>
+      
+    </para>
+  </section>
   <section>
     <title>Conversion of geographical data to GeoJSON format</title>
     <para>The DHIS2 mapping client relies on GeoJSON files in order to display
