@@ -43,7 +43,17 @@
           <listitem><ulink url="http://www.unsalb.org">UN organizations, especially WHO and FAO, have administrative boundaries</ulink></listitem>
         </itemizedlist>
       </para></section>
-      
+      <section><title>Projections</title><para>DHIS 2 uses latitude/longitude (lat/lon) coordinates in the standard EPSG:4326 projection, which is
+        very widespread. But it is also common to get data in UTM formats [http://en.wikipedia.org/wiki/
+        Universal_Transverse_Mercator_coordinate_system]. For example, data for Malawi is often distributed as UTM 36S
+        projection, which corresponds to EPSG:2736. The conversion can be done by be done by using either Geoserver or ogr2ogr
+        wich is part of GDAL and comes with Ubuntu. For Windows, it comes as part of <ulink url="http://www.bostongis.com/
+          PrinterFriendly.aspx?content_name=ogr_cheatsheet">FW Tools </ulink>. For example, the following line will convert a shapefile 
+        called inputfile.shp in UTM 36S projection to a GeoJSON file in lat/lon:
+        <programlisting><userinput>
+          ogr2ogr s_srs EPSG:2736 a_srs EPSG:4326 -f "GeoJSON" outputfile.json inputfile.shp
+          </userinput></programlisting> 
+      </para></section>
     </para>
   </section>
   <section>
