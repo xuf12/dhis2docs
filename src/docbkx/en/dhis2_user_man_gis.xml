@@ -54,6 +54,19 @@
           ogr2ogr s_srs EPSG:2736 a_srs EPSG:4326 -f "GeoJSON" outputfile.json inputfile.shp
           </userinput></programlisting> 
       </para></section>
+      <section><title>GIS software to view and manipulate map data</title>
+        <para>
+          There are many powerful free and open source GIS packages. These can be recommended:
+          <listitem><ulink url="http://www.qgis.org/">Quantum GIS</ulink></listitem>
+          <listitem><ulink url="http://www.openjump.org/">OpenJUMP</ulink></listitem>
+          <listitem><ulink url="http://udig.refractions.net/">uDig</ulink>, which also forms basis for <ulink url="http://udig.refractions.net/gallery/cgiar/">DIVA-GIS</ulink></listitem>
+          <listitem><ulink url="http://www.gvsig.gva.es/eng/inicio-gvsig/">gvSIG</ulink></listitem>
+        These tools can for example be used to merge village boundary polygons into district polygons (provided the district that each village belongs to is listed as an attribute), and
+        one can edit files to reflect new divisions or correct errors.
+        Another power tool for working with GIS data is <ulink url="http://postgis.refractions.net/">PostGIS</ulink>, which can be used on itself or in conjunction
+          with the above applications.
+        </para>
+      </section>
     </para>
   </section>
   <section>
