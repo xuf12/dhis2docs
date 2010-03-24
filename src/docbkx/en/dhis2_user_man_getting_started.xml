@@ -23,16 +23,50 @@
     </section>
     <section>
       <title>Starting the DHIS2 Live package</title>
-      <para>The DHIS2 Live package is the easiest way to get started with DHIS2. DHIS2 Live is appropriate for a stand-alone type of installation.  Simply download the application from <ulink url="http://www.dhis2.org/downloads">here</ulink>. Once the file is downloaded,  you can simply double-click the downloaded file, and get started using DHIS2. </para>
+      <para>The DHIS2 Live package is the easiest way to get started with DHIS2. DHIS2 Live is appropriate for a stand-alone type of installation.  Simply download the application from <ulink url="http://www.dhis2.org/downloads">here</ulink>. 
+        Once the file is downloaded,  you can simply double-click the downloaded file, and get started using DHIS2. </para>
     </section>
+    <section><title>Working directly with the H2 database</title>
+      <para>
+        DHIS2 Live uses an embedded <ulink url="www.h2database.com/">H2</ulink> database. This has several advantages - there is no need 
+        to install a separate database engine such as PostgresSql or MySql, and backup can be made by just copying the file. The whole db 
+        exists in memory, which means high performance. The disadvantage is need for RAM. It is also not suitable for mulitiuser server 
+        installations. 
+      </para>
+      <para>
+      In general, it is recommended to work with the database through the DHIS2 user interface, but in some situations one may need to 
+      manipulate the data directly. If one downloads H2 separately, it comes with a web interface. It can also be manipulated using 
+        <ulink url="http://openoffice.org">OpenOffice.org</ulink>, using the following procedure. This assumes that dhis2-live is located in
+        the user's Linux home directory (represented by ~). Substitute the absolute path to your dhis2-live installation.
+        <itemizedlist>
+          <listitem>
+            <para>Start OpenOffice Word Processor and select Tools - Options, then Java - Class Path ... and click on Add Archive...</para>
+          </listitem>
+          <listitem>
+            <para>Select the following file (version may differ): ~/dhis2-live/webapps/dhis/WEB-INF/lib/h2-1.1.119.jar</para>
+          </listitem>
+          <listitem>
+            <para>Close OpenOffice completely and then open OpenOffice.org Database. Select connect to an existing database - JDBC</para>
+          </listitem>
+          <listitem>
+            <para>Datasource URL is h2:~/dhis2-live/database/dhis2, and JDBC driver class is org.h2.Driver</para>
+          </listitem>
+          <listitem>
+            <para>User name is sa, password not needed. Finally, select a name and folder for the .odb file.</para>
+          </listitem>
+        </itemizedlist>
+        Note that you can not access the H2 database through OpenOffice Database while DHIS2 Live is running (and vice versa).
+        
+      </para>
+    </section>  
     <section>
       <title>Downloading and installing the server version</title>
       <para>DHIS2 functions both as a
       desktop application, as well as a web-enabled client-server application.
       For larger, production installations with many users and large volumes
       of data (for instance as a national level server) it is recommended to
-      install the server version. The latest version of the application can be
-      found <ulink url="http://code.launchpad.net/dhis2/2.0.2/2.0.2-release/+download/dhis.war">here</ulink>.
+      install the server version. The latest version of the infrastructure can be
+      found <ulink url="http://dhis.uio.no/ci/job/Dhis2%20Web%20Trunk/lastSuccessfulBuild/artifact/dhis-2/dhis-web/dhis-web-portal/target/dhis.war">here</ulink>.
       </para>
       <para>There are many permutations of getting a server installation up and running, and will depend very much on the nature of the installation. A typical installation for a single machine, running Ubuntu Linux will be described in the discussion that follows. This type of single-installation would be appropriate for a small work-group. There are so many different ways to get the application running, and this will depend to a large extent on the number of users you will be catering to, the type of hardware you have available, and the nature of the implementation of the application (e.g one central server as opposed to multiple subnational installations). The example provided here is meant to be a rough guide for those that are setting up a DHIS2 server instance from scratch, however, you should consider all security requirements of your implementation before blindly following this example. </para>
       <para>You will need to decide which back-end database system you will use. DHIS2 is a database agnostic application in principle, and should run on any system with a compatible JDBC driver. However, it is recommended either to use Postgresql or MySQL, as these systems are widely used by other members of the DHIS2 community. In addition to a back-end database system, you will need a compatible servlet container. Apache Tomcat 6 is recommended by the developers, however in principle, the application should run in any  container that conforms to the Servlet 2.5 specification. </para>
