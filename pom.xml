@@ -7,10 +7,12 @@
   <version>2.0.4-SNAPSHOT</version>
   <description>DHIS 2 Documentation</description>
   <packaging>pom</packaging>
+
   <properties>
     <docbook.source>${project.basedir}/src/docbkx</docbook.source>
     <docbook.target>${project.basedir}/target/site</docbook.target>
   </properties>
+
   <pluginRepositories>
     <pluginRepository>
       <id>dhis.uio.no</id>
@@ -18,12 +20,17 @@
       <url>http://dhis.uio.no/maven/external</url>
     </pluginRepository>
   </pluginRepositories>
+
   <build>
     <plugins>
       <plugin>
         <groupId>com.agilejava.docbkx</groupId>
         <artifactId>docbkx-maven-plugin</artifactId>
         <version>2.0.10-SNAPSHOT</version> 
+        <configuration>
+          <xincludeSupported>true</xincludeSupported>
+        </configuration>
+
         <executions>
           <execution>
             <id>chunked-html-docs-en</id>
@@ -37,9 +44,8 @@
               <sectionAutolabel>1</sectionAutolabel>
               <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
               <chunkedOutput>true</chunkedOutput>
-                       <includes>dhis2_user_manual_en.xml</includes>
-          <sourceDirectory>${docbook.source}/en/</sourceDirectory>
-          <xincludeSupported>true</xincludeSupported> 
+              <includes>dhis2_user_manual_en.xml</includes>
+              <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <postProcess>
                 <copy todir="${docbook.target}/en/">
                   <fileset dir="target/docbkx/">
@@ -63,7 +69,7 @@
               </postProcess>
             </configuration>
           </execution>
-        <execution>
+          <execution>
             <id>html-docs-en</id>
             <phase>package</phase>
             <goals>
@@ -76,8 +82,7 @@
               <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
               <chunkedOutput>false</chunkedOutput>
               <includes>dhis2_user_manual_en.xml</includes>
-          <sourceDirectory>${docbook.source}/en/</sourceDirectory>
-          <xincludeSupported>true</xincludeSupported>
+              <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <postProcess>
                 <move file="target/docbkx/html/dhis2_user_manual_en.html" tofile="target/docbkx/html/dhis2_user_manual_full.html"/>
                 <copy todir="${docbook.target}/en/">
@@ -100,7 +105,6 @@
               <doubleSided>1</doubleSided>
               <includes>*.xml</includes>
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
-              <xincludeSupported>true</xincludeSupported> 
               <postProcess>
                 <copy todir="target/site/en">
                   <fileset dir="target/docbkx/">
@@ -117,9 +121,8 @@
               <goal>generate-xhtml</goal>
             </goals>
             <configuration>
-            <includes>dhis2_user_manual_en.xml</includes>
-          <sourceDirectory>${docbook.source}/en/</sourceDirectory>
-          <xincludeSupported>true</xincludeSupported>
+              <includes>dhis2_user_manual_en.xml</includes>
+              <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <xhtmlCustomization>${docbook.source}/en/resources/xsl/html-inline-help.xsl</xhtmlCustomization>
               <postProcess>
                 <move file="target/docbkx/xhtml/dhis2_user_manual_en.xhtml" tofile="target/docbkx/xhtml/dhis2_user_manual_full.xhtml"/>
@@ -143,10 +146,9 @@
               <sectionAutolabel>1</sectionAutolabel>
               <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
               <chunkedOutput>true</chunkedOutput>
-             <includes>dhis2_user_manual_vn.xml</includes>
-          <sourceDirectory>${docbook.source}/vn/</sourceDirectory>
-          <xincludeSupported>true</xincludeSupported>
- 
+              <includes>dhis2_user_manual_vn.xml</includes>
+              <sourceDirectory>${docbook.source}/vn/</sourceDirectory>
+              
               <postProcess>
                 <copy todir="${docbook.target}/vn/">
                   <fileset dir="target/docbkx/">
@@ -182,9 +184,8 @@
               <sectionAutolabel>1</sectionAutolabel>
               <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
               <chunkedOutput>false</chunkedOutput>
-                    <includes>dhis2_user_manual_vn.xml</includes>
-          <sourceDirectory>${docbook.source}/vn/</sourceDirectory>
-          <xincludeSupported>true</xincludeSupported>
+              <includes>dhis2_user_manual_vn.xml</includes>
+              <sourceDirectory>${docbook.source}/vn/</sourceDirectory>
               <postProcess>
                 <move file="target/docbkx/html/dhis2_user_manual_vn.html" tofile="target/docbkx/html/dhis2_user_manual_full.html"/>
                 <copy todir="${docbook.target}/vn/">
@@ -206,7 +207,6 @@
               <foCustomization>${docbook.source}/vn/resources/xsl/fop-cust.xsl</foCustomization>
               <doubleSided>1</doubleSided>
               <includes>*.xml</includes>
-             <xincludeSupported>true</xincludeSupported> 
               <sourceDirectory>${docbook.source}/vn/</sourceDirectory>
               <postProcess>
                 <copy todir="target/site/vn">
@@ -224,10 +224,9 @@
               <goal>generate-xhtml</goal>
             </goals>
             <configuration>
-             <includes>dhis2_user_manual_vn.xml</includes>
-          <sourceDirectory>${docbook.source}/vn/</sourceDirectory>
-          <xincludeSupported>true</xincludeSupported>
-			<xhtmlCustomization>${docbook.source}/vn/resources/xsl/html-inline-help.xsl</xhtmlCustomization>
+              <includes>dhis2_user_manual_vn.xml</includes>
+              <sourceDirectory>${docbook.source}/vn/</sourceDirectory>
+	      <xhtmlCustomization>${docbook.source}/vn/resources/xsl/html-inline-help.xsl</xhtmlCustomization>
               <postProcess>
                 <move file="target/docbkx/xhtml/dhis2_user_manual_vn.xhtml" tofile="target/docbkx/xhtml/dhis2_user_manual_full.xhtml"/>
                 <copy todir="${docbook.target}/vn/">
@@ -239,6 +238,7 @@
             </configuration>
           </execution>
         </executions>
+
         <dependencies>
           <dependency>
             <groupId>org.docbook</groupId>
