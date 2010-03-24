@@ -24,14 +24,9 @@
         <groupId>com.agilejava.docbkx</groupId>
         <artifactId>docbkx-maven-plugin</artifactId>
         <version>2.0.10-SNAPSHOT</version> 
-        <configuration>
-          <includes>dhis2_user_manual_en.xml</includes>
-          <sourceDirectory>${docbook.source}/en/</sourceDirectory>
-          <xincludeSupported>true</xincludeSupported>
-        </configuration>
         <executions>
           <execution>
-            <id>chunked-html-docs</id>
+            <id>chunked-html-docs-en</id>
             <phase>package</phase>
             <goals>
               <goal>generate-html</goal>
@@ -42,6 +37,9 @@
               <sectionAutolabel>1</sectionAutolabel>
               <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
               <chunkedOutput>true</chunkedOutput>
+                       <includes>dhis2_user_manual_en.xml</includes>
+          <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+          <xincludeSupported>true</xincludeSupported> 
               <postProcess>
                 <copy todir="${docbook.target}/en/">
                   <fileset dir="target/docbkx/">
@@ -65,8 +63,8 @@
               </postProcess>
             </configuration>
           </execution>
-          <execution>
-            <id>html-docs</id>
+        <execution>
+            <id>html-docs-en</id>
             <phase>package</phase>
             <goals>
               <goal>generate-html</goal>
@@ -77,6 +75,9 @@
               <sectionAutolabel>1</sectionAutolabel>
               <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
               <chunkedOutput>false</chunkedOutput>
+              <includes>dhis2_user_manual_en.xml</includes>
+          <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+          <xincludeSupported>true</xincludeSupported>
               <postProcess>
                 <move file="target/docbkx/html/dhis2_user_manual_en.html" tofile="target/docbkx/html/dhis2_user_manual_full.html"/>
                 <copy todir="${docbook.target}/en/">
@@ -88,7 +89,7 @@
             </configuration>
           </execution>
           <execution>
-            <id>pdf-docs</id>
+            <id>pdf-docs-en</id>
             <phase>package</phase>
             <goals>
               <goal>generate-pdf</goal>
@@ -99,6 +100,7 @@
               <doubleSided>1</doubleSided>
               <includes>*.xml</includes>
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+              <xincludeSupported>true</xincludeSupported> 
               <postProcess>
                 <copy todir="target/site/en">
                   <fileset dir="target/docbkx/">
@@ -109,12 +111,15 @@
             </configuration>
           </execution>
           <execution>
-            <id>xhtml-docs</id>
+            <id>xhtml-docs-en</id>
             <phase>package</phase>
             <goals>
               <goal>generate-xhtml</goal>
             </goals>
             <configuration>
+            <includes>dhis2_user_manual_en.xml</includes>
+          <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+          <xincludeSupported>true</xincludeSupported>
               <xhtmlCustomization>${docbook.source}/en/resources/xsl/html-inline-help.xsl</xhtmlCustomization>
               <postProcess>
                 <move file="target/docbkx/xhtml/dhis2_user_manual_en.xhtml" tofile="target/docbkx/xhtml/dhis2_user_manual_full.xhtml"/>
@@ -126,31 +131,8 @@
               </postProcess>
             </configuration>
           </execution>
-        </executions>
-        <dependencies>
-          <dependency>
-            <groupId>org.docbook</groupId>
-            <artifactId>docbook-xml</artifactId>
-            <version>4.4</version>
-            <scope>runtime</scope>
-          </dependency>
-        </dependencies>
-      </plugin>
-	 
-	  <!-- Vietnamese Document -->
-	 <!--
-	   <plugin>
-        <groupId>com.agilejava.docbkx</groupId>
-        <artifactId>docbkx-maven-plugin</artifactId>
-        <version>2.0.10-SNAPSHOT</version> 
-        <configuration>
-          <includes>dhis2_user_manual_vn.xml</includes>
-          <sourceDirectory>${docbook.source}/vn/</sourceDirectory>
-          <xincludeSupported>true</xincludeSupported>
-        </configuration>
-        <executions>
           <execution>
-            <id>chunked-html-docs</id>
+            <id>chunked-html-docs-vn</id>
             <phase>package</phase>
             <goals>
               <goal>generate-html</goal>
@@ -161,6 +143,10 @@
               <sectionAutolabel>1</sectionAutolabel>
               <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
               <chunkedOutput>true</chunkedOutput>
+             <includes>dhis2_user_manual_vn.xml</includes>
+          <sourceDirectory>${docbook.source}/vn/</sourceDirectory>
+          <xincludeSupported>true</xincludeSupported>
+ 
               <postProcess>
                 <copy todir="${docbook.target}/vn/">
                   <fileset dir="target/docbkx/">
@@ -179,15 +165,13 @@
                     <include name="**/*.css"/>
                   </fileset>
                 </copy>
-	-->
                 <!-- delete the file to force the regeneration in the next phase -->
-        <!--
-			<delete file="target/docbkx/html/dhis2_user_manual_vn.html"/>
+		<delete file="target/docbkx/html/dhis2_user_manual_vn.html"/>
               </postProcess>
             </configuration>
           </execution>
           <execution>
-            <id>html-docs</id>
+            <id>html-docs-vn</id>
             <phase>package</phase>
             <goals>
               <goal>generate-html</goal>
@@ -198,6 +182,9 @@
               <sectionAutolabel>1</sectionAutolabel>
               <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
               <chunkedOutput>false</chunkedOutput>
+                    <includes>dhis2_user_manual_vn.xml</includes>
+          <sourceDirectory>${docbook.source}/vn/</sourceDirectory>
+          <xincludeSupported>true</xincludeSupported>
               <postProcess>
                 <move file="target/docbkx/html/dhis2_user_manual_vn.html" tofile="target/docbkx/html/dhis2_user_manual_full.html"/>
                 <copy todir="${docbook.target}/vn/">
@@ -209,7 +196,7 @@
             </configuration>
           </execution>
           <execution>
-            <id>pdf-docs</id>
+            <id>pdf-docs-vn</id>
             <phase>package</phase>
             <goals>
               <goal>generate-pdf</goal>
@@ -219,6 +206,7 @@
               <foCustomization>${docbook.source}/vn/resources/xsl/fop-cust.xsl</foCustomization>
               <doubleSided>1</doubleSided>
               <includes>*.xml</includes>
+             <xincludeSupported>true</xincludeSupported> 
               <sourceDirectory>${docbook.source}/vn/</sourceDirectory>
               <postProcess>
                 <copy todir="target/site/vn">
@@ -230,12 +218,15 @@
             </configuration>
           </execution>
           <execution>
-            <id>xhtml-docs</id>
+            <id>xhtml-docs-vn</id>
             <phase>package</phase>
             <goals>
               <goal>generate-xhtml</goal>
             </goals>
             <configuration>
+             <includes>dhis2_user_manual_vn.xml</includes>
+          <sourceDirectory>${docbook.source}/vn/</sourceDirectory>
+          <xincludeSupported>true</xincludeSupported>
 			<xhtmlCustomization>${docbook.source}/vn/resources/xsl/html-inline-help.xsl</xhtmlCustomization>
               <postProcess>
                 <move file="target/docbkx/xhtml/dhis2_user_manual_vn.xhtml" tofile="target/docbkx/xhtml/dhis2_user_manual_full.xhtml"/>
@@ -257,7 +248,7 @@
           </dependency>
         </dependencies>
       </plugin>
--->
+
     </plugins>
   </build>
 </project>
