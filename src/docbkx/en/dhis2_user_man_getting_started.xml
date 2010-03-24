@@ -49,13 +49,13 @@
             <para>Close OpenOffice completely and then open OpenOffice.org Database. Select connect to an existing database - JDBC</para>
           </listitem>
           <listitem>
-            <para>Datasource URL is h2:~/dhis2-live/database/dhis2, and JDBC driver class is org.h2.Driver</para>
+            <para>Datasource URL is h2:~/dhis2-live/database/dhis2;AUTO_SERVER=TRUE, and JDBC driver class is org.h2.Driver</para>
           </listitem>
           <listitem>
             <para>User name is sa, password not needed. Finally, select a name and folder for the .odb file.</para>
           </listitem>
         </itemizedlist>
-        Note that you can not access the H2 database through OpenOffice Database while DHIS2 Live is running (and vice versa).
+        
         
       </para>
     </section>  
