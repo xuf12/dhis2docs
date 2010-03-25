@@ -1,0 +1,408 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. -->
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+<!ENTITY br ''>]>
+
+
+<chapter>
+  <chapterinfo>
+    <title>
+      DHIS 2 Dokumentasjon Guide
+    </title>
+    <author>
+      <firstname>
+        Jason
+      </firstname>
+      <surname>
+        Pickering
+      </surname>
+      <affiliation>
+        <orgname>
+        </orgname>
+      </affiliation>
+    </author>
+    <pubdate>
+      14/09/09
+    </pubdate>
+    <keywordset>
+      <keyword>
+        DHIS2
+      </keyword>
+      <keyword>
+        dokumentasjon
+      </keyword>
+      <keyword>
+        DocBook
+      </keyword>
+    </keywordset>
+    <revhistory>
+      <revision>
+        <revnumber>
+          2
+        </revnumber>
+        <date>
+          28/10/09
+        </date>
+        <revdescription>
+          <para>
+            Lagt til litt mer informasjon om flerspråklige dokumenter og redaktører.
+          </para>
+        </revdescription>
+      </revision>
+      <revision>
+        <revnumber>
+          1
+        </revnumber>
+        <date>
+          29/09/09
+        </date>
+        <revdescription>
+          <para>
+            Lagt til mer informasjon om hvordan du kommer i gang med BZR og DocBook
+          </para>
+        </revdescription>
+      </revision>
+    </revhistory>
+  </chapterinfo>
+  <title>
+    DHIS2 Documentation Guide
+  </title>
+  <section id="docs_1">
+    <title>
+      DHIS 2 Dokumentasjon System Oversikt
+    </title>
+    <para remap="">
+      DHIS 2 er en web-basert samlet information management system under svært aktiv utvikling. Mens primært beregnet for styring av aggregat, georeferenced helseopplysninger, bør det være mulig å bruke systemet til andre formål også. For tiden er det et stort antall koblet lommer av dokumentasjon i ulike formater (f.eks MediaWiki, Word-dokumenter, Confluence). Det er behov for å konsolidere dokumentasjon prosessen og bringe den mer i tråd med den distribuerte natur utviklingen av programmet selv. Det har blitt foreslått derfor å flytte den aktuelle dokumentasjonen til DocBook plattformen. Denne artikkelen vil ikke diskutere den relative fortjeneste av DocBook plattformen, men heller vil tjene som en kort guide til å bruke sin ved DHIS 2 Implementers, brukere og utviklere. Leserne oppfordres til å lage sin egen beslutning om å bruke DocBook eller ikke for dokumentasjon formål.
+    </para>
+  </section>
+  <section id="docs_2">
+    <title>
+      Innledning
+    </title>
+    <para>
+      En av de viktigste fordelene ved DocBook er at det er fullstendig skille mellom innhold og presentasjon. DocBook er et rent XML format, og er godt dokumentert. Det antas at bare en svært liten del av funksjonene vil være nødvendig for å oppnå mye høyere kvalitet dokumentasjon for DHIS. Det finnes rundt 400 forskjellige påslag elementer som faller i nesten alle nivå av teknisk dokumentasjon behov, men i virkeligheten, bare noen dusin av disse elementet vil trolig må brukes for å oppnå høy kvalitet dokumentasjon for DHIS 2, både for trykte samt online-formater som HTML eller integrert hjelp systemer innen programmet selv. Derfor er det bredt spekter av muligheter når det gjelder hvilke editor kan brukes til etablering av DocBook filer. En ganske komplett liste over muligheter ligger
+      <ulink url="http://wiki.docbook.org/topic/DocBookAuthoringTools">
+        her
+      </ulink>
+      . Det er anbefalt å bruke
+      <ulink url="http://www.syntext.com/products/serna-free/ ">
+        Syntext Serna Gratis
+      </ulink>
+      for redigering DocBook kildefiler som WYSIWYG. Det er ikke anbefalt å bruke redaktøren XMLmind XML Editor Personal Edition (også kjent som XXC Personal), som redaktøren &quot;i stillhet&quot; steder unødvendige mellomrom og andre ornamenter til DocBook kilden som gjør samarbeidende redigering av dokumenter svært vanskelig.
+    </para>
+    <para>
+      En av de viktige begreper å huske på når authoring dokumentasjon i DocBook, eller andre presentasjonen nøytral formater, er at
+      <emphasis role="bold">
+        innhold
+      </emphasis>
+      av dokumentet bør vurderes i første omgang. Den, det
+      <emphasis role="bold">
+        presentasjon
+      </emphasis>
+      av dokumentet vil skje i et eget trinn, hvor det vil bli gjengitt i ulike formater, slik som HTML og PDF. Det er derfor viktig at dokumentet blir organisert og strukturert, med passende DocBook koder og strukturelle elementer som vurderes.
+    </para>
+    <para>
+      Det er god skikk å bryte dokumentet i to ulike seksjoner ved hjelp av &quot;sekt&quot;, eller del element. § elementer kan også være nestet i hverandre, for eksempel &quot;§ 1&quot; og &quot;§ 2&quot;. Dette konseptet er i hovedsak den samme som
+      <productname>
+        Microsoft Word
+      </productname>
+      eller andre tekstbehandlingsprogrammer. DocBook vil automatisk ta seg av nummerering delene for deg når dokumentet er produsert. To andre viktige elementer er &quot;itemizedlist&quot; og &quot;NumberedList&quot;. Disse er ganske like, men en spesifisert liste tilsvarer en punktliste som en nummerert liste vil bli gjengitt med hvert element er nummerert rekkefølge. Andre sentrale elementer er &quot;skjermbilde&quot; og &quot;table&quot;, som burde være selvforklarende.
+    </para>
+  </section>
+  <section id="docs_3">
+    <title>
+      Komme i gang med Launchpad
+    </title>
+    <para>
+      Foreløpig er dokumentasjonen systemet delen av kildekoden plassert på
+      <ulink url="https://launchpad.net/">
+        Launchpad
+      </ulink>
+      . Launchpad er en samarbeidsplattformen som gjør at flere folk til å jobbe programvare prosjekter i samarbeid. For at dette skal være mulig, en versjon kontrollsystem er nødvendig for å administrere alle de endringene som flere brukere kan gjøre. Launchpad bruker
+      <emphasis>
+        Bazaar
+      </emphasis>
+      kilde kontrollsystem. Mens det er utenfor omfanget av dette dokumentet å beskrive funksjonaliteten
+      <emphasis>
+        Bazaar
+      </emphasis>
+      , Vil brukere som ønsker å lage dokumentasjon må ha minst en grunnleggende forståelse av hvordan systemet fungerer. En grunnleggende veiledning gis i neste avsnitt.
+    </para>
+    <para>
+      For å begynne å legge til eller redigere dokumentasjonen, bør du først utføre en checkout av kildekoden. Hvis du ikke allerede har en Launchpad Login ID, må du få en. Dette kan gjøres
+      <ulink url="https://launchpad.net/+login">
+        her
+      </ulink>
+      . Når du registrerer deg hos Launchpad, må du be om tilgang til
+      <emphasis>
+        dhis2-dokumentasjon og
+      </emphasis>
+      gruppe. Logg inn i Launchpad, og så be om tilgang
+      <ulink url="https://code.launchpad.net/~dhis2-documenters/dhis2/dhis2-docbook-docs">
+        her
+      </ulink>
+      . Forespørselen må godkjennes av gruppe administratorer. Når du har fått tilgang til gruppen, kan du forplikte endringer i dokumentasjonen avslaget og sende og motta e-post på gruppenes listen.
+    </para>
+  </section>
+  <section id="docs_4">
+    <title>
+      Komme i dokumentet kilde
+    </title>
+    <para>
+      For å redigere dokumentasjon, må du laste ned kilden sidene av dokumentasjonen til datamaskinen. Launchpad bruker en versjon kontrollsystem kjent som BZR. Det finnes ulike metoder for å få Bazaar jobber med systemet, avhengig av hvilket operativsystem du bruker. Et godt steg-for-steg guide for
+      <productname>
+        Microsoft
+      </productname>
+      operativsystemene kan sees
+      <ulink url="http://wiki.showmedo.com/index.php/Using_Launchpad_and_Bazaar#Steps_to_download_a_project_on_Launchpad_that_uses_Bazaar_with_only_one_branch">
+        her
+      </ulink>
+      . Hvis du bruker Linux, må du installere BZR på systemet gjennom din pakkebehandler, eller fra kildekode.
+    </para>
+    <para>
+      Når du har installert BZR på systemet, må du laste ned dokumentet kilde. Bare følg denne prosedyren:
+    </para>
+    <orderedlist>
+      <listitem>
+        <para>
+          Kontroller at du har installert Bazaar.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Start Bazaar ved å høyreklikke en mappe hvis du bruker
+          <productname>
+            Windows
+          </productname>
+          og velge
+          <command>
+            BZR Here
+          </command>
+          . Hvis du bruker Linux, kan du bare opprette en mappe for å holde dokumentet kilder. Du kan plassere dokumentet kilde i enhver mappe du vil.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Laste ned den nyeste revisjonen av DHIS2 dokumenter prosjektet type:
+          <command>
+            BZR grenen http://bazaar.launchpad.net/% 7Edhis2-documenters/dhis2/dhis2-docbook-docs
+          </command>
+          Hvis du bruker Linux, eller alternativt dersom du bruker
+          <productname>
+            Windows
+          </productname>
+          Skriv inn nettadressen til kildekoden depotet &quot;
+          <ulink url="https://bazaar.launchpad.net/%7Edhis2-documenters/dhis2/dhis2-docbook-docs">
+            http://bazaar.launchpad.net/% 7Edhis2-documenters/dhis2/dhis2-docbook-docs
+          </ulink>
+          &quot;
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Nedlastingen Prosessen bør starte og all dokumentasjon kildefilene vil bli lastet ned til mappen du har angitt.
+        </para>
+      </listitem>
+    </orderedlist>
+  </section>
+  <section id="docs_5">
+    <title>
+      Redigere dokumentasjon
+    </title>
+    <para>
+      Når du har lastet ned kilden, bør du ha en rekke mapper innsiden av dhis2-docbook-docs-katalogen. Alle dokumenter skal plasseres i
+      <filename>
+        dhis2-docbook-docs/src/docbkx/XX
+      </filename>
+      mappen. Merk at
+      <filename>
+        XX
+      </filename>
+      representerer ISO 639-1 (to bokstaver) språkkoden av dokumentasjonen. Hvis du utvikler engelsk dokumentasjon, plasserer det innenfor
+      <filename>
+        / dhis2-docbook-docs/src/docbkx/en /
+      </filename>
+      mappen. Plasser alle bildefiler som kan være knyttet til dokumentet i
+      <filename>
+        / dhis2-docbook-docs/src/docbkx/XX/resources/images
+      </filename>
+      mappe og knytte disse inne i DocBook-dokument ved hjelp av en slektning-fil. Når dokumentasjonen er bygget, i en egen trinn, vil bildene automatisk bli kopiert over til riktig mappe under bygge prosessen.
+    </para>
+  </section>
+  <section id="docs_6">
+    <title>
+      Bruke bilder
+    </title>
+    <para>
+      Skjermbilder er svært nyttig for å gi informasjon til brukerne om hvordan bestemte handlinger skal utføres. DocBook har ingen iboende mekanismer for å vite nøyaktig hvordan bildet skal gjengis i det endelige dokumentet. Derfor er det nødvendig å gi instruksjoner gjennom element attributter. Følgende XML kodefragment viser hvordan et bilde kan spesifiseres til å oppta 80% av de tilgjengelige siden bredde. For skjermbilder i liggende format, synes dette å være et passende beløp. Du må kanskje eksperimentere litt for å få riktig bredde for bildet. Alternativt kan du endre oppløsningen på selve bildet, for å få en passende størrelse under rendering.
+    </para>
+    <literallayout>
+      &lt;screenshot&gt; &lt;screeninfo&gt; DHIS2 Login Screen &lt;/ screeninfo&gt; &lt;mediaobject&gt; &lt;imageobject&gt; &lt;imagedata fileref=&quot;dhis2_login_screen.jpg&quot; format=&quot;JPG&quot; width=&quot;80%&quot;/&gt; &lt;/ imageobject&gt; &lt;/ mediaobject&gt; &lt; / skjermbilde&gt;
+    </literallayout>
+    <para>
+      For andre bilder, kanskje avhengig av størrelse, en annen verdi være nødvendig. Hvis du ikke angir en bredde for deg bildet, og dets iboende størrelsen er større enn de tilgjengelige skjermbredde, kan bildet overflyt i visse typer dokumenter med en fast bredde, for eksempel PDF.
+    </para>
+  </section>
+  <section id="docs_7">
+    <title>
+      Linking dokumenter sammen
+    </title>
+    <para>
+      DocBook gir et modulært rammeverk hvor mange egne dokumenter kan knyttes sammen til en master-dokument. Fragmenter fra forskjellige dokumenter kan også gjenbrukes i ulike sammenhenger. Det er derfor viktig å vurdere om dokumentet bør være bygget som en artikkel eller et kapittel. Kapitlene er hovedsakelig deler av en bok, og kan derfor kobles sammen i et større dokument veldig enkelt. Artiklene er hovedsakelig enkeltstående dokumenter, men de kan også monteres sammen til et større dokument på komponentnivå.
+    </para>
+    <para>
+      Dersom du ønsker å koble flere artikler sammen til en bok, gir DocBook en mekanisme for å tildele en ID til en del. I eksempelet nedenfor har en del fått tildelt et ID. Dette id må være unikt innenfor dokumentet.
+    </para>
+    <para>
+      <literallayout>
+        &lt;inndelingsnummer&gt; id=&quot;mod2_1&quot;&gt; &lt;title&gt; Komme i gang med DHIS2 &lt;/ title&gt; ....
+      </literallayout>
+    </para>
+    <para>
+      For å inkludere en artikkel i en bok, en Xinclude uttalelse må brukes. Følgende eksempel viser hvordan.
+    </para>
+    <para>
+      <literallayout>
+        &lt;chapter&gt; &lt;title&gt; Komme i gang med DHIS2 &lt;/ title&gt; &lt;xi: include xmlns: Xi = &quot;http://www.w3.org/2001/XInclude&quot; href = &quot;dhis2_user_man_mod2.xml&quot; xpointer = &quot;mod2_1&quot; koding = &quot;UTF-8&quot; /&gt;
+      </literallayout>
+    </para>
+    <para>
+      Merk at filnavnet og id har blitt tildelt i det overordnede dokumentet, og viser til selve filen (href) og bestemt fragment av barnet dokumentet som skal refereres i den overordnede dokumentet (xpointer).
+    </para>
+    <para>
+      Inkludert kapitler i en bok er meget enkel. Eksempelet nedenfor illustrerer hvordan:
+    </para>
+    <para>
+      <literallayout>
+        &lt;xi:include xmlns:xi=&quot;http://www.w3.org/2001/XInclude&quot; href=&quot;dhis2_user_man_ mod1.xml&quot; encoding=&quot;UTF-8&quot;/&gt;
+      </literallayout>
+    </para>
+    <para>
+      I dette tilfellet er det ikke nødvendig å eksplisitt referanse en del av dokumentet, med mindre du bare vil inkludere en del av kapittelet. Hvis du vil bruke en del av kapittelet, kan du tilordne en ID til den delen, og deretter referanse som seksjonen gjennom en xpointer.
+    </para>
+  </section>
+  <section id="docs_8">
+    <title>
+      Håndtering flerspråklig dokumentasjon
+    </title>
+    <para>
+      Katalogstrukturen av dokumentasjonen har blitt opprettet for å lette etableringen av dokumenter på alle språk. Hvis du vil opprette et nytt sett med dokumenter i et gitt språk, rett og slett lage en ny katalog i
+      <filename>
+        dhis2-docbook-docs/src/docbkx /
+      </filename>
+      katalogen. Pass på å bruke ISO 639-1 koden for språket du kommer til å opprette dokumenter i. En fullstendig liste over disse kodene kan være funnet
+      <ulink url="http://en.wikipedia.org/wiki/ISO_639-1">
+        her
+      </ulink>
+      . Legg til en ny mappe for bilder i en sub-adresseliste, erstatter XX med den faktiske ISO 639-1 koden for språket du vil opprette dokumenter i. Du må også redigere pom.xml filen i hovedbygningen dhis2-docbook-docs katalogen. Hvis du er usikker på hvilke endringer som må gjøres til denne filen, spør på mailinglisten først, da denne filen kontrollerer generasjon av all dokumentasjon.
+    </para>
+  </section>
+  <section id="docs_9">
+    <title>
+      Building dokumentasjonen
+    </title>
+    <para>
+      En av de viktigste fordelene av DocBook-formatet er at kilden dokumentasjon kan bli forvandlet til en rekke formater, inkludert HTML, delvis HTML, XHTML, PDF, og en rekke andre formater. Det finnes en rekke verktøy som er i stand til å utføre denne oppgaven. I utgangspunktet XML-kilden til dokumentet er transformert ved hjelp av standard DocBook XSL stilark i ønsket format. Den komplette listen over verktøy som kan omforme DocBook vil ikke bli oppført her, men noen eksempler nedenfor.
+    </para>
+    <para>
+      Seneste versjon av dokumentasjonen er tilgjengelig
+    </para>
+    <section>
+      <title>
+        Building dokumentasjonen med Apache maven
+      </title>
+      <para>
+        For å transformere dokumentasjonen kildefilene til ulike formater, for eksempel HTML eller PDF, må du installere Apache Maven programmet. Du kan få en kopi
+        <ulink url="http://maven.apache.org/download.html">
+          her
+        </ulink>
+        eller ved å installere den via pakkebehandler hvis du bruker Linux. Bare utføre kommandoen
+        <command>
+          mvn clean pakke
+        </command>
+        på Windows eller Linux fra
+        <filename>
+          / dhis2-docbook-docs
+        </filename>
+        katalogen. Maven begynner å laste ned de nødvendige komponentene for å omforme dokumenter til hmtl og PDF. Når prosessen er fullført (vær tålmodig første gang, da det er en rekke komponenter som må lastes ned), alle måldokumentet typene vil bli generert i /
+        <filename>
+          dhis2-docbook-docs/target/docbkx
+        </filename>
+        katalogen. HTML-dokumenter skal være i HTML-katalogen, og PDF-dokumenter skal være i PDF-katalogen.
+      </para>
+    </section>
+    <section>
+      <title>
+        Building med xmlto
+      </title>
+      <para>
+        <command>
+          xmlto
+        </command>
+        er et nyttig verktøy tilgjengelig på Linux-plattformer for å transformere DocBook dokumenter i mange forskjellige formater. Mer informasjon om pakken kan finnes
+        <ulink url="http://cyberelk.net/tim/software/xmlto/">
+          her
+        </ulink>
+        . Hvis du ikke vil bruke Apache Maven annen grunn, kan du installere
+        <command>
+          xmlto
+        </command>
+        gjennom pakkebehandler. Når du har installert
+        <command>
+          xmlto
+        </command>
+        du kan bare kjøre
+        <command>
+          xmlto
+          <parameter>
+            html
+          </parameter>
+          <parameter>
+            file_to_transform
+          </parameter>
+        </command>
+        der
+        <parameter>
+          file_to_transform
+        </parameter>
+        parameteren er navnet på filen du ønsker å transformere. Det er mange andre formater er tilgjengelige, for eksempel PDF, PS, JavaHelp og andre.
+      </para>
+    </section>
+  </section>
+  <section id="docs_10">
+    <title>
+      Begå endringene tilbake til Launchpad
+    </title>
+    <para>
+      Når du er ferdig med å redigere dokumentet, må du forplikte endringene tilbake til Launchpad. Åpne opp en ledetekst på Windows eller et skall på Linux, og gå til mappen hvor du har plassert dokumentasjon. Hvis du har lagt til noen nye filer eller mapper til din lokale filial, må du legge dem til kilden treet med
+      <command>
+        BZR add
+      </command>
+      kommando, etterfulgt av mappen eller filen (e) som du har lagt til. Når du har lagt alle nye filer, må du forplikte dem til din lokale grenen med følgende kommando:
+    </para>
+    <blockquote>
+      <para>
+        <command>
+          BZR commit-m &quot;Opprettet amharisk oversettelse av dokumentasjon&quot;
+        </command>
+      </para>
+    </blockquote>
+    <para>
+      Bare legg en informativ melding om hva du har gjort. Når du har begått endringer i den lokale grenen, kan du presse dem til master grenen med følgende kommando:
+      <blockquote>
+        <para>
+          <command>
+            BZR push BZR + ssh: / / bazaar.launchpad.net /% 7Edhis2-documenters/dhis2/dhis2-docbook-docs
+          </command>
+        </para>
+      </blockquote>
+    </para>
+    <para>
+      Hvis du har spørsmål, eller finner ikke at du kan komme i gang, bare å sende en e-post med ditt problem til
+      <email>
+        dhis2-documenters@lists.launchpad.net
+      </email>
+      .
+    </para>
+  </section>
+</chapter>
