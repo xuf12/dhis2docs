@@ -1,0 +1,409 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. -->
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+<!ENTITY br ''>]>
+
+
+
+<chapter>
+  <chapterinfo>
+    <title>
+      DHIS 2 Documentación Guía
+    </title>
+    <author>
+      <firstname>
+        Jason
+      </firstname>
+      <surname>
+        Pickering
+      </surname>
+      <affiliation>
+        <orgname>
+        </orgname>
+      </affiliation>
+    </author>
+    <pubdate>
+      14/09/09
+    </pubdate>
+    <keywordset>
+      <keyword>
+        DHIS2
+      </keyword>
+      <keyword>
+        documentación
+      </keyword>
+      <keyword>
+        DocBook
+      </keyword>
+    </keywordset>
+    <revhistory>
+      <revision>
+        <revnumber>
+          2
+        </revnumber>
+        <date>
+          28/10/09
+        </date>
+        <revdescription>
+          <para>
+            Añadido un poco más de información sobre los documentos en varios idiomas y editores.
+          </para>
+        </revdescription>
+      </revision>
+      <revision>
+        <revnumber>
+          1
+        </revnumber>
+        <date>
+          29/09/09
+        </date>
+        <revdescription>
+          <para>
+            Información más Añadido el empezar con bzr y DocBook
+          </para>
+        </revdescription>
+      </revision>
+    </revhistory>
+  </chapterinfo>
+  <title>
+    DHIS2 Documentación Guía
+  </title>
+  <section id="docs_1">
+    <title>
+      DHIS 2 Documentación Descripción general del sistema
+    </title>
+    <para remap="">
+      DHIS 2 es una red basada en el sistema global de información de gestión en fase de desarrollo muy activo. Aunque principalmente destinados a la gestión de los agregados, los datos georreferenciados de la salud, debe ser posible utilizar el sistema para otros fines. Actualmente, hay un gran número de bolsillos desconectada de la documentación en varios formatos (por ejemplo, MediaWiki, documentos de Word, Confluencia). Hay una necesidad de consolidar el proceso de documentación y que esté más en consonancia con la naturaleza distribuida de la evolución de la propia aplicación. Se ha sugerido, por tanto, mover la documentación actual para la plataforma de DocBook. Este artículo no vamos a discutir los méritos relativos de la plataforma de DocBook, sino más bien servirá como una guía breve para su utilización por DHIS 2 ejecutores, usuarios y desarrolladores. Los lectores son alentados a tomar su propia decisión sobre si utilizar DocBook o no con fines de documentación.
+    </para>
+  </section>
+  <section id="docs_2">
+    <title>
+      Introducción
+    </title>
+    <para>
+      Una de las principales ventajas de DocBook es que hay una separación completa entre el contenido y presentación. DocBook es un formato XML puro, y está bien documentado. Se cree que sólo un pequeño subconjunto de sus características será necesario para lograr la documentación de calidad mucho más alta para DHIS. Hay alrededor de 400 marcas-up elementos que se adaptan a casi cualquier nivel de las necesidades de documentación técnica, pero en realidad, sólo una docena de estos elementos probablemente tendrá que ser empleados para conseguir documentación de alta calidad para DHIS 2, tanto para los impresos , así como en los formatos en línea, tales como HTML o sistemas de ayuda integrados en la propia aplicación. Rango Por lo tanto, hay variedad de posibilidades en términos de que el editor puede ser usado para la creación de ficheros DocBook. Una lista bastante completa de las posibilidades se encuentra
+      <ulink url="http://wiki.docbook.org/topic/DocBookAuthoringTools">
+        aquí
+      </ulink>
+      . En la actualidad se recomienda el uso de
+      <ulink url="http://www.syntext.com/products/serna-free/ ">
+        Syntext Serna Libre
+      </ulink>
+      para los archivos de código fuente DocBook como la edición WYSIWYG. No se recomienda utilizar el editor XML Editor XMLmind Personal Edition (también conocido como XXE personal), como el editor de &quot;silencio&quot; los lugares en blanco innecesarios y otros adornos para las fuentes en DocBook que hace que la edición colaborativa de documentos muy difícil.
+    </para>
+    <para>
+      Uno de los conceptos clave a tener en cuenta a la hora de creación de documentación en DocBook, o formatos de presentación neutral, es que la
+      <emphasis role="bold">
+        contenido
+      </emphasis>
+      del documento deben ser considerados en primera instancia. El
+      <emphasis role="bold">
+        Presentación
+      </emphasis>
+      del documento se llevará a cabo en una etapa distinta, donde se representará en diferentes formatos, como HTML y PDF. Por tanto, es importante que el documento es la voluntad organizada y estructurada, con etiquetas de DocBook adecuado y los elementos estructurales se está considerando.
+    </para>
+    <para>
+      Es una práctica buena para romper con su documento en las distintas secciones usando la &quot;secta&quot;, o elemento de la sección. Elementos de la sección también se pueden anidar dentro de otros, como la &quot;Sección 1&quot; y &quot;Sección 2&quot;. Este concepto es esencialmente el mismo que
+      <productname>
+        Microsoft Word
+      </productname>
+      o programas de procesamiento de textos. DocBook automáticamente se encargará de la numeración de las secciones para que cuando se produce el documento. Otros dos elementos importantes son el &quot;itemizedlist&quot; y &quot;NumberedList&quot;. Estos son bastante similares, pero una lista detallada corresponde a una lista con viñetas, una lista numerada, que será prestado con cada elemento que se numeran secuencialmente. Otros elementos clave son &quot;captura&quot; y &quot;tabla&quot;, que debe ser auto-explicativo.
+    </para>
+  </section>
+  <section id="docs_3">
+    <title>
+      Introducción a Launchpad
+    </title>
+    <para>
+      En la actualidad, el sistema de documentación es parte del código fuente de su sede en
+      <ulink url="https://launchpad.net/">
+        Launchpad
+      </ulink>
+      . Launchpad es una plataforma de colaboración que permite a varias personas para trabajar en proyectos de software de colaboración. Para que esto sea posible, un sistema de control de versiones es necesario para gestionar todos los cambios que varios usuarios pueden hacer. Launchpad utiliza el
+      <emphasis>
+        Bazar
+      </emphasis>
+      sistema de control de código fuente. Si bien está fuera del alcance de este documento para describir la funcionalidad de la
+      <emphasis>
+        Bazar
+      </emphasis>
+      , Los usuarios que deseen crear documentación tendrá que ganar al menos un conocimiento básico de cómo funciona el sistema. Una guía básica se proporciona en la sección siguiente.
+    </para>
+    <para>
+      Con el fin de empezar a añadir o modificar la documentación, primero debe realizar una comprobación del código fuente. Si usted no tiene un ID de inicio de sesión Launchpad, usted tendrá que conseguir uno. Esto se puede hacer
+      <ulink url="https://launchpad.net/+login">
+        aquí
+      </ulink>
+      . Una vez que se registra en el Launchpad, tendrá que solicitar el acceso a la
+      <emphasis>
+        dhis2-documentalistas
+      </emphasis>
+      grupo. Ingresar a Launchpad, y luego acceder a la solicitud
+      <ulink url="https://code.launchpad.net/~dhis2-documenters/dhis2/dhis2-docbook-docs">
+        aquí
+      </ulink>
+      . Su solicitud tendrá que ser aprobado por los administradores del grupo. Una vez que se ha concedido el acceso al grupo, puede confirmar cambios a la rama de la documentación y enviar y recibir mensajes de correo electrónico en la lista de los grupos.
+    </para>
+  </section>
+  <section id="docs_4">
+    <title>
+      Obtener el documento de origen
+    </title>
+    <para>
+      Con el fin de editar la documentación, tendrá que descargar las páginas de la fuente de la documentación a su ordenador. Launchpad utiliza un sistema de control de versión conocida como bzr. Existen diferentes métodos para conseguir Bazar de trabajo en el sistema, dependiendo del sistema operativo que esté utilizando. Un buen paso-por-paso guía para
+      <productname>
+        Microsoft
+      </productname>
+      sistemas operativos pueden ser vistos
+      <ulink url="http://wiki.showmedo.com/index.php/Using_Launchpad_and_Bazaar#Steps_to_download_a_project_on_Launchpad_that_uses_Bazaar_with_only_one_branch">
+        aquí
+      </ulink>
+      . Si está utilizando Linux, usted tendrá que instalar bzr en su sistema a través de su gestor de paquetes, o de código fuente.
+    </para>
+    <para>
+      Una vez que haya instalado bzr en su sistema, tendrá que descargar el código fuente del documento. Sólo tienes que seguir este procedimiento:
+    </para>
+    <orderedlist>
+      <listitem>
+        <para>
+          Asegúrese de que tiene instalado Bazaar.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Bazar de inicio haciendo clic derecho en una carpeta si está utilizando
+          <productname>
+            Windows
+          </productname>
+          y la selección de
+          <command>
+            Aquí BZR
+          </command>
+          . Si usas Linux, puedes crear una carpeta para guardar las fuentes de documentos. Puede colocar el documento de origen en cualquier carpeta que desee.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Para descargar la última revisión del tipo de DHIS2 documentos de proyecto:
+          <command>
+            rama bzr http://bazaar.launchpad.net/% 7Edhis2-documenters/dhis2/dhis2-docbook-docs
+          </command>
+          si está usando Linux, o alternativamente, si está usando
+          <productname>
+            Windows
+          </productname>
+          Escriba la dirección URL del repositorio de código fuente &quot;
+          <ulink url="https://bazaar.launchpad.net/%7Edhis2-documenters/dhis2/dhis2-docbook-docs">
+            7Edhis2-documenters/dhis2/dhis2-docbook-docs% http://bazaar.launchpad.net/
+          </ulink>
+          &quot;
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          El proceso de descarga debe comenzar y todos los archivos de documentación original, serán transferidos a la carpeta que especificó.
+        </para>
+      </listitem>
+    </orderedlist>
+  </section>
+  <section id="docs_5">
+    <title>
+      Edición de la documentación de
+    </title>
+    <para>
+      Una vez que haya descargado el código fuente, se debe tener una serie de carpetas dentro de la dhis2-docbook-docs directorio. Todos los documentos deben ser colocados en el
+      <filename>
+        dhis2-docbook-docs/src/docbkx/XX
+      </filename>
+      carpeta. Tenga en cuenta que la
+      <filename>
+        XX
+      </filename>
+      representa la norma ISO 639-1 (dos letras) el código de idioma de la documentación. Si está desarrollando la documentación idioma Inglés, lugar en el interior del
+      <filename>
+        / dhis2-docbook-docs/src/docbkx/en /
+      </filename>
+      carpeta. Coloque cualquier archivos de imagen que puede estar relacionado con su documento en el
+      <filename>
+        / dhis2-docbook-docs/src/docbkx/XX/resources/images
+      </filename>
+      carpeta y vincular estos dentro de su documento DocBook utilizando un enlace de archivos relativos. Cuando se construyó la documentación, en una etapa distinta, las imágenes se copiarán automáticamente en el directorio correcto durante el proceso de construcción.
+    </para>
+  </section>
+  <section id="docs_6">
+    <title>
+      El uso de imágenes
+    </title>
+    <para>
+      Las capturas de pantalla son muy útiles para proporcionar información a los usuarios sobre la manera particular, las acciones deben ser realizadas. DocBook no tiene mecanismos intrínsecos para saber exactamente cómo una imagen debe ser dictada en el documento final. Por lo tanto, es necesario dar instrucciones a través de atributos de los elementos. El fragmento de código XML siguiente se muestra cómo una imagen puede ser especificado para ocupar el 80% del ancho de página disponible. Para obtener capturas de pantalla en formato apaisado, este parece ser un monto apropiado. Es posible que tenga que experimentar un poco para obtener una anchura adecuada para su imagen. Alternativamente, puede modificar la resolución de la imagen en sí, a fin de obtener un tamaño adecuado durante la representación.
+    </para>
+    <literallayout>
+      &lt;screenshot&gt; &lt;screeninfo&gt; pantalla de Login DHIS2 &lt;/ screeninfo&gt; &lt;mediaobject&gt; &lt;imageobject&gt; &lt;imagedata fileref=&quot;dhis2_login_screen.jpg&quot; format=&quot;JPG&quot; width=&quot;80%&quot;/&gt; &lt;/ listitem&gt; &lt;/ mediaobject&gt; &lt; / screenshot&gt;
+    </literallayout>
+    <para>
+      Para otras imágenes, dependiendo de su tamaño, un valor diferente puede ser necesaria. Si no se especifica un ancho para que la imagen, y su tamaño intrínseco es mayor que el ancho de pantalla disponible, la imagen puede desbordar en ciertos tipos de documentos con un ancho fijo, como PDF.
+    </para>
+  </section>
+  <section id="docs_7">
+    <title>
+      Vinculación de documentos en su conjunto
+    </title>
+    <para>
+      DocBook proporciona un marco modular en el que muchos documentos separados se pueden unir en un documento maestro. Fragmentos de distintos documentos también pueden ser reutilizados en diferentes contextos. Por tanto, es importante considerar si el documento debe ser construido como un artículo o un capítulo. Los capítulos son esencialmente partes de un libro, y por lo tanto se pueden unir en un documento más fácilmente. Los artículos son básicamente independientes de documentos, pero también pueden ser reunidos en un documento más grande a nivel de componente.
+    </para>
+    <para>
+      Si desea vincular varios artículos en un libro, DocBook provee un mecanismo para asignar una identificación a una sección. En el siguiente ejemplo, una sección se le ha asignado un ID. Esta identificación debe ser único en el documento.
+    </para>
+    <para>
+      <literallayout>
+        &lt;section id=&quot;mod2_1&quot;&gt; &lt;title&gt; Introducción a DHIS2 &lt;/ title&gt; ....
+      </literallayout>
+    </para>
+    <para>
+      Con el fin de incluir un artículo en un libro, una declaración xinclude debe ser utilizado. El siguiente ejemplo muestra cómo.
+    </para>
+    <para>
+      <literallayout>
+        &lt;chapter&gt; &lt;title&gt; Introducción a DHIS2 &lt;/ title&gt; &lt;xi: include xmlns: xi = &quot;http://www.w3.org/2001/XInclude&quot; href = &quot;dhis2_user_man_mod2.xml&quot; XPointer = &quot;mod2_1&quot; codificación = &quot;UTF-8&quot; /&gt;
+      </literallayout>
+    </para>
+    <para>
+      Tenga en cuenta que el nombre del archivo y la ID han sido asignados en el documento principal, en referencia al archivo real (href) y fragmento particular del documento de niño que debe estar referenciada en el documento principal (XPointer).
+    </para>
+    <para>
+      Incluye capítulos de un libro es muy simple. El siguiente ejemplo ilustra la forma:
+    </para>
+    <para>
+      <literallayout>
+        &lt;xi:include xmlns:xi=&quot;http://www.w3.org/2001/XInclude&quot; href=&quot;dhis2_user_man_ mod1.xml&quot; encoding=&quot;UTF-8&quot;/&gt;
+      </literallayout>
+    </para>
+    <para>
+      En este caso, no hay necesidad de hacer referencia explícita a una parte del documento, a menos que usted sólo desea incluir una parte del capítulo. Si desea utilizar una sección del capítulo, puede asignar un identificador de dicha sección, y después de que el artículo de referencia a través de un XPointer.
+    </para>
+  </section>
+  <section id="docs_8">
+    <title>
+      Manejo de documentación multilingüe
+    </title>
+    <para>
+      La estructura de directorios de la documentación ha sido creado con el fin de facilitar la creación de documentos en cualquier idioma. Si desea crear un nuevo conjunto de documentos en un idioma determinado, basta con crear un nuevo directorio en el
+      <filename>
+        dhis2-docbook-docs/src/docbkx /
+      </filename>
+      directorio. Asegúrese de utilizar el código ISO 639-1 para el idioma que se va a crear documentos de una &quot;lista completa de esos códigos se pueden encontrar
+      <ulink url="http://en.wikipedia.org/wiki/ISO_639-1">
+        aquí
+      </ulink>
+      . Añadir una nueva carpeta de imágenes en un subdirectorio, que sustituye a XX con el actual código ISO 639-1 para el idioma que va a crear documentos pulg Usted también tendrá que editar el archivo pom.xml en el dhis2 principal docbook-docs directorio. Si no está seguro de qué cambios deben hacerse a este archivo, preguntar en la primera lista de correo, ya que este archivo controla la generación de toda la documentación.
+    </para>
+  </section>
+  <section id="docs_9">
+    <title>
+      La construcción de la documentación de
+    </title>
+    <para>
+      Una de las principales ventajas del formato DocBook es que la documentación original se puede transformar en una gran variedad de formatos, incluyendo HTML, fragmentada HTML, XHTML, PDF y un número de otros formatos. Hay una gran variedad de herramientas que son capaces de realizar esta tarea. Básicamente, el código fuente XML del documento es transformado mediante el estándar de hojas de estilo DocBook XSL en el formato deseado. La lista completa de herramientas capaces de transformar DocBook no serán listados aquí, pero unos pocos ejemplos se proporcionan a continuación.
+    </para>
+    <para>
+      Últimas versiones de la documentación están disponibles
+    </para>
+    <section>
+      <title>
+        La construcción de la documentación de Apache Maven
+      </title>
+      <para>
+        Con el fin de transformar los archivos de documentación de origen a diferentes formatos, como HTML o PDF, necesitará instalar el programa Apache Maven. Usted puede obtener una copia
+        <ulink url="http://maven.apache.org/download.html">
+          aquí
+        </ulink>
+        o mediante la instalación a través de su gestor de paquetes si usted está utilizando Linux. Simplemente ejecute el comando
+        <command>
+          paquete limpio mvn
+        </command>
+        en Windows o en Linux desde el
+        <filename>
+          / dhis2-docbook-docs
+        </filename>
+        directorio. Maven comenzará a descargar los componentes necesarios para transformar los documentos en HMTL y PDF. Una vez finalizado el proceso (ser paciente la primera vez, ya que hay una serie de componentes que debe ser descargado), todos los tipos de destino documento se genera en el /
+        <filename>
+          dhis2-docbook-docs/target/docbkx
+        </filename>
+        directorio. Documentos HTML estará en el directorio HTML, PDF y documentos estarán en el directorio PDF.
+      </para>
+    </section>
+    <section>
+      <title>
+        Edificio con xmlto
+      </title>
+      <para>
+        <command>
+          xmlto
+        </command>
+        es una utilidad útil disponible en plataformas Linux para la transformación de documentos DocBook en muchos formatos diferentes. Más información sobre el paquete se puede encontrar
+        <ulink url="http://cyberelk.net/tim/software/xmlto/">
+          aquí
+        </ulink>
+        . Si no desea utilizar Apache Maven por alguna razón, usted puede instalar
+        <command>
+          xmlto
+        </command>
+        a través de su gestor de paquetes. Una vez que haya instalado
+        <command>
+          xmlto
+        </command>
+        sólo se puede ejecutar
+        <command>
+          xmlto
+          <parameter>
+            html
+          </parameter>
+          <parameter>
+            file_to_transform
+          </parameter>
+        </command>
+        donde el
+        <parameter>
+          file_to_transform
+        </parameter>
+        parámetro es el nombre del archivo que desea transformar. Hay muchos otros formatos disponibles, como PDF, PS, JavaHelp y otros.
+      </para>
+    </section>
+  </section>
+  <section id="docs_10">
+    <title>
+      Confirmando sus cambios de vuelta a Launchpad
+    </title>
+    <para>
+      Una vez que haya terminado de editar el documento, tendrá que confirmar sus cambios de vuelta a Launchpad. Abra un símbolo del sistema en Windows o un intérprete de comandos en Linux, y navegue a la carpeta en la que ha colocado su documentación. Si se han añadido nuevos archivos o carpetas a su oficina local, usted tendrá que añadir que el árbol de fuentes con el
+      <command>
+        bzr añadir
+      </command>
+      comando, seguido de la carpeta o el nombre de archivo (s) que ha añadido. Una vez que haya agregado todos los archivos nuevos, que tendrán que comprometerse a su sucursal local con el siguiente comando:
+    </para>
+    <blockquote>
+      <para>
+        <command>
+          bzr commit-m &quot;Creado amárico traducción de la documentación&quot;
+        </command>
+      </para>
+    </blockquote>
+    <para>
+      Sólo tiene que añadir un mensaje informativo de lo que has hecho. Una vez que se han comprometido cambios a su oficina local, usted puede empujar a la rama principal con el siguiente comando:
+      <blockquote>
+        <para>
+          <command>
+            bzr push bzr + ssh: / / bazaar.launchpad.net /% 7Edhis2-documenters/dhis2/dhis2-docbook-docs
+          </command>
+        </para>
+      </blockquote>
+    </para>
+    <para>
+      Si usted tiene alguna pregunta, o no puede encontrar que usted puede empezar, envíe un correo electrónico con su problema a
+      <email>
+        dhis2-documenters@lists.launchpad.net
+      </email>
+      .
+    </para>
+  </section>
+</chapter>
