@@ -2,12 +2,12 @@
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>HƯỚNG DẪN SỬ DỤNG CHƯƠNG TRÌNH DHIS2.0 TẠI TP. HỒ CHÍ MINH</title>
-  <para>Tài liệu được sử dụng để tập huấn cho các nhân viên y tế làm báo cáo thống kê tại các cơ sở y tế trong Tp. Hồ Chí Minh.</para>
+  <para>Tài liệu được sử dụng để tập huấn cho các cán bộ nhận viên y tế làm báo cáo thống kê chương trình SKTE tại các cơ sở y tế trong Tp. Hồ Chí Minh.</para>
   <section>
     <title>Đăng nhập hệ thống </title>
     <orderedlist>
       <listitem>
-        <para>Truy cập địa chỉ http://www.dhisvn.org (hoặc http://ytct.gov.vn:9000) bằng trình duyệt  “<productname role="bold">Mozilla Firefox</productname>”.<screenshot>
+        <para>Truy cập địa chỉ http://www.dhisvn.org (hoặc http://www.dhisvn.org:8180/dhis) bằng trình duyệt  “<productname role="bold">Mozilla Firefox</productname>”.<screenshot>
             <mediaobject>
               <imageobject>
                 <imagedata width="70%" align="center" fileref="resources/images/images_hcm/web_dhisvn_hcm.JPG" format="JPG"/>
@@ -24,7 +24,7 @@
             </imageobject>
           </mediaobject>
         </screenshot>
-        <para>Điển đầy đủ thông tin vào  trường Username và Password.</para>
+        <para>Điền đầy đủ thông tin vào  trường Username và Password.</para>
         <itemizedlist>
           <listitem>
             <para><emphasis role="italic">Username</emphasis>: Tên đơn vị</para>
@@ -50,7 +50,7 @@
     </screenshot>
     <section>
       <title>Cài đặt ngôn ngữ</title>
-      <para>Ngôn ngữ  mặc định trong chương trình là  “<emphasis role="italic">Tiếng Anh</emphasis>”. Muốn chuyển đổi ngôn ngữ sang “<emphasis role="italic">Tiếng Việt</emphasis>”,  hãy thực hiện các bước như sau:</para>
+      <para>Ngôn ngữ  mặc định trong chương trình là  “<emphasis role="italic">Tiếng Anh</emphasis>”. Muốn chuyển đổi ngôn ngữ sang “<emphasis role="italic">Tiếng Việt</emphasis>”,  thực hiện các bước như sau:</para>
       <orderedlist>
         <listitem>
           <para>Trỏ chuột vào <emphasis role="italic">Maintenance</emphasis> trên   menu chính, nhấp <emphasis role="italic">Settings</emphasis><screenshot>

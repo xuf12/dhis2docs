@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<chapter>
+  <title>HƯỚNG DẪN SỬ DỤNG CHƯƠNG TRÌNH DHIS2.0 BÀ MẸ TP. HCM</title>
+  <para>Tài liệu được sử dụng để tập huấn cho các cán bộ nhân viên y tế làm báo cáo thống kê chương trình Bà Mẹ tại các cơ sở y tế trong Tp. Hồ Chí Minh.</para>
+  <section>
+    <title>Đăng nhập hệ thống </title>
+    <orderedlist>
+      <listitem>
+        <para>Truy cập địa chỉ http://www.dhisvn.org (hoặc http://www.dhisvn.org:8180/dhis) bằng trình duyệt  “<productname role="bold">Mozilla Firefox</productname>”.</para>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="80%" align="center" fileref="resources/images/images_mother_hcm/website_mother_hcm.jpg"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+      </listitem>
+      <listitem>
+        <para>Trình duyệt hiển thị màn hình đăng nhập  hệ thống DHIS 2.0 như sau:</para>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="80%" align="center" fileref="resources/images/images_mother_hcm/Login_hcm.JPG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>Điền đầy đủ thông tin vào  trường Username và Password.</para>
+        <para><itemizedlist>
+            <listitem>
+              <para><emphasis role="italic">Username</emphasis>: Tên đơn vị</para>
+            </listitem>
+            <listitem>
+              <para>Password: Mật khẩu</para>
+              <para>Ví dụ: Username: <emphasis role="italic">skbm_quan1</emphasis></para>
+              <para>Password: <emphasis role="italic">*****</emphasis></para>
+            </listitem>
+          </itemizedlist></para>
+      </listitem>
+    </orderedlist>
+  </section>
+  <section>
+    <title>Nhập dữ liệu</title>
+    <para>Sau khi đăng nhập thành công, chương trình hiển thị giao diện   như sau:</para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="80%" align="center" fileref="resources/images/images_mother_hcm/caidattinengviet_mother_hcm.jpg"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <section>
+      <title>Cài đặt ngôn ngữ</title>
+      <para>Ngôn ngữ  mặc định trong chương trình là  “<emphasis role="italic">Tiếng Anh</emphasis>”. Muốn chuyển đổi ngôn ngữ sang “<emphasis role="italic">Tiếng Việt</emphasis>”,  hãy thực hiện các bước như sau:</para>
+      <orderedlist>
+        <listitem>
+          <para>Trỏ chuột vào <emphasis role="italic">Maintenance</emphasis> trên   menu chính, nhấp <emphasis role="italic">Settings</emphasis></para>
+          <para><graphic fileref="resources/images/images_mother_hcm/caidattiengviet_3_mother_hcm.jpg" align="center"/></para>
+          <para>Chương trình hển thị màn hình như sau:</para>
+          <screenshot>
+            <graphic fileref="resources/images/images_mother_hcm/caidattiengviet_2_mother_hcm.jpg" align="center"/>
+          </screenshot>
+          <para>- Nhấp chuột vào <emphasis role="italic">User settings</emphasis> ,để tiến hành cài đặt ngôn ngữ.             </para>
+        </listitem>
+        <listitem>
+          <para>Chọn ngôn ngữ là <emphasis role="italic">Vietnamese (Vietnam)</emphasis></para>
+          <para/>
+        </listitem>
+      </orderedlist>
+    </section>
+  </section>
+</chapter>
