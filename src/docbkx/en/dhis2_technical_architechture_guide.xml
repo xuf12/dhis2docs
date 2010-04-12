@@ -279,6 +279,16 @@
         <para>The <emphasis role="italic">ConfigurationManager</emphasis> is a component which facilitates the use of configuration files for different purposes in DHIS 2. It provides methods for writing and reading configuration objects to and from XML. The XStream library is used to implement this functionality. This component is typically used in conjunction with the <emphasis role="italic">LocationManager</emphasis>.</para>
       </section>
     </section>
+    <section>
+      <title>The System Support P</title>
+      <para>The system support project contains supportive classes that are general and can be reused througout the system.</para>
+      <section>
+        <title>DeletionManager</title>
+        <para>The deletion manager solution is responsible for deletion of associated objects. When an object has a depdency to another object this association needs to be removed by the application before the latter object can be deleted (unless the association is defined to be cascading in the DBMS). Often an object in a peripheral module will have an associations to a core object. When deleting the core object this association must be removed  before deleting the core object.The core module cannot have a dependency to the peripheral module however due to the system design and the problem of cyclic dependencies. The deletion manager solves this by letting all objects implement a DeletionHandler which takes care of associations to other objects. A DeletionHandler should override methods for objects that, when deleted, will affect the current object in any way. The DeletionHandler can choose to disallow the deletion completely by overriding the allowDelete* method, or choose to allow the deletion and remove the associations by overriding the delete* method. Eg. a DeletionHandler for DataElementGroup should override the deleteDataElement(..) method which should remove the DataElement from all DataElementGroups. If one decide that DataElement which are a member of any DataElementGroups cannot be deleted, it should override the allowDeleteDataElement() method and return false if there exists DataElementGroups with associations to that DataElement.</para>
+        <para>First, all DeletionHandler implementations are registered with the DeletionManager through a Spring MethodInvokingFactoryBean in the Spring config file. This solution adheres to the observer design pattern.</para>
+        <para>Second, all method invocations that should make the DeletionManager execute are mapped to the DeletionInterceptor with Spring AOP advice in the Spring config file. The DeletionInterceptor in turn invokes the execute method of the DeletionManager. First, the DeletionManager will through reflection invoke the allowDelete* method on all DeletionHandlers. If no DeletionHandlers returned false it will proceed to invoke the delete* method on all DeletionHandlers. This way all DeletionHandlers get a chance to clean up associations to the object being deleted. Finally the object itself is deleted.</para>
+      </section>
+    </section>
   </section>
   <section>
     <title> The Presentation Layer </title>
@@ -338,7 +348,7 @@
           <para>Spring (<ulink url="http://www.springframework.org">www.springframework.org</ulink>)</para>
         </listitem>
         <listitem>
-          <para>WebWork (<ulink url="http://www.opensymphony.com/webwork">www.opensymphony.com/webwork</ulink>) </para>
+          <para>Struts <ulink url="struts.apache.org"/></para>
         </listitem>
         <listitem>
           <para>Velocity (<ulink url="http://www.velocity.apache.org">www.velocity.apache.org</ulink>) </para>
@@ -347,7 +357,10 @@
           <para>Commons (<ulink url="http://www.commons.apache.org">www.commons.apache.org</ulink>) </para>
         </listitem>
         <listitem>
-          <para>JfreeChart (<ulink url="http://www.jfree.org/jfreechart/">www.jfree.org/jfreechart/</ulink>)</para>
+          <para>JasperReports <ulink url="jasperforge.org/projects/jasperreports"/></para>
+        </listitem>
+        <listitem>
+          <para>JFreeChart (<ulink url="http://www.jfree.org/jfreechart/">www.jfree.org/jfreechart/</ulink>)</para>
         </listitem>
         <listitem>
           <para>JUnit (<ulink url="http://www.junit.org">www.junit.org</ulink>) </para>
