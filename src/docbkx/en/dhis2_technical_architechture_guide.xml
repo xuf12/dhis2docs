@@ -10,16 +10,8 @@
       <keyword>Project structure</keyword>
       <keyword>Document</keyword>
     </keywordset>
-    <author>
-      <personname>
-        <surname>Overland</surname>
-        <othername>Helge</othername>
-        <firstname>Lars</firstname>
-      </personname>
-    </author>
-    <releaseinfo>Version 2.0.1</releaseinfo>
   </articleinfo>
-  <sect1 id="arch_1">
+  <section>
     <title>Overview</title>
     <para>This document outlines the technical architecture for the District Health Information Software 2 (DHIS 2). The DHIS 2 is a routine data based health information system which allows for data capture, aggregation, analysis, and reporting of data. </para>
     <para>DHIS 2 is written in Java and has a three-layer architecture. The presentation layer is web-based, and the system can be used on-line as well as stand-alone.</para>
@@ -27,8 +19,8 @@
       <graphic fileref="resources/images/dhis2_technical_architecture/over_view.jpg" align="center"/>
     </screenshot>
     <para>Fig. Overall architecture</para>
-  </sect1>
-  <sect1 id="arch_2">
+  </section>
+  <section>
     <title>Technical Requirements</title>
     <para>The DHIS 2 is intended to be installed and run on a variety of platforms. Hence the system is designed for industry standards regarding database management systems and application servers. The system should be extensible and modular in order to allow for third-party and peripheral development efforts. Hence a pluggable architecture is needed. The technical requirements are:</para>
     <itemizedlist>
@@ -48,16 +40,16 @@
         <para>Flexible data model to allow for a variety of data capture requirements</para>
       </listitem>
     </itemizedlist>
-  </sect1>
-  <sect1 id="arch_3">
+  </section>
+  <section>
     <title>Project Structure</title>
     <para>DHIS 2 is made up of 42 Maven projects, out of which 18 are web modules. The root POM is located in <filename>/dhis-2</filename> and contains project aggregation for all projects excluding the <filename>/dhis-2/dhis-web</filename> folder. The <filename>/dhis-2/dhis-web</filename> folder has a web root POM which contains project aggregation for all projects within that folder. The contents of the modules are described later on.</para>
     <screenshot>
       <graphic fileref="resources/images/dhis2_technical_architecture/project_structure.jpg" align="center"/>
     </screenshot>
     <para>Fig. Project structure</para>
-  </sect1>
-  <sect1 id="arch_4">
+  </section>
+  <section>
     <title>The Data Model</title>
     <para>The data model is flexible in all dimensions in order to allow for capture of any item of data. The model is based on the notion of a DataValue. A DataValue can be captured for any DataElement (which represents the captured item, occurrence or phenomena), Period (which represents the time dimension), and Source (which represents the space dimension, i.e. an organisational unit in a hierarchy).</para>
     <figure>
@@ -69,8 +61,8 @@
     <para>Most objects have corresponding group objects, which are intended to improve and enhance data analysis. The data model source code can be found in the API project and could be explored in entirety there. A selection of the most important objects can be view in the diagram below.</para>
     <graphic fileref="resources/images/dhis2_technical_architecture/core_diagram.jpg" align="center"/>
     <para>Fig. Core diagram</para>
-  </sect1>
-  <sect1 id="arch_5">
+  </section>
+  <section>
     <title> The Persistence Layer </title>
     <para>The persistence layer is based on Hibernate in order to achieve the ability to run on any major DBMS. Hibernate abstracts the underlying DBMS away and let you define the database connection properties in a file called hibernate.properties. </para>
     <para>DHIS 2 uses Spring-Hibernate integration, and retrieves a SessionFactory through Spring’s LocalSessionFactoryBean. This LocalSessionFactoryBean is injected with a custom HibernateConfigurationProvider instance which fetches Hibernate mapping files from all modules currently on the classpath. All store implementations get injected with a SessionFactory and use this to perform persistence operations.</para>
@@ -79,12 +71,12 @@
       <graphic fileref="resources/images/dhis2_technical_architecture/persistence_layer.jpg" align="center"/>
     </screenshot>
     <para>Fig. Persistence layer</para>
-  </sect1>
-  <sect1 id="arch_6">
+  </section>
+  <section>
     <title> The Business Layer </title>
     <para>All major classes, like those responsible for persistence, business logic, and presentation, are mapped as Spring managed beans. “Bean” is Spring terminology and simply refers to a class that is instantiated, assembled, and otherwise managed by the Spring IoC container. Dependencies between beans are injected by the IoC container, which allows for loose coupling, re-configuration and testability. For documentation on Spring, please refer to springframework.org.</para>
     <para>The services found in the dhis-service-core project basically provide methods that delegate to a corresponding method in the persistence layer, or contain simple and self-explanatory logic. Some services, like the ones found in the dhis-service-datamart, dhis-service-import-export,  dhis-service-jdbc, and dhis-service-reporting projects are more complex and will be elaborated in the following sections.</para>
-    <sect2>
+    <section>
       <title>The JDBC Service Project</title>
       <para>The JDBC service project contains a set of components dealing with JDBC connections and SQL statements.</para>
       <screenshot>
@@ -100,8 +92,8 @@
       </screenshot>
       <para>Fig. JDBC StatementManager diagram</para>
       <para>The <emphasis role="italic">StatementHolder</emphasis> interface holds and provides JDBC connections and statements. A StatementHolder object can be obtained from the <emphasis role="italic">StatementManager</emphasis> component. The StatementManager can be initialized using the<emphasis role="italic"> initalise()</emphasis> method closed using the <emphasis role="italic">destroy()</emphasis> method. When initialized, the StatementManager will open a database connection and hold it in a ThreadLocal variable, implying that all subsequent requests for a StatementHolder will return the same instance. This can be used to improve performance since a database connection or statement can be reused for multiple operations. The StatementManager is typically used in the persistence layer for classes working directly with JDBC, like the DataMartStore.</para>
-    </sect2>
-    <sect2>
+    </section>
+    <section>
       <title>The Import-Export Project</title>
       <para>The import-export project contains classes responsible for producing and consuming interchange format files. The import process has three variants which are import, preview and analysis. Import will import data directly to the database, preview will import to a temporary location, let the user do filtering and eventually import, while the analysis will reveal abnormalities in the import data. Currently supported formats are:</para>
       <itemizedlist>
@@ -139,8 +131,8 @@
       </screenshot>
       <para>Fig. Import-export converter diagram</para>
       <para>Functionality that is general for converters of all formats is centralized in abstract converter classes. The AbstractConverter class provides four abstract methods which must be implemented by using converters, which are <emphasis role="italic">importUnique( Object )</emphasis>, <emphasis role="italic">importMatching( Object, Object)</emphasis>,  <emphasis role="italic">Object getMatching() </emphasis>and <emphasis role="italic">boolean isIdentical( Object, Object )</emphasis>. It also provides a <emphasis role="italic">read( Object, GroupMemberType, ImportParams ) </emphasis>method that should be invoked by all converters at the end of the read process for every object. This method utilizes the mentioned abstract methods and dispatches the object to the analysis, preview or import routines depending on the state of the object and the current import directives. This allows for extensibility as converters for new formats can extend their corresponding abstract converter class and reuse this functionality.</para>
-    </sect2>
-    <sect2>
+    </section>
+    <section>
       <title>The Data Mart Project</title>
       <para>The data mart component is responsible for producing aggregated data from the raw data in the time and space dimension. The aggregated data is represented by the <emphasis role="italic">AggregatedDataValue</emphasis> and <emphasis role="italic">AggregatedIndicatorValue</emphasis> objects. The <emphasis role="italic">DataSetCompletenessResult</emphasis> object is also included in the data mart and is discussed in the section covering the reporting project. These objects and their corresponding database tables are referred to as the<emphasis role="italic"> data mart.</emphasis></para>
       <para>The following section will list the rules for aggregation in DHIS 2.</para>
@@ -211,11 +203,11 @@
         </listitem>
       </itemizedlist>
       <para>The data element tables are called “aggregateddatavalue” and “aggregatedindicatorvalue” and are used both inside DHIS 2 for e.g. report tables and by third-party reporting applications like MS Excel.</para>
-    </sect2>
-    <sect2>
+    </section>
+    <section>
       <title>The Reporting Project</title>
       <para>The reporting project contains components related to reporting, which will be described in the following sections.</para>
-      <sect3>
+      <section>
         <title>Report table</title>
         <para>The <emphasis role="italic">ReportTable</emphasis> object represents a crosstabulated database table. The table can be crosstabulated on any number of its three dimensions, which are the descriptive dimension (which can hold data elements, indicators, or data set completeness), <emphasis role="italic">period</emphasis> dimension, and <emphasis role="italic">organisation</emphasis><emphasis role="italic"> unit</emphasis> dimension. The purpose is to be able to customize tables for later use either in third-party reporting tools like BIRT or directly in output formats like PDF or HTML inside the system. Most of the logic related to crosstabulation is located in the ReportTable object. A ReportTable can hold:</para>
         <itemizedlist>
@@ -255,14 +247,14 @@
             <para>Remove the report table using the <emphasis role="italic">ReportTableManager</emphasis>.</para>
           </listitem>
         </itemizedlist>
-      </sect3>
-      <sect3>
+      </section>
+      <section>
         <title>Chart</title>
         <para>The <emphasis role="italic">Chart</emphasis> object represents preferences for charts. Charts are either <emphasis role="italic">period based</emphasis> or <emphasis role="italic">organisation unit based</emphasis>. A chart has tree dimensions, namely the <emphasis role="italic">value, category</emphasis>, and <emphasis role="italic">filter</emphasis> dimension. The value dimension contains any numbers of indicators. In the period based chart, the category dimension contains any number of periods while the filter dimension contains a single organisation unit. In the organisation unit based chart, the category dimension contains any number of organisation units while the filter dimension contains a single period. Two types of charts are available, namely bar charts and line charts. Charts are materialized using the JFreeChart library. The bar charts are rendered with a BarRenderer [2], the line charts with a LineAndShapeRenderer [2], while the data source for both variants is a DefaultCategoryDataSet [3]. The <emphasis role="italic">ChartService</emphasis> is responsible for CRUD operations, while the <emphasis role="italic">ChartService</emphasis> is responsible for creating JfreeCharts instances based on a <emphasis role="italic">Chart</emphasis> object.</para>
         <graphic fileref="resources/images/dhis2_technical_architecture/chart_diagram.jpg" align="center"/>
         <para>Fig. Chart diagram</para>
-      </sect3>
-      <sect3>
+      </section>
+      <section>
         <title>Data set completeness</title>
         <para>The purpose of the data set completeness functionality is to record the number of data sets that have been completed. The definition of when a data set is complete is subjective and based on a function in the data entry screen where the user can mark the current data set as complete. This functionality provides a percentage completeness value based on the number of reporting organisation units with completed data sets compared to the total number of reporting organisation units for a given data set. This functionality also provides the number of completed data sets reported <emphasis role="italic">on-time</emphasis>, more specifically reported before a defined number of days after the end of the reporting period. This date is configurable.</para>
         <graphic fileref="resources/images/dhis2_technical_architecture/dataset_completeness_diagram.jpg" align="center"/>
@@ -270,36 +262,36 @@
         <para>The <emphasis role="italic">CompleteDataSetRegistration</emphasis> object is representing a data set marked as complete by a user. This property holds the data set, period, organisation unit and date for when the complete registrations took place. The <emphasis role="italic">CompleteDataSetRegistrationStore</emphasis> is responsible for persistence of <emphasis role="italic">CompleteDataSetRegistration</emphasis> objects and provides methods returning collections of objects queried with different variants of data sets, periods, and organisation units as input parameters. The <emphasis role="italic">CompleteDataSetRegistrationService</emphasis> is mainly delegating method calls the store layer. These components are located in the dhis-service-core project.</para>
         <para>The completeness output is represented by the <emphasis role="italic">DataSetCompletenessResult</emphasis> object. This object holds information about the request that produced it such as data set, period, organisation unit, and information about the data set completeness situation such as number of reporting organisation units, number of complete registrations, and number of complete registrations on-time. The <emphasis role="italic">DataSetCompletenessService</emphasis> is responsible for the business logic related to data set completeness reporting. It provides methods which mainly returns collections of DataSetCompletenessResults and takes different variants of period, organisation unit and data set as parameters. It uses the CompleteDataSetRegistrationService to retrieve the number of registrations, the DataSetService to retrieve the number of reporting organisation units, and performs calculations to derive the completeness percentage based on these retrieved numbers.</para>
         <para>The <emphasis role="italic">DataSetCompletenessExportService</emphasis> is responsible for writing DataSetCompletenessResults to a database table called “aggregateddatasetcompleteness”. This functionality is considered to be part of the data mart as this data can be used both inside DHIS 2 for e.g. report tables and by third-party reporting applications like MS Excel. This component is retrieving data set completeness information from the <emphasis role="italic">DataSetCompeletenessService</emphasis> and is using the BatchHandler interface to write such data to the database.</para>
-      </sect3>
-      <sect3>
+      </section>
+      <section>
         <title>Document</title>
         <para>The <emphasis role="italic">Document</emphasis> object represents either a <emphasis role="italic">document</emphasis> which is uploaded to the system or a <emphasis role="italic">URL</emphasis>. The <emphasis role="italic">DocumentStore</emphasis> is responsible for persisting <emphasis role="italic">Document</emphasis> objects, while the <emphasis role="italic">DocumentService</emphasis> is responsible for business logic.</para>
         <graphic fileref="resources/images/dhis2_technical_architecture/document_diagram.jpg" align="center"/>
         <para>Fig. Document diagram</para>
-      </sect3>
-      <sect3>
+      </section>
+      <section>
         <title>Pivot table</title>
         <para>The PivotTable object represents a pivot table. It can hold any number of indicators, periods, organisation units, and corresponding aggregated indicator values. It offers basic pivot functionality like pivoting and filtering the table on all dimensions. The business logic related to pivot tables is implemented in Javascript and is located in the presentation layer. The <emphasis role="italic">PivotTableService</emphasis> is reponsible for creating and populating PivotTable objects.</para>
-      </sect3>
-      <sect3>
+      </section>
+      <section>
         <title>The External Project</title>
         <para>The <emphasis role="italic">LocationManager</emphasis> component is responsible for the communication between DHIS 2 and the file system of the operating system. It contains methods which provide read access to files through File and InputStream instances, and write access to the file system through File and OutputStream instances. The target location is relative to a system property “dhis2.home” and an environment variable “DHIS2_HOME” in that order. This component is used e.g. by the HibernateConfigurationProvider to read in the Hibernate configuration file, and should be re-used by all new development efforts.</para>
         <para>The <emphasis role="italic">ConfigurationManager</emphasis> is a component which facilitates the use of configuration files for different purposes in DHIS 2. It provides methods for writing and reading configuration objects to and from XML. The XStream library is used to implement this functionality. This component is typically used in conjunction with the <emphasis role="italic">LocationManager</emphasis>.</para>
-      </sect3>
-    </sect2>
-  </sect1>
-  <sect1 id="arch_7">
+      </section>
+    </section>
+  </section>
+  <section>
     <title> The Presentation Layer </title>
     <para>The presentation layer of DHIS 2 is based on web modules which are assembled into a portal. This implies a modularized design where each module has its own domain, e.g. the dhis-web-reporting module deals with reports, charts, pivot tables, documents, while the dhis-web-maintenance-dataset module is responsible for data set management. The web modules are based on WebWork and follow the MVC pattern [5]. The modules also follow the Maven standard for directory layout, which implies that Java classes are located in src/main/java, configuration files and other resources in src/main/resources, and templates and other web resources in src/main/webapp. All modules can be run as a standalone application.</para>
     <para>Common Java classes, configuration files, and property files are located in the dhis-web-commons project, which is packaged as a JAR file. Common templates, style sheets and other web resources are located in the dhis-web-commons-resources project, which is packaged as a WAR file. These are closely related but are separated into two projects. The reason for this is that other modules must be able to have compile dependencies on the common Java code, which requires it to be packaged as a JAR file. For other modules to be able to access the common web resources, these must be packaged as a WAR file [6].</para>
-    <sect2>
+    <section>
       <title>The Portal</title>
       <para>DHIS 2 uses a light-weight portal construct to assemble all web modules into one application. The portal functionality is located in the dhis-web-portal project. The portal solution is integrated with WebWork, and the following section requires some prior knowledge about this framework, please refer to opensymphony.com/webwork for more information.</para>
-      <sect3>
+      <section>
         <title>Module Assembly</title>
         <para>All web modules are packaged as WAR files. The portal uses the Maven WAR plug-in to assemble the common web modules and all web modules into a single WAR file. Which modules are included in the portal can be controlled simply through the dependency section in the POM file [7] in the dhis-web-portal project. The web module WAR files will be extracted and its content merged together.</para>
-      </sect3>
-      <sect3>
+      </section>
+      <section>
         <title>Portal Module Requirements</title>
         <para>The portal requires the web modules to adhere to a few principles:</para>
         <itemizedlist>
@@ -322,21 +314,21 @@
             <para>All modules must have dependencies to the dhis-web-commons and dhis-web-commons-resources projects.</para>
           </listitem>
         </itemizedlist>
-      </sect3>
-      <sect3>
+      </section>
+      <section>
         <title>Common Look-And-Feel</title>
         <para>Common look and feel is achieved using a back-bone Velocity template which includes a page template and a menu template defined by individual actions in the web modules. This is done by using static parameters in the WebWork xwork.xml configuration file. The action response is mapped to the back-bone template called <emphasis role="italic">main.vm</emphasis>, while static parameters called page and menu refers to the templates that should be included. This allows the web modules to display its desired content and left side menu while maintaining a common look-and-feel.</para>
-      </sect3>
-      <sect3>
+      </section>
+      <section>
         <title>Main Menu</title>
         <para>The main menu contains links to each module. Each menu link will redirect to the index action of each module. The menu is updated dynamically according to which web modules are on the classpath. The menu is visibly generated using the <emphasis role="italic">ModuleManager</emphasis> component, which provides information about which modules are currently included. A module is represented by the <emphasis role="italic">Module</emphasis> object, which holds properties about the name, package name, and default action name. The <emphasis role="italic">ModuleManager</emphasis> detects web modules by reading the WebWork Configuration and PackageConfig objects, and derives the various module names from the name of each package definition. The <emphasis role="italic">Module</emphasis> objects are loaded onto the WebWork value stack by WebWork interceptors using the <emphasis role="italic">ModuleManager</emphasis>. These values are finally used in the back-bone Velocity template to produce the menu mark-up.</para>
-      </sect3>
-    </sect2>
-  </sect1>
-  <sect1 id="arch_8">
+      </section>
+    </section>
+  </section>
+  <section>
     <title> Framework Stack </title>
     <para>The following frameworks are used in the DHIS 2 application.</para>
-    <sect2>
+    <section>
       <title>Application Frameworks</title>
       <itemizedlist>
         <listitem>
@@ -361,8 +353,8 @@
           <para>JUnit (<ulink url="http://www.junit.org">www.junit.org</ulink>) </para>
         </listitem>
       </itemizedlist>
-    </sect2>
-    <sect2>
+    </section>
+    <section>
       <title>Development Frameworks</title>
       <itemizedlist>
         <listitem>
@@ -372,9 +364,9 @@
           <para>Bazaar (<ulink url="http://www.bazaar-vcs.org">bazaar-vcs.org</ulink>)</para>
         </listitem>
       </itemizedlist>
-    </sect2>
-  </sect1>
-  <sect1 id="arch_9">
+    </section>
+  </section>
+  <section>
     <title>Definitions</title>
     <para>[1] “Classpath” refers to the root of a JAR file, /WEB-INF/lib or /WEB-INF/classes in a WAR-file and /src/main/resources in the source code; locations from where the JVM is able to load classes.</para>
     <para>[2] JFreeChart class located in the org.jfree.chart.renderer package.</para>
@@ -385,5 +377,5 @@
     <para>[7] Project Object Model, the key configuration file in a Maven 2 project.</para>
     <para>[8] Represents the front controller in the MVC design pattern in WebWork.</para>
     <para>[9] Hibernate second-level cache does not provide satisfactory performance.</para>
-  </sect1>
+  </section>
 </article>
