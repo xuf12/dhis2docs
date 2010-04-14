@@ -1,73 +1,86 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. -->
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>GIS</title>
-    <section>
-      <title>OpenHealthMapper</title>
-    <para>The DHIS 2 GIS module is inspired by the WHO HealthMapper application.
-    </para>
+  <section>
+    <title>OpenHealthMapper</title>
+    <para>The DHIS 2 GIS module is inspired by the WHO HealthMapper application.</para>
   </section>
   <section>
     <title>Identifying map data</title>
-    <para>Geographical data can be divided in two basic groups - raster and vector. 
-      
-      <section><title>Raster images</title>Raster can be thought of as pictures such as 
-      sattelite images. Images can be used as background for maps, and the OHM can pull them in from any standard compliant 
+    <para>Geographical data can be divided in two basic groups - raster and vector. </para>
+    <section>
+      <title>Raster images</title>
+      <para>Raster can be thought of as pictures such as sattelite images. Images can be used as background for maps, and the OHM can pull them in from any standard compliant 
       <ulink url="http://en.wikipedia.org/wiki/Web_Map_Service">Web Map Service (WMS)</ulink>. It is also of great interest to
       combine the DHIS2 installation with a <ulink url="http://geoserver.org/display/GEOS/Welcome">GeoServer</ulink> instance, 
       which can be downloaded as a .war-file and run in the same servlet container (e.g. Tomcat, Jetty, Resin). Geoserver can provide
       both background layers such as roads, lakes etc. or also display thematic data as an alternative to the browser-rendered 
-      main mode which uses GeoJSON.
-      </section>
-  <section><title>Vector data</title>
-    In order to create thematic maps (also known as <ulink url="http://en.wikipedia.org/wiki/Choropleth_map">choropleth maps</ulink>)
+      main mode which uses GeoJSON.</para>
+    </section>
+    <section>
+      <title>Vector data</title>
+      <para>In order to create thematic maps (also known as <ulink url="http://en.wikipedia.org/wiki/Choropleth_map">choropleth maps</ulink>)
     we need to have vector polygons (e.g. for facility catchment areas or administrative regions). Also, vector files are required for 
     points (e.g. health facility locations or even different wards within a hospital). Such vector files consist of a collection of (x,y)
     coordinates with a number of associated attributes (at least a name). Vector data can come in a lot of formats, such as GPS 
     coordinates for facilities. The most common is the <ulink url="http://en.wikipedia.org/wiki/Shapefile">ESRI shapefile format</ulink>. 
-    In order to make web maps interactive, DHIS 2 uses the <ulink url="http://en.wikipedia.org/wiki/GeoJSON">javascript GeoJSON format</ulink>..
-  </section>
-      <section><title>Getting data</title><para>
+    In order to make web maps interactive, DHIS 2 uses the <ulink url="http://en.wikipedia.org/wiki/GeoJSON">javascript GeoJSON format</ulink>.</para>
+    </section>
+    <section>
+      <title>Getting data</title>
+      <para>
         In order to use the OHM with DHIS2, it is necessary to have vector data for each orgunit level one wants to see in the map.
         In many countries, the Ministry of Health will have shapefiles for the health-related administrative divisions. In other cases,
         such files may have to be procured from a ministry of planning or from private vendors. Facility coordinates can easily be
         assembled into a layer (file) for facilities - and if they are not available, these can be collected by cheap GPS units (increasingly
         available also in mobile phones). Additionally, a lot of data are available freely on the web - especially bacground layers and
-        overlays, but also facility positions and administrative boundaries. Below is a list of sources of such data:
-        <itemizedlist>
-          <listitem><ulink url="http://www.openstreetmap.org">OpenStreetMap</ulink> <ulink url="http://www.openhealthconsortium.org/wiki/
-            doku.php?id=layers_from_openstreetmap">Handling the layers</ulink>
-            </listitem>
-          <listitem><ulink url="http://www.maplibrary.org/stacks/africa">Maplibrary</ulink></listitem>
-          <listitem><ulink url="http://www.gadm.org/country">Global Administrative Areas</ulink></listitem>
-          <listitem><ulink url="http://www.unsalb.org">UN organizations, especially WHO and FAO, have administrative boundaries</ulink></listitem>
-        </itemizedlist>
-      </para></section>
-      <section><title>Projections</title><para>DHIS 2 uses latitude/longitude (lat/lon) coordinates in the standard EPSG:4326 projection, which is
+        overlays, but also facility positions and administrative boundaries. Below is a list of sources of such data:</para>
+      <itemizedlist>
+        <listitem>
+          <para><ulink url="http://www.openstreetmap.org">OpenStreetMap</ulink></para>
+        </listitem>
+        <listitem>
+          <para><ulink url="http://www.openhealthconsortium.org/wiki/doku.php?id=layers_from_openstreetmap">Handling the layers</ulink></para>
+        </listitem>
+        <listitem>
+          <para><ulink url="http://www.maplibrary.org/stacks/africa">Maplibrary</ulink></para>
+        </listitem>
+        <listitem>
+          <para><ulink url="http://www.gadm.org/country">Global Administrative Areas</ulink></para>
+        </listitem>
+        <listitem>
+          <para><ulink url="http://www.unsalb.org">UN organizations, especially WHO and FAO, have administrative boundaries</ulink></para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section>
+      <title>Projections</title>
+      <para>DHIS 2 uses latitude/longitude (lat/lon) coordinates in the standard EPSG:4326 projection, which is
         very widespread. But it is also common to get data in UTM formats [http://en.wikipedia.org/wiki/
         Universal_Transverse_Mercator_coordinate_system]. For example, data for Malawi is often distributed as UTM 36S
         projection, which corresponds to EPSG:2736. The conversion can be done by be done by using either Geoserver or ogr2ogr
-        wich is part of GDAL and comes with Ubuntu. For Windows, it comes as part of <ulink url="http://www.bostongis.com/
-          PrinterFriendly.aspx?content_name=ogr_cheatsheet">FW Tools </ulink>. For example, the following line will convert a shapefile 
+        wich is part of GDAL and comes with Ubuntu. For Windows, it comes as part of <ulink url="http://www.bostongis.com/           PrinterFriendly.aspx?content_name=ogr_cheatsheet">FW Tools </ulink>. For example, the following line will convert a shapefile 
         called inputfile.shp in UTM 36S projection to a GeoJSON file in lat/lon:
-        <programlisting><userinput>
-          ogr2ogr s_srs EPSG:2736 a_srs EPSG:4326 -f "GeoJSON" outputfile.json inputfile.shp
-          </userinput></programlisting> 
-      </para></section>
-      <section><title>GIS software to view and manipulate map data</title>
-        <para>
-          There are many powerful free and open source GIS packages. These can be recommended:
-          <listitem><ulink url="http://www.qgis.org/">Quantum GIS</ulink></listitem>
-          <listitem><ulink url="http://www.openjump.org/">OpenJUMP</ulink></listitem>
-          <listitem><ulink url="http://udig.refractions.net/">uDig</ulink>, which also forms basis for <ulink url="http://udig.refractions.net/gallery/cgiar/">DIVA-GIS</ulink></listitem>
-          <listitem><ulink url="http://www.gvsig.gva.es/eng/inicio-gvsig/">gvSIG</ulink></listitem>
-        These tools can for example be used to merge village boundary polygons into district polygons (provided the district that each village belongs to is listed as an attribute), and
+        <programlisting><userinput> ogr2ogr s_srs EPSG:2736 a_srs EPSG:4326 -f &quot;GeoJSON&quot; outputfile.json inputfile.shp </userinput></programlisting> 
+      </para>
+    </section>
+    <section>
+      <title>GIS software to view and manipulate map data</title>
+      <para>There are many powerful free and open source GIS packages. These can be recommended:</para>
+      <itemizedlist>
+          <listitem><para><ulink url="http://www.qgis.org/">Quantum GIS</ulink></para></listitem>
+          <listitem><para><ulink url="http://www.openjump.org/">OpenJUMP</ulink></para></listitem>
+          <listitem><para><ulink url="http://udig.refractions.net/">uDig</ulink>, which also forms basis for <ulink url="http://udig.refractions.net/gallery/cgiar/">DIVA-GIS</ulink></para></listitem>
+          <listitem><para><ulink url="http://www.gvsig.gva.es/eng/inicio-gvsig/">gvSIG</ulink></para></listitem>
+        </itemizedlist>
+        <para>These tools can for example be used to merge village boundary polygons into district polygons (provided the district that each village belongs to is listed as an attribute), and
         one can edit files to reflect new divisions or correct errors.
         Another power tool for working with GIS data is <ulink url="http://postgis.refractions.net/">PostGIS</ulink>, which can be used on itself or in conjunction
           with the above applications.
         </para>
-      </section>
-    </para>
+    </section>
   </section>
   <section>
     <title>Conversion of geographical data to GeoJSON format</title>
@@ -123,30 +136,30 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
   <section id="gisAdministration">
     <title>Administrator panel</title>
     <screenshot>
-      <graphic fileref="resources/images/GIS/admin_panel.png" align="center" width="270px"/>
+      <graphic fileref="resources/images/GIS/admin_panel.png" width="270px" align="center"/>
     </screenshot>
-        <itemizedlist>
-            <listitem>
-                <para>Map source</para>
-                <para><guilabel>GeoJSON files:</guilabel> you will find your own
+    <itemizedlist>
+      <listitem>
+        <para>Map source</para>
+        <para><guilabel>GeoJSON files:</guilabel> you will find your own
                 registered maps in the Map combo box in the Thematic map panel.
                 The Admin panels check box will become visible.</para>
-                <para><guilabel>Shapefiles:</guilabel> same as GeoJSON files, except that the files are generated from shapefiles installed in your running version of Geoserver on the fly.</para>
-                <para><guilabel>DHIS database:</guilabel> the Map combo box will
+        <para><guilabel>Shapefiles:</guilabel> same as GeoJSON files, except that the files are generated from shapefiles installed in your running version of Geoserver on the fly.</para>
+        <para><guilabel>DHIS database:</guilabel> the Map combo box will
                 simply be populated by the existing organisation unit levels and
                 GeoJSON files will be created by the application automatically
                 Organisation units must have coordinates stored in the database in
                 order to be displayed in the map. This function is mainly intended
                 for the facility level as it is easy to maintain and thus will
                 offer up-to-date shapefiles.</para>
-          </listitem>
-          <listitem>
-                <para>Admin panels: Show/hide the shapefile management panels.</para>
-          </listitem>
-          <listitem>
-                <para>Longitude/latitude: The base coordinate for the current country. This coordinate will appear as default when registering maps and overlays.</para>
-          </listitem>
-        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>Admin panels: Show/hide the shapefile management panels.</para>
+      </listitem>
+      <listitem>
+        <para>Longitude/latitude: The base coordinate for the current country. This coordinate will appear as default when registering maps and overlays.</para>
+      </listitem>
+    </itemizedlist>
   </section>
   <section id="gisMap">
     <title>Registering geographical information</title>
@@ -159,7 +172,7 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
       <screeninfo>Register Geodata Panel</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata align="center" fileref="resources/images/GIS/register_geodata.png" width="270px"/>
+          <imagedata width="270px" align="center" fileref="resources/images/GIS/register_geodata.png"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -175,29 +188,28 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
           mapping/geojson folder. Use e.g. Geoserver 2.0 (currently RC1) to
           easily produce GeoJSON from your shapefiles.</para>
       </listitem>
-      
       <listitem>
         <para><guilabel>Name column:</guilabel> The shapefile data column (case sensitive!) that will be
           matched against DHIS organisation unit names. If you have an
           instance of Geoserver installed, you can view the layer through the
           built-in OpenLayers client. Click on a particular area, and the
           possible fields will be displayed.</para>
-          <screenshot>
-            <screeninfo>Identification of the name column with Geoserver&apos;s OpenLayers client</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="583px" align="center" fileref="resources/images/GIS/get_name_geoserver.png"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
-          <screenshot>
-            <screeninfo>Identification of the name column directly in the GeoJSON file</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="383px" align="center" fileref="resources/images/GIS/get_name_geojson.png"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
+        <screenshot>
+          <screeninfo>Identification of the name column with Geoserver&apos;s OpenLayers client</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="583px" align="center" fileref="resources/images/GIS/get_name_geoserver.png"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <screenshot>
+          <screeninfo>Identification of the name column directly in the GeoJSON file</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="383px" align="center" fileref="resources/images/GIS/get_name_geojson.png"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
       </listitem>
       <listitem>
         <para><guilabel>Longitude / latitude:</guilabel> The longitude and latitude refer to the approximate point
@@ -208,22 +220,22 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
           determine an approximate location. You may need to experiment a bit
           with the center point and zoom level in order to get it
           correct.</para>
-          <screenshot>
-            <screeninfo>Using Geoserver OpenLayers client to get the map center point</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="386px" align="center" fileref="resources/images/GIS/geoserver_center_point.png"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
-          <screenshot>
-            <screeninfo>Using DHIS GIS Module to get the map center point</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="124px" align="center" fileref="resources/images/GIS/dhis_gis_center_point.png"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
+        <screenshot>
+          <screeninfo>Using Geoserver OpenLayers client to get the map center point</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="386px" align="center" fileref="resources/images/GIS/geoserver_center_point.png"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <screenshot>
+          <screeninfo>Using DHIS GIS Module to get the map center point</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="124px" align="center" fileref="resources/images/GIS/dhis_gis_center_point.png"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
       </listitem>
       <listitem>
         <para><guilabel>Zoom:</guilabel> The zoom level controls the extent of the map. Some
@@ -321,6 +333,7 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
   </section>
   <section id="gisPdfPrint">
     <title>Print map as PDF</title>
-    <para>Click the PDF icon on the map toolbar and the left side print panel will open. You may add several pages to your PDF document by clicking the "add page" button on the bottom toolbar. Change the size of the focus rectangle in the "scale" column. The rectangle can be rotated by inserting a number (degrees) "rotation" column or by dragging the rotation knob. Your "map title" and "comment" will appear above and below the picture in the PDF document respectively. The higher "dots per inch" value you choose, the better quality of the image and the larger file size of the document.</para><para>To get out of print mode you can simply expand a different panel or hide the print panel by clicking the PDF icon on the map toolbar again.</para>
+    <para>Click the PDF icon on the map toolbar and the left side print panel will open. You may add several pages to your PDF document by clicking the &quot;add page&quot; button on the bottom toolbar. Change the size of the focus rectangle in the &quot;scale&quot; column. The rectangle can be rotated by inserting a number (degrees) &quot;rotation&quot; column or by dragging the rotation knob. Your &quot;map title&quot; and &quot;comment&quot; will appear above and below the picture in the PDF document respectively. The higher &quot;dots per inch&quot; value you choose, the better quality of the image and the larger file size of the document.</para>
+    <para>To get out of print mode you can simply expand a different panel or hide the print panel by clicking the PDF icon on the map toolbar again.</para>
   </section>
 </chapter>
