@@ -48,6 +48,7 @@
                    Custom Title Page
     ################################################### --> 
     
+<!--
     <xsl:template name="book.titlepage.recto">
         <fo:block>
             <fo:table table-layout="fixed" width="175mm">
@@ -98,6 +99,7 @@
             </fo:table>
         </fo:block>
     </xsl:template>
+-->
 
     <!-- Prevent blank pages in output -->    
     <xsl:template name="book.titlepage.before.verso">
