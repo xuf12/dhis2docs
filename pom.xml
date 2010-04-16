@@ -12,15 +12,6 @@
     <docbook.source>${project.basedir}/src/docbkx</docbook.source>
     <docbook.target>${project.basedir}/target/site</docbook.target>
   </properties>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>dhis.uio.no</id>
-      <name>Dhis2 External Dependencies Repository</name>
-      <url>http://dhis.uio.no/maven/external</url>
-    </pluginRepository>
-  </pluginRepositories>
-
   <build>
     <plugins>
       <plugin>
