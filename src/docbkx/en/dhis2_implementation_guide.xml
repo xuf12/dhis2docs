@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbookV4.5/docbookx.dtd" []>
 <chapter>
   <title>DHIS2 Implementation Guide</title>
   <abstract>
-    <para>DHIS2 is a modern, robust and comprehensive information management platform developed globally  tailored to the collection of aggregate statistical data. . This document will provide a high-level overview of the various steps that will be required to implement DHIS2 at the country level. 
+    <para>DHIS2 is a modern, robust and comprehensive information management platform developed globally  tailored to the collection of aggregate statistical data. This document will provide a high-level overview of the various steps that will be required to implement DHIS2 at the country level. 
 The document is intended primarily for  consultants who will be responsible for the initial configuration of DHIS2 for a given country or organization.  While this document attempts to identify the most important points to consider when planning an implementation, there are many circumstances in a particular country that are impossible to anticipate. With that in mind, this document should be used as the basis to plan and execute a DHIS2 deployment, but should by no means be regarded as comprehensive. Other factors (political, human, or technical) that may not be included in this document, but that may be deemed to be important by the person(s) planning the implementation, should always be considered, and are usually highly specific to each country’s situation. . Significant planning, stakeholder consultation, and resources will be required in order to implement and maintain such an information system.  Careful planning and resource allocation will help to mitigate the risk of deployment. 
 The initial stages of planning and deployment are crucial in order to acheive a functional system. </para>
   </abstract>
@@ -38,17 +38,55 @@ The initial stages of planning and deployment are crucial in order to acheive a 
   </section>
   <section>
     <title>Deployment architecture</title>
+    <para>Broadly speaking, there are three way to deploy DHIS2: a single, standalone system, multiple standalone systems which exchange data through XML, and a server system that serves multiple clients through the Internet. There are varations on each of these three main architectures. Determining an deployment architecture is critical to ensure the long-term sustainability of DHIS2 in a given enviornment. Having a server-client architecture in a country with poor Internet infrastructure would be an inapproriate choice for instance. Several differnent scenarios will be discussed here, but will require modification for each deployment. </para>
     <section>
       <title>Determining an architecture</title>
       <para>DHIS2 is a server-client application that is capable of scaling from a single-desktop installation, to a multi-tiered clustered application capable of serving many clients at the same time.  The deployment architecture of DHIS2 will determine how the application is deployed in a given situation, and how different instances of DHIS2 will interact with each other. Several typical deployment architectures will be described in this section.  The determination of an approrpriate architecture is critical in order to meet the needs of the end-users, and it typically constrained by the level of available technical and finanacial resources for a given deployment. It should be noted that the deployment architecture may need to evolve over the course of an implementation. It is important to consider other systems that need to interact with the HMIS, such as patient record systems, logistical information systems, human resource information systems, financial management systems, etc. </para>
     </section>
     <section>
-      <title>Single-server, multiple clients</title>
-      <para>In this scenario, a single server will be used by multiple clients that connect to the server via the Internet. This deployment scenario is probably the simplest of all, besides the single-user desktop installation. In a typical scenario, a sinlge standard server-class machine would be used. DHIS2 would run with Apache Tomcat with either MySQL or Postgresql database backend. The administrator would be responsible for specification of the different user roles, and the provision of logins for each user, depending on their role. </para>
+      <title>Internet server for multiple clients</title>
+      <para>In this scenario, a single server will be used by multiple clients that connect to the server via the Internet. This deployment scenario is probably the simplest of all to setup, besides the single-user desktop installation. In a typical scenario, a sinlge standard server-class machine would be used. DHIS2 would run with Apache Tomcat with either MySQL or Postgresql database backend. The administrator would be responsible for specification of the different user roles, and the provision of logins for each user, depending on their role. </para>
       <para>Of course, depending on the actual number of clients that will be simultaneously accessing the application, multiple load-balanced servers accessing a clustered database may be more appropriate. DHIS2, like many database driven applications, tend to be constrained in terms of disk input/output. A common strategy for alleviating this constraint is the use of a clustered database. Both Postgresql and MySQL support database clustering. Essentially, a database cluster acts for all intents and purposes as a single database, but appears to the application accessing the database as as a single instance. There are many different scenarios that are capable of acheiving a clustered database with either MySQL or Postgres , but are beyond the scope of this article to consider. It should be mentioned that database replication, while seemingly easy to implement, requires considerable database administration experience, and should only be considered when high availability and large numbers of users will be encountered.  </para>
+      <para>For this type of architecture, a server class machine running some distribution of Linux (Debian, Ubuntu, Suse, etc) is reccomended. Java applications tend to perform better on Linux based machines. As DHIS2 is a database driven application, a key consideration is whether to run the database on the same machine as the application server. Ideally, the database and application servers would be on seperate machines, connected through a fiber or SAN. In many key DHIS2 markets however, this type of technology is either not available or prohibitively expensive. Usually therefore, the database (Postgresql or MySQL) and application server (typically Apache Tomcat) would reside on the same machine. </para>
+    </section>
+    <section>
+      <title>LAN server</title>
+      <para>DHIS2 is server-client software so can easily scale up to a networked
+system when needed. For example, a district office with five computers
+can have a local network with DHIS2 installed on only one machine. Program officers, manages, and data entry personell can access it over the local network. This  deployment scenario does not require
+Internet either, just cables or a wireless access point. This
+approach is used for districts in Tanzania and Sierra Leone. In
+addition, DHIS2 can run on Linux to avoid viruses and reduce
+maintenance. The other computers in the building can run Windows and
+access the DHIS2 local server to enter data, run validation, reports,
+view maps etc. in their local browsers (Internet Explorer, Firefox
+etc.), as well as analyse data in Excel pivot tables (connected to the
+database on the local server). This means that the all health staff in
+this office all work on the same database, which helps to synchronise
+and integrate the data among programs and departments, and reduces the
+need for DHIS maintenance to a single machine. Communication up to the
+region/province or national would occur  through DXF export
+files.</para>
     </section>
     <section>
       <title>Decentralised architecture</title>
+      <para>The decentralized architecture typically consists of many standalone instances of DHIS2, which interchange data through the DXF data exchange format. In a typical deployment, a single DHIS2 instance will be installed a a peripheral adminstrative unit, such as the district. Each district will collect paper aggregate data reports from a number of facilities, and then enter these reports manually into the system on a regular basis. Data will then be transmitted, via DXF, to seperate installations at higher organizational levels, such as the province and national level. </para>
+    </section>
+    <section>
+      <title>Which arcitecture should I choose?</title>
+      <para>Oftentimes, some areas have adequate Internet connections and others
+none at all. Therefore, the most common implementation scenario is a
+combination of all three. In the case where  no
+districts have sufficient Internet connection to access an online
+national server, it makes sense for the MoH to set up such a national
+DHIS server anyway to enable access to one common data repository for
+all the health programs and other users of information at the national
+level that often are connected to the server either through a local
+network or over the Internet. If  at some point in time, some districts get a proper
+connection they can start entering their data directly on this
+national server and run their reports etc there (this happens in
+Gujarat), while at the same time the other districts continue to send
+their data via export files. In summary, there generally is no one solution and it will likely evolve over time as Internet access continues to improve. </para>
     </section>
   </section>
   <section>
