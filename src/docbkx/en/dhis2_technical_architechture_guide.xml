@@ -49,6 +49,15 @@
     </screenshot>
     <para>Fig. Project structure</para>
   </section>
+  <section>
+    <title>Project Dependencies</title>
+    <para>Dependencies between the projects are structured in five layers. The support modules provide support functionality for the core and service modules, related to Hibernate, testing, JDBC, and the file system. The core module provides the core functionality in the system, like persistence and business logic for the central domain objects. The service modules provide business logic for services related to reporting, import-export, mapping, and administration. The web modules are self-contained web modules. The portal is a wrapper web module which assembles all the web modules. Modules from each layer can only have dependencies to modules at the same layer or the  layer right below.</para>
+    <mediaobject>
+      <imageobject>
+        <imagedata width="95%" align="center" fileref="resources/images/dhis2_technical_architecture/dependency_structure.jpg"/>
+      </imageobject>
+    </mediaobject>
+  </section>
   <section id="technicalDataModel">
     <title>The Data Model</title>
     <para>The data model is flexible in all dimensions in order to allow for capture of any item of data. The model is based on the notion of a DataValue. A DataValue can be captured for any DataElement (which represents the captured item, occurrence or phenomena), Period (which represents the time dimension), and Source (which represents the space dimension, i.e. an organisational unit in a hierarchy).</para>
