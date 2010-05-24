@@ -405,6 +405,11 @@
 	<xsl:param name="body.font.family">Times-Roman</xsl:param>
     <xsl:param name="body.font.master">10</xsl:param>
     <xsl:param name="body.font.small">9</xsl:param>
+	<xsl:param name="symbol.font.family">Times-Roman</xsl:param>
+	<!--<xsl:param name="symbol.font.family">Courier New</xsl:param>
+	<xsl:param name="symbol.font.family">monospace</xsl:param>
+	<xsl:param name="symbol.font.family">FangSong</xsl:param> -->
+
 
     <!-- Line height in body text -->
     <xsl:param name="line-height">1.3</xsl:param>
@@ -417,7 +422,7 @@
         <xsl:attribute name="font-size">0.9em</xsl:attribute>
     </xsl:attribute-set>
     
-	<xsl:param name="body.start.indent">opt</xsl:param>
+	<xsl:param name="body.start.indent">24pt</xsl:param>
 <!--
 	<xsl:param name="body.start.indent">
 	  <xsl:choose>
