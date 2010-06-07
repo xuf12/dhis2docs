@@ -47,7 +47,7 @@
 <!--###################################################
                    Custom Title Page
     ################################################### --> 
-    
+
     <xsl:template name="book.titlepage.recto">
         <fo:block>
             <fo:table table-layout="fixed" width="175mm">

@@ -48,7 +48,7 @@
                    Custom Title Page
     ################################################### --> 
     
-<!--
+
     <xsl:template name="book.titlepage.recto">
         <fo:block>
             <fo:table table-layout="fixed" width="175mm">
@@ -99,7 +99,7 @@
             </fo:table>
         </fo:block>
     </xsl:template>
--->
+
 
     <!-- Prevent blank pages in output -->    
     <xsl:template name="book.titlepage.before.verso">
@@ -407,6 +407,7 @@
 	<xsl:param name="body.font.family">Times-Roman</xsl:param>
     <xsl:param name="body.font.master">10</xsl:param>
     <xsl:param name="body.font.small">9</xsl:param>
+	<xsl:param name="symbol.font.family">Times-Roman</xsl:param>
 
     <!-- Line height in body text -->
     <xsl:param name="line-height">1.3</xsl:param>
@@ -419,7 +420,7 @@
         <xsl:attribute name="font-size">0.9em</xsl:attribute>
     </xsl:attribute-set>
     
-	<xsl:param name="body.start.indent">opt</xsl:param>
+	<xsl:param name="body.start.indent">24pt</xsl:param>
 <!--
 	<xsl:param name="body.start.indent">
 	  <xsl:choose>
