@@ -1,16 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+<!-- This document was created with Syntext Serna Free. -->
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
 <!ENTITY br ''>]>
 <chapter>
-  <chapterinfo>
-    <title>DHIS 2 Documentation Guide</title>
-    <author>
+  <chapterinfo><title>DHIS 2 Documentation Guide</title><author>
       <firstname>Jason</firstname>
       <surname>Pickering</surname>
       <affiliation>
         <orgname/>
-      </affiliation>
-    </author>
+      </affiliation></author>
     <pubdate>14/09/09</pubdate>
     <keywordset>
       <keyword>DHIS2</keyword>
@@ -23,17 +21,14 @@
         <date>28/10/09</date>
         <revdescription>
           <para> Added some more information on multilingual documents and editors.</para>
-        </revdescription>
-      </revision>
+        </revdescription></revision>
       <revision>
         <revnumber>1</revnumber>
         <date>29/09/09</date>
         <revdescription>
           <para>Added more information on getting started with bzr and DocBook</para>
-        </revdescription>
-      </revision>
-    </revhistory>
-  </chapterinfo>
+        </revdescription></revision>
+    </revhistory></chapterinfo>
   <title>DHIS2 Documentation Guide</title>
   <section id="docs_1">
     <title>DHIS 2 Documentation System Overview</title>
@@ -61,13 +56,15 @@
       application itself. Therefore, there are wide range of possibilities in terms of which editor
       can be used for the creation of DocBook files. A fairly complete list of possibilities is
       located <ulink url="http://wiki.docbook.org/topic/DocBookAuthoringTools">here</ulink>. It is
-      currently recommended to use <ulink url="http://www.syntext.com/products/serna-free/ ">Syntext Serna Free</ulink> for editing DocBook source files as WYSIWYG. It is not recommended to use
+      currently recommended to use <ulink url="http://www.syntext.com/products/serna-free/ ">Syntext
+        Serna Free</ulink> for editing DocBook source files as WYSIWYG. It is not recommended to use
       the editor XMLmind XML Editor Personal Edition (also known as XXE Personal), as the editor
       &quot;silently&quot; places unneeded whitespace and other ornamentation to the DocBook source
       which makes collaborative editing of documents very difficult. </para>
     <para>One of the key concepts to keep in mind when authoring documentation in DocBook, or other
       presentation neutral formats, is that the <emphasis role="bold">content </emphasis>of the
-      document should be considered in the first instance. The <emphasis role="bold">presentation </emphasis>of the document will take place in a separate step, where it will be rendered into
+      document should be considered in the first instance. The <emphasis role="bold">presentation
+      </emphasis>of the document will take place in a separate step, where it will be rendered into
       different formats, such as HTML and PDF. It is therefore important that the document is will
       organised and structured, with appropriate DocBook tags and structural elements being
       considered.</para>
@@ -83,7 +80,8 @@
   </section>
   <section id="docs_3">
     <title>Getting started with Launchpad</title>
-    <para>Currently, the documentation system is part of the source code housed at <ulink url="https://launchpad.net/">Launchpad</ulink>. Launchpad is a collaborative platform that
+    <para>Currently, the documentation system is part of the source code housed at <ulink
+        url="https://launchpad.net/">Launchpad</ulink>. Launchpad is a collaborative platform that
       enables multiple people to work on software projects collaboratively. In order for this to be
       possible, a version control system is necessary in order to manage all the changes that
       multiple users may make. Launchpad uses the <emphasis>Bazaar</emphasis> source control system.
@@ -94,7 +92,9 @@
     <para> In order to start adding or editing the documentation, you should first perform a
       checkout of the source code. If you do not already have a Launchpad login id, you will need to
       get one. This can be done <ulink url="https://launchpad.net/+login">here</ulink>. Once you
-      register with Launchpad, you will need to request access to the<emphasis> dhis2-documenters</emphasis> group. Login to Launchpad, and then request access <ulink url="https://code.launchpad.net/~dhis2-documenters/dhis2/dhis2-docbook-docs">here</ulink>.
+      register with Launchpad, you will need to request access to the<emphasis>
+        dhis2-documenters</emphasis> group. Login to Launchpad, and then request access <ulink
+        url="https://code.launchpad.net/~dhis2-documenters/dhis2/dhis2-docbook-docs">here</ulink>.
       Your request will need to be approved by the group administrators. Once you have been granted
       access to the group, you can commit changes to the documentation branch and send and receive
       emails on the groups&apos; list. </para>
@@ -105,7 +105,9 @@
       documentation to your computer. Launchpad uses a version control system known as bzr . There
       are different methods for getting Bazaar working on your system, depending on which operating
       system you are using. A good step-by-step guide for <productname>Microsoft</productname>
-      operating systems can be viewed <ulink url="http://wiki.showmedo.com/index.php/Using_Launchpad_and_Bazaar#Steps_to_download_a_project_on_Launchpad_that_uses_Bazaar_with_only_one_branch">here</ulink>. If you are using Linux, you will need to install bzr on your system through
+      operating systems can be viewed <ulink
+        url="http://wiki.showmedo.com/index.php/Using_Launchpad_and_Bazaar#Steps_to_download_a_project_on_Launchpad_that_uses_Bazaar_with_only_one_branch"
+        >here</ulink>. If you are using Linux, you will need to install bzr on your system through
       your package manager, or from source code.</para>
     <para>Once you have installed bzr on your system, you will need to download the document source.
       Just follow this procedure:</para>
@@ -114,14 +116,19 @@
         <para>Make sure you have Bazaar installed.</para>
       </listitem>
       <listitem>
-        <para>Start Bazaar by right-clicking a folder if you are using <productname>Windows</productname> and selecting <command>Bzr Here</command>. If you use Linux, you
+        <para>Start Bazaar by right-clicking a folder if you are using <productname
+            >Windows</productname> and selecting <command>Bzr Here</command>. If you use Linux, you
           can just create a folder to hold the document sources. You can place the document source
           in any folder you like.</para>
       </listitem>
       <listitem>
-        <para>To download the latest revision of the DHIS2 documents project type: <command>bzr branch http://bazaar.launchpad.net/%7Edhis2-documenters/dhis2/dhis2-docbook-docs</command> if
+        <para>To download the latest revision of the DHIS2 documents project type: <command>bzr
+            branch
+            http://bazaar.launchpad.net/%7Edhis2-documenters/dhis2/dhis2-docbook-docs</command> if
           you are using Linux, or alternatively if you are using <productname>Windows</productname>
-          type the url to the source code repository &quot;<ulink url="https://bazaar.launchpad.net/%7Edhis2-documenters/dhis2/dhis2-docbook-docs">http://bazaar.launchpad.net/%7Edhis2-documenters/dhis2/dhis2-docbook-docs</ulink>&quot;</para>
+          type the url to the source code repository &quot;<ulink
+            url="https://bazaar.launchpad.net/%7Edhis2-documenters/dhis2/dhis2-docbook-docs"
+            >http://bazaar.launchpad.net/%7Edhis2-documenters/dhis2/dhis2-docbook-docs</ulink>&quot;</para>
       </listitem>
       <listitem>
         <para>The download process should start and all the documentation source files will be
@@ -129,25 +136,16 @@
       </listitem>
     </orderedlist>
   </section>
-  <section>
-    <title>Creating a new document with Serna Free</title>
-    <para>Serna Free is an intuitive XML editor with a user friendly user interface. Once you have downloaded the documentation source, you can begin to add your own documents or create new documents. To create a new document with Serna, choose Document-&gt;New Document and then Choose the &quot;Docbook 4.4&quot; document type. Ensure that you use this exact document type, as it is currently the only one that is supported by the rendering engine that will be used to transform the Docbook XML source into other formats, such as HTML and PDF. Save the document in the corresponding language folder in the source code tree. For instane, if you are creating English documents, save the new file in the <filename>/dhis2-docbook-docs/src/docbkx/en</filename> directory. </para>
-    <screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="resources/images/documentation/create_new_document_serna.png" width="60%" align="center" format="PNG"/>
-        </imageobject>
-      </mediaobject>
-    </screenshot>
-    <para>If  you are creating main sections in the documentation choose &quot;Chapter&quot; as the template type. If you are creating an appendix, choose &quot;Article&quot;. This is simply necessary to conform to the Docbook schema. Otherwise the documents template types are essentially the same.</para>
-  </section>
   <section id="docs_5">
     <title>Editing the documentation</title>
     <para>Once you have downloaded the source, you should have a series of folders inside of the
-      dhis2-docbook-docs directory. All documents should be placed in the <filename>dhis2-docbook-docs/src/docbkx/XX</filename> folder. Note that the <filename>XX</filename>
+      dhis2-docbook-docs directory. All documents should be placed in the <filename
+        >dhis2-docbook-docs/src/docbkx/XX</filename> folder. Note that the <filename>XX</filename>
       represents the ISO 639-1 (two-letter) language code of the documentation. If you are
-      developing English language documentation, place it inside the <filename>/dhis2-docbook-docs/src/docbkx/en/</filename> folder. Place any image files that may be
-      linked to your document in the <filename>/dhis2-docbook-docs/src/docbkx/XX/resources/images</filename> folder and link these inside
+      developing English language documentation, place it inside the <filename
+        >/dhis2-docbook-docs/src/docbkx/en/</filename> folder. Place any image files that may be
+      linked to your document in the <filename
+        >/dhis2-docbook-docs/src/docbkx/XX/resources/images</filename> folder and link these inside
       your DocBook document using a relative file link. When the documentation is built, in a
       separate step, the images will be automatically copied over to the correct directory during
       the build process.</para>
@@ -218,7 +216,8 @@ mod1.xml&quot; encoding=&quot;UTF-8&quot;/&gt;
     <title>Handling multilingual documentation</title>
     <para>The directory structure of the documentation has been created in order to facilitate the
       creation of documents in any language. If you want to create a new set of documents in a given
-      language, simply create a new directory in the <filename>dhis2-docbook-docs/src/docbkx/</filename> directory. Be sure to use the ISO 639-1 code for
+      language, simply create a new directory in the <filename
+        >dhis2-docbook-docs/src/docbkx/</filename> directory. Be sure to use the ISO 639-1 code for
       the language you are going to create documents in. A complete list of these codes can be found
         <ulink url="http://en.wikipedia.org/wiki/ISO_639-1">here</ulink>. Add a new folder for
       images in a sub-directory , replacing XX with the actual ISO 639-1 code for the language you
@@ -239,8 +238,11 @@ mod1.xml&quot; encoding=&quot;UTF-8&quot;/&gt;
     <section>
       <title>Building the documentation with Apache maven</title>
       <para>In order to transform the documentation source files to different formats, such as HTML
-        or PDF, you will need to install the Apache Maven program. You can get a copy <ulink url="http://maven.apache.org/download.html">here</ulink> or by installing it through your
-        package manager if you are using Linux. Just execute the command <command>mvn clean package</command> on Windows or on Linux from the <filename>/dhis2-docbook-docs </filename>directory. Maven will start to download the necessary components to transform the
+        or PDF, you will need to install the Apache Maven program. You can get a copy <ulink
+          url="http://maven.apache.org/download.html">here</ulink> or by installing it through your
+        package manager if you are using Linux. Just execute the command <command>mvn clean
+          package</command> on Windows or on Linux from the <filename>/dhis2-docbook-docs
+        </filename>directory. Maven will start to download the necessary components to transform the
         documents into HMTL and PDF. Once the process has completed (be patient the first time, as
         there are a number of components that must be downloaded), all of the target document types
         will be generated in the /<filename>dhis2-docbook-docs/target/docbkx</filename> directory.
@@ -254,7 +256,9 @@ mod1.xml&quot; encoding=&quot;UTF-8&quot;/&gt;
         can be found <ulink url="http://cyberelk.net/tim/software/xmlto/">here</ulink>. If you do
         not want to use Apache Maven for some reason, you can install <command>xmlto</command>
         through your package manager. Once you have installed <command>xmlto</command> you can just
-        execute <command>xmlto <parameter>html</parameter><parameter>file_to_transform</parameter></command> where the <parameter>file_to_transform</parameter> parameter is the name of the file you wish to transform.
+        execute <command>xmlto <parameter>html</parameter><parameter
+          >file_to_transform</parameter></command> where the <parameter
+          >file_to_transform</parameter> parameter is the name of the file you wish to transform.
         There are many other formats available, such as PDF, PS, JavaHelp and others. </para>
     </section>
   </section>
@@ -268,11 +272,14 @@ mod1.xml&quot; encoding=&quot;UTF-8&quot;/&gt;
       of your new files, you will need to commit them to your local branch with the following
       command:</para>
     <blockquote>
-      <para><command>bzr commit -m &quot;Created Amharic translation of documentation&quot;</command></para>
+      <para><command>bzr commit -m &quot;Created Amharic translation of
+          documentation&quot;</command></para>
     </blockquote>
     <para>Just add an informative message of what you have done. Once you have committed changes to
       your local branch, you can push them to the master branch with the following command: <blockquote>
-        <para><command>bzr push bzr+ssh://bazaar.launchpad.net/%7Edhis2-documenters/dhis2/dhis2-docbook-docs </command></para>
+        <para><command>bzr push
+            bzr+ssh://bazaar.launchpad.net/%7Edhis2-documenters/dhis2/dhis2-docbook-docs
+          </command></para>
       </blockquote></para>
     <para>If you have any questions, or cannot find that you can get started, just send an email
       with your problem to <email>dhis2-documenters@lists.launchpad.net</email>.</para>
