@@ -360,9 +360,10 @@
                   <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/copy_report_item.png" format="PNG"/>
                 </imageobject>
               </mediaobject>
-            </screenshot><tip>
-              <para>Copy selected items to other reports for quickly developing many reports with the same data elements but with the different periods.</para>
-            </tip><emphasis role="bold">Copy to excel items</emphasis> button: To copy the report items when the new report has an item which can be reused from the existing report. </para>
+            </screenshot><emphasis role="bold">Copy to excel items</emphasis> button: To copy the report items when the new report has an item which can be reused from the existing report. </para>
+          <tip>
+            <para>Copy selected items to other reports for quickly developing many reports with the same data elements but with the different periods.</para>
+          </tip>
           <para><orderedlist>
               <listitem>
                 <para>From source report, select report items need to be copied.</para>
@@ -385,9 +386,10 @@
                   <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/copy_to_excel_item.png" format="PNG"/>
                 </imageobject>
               </mediaobject>
-            </screenshot><tip>
-              <para>Copy selected items to Excel item groups for quickly developing many groups with the same data elements.</para>
-            </tip></para>
+            </screenshot></para>
+          <tip>
+            <para>Copy selected items to Excel item groups for quickly developing many groups with the same data elements.</para>
+          </tip>
         </section>
       </section>
       <section>
@@ -582,7 +584,7 @@
         <para>Click <emphasis role="bold">Add</emphasis> button to open a form.<screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata align="center" fileref="resources/images/dhis_excel_reports/add_excelitem.png" format="PNG" width="70%"/>
+                <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/add_excelitem.png" format="PNG"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -595,14 +597,14 @@
               <screenshot>
                 <mediaobject>
                   <imageobject>
-                    <imagedata align="center" fileref="resources/images/dhis_excel_reports/create_expression.png" format="PNG" width="70%"/>
+                    <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/create_expression.png" format="PNG"/>
                   </imageobject>
                 </mediaobject>
               </screenshot>
               <screenshot>
                 <mediaobject>
                   <imageobject>
-                    <imagedata align="center" fileref="resources/images/dhis_excel_reports/create_expression_1.png" format="PNG" width="70%"/>
+                    <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/create_expression_1.png" format="PNG"/>
                   </imageobject>
                 </mediaobject>
               </screenshot>
@@ -624,7 +626,7 @@
         <para><emphasis role="bold">Copy selected items to</emphasis> button: To copy the report items when the new report has an item which can be reused from the existing report<screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata align="center" fileref="resources/images/dhis_excel_reports/copy_report_item.png" format="PNG" width="70%"/>
+                <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/copy_report_item.png" format="PNG"/>
               </imageobject>
             </mediaobject>
           </screenshot><orderedlist>
@@ -655,33 +657,34 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata align="center" fileref="resources/images/dhis_excel_reports/excel_template_management.png" format="PNG" width="70%"/>
+            <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/excel_template_management.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
       <para>To upload template file, choose <emphasis role="bold">Browse</emphasis> button.<screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata align="center" fileref="resources/images/dhis_excel_reports/upload_template_excel_file.png" format="PNG" width="70%"/>
+              <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/upload_template_excel_file.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot></para>
       <para arch="">Choose a file from shown dialog<screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata align="center" fileref="resources/images/dhis_excel_reports/choose_upload_file.png" format="PNG" width="70%"/>
+              <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/choose_upload_file.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot></para>
       <para>Click <emphasis role="bold">Open</emphasis> to choose file, and click <emphasis role="bold">Upload</emphasis> button to upload. If to upload successfully, a message shown :<screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata align="center" fileref="resources/images/dhis_excel_reports/upload_success.png" format="PNG" width="70%"/>
+              <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/upload_success.png" format="PNG"/>
             </imageobject>
           </mediaobject>
-        </screenshot><tip>
-          <para>No upload if the chosen  file is not excel file.</para>
-        </tip></para>
+        </screenshot></para>
+      <tip>
+        <para>No upload if the chosen  file is not excel file.</para>
+      </tip>
       <para>There three operation functions</para>
       <itemizedlist>
         <listitem>
@@ -706,7 +709,7 @@
           <screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata align="center" fileref="resources/images/dhis_excel_reports/clean_temporary_directory.png" format="PNG" width="70%"/>
+                <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/clean_temporary_directory.png" format="PNG"/>
               </imageobject>
             </mediaobject>
           </screenshot>
