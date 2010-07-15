@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. -->
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>DHIS2 Implementation Guide</title>
   <abstract>
@@ -40,10 +39,10 @@ The initial stages of planning and deployment are crucial in order to acheive a 
   <section>
     <title>Compiling DHIS2</title>
     <para>First, create an environment variable called <envar>JAVA_OPTS</envar>, and set its value to: <parameter>-Xms128m -Xmx512m -XX:PermSize=128m -XX:MaxPermSize=512m</parameter> . In addition to this environment variable, you will need to ensure that maven is accessible through your console. </para>
-    <para>A sample Windows batch script is provided below. There are three steps during the build process: 1) Building the DHIS2 core modules 2) Building the DHIS2 Web modules and 3) Building the DHIS2 web portal. </para>
-    <para><literallayout><computeroutput>set start_time=%time% echo Building DHIS 2 Core cd trunk\dhis-2\ call mvn clean install -Dtest=skip -DfailIfNoTests=false echo Building DHIS 2 Web cd dhis-web call mvn clean install -Dtest=skip -DfailIfNoTests=false echo Packing DHIS 2 Web Portal cd dhis-web-portal call mvn clean package -Dtest=skip -DfailIfNoTests=false cd ..\..\..\.. echo start %start_time% echo finish %time%</computeroutput> </literallayout></para>
+    <para>A sample Windows batch script is provided below. There are two seperate steps during the build process: 1) Building the DHIS2 core modules 2) Building the DHIS2 Web modules and portal.</para>
+    <para><literallayout><computeroutput>set start_time=%time% echo Building DHIS 2 Core cd trunk\dhis-2\ call mvn clean install -Dtest=skip -DfailIfNoTests=false echo Building DHIS 2 Web cd dhis-web call mvn clean install -Dtest=skip -DfailIfNoTests=false echo start %start_time% echo finish %time%</computeroutput> </literallayout></para>
     <para>A sample Linux build script is provided below. </para>
-    <para><literallayout><computeroutput>#!/bin/sh echo &quot;Building DHIS 2 Core...&quot; cd dhis/trunk/dhis-2 mvn clean install -Dtest=skip -DfailIfNoTests=false echo &quot;Building DHIS 2 Web...&quot; cd dhis-web mvn clean install -Dtest=skip -DfailIfNoTests=false echo &quot;Packing DHIS 2 Web Portal...&quot; cd dhis-web-portal mvn clean package -Dtest=skip -DfailIfNoTests=false </computeroutput></literallayout></para>
+    <para><literallayout><computeroutput>#!/bin/sh echo &quot;Building DHIS 2 Core...&quot; cd dhis/trunk/dhis-2 mvn clean install -Dtest=skip -DfailIfNoTests=false echo &quot;Building DHIS 2 Web...&quot; cd dhis-web mvn clean install -Dtest=skip -DfailIfNoTests=false </computeroutput></literallayout></para>
     <para>Both of these scripts have been included in the <filename>/dhis2/dhis2/dhis2-live-installer</filename> directory. Review the <filename>INSTALLER-README.txt</filename> file for more details of these build scripts and their functionality.</para>
     <para>The first time you execute the build process, maven will need to download a number of required components. You must therefore have an active internet connection. Depending on the speed of your connection and computer, the build process could take a significant amount of time. </para>
     <para>The resulting web archive file (war)  is located in <filename>dhis2/dhis-2/dhis-web/dhis-web-portal/target/dhis.war</filename> . This file should be copied to your Tomcat&apos;s <filename>/webapps</filename> directory. </para>
