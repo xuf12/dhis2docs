@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. -->
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>DHIS2 Implementation Guide</title>
@@ -35,6 +36,17 @@ The initial stages of planning and deployment are crucial in order to acheive a 
       <para>Other organisations such as private sector enterprises with HIV/AIDS workplace programs, private sector health care providers, non-governmental organizations involved in health care, etc.  should be considered. The HMIS working group can help to establish the overall scope of the information management system, key indicators, frequency (monthly, quarterly, annually) of data collection, as well as the geographical (e.g. national, provincial, district, facility) and organizational (single versus multiple) hierarchy that should be part of the HMIS. 
 </para>
     </section>
+  </section>
+  <section>
+    <title>Compiling DHIS2</title>
+    <para>First, create an environment variable called <envar>JAVA_OPTS</envar>, and set its value to: <parameter>-Xms128m -Xmx512m -XX:PermSize=128m -XX:MaxPermSize=512m</parameter> . In addition to this environment variable, you will need to ensure that maven is accessible through your console. </para>
+    <para>A sample Windows batch script is provided below. There are three steps during the build process: 1) Building the DHIS2 core modules 2) Building the DHIS2 Web modules and 3) Building the DHIS2 web portal. </para>
+    <para><literallayout><computeroutput>set start_time=%time% echo Building DHIS 2 Core cd trunk\dhis-2\ call mvn clean install -Dtest=skip -DfailIfNoTests=false echo Building DHIS 2 Web cd dhis-web call mvn clean install -Dtest=skip -DfailIfNoTests=false echo Packing DHIS 2 Web Portal cd dhis-web-portal call mvn clean package -Dtest=skip -DfailIfNoTests=false cd ..\..\..\.. echo start %start_time% echo finish %time%</computeroutput> </literallayout></para>
+    <para>A sample Linux build script is provided below. </para>
+    <para><literallayout><computeroutput>#!/bin/sh echo &quot;Building DHIS 2 Core...&quot; cd dhis/trunk/dhis-2 mvn clean install -Dtest=skip -DfailIfNoTests=false echo &quot;Building DHIS 2 Web...&quot; cd dhis-web mvn clean install -Dtest=skip -DfailIfNoTests=false echo &quot;Packing DHIS 2 Web Portal...&quot; cd dhis-web-portal mvn clean package -Dtest=skip -DfailIfNoTests=false </computeroutput></literallayout></para>
+    <para>Both of these scripts have been included in the <filename>/dhis2/dhis2/dhis2-live-installer</filename> directory. Review the <filename>INSTALLER-README.txt</filename> file for more details of these build scripts and their functionality.</para>
+    <para>The first time you execute the build process, maven will need to download a number of required components. You must therefore have an active internet connection. Depending on the speed of your connection and computer, the build process could take a significant amount of time. </para>
+    <para>The resulting web archive file (war)  is located in <filename>dhis2/dhis-2/dhis-web/dhis-web-portal/target/dhis.war</filename> . This file should be copied to your Tomcat&apos;s <filename>/webapps</filename> directory. </para>
   </section>
   <section>
     <title>Deployment architecture</title>
@@ -88,6 +100,57 @@ national server and run their reports etc there (this happens in
 Gujarat), while at the same time the other districts continue to send
 their data via export files. In summary, there generally is no one solution and it will likely evolve over time as Internet access continues to improve. </para>
     </section>
+  </section>
+  <section>
+    <title>Packaging and installation</title>
+    <blockquote>
+      <para>&quot;Building an installer is the last thing the developer does but the first thing the customer sees.&quot;</para>
+      <para>Will Iverson, strategic partner manager for Symantec&apos;s Internet Tools Division.</para>
+    </blockquote>
+    <section>
+      <title>Introduction</title>
+      <para>DHIS2 is a browser-based Java application, and will therefore run on essentially any operating system that support Java. The application has been architected to run both on stand-alone laptops as well as servers intended for multi-user enviornments discussed in the previous sections. Creating a single installer for all of these types of deployments is a major challenge and must be carefully considered when rolling out DHIS2 within a given organization. In this section, the packaging of DHIS2 based on the BitRock InstallBuilder will be considered. The source code for these installers is included in the <filename>/dhis2/dhis2-live-installer</filename> directory of the main source code. </para>
+    </section>
+    <section>
+      <title>Building the installer</title>
+      <para>You will need a few extra components in order to build the BitRock installer. </para>
+      <itemizedlist>
+        <listitem>
+          <para>A recent version of the Java SDK. </para>
+        </listitem>
+        <listitem>
+          <para>Download a copy of <ulink url="http://installbuilder.bitrock.com/download-step-2.html">BitRock InstallBuilder 6 Multiplatform (Professional).</ulink>. The install builder is available for multiple operating systems, so choose the one that is appropriate for you. The DHIS2 project has been granted a special liscense by BitRock for the use within the context of the project. Please send a note to the developers list if you want to build the installer, and a copy of the key required for the application will be sent to you. </para>
+        </listitem>
+        <listitem>
+          <para>Apache Maven 2</para>
+        </listitem>
+        <listitem>
+          <para>If you are planning to build an embedded installer (described below), you will need a recent copy of the Java Runtime Environment (JRE). More specific details wil be provided in the section below. </para>
+        </listitem>
+      </itemizedlist>
+      <para>Once you have downloaded and installed all the necessary components, you will need to make some changes to the environment variables that are defined in the build.sh script (or build.bat script if you are using Windows). </para>
+      <itemizedlist>
+        <listitem>
+          <para><command>export <envar>JAVA_HOME</envar>=/usr/share/java/jdk1.6.0_19/</command></para>
+          <para>This should point to the path where your local copy of the Java SDK exists. If this has been define else where on your system, you can comment this line out.</para>
+        </listitem>
+        <listitem>
+          <para><command>export <envar>PATH</envar>=$<envar>PATH</envar>:/home/jason/apache-maven-2.2.1/bin/</command></para>
+          <para>This command will add the Apache Maven binary to the current path. If Maven is is accessible on the current enviornment, you can comment out this line.</para>
+        </listitem>
+        <listitem>
+          <para><command>export <envar>BITROCK_HOME</envar>=/home/jason/installbuilder-6.3.1/</command></para>
+          <para>This command will define an enviornment variable which should point to the directory where the BitRock Installer Professional has been downloaded to. </para>
+        </listitem>
+        <listitem>
+          <para><command>export <envar>DHIS2_DOCS</envar>=&quot;/home/jason/dhis2/dhis2-docbook-docs/&quot;</command></para>
+          <para>This environment variable will be used by the build script to automatically build the DHIS2 documentation and should point to the documentation source directory.</para>
+        </listitem>
+        <listitem/>
+        <listitem/>
+      </itemizedlist>
+    </section>
+    <section/>
   </section>
   <section>
     <title>Configuration</title>

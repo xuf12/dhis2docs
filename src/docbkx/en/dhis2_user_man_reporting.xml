@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>Reporting</title>
@@ -48,27 +48,28 @@ Along the time dimension there are several possibilities, the two most common wa
     <section>
       <title>Dimensions of aggregation</title>
       <section>
-        <title>Orgunits and levels</title>
-        <para/>
+        <title>Organisational units and levels</title>
+        <para>Organisational units are used to represent the &quot;where&quot; dimension associated with data values. In DHIS2, organisational units are arranged in a hierarchy, which typically corresponds to the hierarchical nature of the organisation or country. Organisational unit levels correspond to the distinct levels within the hierarchy. For instance, a country maybe organized into provinces, then districts, then facilities, and then sub-centers. This organisational hierarchy would have five levels. Within each level, a number of organisational units would exist. During the aggregation process, data is aggregated from the lower organisational unit levels to higher levels. Depending on the aggregation operator, data may be &quot;summed&quot; or &quot;averaged&quot; within a given organisational unit level, to derive the aggregate total for all the organisational units that are contained within a higher level organisational unit level. For instance, if there are ten districts contained in a province and the aggregation operator for a given data element has been defined as &quot;SUM&quot;,  the aggregate total for the province would be calculated as the sum of the values of the individual ten distrincts contained in that province.</para>
       </section>
       <section>
         <title>Period</title>
-        <para/>
+        <para>Periods are used to represent the &quot;when&quot; dimension associated with data values. Data can easily be aggregated from weeks to months, from months to quarters, and from quarters to years. DHIS2 uses known rules of how these different intervals are contained within other intervals (for instance Quarter 1 2010 is known to contain January 2010, February 2010 an March 2010) in order to aggregate data from smaller time intervals, e.g. weeks, into longer time intervals, e.g. months. </para>
       </section>
       <section>
-        <title>Data Element Categories</title>
-        <para/>
+        <title>Data Elements and Categories</title>
+        <para>The data element dimension specifies &quot;what&quot; is being recorded by a particular data value. Data element categories are actually degenerate dimensions of the data element dimension, and are used to disaggregate the data element dimension into finer categories. Data element categories, such as &quot;Age&quot; and &quot;Gender&quot;, are used to record a particular data element, typically for differen population groups. These categories can then be used to calculate the overall total for the category  and the total of all categories. </para>
       </section>
     </section>
     <section>
       <title>Aggregation operators, methods for aggregation</title>
       <section>
         <title>Sum</title>
-        <para/>
+        <para>The &quot;sum&quot; operator simply calcuates the sum of all data values that are contained within a particular aggregation matrix. For instance, if data is recorded on a monthly basis at the district level and is aggregated to provincial quarterly totals, all data contained in all districts for a given province and all weeks for the given quarter will be added together to obtained the aggregate total.</para>
       </section>
       <section>
         <title>Average</title>
-        <para/>
+        <para>When the average aggregation operator is selected, the unweighted average of all data values within a given aggregation matrix. </para>
+        <para>It is important to understand how DHIS2 treats null values in the context of the average operator. It is fairly common for some organisational units not to submit data for certain data elements. In the context of the average operator, the average results from the number of data elemements that are actually present (therefore NOT NULL) within a given aggregation matrix. If there are 12 districts within a given province, but only 10 of these have submitted data, the average aggreate will result from these ten values that are actually present in the database, and will not take into account the missing values.  </para>
       </section>
       <section>
         <title>Count</title>
@@ -133,7 +134,7 @@ All in all, by combining the functionality of cross tabbing, relative periods an
       </section>
       <section>
         <title>Define and run the report in DHIS</title>
-        <para>(the very first time you need to configure where the BIRT report viewer is installed, go to Reports→Report→Configure report) In DHIS 2 you can define a report in the Reports module that you link to a report table and provide with a name. Then the report is ready to be generated and displayed, and this can be done in two ways, 1) run report with new data or run report with existing data. This all depends on whether your report table is populated already or not. Most likely you will have to run it with new data and then you are asked to provide values for the report parameters (if defined in the report table) and then the table will be populated in the background and a new window will show the report as soon as it is ready. The new window will actually be generated by the BIRT report viewer, which is a separate web application running on the same tomcat instance.</para>
+        <para>The very first time you need to configure where the BIRT report viewer is installed, go to Reports→Report→Configure report. In DHIS 2 you can define a report in the Reports module that you link to a report table and provide with a name. Then the report is ready to be generated and displayed, and this can be done in two ways:  generate the report with new data or run report with existing data. This all depends on whether your report table has already been populated and contains the most recent data from the database. It is important to keep in mind that the data present in a report table is not automatically refreshed when new data has been imported into the database. It is therefore important to ensure that your report table is up to date, especially in multi-user enviornments when data updates may have been affected by other users. Most likely you will have to run it with new data and then you are asked to provide values for the report parameters (if defined in the report table) and then the table will be populated in the background and a new window will show the report as soon as it is ready. The new window will actually be generated by the BIRT report viewer, which is a separate web application than DHIS2.</para>
       </section>
     </section>
   </section>

@@ -1,26 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. -->
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>DHIS Mobile</title>
   <section>
-    <title>Briefly how DHIS Mobile works</title>
-    <para>Wherever DHIS 2 is installed, a GSM modem holding a SIM card can be 
-    installed on this computer. A mobile application (often referred to as DHIS Mobile) 
-    needs to be installed on java enabled cell phones. This application lets the 
-    users register data. When registration is finished, the users can use the 
-    application to send the (encrypted) data, using SMS technology, to the 
-    SIM card installed in the GSM modem. Once the SMS is received by the GSM modem, 
-    the DHIS 2 software will automatically store the received data in the 
-    database on the computer.</para>
+    <title>Introduction to DHIS Mobile </title>
+    <para>Collection of data in the field can be technically challenging and expensive. The DHIS2 Mobile module is meant to significantly reduce the complexity of deploying a distributed data collection system. A simple Java client can be installed on data collectors phones, who them send an SMS message to a central server. The SMS message is decrypted and converted imported into the DHIS2 database.  </para>
   </section>
   <section>
     <title>Set up a computer to receive DHIS Mobile SMSs</title>
     <section>
-      <title>You need</title>
-      <para>-	DHIS2 2.0.4(/2.0.5) source code <ulink url="https://code.launchpad.net/~dhis2-devs-core/dhis2/2.0.4">
-      https://code.launchpad.net/~dhis2-devs-core/dhis2/2.0.4</ulink> (or prebuilt .war-file of DHIS2 2.0.4(/2.0.5) containing the mobile module)</para>
-      <para>- Various files:</para> 
+      <title>Pre-requisites</title>
+      <para>By default, DHIS2 does not ship with the DHIS Mobile web module. You will need to modify the client side application with your own data elements, as well as installing the DHIS2 mobile web module in the DHIS2 server. </para>
+      <para>- DHIS2 2.0.4(/2.0.5) source code <ulink url="https://code.launchpad.net/~dhis2-devs-core/dhis2/2.0.4"> https://code.launchpad.net/~dhis2-devs-core/dhis2/2.0.4</ulink> (or prebuilt .war-file of DHIS2 2.0.4(/2.0.5) containing the mobile module)</para>
+      <para>- Various files:</para>
       <itemizedlist>
         <listitem>
           <para>Driver for the GSM modem</para>
@@ -74,50 +66,47 @@
             </para>
           </listitem>
         </itemizedlist>
-      <para>After the pom-files are altered, build your .war-file using 
+        <para>After the pom-files are altered, build your .war-file using 
       <code>mvn clean install</code>. (To skip the tests, use 
       <code>mvn clean install -Dtest=false -DfailIfNoTests=false</code>.)</para>
-      <para>Copy the dhis.war file from dhis-web-portal\target to the 
+        <para>Copy the dhis.war file from dhis-web-portal\target to the 
       tomcat\webapps folder. Rename it if you want.</para>
-    </section>
-    
-    <section>
-      <title>Install the GSM modem</title>
-      <para>Plug in your modem and install the drivers. You might have to use the manufacturer&apos;s provided drivers from a CD or their web page.</para>
-      <para><emphasis>You might need administrator privileges to do this. If you still can&apos;t do it, try starting Windows in Safe Mode.</emphasis></para>
-    </section>
-    
-    <section>
-      <title>Files needed</title>
-      <itemizedlist>
-        <listitem>
-          <para>comm.jar</para>
-          <para>Copy it to your <code>java\jreX\lib\ext</code> folder. If you&apos;ve got multiple 
+      </section>
+      <section>
+        <title>Install the GSM modem</title>
+        <para>Plug in your modem and install the drivers. You might have to use the manufacturer&apos;s provided drivers from a CD or their web page.</para>
+        <para><emphasis>You might need administrator privileges to do this. If you still can&apos;t do it, try starting Windows in Safe Mode.</emphasis></para>
+      </section>
+      <section>
+        <title>Files needed</title>
+        <itemizedlist>
+          <listitem>
+            <para>comm.jar</para>
+            <para>Copy it to your <code>java\jreX\lib\ext</code> folder. If you&apos;ve got multiple 
           installations of JRE, you can find the path to the installation used by 
           DHIS 2 by right clicking the Monitor Tomcat icon in the system tray, 
           then Configure -&gt; Java.</para>
-        </listitem>
-        <listitem>
-          <para>javax.comm.properties</para>
-          <para>Copy it to your <code>java\jreX\lib</code> folder.</para>
-        </listitem>
-        <listitem>
-          <para>win32com.dll</para>
-          <para>Copy it to your <code>java\jreX\bin</code> folder.</para>
-          <para><emphasis>Note: You might need administrator privileges to do this. 
-          If you still can&apos;t do it, try starting Windows in Safe Mode.</emphasis></para>
-        </listitem>
-        <listitem>
-          <para>SMSserver.conf</para>
-          <para>Copy it to your <code>DHIS2_HOME</code> folder (the folder where hibernate.properties is located). The settings in this file can also be modified from the Settings page in the mobile module in DHIS 2.</para>
-          <para>In this file the manufacturer and the model of the GSM modem are specified. Also, make sure the PIN code for the SIM card in the GSM modem is turned off, and set <code>modem1.pin=0000</code> in the SMSserver.conf, or use the Settings page in the mobile module in DHIS 2 to set the pin to 0000.</para>
-          <para>The port of the modem also needs to be specified in this file. After the drivers are successfully installed and the modem is installed in a usb port, you can find the port of the modem by opening Device Manager, locate your modem and right click on it, click on Properties and navigate to the Modem tab. There you&apos;ll see which port is assigned to the modem.</para> 
-          <para><emphasis>Important: Note that if you install the modem into another usb port another time, the port will change, and you will have to update the settings. If you for some reason need to take the modem out of your computer, make sure you&apos;ll install it in the same usb port as last time, or else you&apos;ll have to update the SMSserver.conf file.</emphasis></para>
-        </listitem>
-        <listitem>
-          <para>formIDLayout.csv</para>
-          <para>Copy it to your <code>DHIS2_HOME\mi</code> folder. If you have not yet deployed your latest build of DHIS2, you&apos;ll have to create the mi folder manually.</para>
-          <para>This file specifies which data elements are to be imported. There&apos;s one line for each different mobile application in use. The lines start with a mobile application&apos;s id, then followed by comma separated data element ids and their categoryoptioncombo ids. The lines will be on the form
+          </listitem>
+          <listitem>
+            <para>javax.comm.properties</para>
+            <para>Copy it to your <code>java\jreX\lib</code> folder.</para>
+          </listitem>
+          <listitem>
+            <para>win32com.dll</para>
+            <para>Copy it to your <code>java\jreX\bin</code> folder.</para>
+            <para><emphasis>Note: You might need administrator privileges to do this. If you still can&apos;t do it, try starting Windows in Safe Mode.</emphasis></para>
+          </listitem>
+          <listitem>
+            <para>SMSserver.conf</para>
+            <para>Copy it to your <code>DHIS2_HOME</code> folder (the folder where hibernate.properties is located). The settings in this file can also be modified from the Settings page in the mobile module in DHIS 2.</para>
+            <para>In this file the manufacturer and the model of the GSM modem are specified. Also, make sure the PIN code for the SIM card in the GSM modem is turned off, and set <code>modem1.pin=0000</code> in the SMSserver.conf, or use the Settings page in the mobile module in DHIS 2 to set the pin to 0000.</para>
+            <para>The port of the modem also needs to be specified in this file. After the drivers are successfully installed and the modem is installed in a usb port, you can find the port of the modem by opening Device Manager, locate your modem and right click on it, click on Properties and navigate to the Modem tab. There you&apos;ll see which port is assigned to the modem.</para>
+            <para><emphasis>Important: Note that if you install the modem into another usb port another time, the port will change, and you will have to update the settings. If you for some reason need to take the modem out of your computer, make sure you&apos;ll install it in the same usb port as last time, or else you&apos;ll have to update the SMSserver.conf file.</emphasis></para>
+          </listitem>
+          <listitem>
+            <para>formIDLayout.csv</para>
+            <para>Copy it to your <code>DHIS2_HOME\mi</code> folder. If you have not yet deployed your latest build of DHIS2, you&apos;ll have to create the mi folder manually.</para>
+            <para>This file specifies which data elements are to be imported. There&apos;s one line for each different mobile application in use. The lines start with a mobile application&apos;s id, then followed by comma separated data element ids and their categoryoptioncombo ids. The lines will be on the form
             <screen>
 1 = &lt;data element id&gt;.&lt;categoryoptioncombo id&gt;, 
 &lt;data element id&gt;.&lt;categoryoptioncombo id&gt;, ... , 
@@ -126,43 +115,39 @@
             E.g.
             <screen>1 = 652.207, 652,208, 20485.271, 20485.272, 683.14</screen>
           </para>
-          <para><emphasis>Note: If the same mobile application is installed on several phones, the �id� for each application is the same! The formIDLayout.csv file should thus only have one line, starting with 1 = .</emphasis></para>
-        </listitem>
-      </itemizedlist>
-    </section>
-    
-    <section>
-      <title>Register users</title>
-      <para>The phone numbers of the cell phones used for reporting with the 
+            <para><emphasis>Note: If the same mobile application is installed on several phones, the �id� for each application is the same! The formIDLayout.csv file should thus only have one line, starting with 1 = .</emphasis></para>
+          </listitem>
+        </itemizedlist>
+      </section>
+      <section>
+        <title>Register users</title>
+        <para>The phone numbers of the cell phones used for reporting with the 
       mobile application needs to be registered in DHIS 2 in order for the data 
       to be imported and stored in the database. A phone number has to be 
       registered for a user, and the user can <emphasis>only</emphasis> be 
-      associated with <emphasis>one organisation unit</emphasis>!</para> 
-      <para>The phone number must include the regular phone number as well as 
+      associated with <emphasis>one organisation unit</emphasis>!</para>
+        <para>The phone number must include the regular phone number as well as 
       the country code without <code>+</code> or <code>00</code>. E.g. for a 
       Norwegian number, having the country code <code>47</code> and phone number 
       <code>98765432</code>, the phone number to store is <code>4798765432</code>.</para>
+      </section>
     </section>
-    
   </section>
-</section>
-  
   <section>
     <title>Install the mobile application on a phone</title>
-      <para>If you&apos;ve got a phone and a computer with Bluetooth, you will in the most cases be able to send the <code>.jar</code> file (the mobile application) via Bluetooth from the computer to the phone. When using a cable, and also in some cases for phones with Bluetooth, you might have to install some software to be able to communicate with the phone. E.g. Nokia PC Suite for Nokia phones.</para>
-      <para>Once the mobile application is installed on the phone, open it and navigate to the last page in the application. Select settings, and enter the number of the SIM card in the GSM modem. This works both with and without country code.</para> 
-      <para>If there are several GSM modems installed on several computers running DHIS 2 and you want to report to all of these, you can enter the numbers of the SIM cards installed in these GSM modems as well in the remaining fields in your mobile application. When clicking send, the application will now send the registered data to all the registered numbers at the same time.</para>
+    <para>If you&apos;ve got a phone and a computer with Bluetooth, you will in the most cases be able to send the <code>.jar</code> file (the mobile application) via Bluetooth from the computer to the phone. When using a cable, and also in some cases for phones with Bluetooth, you might have to install some software to be able to communicate with the phone. E.g. Nokia PC Suite for Nokia phones.</para>
+    <para>Once the mobile application is installed on the phone, open it and navigate to the last page in the application. Select settings, and enter the number of the SIM card in the GSM modem. This works both with and without country code.</para>
+    <para>If there are several GSM modems installed on several computers running DHIS 2 and you want to report to all of these, you can enter the numbers of the SIM cards installed in these GSM modems as well in the remaining fields in your mobile application. When clicking send, the application will now send the registered data to all the registered numbers at the same time.</para>
   </section>
-  
   <section>
     <title>Using the system</title>
     <para>Navigate to the Mobile module via Services -&gt; Mobiles</para>
     <section>
       <title>Start the SMS Service</title>
-      <para>To start the SMS Service, navigate to "Receive Data and Import" or 
-      "Send SMS" in the left menu, and then press the Start button next to where 
-      it says: "SMS Service: Not Started". If everything works well, it should
-      now say: "SMS Service: Started".</para>
+      <para>To start the SMS Service, navigate to &quot;Receive Data and Import&quot; or 
+      &quot;Send SMS&quot; in the left menu, and then press the Start button next to where 
+      it says: &quot;SMS Service: Not Started&quot;. If everything works well, it should
+      now say: &quot;SMS Service: Started&quot;.</para>
     </section>
     <section>
       <title>Receive Data and Import</title>
@@ -177,8 +162,8 @@
         while the SMS Service is inactive, the messages will be stored as xml 
         files in the folder <code>DHIS2_HOME\mi\pending</code> short time after 
         the service is started. On the Receive Data and Import page it will say 
-        how many SMSs are pending. These can be imported by pressing the "Import 
-        All Pending" button.</para>
+        how many SMSs are pending. These can be imported by pressing the &quot;Import 
+        All Pending&quot; button.</para>
       </section>
     </section>
     <section>
@@ -187,6 +172,5 @@
       time. To send an SMS, the SMS Service needs to be started. Use the local 
       phone number here <emphasis>without</emphasis> the country code.</para>
     </section>
-    
   </section>
 </chapter>
