@@ -4,18 +4,18 @@
   <title>Getting started with DHIS 2</title>
   <section id="mod2_1">
     <title>Getting started with DHIS2</title>
-      <para>After reading this chapter you will be able to understand:</para>
-      <itemizedlist>
-        <listitem>
-          <para>Start DHIS 2 from the desktop</para>
-        </listitem>
-        <listitem>
-          <para>How to log-in from the desktop</para>
-        </listitem>
-        <listitem>
-          <para>Create new users and user roles</para>
-        </listitem>
-      </itemizedlist>
+    <para>After reading this chapter you will be able to understand:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Start DHIS 2 from the desktop</para>
+      </listitem>
+      <listitem>
+        <para>How to log-in from the desktop</para>
+      </listitem>
+      <listitem>
+        <para>Create new users and user roles</para>
+      </listitem>
+    </itemizedlist>
     <section>
       <title>Prerequisites</title>
       <para>You must be sure that you have a current version of the Java Runtime installed on your machine. Depending on your operating system, there are different ways of installing Java. The reader is referred to this <ulink url="http://java.sun.com/javase/downloads/index.jsp">website</ulink> for detailed information on getting java installed. </para>
@@ -25,8 +25,29 @@
       <title>Starting the DHIS2 Live package</title>
       <para>The DHIS2 Live package is the easiest way to get started with DHIS2. DHIS2 Live is appropriate for a stand-alone type of installation.  Simply download the application from <ulink url="http://www.dhis2.org/downloads">here</ulink>. 
         Once the file is downloaded,  you can simply double-click the downloaded file, and get started using DHIS2. </para>
+      <section>
+        <title>Starting up with a blank database</title>
+        <para>The live package comes with a demo database just like what you see on the online demo (which is based on the national Sierra Leone HMIS), and if you want to start with a blank system/database and build up your own system then you need to do the following:
+
+</para>
+        <para>1) Stop the DHIS2 live if it is already running.  Right click on the tray icon  and select Exit.
+The tray icon is  the green symbol on the bottom right of your screen (on Windows) which  should say&apos; DHIS2 Server  running&apos; if you hold your mouse pointer over it.</para>
+        <para>2) Open the folder where the DHIS2 live package is installed  and locate the folder called &quot;conf&quot;.
+</para>
+        <para>3) In conf/ open the file called &apos;hibernate.properties&apos; in a text editor (notepad or similar) and do the following modification:
+locate the string &apos;jdbc:h2:./database/dhis2&apos; and replace the &apos;dhis2&apos; part with any name that you want to give to your database (e.g. dhis2_test).</para>
+        <para>4) Save and close the hibernate.properties file.
+</para>
+        <para>5) Start DHIS2 live by double-clicking on the file dhis2-live.exe in the DHIS2 live installation folder or by using a desktop shortcut or menu link that you might have set up.
+</para>
+        <para>6) Wait for the browser window to open and the login screen to show, and then log in with username: admin and password: district
+</para>
+        <para>7) Now you will see a completely empty DHIS2 system and you should start by adding your users, organisational hierarchy, data elements, and datasets etc. Please refer to the other sections of the user manual for instructions on how to do this.
+</para>
+      </section>
     </section>
-    <section><title>Working directly with the H2 database</title>
+    <section>
+      <title>Working directly with the H2 database</title>
       <para>
         DHIS2 Live uses an embedded <ulink url="www.h2database.com/">H2</ulink> database. This has several advantages - there is no need 
         to install a separate database engine such as PostgresSql or MySql, and backup can be made by just copying the file. The whole db 
@@ -37,7 +58,7 @@
       In general, it is recommended to work with the database through the DHIS2 user interface, but in some situations one may need to 
       manipulate the data directly. If one downloads H2 separately, it comes with a web interface. It can also be manipulated using 
         <ulink url="http://openoffice.org">OpenOffice.org</ulink>, using the following procedure. This assumes that dhis2-live is located in
-        the user's Linux home directory (represented by ~). Substitute the absolute path to your dhis2-live installation.
+        the user&apos;s Linux home directory (represented by ~). Substitute the absolute path to your dhis2-live installation.
         <itemizedlist>
           <listitem>
             <para>Start OpenOffice Word Processor and select Tools - Options, then Java - Class Path ... and click on Add Archive...</para>
@@ -58,7 +79,7 @@
         <ulink url="http://www.oooforum.org/forum/viewtopic.phtml?t=97522">More tips</ulink>
         
       </para>
-    </section>  
+    </section>
     <section>
       <title>Downloading and installing the server version</title>
       <para>DHIS2 functions both as a
