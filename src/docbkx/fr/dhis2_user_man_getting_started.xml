@@ -1,0 +1,336 @@
+
+
+<? Xml version = '1 .0 'encoding =' UTF-8 "?> 
+<!-- Ce document a été créé avec Syntext Serna libre. --><! Chapitre DOCTYPE PUBLIC "-// OASIS// DTD DocBook XML V4.4// EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [] > 
+<chapter> 
+  <title> Premiers pas avec DHIS 2 </title> 
+  <section id="mod2_1">  
+    <title> Premiers pas avec DHIS2</title> 
+      <para> Après avoir lu ce chapitre, vous allez être capable de comprendre: </para> 
+      <itemizedlist> 
+        <listitem> 
+          <para> Premier DHIS 2 à partir du Bureau </para> 
+        </listitem> 
+        <listitem> 
+          <para> Comment identifiez-vous du Bureau </para> 
+        </listitem> 
+        <listitem> 
+          <para> Créer de nouveaux utilisateurs et utilisateurs des rôles </para> 
+        </listitem> 
+      </itemizedlist> 
+    <section> 
+      > Pré-requis <title> </title> 
+      <para> Vous devez vous assurer que vous avez une version récente de Java Runtime installé sur votre machine. En fonction de votre système d'exploitation, il existe différentes façons d'installer Java. Le lecteur est renvoyé à ce <ulink url="http://java.sun.com/javase/downloads/index.jsp"> site Web </ ulink> pour des informations détaillées sur Java à l 'installation. </para> 
+      <para/> 
+    </section> 
+    <section> 
+      <title> partir du paquet DHIS2 Live</title> 
+      <para> Le paquet DHIS2 Live est le moyen le plus facile de démarrer avec DHIS2. DHIS2 Live est approprié pour un type autonome de l'installation. Il suffit de télécharger l'application à partir <ulink url="http://www.dhis2.org/downloads"> ici </ ulink>. 
+        Une fois le fichier téléchargé, vous pouvez simplement double-cliquez sur le fichier téléchargé, et commencer à utiliser DHIS2. </para> 
+    </section> 
+    <section> <title> de travail directement avec la base de données H2</title> 
+      <para> 
+        DHIS2 Live utilise une embarqués <ulink url="www.h2database.com/"> H2 base de données</ulink>. Cela a plusieurs avantages - il n'est pas nécessaire 
+        d'installer un moteur de bases de données distinctes, telles que PostgreSQL ou MySQL, et de sauvegarde peut être fait en copiant simplement le fichier. L'ensemble de db 
+        existe dans la mémoire, ce qui signifie que la haute performance. L'inconvénient est nécessaire de RAM. Il n'est pas approprié pour le serveur mulitiuser 
+        installations. 
+      </para> 
+      <para> 
+      En général, il est recommandé de travailler avec la base de données via l'interface utilisateur DHIS2, mais dans certaines situations, on peut avoir besoin de 
+      manipuler directement les données. Si l'on téléchargements H2 séparément, il est livré avec une interface web. Il peut aussi être manipulé à l'aide 
+        > <ulink url="http://openoffice.org"> OpenOffice.org </ulink>, en utilisant la procédure suivante. Cela suppose que dhis2-vivre se trouve dans 
+        l'utilisateur répertoire Linux (représenté par ~). Remplacez le chemin absolu à votre installation dhis2-vivre. 
+        <itemizedlist> 
+          <listitem> 
+            <para> Premier OpenOffice traitement de texte et sélectionnez Outils - Options, puis Java - Chemin de la classe ... et cliquez sur Ajouter Archives ...</para> 
+          </listitem> 
+          <listitem> 
+            <para> Sélectionnez le fichier suivant (version peut varier): ~/dhis2-live/webapps/dhis/WEB-INF/lib/h2-1.1.119.jar </para> 
+          </listitem> 
+          <listitem> 
+            <para> Fermer OpenOffice complètement et puis ouvrez OpenOffice.org Base de données. Sélectionnez connecter à une base de données existante -> JDBC </para> 
+          </listitem> 
+          <listitem> 
+            <para> Datasource URL est H2: ~/dhis2-live/database/dhis2; AUTO_SERVER = TRUE, et la classe du pilote JDBC est <org.h2.Driver/para> 
+          </listitem> 
+          <listitem> 
+            Nom d'utilisateur est <para> SA, mot de passe ne sont pas nécessaires. Enfin, sélectionnez un nom et un dossier pour le fichier odb.. </para> 
+          </listitem> 
+        </itemizedlist> 
+        <ulink url="http://www.oooforum.org/forum/viewtopic.phtml?t=97522"> Plus Conseils </ulink> 
+         
+      </para> 
+    </section> 
+    <section> 
+      <title> Téléchargement et installation de la version serveur</title> 
+      <para> fonctions DHIS2 la fois comme un 
+      application de bureau, ainsi que d'une application Web-enabled client-serveur. 
+      Pour les plus grands, les installations de production avec de nombreux utilisateurs et de gros volumes 
+      de données (par exemple en tant que serveur au niveau national), il est recommandé de 
+      installer la version serveur. La dernière version de l'infrastructure peut être 
+      trouvés <ulink url = "http://dhis.uio.no/ci/job/Dhis2% 20Web% 20Trunk/lastSuccessfulBuild/artifact/dhis-2/dhis-web/dhis-web-portal/target/dhis.war" > ici </ ulink>. 
+      </para> 
+      <para> Il existe de nombreuses permutations d'obtenir une installation du serveur et en cours d'exécution, et dépendra beaucoup de la nature de l'installation. Une installation typique pour une seule machine, fonctionnant sous Ubuntu Linux seront décrites dans la discussion qui suit. Ce type d'installation unique serait approprié pour un travail en petits groupes. Il ya tellement de façons différentes pour obtenir l'application en cours d'exécution, et cela dépendra dans une large mesure sur le nombre d'utilisateurs, vous serez à la restauration, le type de matériel dont vous disposez, et la nature de la mise en œuvre de l'application (par exemple un serveur central plutôt que de multiples installations sous-national). L'exemple donné ici est destiné à être un guide sommaire pour ceux qui sont mise en place d'une instance de serveur DHIS2 à partir de zéro, cependant, vous devriez songer à toutes les exigences de sécurité de votre application avant de suivre aveuglément cet exemple. </para> 
+      <para> Vous devrez décider quel système de base de données back-end que vous allez utiliser. DHIS2 est une base de données d'application, en principe, agnostique, et devrait tourner sur n'importe quel système avec un pilote compatible JDBC. Toutefois, il est recommandé soit d'utiliser PostgreSQL ou MySQL, car ces systèmes sont largement utilisés par les autres membres de la communauté DHIS2. En outre le système de base de données back-end, vous aurez besoin d'un conteneur de servlet compatible. Apache Tomcat 6 est recommandé par les développeurs, mais en principe, l'application doit s'exécuter dans un conteneur conforme à la spécification Servlet 2.5. </para> 
+      <para> Il est certainement possible d'installer tous les paquets à partir du code source, mais il est suggéré d'installer la plupart des forfaits de base par le biais de votre gestionnaire de paquets systèmes. Selon la version de Linux que vous utilisez peut-être, vous pourriez avoir besoin d'installer une version plus récente des deux le système de base de données back-end (comme PostgreSQL et MySQL) et conteneur de servlet. Il est recommandé d'utiliser au moins la version 8.3 ou Postgresl MySQL 5.0. </para> 
+      <para> Pour commencer le téléchargement des paquets nécessaires, exécuter les commandes suivantes. Notez que vous devrez peut-être ajouter le <sudo <command>/commande> commande avant ces commandes, si vous n'êtes pas en tant que root. </para> 
+      <para> <programlisting> <userinput> apt-get install nano <userinput> wget nano/etc/apt/sources.list </ <> userinput/<> userinput/programlisting> </para> 
+      <para> Décommentez et ajouter "multiverse" après "l'univers" dans chaque ligne de ce fichier. </para> 
+      <para> Après avoir modifié le sources.list exécuter ces commandes. </para> 
+      <para> <programlisting> <userinput> apt-get Mise à jour </userinput> 
+<userinput> apt-get install sun-java6-jdk postgresql postgresql-client</userinput> 
+<userinput> postgresql postgresql-contrib-8.3-postgis </userinput> </programlisting> </para> 
+      <para> Cela permet d'installer un certain nombre de paquets sur votre système, y compris Java et le système de base de données Postgresql. En principe, DHIS2 fonctionne sous n'importe quel conteneur de servlet, mais il est recommandé d'utiliser Apache Tomcat. Vérifiez avec les développeurs DHIS2 si vous avez des questions sur l'utilisation de conteneurs de servlets autres. Pour obtenir Tomcat, exécutez la <commandes suivantes/para> 
+      <para> <programlisting> <userinput> <userinput> wget http://apache.mirror.testserver.li/tomcat/tomcat-6/v6.0.20/bin/apache-tomcat-6.0.20.tar.gz </ > tar xvzf apache-userinput tomcat-6.0.20.tar.gz mv apache-tomcat-6.0.20/usr/local/</ tomcat <> userinput/programlisting> </para> 
+      <para> Si vous avez besoin prévoyez d'installer GeoServer dans le cadre de votre installation DHIS2, aller de l'avant et de le télécharger et l'installer. Vous devez vérifier sur le <<ulink url="http://www.geoserver.org"> GeoServer page web/ulink> pour la version la plus récente. </para> 
+      <para> 
+
+<userinput> wget http://downloads.sourceforge.net/geoserver/geoserver-2.0.0a-war.zip </userinput> </para> 
+      <para> <userinput> unzip GeoServer-2.0.0a-war.zip </userinput> </para> 
+      <para> 
+<userinput> décompresser geoserver.war-d/usr/local/tomcat/webapps </userinput> </para> 
+      <para> 
+mv <userinput> /usr/local/tomcat/webapps/GeoServer/data/usr/local/géodonnées </userinput> </para> 
+      <para> Vous devez maintenant changer le mot de passe par défaut GeoServer à quelque chose de plus sûr. Exécuter <userinput> nano /usr/local/géodonnées/security/users.properties </userinput> et changer le mot de passe et enregistrer toutes les modifications. </para> 
+      <para> Modifier une de vos variables d'environnement persistantes (voir <ulink url="https://help.ubuntu.com/community/EnvironmentVariables#Persistent%20environment%20variables"> cette page </ulink> pour plus de détails). Ajoutez les lignes suivantes dans le fichier sélectionné. </para> 
+      <para> exportation <envar> JAVA_HOME = /usr/lib/jvm/java-6-sun</envar> </para> 
+      <para> exportation <envar> JDK_HOME = /usr/lib/jvm/java-6-sun </envar> 
+</para> 
+      <para> <envar> exportation JAVA_OPTS =- XX: PermSize = 256m-XX: MaxPermSize = 1536-Xms512m -Xmx1024m-server </envar>
+</para> 
+      GEOSERVER_DATA_DIR <para> exportation <envar> =/usr/local/<géodonnées /> envar 
+</para> 
+      <para> exportation <envar> DHIS2_HOME =/root/dhis/dhis2 </> envar 
+</para> 
+      <para> Notez que vous pouvez avoir besoin de modifier les chemins d'accès pour pointer vers les répertoires réels sur votre système. </para> 
+      <para> En supposant que vous avez installé le système de base de données PostgreSQL, vous pouvez créer une nouvelle base de données avec les commandes suivantes. </para> 
+      <para> <userinput> sudo su - postgres </userinput> </para> 
+      <para> <userinput> createdb createdb-E utf-8 <parameter> dhis </parameter> </userinput> </para> 
+      <para> Notez que vous pouvez changer le nom de la base de données à tout ce qui convient à votre environnement. </para> 
+      <para> Pour dire l'application DHIS2 où trouver sa base de données que vous avez besoin d'un <filename> hibernate.properties</filename> fichier dans <envar> DHIS2_HOME </envar>. Pour une connexion à la base postgres à une base de données appelée «dhis, avec nom d'utilisateur et mot de passe 'dhis, vous avez besoin de mettre le texte suivant dans votre fichier/root/dhis/dhis2/hibernate.properties: </para> 
+      <para> <userinput> hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect </userinput> </para> 
+      Org.postgresql.Driver <para> <userinput> hibernate.connection.driver_class =</userinput> 
+</para> 
+      <para> <userinput> hibernate.connection.url = jdbc: postgresql: dhis </userinput> </para> 
+      <para> <userinput> hibernate.connection.username = dhis </userinput> </para> 
+      > <para> <userinput> Hibernate.connection.password = dhis </userinput>
+</para> 
+      <para> <userinput> hibernate.hbm2ddl.auto update</userinput> </para> 
+      <para> Enregistrez ce fichier dans le répertoire DHIS2_HOME. Quittez le shell en cours afin de recharger les variables de l'environnement et ouvrez un nouveau shell. Vous aurez besoin pour commencer deux PostgreSQL ainsi que le serveur Tomcat. Si vous avez installé PostgreSQL avec la commande apt-get, vous pouvez commencer ce à partir du fichier/etc/init.d/répertoire avec les commandes. </para> 
+      <para> <userinput> sudo su - </userinput> </para> 
+      <para> <userinput> cd/etc/init.d/</userinput> </para> 
+      <para> <userinput> début ./S18postgresql</userinput> </para> 
+      <para> Notez que vous pouvez avoir besoin de modifier cette commande pour votre système. </para> 
+      Il est <para> bonne pratique de sécurité pour exécuter l'application Tomcat en tant qu'utilisateur distinct. Si vous ne possédez pas déjà un compte utilisateur séparé, vous pouvez en créer un avec les commandes suivantes. </para> 
+      <para> <userinput> sudo useradd-d/m home/tomcat6 tomcat6 </userinput> </para> 
+      <para> <userinput> sudo passwd tomcat6 </userinput> </para> 
+      <para> Vous ne devez pas modifier les autorisations de fichier pour le répertoire que vous avez installé Tomcat, avec la commande suivante. </para> 
+      <para> <userinput> sudo chown-R tomcat6: tomcat6/usr/local/tomcat </userinput> </para> 
+      <para> Pour démarrer l'application, connectez-vous que l'utilisateur, accédez à l'<filename>/usr/local/tomcat/bin/répertoire</filename>, et d'exécuter le start.sh <filename></script> nom_fichier. </para> 
+      <para> <userinput> sudo su - tomcat6 </userinput> </para> 
+      <para> <userinput> cd/usr/local/tomcat/bin </userinput> </para> 
+      <para> <userinput>./startup.sh</userinput> </para> 
+    </section> 
+    <section> 
+      <title> Installation DHIS2 avec l'installation de Debian package </title> 
+      <para> Si vous utilisez Ubuntu ou Debian, un paquet séparé Debian a été créé pour simplifier le processus d'installation. Vous pouvez simplement télécharger ce fichier url="http://www.dhis2.org/download/dhis2-2.0.3.deb"> <ulink </ ulink> et puis installez DHIS2 de la ligne de commande avec la commande suivante. </para> 
+      <para> <userinput> sudo dpkg-i dhis2-2.0.6.deb</userinput> </para> 
+      <para> Vous pouvez aussi installer ce paquet Debian à partir de votre gestionnaire de paquets systèmes. </para> 
+    </section> 
+  </section> 
+  id="mod2_2"> <section 
+    <title> connexion à DHIS2</title> 
+    <para> Peu importe si vous avez installé la version serveur de l' 
+    Desktop version Live, vous utilisez un navigateur Web pour se connecter à l' 
+    application. DHIS 2 devrait être compatible avec la plupart des navigateurs Web modernes, 
+    Mais vous devrez veiller à ce que Java Script est activé. </para> 
+    <para> Pour vous connecter à l'application il suffit d'entrer url="http://localhost:8080/dhis" <ulink type=""> <http://localhost:8080/dhis/ulink> si vous 
+    utilisez le paquet DHIS2 vivre, ou de remplacer localhost par le nom ou l'IP 
+    l'adresse du serveur sur lequel la version du serveur est installé. </para> 
+    <para> fois que vous avez commencé DHIS2, soit en ligne ou hors ligne, l'affichage 
+    écran vous invite à entrer votre nom d'utilisateur enregistré »et 
+    'Password'. Après avoir entré les informations requises sur cliquez sur log-in bouton 
+    se connecter à l'application. Le nom d'utilisateur et mot de passe par défaut sont «admin» et «district». Ils doivent être changés dès l'ouverture de session la première fois. </para> 
+    <screenshot> 
+      <screeninfo> DHIS2 écran de connexion </screeninfo>
+      <mediaobject> 
+        <imageobject> 
+          width="60%" <imagedata fileref="resources/images/dhis2UserManual/dhis2_login_screen.jpg" format="JPG"/> 
+        </imageobject> 
+      </mediaobject> 
+    </screenshot> 
+  </section> 
+  id="mod2_3"> <section 
+    <title> Créer de nouveaux utilisateurs et rôles</title> 
+    <para> Cette section décrit comment ajouter de nouveaux utilisateurs au DHIS 2 
+    application. </para> 
+    <section> 
+      <title> Open Menu utilisateur </title> 
+      <para> Pour créer ou trouver un utilisateur commence par cliquer sur le 'user' module 
+      s'affiche dans le menu déroulant du module de maintenance établis sur le 
+      barre d'outils principale sur la partie supérieure de l'écran s'affiche. Les noms d'utilisateur 
+      Déjà enregistré apparaîtra comme une liste comme on le voit dans la capture d'écran 
+      ci-dessous. </para> 
+      <screenshot> 
+        <screeninfo> Sélectionnez <menu Utilisateurs point </screeninfo>
+        <mediaobject> 
+          <imageobject> 
+            width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/select_user_menu.jpg"/> 
+          </imageobject> 
+        </mediaobject> 
+      </screenshot> 
+      <screenshot> 
+        <screeninfo> Recherche par nom d'utilisateur </screeninfo>
+        <mediaobject> 
+          <imageobject> 
+            width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/search_user_by_name.jpg"/> 
+          </imageobject> 
+        </mediaobject> 
+      </screenshot> 
+      <para> Vous pouvez rechercher des noms d'utilisateurs spécifiques dans la liste des utilisateurs par 
+      indiquer le nom de la «filtrer par nom d'utilisateur 'sur le terrain comme le montre 
+      ci-dessus. </para> 
+    </section> 
+    <section> 
+      <title> Définir un nouveau rôle</title> 
+      <para> Dans le cadre de la création d'un nom d'utilisateur vous sont nécessaires pour définir l'utilisateur 
+      rôle. Le faire en cliquant sur le rôle de l'utilisateur du "figurant sur le côté gauche de 
+      l'écran s'affiche. </para> 
+      <screenshot> 
+        > Créer <screeninfo> nouveau rôle d'utilisateur <screeninfo/>
+        <mediaobject> 
+          <imageobject> 
+            width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/select_user_role.jpg"/> 
+          </imageobject> 
+        </mediaobject> 
+      </screenshot> 
+      <para> Ceci vous mènera à la page gestion des rôles où vous aurez 
+      cliquer sur Ajouter <guibutton> nouvelle </guibutton> de créer un nouveau rôle. </para> 
+      <screenshot> 
+        Ajouter de nouveaux <screeninfo> rôle de l'utilisateur </screeninfo>
+        <mediaobject> 
+          <imageobject> 
+            width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/add_user_role.jpg"/> 
+          </imageobject> 
+        </mediaobject> 
+      </screenshot> 
+      <para> L'écran suivant s'ouvre et ici, dans la première zone de texte vous 
+      nécessité de donner le nom du rôle comme Super User, Admin utilisateur, etc 
+      deuxième zone de texte appelé «Description» donne plus d'informations sur la 
+      Type d'utilisateur Le rôle qui est créé pour par exemple Administration des utilisateurs d'État, 
+      > District de saisie de données. </para> 
+      <screenshot> 
+        > <screeninfo> Rôle page de maintenance </screeninfo>
+        <mediaobject> 
+          <imageobject> 
+            width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/role_maintainence_page.jpg"/> 
+          </imageobject> 
+        </mediaobject> 
+      </screenshot> 
+      <para> Ensuite, vous spécifiez l'ensemble de données particulier (s) qui doivent être 
+      à la disposition du rôle particulier. Vous aurez également besoin de préciser les 
+      type d '«autorité» à donner à l'utilisateur particulier. Pour chacune des 
+      trois options nommément ensembles de données, rapports et l'utilisateur peut sélectionner les autorités 
+      de multiples options de dans le menu déroulant prévu contre chaque champ. 
+      Un utilisateur peut choisir plusieurs options, soit en les déplaçant 
+      un par un. </para> 
+      <screenshot> 
+        Ajout d'un ensemble de données <screeninfo> à un rôle de l'utilisateur</screeninfo>
+        <mediaobject> 
+          <imageobject> 
+            width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/assign_one_dataset_user_role.png" format="PNG"/> 
+          </imageobject> 
+        </mediaobject> 
+      </screenshot> 
+      <para> Pour certains utilisateurs de pouvoir entrer des données, vous devez 
+      les ajouter à la fois un ensemble de données ainsi qu'un niveau de l'unité d'organisation. Vous 
+      pouvez également sélectionner plusieurs ensembles de données individuellement en appuyant sur la touche Ctrl 
+      sur le clavier et en cliquant sur des données individuelles <>./para 
+      <screenshot> 
+        Ajout de plusieurs ensembles de données <screeninfo> à des rôles d'utilisateur </screeninfo> 
+        <mediaobject> 
+          <imageobject> 
+            width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/assign_multiple_datasets_user_role.png" format="PNG"/> 
+          </imageobject> 
+        </mediaobject> 
+      </screenshot> 
+      <para> Enfin si vous avez choisi, cliquez sur les champs requis 
+      <guibutton> Enregistrer </guibutton> qui est situé sur la partie inférieure de la 
+      écran affiché. Le rôle de l'utilisateur désiré et l'autorisation connexes 
+      être enregistrés dans la base de données, et peut alors être affecté à un particulier 
+      utilisateur. </para> 
+    </section> 
+    <section> 
+      Ajouter <title>> Nouvel utilisateur </title> 
+      Sous <para> rôle d'utilisateur particulier, il peut être plus d'un utilisateur. Pour ajouter 
+      nouveaux utilisateurs accédez aux options de l'utilisateur dans le cadre du module d'entretien. </para> 
+      <screenshot> 
+        Ajouter <screeninfo> utilisateur <> screeninfo/
+        <mediaobject> 
+          <imageobject> 
+            width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/add_new_user.png"/> 
+          </imageobject> 
+        </mediaobject> 
+      </screenshot> 
+      <para> Pour ajouter un nouvel utilisateur, procédez comme suit: </para> 
+      <itemizedlist> 
+        <listitem> 
+          <para> Cliquez sur le <guibutton> Ajouter un nouveau bouton </guibutton>. </para> 
+        </listitem> 
+        <listitem> 
+          Entrez les détails <para> New utilisateur comme <guilabel> Nom d'utilisateur</guilabel>, 
+          <guilabel> Mot de passe, </guilabel> <guilabel>Confirmer mot de passe </guilabel>, <guilabel> Nom </guilabel>,<guilabel> Prénom </guilabel><guilabel> et e-mail </guilabel> en option d'un nouvel utilisateur 
+          onglets. </para> 
+        </listitem> 
+        <listitem> 
+          <para> Cliquez sur Ajouter <guibutton> bouton </guibutton> pour la confirmation des 
+          Détails nouvel utilisateur et suivez les erreurs des utilisateurs tandis que la création de nouveaux 
+          utilisateur. </para> 
+        </listitem> 
+        <listitem> 
+          <para> L'utilisateur récemment créé de nouvelles peut être vu dans les principales 'utilisateur 
+          gestion de l'écran </para> 
+        </listitem> 
+        <listitem> 
+          <para> Vous pouvez modifier (comme mot de passe, nom de famille .... etc) et supprimer les 
+          les détails des nouveaux/anciens utilisateurs en sélectionnant correspondante de l'utilisateur 
+          <guibutton> Modifier </guibutton> et <guibutton> Supprimer </guibutton> 
+          Boutons. </para> 
+        </listitem> 
+        <listitem> 
+          <para> Cliquez sur Enregistrer <guibutton> onglet </guibutton> après l'édition tous les 
+          les détails d'un utilisateur particulier sélectionné. </para> 
+          <screenshot> 
+            <screeninfo> Ajouter ou modifier les utilisateurs </screeninfo> 
+            <mediaobject> 
+              <imageobject> 
+                width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/add_edit_users.jpg"/> 
+              </imageobject> 
+            </mediaobject> 
+          </screenshot> 
+          <screenshot> 
+            <screeninfo> Utilisateur écran de gestion </screeninfo> 
+            <mediaobject> 
+              <imageobject> 
+                width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/user_management.jpg"/> 
+              </imageobject> 
+            </mediaobject> 
+          </screenshot> 
+        </listitem> 
+      </itemizedlist> 
+    </section> 
+  </section> 
+<section id="mod2_4"> 
+    <title> Déconnexion de DHIS2</title> 
+    <para> vous suffit de cliquer sur le <guibutton> Déconnexion bouton </guibutton> pour quitter le 
+    application. </para> 
+    <screenshot> 
+      <screeninfo> Déconnexion de DHIS 2 </screeninfo> 
+      <mediaobject> 
+        <imageobject>
+           <imagedata width="60%" align="center" fileref="resources/images/dhis2UserManual/dhis2_logoff.jpg"/> 
+        </imageobject> 
+      </mediaobject> 
+    </screenshot> 
+  </section> 
+</chapitre>

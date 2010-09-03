@@ -1,0 +1,393 @@
+<? Xml version = '1 .0 'encoding =' UTF-8 "?> 
+<!-- Ce document a été créé avec Syntext Serna libre. --><! Chapitre DOCTYPE PUBLIC "- / / OASIS / / DTD DocBook XML V4.4 / / EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [] > 
+<chapter> 
+  <title>Qu'est-ce que DHIS 2?</title> 
+  <section id="mod1_1"> 
+    <title> Contexte du Logiciel de santé du district de l'information - Version 2 (DHIS 2) </title> 
+    <para/> 
+    <highlights> 
+      <para> Après avoir lu ce chapitre, vous allez être capable de comprendre: </para> 
+      <itemizedlist> 
+        <listitem> 
+          Qu'est-ce que <para> DHIS2 et à quoi elle sert à l'égard de HMIS </para>
+        </listitem> 
+        <listitem> 
+          <para> Quelle est la différence entre le patient et en fonction des données agrégées <glossterm baseform="aggregateData"></glossterm>. </para> 
+        </listitem> 
+        <listitem> 
+          <para> Quels sont les différents modules dans DHIS 2. </para> 
+        </listitem> 
+        <listitem> 
+          <para> ce qui est gratuit et Open Source Software (FOSS), plate-forme 
+          (In) dépendance, et ses conséquences pour HMIS. </para> 
+        </listitem> 
+        <listitem> 
+          <para> Qu'est-ce que les logiciels libres, la plate-forme (in) dépendance, et leurs implications 
+          pour> HMIS. </para>
+        </listitem> 
+      </itemizedlist> 
+    </highlights> 
+    <para> HMIS calculateurs basés permet une transition à partir de données (et papier) 
+    HMIS fondée sur l'action et HMIS conduit. points forts d'un ordinateur 
+    HMIS base énumérés ci-dessous: </para> 
+    <itemizedlist> 
+      <listitem> 
+        <para> favorise la rationalisation et la normalisation des données 
+        dossiers. </para> 
+      </listitem> 
+      <listitem> 
+        <para> Permet la création d'un entrepôt intégrée, qui prend en charge 
+        combinant les données provenant de différentes sources et la réalisation de la Croix- 
+        analyse. </para> 
+      </listitem> 
+      <listitem> 
+        Facilite <para> Rationalisation des rapports flux </para> 
+      </listitem> 
+      <listitem> 
+        Prise en charge <para> rapports personnalisés. </para> 
+      </listitem> 
+      <listitem> 
+        Rend possible <para> différents types d'indicateur analyse basée </para> 
+      </listitem> 
+      <listitem> 
+        <para> permet l'intégration de diverses applications logicielles telles que les SIG 
+        et> Excel. </para>
+      </listitem> 
+      <listitem> 
+        <para> Fournit les fonctionnalités de procéder à la qualité des données 
+        validation. </para> 
+      </listitem> 
+      <listitem> 
+        Permet <para> immédiate transmission en ligne des données / rapports et 
+        lorsque requis par l'utilisateur </para> 
+      </listitem> 
+    </itemizedlist> 
+    <para> Le logiciel d'information de santé du district - Version 2 (DHIS 2) est 
+    Libres et Open Source Software (FOSS) HMIS conçu et développé en vertu d'un 
+    mondial de recherche et d'initiative pour le développement (appelée information sur la santé 
+    Systems Project - PSIS) provenant du ministère de l'Informatique, 
+    Université d'Oslo, en Norvège. La première version de l'application DHIS (DHIS 
+    1.3/1.4) a été élaboré et mis à jour sur une base continue 
+    continuellement mis à jour en Afrique du Sud PSIS Afrique du Sud depuis 1997. 
+    Cette version a été développée sur la plate-forme de Microsoft Office, et distribué 
+    gratuit. Cette application est actuellement la norme nationale en Afrique du Sud 
+    et utilisé dans tous les établissements de santé dans le pays. En outre, cette 
+    application est utilisée dans de nombreux pays en Afrique comme l'Ethiopie, 
+    Nigeria, le Botswana, la Tanzanie, la Zambie et, divers autres pays. </para> 
+    <para> En 2005, sur la base des divers commentaires et la rétroaction sur le terrain 
+    utiliser le niveau, l'Université d'Oslo initié le processus de développement 
+    La version 2 de DHIS, qui a utilisé DHIS 1.4, comme la base de la fonctionnelle 
+    exigences. Grâce à une structure modulaire DHIS 2 a été développé à partir des données 
+    principes d'entreposage. DHIS 2 est construit sur les cadres basé sur Java. Il est 
+    plate-forme indépendante, peut fonctionner à la fois en ligne et hors ligne modes, est multi 
+    langue activé et intégré à diverses autres applications telles que 
+    > Systèmes d'information géographique et Excel. </para>
+    <para> L'OMS et HMN (Réseau de métrologie sanitaire) sont actuellement à l'aide DHIS 2 
+    pour la mise en œuvre d'une solution intégrée dans le premier pays HMN - Sierra 
+    Leone. Bien que DHIS 2 seront utilisés pour les statistiques agrégées composante 
+    de l'HMIS, il sera intégré à un logiciel gratuit appelé 
+    MRS ouvert pour la gestion en fonction des patients, et l'OMS a créé ouvert de la santé pour 
+    SIG et tableaux croisés dynamiques Web. </para> 
+    <para> Dans ce manuel de formation, nous prendrons le DHIS 2 comme base de 
+    illustrent les différentes fonctionnalités que HMIS un ordinateur basé devrait 
+    > Fournir. </para>
+  </section> 
+  <section> 
+    <title> But de DHIS2</title> 
+    <para> Le but de DHIS peuvent être résumées comme suit: </para> 
+    <orderedlist> 
+      <listitem> 
+        <para> fournir une solution complète basée sur des données HMIS 
+          principes d'entreposage et une structure modulaire qui peut être facilement 
+          adaptés aux besoins des différents systèmes de santé - nations, 
+          États, des districts et des installations. </para> 
+      </listitem> 
+      <listitem> 
+        <para> Fournir des installations de saisie de données qui peut être soit sous la forme 
+          de la norme (défiler vers le bas) des listes (des éléments de données), ou peut être 
+          mesure de reproduire des formulaires papier - de rendre facile le processus de 
+          saisie des données. </para> 
+      </listitem> 
+      <listitem> 
+        <para> fournir différentes sortes d'outils pour la validation des données et 
+          l'amélioration de la qualité des données. </para> 
+      </listitem> 
+      <listitem> 
+        <para> Fournir des outils différents pour les rapports - à la fois pour automatisé 
+          rapports de routine et des rapports d'analyse, et en outre prévoir les 
+          l'utilisateur avec des fonctionnalités et de souplesse pour faire leurs définis par l'utilisateur 
+          rapports </para> 
+      </listitem> 
+      <listitem> 
+        <para> Un tableau de bord pour le suivi et l'évaluation des programmes de santé 
+          qui peut permettre à la génération et l'analyse des différentes 
+          indicateurs, et aussi effectuer l'analyse des données de qualité. </para> 
+      </listitem> 
+      <listitem> 
+        <para> fonctions de gestion de systèmes pour effectuer diverses opérations 
+          pour gérer la hiérarchie de l'organisation des unités, 
+          ajout / suppression / modification des éléments de données, etc </para> 
+      </listitem> 
+      <listitem> 
+        <para> fonctionnalité de concevoir et de modifier les indicateurs. </para> 
+      </listitem> 
+      <listitem> 
+        Fonctionnalités de <para> d'import-export, de sorte que les données entrées sur une 
+          version hors ligne peuvent être exportés vers le district ou de niveau supérieur 
+          systèmes. Import Export peut également être faite par rapport aux autres 
+          applications comme Excel et Epi Info. </para> 
+      </listitem> 
+      <listitem> 
+        <para> Intégration avec d'autres systèmes logiciels - tels que 
+          <acronym> RIMS </acronym>. </para> 
+      </listitem> 
+      <listitem> 
+        <para> Intégration avec <glossterm> systèmes d'information géographique </> glossterm (<acronym> SIG </ acronym >).</para> 
+      </listitem> 
+      <listitem> 
+        module de gestion <para> utilisateur des mots de passe, la sécurité et la définition 
+          autorisation. </para> 
+      </listitem> 
+      <listitem> 
+        <para> modules complémentaires peuvent être développées (comme pour les ressources humaines 
+          gestion) et intégrées selon les besoins des utilisateurs. </para> 
+      </listitem> 
+    </> Orderedlist 
+    <para> En résumé, DHIS 2 fournit une solution complète pour le HMIS 
+      de rapports et l'analyse des besoins des établissements de santé à tous les niveaux. Il s'agit d'un 
+      essayé et testé l'application dans différents pays, et aussi maintenant 
+      adoptée par l'OMS pour leur mise en œuvre HMN </para> 
+  </section> 
+  <section> 
+    <title> Différence entre agrégées et les données des patients dans un HMIS </title> 
+    <para> 
+   <emphasis> Données patient </emphasis> sont des données relatives à un patient, 
+      telles que son diagnostic, le nom, l'âge, au début de l'histoire médicale, etc 
+      Les données du patient en fonction est important lorsque vous souhaitez effectuer le suivi longitudinal 
+      les progrès d'un patient au fil du temps. Par exemple, si nous voulons suivre 
+      comment un patient, c'est adhérer à et à répondre au processus de la tuberculose 
+      traitement (généralement se déroulant sur 6-9 mois), nous aurions besoin 
+      patient des données fondées. </para> 
+    <para> 
+   > <emphasis> Agrégées les données </emphasis> est la consolidation des données 
+      relatives à plusieurs patients, et ne peut donc être retracée à une 
+      spécifiques du patient. Ils ne sont que des chiffres, tels que les incidences du paludisme, 
+      La tuberculose, ou d'autres maladies. Généralement, les données de routine que la santé 
+      traite facilité avec ce genre de statistiques agrégées, et est utilisé 
+      pour la génération de rapports de routine et des indicateurs. </para> 
+    <para> données du patient sont hautement confidentielles et doivent donc être 
+      protégés de façon que personne d'autre que les médecins peuvent l'obtenir. Lorsque dans le papier, 
+      il doit être placé correctement dans un endroit sûr. Pour les ordinateurs, les patients 
+      les besoins en données des systèmes sécurisés par mot de passe et l'accès restreint. </para> 
+    <para> préoccupations de sécurité pour les données agrégées ne sont pas aussi crucial que pour les 
+      les données du patient, car il n'ya pas les moyens de le rapporter à une personne. Toutefois, 
+      les données peuvent encore être utilisés abusivement et mal interprété par les autres, et ne devrait pas 
+      être distribués sans discernement. Une politique de données doit être mis en place par 
+      les gestionnaires de savoir qui a accès à quelles données>. </para>
+  </section> 
+  <section> 
+    <title> utilisation de DHIS 2 dans HMIS: collecte, traitement, interprétation et l'analyse. </title> 
+    <para> Le contexte plus large de HMIS peut être décrite de manière exhaustive par le biais 
+      cycle de l'information présentée dans la figure 1.1 ci-dessous. Les informations 
+      cycle représente graphiquement les différentes composantes, les étapes et les processus 
+      à travers lequel les données sont collectées, contrôle de qualité, transformés, 
+      analysées et utilisées. </para> 
+    <figure> 
+      <title> Le cycle de renseignements sur la santé / title> 
+      <mediaobject> 
+        <imageobject> 
+          width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/dhis2_information_cycle.png"/> 
+        </imageobject> 
+      </mediaobject> 
+    </figure> 
+    <para> DHIS 2 supports les différentes facettes du cycle de l'information 
+      notamment: <itemizedlist> 
+        <listitem> 
+          La collecte des données <para>. </para> 
+        </listitem> 
+        <listitem> 
+          <para> Running contrôles de qualité. </para> 
+        </listitem> 
+        <listitem> 
+          <para> données d'accès à de multiples niveaux. </para> 
+        </listitem> 
+        <listitem> 
+          > <para> Rapports. </para>
+        </listitem> 
+        <listitem> 
+          Faire des graphiques et des cartes <para> et d'autres formes d'analyse. </para> 
+        </listitem> 
+        <listitem> 
+          <para> comparaison permettant à travers le temps (par exemple, avant 
+            mois) et de l'espace (par exemple, à travers des installations et des 
+            districts). </para> 
+        </listitem> 
+        <listitem> 
+          Voir <para> tendances (l'affichage des données dans les séries chronologiques de voir leur min 
+            et> les niveaux max). </para>
+        </listitem> 
+      </itemizedlist> 
+  </para> 
+    <para> Dans un premier temps, DHIS 2 sert de collecte de données, l'enregistrement et 
+      outil de compilation, et toutes les données (que ce soit en nombre ou en forme de texte) peut être 
+      entré en elle. La saisie des données peut se faire dans les listes d'éléments de données ou dans 
+      utilisateur personnalisée formes définies sur la base des formulaires papier. </para> 
+    <para> Dans une prochaine étape, DHIS 2 peut être utilisé pour augmenter la qualité des données. 
+      Tout d'abord, au point d'entrée des données, un chèque peut être fait pour voir si les données 
+      relève les niveaux de gamme acceptable de valeurs minimales et maximales pour 
+      tout élément de données particulier. Cette vérification, par exemple, peut aider à 
+      d'identifier les erreurs de frappe au moment de la saisie des données. En outre, l'utilisateur peut 
+      définir des règles de validation différents, et DHIS 2 peut faire passer les données par l'intermédiaire du 
+      règles de validation pour identifier les violations. </para> 
+    <para> Lorsque les données ont été saisies et vérifiées, DHIS 2 peut aider à faire 
+      différents types de rapports. Le premier type sont les rapports de routine qui 
+      peut être prédéfini, afin que tous ces rapports qui doivent être de routine 
+      générée peut être fait sur un clic d'un bouton. En outre, DHIS 2 peut aider 
+      dans la génération de rapports d'analyse grâce à des comparaisons de pour 
+      Exemples d'indicateurs de tous les établissements ou dans le temps. Cartes, graphiques, rapports 
+      et des profils de santé sont parmi les produits qui DHIS 2 peut produire, et 
+      ceux-ci devraient être systématiquement produites, analysées et suivies par la santé 
+      gestionnaires. </para> 
+  </section> 
+  <section> 
+    Vue d'ensemble <title> DHIS 2.0 </title> 
+    <section> 
+      <title> Les différents modules de DHIS 2 </title> 
+      <para> DHIS est basée sur une approche modulaire de la conception. Un module peut être 
+        considérée comme une composante indépendante de l'application qui est capable de 
+        deux entrées de traitement ainsi que les résultats, qui est utilisé pour communiquer 
+        avec d'autres modules. Les modules sont suffisamment souples pour permettre des changements 
+        dans un seul module sans avoir aucun effet sur les autres modules. Aussi longtemps que 
+        entrée et de sortie reste la même, ce n'est pas grave ce qui se passe à l'intérieur 
+        un module. Un module peut alors être modifiée sans affecter les autres 
+        modules, qui seront à travailler aussi longtemps que la sortie de la première 
+        module apparaît comme normale. Cette fonction modulaire permet DHIS 2 à 
+        constamment mis à jour en termes de fonctionnalités, intégrées aux autres 
+        applications telles que les tableaux croisés dynamiques Excel et SIG. Ainsi, la modularité 
+        permet DHIS 2 à faire preuve de souplesse, et des changements peuvent avoir lieu dans le 
+        différents modules sans affecter les autres. </para> 
+      <para> Actuellement, DHIS2 a plusieurs modules pour les fonctions telles que les données 
+        entrée, contrôles de qualité des données, génération de rapports, etc Ces modules ont 
+        été regroupées et présentées sous deux catégories principales à savoir 
+        Maintenance et services. Le module Services prend en charge enregistrer des données, 
+        analyse, etc génération de rapports et le module de maintenance vous permet 
+        pour définir le contenu et la structure du module Services. </para> 
+    </section> 
+    <section> 
+      HMIS <title> sur le Web par rapport autonome et leur aptitude </title> 
+      <para> DHIS 2 peut exécuter à la fois comme une application web et hors ligne. En tant que 
+        application Web, le DHIS 2 application peut fonctionner sur un central 
+        serveur et d'utiliser de l'architecture client-serveur. Par exemple, à la 
+        niveau de l'Etat, le DHIS 2 peut fonctionner sur un serveur, et les différents 
+        Loi sur les districts en tant que clients, en s'appuyant sur l'application serveur par le biais 
+        l'Internet pour l'utilisation locale de la demande. </para> 
+      <para> Dans une application autonome, le DHIS 2 peut se présenter comme 
+        application indépendante sur des ordinateurs individuels dans des sites différents 
+        tels que les soins de santé primaires <abbrev> s </abbrev>, <abbrev>CHC</abbrev>s, etc Donc, si l'informatisation est en cours au 
+        niveau bloc, puis les 2 DHIS sera installé séparément sur chacun des 
+        les ordinateurs de niveau bloc. L'inconvénient d'un standalone 
+        application est que la plate-forme de dépendance - lorsque la demande 
+        doit être configuré pour la plate-forme sur chacune des respectives 
+        machines. Un client lourd nécessite un environnement local de l'exécution. Pour 
+        Par exemple une application Windows Form ne fonctionne que sur une plate-forme Windows 
+        avec le. NET Framework est installé. Le principal avantage de l'déconnecté 
+        version est qu'elle peut fonctionner sans la moindre dépendance sur l'Internet. 
+        Cela permet à l'application de s'exécuter dans des endroits éloignés où il est 
+        connectivité limitée ou inexistante Internet. </para> 
+      <para> Le principal avantage d'une solution basée sur le Web, c'est qu'il est 
+        centralisée, qui permet facilement, en ligne mise à jour et le déploiement de la 
+        application. Les seules exigences du côté des clients sont d'avoir 
+        navigateur Web installé sur l'ordinateur utilisé et un point Internet 
+        connexion. Le matériel sur le serveur est souvent plus puissant que le 
+        seul ordinateur. Un autre avantage de l'application Web est qu'il est 
+        plate-forme indépendante, ce qui permet le même logiciel pour être accessible 
+        par le biais d'un navigateur Web, quelle exploitation du client 
+        système. </para> 
+      <para> Lorsque la connexion est disponible, et il est nécessaire de 
+        gestion centralisée, une application web est utile, et un 
+        application autonome est préférable lorsque ces conditions ne sont pas 
+        disponibles ou nécessaires. Toutefois, dans la plupart des cas, un mélange de ces deux 
+        approches seraient nécessaires, avec un serveur de déploiement en fonction de travail 
+        pour le traitement au niveau du district à l'état-national, et un standalone 
+        déploiement à des niveaux inférieurs où la connectivité est limitée. Le 
+        avantage d'une telle approche est qu'elle est flexible, inclusif et 
+        évolutive parce que les installations obtenir la connectivité Internet, ils peuvent être 
+        raccordé au réseau. </para> 
+    </section> 
+    <section> 
+      <title> Libres et Open Source Software (FOSS): avantages et défis</title> 
+      <para> logiciel effectue les instructions qui indiquent à un ordinateur comment 
+        fonctionner. L'homme et l'auteur de l'homme sous une forme lisible de ces 
+        instructions est appelé code source. Avant que l'ordinateur peut effectivement 
+        exécuter les instructions, le code source doit être traduit dans une 
+        lisibles par machine (binaire) format, appelé code objet. Tous 
+        logiciels distribués inclut le code objet, mais> <abbrev> logiciels libres </abbrev> rend le 
+        code source disponible. </para> 
+      propriétaires <para> logiciels propriétaires de licence pour objet d'auteur 
+        code pour un utilisateur, ce qui permet à l'utilisateur d'exécuter le programme. <abbrev> Logiciels libres <abbrev/> 
+        programmes, d'autre part, d'une licence à la fois l'objet et la source 
+        code, permettant à l'utilisateur d'exécuter, modifier et peut-être redistribuer les 
+        programmes. Avec l'accès au code source, les utilisateurs ont la liberté 
+        pour exécuter le programme pour n'importe quel but, de redistribuer, de la sonde, s'adapter, apprendre 
+        de, de personnaliser le logiciel selon leurs besoins, et la libération 
+        améliorations au public pour le bien de la communauté. Par conséquent, certains 
+        <abbrev> Logiciels libres <abbrev/> est également connu en tant que logiciel libre, où la «libre» fait référence, d'abord et 
+        avant tout, les libertés ci-dessus, plutôt que dans le sens monétaire du 
+        le mot. </para> 
+      <para> Dans le secteur de la santé publique, <abbrev> logiciels libres </> abbrev peut avoir un 
+        gamme d'avantages, notamment: </para> 
+      <itemizedlist> 
+        <listitem> 
+          <para> baisse des coûts car elle n'implique pas de payer pour prohibitifs 
+            frais de licence. </para> 
+        </listitem> 
+        <listitem> 
+          <para> Étant donné les besoins d'information pour le secteur de la santé sont 
+            en constante évolution, il est nécessaire pour que l'utilisateur 
+            ont la liberté de faire des changements selon les besoins des utilisateurs. 
+            Cela est souvent limitée dans des systèmes propriétaires. </para> 
+        </listitem> 
+        <listitem> 
+          <para> Dans le secteur de la santé, y compris dans NRHM; un programme clé est 
+            celui de l'intégration, qui implique la liaison technique de 
+            différentes pièces de logiciels (par exemple, 2 DHIS et jantes). Pour 
+            cela, le code source doit être mis à la disposition des développeurs 
+            pour créer l'intégration. Cette disponibilité est souvent impossible 
+            dans le cas des logiciels propriétaires. Et quand il est, il arrive à un 
+            coût élevé et les obligations contractuelles. </para> 
+        </listitem> 
+        <listitem> 
+          <para> logiciels libres comme DHIS2 sont généralement pris en charge par un 
+            réseau mondial de développeurs et d'avoir ainsi accès à de pointe 
+            la recherche et de développement des connaissances. </para> 
+        </listitem> 
+      </itemizedlist> 
+    </section> 
+    <section> 
+      <title>Comprendre l'indépendance de plate-forme</title> 
+      <para> Tous les ordinateurs ont une exploitation (OS) pour la gérer et la 
+        programmes qu'il exécute. Le système d'exploitation sert de couche intermédiaire entre le 
+        application logicielle, comme DHIS 2, et le matériel, tels que le 
+        CPU et RAM. Le plus couramment utilisée OS est Microsoft Windows, qui 
+        existe en plusieurs versions (comme XP, Vista). Toutefois, cela coûte OS 
+        l'argent, et ont également été rapportés d'avoir des problèmes de sécurité qui fait 
+        vulnérable aux attaques de virus. Systèmes d'exploitation comme Linux sont gratuits, 
+        et sont plus sûrs en ce qui concerne les attaques de virus. Habituellement, de nombreux 
+        les applications fonctionnent sur un OS, et non pas sur les autres. Plate-forme 
+        indépendance implique que le logiciel peut fonctionner sur n'importe quel OS - 
+        Windows, Linux, Macintosh, etc DHIS 2 est indépendant de la plateforme, et est 
+        extrêmement utile dans le contexte de la santé publique lorsque vous généralement 
+        > Ont des systèmes en cours d'exécution dans différents endroits différents types d'OS. </para>
+    </section> 
+    <section> 
+      <title> auxiliaire logiciel qui peut être utilisé avec DHIS </title> 
+      <para> Une variété de logiciels d'appoint peut être exécuté avec DHIS 2, tels que 
+        SIG (pour la cartographie), BIRT (pour la déclaration), Excel (pour l'analyse par le biais 
+        opérations de tableau croisé dynamique), Open MRS (pour la gestion axée sur les patients), et 
+        CRIS (pour le VIH et le SIDA). Etant basé sur les standards ouverts et une 
+        Open Architecture, DHIS 2 peut construire des ponts pour parler à l'autre 
+        systèmes. En outre, des modules auxiliaires peuvent être développés et intégrés 
+        avec le noyau DHIS 2 application. </para> 
+    </section> 
+  </section> 
+</chapter>
