@@ -294,12 +294,18 @@ male+&lt;1, male+&gt;1, Female+&lt;1, female+&gt;1, male, female,&lt;1, &gt;1, t
   </section>
   <section>
     <title>Standard Reports</title>
-    <para/>
     <section>
-      <title>How to set up and run standard reports</title>
+      <title>How to create a new standard report</title>
+      <para><emphasis role="bold">Selecting the standard reporting framework in System settings</emphasis></para>
+      <para>In System Settings there is a property called reporting Framework. Two options are currently supported; Jasper Reports and BIRT Reports. When creating and running standard reports the system behave according to this setting, so make sure your report designs match the selected reporting framework. A quick comparison is that Jasper i sfully integrated and requires no extra mainteance while BIRT is run as a separate web application and needs to be deployed and maintained separately, which also adds to the size of the installation package, which can be an important consideration in your project. BIRT has a more user friendly designer than Jasper (Ireport), and both systems are under active development, so stay  updated by following their web pages. Both designers have  more or less the same functionalty.</para>
       <para><emphasis role="bold">Add a new standard report:</emphasis></para>
-      <para>In Reports module, go to Reports-&gt;Standard Reports and click the left side &apos;Add new&apos; button. Provide a name for the report, upload your design file (.rptdesign) and select the report table(s) you have used in your report. Then Save.</para>
-      <para><emphasis role="bold">Running standard reports: (NEED TO BE UPDATED FOR 2.0.5)</emphasis></para>
+      <para>In Reports module, go to Reports-&gt;Standard Reports and click the left side &apos;Add new&apos; button. Provide a name for the report, upload your design file (.rptdesign or .jrxml) and select the report table(s) you have used in your report. Then Save.</para>
+      <para>NOTE ON DB CONNECTIONS:  all the connection strings in your design file will be automcatilly updated to connect to the database used by the DHIS2 you are uploading to. This means that e.g. you can design reports againts a local copt of the database and upload and use the design on an online server. This of course requires that data elements, indicators, report tables etc. are the same on both databases.</para>
+      <para/>
+    </section>
+    <section>
+      <title>How to run standard reports</title>
+            <para><emphasis role="bold">Running standard reports: (NEED TO BE UPDATED FOR 2.0.5)</emphasis></para>
       <para>You access the available reports from the Services drop-down menu, by selecting Reports. In the report menu in the left bar, click Standard Report. A list of all pre-defined reports will appear in the main window. </para>
       <para>SCREENSHOT1</para>
       <para/>
@@ -340,8 +346,7 @@ The other report is slightly different. It too has the report parameters reporti
       <para>SCREENSHOT 6</para>
       <para>Note that you can select to view these reports again without selecting new report parameters. Just click the icon second from left, and the report will appear with the last selected report parameters.</para>
       <para>SCREENSHOT 7</para>
-    </section>
-    <section/>
+      </section>
     <section>
       <title>BIRT reports</title>
       <section>
@@ -435,6 +440,17 @@ Directory: the name of the birt viewer folder, e.g. birt
     </section>
     <section>
       <title>Jasper Reports</title>
+      <section>
+        <title>Designing Jasper reports with iReport</title>
+        <para>Under development. Here are a few quick advices:</para>
+        <para>- Remember to set the report language to Java, and not Groovy (default). This is a setting under report properties and must be set per report.</para>
+        <para>- Use the same version of IReport and DHIS2&apos;s version of Jasper reports. See the About page in DHIS2 for the Jasper version in use.</para>
+        <para>- Use report tables with cross tab dimensions  as your data source for your report designs, this will make it a lot easier to design reports where you need to put specific indictors, periods, or orgunits on columns.</para>
+        <para>- To comfigure your data source connection in IReport have a look at the hibernate.properties file running DHIS2, or the About page to get the connection URL. Both MySQL and PostgreSQL connectors (jdbc drivers) are available out of the box in IReport. H2 connections are also possible.</para>
+        <para>- Learn from others, there are many DHIS2 report designs for Jasper and BIRT on  launchpad, see http://bazaar.launchpad.net/~dhis2-devs-core/dhis2/trunk/files/head:/resources/</para>
+        <para>-  </para>
+        <para/>
+      </section>
     </section>
   </section>
   <section>

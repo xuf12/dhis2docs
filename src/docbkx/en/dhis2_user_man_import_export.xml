@@ -44,77 +44,77 @@ To access the main Import-Export module, choose <guimenu>Services-&gt;Import-Exp
       </screenshot>
       <para>The exported data values are stored in an ‘xml file’. The file name is defined by the name of the source organisation unit and the period to allow the receiving organisation unit to identify the source and the period of the export file. The XML is placed in your home directory (On Windows this is normally <filename>C:\Documents and Settings\</filename> under the sub-directories <filename>/dhis / import-export</filename>.
 </para>
-  </section>
-      <section>
-        <title>Exporting data to other DHIS2 systems</title>
-        <para>Once the data export screen is displayed, select the Organisation unit, period and dataset for which data export should be selected.Finally click on the export option that will be available on the lower left side of displayed screen.
+    </section>
+    <section>
+      <title>Exporting data to other DHIS2 systems</title>
+      <para>Once the data export screen is displayed, select the Organisation unit, period and dataset for which data export should be selected.Finally click on the export option that will be available on the lower left side of displayed screen.
 If there are no datasets defined for an organisation unit, it indicates that no data values are registered for this level of organisation or lower.
 </para>
-        <screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="60%" align="center" fileref="resources/images/import_export/export_to_dhis2.png"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-        <para>A pop-up save option will appear on the displayed screen (see picture below) prompting the saving of the exported data. You may save the export folder on your desktop or any other folder by selecting the ‘Save to Disk’ option from the pop-up prompt.
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="60%" align="center" fileref="resources/images/import_export/export_to_dhis2.png"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>A pop-up save option will appear on the displayed screen (see picture below) prompting the saving of the exported data. You may save the export folder on your desktop or any other folder by selecting the ‘Save to Disk’ option from the pop-up prompt.
 </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="60%" align="center" fileref="resources/images/import_export/export_file_popup.png"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </section>
+    <section>
+      <title>Exporting metadata to other DHIS2 systems</title>
+      <para/>
+      <section>
+        <title>Metadata export</title>
+        <para>Metadata is &quot;data about data&quot;. In the context of DHIS2, metadata consists of definitions of data elements, indicators, the structure and names contained in the organizational hierarchy, and other options. Click on the &quot;Metadata export&quot; link from the main &quot;Data export&quot; screen in order to access this. Just select the feature that you wish to export and click &quot;Export&quot;. This metadata file can then be transmitted just like  a data file, except it will contain information on the definitions of the various features, as opposed to the values of the data themselves. </para>
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="60%" align="center" fileref="resources/images/import_export/export_file_popup.png"/>
+              <imagedata width="60%" align="center" fileref="resources/images/import_export/metdata_export.png"/>
             </imageobject>
           </mediaobject>
         </screenshot>
       </section>
       <section>
-        <title>Exporting metadata to other DHIS2 systems</title>
-        <para/>
-        <section>
-          <title>Metadata export</title>
-          <para>Metadata is &quot;data about data&quot;. In the context of DHIS2, metadata consists of definitions of data elements, indicators, the structure and names contained in the organizational hierarchy, and other options. Click on the &quot;Metadata export&quot; link from the main &quot;Data export&quot; screen in order to access this. Just select the feature that you wish to export and click &quot;Export&quot;. This metadata file can then be transmitted just like  a data file, except it will contain information on the definitions of the various features, as opposed to the values of the data themselves. </para>
-          <screenshot>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="60%" align="center" fileref="resources/images/import_export/metdata_export.png"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
-        </section>
-        <section>
-          <title>Detailed metadata export</title>
-          <para>The &quot;Detailed metadata&quot; function will allow you to export specific data element and indicator definitions. Just click &quot;Detailed Metadata Export&quot; and select the data elements and indicators that you wish to export. Click &quot;Export&quot; and save the file to a desired location. This file can then be transmitted via email or USB key to other DHIS2 installations. </para>
-          <screenshot>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="60%" align="center" fileref="resources/images/import_export/metadata_detail.png"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
-        </section>
-      </section>
-      <section>
-        <title>IXF data export</title>
-        <para>DHIS2 support export to the Indicator Exchange Format 2  developed by UNAIDS. The IXF data exchange standard has been implemented  ,with various levels of compatibility, between several information management systems including CRIS version 2, DevInfo version 5, KIDS developed by FAO, DHIS 1.4, DHIS2, and HealthMapper version 4 developed by WHO. A more detailed discussion on the use of the IXF data exchange format. </para>
-        <para>The IXF data export is essentially the same as a standard DHIS 2 DXF export, but results in a file format that is compatible with IXF 2. </para>
-      </section>
-      <section>
-        <title>IXF Metadata export</title>
-        <para>The IXF detailed metadata export provides the same functionality of the standard DHIS2 detailed metadata export, except that the resulting file is compatible with the IXF data exchange format. </para>
-      </section>
-      <section>
-        <title>DHIS 1.4 Metadata export</title>
-        <para>The DHIS 1.4 Metadata export functionality provides the same functionality as the standard DHIS2 metadata export, except that the resulting file can be used to transmit metadata information to DHIS 1.4 systems. </para>
-      </section>
-      <section>
-        <title>DHIS 1.4 Detailed Metadata Export</title>
-        <para>The DHIS 1.4 Metadata export functionality provides the same functionality as the detailed DHIS2 metadata export, except that the resulting file can be used to transmit metadata information to DHIS 1.4 systems. Simply select the data elements and indicators that you want and click &quot;Export&quot; to begin the export process.</para>
-      </section>
-      <section>
-        <title>PDF Metadata Export</title>
-        <para>Auctor natoque ve vulputate quam. Quam duis posuere risus felis mus class tempor eu sociosqu. Risus duis penatibus turpis, tristique dictum enim est. Quisque mi pulvinar ultrices, fusce diam porttitor mi hendrerit viverra, augue leo vestibulum rutrum. Ridiculus dictumst luctus. Eros.</para>
+        <title>Detailed metadata export</title>
+        <para>The &quot;Detailed metadata&quot; function will allow you to export specific data element and indicator definitions. Just click &quot;Detailed Metadata Export&quot; and select the data elements and indicators that you wish to export. Click &quot;Export&quot; and save the file to a desired location. This file can then be transmitted via email or USB key to other DHIS2 installations. </para>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="60%" align="center" fileref="resources/images/import_export/metadata_detail.png"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
       </section>
     </section>
+    <section>
+      <title>IXF data export</title>
+      <para>DHIS2 support export to the Indicator Exchange Format 2  developed by UNAIDS. The IXF data exchange standard has been implemented  ,with various levels of compatibility, between several information management systems including CRIS version 2, DevInfo version 5, KIDS developed by FAO, DHIS 1.4, DHIS2, and HealthMapper version 4 developed by WHO. A more detailed discussion on the use of the IXF data exchange format. </para>
+      <para>The IXF data export is essentially the same as a standard DHIS 2 DXF export, but results in a file format that is compatible with IXF 2. </para>
+    </section>
+    <section>
+      <title>IXF Metadata export</title>
+      <para>The IXF detailed metadata export provides the same functionality of the standard DHIS2 detailed metadata export, except that the resulting file is compatible with the IXF data exchange format. </para>
+    </section>
+    <section>
+      <title>DHIS 1.4 Metadata export</title>
+      <para>The DHIS 1.4 Metadata export functionality provides the same functionality as the standard DHIS2 metadata export, except that the resulting file can be used to transmit metadata information to DHIS 1.4 systems. </para>
+    </section>
+    <section>
+      <title>DHIS 1.4 Detailed Metadata Export</title>
+      <para>The DHIS 1.4 Metadata export functionality provides the same functionality as the detailed DHIS2 metadata export, except that the resulting file can be used to transmit metadata information to DHIS 1.4 systems. Simply select the data elements and indicators that you want and click &quot;Export&quot; to begin the export process.</para>
+    </section>
+    <section>
+      <title>PDF Metadata Export</title>
+      <para>Auctor natoque ve vulputate quam. Quam duis posuere risus felis mus class tempor eu sociosqu. Risus duis penatibus turpis, tristique dictum enim est. Quisque mi pulvinar ultrices, fusce diam porttitor mi hendrerit viverra, augue leo vestibulum rutrum. Ridiculus dictumst luctus. Eros.</para>
+    </section>
+  </section>
   <section id="import">
     <title>Importing data</title>
     <section>
@@ -137,6 +137,7 @@ If there are no datasets defined for an organisation unit, it indicates that no 
         <title>Importing data from other DHIS2 systems</title>
         <para>Data can be imported into different instances of DHIS2 through the use of the DXF data exchange format. There are two screens that are used to import data, with default and advanced options. </para>
         <para>The default data import menu can be accessed by clicking the <guimenuitem>&quot;Import&quot;</guimenuitem> from the main <guimenuitem>Import-Export</guimenuitem> screen. By clicking the <guibutton>&quot;Browse&quot;</guibutton> button, you can select a file from you local file system. This file may have been received by email, copied from another users system, or received on a CD for example. Simply select the file that you wish to import. </para>
+        <para/>
         <para>There are three separate options for importing data. </para>
         <itemizedlist>
           <listitem>
@@ -148,7 +149,27 @@ If there are no datasets defined for an organisation unit, it indicates that no 
           <listitem>
             <para>Analysis: This option will enable an analysis of the contents of the import file. The analysis will search for and examine anomalies in the data, like violations of unique names constraints and invalid indicator formulas. This is useful when importing from external applications where data constraints might be less rigid than in DHIS 2.</para>
           </listitem>
+          <listitem>
+            <para><emphasis role="bold">NOTE: We highly recommend always using the Preview option</emphasis> when importing data to make sure you keep control over any changes to your metdata and databases being out of synch on data elements or orgunit names.</para>
+          </listitem>
         </itemizedlist>
+        <section>
+          <title>Preview before importing</title>
+          <para>Before doing the import into your database it is highly recommended to preview the data to make sure no changes to the metdata (data element and/or orgunit names) have taken place at the source DHIS2 installation. Select Preview in the Type field in the Import window. In the preview window it is<emphasis role="bold"/><emphasis role="bold"><emphasis role="bold">IMPORTANT</emphasis> to look for New and Updates in metadata.</emphasis> DO NOT just click the Import all button without carefully reviewing the information in the preview window. Importing new data elements or orgunits without checking properly whether they are really new or just old names can cause a corrupted database with duplicate or incomplete data, so be careful! 
+
+</para>
+          <para>Procedure for handling New or Updates in the preview:
+
+</para>
+          <para><emphasis role="bold">If new:</emphasis>
+</para>
+          <para>If there are new data elements, indicators, or orgunits, first make sure whether they really are new or not. Data elements are rarely new, most of the time they are the old name of something that has been changed in the destination database (e.g. a master db at the national level). If you have changed some data elements names at the national level and these have not yet been updated in the district database, the old names that are in the district export files will appear as new data elements in your import preview. It is very important that you tell the DHIS that these are only just old names of a data element that already exists in your database, if not you will have two data elements meaning the same thing and both with an incomplete set of data. Use the ‘match new to existing’ button to link the new data elements (that really are old) to the updated names in your national database, and make sure that the source database updates its metdata before the next data export.  
+
+</para>
+          <para><emphasis role="bold">If updates: </emphasis></para>
+          <para>Only the newer updates are shown in the preview. This means the record has been updated more recently  in the district/hospital than in the zonal/national database you are importing into. If you are not sure whether you want to import the update or not, you can select the record and click on the compare to existing button to see exactly which changes that have been made in the updated object.
+</para>
+        </section>
       </section>
     </section>
   </section>
