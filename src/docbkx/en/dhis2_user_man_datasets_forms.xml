@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.5/docbookx.dtd" []>
+<chapter>
+  <title>Datasets and data entry forms</title>
+  <section>
+    <title>Data Entry Forms and Datasets in DHIS2</title>
+    <para>All data entry in DHIS2 is organised through the use of Datasets. You can add and edit datasets in Maintenance-&gt;Datasets. A DataSet is a collection of data elements grouped together for data collection and data export between instances of DHIS2 (e.g. from a district office local installation to a national server). A dataset also has a frequency which controls the data collection frequency, which can be daily, weekly, monthly, quarterly, six-monthly, or yearly. Both which data elements to include in the dataset and the frequency is set in the Add/Edit Dataset window, together with a name, short name, and code. 
+
+In order to use a dataset to collect data for a specific orgunit you must assign the orgunit to the dataset, and this mechanism controls which orgunits that can use which datasets. You can assign orgunits to a dataset in the Dataset Management (list of available datasets are shown) by clicking on the blue folder icon, the first icon under Operations, corresponding to the dataset you would like to modify. Alternatively you can manage orgunit assignments for all datasets together in the Dataset Assignment Editor (available in the right-side menu for Datasets). Your dataset is now ready to be used in Services-&gt;Data Entry for the orgunits that you have assigned and for periods according to your selected frequency (period type).</para>
+  </section>
+  <section>
+    <title>Data Entry Forms</title>
+    <para>Once you have assigned a dataset to an orgunit that dataset will be made available in Data Entry (under Services) for the orgunits you have assigned it to. A default data entry form will then be shown, which is simply a list of the data elements you belonging to the dataset together with a column for inputting the values. If your dataset contains data elements with a non-default categorycombination, such as age groups or gender then additional columns will be automatically generated in the default form based on the different options/dimensions. If you use more than one categorycombination you will get multiple columns in the data entry form with different column headings for the options.
+
+In addition to the default list-based data entry form there are two more alternatives, the section-based form and the custom form.</para>
+    <section>
+      <title>Section forms</title>
+      <para>Section forms allow for a bit more flexibility when it comes to using tabular forms and are quick and simple to design.    Often your data entry form will need multiple tables with subheadings, and sometimes you need to disable (grey out) a few fields in the table, both of these functions are supported in section forms. When designing a section form the procedure is as follows:
+1) Set up your dataset as described above
+2) Open the DataSet Section window (from right side menu under Datasets) and add your sections one by one
+3) For each section you have the option to disable certain fields by accessing the Section grey field management window under Operations (second icon).
+4) Finally, in Dataset Section management, select your Dataset, then leave [All] in Category Combo, and click on Sort section to sort the order of appearance of your sections in the data entry form.
+5) In Data Entry you can now start using the Section form (should appear automatically when sections are available for the selected dataset). You can switch between default and section forms in the top right corner of the data entry screen.</para>
+      <section>
+        <title>Adding/editing dataset sections</title>
+        <para>Under Maintenance-&gt;Dataset select Dataset Section in the right-side menu. To add new section first select your Dataset (above the section list) and then the Category Combo, and click on the &lt;Add new&gt; button. NOTE that you can only use one categorycombo per section (this is because each categorycombo requires a new table). To Edit an existing Section simply click on the Edit icon under Operations next to the section you want to edit.
+In the Add/Edit Dataset Section window you must provide a Name and a Title for your section. The Title is used as a heading above the section&apos;s table in the data entry form. The Name is used in Dataset section management when listing available sections. Under Available data elements you will see all the data elements allocated to your dataset that have not yet been assigned to a section. You can change the order of appearance of the selected data elements  by using the green arrows. This is then the order used in the data entry form. Fill in the Name, Title, select the data elements to use, and then Save the section.</para>
+      </section>
+      <section>
+        <title>Grey field management</title>
+        <para>In Dataset section management, locate the section you want to modify and click on the Section grey field management icon under Operations. You will then see the table corresponding to your section and for each field there is a &lt;Disable&gt; button. For the fields you want to disable you simply click on the &lt;Disable&gt; button and you will see that the field goes grey and that the button changes to &lt;Enable&gt;. To undo the disabling you then click on Enable. When you have finished the disabling then click on &lt;Done&gt;.</para>
+      </section>
+    </section>
+    <section>
+      <title>Custom Forms</title>
+      <para>When the form you want to design is to complicated for the default or section forms then your last option is to use a custom form. This takes more time, but gives you full flexibility in term of the design. We use a built in HTML editor (FcK Editor) for the form designer and you can either design the form in the UI or paste in your html directly (using the Source window in the editor. Once a custom form has been added to a dataset it will be available in data entry and used automatically. You can switch back to default and section (if exists) forms in the top right corner of the data entry screen.</para>
+      <para>To add a custom form design to a dataset then first locate your dataset in the Dataset Management window and click on the Design data entry form icon under Operations (the fifth icon), see the mouse-over text to be sure.
+First provide a Name for the form. There are a few important buttons in the Editor that you must pay special attention to. The blue monitor icon is the full screen mode on/off button, which can be very useful. The there is a Source button that shows the html code for your form. If you already have the html for your form then you should start by pasting it in here. Click on Source again to go back to preview/non-html mode. Then there is an icon in the top right corner with a + sign on it, this will open a list of available data elements to add to your form, the Data Element Selector window. All the input fields need to have a link to a data element in order to save the value to the correct data element. To add a data element click on the data element, then on the desired categoryoptioncombo, and then click on OK. This will add a data field to your form which shows the linked data element+catoptioncombo. You can to intermediary saving by clicking on the Save button, and this will not close the window. We recommend saving often not to loose your work. When you are done or want to test your form in data entry click on &lt;Save and close&gt;.
+</para>
+    </section>
+  </section>
+</chapter>
