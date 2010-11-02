@@ -559,9 +559,8 @@ oSSL mode: prefer</para>
       </section>
       <section>
         <title>Design the pivot table</title>
-      </section>
-      <section>
-        <title>Office 2003</title>
+        <section>
+          <title>Office 2003</title>
         <para>1) Open a new blank spreadsheet
 </para>
         <para>2) Go to Data --&gt; PivotTable and PivotChartReport.
@@ -584,11 +583,12 @@ Notice: Later you can modify the field name by right clicking on it and opening 
 </para>
         <para>10) Additional step for indicator tables:
 </para>
-        <para>Your indicator values should be calculated by Excel using the formula &quot;Factor*Numerator/Denominator&quot; to make sure Excel aggregates the values (such as percentages) properly. This can be done by inserting a calculated field into the Data field area. In the layout window in the wizard just put any field in data field, e.g. denominatorvalue (the wizard does not accept an empty data field). Then close and when you can see the table in normal view select the denominatorvalue field and in the top menu go to Insert-&gt;Calculated field. In the new window you can give your field the name e.g. IndicatorValue and specify the formula based on the available fields in the list to form the formula &apos;numxfactor/denominatorvalue&apos;. numxfactor is a pre-calculated value of the factor x numeratorvalue.
+        <para>Your indicator values should be calculated by Excel using the formula &quot;Factor*Numerator/Denominator&quot; sto make sure Excel aggregates the values (such as percentages) properly. This can be done by inserting a calculated field into the Data field area. In the layout window in the wizard just put any field in data field, e.g. denominatorvalue (the wizard does not accept an empty data field). Then close and when you can see the table in normal view select the denominatorvalue field and in the top menu go to Insert-&gt;Calculated field. In the new window you can give your field the name e.g. IndicatorValue and specify the formula based on the available fields in the list to form the formula &apos;numxfactor/denominatorvalue&apos;. numxfactor is a pre-calculated value of the factor x numeratorvalue.
 </para>
-      </section>
-      <section>
-        <title>Office 2007</title>
+      
+	  </section>
+        <section>
+          <title>Office 2007</title>
         <para>1) open a new worksheet
 </para>
         <para>2) Go to Data menu, then From Other Sources, From Microsoft Query
@@ -613,7 +613,12 @@ Notice: Later you can modify the field name by right clicking on it and opening 
 </para>
         <para>12) Save your file and the next time you have new data in your data mart you can refresh the pivot table to see all the data in your data mart (filtered by your pivot view), both old and new data.
 </para>
-        <para>13) If you for some reason need to empty your pivot table, e.g. to send to another computer over email, and you cannot send with data (big size), you can first empty/clean the data mart from the DHIS Data Administration window, and then refresh your pivot table.</para>
+        <para>13) If you for some reason need to empty your pivot table, e.g. to send to another computer over email, and you cannot send with data (big size), you can first empty/clean the data mart from the DHIS Data Administration window, and then refresh your pivot table.
+</para>		  
+        <para>10) Additional step for indicator tables: See instructions for 2003 above.
+</para>
+     
+        </section>
       </section>
     </section>
   </section>
