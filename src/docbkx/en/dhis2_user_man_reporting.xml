@@ -305,7 +305,7 @@ male+&lt;1, male+&gt;1, Female+&lt;1, female+&gt;1, male, female,&lt;1, &gt;1, t
     </section>
     <section>
       <title>How to run standard reports</title>
-            <para><emphasis role="bold">Running standard reports: (NEED TO BE UPDATED FOR 2.0.5)</emphasis></para>
+      <para><emphasis role="bold">Running standard reports: (NEED TO BE UPDATED FOR 2.0.5)</emphasis></para>
       <para>You access the available reports from the Services drop-down menu, by selecting Reports. In the report menu in the left bar, click Standard Report. A list of all pre-defined reports will appear in the main window. </para>
       <para>SCREENSHOT1</para>
       <para/>
@@ -346,7 +346,7 @@ The other report is slightly different. It too has the report parameters reporti
       <para>SCREENSHOT 6</para>
       <para>Note that you can select to view these reports again without selecting new report parameters. Just click the icon second from left, and the report will appear with the last selected report parameters.</para>
       <para>SCREENSHOT 7</para>
-      </section>
+    </section>
     <section>
       <title>BIRT reports</title>
       <section>
@@ -474,7 +474,9 @@ Directory: the name of the birt viewer folder, e.g. birt
 </para>
         <para>- leave the master tables more or less as is
 </para>
-        <para>- always possible to get the master db back and start over again if necessary
+        <para>- always possible to get the master db back and start over again if necessary</para>
+        <para>- Excel normally gets into memory issues  with around 1 000 000 milllion rows of data (but this depends on your memory specs as well). These big tables (&gt; 600-800K rows) are also quite slow to use,e.g. when changing rows and columns.
+You should then start to split up the data into smaller pivot tables, e.g. by year. This can be done by creating new pivot views that filter on the start and end dates of the period of the data.
 </para>
       </section>
     </section>
@@ -587,6 +589,31 @@ Notice: Later you can modify the field name by right clicking on it and opening 
       </section>
       <section>
         <title>Office 2007</title>
+        <para>1) open a new worksheet
+</para>
+        <para>2) Go to Data menu, then From Other Sources, From Microsoft Query
+</para>
+        <para>3) Click yes to confirm opening if you get a security warning popup
+</para>
+        <para>4) In Choose Data Source: select your odbc connection
+</para>
+        <para>5) In Query Wizard - Choose Columns, click Cancel, and then Yes to continue editing the query in Microsoft Query
+</para>
+        <para>6) In Add tables, locate the pivot view you need and select it. Go to Options and filter only Views to make it easier to see the Views. When you can see your table/view in the designer, then close the Add table dialogue.
+</para>
+        <para>7) Double-click on the * in your table to select all the columns, or pick one by one
+</para>
+        <para>8) When you can see the data in the designer (it may take some time to load), then go to the top menu File-&gt;Return data to Microsoft Office Excel
+</para>
+        <para>9) In Excel you&apos;ll see the Import Data dialogue, and there you select to view the data in a Pivot Table Report
+</para>
+        <para>10) You will then see the Pivot table field list on the right side, and there you can drag and drop fields from the top list to the different areas (filter, column, row, data). You will see that the pivot table is updated automatically.
+</para>
+        <para>11) Rename the pivot fields by right-clicking on a field and open the Field Settings menu.There you can write in a Custom Name, e.g. &quot;District&quot; in stead of Orgunit2.
+</para>
+        <para>12) Save your file and the next time you have new data in your data mart you can refresh the pivot table to see all the data in your data mart (filtered by your pivot view), both old and new data.
+</para>
+        <para>13) If you for some reason need to empty your pivot table, e.g. to send to another computer over email, and you cannot send with data (big size), you can first empty/clean the data mart from the DHIS Data Administration window, and then refresh your pivot table.</para>
       </section>
     </section>
   </section>
