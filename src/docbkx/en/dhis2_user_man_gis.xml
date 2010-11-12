@@ -5,23 +5,24 @@
   <title>GIS</title>
   <section>
     <title>OpenHealthMapper</title>
-    <para>The DHIS 2 GIS web module is inspired by the WHO HealthMapper desktop application.</para>
+    <para>The DHIS 2 GIS web module is inspired by the <ulink url="http://www.who.int/health_mapping/tools/healthmapper/en/">WHO HealthMapper</ulink> desktop application.</para>
   </section>
    <section>
     <title>Importing geographical layers for orgunit thematic mapping</title>
     <para>Start by installing the open source ogr2ogr tool. This should be available for most Linux distros (e.g. "apt-get install
 ogr2ogr"). For Windows, get FWTools, http://fwtools.maptools.org/</para>
 <para> The most common format for GIS data is the ESRI shapefile, which consists of three identically named files with extensions .shp, .shx and .dbf.
-You can use ogr2ogr to convert from between any formats (example below). Open the .dbf in a spreadsheet application (e.g. MS Excel). Make sure 
- there is a field (column) which has Orgunit names, and that these Orgunits are already imported into DHIS2. Also make sure all spellings identical.
-</para><para>On Windows, open the FWTools Shell and navigate to the folder with the shapefiles. Issue the following command (replace "output" and
-"input" with the actual names): "ogr2ogr -F GML output.gml input.shp"
+(You can use ogr2ogr to convert between any formats, see example below). Open the .dbf in a spreadsheet application (e.g. MS Excel). Make sure 
+ there is a field (column) which has Orgunit names, and that these Orgunits are already imported into DHIS2. Also make sure all spellings are identical.
+</para><para>On Windows, open the FWTools Shell and navigate to the folder with the shapefile. Issue the following command (replace "output" and
+"input" with the actual names):
+    <programlisting><userinput> ogr2ogr -F GML output.gml input.shp </userinput></programlisting> 
 </para>
 <para>The column in the .dbf file with the orgunit name will have been converted to an XML element inside the GML file. Open the GML file in
 a text editor (e.g. Notepad++) and do a search/replace to make sure this element is called exactly ogr:Name (case sensitive), e.g.
-<ogr:Name>Badjia</ogr:Name>
-<para>
-<para>Import the GML file into DHIS through the regular import interface (no need to zip)</para>
+&lt;ogr:Name&gt;Badjia&lt;/ogr:Name&gt;
+</para>
+<para>Import the GML file into DHIS2 through the regular import interface (no need to zip)</para>
 </section>
   <section>
     <title>Identifying map data</title>
