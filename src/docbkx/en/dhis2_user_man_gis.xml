@@ -5,8 +5,24 @@
   <title>GIS</title>
   <section>
     <title>OpenHealthMapper</title>
-    <para>The DHIS 2 GIS module is inspired by the WHO HealthMapper application.</para>
+    <para>The DHIS 2 GIS web module is inspired by the WHO HealthMapper desktop application.</para>
   </section>
+   <section>
+    <title>Importing geographical layers for orgunit thematic mapping</title>
+    <para>Start by installing the open source ogr2ogr tool. This should be available for most Linux distros (e.g. "apt-get install
+ogr2ogr"). For Windows, get FWTools, http://fwtools.maptools.org/</para>
+<para> The most common format for GIS data is the ESRI shapefile, which consists of three identically named files with extensions .shp, .shx and .dbf.
+You can use ogr2ogr to convert from between any formats (example below). Open the .dbf in a spreadsheet application (e.g. MS Excel). Make sure 
+ there is a field (column) which has Orgunit names, and that these Orgunits are already imported into DHIS2. Also make sure all spellings identical.
+</para><para>On Windows, open the FWTools Shell and navigate to the folder with the shapefiles. Issue the following command (replace "output" and
+"input" with the actual names): "ogr2ogr -F GML output.gml input.shp"
+</para>
+<para>The column in the .dbf file with the orgunit name will have been converted to an XML element inside the GML file. Open the GML file in
+a text editor (e.g. Notepad++) and do a search/replace to make sure this element is called exactly ogr:Name (case sensitive), e.g.
+<ogr:Name>Badjia</ogr:Name>
+<para>
+<para>Import the GML file into DHIS through the regular import interface (no need to zip)</para>
+</section>
   <section>
     <title>Identifying map data</title>
     <para>Geographical data can be divided in two basic groups - raster and vector. </para>
@@ -68,7 +84,7 @@
     </section>
     <section>
       <title>GIS software to view and manipulate map data</title>
-      <para>There are many powerful free and open source GIS packages. These can be recommended:</para>
+      <para>There are many powerful free and open source GIS packages. We recommend the following:</para>
       <itemizedlist>
           <listitem><para><ulink url="http://www.qgis.org/">Quantum GIS</ulink></para></listitem>
           <listitem><para><ulink url="http://www.openjump.org/">OpenJUMP</ulink></para></listitem>
@@ -92,25 +108,6 @@
     DHIS2 organisational hierarchy. If they do not, you will need to manually
     match them in a later step</para>
     <section>
-      <title>Production of GeoJSON files with Geoserver</title>
-      <para>Geoserver is capable of outputting GeoJSON formats. If you have
-      geoserver running someplace, you can execute the following query.</para>
-      <para><ulink url="http://localhost:8080/geoserver/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typename=topp:states&amp;outputformat=json&amp;srs_name=EPSG:4326">http://localhost:8080/geoserver/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typename=topp:states&amp;outputformat=json&amp;srs_name=EPSG:4326</ulink></para>
-      <para> Take note that you need to specify the spatial coordinate system. By default, Geoserver will return GeoJSON files with the format &quot;long/lat&quot; while
-the DHIS mapping client expects the ordering of the coordinates in &quot;lat/long&quot; format.  The explicit declaration of the spatial reference system will ensure that coordinates are returned in the proper order. At the time of writing, the DHIS mapping client does not support spatial reference systems other than EPSG 4326. If you are using Geoserver, the application will handle the reprojection from the native format of the geographical data to EPSG 4326. If you are using other methods as described below to generate the GeoJSON file, you will need to ensure that the GeoJSON output is set to EPSG 4326 (Geographical Lat/long). </para>
-      <para>You will need to adjust the host destination if the machine is not
-      your local machine as well as defining the actual layer in Geoserver
-      which should be output to GeoJSON (in this case
-      <parameter>topp:states</parameter>).</para>
-      <para>Upon execution of the URL, Geoserver will produce a GeoJSON file,
-      and you will be asked to save it. Once it has finished downloading,
-      rename the file following the suggested naming convention:</para>
-      <para>ISO2CountryCode followed by an underscore, followed by the layer
-      type (e.g. “admin” for administrative layers, “health” for health
-      administrative boundaries). For instance, the first administrative layer
-      for Zambia would be named as &quot;zm_admin1&quot;.</para>
-    </section>
-    <section>
       <title>Production of GeoJSON files with GDAL</title>
       <para>GDAL is a multi-platform toolkit for the manipulation of
       geographical data. It is freely available for a wide-range of platforms
@@ -131,6 +128,25 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
       DHIS_HOME/geoson of your DHIS application to be accessible to the GIS
       module. If the GeoJSON directory does not exist, you will need to create
       it manually and copy your GeoJSON files there.</para>
+    </section>
+      <section>
+      <title>Using Geoserver</title>
+      <para>Geoserver is capable of outputting GeoJSON formats. If you have
+      geoserver running someplace, you can execute the following query.</para>
+      <para><ulink url="http://localhost:8080/geoserver/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typename=topp:states&amp;outputformat=json&amp;srs_name=EPSG:4326">http://localhost:8080/geoserver/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typename=topp:states&amp;outputformat=json&amp;srs_name=EPSG:4326</ulink></para>
+      <para> Take note that you need to specify the spatial coordinate system. By default, Geoserver will return GeoJSON files with the format &quot;long/lat&quot; while
+the DHIS mapping client expects the ordering of the coordinates in &quot;lat/long&quot; format.  The explicit declaration of the spatial reference system will ensure that coordinates are returned in the proper order. At the time of writing, the DHIS mapping client does not support spatial reference systems other than EPSG 4326. If you are using Geoserver, the application will handle the reprojection from the native format of the geographical data to EPSG 4326. If you are using other methods as described below to generate the GeoJSON file, you will need to ensure that the GeoJSON output is set to EPSG 4326 (Geographical Lat/long). </para>
+      <para>You will need to adjust the host destination if the machine is not
+      your local machine as well as defining the actual layer in Geoserver
+      which should be output to GeoJSON (in this case
+      <parameter>topp:states</parameter>).</para>
+      <para>Upon execution of the URL, Geoserver will produce a GeoJSON file,
+      and you will be asked to save it. Once it has finished downloading,
+      rename the file following the suggested naming convention:</para>
+      <para>ISO2CountryCode followed by an underscore, followed by the layer
+      type (e.g. “admin” for administrative layers, “health” for health
+      administrative boundaries). For instance, the first administrative layer
+      for Zambia would be named as &quot;zm_admin1&quot;.</para>
     </section>
   </section>
   <section id="gisAdministration">
