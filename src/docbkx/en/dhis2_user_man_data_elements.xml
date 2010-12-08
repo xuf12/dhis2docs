@@ -1,8 +1,8 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <chapter>
-  <title>Data elements and indicators</title>
-  <para>This sub module is required for the management of the data elements and indicators used by the application. When the ‘Data Elements and Indicators’ options is chosen from the main Maintenance menu, the following screen appears:</para>
+  <title>Data elements</title>
+  <para>When the ‘Data Elements and Indicators’ options is chosen from the main Maintenance menu, the following screen appears:</para>
   <screenshot>
     <mediaobject>
       <imageobject>
@@ -10,7 +10,8 @@
       </imageobject>
     </mediaobject>
   </screenshot>
-  <para>There are three main functions of this module: addition and attribution of data elements and indicators, and the definition of a data dictionary . </para>
+  <para>From the left side menu or by clicking on the sections listed in the central area you can access the various sections on data elements;</para>
+  <para>Data Element, Data Element Group, Data Element Group Editor, Data Element Group Set, Data Element Category, Data Element Category Combination. </para>
   <section>
     <title>Data element maintenance</title>
     <para>Each of the options for maintenance of  data elements will be described in the following section.</para>
@@ -292,148 +293,5 @@
         <para>Categories can only be added to a category combination at this step. Categories can be removed from category combinations later by editing the category combination, however, it is not allowed to add additional categories once the combination has been created. Ensure that the category combination and its respective categories is final before you create the category combination and assign it to a data element. </para>
       </caution>
     </section>
-  </section>
-  <section>
-    <title>Indicator maintenance</title>
-    <para>Indicator maintenance functions essentially the same as each of the respective sections in the previous section on data elements. The basic operations will be described in this section, but the reader should  refer to the corresponding sections above for detailed instructions. </para>
-    <section id="indicator">
-      <title>Indicators</title>
-      <para>Indicators are composed of multiple data elements, and typically consist of a numerator and denominator. Indicators are never entered in DHIS2, but are derived from combinations of data elements and factors. Indicators are used to calculate coverage rates, incidence and other values are are a result of data element values that have been entered into the system. </para>
-      <para>To access the Indicator maintains page, press Maintenance-&gt;Data element and indicators-&gt;Indicators from the main DHIS2 menu. Similar to data elements, you can add, delete, modify and view extra information about the indicators in the system. </para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="60%" align="center" fileref="resources/images/maintainence/inidcator_maintainance_main.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Indicators can be filtered by entering the name or a part of the indicator name in the &quot;Filter by name&quot; field. Similar to data elements, indicators can be added by pressing the &quot;Add new&quot; button. Other operations available from this menu are as follows. </para>
-      <itemizedlist>
-        <listitem>
-          <para><inlinegraphic fileref="resources/images/dhis2_images/edit.png"/> Existing indicators can be edited. </para>
-        </listitem>
-        <listitem>
-          <para><inlinegraphic fileref="resources/images/dhis2_images/i18n.png"/> Translate an existing indicator. </para>
-        </listitem>
-        <listitem>
-          <para><inlinegraphic fileref="resources/images/dhis2_images/delete.png"/> Delete an existing indicator. </para>
-        </listitem>
-        <listitem>
-          <para><inlinegraphic fileref="resources/images/dhis2_images/information.png"/> Get detailed information about this indicator. </para>
-        </listitem>
-      </itemizedlist>
-      <para>To add a new indicator, click the &quot;Add new&quot; button. The following screen is displayed. </para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="30%" align="center" fileref="resources/images/maintainence/indicator_add.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Each of the fields marked with an asterisk are compulsory. A description of each field is provided below. </para>
-      <itemizedlist>
-        <listitem>
-          <para>Name: The full name of the indicator, such as &quot;Incidence of confirmed malaria cases per 1000 population&quot;</para>
-        </listitem>
-        <listitem>
-          <para>Short name: An abbreviated name of the indicator such as &quot;Inc conf. malaria per 1000 pop&quot;</para>
-        </listitem>
-        <listitem>
-          <para>Alternative name: An additional field for a possible alternative name of the indicator. </para>
-        </listitem>
-        <listitem>
-          <para>Code: In many countries, indicator are often assigned a particular code. This code can be entered here. </para>
-        </listitem>
-        <listitem>
-          <para>Description: A brief, informative description of the indicator and how it is calculated can be entered here. </para>
-        </listitem>
-        <listitem>
-          <para>Annualized: Determines whether or not an annualization factor is applied during the calculation of the indicator. Typically, annualized indicator&apos;s numerator are multiplied by a factor of 12, and the denominator is for instance a yearly population figure. This allows for monthly coverage values to be calculated with yearly population figures.</para>
-        </listitem>
-        <listitem>
-          <para>Type: This field will determine a factor that will automatically be applied during the calculation of the indicator. Possible choices are determined by the Indicator Types (described below). For instance, a &quot;Percent&quot; indicator will automatically be multiplied by a factor of 100 when exported to the data mart, so that it will display as a percentage. </para>
-        </listitem>
-        <listitem>
-          <para>URL: Can be used as a link to an indicator registry, where a full metadata description of the indicator can be made available. </para>
-        </listitem>
-      </itemizedlist>
-      <para>To define the numerator and denominator, simply press the respective button, and the following dialogue will be displayed. </para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="50%" align="center" fileref="resources/images/maintainence/indicator_numerator_denominator.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Essentially, an indicator is a formula that can be composed of multiple data element, constant factors, and mathematical operators. In order to define a new indicator proceed with the following steps.  </para>
-      <orderedlist>
-        <listitem>
-          <para>Provide a description of the numerator can be provided in the &quot;Description field&quot;. </para>
-        </listitem>
-        <listitem>
-          <para>Choose the aggregation operator, either as a SUM or COUNT. </para>
-        </listitem>
-        <listitem>
-          <para>Define the formula of the indicator by selecting the data elements that should compose the numerator from the &quot;Data elements&quot; field. Simply select the data element, and double click it. It will now appear in the formula. You formula must be mathematically valid, including the proper use of parentheses when necessary. You can double click on each of the mathematical operator buttons below the indicator formula definition  to add them to your formula. </para>
-        </listitem>
-        <listitem>
-          <para>Click the Save button to save all changes to the numerator. Click cancel to discard any changes that you have made. </para>
-        </listitem>
-        <listitem>
-          <para>Follow the same procedure in order to define the denominator. </para>
-        </listitem>
-      </orderedlist>
-    </section>
-    <section id="indicatorType">
-      <title>Indicator types</title>
-      <para>Indicator types simply define a factor that will be applied during aggregation. Indicator values that are calculate during a data mart export or report table generation process will appear properly formatted, and will therefore not require an additional multiplier (e.g. 100 in the case of percents) for the values to appear correctly formatted. </para>
-      <para>The indicator type maintenance panel has all of the same functions (Add new, Edit, Translate, Delete, and Information) as the Indicator maintenance section. </para>
-      <para>There are only two fields that need to be filled-in to create an indicator type, Name and Factor, as seen below. Name refers to the Indicator type (e.g. Per cent, Per thousand, Per ten thousand, etc). The factor is the numeric factor that will be applied during the calculation of the indicator. </para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="25%" align="center" fileref="resources/images/maintainence/indicator_type.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para/>
-    </section>
-    <section id="indicatorGroup">
-      <title>Indicator groups</title>
-      <para>Indicator groups function essentially the same as data element groups. Multiple indicators can be assigned to a group for easy filtering and analysis. To assign indicators to groups, simple press Maintenance-&gt;Data elements and indicators-&gt;Indicator groups.  See the section on Data element groups for detailed instructions of how to use this module. </para>
-    </section>
-    <section id="indicatorGroupEditor">
-      <title>Indicator group editor</title>
-      <para>The indicator group editor module functions essentially the same as the data element group editor module, except on indicators. You can easily rearrange the groups that indicators belong to with this module. To access it, choose To assign indicators to groups, simple press Maintenance-&gt;Data elements and indicators-&gt;Indicator group editor from the main menu. See the section on Data element group editor for further instructions. </para>
-    </section>
-    <section id="indicatorGroupSet">
-      <title>Indicator group sets</title>
-      <para>Similar to data element group sets, indicator group sets serve to create combined groups of similar indicators. For instance, you might have a group of indicators called &quot;Malaria&quot; and &quot;Leishmaniasis&quot;. Both of these groups could be combined into a group set called &quot;Vector-borne diseases&quot;. Indicator groups sets are used during analysis of data to combine similar themes of indicators. To access this module choose Maintenance-&gt;Data elements and indicators-&gt;Indicator group sets from the main menu. The following dialogue will appear. </para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="60%" align="center" fileref="resources/images/maintainence/indicator_group_sets.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Supply a name for the indicator group set, and then move the desired members from the &quot;Available Indicator Groups&quot; to the &quot;Group members&quot;. Click &quot;Add&quot; to save your changes and &quot;Cancel&quot; to discard any changes. </para>
-    </section>
-  </section>
-  <section id="dataDictionary">
-    <title>Data dictionaries</title>
-    <para>Data dictionaries are used to group data elements and indicators during filtering operations. They are useful for combining related groups of data elements and indicators according to the programs to which they belong. For instance a data dictionary called &quot;MCH&quot; could be created, and all maternal and child health data elements and indicators could be added to the dictionary. The data dictionary can be access by choosing Maintenance-&gt;Data elements and indicators-&gt;Data dictionary. The following screen will be displayed in the browser. </para>
-    <screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_dictionary.png" format="PNG"/>
-        </imageobject>
-      </mediaobject>
-    </screenshot>
-    <para>Provide a name for the data dictionary in the &quot;Name&quot; field and a description of its contents. Data elements and indicators can be added or removed from the dictionary. Click &quot;Save&quot; if you are creating a new data dictionary or &quot;Add&quot; if you are editing the contents of an existing data dictionary.   </para>
-  </section>
-  <section id="translation">
-    <title>Translations</title>
-    <para>DHIS 2 provides functionality for translations of data element, data element group, indicator, indicator group, and data element category names.  These elements can be translated to any number of locales. A locale  represents a specific geographical, political, or cultural region. </para>
-    <para>To add a translation click the Translate icon next to the element you would like to translate. Start by selecting the desired locale from the Locale select box. If your locale is not in the list you need to add it first. Fill in locale language and locale country code. The locale language is a lower-case, two-letter valid ISO Language Code. The locale country is a upper-case, two-letter valid ISO Country Code. Then in the Translate section, select your locale, then enter values for the avaliable element properties. You can select the reference locale, that is the locale the current element is displayed in, from the select box to the right. Translations can be enabled by selecting the desired locale under Database Language under User Settings in the Settings module.</para>
   </section>
 </chapter>
