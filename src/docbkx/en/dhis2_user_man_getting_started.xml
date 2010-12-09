@@ -186,7 +186,7 @@ locate the string &apos;jdbc:h2:./database/dhis2&apos; and replace the &apos;dhi
       </mediaobject>
     </screenshot>
   </section>
-  <section id="mod2_3">
+  <section id="users">
     <title>Creating new users and roles</title>
     <para>This section will describe how to add new users to the DHIS 2
     application.</para>
@@ -217,7 +217,7 @@ locate the string &apos;jdbc:h2:./database/dhis2&apos; and replace the &apos;dhi
       entering the name in the ‘filter by user name’ field as shown
       above.</para>
     </section>
-    <section>
+    <section id="user_roles">
       <title>Define a new role</title>
       <para>As part of creating a user name you are required to define the user
       role. Do so by clicking on the ‘user role’ appearing on the left side of
@@ -359,7 +359,7 @@ locate the string &apos;jdbc:h2:./database/dhis2&apos; and replace the &apos;dhi
       </mediaobject>
     </screenshot>
   </section>
-  <section>
+  <section id="database_design">
     <title>Quick intro to designing a DHIS 2 database</title>
     <para>The DHIS 2 application comes with a set of tools for data collection, validation, reporting and analysis, but the contents of the database, e.g. what to collect, who should collect it and on what format will depend on the context of use. This metadata need to be populated into the application before it can be used, and this can be done through the user interface and requires no programming or in-depth technical skills of the software. We call this initial process database design or customisation.</para>
     <para>This section will provide a very quick and brief introduction to DHIS 2 database design and mainly explain the various steps needed to prepare a new DHIS 2 system for use. How to do each step is explained in other chapters, and best practices on design choices will be explained in an implementers manual (expected during first half of 2011). Here are the steps to follow:</para>
