@@ -1,0 +1,353 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<chapter>
+  <title>Name-Based Information Tracking Module</title>
+  <section>
+    <title>Introduction</title>
+    <section>
+      <title>Quick Background</title>
+      <para>The DHIS Community Module (also known as DHIS patient module or NBITS) is an integrated module in DHIS2 built to support community health systems and facilitate a smooth integration between the community health data and aggregated data management (e.g. HMIS)</para>
+      <para>The module deals with person-level data as opposed to aggregated data which is the main focus of the core DHIS2 modules. The module supports management of community health programs such as: child immunization, maternal health and e.g. allows for tracking of individuals enrolled in various programs and activity planning for community health workers.</para>
+      <para>This module is still under development and being piloted in India and Vietnam.</para>
+      <para>While the user manual is still in progress we have collected bits of information related to the use of this module from various emails and discussion lists and put them all here to help you get started.</para>
+      <para>Basically, it is similar to DHIS2, the following are the major things:</para>
+      <para>1. Beneficiary</para>
+      <para>2. Program</para>
+      <para>3. Program Stage</para>
+      <para>4. Data Entry</para>
+    </section>
+    <section>
+      <title>Context and Concept</title>
+      <para>Conventionally, Public Health Systems have been recording and reporting aggregated data of the services provided across various health programmes. Though this is crucial in monitoring &quot;reach&quot; and &quot;availability&quot; of public health services, but it lacks tracing the beneficiaries being provided these services and quality of service. For example, the aggregate report will show that 300 pregnant registered for ANC and 120 women given IFA tablets or 90 women given TT injection. In an aggregate system, it is not possible to ascertain that if a particular pregnant woman registered for ANC, has also been given IFA and TT, as data only shows aggregate numbers. To understand the quality of services given to each pregnant woman registered for ANC, immunization cycle of each child or treatment of each leprosy beneficiary, etc. it is important that treatment information of each beneficiary is maintained as an individual case.</para>
+    </section>
+    <section>
+      <title>Objectives of Name Based Information Tracking</title>
+      <para><emphasis role="bold">Objectives of Name Based Information Tracking:</emphasis></para>
+      <para>i. Track (follow-up) a beneficiary through the entire treatment period</para>
+      <para>ii. Facilitate the service provider (health worker or doctor) in (beneficiary) patient�s treatment follow-up; by recording all treatment related information in one place (makes it comprehensive for the service-provider).</para>
+      <para>iii. i. Help the beneficiary in recording treatment history in one place, which could be used later in case of referral.</para>
+      <para><emphasis role="bold">Advantages of Name Based Information Tracking :</emphasis></para>
+      <para>i. Facilitates in recording entire treatment information of each beneficiary (patient) </para>
+      <para>ii. Facilitates health-workers in organizing out-reach</para>
+      <para>iii. Facilitates service-provider in treatment follow-up</para>
+      <para>iv. Facilitates in effective monitoring of different health services and drill down to individual beneficiary (patient) information.</para>
+      <para>v. i. Helps strengthen the quality and fidelity of data</para>
+      <para>Though at sub-center level the data in primary registers is recorded and maintained by individuals (name based), but is sent up-wards as aggregated reports. Now with HMIS reforms implemented and district on-wards data available on-line, the thrust has been on ensuring data quality implemented completeness. To-wards this one important initiative has been starting name based reporting - from sub-center to National level.</para>
+    </section>
+    <section>
+      <title>Working of Name Based Information Tracking</title>
+      <para>NBITS registers cases and tracks these cases over time through different forms that are filled for the treatment of a patient (beneficiary).</para>
+      <para>I. Registration</para>
+      <para>II. Identification of beneficiary and health worker</para>
+      <para>III. Programme enrolment (e.g. ANC, Immunization)</para>
+      <para>IV. Treatment plan</para>
+      <para>V. Case encounters</para>
+      <para>VI.  Alerts + reminders</para>
+      <para/>
+      <section>
+        <title>Registration</title>
+        <para>The process of creating a new beneficiary in the system is through the registration process. The beneficiary is first registered in the system (or checked if beneficiary already exists in system). When a beneficiary is registered in the system, multiple identifiers can be associated with the registration. Passport number, PAN, driving license, health identifier, UID can be associated for the beneficiary. Internally, a location unique identifier is used to track the beneficiary.</para>
+        <para>Searching a beneficiary can be done through identifiers, name, location or fingerprint. If the beneficiary already exists in the system, the encounter details can be opened and filled and the programme process can continue. If the beneficiary does not exist in the system, then new registration takes plac</para>
+      </section>
+      <section>
+        <title>Identification of beneficiary and health worker</title>
+        <para>The process of identification is location independent, this implies that irrespective of location where beneficiary registered for service the service/medical record can be searched and pulled-up in any other facility provided the same is in the database. For facilities which are not in the database, for eg a private facility, it will just be noted that &quot;service is provided at other facility&quot;. In such case, the beneficiary should be encouraged, to provide these details of services taken from other facility to the ANM. The health worker is first identified through any of the identifiers or username in the system and the beneficiary is identified through identifiers for receiving a health service. After identification, the beneficiary�s case history can be viewed or case can be updated with the new care that they have received.</para>
+      </section>
+      <section>
+        <title>Programme Enrollment and Treatment Plan</title>
+        <para>When a beneficiary is enrolled into any health programme (ANC, Immunization etc) and a record of treatment is created for the beneficiary. Various services provided to the beneficiary through the treatment are recorded for the beneficiary and this, results in creation of a treatment plan for the beneficiary.</para>
+      </section>
+      <section>
+        <title>Case Encounters</title>
+        <para>Each interaction with the beneficiary related to the case is considered to be an encounter and these encounters are recorded into the beneficiary case. Beneficiary case is updated with the identification of both the health worker and the beneficiary who is receiving the service.</para>
+      </section>
+    </section>
+  </section>
+  <section>
+    <title>NBITS Application User Guide</title>
+    <section>
+      <title>Starting the application</title>
+      <para>To use the online NBITS application, in client computer which is connected to Internet, launch web browser (use of Mozilla Firefox browser is recommended) </para>
+      <para><graphic fileref="resources/images/patients_programs/Firefox-icon.png" align="center"/></para>
+      <para>Log in: Once you have started NBITS online, the displayed screen will prompt you to enter your registered &quot;user name&quot; and &quot;password&quot;. After entering the required information click on log-in button to log into the application.</para>
+      <graphic fileref="resources/images/patients_programs/Fig. 2.1.1.png" width="80%" align="center"/>
+      <para>Figure 2.1.1</para>
+      <para>After click in the login button you will be directed to the welcome screen of the NBITS:</para>
+      <para><graphic fileref="resources/images/patients_programs/Fig. 2.1.2.png" width="80%" align="center"/></para>
+      <para>Figure 2.1.2</para>
+    </section>
+    <section>
+      <title>Modules in NBITS</title>
+      <para>The NBITS application is an online application and developed as open source application. The application is platform independent and can be easily linked with other open source application. The application is developed on the similar DHIS framework and it has three basic modules as DHIS 2 namely - </para>
+      <para>1. Maintenance  module</para>
+      <para>2. Services module</para>
+      <para>3. Help module</para>
+      <para>The functionalities of these modules are same as DHIS 2. There will be some additions in the NBITS in both maintenance and services module. Maintenance module will have one additional sub module for the beneficiary registration and services module will have one additional sub module for name based data entry and recording.</para>
+    </section>
+    <section>
+      <title>Processes of case tracking in NMITS</title>
+      <para>The NBITS application is developed with the objective of tracking cases of any disease or condition by using this application. The process of tracking starts with the registration of cases in the application. Application can provide information for only those cases which are available in the data base, so the first process is the registration of beneficiary in the NBITS application. Once the beneficiary is registered she/he can be enrolled in the program for which registered. The application will guide the health provider for the services required by the beneficiary through activity plan and the services received by the beneficiary from time to time can be updated into his/her profile.  The working process of the application can be understood in steps depicted in picture below - </para>
+      <para><graphic fileref="resources/images/patients_programs/Fig. 2.3.1.png" width="80%" align="center"/></para>
+      <para>Figure 2.3.1</para>
+      <para><emphasis role="bold">STEP 1: Beneficiary registration</emphasis></para>
+      <para>The First step in the tracking is the registration of beneficiary/ case in the NBITS application. In the registration process the details related to the personal information, identification, contact and location details &amp; health provider details are entered in the application. In the registration itself beneficiary is provided with the unique identification number. This number will be unique and will not match with the identification number of any person in the state jurisdiction. The issue of identification number will be the responsibility of facility where the beneficiary is registered first time.</para>
+      <para>Note - Any case irrespective of the program will be registered first and then will be enrolled in any of the program. E.g. every pregnant women and the child need to be registered first as a beneficiary than the beneficiary will be enrolled in mother or child care program.</para>
+      <para>Beneficiary registration Process in application - </para>
+      <para>A) To register a beneficiary in the application you have to go to the maintenance module and in the maintenance module select option ‘Beneficiary and Programs’</para>
+      <para><graphic fileref="resources/images/patients_programs/Fig. 2.3.2.png" width="80%" align="center"/></para>
+      <para>Figure 2.3.2</para>
+      <para><graphic fileref="resources/images/patients_programs/Fig. 2.3.3.png" width="80%" align="center"/></para>
+      <para>Figure 2.3.3</para>
+      <para>B) Now click on the Beneficiaries option to go to beneficiary registration window.</para>
+      <para><graphic fileref="resources/images/patients_programs/Fig. 2.3.4.png" width="80%" align="center"/></para>
+      <para>Figure 2.3.4</para>
+      <para>C) Select Org unit &amp; click on the Add New button to start the registration process</para>
+      <para><graphic fileref="resources/images/patients_programs/Fig. 2.3.5.png" width="80%" align="center"/></para>
+      <para>Figure 2.3.5</para>
+      <para>D) Start process of registration by providing name, location details, identification details, contact details and health provider details.  To complete to process of registration click on Add button (arrow in RED color, fig. 2.3.6), given at the end of patient registration)</para>
+      <para><graphic fileref="resources/images/patients_programs/Fig. 2.3.6.png" width="80%" align="center"/></para>
+      <para>Figure 2.3.6</para>
+      <para>To check the duplicates or to avoid double registration, after providing Name &amp; demographic details click on the Check duplicate button (arrow in BLUE color, fig. 2.3.6). Application will check from the existing records that whether same patient exists in the database or not. If the patient exists on the data base application will show that same patient exists in the database. Now user needs to cancel the registration process and update the records in existing patient data base. If the patient doesn’t exist in the database user can continue the process of registration.</para>
+      <para><emphasis role="bold">STEP 2 - Patient Enrolment- </emphasis></para>
+      <para>After the patient registration patient needs to be enrolled in any of the program available in the application and for which s/he has been registered. To enroll -</para>
+      <para>A) Click on the program enrolment icon </para>
+      <para><graphic fileref="resources/images/patients_programs/enroll-icon.png" align="center"/></para>
+      <para><graphic fileref="resources/images/patients_programs/Fig. 2.3.7.png" width="80%" align="center"/></para>
+      <para>Figure 2.3.7</para>
+      <para>B) Select a program from the list- (i.e., Mother Care, Child Care Program...)</para>
+      <para><graphic fileref="resources/images/patients_programs/Fig. 2.3.8.png" width="80%" align="center"/></para>
+      <para>Figure 2.3.8</para>
+      <para>Notes: This task can be executed after register successfully a new Beneficiary with the form like Fig. 2.3.8. is show showed up for enrolment.
+</para>
+      <para>C) After the selection of program you need to provide two dates-</para>
+      <para>1. Date of Enrolment</para>
+      <para>2. Date of Incidence</para>
+      <para><graphic fileref="resources/images/patients_programs/Fig. 2.3.9.png" width="80%" align="center"/></para>
+      <para>Figure 2.3.9</para>
+      <para><emphasis role="bold">Date of enrollment</emphasis> is the date of registration of patient with facility (SC/PHC/CHC).
+</para>
+      <para><emphasis role="bold">Date of incidence</emphasis> is the date of last menstrual period (LMP) in case of pregnant women and date of birth in case of child.</para>
+      <para>D) Provide the dates and click on the enroll button to complete the enrollment process.</para>
+      <para><graphic fileref="resources/images/patients_programs/Fig. 2.3.10.png" width="80%" align="center"/></para>
+      <para>Figure 2.3.10</para>
+      <para>The application will automatically calculate the program stage dates and will show same below enrollment, if you want to reschedule any of visits you can do so by clicking on the calendar icon, selecting a date and later clicking on Update icon. These dates will be used to generate the activity plan/ visit plan form.</para>
+      <para><graphic fileref="resources/images/patients_programs/Fig. 2.3.11.png" width="80%" align="center"/></para>
+      <para>Figure 2.3.11</para>
+      <para><emphasis role="bold">Note:</emphasis> - The date of incidence &amp; enrollment is very important to generate the activity plan for the Organization Units. Facility needs to ensure that they record &amp; report date of incidence with each case.</para>
+      <para><emphasis role="bold">STEP 3 – Updating the record at different stages of Program</emphasis></para>
+      <para>As we know that in the health programs (i.e., mother care program: a pregnant women; or child program: a child) an individual (beneficiary) registered and enrolled into the system, needs to be checked from time to time by service providers.
+The case updation in the NBITS application is designed in the same manner so that services received by the beneficiaries (i.e. pregnant women or child) can be updated from time to time as and when they visit the facility (SC, PHC, CHC) or  whenever they are visits by the health provider.</para>
+      <para><emphasis role="bold">Services Updation -</emphasis></para>
+      <para><emphasis role="italic">
+          <emphasis role="bold">
+            <emphasis role="italic">I. Go to Name Based Data Records-</emphasis>
+          </emphasis>
+        </emphasis></para>
+      <para>From the services option go to the Name based Data record option and click on it. You will be directed to the data entry screen. Select data entry option to proceed.</para>
+      <para><graphic fileref="resources/images/patients_programs/Fig. 2.3.12.png" width="80%" align="center"/></para>
+      <para>Figure 2.3.12</para>
+      <para><graphic fileref="resources/images/patients_programs/Fig. 2.3.13.png" width="80%" align="center"/></para>
+      <para>Figure 2.3.13</para>
+      <para><emphasis role="italic">
+          <emphasis role="bold">II. Selection of Orgunit &amp; individual case-</emphasis>
+        </emphasis> </para>
+      <para>First select the orgunit. Then search the beneficiary/patient in the existing database. 
+To search – a) you can search patient by different identifiers such as Identification number, address, name of village etc. or b) you can search patient by listing all patients and then searching manually.</para>
+      <para><graphic fileref="resources/images/patients_programs/Fig. 2.3.14.png" width="80%" align="center"/></para>
+      <para>Figure 2.3.14</para>
+      <para><emphasis role="italic">
+          <emphasis role="bold">
+            <emphasis role="italic">III. Updating the records-</emphasis>
+          </emphasis>
+        </emphasis></para>
+      <para>Once the patient is identified in the existing database, click on the case updation data entry icon to start the process.</para>
+      <para><graphic fileref="resources/images/patients_programs/Fig. 2.3.15.png" width="80%" align="center"/></para>
+      <para>Figure 2.3.15</para>
+      <para><emphasis role="italic">
+          <emphasis role="bold">
+            <emphasis role="italic">IV. Selection of the Program and Program Stage-</emphasis>
+          </emphasis>
+        </emphasis></para>
+      <para>Now select the program and the program stage for the data entry.</para>
+      <para>What is program stage? - In the case of pregnant mother &amp; child tracking each case comes in the contact of health provider from time to time. There are some time bound services provided to them based on the stage of pregnancy or based on age of child. These different services at different period are defined as stages in the application. Whenever a case comes in the contact of the health provider and receives some services, these services then need to be updated into the patient record. </para>
+      <para>After the selection of the program stage, provide the date of reporting to go to the case updation form and start the data entry.</para>
+      <para><graphic fileref="resources/images/patients_programs/Fig. 2.3.16.png" width="80%" align="center"/></para>
+      <para>Figure 2.3.16</para>
+      <para>After the data entry click on the complete data entry button to complete the data entry process for this stage, similarly select the stages for which you want to update the record of the case and at the end click on the complete button to complete the data entry button to finish the process.</para>
+      <para>During each stage the section related to that particular stage will be enabled for data entry, rest of the sections will remain disabled in that particular stage. E.g. If ANC registration stage is selected for data entry, so at that point only ANC registration stage data elements will be enabled and the rest of the data elements of other stages will remain disabled.</para>
+      <para><emphasis role="italic">
+          <emphasis role="bold">
+            <emphasis role="italic">STEP 4- Report Generation</emphasis>
+          </emphasis>
+        </emphasis></para>
+      <para>NBITS Activity Plan report- This report is a feedback report to the facilities to help them in planning activities. This is also called as activity plan or visit plan. Basically, view the visit plan to get an overview of outstanding, pending, and completed visits. See the illustration for Immunization program for Children under 1yr old.</para>
+      <para><graphic fileref="resources/images/patients_programs/Fig. 2.3.17.png" width="80%" align="center"/></para>
+      <para>Figure 2.3.17</para>
+      <para>Each card (see above Fig. 2.3.17) present a coming stage information for a beneficiary of a program.</para>
+      <para>NBITS Summary report – View the summary report to get an overview of the services provided for a program. See an example:</para>
+      <para><graphic fileref="resources/images/patients_programs/Fig. 2.3.18.png" width="80%" align="center"/></para>
+      <para>Figure 2.3.18</para>
+      <para>(each row is a summary of stages of the Immunization program for Children under 1yr old)</para>
+      <para>The color highlight the status of the stages:</para>
+      <para>- GREEN: compete stages</para>
+      <para>- PURPLE: data entered and uncomplete stages</para>
+      <para>- RED: stages open but no data entered while the date estimated for closing/completing is over</para>
+      <para>- YELLOW: coming stages</para>
+    </section>
+    <section>
+      <title>Important Notes</title>
+      <para>Here are some notes for using DHIS2 – NBITS efficiently.</para>
+      <para/>
+      <section>
+        <title>For section: “Beneficiaries and Programs” &gt;&gt; “Programs” &gt;&gt; “Add new a program stage”</title>
+        <para>After finish to add new program stages for a program, it is necessary to “Sort” the program stages within the program.</para>
+        <para>Based on the version of DHIS 2.0.5, sorting the stages is not yet supported automatically after first creating stages. In order to make sure the correct order, this step is very important for further functions, such as: data-entry for a beneficiary in a stage, summary report, visit plans, etc.</para>
+        <para/>
+      </section>
+      <section>
+        <title>For section: “Name-based data Records” &gt;&gt; “Data-entry”</title>
+        <para>At a stage of a program when the data for a beneficiary is entered in order to confirm the completeness of the data provided, click on the “Complete” button at the bottom of the entry form.</para>
+        <para>The purpose of this task is to close the stage to switch to the next. So, once data entered for a stage complete and closed (or complete confirmation) then it is impossible to re-open or go back to the previous stages for updating data or changing.</para>
+      </section>
+    </section>
+    <section>
+      <title>Advanced functions</title>
+      <para>The content in this part is for the expert users or administrative users who are capable and responsible for development and change</para>
+      <section>
+        <title>Create a new Program</title>
+        <para><emphasis role="bold">Step 1 --&gt; Create a new program:</emphasis></para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.1.1.png" width="80%" align="center"/></para>
+        <para>Figure 2.5.1.1</para>
+        <para>The basic information:</para>
+        <para>- Name: &lt;the name of the program&gt;</para>
+        <para>- Description: &lt;descriptions, meanings, explanation, etc. of/about the program&gt;</para>
+        <para>- Date of Enrolment Description: &lt;the date in which a beneficiary is registered to the system&gt;
+For example: the date in which a beneficiary enrols to the system.</para>
+        <para>- Date of Incidence Description: &lt;the date in which a beneficiary practically enrol to the health program&gt;</para>
+        <para>For example: In the Immunization program for child under 1yr old, the incident date is the birthday; In the maternal program, the incident date is the date of last menstrual period (LMP).</para>
+        <para>- no_min_days_alowed_input_data: &lt;the number of minimum days for data input&gt;</para>
+        <para>- no_max_days_alowed_input_data: &lt;the number of maximum days for data input&gt;</para>
+        <para><emphasis role="bold">Step 2 --&gt; Define (Create) stages for a health program:</emphasis></para>
+        <para>By click on the icon “Program Stage Management”  (Fig. 2.5.1.2a) and then Add new a stage  (Fig. 2.5.1.2b).</para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.1.2a.png" width="80%" align="center"/></para>
+        <para>Figure 2.5.1.2a</para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.1.2b.png" width="80%" align="center"/></para>
+        <para>Figure 2.5.1.2b</para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.1.2c.png" width="80%" align="center"/></para>
+        <para>Figure 2.5.1.2c</para>
+        <para>Fig. 2.5.1.2c illustrates for stage named “Tháng 1 (Năm 1)” of  “Sức khỏe TRẺ EM” program.
+More explanation for the figure:</para>
+        <para><emphasis role="underline">Area with blue frame labelled 1:</emphasis></para>
+        <para>- Name (or “Tên” in Vietnamese): name of the stage</para>
+        <para>- Description (or “Mô tả” in Vietnamese): the description of the stage</para>
+        <para>- Min no of days to wait from start of Program :  the minimum number of days to wait for starting the program</para>
+        <para>- Program (or “Chương trình” in Vietnamese): the name of the program which is already defined before.</para>
+        <para><emphasis role="underline">Area with blue arrow and labelled 2:</emphasis></para>
+        <para>Choose the data elements from the list on the left to the right one. These chosen elements are highlighted with BLUE color.</para>
+        <para>Function area with button labeled “Add” (or “Thêm” in Vietnamese), see the arrow labelled 3 and in RED to execute the function.</para>
+        <para>If successfully, the new stages will showed in the list of stages:</para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.1.2d.png" width="80%" align="center"/></para>
+        <para>Figure 2.5.1.2d</para>
+        <para>Attention: It is required to firstly choose a program from the list of Programs (or &quot;Chọn chương trình&quot;) and then add a new stages by clicking on the &quot;Add new&quot; button (or &quot;Thêm mới&quot; in Vietnamese)</para>
+      </section>
+      <section>
+        <title>Add a new Data Element in NBIST</title>
+        <para>Go to Data Element section: Maintenance &gt;&gt; Data Element and Indicators &gt;&gt; Data Element</para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.2.1.png" width="80%" align="center"/></para>
+        <para>Figure 2.5.2.1</para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.2.2.png" width="80%" align="center"/></para>
+        <para>Figure 5.2.2.2</para>
+        <para>Define a data element with “Patient” option for Domain Type:</para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.2.3.png" width="80%" align="center"/></para>
+        <para>Figure 2.5.2.3</para>
+        <para>Finally, choose &quot;Add&quot; button to add the defined data element to the system.</para>
+      </section>
+      <section>
+        <title>Multiple Data Entry for beneficiaries</title>
+        <para>An advanced function for data entry: On the same interface, many beneficiaries are listed for data entered by stages.</para>
+        <para>Services &gt;&gt; Name-based Data Records &gt;&gt; Multiple-data entry</para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.3.1.png" width="80%" align="center"/></para>
+        <para>Figure 2.5.3.1</para>
+        <para><emphasis role="bold">Step 1: List all beneficiaries of the programs</emphasis> by choosing:</para>
+        <para>- Organization Unit - Program- Sort by [optional]</para>
+        <para>See the below example:</para>
+        <para>- Organization Unit : Trung tâm chăm sóc SKSS</para>
+        <para>- Program:  Tiêm chủng trẻ em</para>
+        <para>- Sort by: Mã số trẻ em</para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.3.2.png" width="80%" align="center"/></para>
+        <para>Figure 2.5.3.2</para>
+        <para><emphasis role="bold">Step 2: Choose a stage of a beneficiary</emphasis> for data entered. </para>
+        <para>See the below figure illustrates for beneficiary named “MINH ĐÀM NHẬT” (second row) and the first column for stage named “Các mũi tiêm trẻ sơ sinh”</para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.3.3.png" width="80%" align="center"/></para>
+        <para>Figure 2.5.3.3</para>
+        <para><emphasis role="bold">Step 3: Enter data</emphasis> (arrow labelled 1 in Fig. 2.5.3.3 – a pop-up window). After finish the entering, close the pop-up (arrow labelled 2 in Fig. 2.5.3.3)</para>
+        <para>The benefits of this advanced function: optimize the time-transition consuming when entering data for a long list beneficiaries by not switching the main window/interface.</para>
+      </section>
+      <section>
+        <title>Beneficiary Aggregation</title>
+        <para>This is the core functionality for linking data between name-based information tracking system – NBITS (beneficiaries, programs, etc) and aggregate management system (dataset, report, charts, etc.) by defining the linking/aggregating rules.</para>
+        <para>For example, find the number of the children vaccinated BCG by defining a linking rule between the data elements of aggregate dataset (i.e. “Tổng số trẻ được tiêm BCG sơ sinh”) and data element of a program stage (i.e. “Tiêm BCG sơ sinh”).</para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.4.1.png" width="80%" align="center"/></para>
+        <para>Figure 2.5.4.1</para>
+        <para><emphasis role="bold">1: “Beneficiary Aggregation Query Builder”</emphasis>: a tool for define formula, expression, rules for aggregation data from name-based to aggregation system.</para>
+        <para>See an example for counting the number of children got BCG vaccination</para>
+        <para><emphasis role="italic">Step 1: Add a new aggregate rule/query:</emphasis></para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.4.2.png" width="80%" align="center"/></para>
+        <para>Figure 2.5.4.2</para>
+        <para>After click “Add new”, the following will appear:</para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.4.3.png" width="80%" align="center"/></para>
+        <para>Figure 2.5.4.3</para>
+        <para><emphasis role="bold">
+            <emphasis role="underline">Area labelled 1:</emphasis>
+          </emphasis> </para>
+        <para>Provide the basic information for a query: Description, Data element group, Data element, and Operator (...)</para>
+        <para>See the example (Fig. 2.5.4.3): Description (“Tính số trẻ được tiêm BCG”), Operator (“Count”), and the result with be stored with data element “Số trẻ được tiêm BCG” (in data element group “CT tiêm chủng TRẺ EM”).</para>
+        <para><emphasis role="bold">
+            <emphasis role="underline">
+              <emphasis role="underline">Area labelled 2:</emphasis>
+            </emphasis>
+          </emphasis> </para>
+        <para>Choose the equivalent data element for the Beneficiaries to link to the data element chosen above. The information include: name of the program, name of the program stage, name of the data element.</para>
+        <para>Double click on the data element the equivalent code of it will be showed in the condition box (labelled 4). An example of Fig. 2.5.4.3, if double click on the data element “Tiêm BCG ((default))”  the code appear: “<emphasis role="bold">[DE:361.168.12]</emphasis>”</para>
+        <para>To make the condition valid, as default click on button “!=NULL”. Then there will be the text “[DE:361.168.12]  is not null” in the Condition box.</para>
+        <para><emphasis role="bold">
+            <emphasis role="underline">Area labelled 3:</emphasis>
+          </emphasis></para>
+        <para>For adding and advanced condition for the query. So, it is required more knowledge about the health services of the programs specifically.</para>
+        <para>All properties and options listed in this area are flexible and depend on the health program. And users can modify them.</para>
+        <para><emphasis role="bold">
+            <emphasis role="underline">
+              <emphasis role="underline">Area labelled 4:</emphasis>
+            </emphasis>
+          </emphasis></para>
+        <para>Includes the buttons of operands and a text box showing the conditions for the query.</para>
+        <para>After finishing the area above (1, 2, 3 and 4), click on the Add button.</para>
+        <para><emphasis role="bold">2: “Beneficiary Aggregation”:</emphasis> Generate routine data values from patient-data by month (or other interval if desired) and organization unit.</para>
+        <para>Here are the main screen shots:</para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.4.4.png" width="80%" align="center"/></para>
+        <para>Figure 2.5.4.4</para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.4.5.png" width="80%" align="center"/></para>
+        <para>Figure 2.5.4.5</para>
+        <para>Area in the BLUE frame: for choosing the data set, the start and end date of the aggregated period.</para>
+        <para>Area in the ORANGE frame: the hierarchy tree of organization units. </para>
+        <para>Click on the organization
+Aggregate button: to execute aggregate function.
+</para>
+        <para>Fig. 2.5.4.6 shows the result from the example:</para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.4.6.png" width="80%" align="center"/></para>
+        <para>Figure 2.5.4.6</para>
+        <para><emphasis role="bold">3: Generate the reports</emphasis> in which data extract from the NBITS module</para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.4.7.png" width="80%" align="center"/></para>
+        <para>Figure 2.5.4.7</para>
+        <para>Then choose the dataset, period and organization unit to see the report:</para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.4.8.png" width="80%" align="center"/></para>
+        <para>Figure 2.5.4.8</para>
+        <para>Here are some examples of the report generated:</para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.4.9.png" width="80%" align="center"/></para>
+        <para>(Figure. 2.5.4.9: Immunization for children &lt;1 yr old)</para>
+        <para><graphic fileref="resources/images/patients_programs/Fig. 2.5.4.10.png" width="80%" align="center"/></para>
+        <para>(Figure 2.5.4.10: Health care for children under 1yr old)</para>
+      </section>
+    </section>
+  </section>
+</chapter>
