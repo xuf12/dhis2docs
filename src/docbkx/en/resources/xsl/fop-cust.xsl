@@ -50,48 +50,21 @@
     
 
     <xsl:template name="book.titlepage.recto">
-        <fo:block>
+        <fo:block padding-before="6cm">
             <fo:table table-layout="fixed" width="175mm">
                 <fo:table-column column-width="175mm"/>
                 <fo:table-body>
                     <fo:table-row>
                         <fo:table-cell text-align="center">
                             <fo:block padding-before="45mm">
-                                <fo:external-graphic height="5cm" scaling="uniform" src="file:./resources/images/dhis2_images/logo.jpg"/>
-                            </fo:block>
-			    <fo:block>
-                                  <xsl:value-of select="bookinfo/title" /> 
-                              </fo:block>
-                            <fo:block font-family="Helvetica" font-size="14pt">
-                                <xsl:text>The Complete Guide</xsl:text>  
-                            </fo:block>
-			    <fo:block font-family="Helvetica" font-size="12pt">
-                                <xsl:text>Version </xsl:text><xsl:value-of select="bookinfo/releaseinfo"/>  
+                                <fo:external-graphic scaling="uniform" src="file:./resources/images/dhis2_images/logo.png"/>
                             </fo:block>
                         </fo:table-cell>
                     </fo:table-row>
                     <fo:table-row>
                         <fo:table-cell text-align="center">
-                            <fo:block font-family="Helvetica" font-size="12pt">
-                                <xsl:value-of select="book/bookinfo/pubdate"/>
-                            </fo:block>
-                        </fo:table-cell>
-                    </fo:table-row>
-                    <fo:table-row>
-                        <fo:table-cell text-align="center">
-                            <fo:block font-family="Helvetica" font-size="10pt" padding-before="80mm">
-                                <xsl:text>Copyright &copyright; 2006-2010 </xsl:text>
-                                <xsl:for-each select="book/bookinfo/authorgroup/author">
-                                    <xsl:if test="position() > 1">
-                                        <xsl:text>, </xsl:text>
-                                    </xsl:if>
-                                    <xsl:value-of select="firstname"/>
-                                    <xsl:text> </xsl:text>
-                                    <xsl:value-of select="surname"/>
-                                </xsl:for-each>
-                            </fo:block>
-                            <fo:block font-family="Helvetica" font-size="9pt" padding="1mm">
-                                <xsl:value-of select="book/bookinfo/legalnotice"/>  
+                            <fo:block font-family="Helvetica" font-size="10pt" padding-before="1cm">
+                                <xsl:text>Copyright &copyright; 2006-2010</xsl:text>
                             </fo:block>
                         </fo:table-cell>
                     </fo:table-row>
@@ -487,9 +460,9 @@
     
     <!-- Sections 1, 2 and 3 titles have a small bump factor and padding -->    
     <xsl:attribute-set name="section.title.level1.properties">
-        <xsl:attribute name="space-before.optimum">0.8em</xsl:attribute>
-        <xsl:attribute name="space-before.minimum">0.8em</xsl:attribute>
-        <xsl:attribute name="space-before.maximum">0.8em</xsl:attribute>
+        <xsl:attribute name="space-before.optimum">2em</xsl:attribute>
+        <xsl:attribute name="space-before.minimum">2em</xsl:attribute>
+        <xsl:attribute name="space-before.maximum">2em</xsl:attribute>
         <xsl:attribute name="font-size">
             <xsl:value-of select="$body.font.master * 1.2"/>
             <xsl:text>pt</xsl:text>
@@ -499,9 +472,9 @@
         <xsl:attribute name="space-after.maximum">0.1em</xsl:attribute>
     </xsl:attribute-set>
     <xsl:attribute-set name="section.title.level2.properties">
-        <xsl:attribute name="space-before.optimum">0.6em</xsl:attribute>
-        <xsl:attribute name="space-before.minimum">0.6em</xsl:attribute>
-        <xsl:attribute name="space-before.maximum">0.6em</xsl:attribute>
+        <xsl:attribute name="space-before.optimum">1.2em</xsl:attribute>
+        <xsl:attribute name="space-before.minimum">1.2em</xsl:attribute>
+        <xsl:attribute name="space-before.maximum">1.2em</xsl:attribute>
         <xsl:attribute name="font-size">
             <xsl:value-of select="$body.font.master * 1.1"/>
             <xsl:text>pt</xsl:text>
