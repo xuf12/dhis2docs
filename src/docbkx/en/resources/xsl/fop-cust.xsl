@@ -50,7 +50,7 @@
     
 
     <xsl:template name="book.titlepage.recto">
-        <fo:block padding-before="6cm">
+        <fo:block padding-before="55mm">
             <fo:table table-layout="fixed" width="175mm">
                 <fo:table-column column-width="175mm"/>
                 <fo:table-body>
@@ -472,9 +472,9 @@
         <xsl:attribute name="space-after.maximum">0.1em</xsl:attribute>
     </xsl:attribute-set>
     <xsl:attribute-set name="section.title.level2.properties">
-        <xsl:attribute name="space-before.optimum">1.2em</xsl:attribute>
-        <xsl:attribute name="space-before.minimum">1.2em</xsl:attribute>
-        <xsl:attribute name="space-before.maximum">1.2em</xsl:attribute>
+        <xsl:attribute name="space-before.optimum">1.4em</xsl:attribute>
+        <xsl:attribute name="space-before.minimum">1.4em</xsl:attribute>
+        <xsl:attribute name="space-before.maximum">1.4em</xsl:attribute>
         <xsl:attribute name="font-size">
             <xsl:value-of select="$body.font.master * 1.1"/>
             <xsl:text>pt</xsl:text>
