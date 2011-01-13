@@ -196,18 +196,11 @@ locate the string &apos;jdbc:h2:./database/dhis2&apos; and replace the &apos;dhi
           </imageobject>
         </mediaobject>
       </screenshot>
-      
-
-
-
-
-
-
       <screenshot>
         <screeninfo>Search by user name</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" format="PNG" fileref="resources/images/dhis2UserManual/search_user_by_name.png" format="PNG"/>
+            <imagedata width="100%" format="PNG" fileref="resources/images/dhis2UserManual/search_user_by_name.png"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -223,7 +216,7 @@ locate the string &apos;jdbc:h2:./database/dhis2&apos; and replace the &apos;dhi
       to click on <guibutton>Add new</guibutton> to create a new role.</para>
       <screenshot>
         <screeninfo>Add new user role</screeninfo>
-        <mediaobject>
+        <mediaobject>d
           <imageobject>
             <imagedata width="100%" format="PNG" fileref="resources/images/dhis2UserManual/add_user_role.png"/>
           </imageobject>
@@ -238,7 +231,7 @@ locate the string &apos;jdbc:h2:./database/dhis2&apos; and replace the &apos;dhi
         <screeninfo>Role maintenance page</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" format="PNG" fileref="resources/images/dhis2UserManual/role_maintenance_page.jpg"/>
+            <imagedata width="100%" format="PNG" fileref="resources/images/dhis2UserManual/role_maintenance_page.png"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -249,26 +242,10 @@ locate the string &apos;jdbc:h2:./database/dhis2&apos; and replace the &apos;dhi
       multiple options from the scroll down menu provided against each field.
       A user can choose multiple options either by moving them
       one-by-one.</para>
-      <screenshot>
-        <screeninfo>Adding a dataset to a user role</screeninfo>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="100%" format="PNG" fileref="resources/images/dhis2UserManual/assign_one_dataset_user_role.png"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
       <para>In order for particular users to be able to enter data, you must
       add them to both a dataset as well as an organisational unit level. You
       can also select multiple datasets individually by pressing the Ctrl key
       on the keyboard and clicking on individual datasets.</para>
-      <screenshot>
-        <screeninfo>Adding multiple datasets to user roles</screeninfo>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="100%" format="PNG" fileref="resources/images/dhis2UserManual/assign_multiple_datasets_user_role.png"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
       <para>Finally when you have entered the required fields click on
       <guibutton>Save</guibutton> which is located on the lower part of the
       displayed screen. The desired user role and related authorisation will
@@ -279,23 +256,13 @@ locate the string &apos;jdbc:h2:./database/dhis2&apos; and replace the &apos;dhi
       <title>Add New User</title>
       <para>Under particular user role there can be more than one user. To add
       new users go to the User options under the Maintenance module.</para>
-      <screenshot>
-        <screeninfo>Add new user</screeninfo>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="60%" align="center" fileref="resources/images/dhis2UserManual/add_new_user.png"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
       <para>To add a new user, just follow these steps:</para>
       <itemizedlist>
         <listitem>
           <para>Click on the <guibutton>Add New</guibutton> button.</para>
         </listitem>
         <listitem>
-          <para>Enter New User details like <guilabel>User name</guilabel>,
-          <guilabel>Password</guilabel>, <guilabel>Confirm password</guilabel>, <guilabel>Surname</guilabel>, <guilabel>First name</guilabel> and <guilabel>Email</guilabel> in new user’s option
-          tabs.</para>
+          <para>Enter New User details like <guilabel>User name</guilabel>, <guilabel>Password</guilabel>, <guilabel>Confirm password</guilabel>, <guilabel>Surname</guilabel>, <guilabel>First name</guilabel> and <guilabel>Email</guilabel> in new user’s option tabs.</para>
         </listitem>
         <listitem>
           <para>Click on <guibutton>Add</guibutton> button for confirmation of
@@ -316,18 +283,10 @@ locate the string &apos;jdbc:h2:./database/dhis2&apos; and replace the &apos;dhi
           <para>Click on <guibutton>Save</guibutton> tab after editing all
           details of a particular selected user.</para>
           <screenshot>
-            <screeninfo>Add or edit users</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="60%" align="center" fileref="resources/images/dhis2UserManual/add_edit_users.jpg"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
-          <screenshot>
             <screeninfo>User management screen</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata width="60%" align="center" fileref="resources/images/dhis2UserManual/user_management.jpg"/>
+                <imagedata width="100%" format="PNG" fileref="resources/images/dhis2UserManual/user_management.png"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -337,16 +296,7 @@ locate the string &apos;jdbc:h2:./database/dhis2&apos; and replace the &apos;dhi
   </section>
   <section id="mod2_4">
     <title>Logging out of DHIS2</title>
-    <para>Just click on the   Log out  link  in the top right corner to exit the
-    application.</para>
-    <screenshot>
-      <screeninfo>Logging off of DHIS 2</screeninfo>
-      <mediaobject>
-        <imageobject>
-          <imagedata width="60%" align="center" fileref="resources/images/dhis2UserManual/dhis2_logoff.jpg"/>
-        </imageobject>
-      </mediaobject>
-    </screenshot>
+    <para>Just click on the Log out link in the top right corner to exit the application.</para>
   </section>
   <section id="database_design">
     <title>Quick intro to designing a DHIS 2 database</title>
