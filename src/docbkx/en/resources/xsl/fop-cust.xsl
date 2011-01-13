@@ -50,10 +50,10 @@
     
 
     <xsl:template name="book.titlepage.recto">
-        <fo:block font-family="Helvetica" font-size="26pt" text-align="center" padding-before="85mm">
+        <fo:block font-family="Helvetica" font-size="30pt" text-align="center" padding-before="85mm">
             <xsl:text>DHIS 2 User Manual</xsl:text>
         </fo:block>
-        <fo:block padding-before="6mm">
+        <fo:block padding-before="5mm">
             <fo:table table-layout="fixed" width="175mm">
                 <fo:table-column column-width="175mm"/>
                 <fo:table-body>
@@ -67,7 +67,7 @@
                 </fo:table-body>
             </fo:table>
         </fo:block>
-        <fo:block font-family="Helvetica" font-size="12pt" text-align="center" padding-before="7mm">
+        <fo:block font-family="Helvetica" font-size="11pt" text-align="center" padding-before="7mm">
             <xsl:text>Copyright &copyright; 2006-2010</xsl:text>
         </fo:block>
     </xsl:template>

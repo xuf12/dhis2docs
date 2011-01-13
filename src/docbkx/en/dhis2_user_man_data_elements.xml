@@ -6,7 +6,7 @@
   <screenshot>
     <mediaobject>
       <imageobject>
-        <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_main.png" format="PNG"/>
+        <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_main.png"/>
       </imageobject>
     </mediaobject>
   </screenshot>
@@ -40,7 +40,7 @@
     <section id="dataElement">
       <title>Data elements</title>
       <para>Data elements form the basis of DHIS2. Data elements define what is actually recorded in system, e.g. number of immunisations or number of cases of malaria. The actual creation and definition of the data elements themselves are far beyond the scope of this manual to describe, but it is assumed that an administrator will be provided with a list of standardised data elements for inclusion into the DHIS2 system. </para>
-      <para>To access the data element maintenance module, choose Maintenance-&gt;Data elements-&gt;Data element. </para>
+      <para>To access the data element maintenance module, choose Maintenance -&gt; Data elements and Indicators -&gt; Data element. </para>
       <para>The ‘Filter by name’ will allow you to filter a range of data elements if you know either the full name of the data element, or just a part of it. Type the name
                into the search field and any matching data elements are displayed below.
                You can also choose ‘Filter by group/view all’ to narrow down a data
@@ -51,7 +51,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_main2.png" format="PNG"/>
+            <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_main2.png"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -62,7 +62,7 @@
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_edit.png" format="PNG"/>
+              <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_edit.png"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -102,43 +102,24 @@
           </listitem>
           <listitem>
             <para>Data element group sets: Click the check box to activate this option  hen choose which data element group sets this data element should belong to. Available data element group sets are displayed din the upper window. Click the desired data element group set, then the <guibutton>&quot;Add selected&quot;</guibutton> button to add the data element to the group set. To remove a data element from a group set, click the data element group set in the lower list, and then click<guibutton> &quot;Remove selected&quot;</guibutton>. </para>
-            <screenshot>
-              <mediaobject>
-                <imageobject>
-                  <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_elements_group_sets.png" format="PNG"/>
-                </imageobject>
-              </mediaobject>
-            </screenshot>
           </listitem>
           <listitem>
             <para>Calculated: This option is available only when a data element is created. </para>
-            <para>Select the data elements that will be used to define the calculated data element, and then click &quot;Add selected&quot; to add them calculated data element composition list. Fill in the correct factor for the data element calculation component (defaults to 1). Component elements of the calculated data element can be removed from the definition by pressing the &quot;Remove&quot; button. <screenshot>
-                <mediaobject>
-                  <imageobject>
-                    <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_calculated_define.png" format="PNG"/>
-                  </imageobject>
-                </mediaobject>
-              </screenshot></para>
+            <para>Select the data elements that will be used to define the calculated data element, and then click &quot;Add selected&quot; to add them calculated data element composition list. Fill in the correct factor for the data element calculation component (defaults to 1). Component elements of the calculated data element can be removed from the definition by pressing the &quot;Remove&quot; button.</para>
           </listitem>
           <listitem>
-            <para>Aggregation levels:  The Aggregation Levels option allows the data element to be aggregated at one or more levels. When the user clicks on the Aggregation levels option, a drop down menu appears which displays available aggregation levels. The desired aggregation level is then selected by clicking the ‘Add Selected’ button. By default, the aggregation will start at the lowest assigned organisation unit. If e.g. Chiefdom is selected below it means that Chiefdom, District, and National aggregates will use Chiefdom (the  highest aggregation level available) as the data source, and PHU data will not be included. PHU data will still be available for the PHU level, but not included in aggregations to the levels above. If District and Chiefdom are both selected then the District and National level aggregates will use District data as their source, Chiefdom will use Chiefdom, and PHU will use PHU. Read more about aggregation levels in the Reporting chapter i the section on data sources for reporting. <screenshot>
-                <mediaobject>
-                  <imageobject>
-                    <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_aggregation_levels.png" format="PNG"/>
-                  </imageobject>
-                </mediaobject>
-              </screenshot></para>
+            <para>Aggregation levels:  The Aggregation Levels option allows the data element to be aggregated at one or more levels. When the user clicks on the Aggregation levels option, a drop down menu appears which displays available aggregation levels. The desired aggregation level is then selected by clicking the ‘Add Selected’ button. By default, the aggregation will start at the lowest assigned organisation unit. If e.g. Chiefdom is selected below it means that Chiefdom, District, and National aggregates will use Chiefdom (the  highest aggregation level available) as the data source, and PHU data will not be included. PHU data will still be available for the PHU level, but not included in aggregations to the levels above. If District and Chiefdom are both selected then the District and National level aggregates will use District data as their source, Chiefdom will use Chiefdom, and PHU will use PHU. Read more about aggregation levels in the Reporting chapter i the section on data sources for reporting.</para>
           </listitem>
         </itemizedlist>
         <para>After making the required changes, click ‘Save’ to institute them. The ‘Cancel’ button aborts all changes made.</para>
       </section>
       <section>
         <title>Data element translation</title>
-        <para>DHIS2 provides functionality to translate existing data elements into other languages. Simply press the translate button <inlinegraphic fileref="resources/images/dhis2_images/i18n.png" align="center"/> to get stared. The following dialogue will appear. </para>
+        <para>DHIS2 provides functionality to translate existing data elements into other languages. Simply press the translate button <inlinegraphic fileref="resources/images/dhis2_images/i18n.png" align="center"/> to get started. The following dialogue will appear. </para>
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_translate.png" format="PNG"/>
+              <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_translate.png"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -158,14 +139,7 @@
       </section>
       <section>
         <title>Deleting a data element</title>
-        <para>Simply press the delete button <inlinegraphic fileref="resources/images/dhis2_images/delete.png" align="center"/> to delete a data element. Note that this operation is only possible if there is no data attached to the data element itself.  The user will be prompted to ensure that the data element should be deleted. </para>
-        <screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_delete.png" format="PNG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
+        <para>Simply press the delete button <inlinegraphic fileref="resources/images/dhis2_images/delete.png" align="center"/> to delete a data element. Note that this operation is only possible if there is no data attached to the data element itself.  The user will be prompted to ensure that the data element should be deleted.</para>
       </section>
       <section>
         <title>Displaying data element details</title>
@@ -174,56 +148,36 @@
     </section>
     <section id="dataElementGroup">
       <title>Data element groups</title>
-      <para>Data element groups provide a mechanism for classifying related data elements into a common theme. For instance, two data elements &quot;Measles immunisation&quot; and  &quot;BCG Immunisation&quot; might be grouped together into a data element group &quot;Childhood immunisation&quot;. To access the data element group maintenance page, click Maintenance-&gt;Data elements and indicators-&gt;Data Element Group . The following screen will be displayed. </para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_groups_main.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
+      <para>Data element groups provide a mechanism for classifying related data elements into a common theme. For instance, two data elements &quot;Measles immunisation&quot; and  &quot;BCG Immunisation&quot; might be grouped together into a data element group &quot;Childhood immunisation&quot;. To access the data element group maintenance page, click Maintenance -&gt; Data elements and Indicators -&gt; Data Element Group.</para>
       <para>Similar to the &quot;Data element&quot; maintenance page, data elements groups can be searched with by entering a search string in the &quot;Filter by name&quot; field. </para>
-      <para>To add a new data element group, click the <guibutton>&quot;Add new&quot;</guibutton> button. <screenshot>
+      <para>To add a new data element group, click the <guibutton>&quot;Add new&quot;</guibutton> button and the following screen will be displayed:</para>
+        <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_group_add.png" format="PNG"/>
+              <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_group_add.png"/>
             </imageobject>
           </mediaobject>
-        </screenshot></para>
+        </screenshot>
       <para>Fill in the &quot;Name&quot; field and then select all data elements that should belong to the group from the left panel. Click the &quot;Move selected&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/>button to add the selected data elements to the data element group. Click the &quot;Remove selected&quot; button to remove all data elements from the group that have been selected in the right panel.  Finally, click the &quot;Add&quot; button to save changes, or the &quot;Cancel&quot; button to discard any changes. </para>
     </section>
     <section id="dataElementGroupEditor">
       <title>Data element group editor</title>
-      <para>The data element group  editor provides advanced functionality to the administrator to allow multiple data elements to be added or removed from a group. It is also possible to create new data element groups, rename existing groups, and delete groups entirely. To access the data element group editor, press <guimenu>&quot;Maintainers-&gt;Data elements and indicators-&gt;Data element group editor&quot;</guimenu> from the main DHIS2 menu. The following screen will appear. <screenshot>
+      <para>The data element group editor provides advanced functionality to the administrator to allow multiple data elements to be added or removed from a group. It is also possible to create new data element groups, rename existing groups, and delete groups entirely. To access the data element group editor, go to <guimenu>&quot;Maintenance -&gt; Data elements and Indicators -&gt; Data Element Group Editor&quot;</guimenu>. The following screen will appear.<screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_group_editor_start.png" format="PNG"/>
+              <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_group_editor_start.png"/>
             </imageobject>
           </mediaobject>
         </screenshot></para>
-      <para>Data element groups area listed alphabetically in the leftmost panel. By clicking on a data element group, the current members of that group (data elements) are listed in the centre panel. Available data elements that can be added to the data element group appear are listed alphabetically in the rightmost panel. To remove an existing data element from the group, click the name of the data element in the centre panel, and then press the &quot;Move right&quot;  <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/> button. To add data elements to the group, select them from the leftmost panel, and click the &quot;Move left&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_left.png" align="center"/> button. Press the <guibutton>&quot;Update data element group member&quot;</guibutton> button to save your changes. </para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_group_editor_select.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
+      <para>Data element groups area listed alphabetically in the leftmost panel. By clicking on a data element group, the current members of that group (data elements) are listed in the centre panel. Available data elements that can be added to the data element group appear are listed alphabetically in the rightmost panel. To remove an existing data element from the group, click the name of the data element in the centre panel, and then press the &quot;Move right&quot;  <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/> button. To add data elements to the group, select them from the leftmost panel, and click the &quot;Move left&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_left.png" align="center"/> button. Press the <guibutton>&quot;Update data element group member&quot;</guibutton> button to save your changes.</para>
     </section>
     <section id="dataElementGroupSet">
       <title>Data element group sets</title>
-      <para>Data element group sets allow multiple data element groups to be categorised into a set. Data element group sets are used during analysis and reporting to combine similar data element groups into a common theme. To access the data element group set maintenance module, choose &quot;Maintenance-&gt;Data elements and indicators-&gt;Data element group set&quot;.  Similar to the other data element maintenance modules, new data element group sets can be added by pressing the &quot;Add new button&quot;.  Other operations include Edit, Translate, Delete and Information, similar to the other modules in this section. </para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_group_set_start.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
+      <para>Data element group sets allow multiple data element groups to be categorised into a set. Data element group sets are used during analysis and reporting to combine similar data element groups into a common theme. To access the data element group set maintenance module, choose &quot;Maintenance -&gt; Data elements and Indicators -&gt; Data Element Group Set&quot;.  Similar to the other data element maintenance modules, new data element group sets can be added by pressing the &quot;Add new button&quot;.  Other operations include Edit, Translate, Delete and Information, similar to the other modules in this section.</para>
       <para>Existing data element group  set members can be edited by clicking the &quot;Edit&quot; button <inlinegraphic fileref="resources/images/dhis2_images/edit.png" align="center"/> of the desired data element group set as seen below.</para>
       <mediaobject>
         <imageobject>
-          <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_group_set.png" format="PNG"/>
+          <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_group_set.png"/>
         </imageobject>
       </mediaobject>
       <para>Available data element groups are displayed in the left panel. They can be moved into the selected data element group set by pressing the &quot;Move right&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/> button. Data element groups that are currently members of the data element group set are displayed in the right hand panel. They can be removed from the data element group set by clicking the desired data element group and pressing the &quot;Move left&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_left.png" align="center"/> button.  The ordering of the data element groups can be set with the &quot;Move Up&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_up.png" align="center"/> and &quot;Move Down&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_down.png" align="center"/>arrows. This ordering will be used in the datamart and reports to order the data element groups.  Press the <guibutton>&quot;Update&quot;</guibutton> button to save any changes and the <guibutton>&quot;Cancel&quot;</guibutton> button to discard all changes. </para>
@@ -247,19 +201,19 @@
       <caution>
         <para>It is critical that the proper categories and category options are defined in the initial definition step, as further changes to the category and its options will are not possible. </para>
       </caution>
-      <para>To access the data element category maintenance module, press &quot;Maintenance-&gt;Data elements and indicators-&gt;Data element category&quot;. The following screen will be displayed. </para>
+      <para>To access the data element category maintenance module, press &quot;Maintenance -&gt; Data Elements and Indicators-&gt;Data Element Category&quot;. The following screen will be displayed:</para>
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_categories_start.png" format="PNG"/>
+            <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_categories_start.png"/>
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>Similar to the other data element maintains modules, data element categories can be filtered by typing the name of the data element category (or a portion of it) into the &quot;Filter by name&quot; field. To add a new data element category, press the &quot;Add new&quot; button which will then display the following screen. </para>
+      <para>Similar to the other data element maintains modules, data element categories can be filtered by typing the name of the data element category (or a portion of it) into the &quot;Filter by name&quot; field. To add a new data element category, press the &quot;Add new&quot; button which will then display the following screen:</para>
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="40%" align="center" fileref="resources/images/maintainence/data_element_categories_add_new.png" format="PNG"/>
+            <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_categories_add_new.png"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -284,7 +238,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_category_combo_add_new.png"/>
+            <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_category_combo_add_new.png"/>
           </imageobject>
         </mediaobject>
       </screenshot>
