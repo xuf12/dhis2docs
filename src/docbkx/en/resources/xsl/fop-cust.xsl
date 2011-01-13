@@ -50,20 +50,23 @@
     
 
     <xsl:template name="book.titlepage.recto">
-        <fo:block padding-before="55mm">
+        <fo:block font-family="Helvetica" font-size="27px" text-align="center" padding-before="85mm">
+            <xsl:text>DHIS 2 User Manual</xsl:text>
+        </fo:block>
+        <fo:block padding-before="10mm">
             <fo:table table-layout="fixed" width="175mm">
                 <fo:table-column column-width="175mm"/>
                 <fo:table-body>
                     <fo:table-row>
                         <fo:table-cell text-align="center">
-                            <fo:block padding-before="45mm">
+                            <fo:block>
                                 <fo:external-graphic scaling="uniform" src="file:./resources/images/dhis2_images/logo.png"/>
                             </fo:block>
                         </fo:table-cell>
                     </fo:table-row>
                     <fo:table-row>
                         <fo:table-cell text-align="center">
-                            <fo:block font-family="Helvetica" font-size="10pt" padding-before="1cm">
+                            <fo:block font-family="Helvetica" font-size="11pt">
                                 <xsl:text>Copyright &copyright; 2006-2010</xsl:text>
                             </fo:block>
                         </fo:table-cell>
@@ -472,9 +475,9 @@
         <xsl:attribute name="space-after.maximum">0.1em</xsl:attribute>
     </xsl:attribute-set>
     <xsl:attribute-set name="section.title.level2.properties">
-        <xsl:attribute name="space-before.optimum">1.4em</xsl:attribute>
-        <xsl:attribute name="space-before.minimum">1.4em</xsl:attribute>
-        <xsl:attribute name="space-before.maximum">1.4em</xsl:attribute>
+        <xsl:attribute name="space-before.optimum">1.5em</xsl:attribute>
+        <xsl:attribute name="space-before.minimum">1.5em</xsl:attribute>
+        <xsl:attribute name="space-before.maximum">1.5em</xsl:attribute>
         <xsl:attribute name="font-size">
             <xsl:value-of select="$body.font.master * 1.1"/>
             <xsl:text>pt</xsl:text>
