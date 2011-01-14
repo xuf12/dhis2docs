@@ -1,6 +1,5 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. -->
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>Data entry</title>
   <section>
@@ -8,55 +7,52 @@
     <para>After reading this chapter you will be able to understand:</para>
     <itemizedlist>
       <listitem>
-        <para>How to do data entry</para>
+        <para>How to select the right data entry form</para>
+      </listitem>
+    </itemizedlist>
+    <itemizedlist>
+      <listitem>
+        <para>How to enter data</para>
       </listitem>
       <listitem>
         <para>How to do data validation</para>
-      </listitem>
-      <listitem>
-        <para>How to use standard and customised data entry screens</para>
       </listitem>
     </itemizedlist>
   </section>
   <section id="dataEntry">
     <title>Data entry with DHIS 2</title>
-    <para>The data entry module is where data is manually registered in the DHIS 2 database.</para>
-    <section>
-      <title>Opening the “Data Entry” screen</title>
-      <para>Entering data in DHIS 2 is a very simple task, and involves the
-    following steps. Click on the services tab displayed on the main menu. A
+    <para>To open the data entry window click on the services tab displayed on the main menu. A
     drop down menu will appear listing the services provided by DHIS2. Click
     on the <guibutton>Data Entry</guibutton> option.</para>
-      <para>You will now enter the data entry module. This module is where the
-    services/ data values are captured / registered into the system. The
-    screen display will be like the screen-shot shown below.</para>
+    <para>The data entry module is where data is manually registered in the DHIS 2 database. Data is registered for an orgunit, a period, and for a set of data elements (data set) at a time. A data set often corresponds to a paper-based data collection tool. </para>
+    <section>
+      <title>Selecting the data entry form</title>
+      <para>To start entering data the first step is to open the correct form. Follow these steps:</para>
+      <para>1) Locate the orgunit you want to register data for in the tree menu to the left. Expand and close branches by clicking on the +/- symbols.  A quick way to find an orgunit is to use the search box just above the tree (the green symbol), but you need to write in the full name to get a match.</para>
+      <para>2) Select a data set from the dropdown list of data set available to your selected orgunit.  </para>
+      <para>3) Select a period to register data for. The available periods are controlled by the dataset&apos;s period type (frequency). You can jump a year back or forward by using the arrows above the period.</para>
+      <para>By now you should see the data entry form. </para>
+      <para>You can change the type of form using the radio buttons above the form in the top right corner. The available types are: 1) &quot;Default forms&quot; which are  simple list-based or tabular forms, 2) &quot;Section forms&quot; which can consist of multiple tables and better mimic the paper forms, or 3) &quot;Custom forms&quot; which follow a completely custom designed defined by the user. Section and custom forms require that these have been set up by the user first, while default is always available. In the top-right corner just above the form you can switch between the three types of forms.    </para>
       <screenshot>
         <screeninfo>Main data entry screen</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" format="PNG" fileref="resources/images/dhis2UserManual/data_entry_screen_main.png"/>
+            <imagedata width="100%" fileref="resources/images/dhis2UserManual/data_entry_screen_main.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
     </section>
     <section>
-      <title>Navigate organisation tree and select organisation unit</title>
-      <para>In order to enter data you will first have to select the particular
-    organisation unit (e.g. Sub Centre/PHC/districts etc) for which you are
-    going to enter data. Simply clicking on the concerned organisation unit
-    from the organisation units hierarchy displayed on the left side of the
-    data entry screen.</para>
-    </section>
-    <section>
       <title>Entering data</title>
-      <para>When you select an organisational unit (or orgunit) from the
-    organisation unit tree, datasets available for this orgunit will then
-    appear as a drop-down list in the data set box as depicted below.</para>
-      <para>If the dataset field is disabled it means that there are no datasets
-    assigned for the selected organisation unit or that your user role is not
-    authorised to enter data. For now we shall limit our concern to data
-    entry. You will learn to create and assign datasets to specific
-    organisation unit in a later module. </para>
+      <para>Simply start entering data by clicking inside the first field and type in the value. Move to the next field using the Tab button. Shit+Tab will take you back one step. The values are saved immediately and do not require any save/finished button click. A green field indicates that the value inside has been saved in the system (on the server). On a slow connection it might takes some time before the values are saved. </para>
+      <para>If you type in an invalid value, e.g. a character in a field that only accepts numeric values you will get a pop-up that explains the problem and the field will be colored yellow (not saved) until you have corrected the value. If you have defined a min/max range for the field (data element+orgunit combination) a pop-up message will notify you when the value is out of range and the value will stay unsaved until you have changed the value (or updated the  range and then re-entered the value). </para>
+      <para>If a field is disabled (grey) it means that no value is accepted. The cursor will automatically jump to the next open field. </para>
+      <para>When using section forms it is possible to minimise and maximise sections by clicking on the section headers.</para>
+    </section>
+    <section id="dataEntry_1">
+      <title>Validating data in the form</title>
+      <para>When all the available values for the form has been filled in you can run a validation check on the data in the form. Click on the &quot;Run Validation&quot; button in the top right corner. All validation rules which involves data elements in the current form (dataset) will be run against the new data. Upon completion you will be presented a list of violations or a simply a message that says &quot;The data entry screen successfully passed validation&quot;.  See the Data Quality chapter for information on how to define such validation rules.</para>
+      <para>When you have corrected any erroneous values and are done with the form the recommended practice is to click on the Complete button below the form to register the form as complete. This information is used when generating completeness reports for districts etc.</para>
     </section>
   </section>
 </chapter>
