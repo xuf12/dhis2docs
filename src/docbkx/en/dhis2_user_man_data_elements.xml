@@ -198,9 +198,8 @@
       </itemizedlist>
       <para>Effective use of data element categories greatly simplifies the process of setting up the DHIS2 system, as the data element categories can be reused to disaggregate many different data elements. Otherwise, each of the data elements listed above, would need to be created separately. Judicious use of data element categories will greatly simplify the DHIS2 implementation, and allow for subsequent advanced analysis. </para>
       <para>Data element categories are composed of category options. Category options must be defined when a data element category is created for the first time. Subsequent changes to the data element category, i.e.  adding or deleting new category options, are not allowed once the data element category has been created. </para>
-      <caution>
         <para>It is critical that the proper categories and category options are defined in the initial definition step, as further changes to the category and its options will are not possible. </para>
-      </caution>
+
       <para>To access the data element category maintenance module, press &quot;Maintenance -&gt; Data Elements and Indicators-&gt;Data Element Category&quot;. The following screen will be displayed:</para>
       <screenshot>
         <mediaobject>
@@ -217,9 +216,8 @@
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>Type the name of the new data element category in the &quot;Name&quot; field in the &quot;Details&quot; region. Category options can be added by typing the name of the category option in the &quot;Category option&quot; region and pressing the <guibutton>&quot;Add category option&quot;</guibutton> button. Category options can be reordered using the &quot;Move Up&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_up.png" align="center"/> and &quot;Move Down&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_down.png" align="center"/> buttons. Categories options can be deleted by selecting the data element category option and pressing the &quot;Delete&quot;<inlinegraphic fileref="resources/images/dhis2_images/delete.png" align="center"/> button. Once all data element categories options have been added to the data element category, press the <guibutton>&quot;Add&quot;</guibutton> button to save all changes or the <guibutton>&quot;Cancel&quot;</guibutton>  button to discard any changes.<caution>
-          <para>All data element category options must be added and defined properly in this step. Subsequent alterations to the data element category (other than reordering of the category options themselves) is not possible. </para>
-        </caution></para>
+      <para>Type the name of the new data element category in the &quot;Name&quot; field in the &quot;Details&quot; region. Category options can be added by typing the name of the category option in the &quot;Category option&quot; region and pressing the <guibutton>&quot;Add category option&quot;</guibutton> button. Category options can be reordered using the &quot;Move Up&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_up.png" align="center"/> and &quot;Move Down&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_down.png" align="center"/> buttons. Categories options can be deleted by selecting the data element category option and pressing the &quot;Delete&quot;<inlinegraphic fileref="resources/images/dhis2_images/delete.png" align="center"/> button. Once all data element categories options have been added to the data element category, press the <guibutton>&quot;Add&quot;</guibutton> button to save all changes or the <guibutton>&quot;Cancel&quot;</guibutton>  button to discard any changes.</para>
+      <para>All data element category options must be added and defined properly in this step. Subsequent alterations to the data element category (other than reordering of the category options themselves) is not possible. </para>
     </section>
     <section id="dataElementCategoryCombo">
       <title>Data element category combinations</title>
@@ -243,9 +241,7 @@
         </mediaobject>
       </screenshot>
       <para>Type the name of the category combination in the &quot;Name&quot; field, and then select the desired categories from the left panel. Press the &quot;Move right&quot; button to add the selected categories to the category combination. Press &quot;Move left&quot; to remove any categories that should not be part of the category combination. </para>
-      <caution>
         <para>Categories can only be added to a category combination at this step. Categories can be removed from category combinations later by editing the category combination, however, it is not allowed to add additional categories once the combination has been created. Ensure that the category combination and its respective categories is final before you create the category combination and assign it to a data element. </para>
-      </caution>
     </section>
   </section>
 </chapter>

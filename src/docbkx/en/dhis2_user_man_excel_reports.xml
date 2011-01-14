@@ -29,7 +29,7 @@
         <para><emphasis role="italic">Excel items</emphasis>: In many situations, health workers in the field may not have good Internet access, and will therefore need to enter data offline and to transmit this data via email or other means, for subsequent importation into the DHIS database.  The Excel Report data import feature allows users to import data from a pre-designed Excel templates directly into the DHIS database automatically. Users enter data into a predefined Excel template, send via email or other means for importation into DHIS2. It is also possible to import selected elements. This module supports three types of reports namely a report containing standard data elements,  a report listing organisation unit groups as rows, a report generating data elements combined with categories.</para>
       </listitem>
       <listitem>
-        <para><emphasis role="italic">Excel Template Management</emphasis> : Manage Template Excel files which are used to export reports, includes upload, download, delete and rename files.</para>
+        <para><emphasis role="italic">Excel Template Management</emphasis>: Manage Template Excel files which are used to export reports, includes upload, download, delete and rename files.</para>
       </listitem>
       <listitem>
         <para><emphasis role="italic">Clean temporary directory</emphasis>: Every time a user generates a report, the system creates an Excel file in the temporary directory (<envar>excelreporttemplate</envar> directory). This disk space occupied by this directory will become progressively larger after some time. This function will remove all the temporary files from the directory, and therefore decrease the total amount of disk space used.</para>
@@ -91,7 +91,7 @@
             <screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/list_org_unit_group_report_template.PNG" format="PNG"/>
+                  <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/list_org_unit_group_report_template.png" format="PNG"/>
                 </imageobject>
               </mediaobject>
             </screenshot>
@@ -101,7 +101,7 @@
             <para>This report display data values according to the fixed data element names, and the list of time periods are displayed automatically.<screenshot>
                 <mediaobject>
                   <imageobject>
-                    <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/list_time_period_report_template.PNG" format="PNG"/>
+                    <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/list_time_period_report_template.png" format="PNG"/>
                   </imageobject>
                 </mediaobject>
               </screenshot></para>
@@ -112,7 +112,7 @@
             <screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/dataelement_category_report_template.PNG" format="PNG"/>
+                  <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/dataelement_category_report_template.png" format="PNG"/>
                 </imageobject>
               </mediaobject>
             </screenshot>
@@ -214,19 +214,19 @@
               <para>Simply select the organizational units that this report will be generated for. </para>
             </listitem>
             <listitem>
-              <para>The Report Item  <inlinegraphic fileref="resources/images/dhis_excel_reports/report_item.PNG"/>    function is used to define which values will appear in the desired report. Report items consist of specific values of data which will be placed into particular cells of the Excel sheet when the report is generated.Further information for configuration of the report items will be provided in the next section. </para>
+              <para>The Report Item  <inlinegraphic fileref="resources/images/dhis_excel_reports/report_item.png"/>    function is used to define which values will appear in the desired report. Report items consist of specific values of data which will be placed into particular cells of the Excel sheet when the report is generated.Further information for configuration of the report items will be provided in the next section. </para>
             </listitem>
             <listitem>
-              <para> The Remove  <inlinegraphic fileref="resources/images/dhis_excel_reports/remove_report.PNG"/> deletes the Excel report. </para>
+              <para> The Remove  <inlinegraphic fileref="resources/images/dhis_excel_reports/remove_report.png"/> deletes the Excel report. </para>
             </listitem>
             <listitem>
-              <para>Edit  <inlinegraphic fileref="resources/images/dhis_excel_reports/edit_report.PNG"/>for editing report’s information.</para>
+              <para>Edit  <inlinegraphic fileref="resources/images/dhis_excel_reports/edit_report.png"/>for editing report’s information.</para>
             </listitem>
             <listitem>
-              <para>Organisation unit Group    <inlinegraphic fileref="resources/images/dhis_excel_reports/assign_org_unit_group.PNG"/> for choose which organisation group would be list in the report. This button only appears when the Report Type is Organisation Unit Listing</para>
+              <para>Organisation unit Group    <inlinegraphic fileref="resources/images/dhis_excel_reports/assign_org_unit_group.png"/> for choose which organisation group would be list in the report. This button only appears when the Report Type is Organisation Unit Listing</para>
             </listitem>
             <listitem>
-              <para>Data element groups <inlinegraphic fileref="resources/images/dhis_excel_reports/assign_data_element_group.PNG"/>  for creating Data element group and these groups of data elements would be list in the report. This button is only available when the report type is a &quot;Category&quot; report. </para>
+              <para>Data element groups <inlinegraphic fileref="resources/images/dhis_excel_reports/assign_data_element_group.png"/>  for creating Data element group and these groups of data elements would be list in the report. This button is only available when the report type is a &quot;Category&quot; report. </para>
             </listitem>
             <listitem>
               <para>Period column <inlinegraphic fileref="resources/images/dhis_excel_reports/list_of_reports_Create_period_column.png" align="center"/>for creating Period column. THis button is only available when the report type is a &quot;Reports list time periods in the columns&quot;</para>
@@ -332,9 +332,9 @@
               </imageobject>
             </mediaobject>
           </screenshot>
-          <tip>
+          <para>
             <para>There must be at least one period type in a report.</para>
-          </tip>
+          </para>
           <para>The &quot;<emphasis role="bold">Copy selected items to&quot;</emphasis>  function can be used to copy Excel report items from one report to another. Therefore, there is no need to redefine an Excel report item, if it will appear in two different reports. You can simply copy the item from one report definition to the other by following this procedure. <orderedlist>
               <listitem>
                 <para>From list of reports page, click &quot;Add  new report.&quot;</para>
@@ -361,9 +361,9 @@
                 </imageobject>
               </mediaobject>
             </screenshot><emphasis role="bold">Copy to excel items</emphasis> button: To copy the report items when the new report has an item which can be reused from the existing report. </para>
-          <tip>
+          <para>
             <para>Copy selected items to other reports for quickly developing many reports with the same data elements but with the different periods.</para>
-          </tip>
+          </para>
           <para><orderedlist>
               <listitem>
                 <para>From source report, select report items need to be copied.</para>
@@ -387,9 +387,9 @@
                 </imageobject>
               </mediaobject>
             </screenshot></para>
-          <tip>
+          <para>
             <para>Copy selected items to Excel item groups for quickly developing many groups with the same data elements.</para>
-          </tip>
+          </para>
         </section>
       </section>
       <section>
@@ -562,19 +562,19 @@
             <para> Associations    <inlinegraphic fileref="resources/images/dhis_excel_reports/association_org_unit.GIF"/>for assigning a group to organisation units.</para>
           </listitem>
           <listitem>
-            <para>Excel item group <inlinegraphic fileref="resources/images/dhis_excel_reports/report_item.PNG"/>for creating report items in the report.</para>
+            <para>Excel item group <inlinegraphic fileref="resources/images/dhis_excel_reports/report_item.png"/>for creating report items in the report.</para>
           </listitem>
           <listitem>
-            <para>Remove  <inlinegraphic fileref="resources/images/dhis_excel_reports/remove_report.PNG"/>for removing excel item group.</para>
+            <para>Remove  <inlinegraphic fileref="resources/images/dhis_excel_reports/remove_report.png"/>for removing excel item group.</para>
           </listitem>
           <listitem>
-            <para>Edit  <inlinegraphic fileref="resources/images/dhis_excel_reports/edit_report.PNG"/>for editing  information of group.</para>
+            <para>Edit  <inlinegraphic fileref="resources/images/dhis_excel_reports/edit_report.png"/>for editing  information of group.</para>
           </listitem>
           <listitem>
-            <para>Organisation unit Group    <inlinegraphic fileref="resources/images/dhis_excel_reports/assign_org_unit_group.PNG"/> for choose which organisation group would be list in the group. This button only appear when the Group Type is Organisation Unit Listing</para>
+            <para>Organisation unit Group    <inlinegraphic fileref="resources/images/dhis_excel_reports/assign_org_unit_group.png"/> for choose which organisation group would be list in the group. This button only appear when the Group Type is Organisation Unit Listing</para>
           </listitem>
           <listitem>
-            <para>Data element groups <inlinegraphic fileref="resources/images/dhis_excel_reports/assign_data_element_group.PNG"/>  for create Data element group and these groups of data elements would be list in the report. This button only available when report type is Category. </para>
+            <para>Data element groups <inlinegraphic fileref="resources/images/dhis_excel_reports/assign_data_element_group.png"/>  for create Data element group and these groups of data elements would be list in the report. This button only available when report type is Category. </para>
           </listitem>
         </itemizedlist>
       </section>
@@ -646,9 +646,9 @@
               <para>Click <emphasis role="bold">OK</emphasis> button to copy.</para>
             </listitem>
           </orderedlist></para>
-        <tip>
+        <para>
           <para>Copy selected items to other groups for quickly developing many groups with the same data elements but with the different periods</para>
-        </tip>
+        </para>
       </section>
     </section>
     <section id="excelReportingExcelTemplateManagement">
@@ -682,9 +682,9 @@
             </imageobject>
           </mediaobject>
         </screenshot></para>
-      <tip>
+      <para>
         <para>No upload if the chosen file is not excel file.</para>
-      </tip>
+      </para>
     </section>
     <section id="excelReportingCleanTemporaryDirectory">
       <title>
