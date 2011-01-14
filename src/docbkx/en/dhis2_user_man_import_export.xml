@@ -35,13 +35,6 @@ How to import data into DHIS2</para>
 The import or export is available only when the selected organisation (source/destination) has defined datasets. This is because datasets help to define which data is to be or is being exported. Further, which specific data elements get exported is determined by the composition of the dataset being exported.
 If there are no datasets defined for an organisation unit, it indicates that no data values are registered for this level of organisation or lower.
 To access the main Import-Export module, choose <guimenu>Services-&gt;Import-Export</guimenu></para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="60%" align="center" fileref="resources/images/import_export/Import_export_main.png"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
       <para>The exported data values are stored in an ‘xml file’. The file name is defined by the name of the source organisation unit and the period to allow the receiving organisation unit to identify the source and the period of the export file. The XML is placed in your home directory (On Windows this is normally <filename>C:\Documents and Settings\</filename> under the sub-directories <filename>/dhis / import-export</filename>.
 </para>
     </section>
@@ -53,19 +46,12 @@ If there are no datasets defined for an organisation unit, it indicates that no 
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="60%" align="center" fileref="resources/images/import_export/export_to_dhis2.png"/>
+            <imagedata width="100%" format="PNG" fileref="resources/images/import_export/export_to_dhis2.png"/>
           </imageobject>
         </mediaobject>
       </screenshot>
       <para>A pop-up save option will appear on the displayed screen (see picture below) prompting the saving of the exported data. You may save the export folder on your desktop or any other folder by selecting the ‘Save to Disk’ option from the pop-up prompt.
 </para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="60%" align="center" fileref="resources/images/import_export/export_file_popup.png"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
     </section>
     <section>
       <title>Exporting metadata to other DHIS2 systems</title>
@@ -76,7 +62,7 @@ If there are no datasets defined for an organisation unit, it indicates that no 
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="60%" align="center" fileref="resources/images/import_export/metdata_export.png"/>
+              <imagedata width="100%" format="PNG" fileref="resources/images/import_export/metadata_export.png"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -87,7 +73,7 @@ If there are no datasets defined for an organisation unit, it indicates that no 
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="60%" align="center" fileref="resources/images/import_export/metadata_detail.png"/>
+              <imagedata width="100%" format="PNG" fileref="resources/images/import_export/metadata_detail.png"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -124,7 +110,7 @@ If there are no datasets defined for an organisation unit, it indicates that no 
         <screeninfo>Default import screen</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="40%" align="center" fileref="resources/images/import_export/import_default.png"/>
+            <imagedata width="100%" format="PNG" fileref="resources/images/import_export/import_default.png"/>
           </imageobject>
         </mediaobject>
       </screenshot>

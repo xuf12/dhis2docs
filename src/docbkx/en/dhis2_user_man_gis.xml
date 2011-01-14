@@ -81,6 +81,14 @@ a text editor (e.g. Notepad++) and do a search/replace to make sure this element
   <section>
     <title>Using the GIS module</title>
     <section id="gisThematicMap">
+      <screenshot>
+        <screeninfo>Main data entry screen</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="100%" format="PNG" fileref="resources/images/gis/gis_main.png"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
       <title>Thematic mapping</title>
       <para>This panel lets you use your registered maps for thematic mapping. All you need to do is selecting your desired indicator/dataelement-period-map combination in the left side menu.</para>
       <para>Calculation method
@@ -110,6 +118,13 @@ a text editor (e.g. Notepad++) and do a search/replace to make sure this element
     <section id="gisImageExport">
       <title>Exporting/saving map images</title>
       <para>Click the image icon on the map toolbar and            the  print window will open. Title: Image title, will appear as a headline in the image. Layers: Choose whether polygons, points or both will be printed. Width/Height: The pixel resolution of the image. Choose among the predefined &quot;small&quot; (800x600), &quot;medium&quot; (1190x880), &quot;large&quot; (1920x1200) or type the exact number of pixels yourself (type the number only, avoid text like &quot;px&quot;). If you want to exclude the legend from the image, untick the legend checkbox. Finally click the export button to print the image  (PNG).</para>
+    </section>
+    <section id="gisLayerOptions">
+      <title>Layer options</title>
+      <para>Right-click any layer in the layer tree in the upper right corner to open the layer options context menu. There are currently three layer options available for vector layers: "Locate feature", "Show/hide labels" and "Opacity". Locate feature (organisation unit): Click one of the units in the list and its color in the map will change to the color you have specified in the "Highlight color" combo box. If the list of organisation units is long you can easily create a text filter in the textfield below. Show/hide labels: By clicking this option, a label with the organisation unit name and its value (based on the current indicator/period selection) appears on the map. Opacity: Adjust the opacity/transparency of the layer in the map.
+
+
+Click the image icon on the map toolbar and            the  print window will open. Title: Image title, will appear as a headline in the image. Layers: Choose whether polygons, points or both will be printed. Width/Height: The pixel resolution of the image. Choose among the predefined &quot;small&quot; (800x600), &quot;medium&quot; (1190x880), &quot;large&quot; (1920x1200) or type the exact number of pixels yourself (type the number only, avoid text like &quot;px&quot;). If you want to exclude the legend from the image, untick the legend checkbox. Finally click the export button to print the image  (PNG).</para>
     </section>
   </section>
   <section>

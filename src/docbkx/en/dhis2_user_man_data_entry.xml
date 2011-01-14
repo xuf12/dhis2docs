@@ -34,7 +34,7 @@
         <screeninfo>Main data entry screen</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="60%" align="center" fileref="resources/images/dhis2UserManual/data_entry_screen_main.png"/>
+            <imagedata width="100%" format="PNG" fileref="resources/images/dhis2UserManual/data_entry_screen_main.png"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -52,14 +52,6 @@
       <para>When you select an organisational unit (or orgunit) from the
     organisation unit tree, datasets available for this orgunit will then
     appear as a drop-down list in the data set box as depicted below.</para>
-      <screenshot>
-        <screeninfo>Select dataset</screeninfo>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="60%" align="center" fileref="resources/images/dhis2UserManual/data_entry_select_data_set.png"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
       <para>If the dataset field is disabled it means that there are no datasets
     assigned for the selected organisation unit or that your user role is not
     authorised to enter data. For now we shall limit our concern to data
