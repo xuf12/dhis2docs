@@ -80,7 +80,6 @@ a text editor (e.g. Notepad++) and do a search/replace to make sure this element
   </section>
   <section>
     <title>Using the GIS module</title>
-    <section id="gisThematicMap">
       <screenshot>
         <screeninfo>Main data entry screen</screeninfo>
         <mediaobject>
@@ -89,14 +88,23 @@ a text editor (e.g. Notepad++) and do a search/replace to make sure this element
           </imageobject>
         </mediaobject>
       </screenshot>
+    <section id="gisThematicMap">
       <title>Thematic mapping</title>
-      <para>This panel lets you use your registered maps for thematic mapping. All you need to do is selecting your desired indicator/dataelement-period-map combination in the left side menu.</para>
+      <para>This panel lets you use your registered maps for thematic mapping. All you need to do is selecting your desired indicator/dataelement-period-map combination in the left side menu. Then click either boundary or level to open the organisation unit selection window. Here you may select both the parent organisation unit and the level of its children. If your database has coordinates for these organisation units they will appear on the map.</para>
       <para>Calculation method
     alludes to the  size  of the legend classes. Set to <guimenuitem>Equal intervals</guimenuitem> they will be “highest map value – lowest map value
     / number of classes”. Set to <guimenuitem>Equal group count</guimenuitem> the legend creator will try to distribute the organisation units evenly. Choose <guimenuitem>Fixed bounds </guimenuitem>and
     you may define your own class break values, type e.g. “20,40,60” using a comma to
     separate each of them.</para>
-      <para>The map view combo box lists all map views (favorites) saved by the user. The settings that are stored in the map view will be automatically applied to the thematic map panel.</para>
+      <para>The map view combo box lists all map views (favorites) saved by the user. The settings that are stored in the map view will be automatically applied to the thematic map panel.</para>      
+      <screenshot>
+        <screeninfo>Main data entry screen</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="100%" format="PNG" fileref="resources/images/gis/gis_thematic_mapping.png"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
     </section>
     <section id="gisFavoriteMapView">
       <title>Register favorite map views</title>
