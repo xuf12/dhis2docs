@@ -61,24 +61,24 @@
 			    <fo:block>
                                   <xsl:value-of select="bookinfo/title" /> 
                               </fo:block>
-                            <fo:block font-family="Helvetica" font-size="14pt">
+                            <fo:block font-family="DejaVu Sans" font-size="14pt">
                                 <xsl:text>The Complete Guide</xsl:text>  
                             </fo:block>
-			    <fo:block font-family="Helvetica" font-size="12pt">
+			    <fo:block font-family="DejaVu Sans" font-size="12pt">
                                 <xsl:text>Version </xsl:text><xsl:value-of select="bookinfo/releaseinfo"/>  
                             </fo:block>
                         </fo:table-cell>
                     </fo:table-row>
                     <fo:table-row>
                         <fo:table-cell text-align="center">
-                            <fo:block font-family="Helvetica" font-size="12pt">
+                            <fo:block font-family="DejaVu Sans" font-size="12pt">
                                 <xsl:value-of select="book/bookinfo/pubdate"/>
                             </fo:block>
                         </fo:table-cell>
                     </fo:table-row>
                     <fo:table-row>
                         <fo:table-cell text-align="center">
-                            <fo:block font-family="Helvetica" font-size="10pt" padding-before="80mm">
+                            <fo:block font-family="DejaVu Sans" font-size="10pt" padding-before="80mm">
                                 <xsl:text>Copyright &copyright; 2006-2010 </xsl:text>
                                 <xsl:for-each select="book/bookinfo/authorgroup/author">
                                     <xsl:if test="position() > 1">
@@ -89,7 +89,7 @@
                                     <xsl:value-of select="surname"/>
                                 </xsl:for-each>
                             </fo:block>
-                            <fo:block font-family="Helvetica" font-size="9pt" padding="1mm">
+                            <fo:block font-family="DejaVu Sans" font-size="9pt" padding="1mm">
                                 <xsl:value-of select="book/bookinfo/legalnotice"/>  
                             </fo:block>
                         </fo:table-cell>
@@ -113,17 +113,10 @@
 
     <!-- More space in the center header for long text -->
     <xsl:attribute-set name="header.content.properties">
-        <xsl:attribute name="font-family">Helvetica</xsl:attribute>
+        <xsl:attribute name="font-family">DejaVu Sans</xsl:attribute>
         <xsl:attribute name="font-size">9pt</xsl:attribute>
-		
-<!--
-        <xsl:attribute name="font-family">
-            <xsl:value-of select="$body.fontset"/>
-        </xsl:attribute>
-
         <xsl:attribute name="margin-left">-5em</xsl:attribute>
         <xsl:attribute name="margin-right">-5em</xsl:attribute>
--->
     </xsl:attribute-set>
 
 
@@ -234,7 +227,7 @@
                       Custom Footer
     ################################################### -->  
     <xsl:attribute-set name="footer.content.properties">
-        <xsl:attribute name="font-family">Helvetica</xsl:attribute>
+        <xsl:attribute name="font-family">DejaVu Sans</xsl:attribute>
         <xsl:attribute name="font-size">9pt</xsl:attribute>
     </xsl:attribute-set>
    
@@ -402,11 +395,11 @@
     <xsl:param name="hyphenate">false</xsl:param>
 
     <!-- Default Font size -->
-	<xsl:param name="body.font.family">Times-Roman</xsl:param>
+	<xsl:param name="body.font.family">DejaVu Sans</xsl:param>
     <xsl:param name="body.font.master">10</xsl:param>
     <xsl:param name="body.font.small">9</xsl:param>
-	<xsl:param name="symbol.font.family">Times-Roman</xsl:param>
-
+	<xsl:param name="symbol.font.family">DejaVu Sans</xsl:param>
+	<xsl:param name="title.font.family">DejaVu Sans</xsl:param>
 
     <!-- Line height in body text -->
     <xsl:param name="line-height">1.3</xsl:param>
@@ -462,7 +455,7 @@
 <!--###################################################
                          Titles
     ################################################### -->   
-    
+   
     <!-- Chapter title size -->
     <xsl:attribute-set name="chapter.titlepage.recto.style">
         <xsl:attribute name="text-align">left</xsl:attribute>
@@ -484,7 +477,8 @@
             </fo:block>
     </xsl:template>
     
-    <!-- Sections 1, 2 and 3 titles have a small bump factor and padding -->    
+    <!-- Sections 1, 2 and 3 titles have a small bump factor and padding -->   
+
     <xsl:attribute-set name="section.title.level1.properties">
         <xsl:attribute name="space-before.optimum">0.8em</xsl:attribute>
         <xsl:attribute name="space-before.minimum">0.8em</xsl:attribute>
