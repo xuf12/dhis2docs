@@ -62,10 +62,10 @@
 
       <table border="2" >
       <caption>Names for form elements are derived in the following way</caption>
-      <tr><td>Data set (form name)</td><td>shortName if it exists, otherwise name</td></tr>
-      <tr><td>Section (page name)</td><td>Section name (or form name if no sections)</td></tr>
-      <tr><td>Data element (question or heading)</td><td>alternativeName if it exists, otherwise name</td></tr>
-      <tr><td>Category option combo (question name)</td><td>name</td></tr>
+      <tr><td>Form name</td><td>Data set</td><td>ShortName if it exists, otherwise name</td></tr>
+      <tr><td>Page name</td><td>Section</td><td>Section name (or form name if no sections)</td></tr>
+      <tr><td>Question name (heading if combos)</td><td>Data element </td><td>alternativeName if it exists, otherwise name</td></tr>
+      <tr><td>Question name if combos</td><td>Category option combo</td><td>name</td></tr>
       </table>
     </section>
     <section>
