@@ -1,13 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-  
-  <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
-
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <section>
   <title>Web based mobile solution</title>
   <para>The web based solution has two distinct two parts: Facility reporting, for data entry and
     reporting of regular DHIS2 aggregate data, and Activity reporting, for supporting individual
     activity reporting with the Community module.</para>
-
   <para>The solution relies on the mobile phone having a data connection available (i.e.
     GPRS, Edge, 3G), over which it communicates with a DHIS2 instance being publicly
     available on the internet, as any other web client. The application downloads the forms to be reported from the
@@ -30,11 +27,10 @@
     <para>The server side component of the web based solution is just regular web application functionality, 
     and it is included in the general build of DHIS2 (the web api itself is in the dhis-web-api module)</para>
     <itemizedlist>
-      <title>To try out the facility reporting, perform these steps on the
-        server</title>
+      <title>To try out the facility reporting, perform these steps on the server</title>
       <listitem>
         <para>
-          Set the "Available for Mobile Reporting" flag for the data sets you want reported:
+          Set the &quot;Available for Mobile Reporting&quot; flag for the data sets you want reported:
           Under <emphasis>Maintenance, DataSet</emphasis>, edit the data set you want, 
           mark the “Available for Mobile Reporting” check box and save.
         </para>
@@ -42,7 +38,7 @@
       <listitem>
         <para>Make sure the user that you want to log in as is associated to one (and
           only one)
-          organizational unit has the "mobile" datasets assigned.</para>
+          organizational unit has the &quot;mobile&quot; datasets assigned.</para>
       </listitem>
       <listitem>
         <para>That was all, go see if you can get the mobile working.</para>
@@ -59,13 +55,28 @@
         If the data set is divided into sections, each section is a form page.
         If a data element has more than one category option combo it will be displayed as a heading with the combos
         following.</para>
-
-      <table border="2" >
-      <caption>Names for form elements are derived in the following way</caption>
-      <tr><td>Form name</td><td>Data set</td><td>ShortName if it exists, otherwise name</td></tr>
-      <tr><td>Page name</td><td>Section</td><td>Section name (or form name if no sections)</td></tr>
-      <tr><td>Question name (heading if combos)</td><td>Data element </td><td>alternativeName if it exists, otherwise name</td></tr>
-      <tr><td>Question name if combos</td><td>Category option combo</td><td>name</td></tr>
+      <table border="2">
+        <caption>Names for form elements are derived in the following way</caption>
+        <tr>
+          <td>Form name</td>
+          <td>Data set</td>
+          <td>ShortName if it exists, otherwise name</td>
+        </tr>
+        <tr>
+          <td>Page name</td>
+          <td>Section</td>
+          <td>Section name (or form name if no sections)</td>
+        </tr>
+        <tr>
+          <td>Question name (heading if combos)</td>
+          <td>Data element </td>
+          <td>alternativeName if it exists, otherwise name</td>
+        </tr>
+        <tr>
+          <td>Question name if combos</td>
+          <td>Category option combo</td>
+          <td>name</td>
+        </tr>
       </table>
     </section>
     <section>
@@ -79,14 +90,30 @@
         version on the server, data sets are automatically versioned when you edit the data set structure.</para>
       <itemizedlist>
         <title>Changes that currently trigger a new data set version</title>
-        <listitem><para>Create DataSet</para></listitem>
-        <listitem><para>Edit DataSet</para></listitem>
-        <listitem><para>Create/edit/delete Section in DataSet</para></listitem>
-        <listitem><para>Sort Section Order</para></listitem>
-        <listitem><para>Update DataElement (affect many related DataSets)</para></listitem>
-        <listitem><para>Delete DataElement (affect many related DataSets)</para></listitem>
-        <listitem><para>Edit DataElement Category</para></listitem>
-        <listitem><para>Edit DataElement Category Combo</para></listitem>
+        <listitem>
+          <para>Create DataSet</para>
+        </listitem>
+        <listitem>
+          <para>Edit DataSet</para>
+        </listitem>
+        <listitem>
+          <para>Create/edit/delete Section in DataSet</para>
+        </listitem>
+        <listitem>
+          <para>Sort Section Order</para>
+        </listitem>
+        <listitem>
+          <para>Update DataElement (affect many related DataSets)</para>
+        </listitem>
+        <listitem>
+          <para>Delete DataElement (affect many related DataSets)</para>
+        </listitem>
+        <listitem>
+          <para>Edit DataElement Category</para>
+        </listitem>
+        <listitem>
+          <para>Edit DataElement Category Combo</para>
+        </listitem>
       </itemizedlist>
     </section>
     <section>
@@ -97,11 +124,144 @@
   </section>
   <section>
     <title>Mobile application setup</title>
-    <para></para>
+    <para/>
     <section>
       <title>Installation and initialization</title>
       <para>....
     </para>
+    </section>
+    <section>
+      <title>Community Reporting</title>
+      <section>
+        <title>Regular Use</title>
+        <orderedlist>
+          <listitem>
+            <para>Activity Main Menu</para>
+            <para><graphic fileref="resources/images/dhis_mobile/activity_main_menu.png" align="center"/></para>
+            <para><itemizedlist>
+                <listitem>
+                  <para>Current Activity Plan: contain all new Activities that need to be complete.</para>
+                </listitem>
+                <listitem>
+                  <para>Completed Activity Plan: contain all the activities that have been completed and sent to server. This list is for review only.</para>
+                </listitem>
+                <listitem>
+                  <para>Update Activity Plan: update the list of new Activities.</para>
+                </listitem>
+                <listitem>
+                  <para>Update Program Form: synchronize the Program form structure between server and mobile client.</para>
+                </listitem>
+              </itemizedlist></para>
+          </listitem>
+          <listitem>
+            <para>Choose Village</para>
+            <para><graphic fileref="resources/images/dhis_mobile/choose_village.png" align="center"/></para>
+            <para>From Activity main menu, select “Current Activity Plan”. You will be navigated to “Grampanchayat Name” screen where you can select the village. Use the “Up” or “Down” button on your mobile phone to focus on a village. Use “Select” button to select a village.</para>
+          </listitem>
+          <listitem>
+            <para>Choose Activity</para>
+            <para><graphic fileref="resources/images/dhis_mobile/choose_activity.png" align="center"/></para>
+            <para>Each Activity is represented by the name of the Beneficiary.  Select the name of the beneficiary you want to view. Note that the name start with “*” means that this is a late Activity.</para>
+          </listitem>
+          <listitem>
+            <para>Beneficiary Detail</para>
+            <para><graphic fileref="resources/images/dhis_mobile/beneficiary_detail_screen.png" align="center"/></para>
+            <para>After you select an activity, a Beneficiary Detail screen will be displayed.  The detail screen may contain personal information and some additional information of the Beneficiary (depends on the setting from server). Select “OK” to go to the Entry screen.</para>
+          </listitem>
+          <listitem>
+            <para>Fill in values (Entry screen)</para>
+            <para><graphic fileref="resources/images/dhis_mobile/fill_in_values.png" align="center"/></para>
+            <para>On the top of the screen is the name of the Program Stage. Below is the form, a form include many fields for user to input data. Focus on a field by press the “Up” or “Down” button on your mobile phone. After the field is focused, you can start entering data. Press the “Up” or “Down” button to go to the next field. At the bottom is the menu with &quot;Save&quot;, &quot;Complete&quot; and &quot;Back&quot; command. </para>
+            <para><graphic fileref="resources/images/dhis_mobile/popup_window.png" align="center"/></para>
+            <para><emphasis role="bold">*Notes:</emphasis><itemizedlist>
+                <listitem>
+                  <para>For the field with Yes/No value: press the select button on a focused field to open the popup menu then you can select “Yes”, “No” or “Select Option”. Select “Select Option” means that you have no data for that field.</para>
+                </listitem>
+                <listitem>
+                  <para>For the field with pre-suggested values: press the select button to open the popup menu then you can choose one of the options. Select “Select Option” means that you have no data for that field..</para>
+                </listitem>
+                <listitem>
+                  <para>For date-type field: the input format is [date]-[month]-[year].</para>
+                </listitem>
+              </itemizedlist></para>
+          </listitem>
+          <listitem>
+            <para>Saving/Completing.</para>
+            <para>After finish step [4], you can choose either “Save” or “Complete” to finish your work.<itemizedlist>
+                <para><graphic fileref="resources/images/dhis_mobile/save_command.png" align="center"/></para>
+                <listitem>
+                  <para><emphasis role="bold">Save</emphasis>: you may want to use this option if you have not finished your work yet and you want to store the data to continue later.<itemizedlist>
+                      <listitem>
+                        <para>Select “Menu” or “Option” at the bottom of your screen (The name “Menu” or “Option” depend on your mobile phone) and then select “Save”. A success message (“Form Saved”) will be display. Select “Done” or “Dismiss” to go back to Entry Screen.</para>
+                      </listitem>
+                      <listitem>
+                        <para>Your data will not be sent to server. It is stored in the Record Store of your mobile phone. To see the data again. Go back to step [2] and select the name of the Beneficiary that you have just entered data. Repeat step [3] and [4]. If you feel that you are ready to send data to server. Select “Complete”.</para>
+                      </listitem>
+                    </itemizedlist></para>
+                  <para><graphic fileref="resources/images/dhis_mobile/complete_command.png" align="center"/></para>
+                </listitem>
+                <listitem>
+                  <para><emphasis role="bold">Complete</emphasis>: you may use this option when you fill the entire field on the form and make sure that your data is correct.
+      </para>
+                  <para><itemizedlist>
+                      <listitem>
+                        <para>Select “Menu” or “Option” at the bottom of your screen (The name “Menu” or “Option” depend on your mobile phone) and then select “Complete”. </para>
+                      </listitem>
+                      <listitem>
+                        <para>If you did not fill all the field in the form, a warning message will be display “x fields is not filled. Do you want to complete anyway?” With x is the number of empty field(s). Select “Yes” if you want to send data to server, select “No”, if you do not want to send and go back to Entry screen again. </para>
+                      </listitem>
+                      <listitem>
+                        <para>After select “Yes”, a security message will appear and inform that the application will connect to server. Select “Yes” to give the permission for the application to do so.</para>
+                        <para><graphic fileref="resources/images/dhis_mobile/security_message.png" align="center"/></para>
+                      </listitem>
+                      <listitem>
+                        <para>User will receive a success message: “Activity uploaded successfully”.</para>
+                        <para><graphic fileref="resources/images/dhis_mobile/success_message.png" align="center"/></para>
+                      </listitem>
+                      <listitem>
+                        <para>A finished activity (activity that is completed and data is send to server) will be move to &quot;Completed Activity&quot; and it will be display as &quot;Uneditable Form&quot;. User can go to &quot;Completed Activity&quot; at &quot;Activity Main Menu&quot; to review.</para>
+                      </listitem>
+                    </itemizedlist></para>
+                </listitem>
+              </itemizedlist></para>
+          </listitem>
+        </orderedlist>
+      </section>
+      <section>
+        <title>Updating Activity Plan</title>
+        <para>After one year, month or week, new Activities may automatically generated from server. In order to update these new Activities to mobile client, the following process is required.</para>
+        <para><graphic fileref="resources/images/dhis_mobile/update_activity_plan_command.png" align="center"/></para>
+        <orderedlist>
+          <listitem>
+            <para>Select “Update Activity Plan”</para>
+            <para>From Activity Main Menu, select “Update Activity Plan”. </para>
+          </listitem>
+          <listitem>
+            <para>Please wait</para>
+            <para>A wait screen will be displayed with a message “Please wait”. </para>
+          </listitem>
+          <listitem>
+            <para>Success Message</para>
+            <para>“Update Completed” message will appear on the screen after the update process finish. Select ”Dismiss” to close this window and go back to Activity Main Menu. Your Current Activity Plan is now updated.</para>
+          </listitem>
+        </orderedlist>
+      </section>
+      <section>
+        <title>Updating Program Form</title>
+        <para>For various reasons, some times the Program Stage Form may be changed by server admin (add or remove some data element). In that case, you need to run the “Update Program Form” function in order to synchronize the form structure between server and mobile client. </para>
+        <para><graphic fileref="resources/images/dhis_mobile/update_program_form_command.png" align="center"/></para>
+        <orderedlist>
+          <listitem>
+            <para>Select “Update Program Form”</para>
+            <para>Form Activity Main Menu selects “Update Program Form”.</para>
+          </listitem>
+          <listitem>
+            <para>Success Message</para>
+            <para>“Update completed” message will appear on the screen. Select “Dismiss” to close this window and go back to Activity Main Menu. All of your Program Stage Form on your mobile phone is now updated.</para>
+          </listitem>
+        </orderedlist>
+        <para><emphasis role="bold">*Note</emphasis>: When a data element removed due to the changing of form structure, all data value that related to this data element will be hiding also. You are no longer seeing the value in the form. </para>
+      </section>
     </section>
   </section>
 </section>

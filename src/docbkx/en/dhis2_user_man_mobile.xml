@@ -9,7 +9,7 @@
       data collection system. Using a simple Java client installed on a mobile phone, field workers
       can report directly to DHIS2 instance. </para>
     <para>While mobile phone solutions have a great potential, it is also an area that can be
-      difficult to "get right". Phones lack processing power and have a small display,
+      difficult to &quot;get right&quot;. Phones lack processing power and have a small display,
       need to be
       charged and often makes the most sense in areas where mobile network coverage is weak and
       patchy.</para>
@@ -17,7 +17,7 @@
       as well as look at other possible solutions:</para>
     <itemizedlist>
       <listitem>
-        <para>New "generic" solution</para>
+        <para>New &quot;generic&quot; solution</para>
         <para>A solution that allows for forms to be updated on the phone and also supports
           community module reporting, but is relying on the phone having a data connection to the
           web.</para>
@@ -31,10 +31,7 @@
       </listitem>
     </itemizedlist>
   </section>
-
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_mobile_web_based.xml" encoding="UTF-8"/>
-
-
   <section>
     <title>SMS based solution</title>
     <para>With the SMS solution, the forms filled in on the phone is
@@ -59,8 +56,7 @@
             Download the latest source code from
             launchpad, i.e. the DHIS2 trunk source
             code from
-            <ulink url="https://code.launchpad.net/~dhis2-devs-core/dhis2/trunk">
-              https://code.launchpad.net/~dhis2-devs-core/dhis2/trunk</ulink>
+            <ulink url="https://code.launchpad.net/~dhis2-devs-core/dhis2/trunk"> https://code.launchpad.net/~dhis2-devs-core/dhis2/trunk</ulink>
           </para>
         </listitem>
         <listitem>
@@ -69,8 +65,7 @@
             DHIS2 as normal, by running
             <code>mvn clean install</code>
             (to skip tests, use
-            <code>mvn clean install -Dtest=false
-              -DfailIfNoTests=false</code>
+            <code>mvn clean install -Dtest=false -DfailIfNoTests=false</code>
             ) in the dhis-2 and
             dhis-2\dhis-web folders.
           </para>
@@ -100,8 +95,7 @@
         <listitem>
           <para>
             Build the portal (
-            <code>mvn clean
-              install</code>
+            <code>mvn clean install</code>
             in the dhis-web-portal folder)
           </para>
         </listitem>
@@ -122,9 +116,7 @@
             in your modem and install the drivers. You might have to use the
             manufacturer&apos;s
             provided drivers from a CD or their web page.
-            <emphasis>You might need administrator privileges to do this. If you still can&apos;t
-              do
-              it, try starting Windows in Safe Mode.</emphasis>
+            <emphasis>You might need administrator privileges to do this. If you still can&apos;t do it, try starting Windows in Safe Mode.</emphasis>
           </para>
         </listitem>
         <listitem>
@@ -156,8 +148,7 @@
             folder.
           </para>
           <para>
-            <emphasis>Note: You might need administrator privileges to do this. If you still
-              can&apos;t do it, try starting Windows in Safe Mode.</emphasis>
+            <emphasis>Note: You might need administrator privileges to do this. If you still can&apos;t do it, try starting Windows in Safe Mode.</emphasis>
           </para>
         </listitem>
         <listitem>
@@ -192,17 +183,7 @@
             assigned to
             the modem.</para>
           <para>
-            <emphasis>Important: Note that if you install the modem into another usb port
-              another
-              time, the port will change, and you will have to update the settings. If
-              you for some
-              reason need to take the modem out of your computer, make sure
-              you&apos;ll install it
-              in
-              the same usb port as last time, or else you&apos;ll have
-              to update the
-              SMSserver.conf
-              file.</emphasis>
+            <emphasis>Important: Note that if you install the modem into another usb port another time, the port will change, and you will have to update the settings. If you for some reason need to take the modem out of your computer, make sure you&apos;ll install it in the same usb port as last time, or else you&apos;ll have to update the SMSserver.conf file.</emphasis>
           </para>
         </listitem>
         <listitem>
@@ -231,11 +212,7 @@
             <screen>1 = 652.207, 652,208, 20485.271, 20485.272, 683.14</screen>
           </para>
           <para>
-            <emphasis>Note: If the same mobile application is installed on several phones, the
-              id for
-              each application is the same! The formIDLayout.csv file should thus only
-              have one line,
-              starting with 1 = .</emphasis>
+            <emphasis>Note: If the same mobile application is installed on several phones, the id for each application is the same! The formIDLayout.csv file should thus only have one line, starting with 1 = .</emphasis>
           </para>
         </listitem>
       </itemizedlist>
