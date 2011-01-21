@@ -127,8 +127,138 @@
     <para/>
     <section>
       <title>Installation and initialization</title>
-      <para>....
-    </para>
+      <section>
+        <title>Installation</title>
+      </section>
+      <section>
+        <title>Initialization</title>
+        <para>Initialization is executed before mobiles delivered to Health Workers and it is only required once. For Health Worker, first screen after start application is PIN form. In case of delivering mobile to other Health Worker (other organisation unit), reinitialization function will clear all data. </para>
+        <para>There are four steps:</para>
+        <orderedlist>
+          <listitem>
+            <para>Login to Application: </para>
+            <para>Through this setp, the mobile&apos;s user is definied. One mobile is only registered for one Health Worker. We login with the Health Worker&apos;s username in DHIS System. The mobile only download the forms that assigned to the Health Worker in DHIS System.</para>
+            <para>Required fields: Username, Password, Server Localtion - URL of DHIS System. All fields are required.</para>
+            <para>After filling all fields, push &quot;Login&quot;. If there is confirmation of access the restricted API, push &quot;Yes&quot;</para>
+            <para><emphasis role="underline">Error:</emphasis></para>
+            <para><itemizedlist>
+                <listitem>
+                  <para>Connection Not Found: the Server Location is incorrect</para>
+                </listitem>
+                <listitem>
+                  <para>Invalid User Name Or Password: the username or password is incorrect</para>
+                </listitem>
+                <listitem>
+                  <para>Application not authorized to access restricted API: user push &quot;No&quot; at the comfirmation of access the restricted API after push &quot;Login&quot;.</para>
+                </listitem>
+              </itemizedlist> </para>
+          </listitem>
+          <listitem>
+            <para>Set default PIN: PIN is 4-digit number which is used to protect application from unauthorized access. This PIN is required and persistent. It will be delivered to Health Worker with mobile.</para>
+            <para>After input PIN, push &quot;Next&quot;</para>
+          </listitem>
+          <listitem>
+            <para>Download all Forms: After input PIN, all forms will be download and display.</para>
+            <para>If the Health Worker is responsible for Facility Reporting, the list of forms is displayed.</para>
+            <para>If the Health Worker is responsible for Community Reporting, the list of activity is displayed.</para>
+            <para><emphasis role="underline">Notes</emphasis>: If the Health Worker is responsible for both Facility Reporting and Community Reporting, DHIS server will send all forms of both Facility Reporting and Community Reporting to mobile and on mobile, there will be a screen to choose whether displaying Facility Reporting or Community Reporting.</para>
+            <para><emphasis role="underline">Errors</emphasis>:</para>
+          </listitem>
+        </orderedlist>
+      </section>
+    </section>
+    <section>
+      <title>Logging in (for regular use)</title>
+      <para>After starting the application, the PIN form is displayed</para>
+      <itemizedlist>
+        <listitem>
+          <para>PIN: 4-digit number provided with mobile.</para>
+        </listitem>
+        <listitem>
+          <para>Reinitialize Command: this function will clear all data on mobile and we start from the login screen with username and password.</para>
+        </listitem>
+        <listitem>
+          <para>Errors: Invalid PIN</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section>
+      <title>Facility Reporting Module</title>
+      <section>
+        <title>Regular Use</title>
+        <orderedlist>
+          <listitem>
+            <para>Choosing forms</para>
+          </listitem>
+          <listitem>
+            <para>Choosing period: Push &quot;Open&quot; to display list of period and push &quot;Next&quot;</para>
+          </listitem>
+          <listitem>
+            <para>Fill in values: After choosing period, the form is displayed in two way.</para>
+            <itemizedlist>
+              <listitem>
+                <para>Form with section (DataSet with Section)</para>
+                <para>Each Section is displayed in one screen with title is section&apos;s name.</para>
+                <para>To move among screen, push &quot;Next&quot;.</para>
+              </listitem>
+              <listitem>
+                <para>Form without section (DataSet without Section)</para>
+                <para>All fields are displayed on one screen with the title that is the name of DataSet</para>
+              </listitem>
+            </itemizedlist>
+          </listitem>
+          <listitem>
+            <para>Save and Complete:</para>
+            <para>After finishing, there are two options. Save is locally storing the values on mobile. Complete is storing the values on mobile and sending the values to DHIS server. Completing form will make it uneditable for the next view.</para>
+          </listitem>
+        </orderedlist>
+      </section>
+      <section>
+        <title>Notes</title>
+        <orderedlist>
+          <listitem>
+            <para>Period list:</para>
+            <para>Period with (*) is the period that is completed (the form for that period is filled and completed).</para>
+            <para>The list of period also present the forms are currently stored on mobile. All periods that are not in period list are considered old  and will be deleted automatically.</para>
+          </listitem>
+          <listitem>
+            <para>Storing values duration</para>
+            <para>The number of saved forms on mobile are unlimited.
+</para>
+            <para>Forms are saved for limited period. This is the storing period for differents form’s types</para>
+            <itemizedlist>
+              <listitem>
+                <para>Daily Forms: 2 months (current and previous month)</para>
+              </listitem>
+              <listitem>
+                <para>Weekly Forms: 4 weeks (current and 3 previous week)</para>
+              </listitem>
+              <listitem>
+                <para>Monthly Forms: 2 months (current and previous month)</para>
+              </listitem>
+              <listitem>
+                <para>Quarterly Forms: 2 quarters (current and previous quarter)</para>
+              </listitem>
+              <listitem>
+                <para>Yearly Forms: 2 years (current and previous year)</para>
+              </listitem>
+            </itemizedlist>
+          </listitem>
+          <listitem>
+            <para>Completed forms - Uneditable forms</para>
+            <para>Form has been completed is displayed as uneditable form for next </para>
+          </listitem>
+          <listitem>
+            <para>Re-Edit completed forms</para>
+            <para>Even after complete form, HW are able to edit the value and resend (complete form) to server with the condition that certain pair of DataSet and Period is not locked.</para>
+          </listitem>
+          <listitem>
+            <para>Update Forms:</para>
+            <para>This function is used to synchronize the forms on mobile and on server. </para>
+            <para>On the list of forms, push &quot;Update report forms&quot; to update.</para>
+          </listitem>
+        </orderedlist>
+      </section>
     </section>
     <section>
       <title>Community Reporting</title>
