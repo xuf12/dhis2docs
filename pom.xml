@@ -54,7 +54,6 @@
                     <include name="**/*.css"/>
                   </fileset>
                 </copy>
-                <!-- delete the file to force the regeneration in the next phase -->
                 <delete file="target/docbkx/html/dhis2_user_manual_en.html"/>
               </postProcess>
             </configuration>
@@ -105,26 +104,6 @@
             </configuration>
           </execution>
           <execution>
-            <id>xhtml-docs-en</id>
-            <phase>package</phase>
-            <goals>
-              <goal>generate-xhtml</goal>
-            </goals>
-            <configuration>
-              <includes>dhis2_user_manual_en.xml</includes>
-              <sourceDirectory>${docbook.source}/en/</sourceDirectory>
-              <xhtmlCustomization>${docbook.source}/en/resources/xsl/html-inline-help.xsl</xhtmlCustomization>
-              <postProcess>
-                <move file="target/docbkx/xhtml/dhis2_user_manual_en.xhtml" tofile="target/docbkx/xhtml/dhis2_user_manual_full.xhtml"/>
-                <copy todir="${docbook.target}/en/">
-                  <fileset dir="target/docbkx/">
-                    <include name="**/dhis2_user_manual_full.xhtml"/>
-                  </fileset>
-                </copy>
-              </postProcess>
-            </configuration>
-          </execution>
-          <execution>
             <id>chunked-html-docs-vn</id>
             <phase>package</phase>
             <goals>
@@ -137,8 +116,7 @@
               <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
               <chunkedOutput>true</chunkedOutput>
               <includes>dhis2_user_manual_vn.xml</includes>
-              <sourceDirectory>${docbook.source}/vn/</sourceDirectory>
-              
+              <sourceDirectory>${docbook.source}/vn/</sourceDirectory>              
               <postProcess>
                 <copy todir="${docbook.target}/vn/">
                   <fileset dir="target/docbkx/">
@@ -157,7 +135,6 @@
                     <include name="**/*.css"/>
                   </fileset>
                 </copy>
-                <!-- delete the file to force the regeneration in the next phase -->
 		<delete file="target/docbkx/html/dhis2_user_manual_vn.html"/>
               </postProcess>
             </configuration>
@@ -197,10 +174,10 @@
 			<fonts>
 				<font>
 					<name>DejaVu Sans</name>
-						<style>normal</style>
-						<weight>normal</weight>
-						<embedFile>${project.basedir}/src/fonts/DejaVuSans.ttf</embedFile>
-						<metricsFile>${project.basedir}/target/fonts/DejaVuSans-metrics.xml</metricsFile>
+					<style>normal</style>
+					<weight>normal</weight>
+					<embedFile>${project.basedir}/src/fonts/DejaVuSans.ttf</embedFile>
+					<metricsFile>${project.basedir}/target/fonts/DejaVuSans-metrics.xml</metricsFile>
 				</font>
 			  </fonts>
               <argLine>-Xmx1024m</argLine>
@@ -212,26 +189,6 @@
                 <copy todir="target/site/vn">
                   <fileset dir="target/docbkx/">
                     <include name="**/*.pdf"/>
-                  </fileset>
-                </copy>
-              </postProcess>
-            </configuration>
-          </execution>
-          <execution>
-            <id>xhtml-docs-vn</id>
-            <phase>package</phase>
-            <goals>
-              <goal>generate-xhtml</goal>
-            </goals>
-            <configuration>
-              <includes>dhis2_user_manual_vn.xml</includes>
-              <sourceDirectory>${docbook.source}/vn/</sourceDirectory>
-	      <xhtmlCustomization>${docbook.source}/vn/resources/xsl/html-inline-help.xsl</xhtmlCustomization>
-              <postProcess>
-                <move file="target/docbkx/xhtml/dhis2_user_manual_vn.xhtml" tofile="target/docbkx/xhtml/dhis2_user_manual_full.xhtml"/>
-                <copy todir="${docbook.target}/vn/">
-                  <fileset dir="target/docbkx/">
-                    <include name="**/dhis2_user_manual_full.xhtml"/>
                   </fileset>
                 </copy>
               </postProcess>
