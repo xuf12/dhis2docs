@@ -1,0 +1,116 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
+<chapter>
+  <title>Introduction to indicators</title>
+  <para>When the ‘Data Elements and Indicators’ options is chosen from the main Maintenance menu, the following screen appears:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata width="100%" fileref="resources/images/maintainence/data_element_main.png" format="PNG"/>
+      </imageobject>
+    </mediaobject>
+  </screenshot>
+  <para>From the left side menu or by scrolling down the central area you can access the various sections on Indicators; </para>
+  <para>Indicator, Indicator Type, Indicator Group, Indicator Group Editor, and Indicator Group Set. </para>
+  <section id="indicator">
+    <title>Indicators</title>
+    <para>Indicators are composed of multiple data elements, and typically consist of a numerator and a denominator. Indicators are never entered in DHIS 2, but instead  calculated from the raw data registered in the system, based on the indicator formulas. Indicators are used to calculate i.e. coverage rates, incidence, ratios  and other calculated values which are more useful for data analysis than the raw data described by data elements.  </para>
+    <para>To access the Indicator maintains page, press Maintenance -&gt; Data Element and Indicators -&gt; Indicator from the main DHIS2 menu. You can add, delete, modify and view extra information about the indicators in the system using the icons next to each indicator in the list.</para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="100%" fileref="resources/images/maintainence/indicator_maintenance_main.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>Indicators can be filtered by entering the name or a part of the indicator name in the &quot;Filter by name&quot; field. Similar to data elements, indicators can be added by pressing the &quot;Add new&quot; button. Other operations available from this menu are as follows. </para>
+    <itemizedlist>
+      <listitem>
+        <para><inlinegraphic fileref="resources/images/dhis2_images/edit.png"/> Edit an existing indicator. </para>
+      </listitem>
+      <listitem>
+        <para><inlinegraphic fileref="resources/images/dhis2_images/i18n.png"/> Translate an existing indicator. </para>
+      </listitem>
+      <listitem>
+        <para><inlinegraphic fileref="resources/images/dhis2_images/delete.png"/> Delete an existing indicator. </para>
+      </listitem>
+      <listitem>
+        <para><inlinegraphic fileref="resources/images/dhis2_images/information.png"/> Get detailed information about this indicator. </para>
+      </listitem>
+    </itemizedlist>
+    <para>To add a new indicator, click the &quot;Add new&quot; button. The following screen is displayed. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="100%" fileref="resources/images/maintainence/indicator_add.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>Each of the fields marked with an asterisk are compulsory. A description of each field is provided below. </para>
+    <itemizedlist>
+      <listitem>
+        <para>Name: The full name of the indicator, such as &quot;Incidence of confirmed malaria cases per 1000 population&quot;</para>
+      </listitem>
+      <listitem>
+        <para>Short name: An abbreviated name of the indicator such as &quot;Inc conf. malaria per 1000 pop&quot;</para>
+      </listitem>
+      <listitem>
+        <para>Alternative name: An additional field for a possible alternative name of the indicator. </para>
+      </listitem>
+      <listitem>
+        <para>Code: In many countries, indicator are often assigned a particular code which can be entered here. </para>
+      </listitem>
+      <listitem>
+        <para>Description: A brief, informative description of the indicator and how it is calculated can be entered here. </para>
+      </listitem>
+      <listitem>
+        <para>Annualized: Determines whether or not an annualization factor is applied during the calculation of the indicator. Typically, annualized indicator numerators are multiplied by a factor of 12, and the denominator is  a yearly population figure. This allows for monthly coverage values to be calculated with yearly population figures.</para>
+      </listitem>
+      <listitem>
+        <para>Type: This field will determine a factor that will automatically be applied during the calculation of the indicator. Possible choices are determined by the Indicator Types (described below). For instance, a &quot;Percent&quot; indicator will automatically be multiplied by a factor of 100 when aggregated, so that it will display as a percentage. </para>
+      </listitem>
+      <listitem>
+        <para>URL: Can be used as a link to an indicator registry, where a full metadata description of the indicator can be made available. </para>
+      </listitem>
+    </itemizedlist>
+    <para>To define the numerator and denominator, simply press the respective button, and the following dialogue will be displayed. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="100%" fileref="resources/images/maintainence/indicator_numerator_denominator.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>Essentially, an indicator is a formula that can be composed of multiple data element, constant factors, and mathematical operators. In order to define a new indicator proceed with the following steps.  </para>
+    <orderedlist>
+      <listitem>
+        <para>Provide a description of the numerator  in the &quot;Description field&quot;. </para>
+      </listitem>
+      <listitem>
+        <para>Choose the aggregation operator, either as a SUM or AVERAGE. </para>
+      </listitem>
+      <listitem>
+        <para>Define the formula of the indicator by selecting the data elements that should compose the numerator from the &quot;Data elements&quot; list. Simply double click on a data element and it will appear in the formula. The formula must be mathematically valid, including the proper use of parentheses when necessary. Double click on each of the mathematical operator buttons below the indicator formula definition  to add them to your formula. Once you click outside the formula window the Description field below will be updated. </para>
+      </listitem>
+      <listitem>
+        <para>Once you can see that the description field below the formula has been updated and you are done with your formula, you can click the Save button to save all changes to the numerator. Click Cancel to discard any changes that you have made. </para>
+      </listitem>
+      <listitem>
+        <para>Follow the same procedure in order to define the denominator. </para>
+      </listitem>
+    </orderedlist>
+  </section>
+  <section id="indicatorType">
+    <title>Indicator types</title>
+    <para>Indicator types define a factor (e.g. 100 for percentages)  that will be applied during aggregation, and makes sure the system calculated indicator values are pre-formatted and need to further manipulation by the user to get percentages etc.</para>
+    <para>The indicator type maintenance panel has all of the same functions (Add new, Edit, Translate, Delete, and Information) as the Indicator maintenance section. </para>
+    <para>There are only two fields that need to be filled in to create an indicator type, Name and Factor, as seen below. Name refers to the Indicator type (e.g. Per cent, Per thousand, Per ten thousand, etc). The factor is the numeric factor that will be applied during the calculation of the indicator. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="100%" fileref="resources/images/maintainence/indicator_type.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </section>
+</chapter>

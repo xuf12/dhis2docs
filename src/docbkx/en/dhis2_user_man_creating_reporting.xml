@@ -1,11 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
-  <title>Reporting</title>
-  <section>
-    <title>Reporting options</title>
-    <para>The reporting module in DHIS 2 provides a range of reporting alternatives, including canned reports using either JasperReports or BIRT, data set reports, charts, pivot tables and report tables.</para>
-  </section>
+  <title>Setting up report functionality</title>
   <section>
     <title>Data sources for reporting</title>
     <section>
@@ -29,7 +25,7 @@ In the bigger picture of HIS terminology all data in DHIS are usually called agg
           </listitem>
           <listitem>
             <para>
-    <emphasis>Period and Period type</emphasis> are used to specify the time dimension of the raw or aggregated values, and data can be aggregated from one period type to another, e.g from monthly to quarterly, or daily to monthly. Each data value has one period and that period has one period type. E.g data values for the periods Jan, Feb, and Mar 2009, all of the monthly period type can be aggregated together to an aggregated data value with the period “Q1 2009” and period type “Quarterly”.
+    <emphasis>Period and Period type</emphasis> are used to specify the time dimension of the raw or aggregated values, and data can be aggregated from one period type to another, e.g from monthly to quarterly, or daily to monthly. Each data value has one period and that period has one period type. E.g data values for the periods Jan, Feb, and Mar 2009, all of the monthly period type can be aggregated together to an aggregated data value with the period Q1 2009 and period type Quarterly.
    </para>
           </listitem>
         </itemizedlist>
@@ -40,14 +36,14 @@ In the bigger picture of HIS terminology all data in DHIS are usually called agg
           <title>What is added together</title>
           <para>Data (raw) can be registered at any organisational level, e.g. at at national hospital at level 2, a health facility at level 5, or at a bigger PHC at level 4. This varies form country to country, but DHIS is flexible in allowing data entry or data import to take place at any level. This means that orgunits that themselves have children can register data, sometimes the same data elements as their children units. The basic rule of aggregation in DHIS 2 is that <emphasis>all raw data is aggregated together</emphasis>, meaning data registered at a facility on level 5 is added to the data registered for a PHC at level 4.</para>
           <para>
-It is up to the user/system administrator/designer to make sure that no duplication of data entry is taking place and that e.g. data entered at level 4 are not about the same services/visits that are reported by orgunit children at level 5. NOTE that in some cases you want to have “duplication” of data in the system, but in a controlled manner. E.g. when you have two different sources of data for population estimates, both level 5 catchment population data and another population data source for level 4 based on census data (because sum of level 5 catchments is not always the same as level 4 census data). Then you can specify using advanced aggregation settings (see further down) that the system should e.g. not add level 5 population data to the level 4 population data, and that level 3,2,1 population data aggregates are only based on level 4 data and does not include level 5 pop data.</para>
+It is up to the user/system administrator/designer to make sure that no duplication of data entry is taking place and that e.g. data entered at level 4 are not about the same services/visits that are reported by orgunit children at level 5. NOTE that in some cases you want to have duplication of data in the system, but in a controlled manner. E.g. when you have two different sources of data for population estimates, both level 5 catchment population data and another population data source for level 4 based on census data (because sum of level 5 catchments is not always the same as level 4 census data). Then you can specify using advanced aggregation settings (see further down) that the system should e.g. not add level 5 population data to the level 4 population data, and that level 3,2,1 population data aggregates are only based on level 4 data and does not include level 5 pop data.</para>
         </section>
         <section>
           <title>How data gets added together</title>
           <para>How data is aggregated depends on the dimension of aggregation (see further down).</para>
           <para>Along the orgunit level dimension data is always summed up, simply added together. Note that raw data is never percentages, and therefore can be summed together. Indicator values that can be percentages are treated differently (re-calculated at each level, never summed up).</para>
           <para>
-Along the time dimension there are several possibilities, the two most common ways to aggregate are sum and average. The user can specify for each data element which method to use by setting the aggregation operator (see further down). Monthly service data are normally summed together over time, e.g. the number of vaccines given in a year is the sum of the vaccines given for each month of that year. For population, equipment, staff and other kind of what is often called semi-permanent data the average method is often the one to use, as, e.g. “number of nurses” working at a facility in a year would not be the sum of the two numbers reported in the six-monthly staffing report, but rather the average of the two numbers. More details further down under “aggregation operators”. 
+Along the time dimension there are several possibilities, the two most common ways to aggregate are sum and average. The user can specify for each data element which method to use by setting the aggregation operator (see further down). Monthly service data are normally summed together over time, e.g. the number of vaccines given in a year is the sum of the vaccines given for each month of that year. For population, equipment, staff and other kind of what is often called semi-permanent data the average method is often the one to use, as, e.g. &apos;number of nurses&apos; working at a facility in a year would not be the sum of the two numbers reported in the six-monthly staffing report, but rather the average of the two numbers. More details further down under &apos;aggregation operators&apos;. 
 </para>
         </section>
       </section>
@@ -55,22 +51,22 @@ Along the time dimension there are several possibilities, the two most common wa
         <title>Dimensions of aggregation</title>
         <section>
           <title>Organisational units and levels</title>
-          <para>Organisational units are used to represent the &quot;where&quot; dimension associated with data values. In DHIS2, organisational units are arranged in a hierarchy, which typically corresponds to the hierarchical nature of the organisation or country. Organisational unit levels correspond to the distinct levels within the hierarchy. For instance, a country maybe organized into provinces, then districts, then facilities, and then sub-centers. This organisational hierarchy would have five levels. Within each level, a number of organisational units would exist. During the aggregation process, data is aggregated from the lower organisational unit levels to higher levels. Depending on the aggregation operator, data may be &quot;summed&quot; or &quot;averaged&quot; within a given organisational unit level, to derive the aggregate total for all the organisational units that are contained within a higher level organisational unit level. For instance, if there are ten districts contained in a province and the aggregation operator for a given data element has been defined as &quot;SUM&quot;,  the aggregate total for the province would be calculated as the sum of the values of the individual ten distrincts contained in that province.</para>
+          <para>Organisational units are used to represent the &apos;where&apos; dimension associated with data values. In DHIS2, organisational units are arranged in a hierarchy, which typically corresponds to the hierarchical nature of the organisation or country. Organisational unit levels correspond to the distinct levels within the hierarchy. For instance, a country maybe organized into provinces, then districts, then facilities, and then sub-centers. This organisational hierarchy would have five levels. Within each level, a number of organisational units would exist. During the aggregation process, data is aggregated from the lower organisational unit levels to higher levels. Depending on the aggregation operator, data may be &apos;summed&apos; or &apos;averaged&apos; within a given organisational unit level, to derive the aggregate total for all the organisational units that are contained within a higher level organisational unit level. For instance, if there are ten districts contained in a province and the aggregation operator for a given data element has been defined as &apos;SUM&apos;,  the aggregate total for the province would be calculated as the sum of the values of the individual ten distrincts contained in that province.</para>
         </section>
         <section>
           <title>Period</title>
-          <para>Periods are used to represent the &quot;when&quot; dimension associated with data values. Data can easily be aggregated from weeks to months, from months to quarters, and from quarters to years. DHIS2 uses known rules of how these different intervals are contained within other intervals (for instance Quarter 1 2010 is known to contain January 2010, February 2010 an March 2010) in order to aggregate data from smaller time intervals, e.g. weeks, into longer time intervals, e.g. months. </para>
+          <para>Periods are used to represent the &apos;when&apos; dimension associated with data values. Data can easily be aggregated from weeks to months, from months to quarters, and from quarters to years. DHIS2 uses known rules of how these different intervals are contained within other intervals (for instance Quarter 1 2010 is known to contain January 2010, February 2010 an March 2010) in order to aggregate data from smaller time intervals, e.g. weeks, into longer time intervals, e.g. months. </para>
         </section>
         <section>
           <title>Data Elements and Categories</title>
-          <para>The data element dimension specifies &quot;what&quot; is being recorded by a particular data value. Data element categories are actually degenerate dimensions of the data element dimension, and are used to disaggregate the data element dimension into finer categories. Data element categories, such as &quot;Age&quot; and &quot;Gender&quot;, are used to record a particular data element, typically for differen population groups. These categories can then be used to calculate the overall total for the category  and the total of all categories. </para>
+          <para>The data element dimension specifies &apos;what&apos; is being recorded by a particular data value. Data element categories are actually degenerate dimensions of the data element dimension, and are used to disaggregate the data element dimension into finer categories. Data element categories, such as &apos;Age&apos; and &apos;Gender&apos;, are used to record a particular data element, typically for differen population groups. These categories can then be used to calculate the overall total for the category  and the total of all categories. </para>
         </section>
       </section>
       <section>
         <title>Aggregation operators, methods for aggregation</title>
         <section>
           <title>Sum</title>
-          <para>The &quot;sum&quot; operator simply calcuates the sum of all data values that are contained within a particular aggregation matrix. For instance, if data is recorded on a monthly basis at the district level and is aggregated to provincial quarterly totals, all data contained in all districts for a given province and all weeks for the given quarter will be added together to obtained the aggregate total.</para>
+          <para>The &apos;sum&apos; operator simply calcuates the sum of all data values that are contained within a particular aggregation matrix. For instance, if data is recorded on a monthly basis at the district level and is aggregated to provincial quarterly totals, all data contained in all districts for a given province and all weeks for the given quarter will be added together to obtained the aggregate total.</para>
         </section>
         <section>
           <title>Average</title>
@@ -90,8 +86,8 @@ Along the time dimension there are several possibilities, the two most common wa
         <title>Advanced aggregation settings (aggregation levels)</title>
         <section>
           <title>Aggregation levels</title>
-          <para>The normal rule of the system is to aggregate all raw data together when moving up the organisational hierarchy, and the system assumes that data entry is not being duplicated by entering “the same services provided to the same clients” at both facility level and also entering an “aggregated” (sum of all facilities) number at a higher level. This is to more easily facilitate aggregation when the same services are provided but to different clients/catchment populations at facilities on level 5 and a PHC (the parent of the same facilities) at level 4. In this way a facility at level 5 and a PHC at level 4 can share the same data elements and simply add together their numbers to provide the total of services provided in the geographical area.</para>
-          <para>Sometimes such an aggregation is not desired, simply because it would mean duplicating data about the same population. This is the case when you have two different sources of data for two different orgunit levels. E.g. catchment population for facilities can come from a different source than district populations and therefore the sum of the facility catchment populations do not match the district population provided by e.g. census data. If this is the case we would actually want “duplicated” data in the system so that each level can have as accurate numbers as possible, but then we do NOT want to aggregate these data sources together.
+          <para>The normal rule of the system is to aggregate all raw data together when moving up the organisational hierarchy, and the system assumes that data entry is not being duplicated by entering �the same services provided to the same clients� at both facility level and also entering an &apos;aggregated&apos; (sum of all facilities) number at a higher level. This is to more easily facilitate aggregation when the same services are provided but to different clients/catchment populations at facilities on level 5 and a PHC (the parent of the same facilities) at level 4. In this way a facility at level 5 and a PHC at level 4 can share the same data elements and simply add together their numbers to provide the total of services provided in the geographical area.</para>
+          <para>Sometimes such an aggregation is not desired, simply because it would mean duplicating data about the same population. This is the case when you have two different sources of data for two different orgunit levels. E.g. catchment population for facilities can come from a different source than district populations and therefore the sum of the facility catchment populations do not match the district population provided by e.g. census data. If this is the case we would actually want �duplicated� data in the system so that each level can have as accurate numbers as possible, but then we do NOT want to aggregate these data sources together.
 </para>
           <para>In the Data Element section you can edit data elements and for each of them specify how aggregation is done for each level. In the case described above we need to tell the system NOT to include facility data on population in any of the aggregations above that level, as the level above, in this case the districts have registered their population directly as raw data. The district population data should then be used at all levels above and including the district level, while facility level should use its own data.</para>
         </section>
@@ -103,7 +99,7 @@ Along the time dimension there are several possibilities, the two most common wa
     </section>
     <section>
       <title>Data mart</title>
-      <para>The purpose of the datamart is to provide pre-processed data to external data analysis and reporting tools. The datamart consists of two tables, aggregateddatavalues and aggregatedindicatorvalues in the DHIS2 database. The values in the datamart are aggregated versions of the raw data found in the datavalue table as well as calculated indicator values.. Aggregation can take place over time (e.g. from monthly data to aggregated quarterly values), or place (e.g. from PHU data to aggregated district totals) and the datamart can store all kinds of such aggregated values. The datamart is as such just a processed &quot;copy&quot; of the data values and it can be emptied and regenerated at any time, and the tables are read only tables. The metadata in the two data mart tables are referenced by internal identifiers, such as dataelementid, organisationunitid which refer to the tables like dataelement and organisationunit, see &apos;How to make use of the data mart in external tools&apos; for more on this. How the data is aggregated and what ends up in these two tables is controlled from the Data mart export user interface under the Services submenu.</para>
+      <para>The purpose of the datamart is to provide pre-processed data to external data analysis and reporting tools. The datamart consists of two tables, aggregateddatavalues and aggregatedindicatorvalues in the DHIS2 database. The values in the datamart are aggregated versions of the raw data found in the datavalue table as well as calculated indicator values.. Aggregation can take place over time (e.g. from monthly data to aggregated quarterly values), or place (e.g. from PHU data to aggregated district totals) and the datamart can store all kinds of such aggregated values. The datamart is as such just a processed &apos;copy&apos; of the data values and it can be emptied and regenerated at any time, and the tables are read only tables. The metadata in the two data mart tables are referenced by internal identifiers, such as dataelementid, organisationunitid which refer to the tables like dataelement and organisationunit, see &apos;How to make use of the data mart in external tools&apos; for more on this. How the data is aggregated and what ends up in these two tables is controlled from the Data mart export user interface under the Services submenu.</para>
       <section>
         <title>The data mart export process</title>
         <section>
@@ -228,7 +224,7 @@ A report tables is a data source that can be defined once and then run automatic
           <para><emphasis role="italic">Last 3/6/9/12 months:</emphasis> Relative to the selected reporting month the aggregated value for the previous 3,6,9,or 12 months will be used.
 
 </para>
-          <para><emphasis role="italic">Last 3-6, 6-9, 9-12 months:</emphasis> Used for &quot;rolling quarters&quot; reports. Aggregated 3 months values will be used based on the selected reporting month. E..g if July 2010 is selected the last 3-6 period will be an aggregated period of Feb-April 2010.
+          <para><emphasis role="italic">Last 3-6, 6-9, 9-12 months:</emphasis> Used for &apos;rolling quarters&apos; reports. Aggregated 3 months values will be used based on the selected reporting month. E..g if July 2010 is selected the last 3-6 period will be an aggregated period of Feb-April 2010.
 
 </para>
           <para><emphasis role="italic">Last 12 individual months:</emphasis> Use this for monthly trend analysis. This will give 12 values, one for each of the 12 previous months relative to the chosen reporting month.
@@ -273,7 +269,7 @@ male+&lt;1, male+&gt;1, Female+&lt;1, female+&gt;1, male, female,&lt;1, &gt;1, t
         </section>
       </section>
       <section>
-        <title>Using report tables</title>
+        <title>Report table - best practices</title>
         <para>To make the report tables reusable over time and across orgunits they can have \ parameters. Three types of parameters are allowed; orgunit, parent orgunit (for listing of orgunits in one area) and reporting month. As a side note I can mention that we are looking into expanding this to include reporting quarter and year, or to make that period parameter more generic with regard to period type somehow. Be able to use period as a parameter makes the report table reusable over time and as such fits nicely with report needs such as monthly, quarterly or annual reports. When a report is run by the user in the DHIS 2 the user must specify the values for the report tables that are linked to the report, and first the report table is re-generated (deleted and re-created with updated data) and then the report is run (in BIRT report engine).
 
 </para>
@@ -293,60 +289,13 @@ male+&lt;1, male+&gt;1, Female+&lt;1, female+&gt;1, male, female,&lt;1, &gt;1, t
     </section>
   </section>
   <section>
-    <title>Standard Reports</title>
-    <section>
-      <title>How to create a new standard report</title>
-      <para><emphasis role="bold">Selecting the standard reporting framework in System settings</emphasis></para>
-      <para>In System Settings there is a property called reporting Framework. Two options are currently supported; Jasper Reports and BIRT Reports. When creating and running standard reports the system behave according to this setting, so make sure your report designs match the selected reporting framework. A quick comparison is that Jasper i sfully integrated and requires no extra mainteance while BIRT is run as a separate web application and needs to be deployed and maintained separately, which also adds to the size of the installation package, which can be an important consideration in your project. BIRT has a more user friendly designer than Jasper (Ireport), and both systems are under active development, so stay  updated by following their web pages. Both designers have  more or less the same functionalty.</para>
-      <para><emphasis role="bold">Add a new standard report:</emphasis></para>
-      <para>In Reports module, go to Reports-&gt;Standard Reports and click the left side &apos;Add new&apos; button. Provide a name for the report, upload your design file (.rptdesign or .jrxml) and select the report table(s) you have used in your report. Then Save.</para>
-      <para>NOTE ON DB CONNECTIONS:  all the connection strings in your design file will be automcatilly updated to connect to the database used by the DHIS2 you are uploading to. This means that e.g. you can design reports againts a local copt of the database and upload and use the design on an online server. This of course requires that data elements, indicators, report tables etc. are the same on both databases.</para>
-      <para/>
-    </section>
-    <section>
-      <title>How to run standard reports</title>
-      <para><emphasis role="bold">Running standard reports: (NEED TO BE UPDATED FOR 2.0.5)</emphasis></para>
-      <para>You access the available reports from the Services drop-down menu, by selecting Reports. In the report menu in the left bar, click Standard Report. A list of all pre-defined reports will appear in the main window. </para>
-      <para>SCREENSHOT1</para>
-      <para/>
-      <para>Here two reports are shown; one called ANC by fixed/outreach, and another called ANC visit coverage.</para>
-      <para>SCREENSHOT 2</para>
-      <para>The operations buttons for each report are, from left to right;
-
-</para>
-      <para>-Generate data source and view report: Click this to select report parameters and view report.</para>
-      <para>-View report based on existing datasource: Click this to show the report without changing report parameters
-</para>
-      <para>-Edit reports: Change name, design template, and report tables
-</para>
-      <para>-Add to dashboard: Include this report in the list of reports available from the dashboard
-</para>
-      <para>-Delete report 
-
-</para>
-      <para>In most cases, you would like to select report parameters and view the report. You do this by clicking the first button from the left.
-
-</para>
-      <para>Each report can have up to three report parameters; Reporting month, Parent Organization unit, and Organization Unit. The reporting month determines the month you want the report to calculate the relative periods of that report from. A report can for example include the reporting month, summary totals for the last 3 months, 6 months, quarterly so far this year, etc, and the reporting month determines which time periods are included in these. The parent orgunit parameter can be used to see a limited set of orgunits. Only the children of the parent unit will be included in the report. The last possible parameter is the orgunit, which is simply the orgunit the report will include.
-
-</para>
-      <para>The report called ANC by fixed/outreach has two reporting parameters, namely reporting month and organization unit. Thus we can set the reporting month and organization unit (you can select from which level to list the possible options) when we click on the button furthest to the left.
-
-</para>
-      <para>As an example we do this, and select July 2009 and Moyamba district, as in the figure below.</para>
-      <para>SCREENSHOT 3</para>
-      <para>Click OK to generate the report. After a little while, a new window will appear with the report for the given report parameters, as shown in the figure below.</para>
-      <para>SCREENSHOT 4</para>
-      <para>This report has been defined to show a table of ANC visits by fixed, outreach, and total, for one month (the reporting month), and one organization unit (which we selected to be Moyamba district). It also shows the data in a chart.
-
-The other report is slightly different. It too has the report parameters reporting month and organization unit, in the example below set to July 2009 and Sierra Leone.
-</para>
-      <para>SCREENSHOT 5</para>
-      <para>The resulting report contains the same table, but a chart showing the ANC coverages (based on expected number of pregnancies) instead of the chart of just the raw figures. </para>
-      <para>SCREENSHOT 6</para>
-      <para>Note that you can select to view these reports again without selecting new report parameters. Just click the icon second from left, and the report will appear with the last selected report parameters.</para>
-      <para>SCREENSHOT 7</para>
-    </section>
+    <title>Creating standard reports</title>
+    <para><emphasis role="bold">Selecting the standard reporting framework in System settings</emphasis></para>
+    <para>In System Settings there is a property called reporting Framework. Two options are currently supported; Jasper Reports and BIRT Reports. When creating and running standard reports the system behave according to this setting, so make sure your report designs match the selected reporting framework. A quick comparison is that Jasper i sfully integrated and requires no extra mainteance while BIRT is run as a separate web application and needs to be deployed and maintained separately, which also adds to the size of the installation package, which can be an important consideration in your project. BIRT has a more user friendly designer than Jasper (Ireport), and both systems are under active development, so stay  updated by following their web pages. Both designers have  more or less the same functionalty.</para>
+    <para><emphasis role="bold">Add a new standard report:</emphasis></para>
+    <para>In Reports module, go to Reports-&gt;Standard Reports and click the left side &apos;Add new&apos; button. Provide a name for the report, upload your design file (.rptdesign or .jrxml) and select the report table(s) you have used in your report. Then Save.</para>
+    <para>NOTE ON DB CONNECTIONS:  all the connection strings in your design file will be automcatilly updated to connect to the database used by the DHIS2 you are uploading to. This means that e.g. you can design reports againts a local copt of the database and upload and use the design on an online server. This of course requires that data elements, indicators, report tables etc. are the same on both databases.</para>
+    <para/>
     <section>
       <title>BIRT reports</title>
       <section>
@@ -394,7 +343,7 @@ Directory: the name of the birt viewer folder, e.g. birt
         </section>
         <section>
           <title>Create a report table in the DHIS 2 that will serve as the data source for your report</title>
-          <para>Normally you define one table per report, but multiple tables for one report is also allowed. A report table can be a cross tabulated table on any of the dimensions period/indicator/data element / orgunit, and also in combination, like “BCG &lt; 1 coverage + last 3 months” and “BCG coverage &lt; 1 year+ last month”. This cross-tabulation makes it a lot easier to control the design of the report which is then done by dragging and dropping column headings onto the report. The report table can also have report parameters like reporting month, organisation unit and organisation unit parent (if you are e.g. listing all sub-districts in a given district). See Report Tables for more details.</para>
+          <para>Normally you define one table per report, but multiple tables for one report is also allowed. A report table can be a cross tabulated table on any of the dimensions period/indicator/data element / orgunit, and also in combination, like �BCG &lt; 1 coverage + last 3 months� and �BCG coverage &lt; 1 year+ last month�. This cross-tabulation makes it a lot easier to control the design of the report which is then done by dragging and dropping column headings onto the report. The report table can also have report parameters like reporting month, organisation unit and organisation unit parent (if you are e.g. listing all sub-districts in a given district). See Report Tables for more details.</para>
         </section>
         <section>
           <title>Design a report using the BIRT report designer</title>
@@ -404,12 +353,12 @@ Directory: the name of the birt viewer folder, e.g. birt
 </para>
           <para>In the designer, go to the top menu select File-&gt;New-&gt;New Report
 </para>
-          <para>Fill in where to save the report and then go &quot;next&quot; and opt for a blank report
+          <para>Fill in where to save the report and then go &apos;next&apos; and opt for a blank report
 
 </para>
           <para><emphasis role="bold">2) set up the database connection for your report</emphasis> 
 </para>
-          <para>Right click &quot;Data Source&quot; and choose &quot;New Data Source&quot;. In the list, go for &quot;JDBC Data Source&quot;, then fill in as shown below
+          <para>Right click &apos;Data Source&apos; and choose &apos;New Data Source&apos;. In the list, go for &apos;JDBC Data Source&apos;, then fill in as shown below
 </para>
           <para>- Driver Class: org.postgresql.Driver (v8.3)
 </para>
@@ -417,12 +366,12 @@ Directory: the name of the birt viewer folder, e.g. birt
 </para>
           <para>- User Name: &lt;Name of the Database User&gt; (can also copied from the hibernate.properties, in the line with user name)
 </para>
-          <para>Test the Connection, if successful, go for &quot;finish&quot; and you are done with the connection
+          <para>Test the Connection, if successful, go for &apos;finish&apos; and you are done with the connection
 
 </para>
           <para><emphasis role="bold">3) set up the dataset(s) needed for the report</emphasis>
 </para>
-          <para>Right-click on the &quot;Data Set&quot; New Data Set &lt;give it a name&gt; Next
+          <para>Right-click on the &apos;Data Set&apos; New Data Set &lt;give it a name&gt; Next
 </para>
           <para>Look up the report table you want to use and in the SQL field simply write &apos;Select * from &lt;report table name&gt;&apos;.
 
@@ -454,119 +403,96 @@ Directory: the name of the birt viewer folder, e.g. birt
     </section>
   </section>
   <section>
-    <title>Dataset reports</title>
+    <title>Creating charts</title>
   </section>
   <section>
-    <title>Excel Pivot Tables</title>
+    <title>Setting up and maintaining pivot tables</title>
     <para>Pivot tables provide an excellent and dynamic data analysis tool that can be automatically linked to the DHIS2 data. Each pivot table has a connection to the database and makes use of the pivot source views (sql queries) in the database to fetch the data. These queries pull all their data from the data mart tables so it is important to keep the data mart updated at all times in order to get the most recent data into the pivot tables. A pivot table can connect to a database on the local computer or on a server. This makes it well suitable for use in a local network where there is only one shared database and multiple clients using pivot tables on their own machines. Excel can also connect to databases running on Linux. The database connection used in the pivot tables is specified in odbc data sources on the computers running pivot tables.</para>
-    <section>
-      <title>Using pivot tables</title>
-      <para>The procedure for updating the data in the pivot tables is the following:
+    <para>With the use of the resource tables in the database we can easily get all group sets and categories over to Excel as pivot fields, which is a major improvement to the data analysis process. Here is a short how-to:
 
 </para>
-      <para>1) Export the data you need to the data mart (see a separate section on data mart export)
+    <para/>
+    <para><emphasis role="bold">First time setup</emphasis>
 </para>
-      <para>2) Refresh each pivot table to pull the most recent data from the database 
+    <para>1) In DHIS2, Data Administration, Resource Tables, Tick all and generate
 </para>
-      <section>
-        <title>Best practice</title>
-        <para>- create copies for special reports, charts etc that you want to reuse next month
+    <para>2) in DHIS2, export the data you need to the datamart
 </para>
-        <para>- leave the master tables more or less as is
+    <para>3) In database (e.g. pgAdmin), insert the pivot views (download at dhis2.org)
 </para>
-        <para>- always possible to get the master db back and start over again if necessary</para>
-        <para>- Excel normally gets into memory issues  with around 1 000 000 milllion rows of data (but this depends on your memory specs as well). These big tables (&gt; 600-800K rows) are also quite slow to use,e.g. when changing rows and columns.
-You should then start to split up the data into smaller pivot tables, e.g. by year. This can be done by creating new pivot views that filter on the start and end dates of the period of the data.
+    <para>4) Add a Windows data source (administrative tools-&gt;data sources) that links to your database (odbc connection). x64 users on Vista and Win7 need to use the 32bit version to be able to access the postgres odbc driver. This version of the data sources program can be found in the XXX folder.
 </para>
-      </section>
-    </section>
-    <section>
-      <title>Setting up and maintaining pivot tables</title>
-      <para>With the use of the resource tables in the database we can easily get all group sets and categories over to Excel as pivot fields, which is a major improvement to the data analysis process. Here is a short how-to:
+    <para>5) In Excel use the Pivot table wizard, connect to your dhis database using the odbc connection and do a select * from one of the pivot views
+</para>
+    <para>6) define the layout of the table (e.g. pick the dimensions you want to see)
 
 </para>
-      <para/>
-      <para><emphasis role="bold">First time setup</emphasis>
+    <para/>
+    <para><emphasis role="bold">On data updates</emphasis>
 </para>
-      <para>1) In DHIS2, Data Administration, Resource Tables, Tick all and generate
+    <para>1) Export the new data to datamart
 </para>
-      <para>2) in DHIS2, export the data you need to the datamart
-</para>
-      <para>3) In database (e.g. pgAdmin), insert the pivot views (download at dhis2.org)
-</para>
-      <para>4) Add a Windows data source (administrative tools-&gt;data sources) that links to your database (odbc connection). x64 users on Vista and Win7 need to use the 32bit version to be able to access the postgres odbc driver. This version of the data sources program can be found in the XXX folder.
-</para>
-      <para>5) In Excel use the Pivot table wizard, connect to your dhis database using the odbc connection and do a select * from one of the pivot views
-</para>
-      <para>6) define the layout of the table (e.g. pick the dimensions you want to see)
-
-</para>
-      <para/>
-      <para><emphasis role="bold">On data updates</emphasis>
-</para>
-      <para>1) Export the new data to datamart
-</para>
-      <para>2) Refresh the pivot tables
+    <para>2) Refresh the pivot tables
  
 </para>
-      <para/>
-      <para><emphasis role="bold">Changes needed after meta data updates (new indicators, new categories, new groups etc.)</emphasis></para>
-      <para>1) Drop/delete all the pivot views in your database
+    <para/>
+    <para><emphasis role="bold">Changes needed after meta data updates (new indicators, new categories, new groups etc.)</emphasis></para>
+    <para>1) Drop/delete all the pivot views in your database
 </para>
-      <para>2) Re-generate all the resource tables
+    <para>2) Re-generate all the resource tables
 </para>
-      <para>3) Put the views back in
+    <para>3) Put the views back in
 </para>
-      <para>4) Refresh your pivot table. If you get errors referring to missing fields then you have to go back to the pivot&apos;s query designer and remove the fields that no longer exists, e.g. if a group set or category has been deleted. To get new categories or group sets in to the table you need to select these in the pivot query designer (data source) as well. Changes to category options or groups and group memberships are pulled in automatically on refresh and require no changes to the pivot query (data source).
+    <para>4) Refresh your pivot table. If you get errors referring to missing fields then you have to go back to the pivot&apos;s query designer and remove the fields that no longer exists, e.g. if a group set or category has been deleted. To get new categories or group sets in to the table you need to select these in the pivot query designer (data source) as well. Changes to category options or groups and group memberships are pulled in automatically on refresh and require no changes to the pivot query (data source).
 </para>
-      <section>
-        <title>Create a Windows data source (ODBC)</title>
-        <para>1) Download (http://www.postgresql.org/ftp/odbc/versions/msi/) and install (straight forward) the postgres odbc driver.
+    <section>
+      <title>Create a Windows data source (ODBC)</title>
+      <para>1) Download (http://www.postgresql.org/ftp/odbc/versions/msi/) and install (straight forward) the postgres odbc driver.
 
 </para>
-        <para>2) Open Control Panel --&gt; Administrative tools --&gt; Data Source (ODBC).
+      <para>2) Open Control Panel --&gt; Administrative tools --&gt; Data Source (ODBC).
 
 </para>
-        <para>3) In System DNS tab, add a new data source: 
+      <para>3) In System DNS tab, add a new data source: 
 </para>
-        <para>Click &apos;Add&apos; button</para>
-        <para>Choose &apos;PostgreSQL Unicode&apos;</para>
-        <para>Fill information fixed with your system. e.g.:</para>
-        <itemizedlist>
-          <listitem>
-            <para>Data Source: dhis2_sl</para>
-          </listitem>
-          <listitem>
-            <para>Description: DHIS 2 data source in PostgreSQL, used for Excel Pivot Tables</para>
-          </listitem>
-          <listitem>
-            <para>Database: dhis2_sl
+      <para>Click &apos;Add&apos; button</para>
+      <para>Choose &apos;PostgreSQL Unicode&apos;</para>
+      <para>Fill information fixed with your system. e.g.:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Data Source: dhis2_sl</para>
+        </listitem>
+        <listitem>
+          <para>Description: DHIS 2 data source in PostgreSQL, used for Excel Pivot Tables</para>
+        </listitem>
+        <listitem>
+          <para>Database: dhis2_sl
 oSSL mode: prefer</para>
-          </listitem>
-          <listitem>
-            <para>Server: localhost (replace with IP address if connecting over a network)</para>
-          </listitem>
-          <listitem>
-            <para>Port: 5432 (this is the default postgres port, change if the postgres server has another port. Same as in hibernate.properties)</para>
-          </listitem>
-          <listitem>
-            <para>Username: dhis  (the user needed to connect to the database, same as in hibernate properties)</para>
-          </listitem>
-          <listitem>
-            <para>Password: dhis (as above)</para>
-          </listitem>
-        </itemizedlist>
-      </section>
+        </listitem>
+        <listitem>
+          <para>Server: localhost (replace with IP address if connecting over a network)</para>
+        </listitem>
+        <listitem>
+          <para>Port: 5432 (this is the default postgres port, change if the postgres server has another port. Same as in hibernate.properties)</para>
+        </listitem>
+        <listitem>
+          <para>Username: dhis  (the user needed to connect to the database, same as in hibernate properties)</para>
+        </listitem>
+        <listitem>
+          <para>Password: dhis (as above)</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section>
+      <title>Design the pivot table</title>
       <section>
-        <title>Design the pivot table</title>
-        <section>
-          <title>Office 2003</title>
+        <title>Office 2003</title>
         <para>1) Open a new blank spreadsheet
 </para>
         <para>2) Go to Data --&gt; PivotTable and PivotChartReport.
 </para>
         <para>3) External data source --&gt; next
-•Get data --&gt; choose the data source name which we made in previous step.
+�Get data --&gt; choose the data source name which we made in previous step.
 </para>
         <para>4) The first time you do this the first query window you get is quite poor, so click cancel and wait for Microsoft Query to open.
 </para>
@@ -579,16 +505,15 @@ oSSL mode: prefer</para>
         <para>8) Go next and open the layout window
 </para>
         <para>9) Drag and drop the necessary fields for your table. Make sure that routine data tables have the datavalue column in the data area
-Notice: Later you can modify the field name by right clicking on it and opening &quot;Field settings&quot;, add a title, some notices and so on for a better pivot table.
+Notice: Later you can modify the field name by right clicking on it and opening &apos;Field settings&apos;, add a title, some notices and so on for a better pivot table.
 </para>
         <para>10) Additional step for indicator tables:
 </para>
-        <para>Your indicator values should be calculated by Excel using the formula &quot;Factor*Numerator/Denominator&quot; sto make sure Excel aggregates the values (such as percentages) properly. This can be done by inserting a calculated field into the Data field area. In the layout window in the wizard just put any field in data field, e.g. denominatorvalue (the wizard does not accept an empty data field). Then close and when you can see the table in normal view select the denominatorvalue field and in the top menu go to Insert-&gt;Calculated field. In the new window you can give your field the name e.g. IndicatorValue and specify the formula based on the available fields in the list to form the formula &apos;numxfactor/denominatorvalue&apos;. numxfactor is a pre-calculated value of the factor x numeratorvalue.
+        <para>Your indicator values should be calculated by Excel using the formula &apos;Factor*Numerator/Denominator&apos; sto make sure Excel aggregates the values (such as percentages) properly. This can be done by inserting a calculated field into the Data field area. In the layout window in the wizard just put any field in data field, e.g. denominatorvalue (the wizard does not accept an empty data field). Then close and when you can see the table in normal view select the denominatorvalue field and in the top menu go to Insert-&gt;Calculated field. In the new window you can give your field the name e.g. IndicatorValue and specify the formula based on the available fields in the list to form the formula &apos;numxfactor/denominatorvalue&apos;. numxfactor is a pre-calculated value of the factor x numeratorvalue.
 </para>
-      
-	  </section>
-        <section>
-          <title>Office 2007</title>
+      </section>
+      <section>
+        <title>Office 2007</title>
         <para>1) open a new worksheet
 </para>
         <para>2) Go to Data menu, then From Other Sources, From Microsoft Query
@@ -609,16 +534,14 @@ Notice: Later you can modify the field name by right clicking on it and opening 
 </para>
         <para>10) You will then see the Pivot table field list on the right side, and there you can drag and drop fields from the top list to the different areas (filter, column, row, data). You will see that the pivot table is updated automatically.
 </para>
-        <para>11) Rename the pivot fields by right-clicking on a field and open the Field Settings menu.There you can write in a Custom Name, e.g. &quot;District&quot; in stead of Orgunit2.
+        <para>11) Rename the pivot fields by right-clicking on a field and open the Field Settings menu.There you can write in a Custom Name, e.g. &apos;District&apos; in stead of Orgunit2.
 </para>
         <para>12) Save your file and the next time you have new data in your data mart you can refresh the pivot table to see all the data in your data mart (filtered by your pivot view), both old and new data.
 </para>
         <para>13) If you for some reason need to empty your pivot table, e.g. to send to another computer over email, and you cannot send with data (big size), you can first empty/clean the data mart from the DHIS Data Administration window, and then refresh your pivot table.
-</para>		  
+</para>
         <para>10) Additional step for indicator tables: See instructions for 2003 above.
 </para>
-     
-        </section>
       </section>
     </section>
   </section>
