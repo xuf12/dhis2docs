@@ -51,10 +51,16 @@
   </section>
   <section>
     <title>Project Dependencies</title>
-    <para>Dependencies between the projects are structured in five layers. The support modules provide support functionality for the core and service modules, related to Hibernate, testing, JDBC, and the file system. The core module provides the core functionality in the system, like persistence and business logic for the central domain objects. The service modules provide business logic for services related to reporting, import-export, mapping, and administration. The web modules are self-contained web modules. The portal is a wrapper web module which assembles all the web modules. Modules from each layer can only have dependencies to modules at the same layer or the  layer right below.</para>
+    <para>Dependencies between the projects are structured in five layers. The support modules provide support functionality for the core and service modules, related to Hibernate, testing, JDBC, and the file system. The core module provides the core functionality in the system, like persistence and business logic for the central domain objects. The service modules provide business logic for services related to reporting, import-export, mapping, and administration. The web modules are self-contained web modules. The portal is a wrapper web module which assembles all the web modules. Modules from each layer can only have dependencies to modules at the same layer or the layer right below.</para>
     <mediaobject>
       <imageobject>
         <imagedata width="60%" align="center" fileref="resources/images/dhis2_technical_architecture/dependency_structure.jpg"/>
+      </imageobject>
+    </mediaobject>
+    <para>The internal structure of the service layer is divided in five layers.</para>
+     <mediaobject>
+      <imageobject>
+        <imagedata width="60%" align="center" fileref="resources/images/dhis2_technical_architecture/service-dependency-structure.jpg"/>
       </imageobject>
     </mediaobject>
   </section>
