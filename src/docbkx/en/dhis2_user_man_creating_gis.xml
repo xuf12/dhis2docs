@@ -9,7 +9,7 @@
   <section>
     <title>Setting up the GIS module</title>
     <section id="gisSetup">
-      <title>Importing geographical layers for orgunit thematic mapping</title>
+      <title>Importing geographical layers for orgunit thematic mapping with GML</title>
       <para>The maps are generated off the coordinates information linked to the Organisation Units in the database. No additional files are needed. As soon as the orgunits have coordinates the maps will be available in the GIS module. Although it is possible to add/edit coordinates directly in the Edit Organisation Unit window (in Maintenance-&gt;Organisation Unit) we recommend doing this in a batch job using the general import process in  the import/export module. The import process will need a GML file with at least the  two properties; &quot;Name&quot; and &quot;coordinates&quot;.</para>
       <para>To generate the GML file start by installing the open source tool called  ogr2ogr. This should be available for most Linux distros (&quot;sudo apt-get install
 gdal-bin&quot;). For Windows, get FWTools:  http://fwtools.maptools.org/</para>
@@ -205,6 +205,19 @@ the DHIS mapping client expects the ordering of the coordinates in &quot;lat/lon
       type (e.g. “admin” for administrative layers, “health” for health
       administrative boundaries). For instance, the first administrative layer
       for Zambia would be named as &quot;zm_admin1&quot;.</para>
+      </section>
+      <section>
+        <title>Production of GeoJSON with PostGIS</title>
+        <para>In certain situations, direct updates of the coordinates which are stored  via a database query may be needed or desireable. The coordinate which are accepted by DHIS2 are similar to a normal GeoJSON clause for a geographical object with a few minor modifications. GeoJSON can be rather easily produced from a PostGIS database with a simple query as shown below.</para>
+        <programlisting>CREATE OR REPLACE VIEW districts_as_geojson AS 
+ SELECT district::character varying(230) AS name, 
+ substring(st_asgeojson(1, geom, 4) from 38 for(length(st_asgeojson(1,geom,4)) - 38 )) 
+ AS coordinates
+   FROM district_geometry;
+</programlisting>
+        <para>Basically, all the query does is to produce  version 1 GeoJSON from the geometry column (in this case named &quot;geom&quot;) and strip oeut some initial and final text which DHIS2 generates automatically when it assembled a group of geometrical objects for presentation on the GIS. The paramater of hte st_asgeojson command also allows you to control the number of decimal </para>
+        <para>Once this is created as a view in your DHIS2 database, you can issue a simple update statement to automatically update the coordinates.</para>
+        <programlisting>UPDATE organisationunit a SET coordinates = b.coordinates from districts_as_geojson b where a.name = b.name;</programlisting>
       </section>
     </section>
   </section>
