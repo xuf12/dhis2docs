@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. -->
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<chapter>
+  <title>Installation</title>
+  <para>The installation chapter provides information on how to install DHIS 2 in various contexts, including online central server, offline local network, standalone application and self-contained package called DHIS 2 Live.</para>
+  <para>DHIS 2 runs on all platforms for which there exists a Java Runtime Environment version 6 or higher, which includes most popular operating systems such as Windows, Linux and Mac. DHIS 2 also runs on many relational database systems such as PostgreSQL, MySQL, H2 and Derby. DHIS 2 is packaged as a standard Java Web Archive (WAR-file) and thus runs on any Servlet containers such as Tomcat and Jetty.</para>
+  <para>The DHIS 2 team recommends Ubuntu 10.1.0 operating system, PostgreSQL database system and Tomcat Servlet container as the preferred environment for server installations. The mentioned frameworks can be regarded as market leaders within their domain and is heavily field tested over many years.</para>
+  <para>This chapter provides a guide for setting up the above technology stack. It should however be read as a guide for getting up and running and not as an exhaustive documentation for the mentioned environment. We refer to the offical Ubuntu, PostgreSQL and Tomcat documentation for in-depth reading.</para>
+  <para/>
+</chapter>
