@@ -2,12 +2,20 @@
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <section>
   <title>Web based mobile solution</title>
-  <para>The web based solution has two distinct two parts: Facility reporting, for data entry and
-    reporting of regular DHIS2 aggregate data, and Activity reporting, for supporting individual
+  <para>The DHIS2 web-based mobile module provides a mechanism for remote clients using mobile phones to enter data directly into the DHIS2 system. There are two functions of the client, namely:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Facility reporting, for data entry and
+    reporting of regular DHIS2 aggregate data,</para>
+    </listitem>
+    <listitem>
+      <para>Activity reporting, for supporting individual
     activity reporting with the Community module.</para>
+    </listitem>
+  </itemizedlist>
   <para>The solution relies on the mobile phone having a data connection available (i.e.
-    GPRS, Edge, 3G), over which it communicates with a DHIS2 instance being publicly
-    available on the internet, as any other web client. The application downloads the forms to be reported from the
+    GPRS, Edge, 3G), over which it communicates with a DHIS2 instance which must be publicly
+    available on the internet, as any other web server. The client application on the phone downloads the data entry forms to the phone from the
     server, and the forms can therefore be updated without installing a new application. This is also a crucial feature 
     for community reporting, which relies on regularly downloading activity plans from the server.
     </para>
@@ -15,8 +23,8 @@
     <title>Data connection availability</title>
     <para>Data connection availability can be a problem in many of the contexts where DHIS2 mobile
       reporting would otherwise be a good solution for getting data directly into DHIS2. If that is
-      the case for you, you might want to consider trying the SMS based solution for now.
-      But keep in mind that even though a data connection is currently required for communication between
+      the case for you, you might want to consider trying the SMS based solution described in a seperate document.
+      Keep in mind that even though a data connection is currently required for communication between
       the server and the mobile phone, it is only required when initializing or updating the mobile
       application and when sending reports to the server. The phone stores all entered data locally,
       so it it can work fine with only temporary access to a data connection on a regular basis.
@@ -26,68 +34,85 @@
     <title>Server side setup for facility reporting</title>
     <para>The server side component of the web based solution is just regular web application functionality, 
     and it is included in the general build of DHIS2 (the web api itself is in the dhis-web-api module)</para>
+    <para>In order to configure the DHIS2 web-based mobile reporting, you should follow the following steps. </para>
     <itemizedlist>
-      <title>To try out the facility reporting, perform these steps on the server</title>
       <listitem>
         <para>
           Set the &quot;Available for Mobile Reporting&quot; flag for the data sets you want reported:
-          Under <emphasis>Maintenance, DataSet</emphasis>, edit the data set you want, 
-          mark the “Available for Mobile Reporting” check box and save.
+          Under <emphasis>Maintenance-&gt;DataSet</emphasis>-&gt;<emphasis role="italic">Edit</emphasis> mark the “Available for Mobile Reporting” check box and save.
         </para>
       </listitem>
       <listitem>
-        <para>Make sure the user that you want to log in as is associated to one (and
-          only one)
-          organizational unit has the &quot;mobile&quot; datasets assigned.</para>
+        <para>Create a user role for the mobile user. Select <emphasis role="italic">Maintenance-&gt;Users-&gt;User Role-&gt;Add new</emphasis>.  Add a user role name and description. Add the desired data sets for the role. The mobile user role will need to have at least privileges for DHIS Web API. Save the user role by clicking &quot;Save&quot;. </para>
       </listitem>
       <listitem>
-        <para>That was all, go see if you can get the mobile working.</para>
+        <para>Create a user which will be used by the client to login from <emphasis role="italic">Maintenance-&gt;Users-&gt;User -&gt;Add new</emphasis>. Fill in all of the required details, keeping in mind that the password must be at least 8 digits long, contain one capital letter,and one digit. Assign the desired user role to the user which was created in the previous step. </para>
+        <para><important>
+            <para>Assign the  user to exactly <emphasis role="bold">one</emphasis> organisation unit. Each mobile reporting client will need their own user name and password.  </para>
+          </important></para>
       </listitem>
     </itemizedlist>
   </section>
   <section>
-    <title>A little detail</title>
-    <para>Though the previous steps is all that should be needed for testing the solution,
-      there are of course some more things you want to know about the server setup.</para>
+    <title>Detailed configuration of data sets and reporting forms</title>
+    <para>Though the previous steps is all that should be needed for testing the solution more detail configuration of the datasets may be required and are described in the following sections. </para>
     <section>
       <title>The mapping of data sets to form layout on the phone</title>
-      <para>By default a data set is mapped to one large form on the phone.
+      <para>By defaul, t a data set is mapped to one large form on the phone.
         If the data set is divided into sections, each section is a form page.
         If a data element has more than one category option combo it will be displayed as a heading with the combos
         following.</para>
-      <table border="2">
-        <caption>Names for form elements are derived in the following way</caption>
-        <tr>
-          <td>Form name</td>
-          <td>Data set</td>
-          <td>ShortName if it exists, otherwise name</td>
-        </tr>
-        <tr>
-          <td>Page name</td>
-          <td>Section</td>
-          <td>Section name (or form name if no sections)</td>
-        </tr>
-        <tr>
-          <td>Question name (heading if combos)</td>
-          <td>Data element </td>
-          <td>alternativeName if it exists, otherwise name</td>
-        </tr>
-        <tr>
-          <td>Question name if combos</td>
-          <td>Category option combo</td>
-          <td>name</td>
-        </tr>
+      <table frame="all">
+        <title/>
+        <tgroup cols="3">
+          <colspec colname="c1"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <tbody>
+            <row>
+              <entry>
+                <emphasis role="bold">Form design element</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">DHIS2 Metadata</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="bold">Metadata element</emphasis>
+              </entry>
+            </row>
+            <row>
+              <entry>Form title</entry>
+              <entry>Data set</entry>
+              <entry>Short Name if it exists, otherwise Namw</entry>
+            </row>
+            <row>
+              <entry>Page tile</entry>
+              <entry>Section</entry>
+              <entry>Section name (or form name if no sections)</entry>
+            </row>
+            <row>
+              <entry>Question</entry>
+              <entry>Data element </entry>
+              <entry>Alternative name if it exists, otherwise Name</entry>
+            </row>
+            <row>
+              <entry>Question name if combos</entry>
+              <entry>Category option combo</entry>
+              <entry>name</entry>
+            </row>
+          </tbody>
+        </tgroup>
       </table>
     </section>
     <section>
       <title>Sorting of forms</title>
-      <para>By default, data elements will be sorted according to the global sorting assigned in DHIS2. If sections are used, their sorting will be used.
+      <para>By default, data elements will be sorted according to the global sorting assigned in DHIS2. If sections are used, their section specific sorting order  will be used.
       In some cases, when sections are not used, a data element might be used in multiple data sets, and conflict in the way it should be sorted in individual data sets. A work around for this situation is to wrap the whole dataset in one section (note that this will only work if the data elements have the same category option combo)</para>
     </section>
     <section>
       <title>Versioning of data sets</title>
       <para>To make it possible to compare and update the data sets on the mobile phone with the 
-        version on the server, data sets are automatically versioned when you edit the data set structure.</para>
+        version on the server, data sets are automatically versioned when you edit the data set structure. Some changes which occur on the DHIS2 server, will cause the mobile client to update its forms with a new version. </para>
       <itemizedlist>
         <title>Changes that currently trigger a new data set version</title>
         <listitem>
@@ -132,35 +157,45 @@
       </section>
       <section>
         <title>Initialization</title>
-        <para>Initialization is executed before mobiles delivered to Health Workers and it is only required once. For Health Worker, first screen after start application is PIN form. In case of delivering mobile to other Health Worker (other organisation unit), reinitialization function will clear all data. </para>
-        <para>There are four steps:</para>
+        <para>Initialization should be performed before the phones are delivered end-users.  Given the large variation in possible phone configurations, it is impossible to describe the exact steps which are required in order to enable the client on the phone. However, for most phones, simply copying the DHIS Web Mobile client &quot;JAR&quot; file to the phone with a USB cable or via Bluetooth is sufficient. Of course, GPRS/3G connectivity must be enabled. Contact your mobile service provider for exact details on the configuration of the phones and networks. </para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis_mobile/mobile_login_screen.PNG" align="center"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>Once the client has been installed ot the phone, an initialization process must occur by providing a user name, password and server URL. </para>
         <orderedlist>
           <listitem>
-            <para>Login to Application: </para>
-            <para>Through this setp, the mobile&apos;s user is definied. One mobile is only registered for one Health Worker. We login with the Health Worker&apos;s username in DHIS System. The mobile only download the forms that assigned to the Health Worker in DHIS System.</para>
-            <para>Required fields: Username, Password, Server Localtion - URL of DHIS System. All fields are required.</para>
-            <para>After filling all fields, push &quot;Login&quot;. If there is confirmation of access the restricted API, push &quot;Yes&quot;</para>
-            <para><emphasis role="underline">Error:</emphasis></para>
+            <para>Logging into the server for the first time.  </para>
+            <para>The first time the client logins to the server, or if the client is reinitialized, the username, password and server URL must be entered.</para>
+            <para>If the client is unable to login, there could be several possible error messages which you see. </para>
             <para><itemizedlist>
                 <listitem>
-                  <para>Connection Not Found: the Server Location is incorrect</para>
+                  <para>Connection Not Found: The specified server URL is not correct. Check the server address, ensure that the server is actually reachable, and try again.</para>
                 </listitem>
                 <listitem>
                   <para>Invalid User Name Or Password: the username or password is incorrect</para>
                 </listitem>
                 <listitem>
-                  <para>Application not authorized to access restricted API: user push &quot;No&quot; at the comfirmation of access the restricted API after push &quot;Login&quot;.</para>
+                  <para>Application not authorized to access restricted APIe :  The server can be contacted, but the user does not have the necessary permissions to access the mobile reporting module</para>
                 </listitem>
               </itemizedlist> </para>
           </listitem>
           <listitem>
-            <para>Set default PIN: PIN is 4-digit number which is used to protect application from unauthorized access. This PIN is required and persistent. It will be delivered to Health Worker with mobile.</para>
-            <para>After input PIN, push &quot;Next&quot;</para>
+            <para>Setting the PIN number: After the initial login process, a PIN number can be entered by the user. This will make the login process much easier, as the user only has to remember the four digit pin number, as opposed to typing in the user name and password each time. The PIN number can be preset if the phone is initialized prior to delivery, or it can be set by the users themselves if they have been provided with usernames and passwords.</para>
+            <screenshot>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="resources/images/dhis_mobile/mobile_enter_pin.PNG" align="center"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot>
+            <para>After entering the PIN, press (Menu)-&gt;Next. </para>
           </listitem>
           <listitem>
-            <para>Download all Forms: After input PIN, all forms will be download and display.</para>
-            <para>If the Health Worker is responsible for Facility Reporting, the list of forms is displayed.</para>
-            <para>If the Health Worker is responsible for Community Reporting, the list of activity is displayed.</para>
+            <para>Download all forms: After the PIN has been specified, all forms will be downloaded from the server and stored locally on the phone..</para>
+            <para>If the user has been configued to report on aggregate datasets, a list of appropriate datasets will be displayed. If the user is responsible for community based reporting, the list of assigned activities is displayed.</para>
             <para><emphasis role="underline">Notes</emphasis>: If the Health Worker is responsible for both Facility Reporting and Community Reporting, DHIS server will send all forms of both Facility Reporting and Community Reporting to mobile and on mobile, there will be a screen to choose whether displaying Facility Reporting or Community Reporting.</para>
             <para><emphasis role="underline">Errors</emphasis>:</para>
           </listitem>
@@ -169,47 +204,93 @@
     </section>
     <section>
       <title>Logging in (for regular use)</title>
-      <para>After starting the application, the PIN form is displayed</para>
+      <para>After starting the application, the PIN form is displayed. </para>
       <itemizedlist>
         <listitem>
-          <para>PIN: 4-digit number provided with mobile.</para>
+          <para>PIN: Enter the four digit number PIN.</para>
         </listitem>
         <listitem>
           <para>Reinitialize Command: this function will clear all data on mobile and we start from the login screen with username and password.</para>
         </listitem>
         <listitem>
-          <para>Errors: Invalid PIN</para>
+          <para>Errors: Invalid PIN: If the user has entered an invalid PIN, they will need to enter the correct PIN, or reinitialize the application with the correct username and password.</para>
         </listitem>
       </itemizedlist>
     </section>
     <section>
       <title>Facility Reporting Module</title>
       <section>
-        <title>Regular Use</title>
+        <title>Entering data</title>
+        <para>After selecting an aggregate dataset from the &quot;Select report form&quot; window, the user will need to select an appropriate time period. A list of available time periods is automatically generated. </para>
         <orderedlist>
           <listitem>
-            <para>Choosing forms</para>
+            <para>After the user has entered their PIN, they can select from a list of available datasets. Select the appropriate dataset and press &quot;Next&quot;. </para>
+            <screenshot>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="resources/images/dhis_mobile/select_report_form.PNG" align="center"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot>
           </listitem>
           <listitem>
-            <para>Choosing period: Push &quot;Open&quot; to display list of period and push &quot;Next&quot;</para>
+            <para>Choosing periods: A list of available periods will be automatically displayed to the user. They can select the appropriate period from the list. </para>
+            <screenshot>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="resources/images/dhis_mobile/aggregate_select_periods.png" align="center"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot>
           </listitem>
           <listitem>
-            <para>Fill in values: After choosing period, the form is displayed in two way.</para>
+            <para>Fill in values: After choosing the period, the form can be displayed in two modes, depending on the </para>
             <itemizedlist>
               <listitem>
-                <para>Form with section (DataSet with Section)</para>
-                <para>Each Section is displayed in one screen with title is section&apos;s name.</para>
-                <para>To move among screen, push &quot;Next&quot;.</para>
+                <para>Form with sections </para>
+                <para>Each form section is displayed in a single screen with the name of the section in the title window.</para>
+                <para>To navgate from screen to screen, push &quot;Next&quot;.</para>
               </listitem>
               <listitem>
-                <para>Form without section (DataSet without Section)</para>
+                <para>Forms without section (Datasets without sections)</para>
                 <para>All fields are displayed on one screen with the title that is the name of DataSet</para>
               </listitem>
             </itemizedlist>
+            <para>The user simply fills in each data element with the appopriate value.  </para>
+            <screenshot>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="resources/images/dhis_mobile/aggregate_data_entry_form.png" align="center"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot>
           </listitem>
           <listitem>
             <para>Save and Complete:</para>
-            <para>After finishing, there are two options. Save is locally storing the values on mobile. Complete is storing the values on mobile and sending the values to DHIS server. Completing form will make it uneditable for the next view.</para>
+            <para>After finishing data entry, the user can choose to save the data locally on the phone or to upload the data directly to the DHIS2 server.</para>
+            <screenshot>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="resources/images/dhis_mobile/aggregate_save_complete.png" align="center"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot>
+            <para>If the user saves the data form, they can edit the form at a later point in time if they need to.When selecting a period once again, the period will be marked as &quot;Saved&apos; as seen in the next screen shot.</para>
+            <screenshot>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="resources/images/dhis_mobile/aggregate_data_entry_form_saved.PNG" align="center"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot>
+            <para>If the user selects &quot;Complete&quot;, and the data entry form is not complete, the user will be asked if they are certain they wish to submit the form as incomplete. Once the form has been submitted, a message should be displayed informing the user that the transmisison was successful. </para>
+            <screenshot>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="resources/images/dhis_mobile/aggregate_report_success.PNG" align="center"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot>
           </listitem>
         </orderedlist>
       </section>
@@ -218,14 +299,21 @@
         <orderedlist>
           <listitem>
             <para>Period list:</para>
-            <para>Period with (*) is the period that is completed (the form for that period is filled and completed).</para>
-            <para>The list of period also present the forms are currently stored on mobile. All periods that are not in period list are considered old  and will be deleted automatically.</para>
+            <para>Periods marked with an asterisk (*)  is the period that is completed or saved, depending on the status of the data entry.</para>
+            <screenshot>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="resources/images/dhis_mobile/aggregate_save_completed_periods.PNG" align="center"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot>
+            <para> All periods that are not in period list are considered old  and will be deleted automatically.</para>
           </listitem>
           <listitem>
             <para>Storing values duration</para>
-            <para>The number of saved forms on mobile are unlimited.
+            <para>The number of saved forms on mobile are limited only by the effective amount of storage of the moble device.
 </para>
-            <para>Forms are saved for limited period. This is the storing period for differents form’s types</para>
+            <para>Forms are saved for limited period only, depending on the frequency of collection of the particular dataset. </para>
             <itemizedlist>
               <listitem>
                 <para>Daily Forms: 2 months (current and previous month)</para>
@@ -246,22 +334,30 @@
           </listitem>
           <listitem>
             <para>Completed forms - Uneditable forms</para>
-            <para>Form has been completed is displayed as uneditable form for next </para>
+            <para>If the form has been completed, the user can view the form on their phone, but they cannot make any subsequent edits to the form. Each field is greyed out and inactive for editing.</para>
           </listitem>
           <listitem>
             <para>Re-Edit completed forms</para>
-            <para>Even after complete form, HW are able to edit the value and resend (complete form) to server with the condition that certain pair of DataSet and Period is not locked.</para>
+            <para> If the user wishes to edit data which has already been submitted to the server, they can do so by pressing the &quot;Edit&quot; button. They are allowed to do this assuming that the dataset has not been locked for the period in question. If they attempt to upload the data, the user will be informed that the dataset has been locked, and it is not possible to upload the data. </para>
+            <screenshot>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="resources/images/dhis_mobile/dataset_locked_upload_failed.PNG" align="center"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot>
           </listitem>
           <listitem>
             <para>Update Forms:</para>
             <para>This function is used to synchronize the forms on mobile and on server. </para>
-            <para>On the list of forms, push &quot;Update report forms&quot; to update.</para>
+            <para>On the list of forms, push &quot;Update DataSets&quot; to update from the server.</para>
           </listitem>
         </orderedlist>
       </section>
     </section>
     <section>
       <title>Community Reporting</title>
+      <para>The community based reporting function works in a similar manner as the aggregate reporting function, but patient based data elements.</para>
       <section>
         <title>Regular Use</title>
         <orderedlist>
@@ -270,21 +366,21 @@
             <para><graphic fileref="resources/images/dhis_mobile/activity_main_menu.png" align="center"/></para>
             <para><itemizedlist>
                 <listitem>
-                  <para>Current Activity Plan: contain all new Activities that need to be complete.</para>
+                  <para>Current Activity Plan: Contain all new activities that need to be completed.</para>
                 </listitem>
                 <listitem>
-                  <para>Completed Activity Plan: contain all the activities that have been completed and sent to server. This list is for review only.</para>
+                  <para>Completed Activity Plan: Contain all the activities that have been completed and sent to server. This list is for review only.</para>
                 </listitem>
                 <listitem>
-                  <para>Update Activity Plan: update the list of new Activities.</para>
+                  <para>Update Activity Plan: Update the list of new activities.</para>
                 </listitem>
                 <listitem>
-                  <para>Update Program Form: synchronize the Program form structure between server and mobile client.</para>
+                  <para>Update Program Form: Synchronize the program form structure between server and mobile client.</para>
                 </listitem>
               </itemizedlist></para>
           </listitem>
           <listitem>
-            <para>Choose Village</para>
+            <para>Choose Village or Location</para>
             <para><graphic fileref="resources/images/dhis_mobile/choose_village.png" align="center"/></para>
             <para>From Activity main menu, select “Current Activity Plan”. You will be navigated to “Grampanchayat Name” screen where you can select the village. Use the “Up” or “Down” button on your mobile phone to focus on a village. Use “Select” button to select a village.</para>
           </listitem>
