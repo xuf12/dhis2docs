@@ -2,14 +2,14 @@
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
 	<title>Using Jasper iReport Designer</title>
-	<section id="mod1_1">
+	<section>
 		<title>Background for Using Jasper iReport Designer</title>
 		<para>
 			Jasper iReport Designer is a tool for creating reports that can be used as Standard Reports [internal link?] in DHIS 2. The tool allows for the creation of standard report templates that can easily be exported from DHIS with up to date data. The process of creating reports involves four major steps. First, a report table must be created in DHIS 2 with the indicators to be used in the report. Secondly, a connection must be set up from iReport to the DHIS database. The layout of the report can then be made. Finally, the finished report can be uploaded to DHIS 2 to be used as a standard report. 
 		</para>
 	</section>
 
-	<section id="conn">
+	<section>
 		<title>Connecting iReport to the DHIS Database</title>
 
 		<para>
@@ -103,7 +103,7 @@
 	</section>
 
 
-	<section id="get">
+	<section>
 		<title>Getting Information from the Database</title>
 
 		<para>
@@ -193,7 +193,7 @@
 	</section>
 
 
-	<section id="create">
+	<section>
 		<title>Creating and Editing a Report</title>
 
 		<para>
