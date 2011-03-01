@@ -1,0 +1,492 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<chapter>
+  <title>Installation on Ubuntu 10.10 - Detailed guide</title>
+  <para>This guide is a more detailed walk-through installation guide on how to install DHIS 2 on Ubuntu 10.10. DHIS2 requires Java, a relational database system and a Java servlet container to run. This guide will guide you through the installation of Java, PostgreSQL (a relational database system) , pgAdmin (the graphical userinterface for PostgreSQL) and Apache Tomcat (a Java servlet container).</para>
+  <section>
+    <title>Installing Java</title>
+    <para>To install Java, the repository where Java resides needs to be added to Ubuntu&apos;s repositories. Invoke the following  command to do that <emphasis role="italic">(Note: it&apos;s <emphasis role="underline">one</emphasis> command, not two!</emphasis>):</para>
+    <screen>sudo add-apt-repository ppa:sun-java-community-team/sun-java6</screen>
+    <para>Then the package list needs to be updated, before continuing to installing java. Invike the following command to do that:</para>
+    <screen>sudo apt-get update</screen>
+    <screen>sudo apt-get install sun-java6</screen>
+    <para>When installation is finished, a blue screen appears:</para>
+    <screenshot>
+      <screeninfo>Java license agreement</screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="67%" fileref="resources/images/dhis2_ubuntu_installation/Java-agreement.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>Press the <emphasis role="underline">TAB key</emphasis> on your keyboard so that <code>&lt;OK&gt;</code> is marked red, and then press ENTER. In the next window, when you&apos;re asked whether you agree, use the <emphasis role="underline">arrow keys</emphasis> to mark <code>&lt;Yes&gt;</code> red, and then press ENTER. The <emphasis role="underline">TAB key</emphasis> looks like this:</para>
+    <screenshot>
+      <screeninfo>TAB-key</screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="10%" fileref="resources/images/dhis2_ubuntu_installation/tab-key.jpg" format="JPEG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </section>
+  <section>
+    <title>Instaling PostgreSQL</title>
+    <para>In the terminal, invoke the following command to install PostgreSQL:</para>
+    <screen>sudo apt-get install postgresql-8.4</screen>
+    <para>Type <code>Y</code> and press ENTER if you&apos;re asked if you want to continue:</para>
+    <screenshot>
+      <screeninfo>Type Y when you&apos;re asked if you want to continue</screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="75%" fileref="resources/images/dhis2_ubuntu_installation/Continue-Yes.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <section>
+      <title>Set password for the system user&gt;</title>
+      <para>To set the password for the postgres system user, invoke the following command and then follow the instructions:</para>
+      <screen>sudo passwd postgres</screen>
+      <screenshot>
+        <screeninfo>Set password for the system user</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="50%" fileref="resources/images/dhis2_ubuntu_installation/edit_password-unix.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </section>
+    <section>
+      <title>Edit database users and create a database</title>
+      <para>To modify the databases and the database users, we need to log in as the postgres system user. We use the <emphasis role="italic">switch user</emphasis> command <code>su</code> as shown below. When the screen reads: <code>Password:</code>, type the password you created for the postgres system user in the previous step. Invoke the following command (from terminal):</para>
+      <screen>su postgres</screen>
+      <para>Now your terminal should start with <code>postgres=#</code></para>
+      <para/>
+      <para><emphasis role="italic">
+          <emphasis role="underline"><emphasis role="bold">NB!!</emphasis>For the following three commands, please note:</emphasis>
+        </emphasis></para>
+      <itemizedlist>
+        <listitem>
+          <para><emphasis role="italic">Remember the semi colons (<code>;</code>) at the end of the lines!</emphasis></para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="italic">Also remember to use the apostrophes (<code>&apos;</code>) where specified!</emphasis></para>
+        </listitem>
+      </itemizedlist>
+      <para><emphasis role="italic">If something is unclear, consult the screen shot just below the commands.</emphasis></para>
+      <para/>
+      <para>To edit the password for the postgres <emphasis role="underline">database</emphasis> user, invoke the following command:</para>
+      <screen>ALTER USER postgres WITH password &apos;&lt;a password of your choice&gt;&apos;;</screen>
+      <para>To create a new user, invoke:</para>
+      <screen>CREATE USER &lt;a user name&gt; WITH PASSWORD &apos;&lt;a password of your choice&gt;&apos;;</screen>
+      <para>To create a new database, invoke:</para>
+      <screen>CREATE DATABASE &lt;a database name&gt; WITH OWNER &lt;a user name&gt; ENCODING &apos;utf8&apos;;</screen>
+      <para>To quit, type:</para>
+      <screen>\q</screen>
+      <screenshot>
+        <screeninfo>Create a new database user and database</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="50%" fileref="resources/images/dhis2_ubuntu_installation/postgres.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>In the terminal again, to log off the postgres system user, simply invoke:</para>
+      <screen>exit</screen>
+    </section>
+    <section>
+      <title>Open the server for connections</title>
+      <para>If the server is going to be open for connections, we need to modify the <emphasis role="italic">postgresql.conf</emphasis> file:</para>
+      <screen>sudo gedit /etc/postgresql/8.4/main/postgresql.conf</screen>
+      <para>In the window that appears, scroll down to</para>
+      <screen>#-------------------------------
+CONNECTIONS AND AUTHENTICATION
+#-------------------------------</screen>
+      <para> and change the line</para>
+      <screen>#listen_addresses = &apos;localhost&apos;  # what IP address(es) to listen on;</screen>
+      <para>into:</para>
+      <screen>listen_addresses = &apos;*&apos;  # what IP address(es) to listen on;</screen>
+      <screenshot>
+        <screeninfo>Modify the postgresql.conf file to open the server for connections</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="75%" fileref="resources/images/dhis2_ubuntu_installation/Postgresql.conf.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Then save and exit.</para>
+    </section>
+    <section>
+      <title>Define authorizations for the databases</title>
+      <para>To define authorizations for the databases, we need to modify the <emphasis role="italic">pg_hba.conf</emphasis> file:</para>
+      <screen>sudo gedit /etc/postgresql/8.4/main/pg_hba.conf</screen>
+      <para>In the window that opens, scroll down to the bottom of the file and change <code>ident</code> into <code>md5</code> for the bottom line of the following lines:</para>
+      <screen># TYPE  DATABASE    USER        CIDR-ADDRESS          METHOD 
+
+# &quot;local&quot; is for Unix domain socket connections only 
+local   all         all                               ident</screen>
+      <para>When you&apos;re done, it should look like this (the edited line is highlighted):</para>
+      <screenshot>
+        <screeninfo>Edit the pg_hba.conf file to define authorizations</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="75%" fileref="resources/images/dhis2_ubuntu_installation/Pg_hba.conf.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Save and exit.</para>
+    </section>
+    <section>
+      <title>Performance tuning</title>
+      <para>If you want to increase the performance of PostgreSQL, you can do some changes in some configuration files.</para>
+      <section>
+        <title>Increase shared memory</title>
+        <para>The operating system has something that is called <emphasis role="italic">shared memory</emphasis>. By increasing this, applications can perform better. Invoke the following to open the <emphasis role="italic">sysctl.conf</emphasis> file:</para>
+        <screen>sudo gedit /etc/sysctl.conf</screen>
+        <para>At the <emphasis role="italic">
+            <emphasis role="underline">bottom</emphasis>
+          </emphasis> of the file, add the following line:</para>
+        <itemizedlist>
+          <listitem>
+            <para>If your computer has 12 GB of RAM, add</para>
+            <screen>kernel.shmmax = 1073741824</screen>
+          </listitem>
+          <listitem>
+            <para>If your computer has less RAM installed, adjust the value accordingly;</para>
+            <para>For example, for 4 GB of RAM, add</para>
+            <screen>kernel.shmmax = 352321536</screen>
+          </listitem>
+        </itemizedlist>
+        <para>Save the file and exit.</para>
+        <para>For the changes to take effect, you need to invoke the following in the terminal:</para>
+        <screen>sudo sysctl -p</screen>
+      </section>
+      <section>
+        <title>Adjust PostgreSQL configurations</title>
+        <para>By adjusting some PostgreSQL settings, the system can perform even better. We can do this by editing the <emphasis role="italic">postgresql.conf</emphasis> file. Invoke the following command to open the file:</para>
+        <screen>sudo gedit /etc/postgresql/8.4/main/postgresql.conf</screen>
+        <para>Now you need to locate some lines and edit them. Follow these steps:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Locate the following line:</para>
+            <screen>shared_buffers = 24MB   # min 128kB</screen>
+            <para>Change it so it reads (if your computer has 12 GB of RAM):</para>
+            <screen>shared_buffers = 512MB   # min 128kB</screen>
+            <itemizedlist>
+              <listitem>
+                <para>If your computer has less RAM, adjust the value accordingly;</para>
+                <para>For example, for 4 GB of RAM, you can use:</para>
+                <screen>shared_buffers = 176MB   # min 128kB</screen>
+              </listitem>
+            </itemizedlist>
+            <para/>
+          </listitem>
+          <listitem>
+            <para>Then locate the following line:</para>
+            <screen>#synchronous_commit = on  # immediate fsync at commit</screen>
+            <para>and remove <emphasis role="underline">the first</emphasis> <code>#</code> from the line.</para>
+            <para/>
+          </listitem>
+          <listitem>
+            <para>Now, locate the following line:</para>
+            <screen>#wal_writer_delay = 200ms  # 1-10000 milliseconds</screen>
+            <para>Change it so it reads (your computer&apos;s RAM does not matter here):</para>
+            <screen>wal_writer_delay = 10000ms  # 1-10000 milliseconds</screen>
+            <para>i.e. remove <emphasis role="underline">the first</emphasis> <code>#</code> and set the value to <code>10000ms</code> (ten thousand)</para>
+            <para/>
+          </listitem>
+          <listitem>
+            <para>Finally, locate the following line:</para>
+            <screen>#effective_cache_size = 128MB</screen>
+            <para>Change it so it reads (for 12 GB of RAM):</para>
+            <screen>effective_cache_size = 3750MB</screen>
+            <para>i.e. remove <emphasis role="underline">the first</emphasis> <code>#</code> and set the value to <code>3750MB</code></para>
+            <itemizedlist>
+              <listitem>
+                <para>If your computer has less RAM, adjust the value accordingly;</para>
+                <para>For example, for 4 GB of RAM, you can use:</para>
+                <screen>effective_cache_size = 1024MB</screen>
+              </listitem>
+            </itemizedlist>
+          </listitem>
+        </itemizedlist>
+        <para>Now, save the file and exit.</para>
+      </section>
+      <section>
+        <title>Restart PostgreSQL</title>
+        <para>For the changes made in the previous section to take effect, you need to restart the PostgreSQL server. You can do that by invoking the following command:</para>
+        <screen>sudo /etc/init.d/postgresql restart</screen>
+      </section>
+    </section>
+  </section>
+  <section>
+    <title>Installing pgAdmin</title>
+    <section>
+      <title>Create dhis2/databases folder</title>
+      <para><emphasis role="bold">Tip:</emphasis></para>
+      <para>A wise thing to do, might be to create a folder called <emphasis role="italic">dhis2/databases</emphasis> in your local home folder where the database backups can be stored. To do that, in the terminal, invoke the following two commands:</para>
+      <screen>mkdir ~/dhis2
+mkdir ~/dhis2/databases</screen>
+      <para><emphasis role="italic">Note: <code>~/</code> refers to the current user&apos;s home folder, i.e. <code>/home/yourusername/</code></emphasis></para>
+      <para>Alternatively, you can navigate to your home folder from Places in the panel. In your home folder you can right-click to create a new folder</para>
+    </section>
+    <section>
+      <title>Create a server connectionin pgAdmin</title>
+      <para>Launch PgAdmin from the menu: <emphasis role="italic">Applications -&gt; Programming -&gt; pgAdmin III</emphasis> or from the terminal simply by invoking:</para>
+      <screen>pgadmin3</screen>
+      <para>To create a server connection, click the button with the plug:</para>
+      <screenshot>
+        <screeninfo>Click the button with the plug to create a server connection</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="75%" fileref="resources/images/dhis2_ubuntu_installation/PgAdmin-Add-Server.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Enter the credentials</para>
+      <itemizedlist>
+        <listitem>
+          <para>Give the connection a name of your choice</para>
+        </listitem>
+        <listitem>
+          <para>Host should be the ip address of the server (or localhost if you&apos;re running locally)</para>
+        </listitem>
+        <listitem>
+          <para>Port is 5432 by default</para>
+        </listitem>
+        <listitem>
+          <para>Let the Username be postgres, and</para>
+        </listitem>
+        <listitem>
+          <para>provide the correct password</para>
+        </listitem>
+        <listitem>
+          <para>You can choose whether or not to store the password.</para>
+          <para><emphasis role="bold">(Note: The password will be saved in plain text. Avoid saving the password for an online server connection!)</emphasis></para>
+        </listitem>
+      </itemizedlist>
+      <screenshot>
+        <screeninfo>Enter the credentials for the server connection</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="50%" fileref="resources/images/dhis2_ubuntu_installation/PgAdmin_NewServerRegistration.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>If you have chosen to save your password, you will be prompted with this message:</para>
+      <screenshot>
+        <screeninfo>The warning message when you choose to save the password</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="75%" fileref="resources/images/dhis2_ubuntu_installation/PgAdmin-Guru Hint - Saving passwords.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </section>
+    <section>
+      <title>Restore a database from pgAdmin</title>
+      <para>If you have a <emphasis role="italic">
+          <emphasis role="underline">compressed</emphasis>
+        </emphasis> backup-file created by pgAdmin, you can restore it in the similar way as you do in Microsoft Windows.</para>
+      <para>Connect to your database by double-clicking the server and click the &apos;+&apos;-sign next to Databases. Right-click your database and choose Restore:</para>
+      <screenshot>
+        <screeninfo>The warning message when you choose to save the password</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="33%" fileref="resources/images/dhis2_ubuntu_installation/pgAdmin-Restore.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para/>
+      <para>Then browse and find your backup file. When you find it, click Open, and then OK in the next window:</para>
+      <screenshot>
+        <screeninfo>Open your bakup file</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="33%" fileref="resources/images/dhis2_ubuntu_installation/pgAdmin_FindBackup.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Wait for a while until the restoration is finished.</para>
+      <para><emphasis role="bold">Note:</emphasis>
+<itemizedlist>
+          <listitem>
+            <para><emphasis role="italic">
+                <emphasis role="bold">PostgreSQL 8.4 CAN NOT restore compressed backup files from PostgreSQL 9!</emphasis>
+              </emphasis></para>
+          </listitem>
+        </itemizedlist>
+</para>
+    </section>
+    <section>
+      <title>Plain text-restoration</title>
+      <para>If your backup file is in <emphasis role="italic">
+          <emphasis role="underline">plain text</emphasis>
+        </emphasis>, you can use either pgAdmin or the terminal to restore your database. With plain text it doesn&apos;t matter which version of PostgreSQL the backup file is made with.</para>
+      <section>
+        <title>Plain text-restoration with pgAdmin</title>
+        <para>In pgAdmin, select your database and click the SQL button:</para>
+        <screenshot>
+          <screeninfo>Select your database and click the SQL button</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="33%" fileref="resources/images/dhis2_ubuntu_installation/pgAdmin-SQL.png" format="PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para/>
+        <para>Then click the open icon:</para>
+        <screenshot>
+          <screeninfo>SQL open icon</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="5%" fileref="resources/images/dhis2_ubuntu_installation/pgAdmin-SQL-open.png" format="PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para/>
+        <para>Now, choose your file and open it:</para>
+        <screenshot>
+          <screeninfo>Open your plain text backup file</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="75%" fileref="resources/images/dhis2_ubuntu_installation/pgAdmin-SQL-file.png" format="PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para/>
+        <para>When it&apos;s opened, click the leftmost green arrow to execute the query:</para>
+        <screenshot>
+          <screeninfo>Click the leftmost green arrow to execute the query</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="10%" fileref="resources/images/dhis2_ubuntu_installation/pgAdmin-SQL-run.png" format="PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para/>
+        <para>While the file is being executed, it will say &quot;Query running&quot; in the lower left corner:</para>
+        <screenshot>
+          <screeninfo>It will say &quot;Query running&quot; while the query is running</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="10%" fileref="resources/images/dhis2_ubuntu_installation/pgAdmin-SQL-Query-running.png" format="PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para/>
+        <para>This might take some minutes, so please be patient. When it&apos;s finished, the text will say “OK.”.</para>
+        <para>If the <emphasis role="italic"><emphasis role="underline">plain text</emphasis> backup</emphasis> file is somewhat big, pgAdmin might crash. But fear not, the restoration process can always be run from terminal. The next section will show you how.</para>
+      </section>
+      <section>
+        <title>Plain text restoration from terminal</title>
+        <para>The command for restoring a plain text backup file, is the following:</para>
+        <screen>psql -d &lt;database&gt; -U &lt;user&gt; -f &lt;file&gt;</screen>
+        <para>For example:</para>
+        <screen>psql -d dhis2 -U dhis -f ~/dhis2/databases/dhis2-backup.sql</screen>
+        <para>Note that the full path of the backup file must be provided! (<code>~/</code>  points to the current user&apos;s home folder)</para>
+      </section>
+    </section>
+  </section>
+  <section>
+    <title>Installing Apache Tomcat</title>
+    <para>To download Apache Tomcat, you can either do it from the terminal, or you can use your web browser to download the latest release from http://tomcat.apache.org/download-70.cgi. If you use your web browser, download the <emphasis role="italic">tar.gz</emphasis> file from the Core section. If you want to do it from terminal, invoke the following command <emphasis role="italic">(Note: it&apos;s <emphasis role="underline">one</emphasis> command, not two!</emphasis>):</para>
+    <screen>wget http://apache.uib.no/tomcat/tomcat-7/v7.0.8/bin/apache-tomcat-7.0.8.tar.gz</screen>
+    <para>If you downloaded the file from terminal, extract the file by invoking:</para>
+    <screen>tar xvzf apache-tomcat-7.0.8.tar.gz</screen>
+    <para>Else, if you used your web browser, and your file is stored in the Downloads folder under your home directory, you need to adjust for that in the previous comment, by adding the full path to the downloaded file:</para>
+    <screen>tar xvzf ~/Downloads/apache-tomcat-7.0.8.tar.gz</screen>
+    <para><emphasis role="italic">
+        <emphasis role="underline">Note that you have to change the version number if you download a version different from 7.0.8!</emphasis>
+      </emphasis></para>
+    <para>After the files have been extracted, you can move the files to a folder of your choice. I choose <code>/usr/local/apache-tomcat-7.0.8</code>:</para>
+    <screen>sudo mv apache-tomcat-7.0.8 /usr/local/apache-tomcat -7.0.8</screen>
+    <para>If you want to delete the downloaded file, you can do that by invoking:</para>
+    <screen>rm apache-tomcat-7.0.8.tar.gz</screen>
+    <section>
+      <title>Preparing Tomcat</title>
+      <para>To prepare Tomcat for DHIS 2, we need to make some adjustments. Go to the Tomcat root folder by invoking:</para>
+      <screen>cd /usr/local/apache-tomcat-7.0.8</screen>
+      <para>We don&apos;t need anything else running than DHIS 2, so we can remove everything else from Tomcat&apos;s webapps folder:</para>
+      <screen>rm -rf /webapps/*</screen>
+      <para>Next, we want to create some environment variables that is used by Tomcat and DHIS 2. We&apos;re going to create a file called <emphasis role="italic">setenv.sh</emphasis>. If that file is placed in Tomcat&apos;s bin folder, it will be executed on startup. You can create the file by invoking:</para>
+      <screen>gedit bin/setenv.sh</screen>
+      <para>In this file, we want to define three environment variables. Add the following three lines to the file:</para>
+      <screen>export JAVA_HOME=/usr/lib/jvm/java-6-sun
+export JAVA_OPTS=”-Xmx600m -XX:MaxPermSize=1000m”
+export DHIS2_HOME=/home/your-user-name/dhis2/DHIS2_HOME</screen>
+      <para><emphasis role="italic">Note that you must insert the user name for the user that is going to run DHIS 2 in the last name. In the last line above, change <code>your-user-name</code> to the actual user name, for example <code>dhis</code></emphasis>.</para>
+      <para><code>JAVA_HOME</code> will set the location of your Java Runtime Environment, <code>JAVA_OPTS</code> allocates memory to Tomcat, and <code>DHIS2_HOME</code> sets the location where the <emphasis role="italic">hibernate.properties</emphasis> file is stored (see section later on how to create this file and the <code>DHIS2_HOME</code> folder).</para>
+    </section>
+    <section>
+      <title>Performance tuning</title>
+      <para>To increase Tomcat&apos;s performance, you can install the native APR library by invoking:</para>
+      <screen>sudo apt-get install libtcnative-1</screen>
+      <para>To make use of this, you need to edit the <emphasis role="italic">setclasspath.sh</emphasis> file in Tomcat&apos;s bin folder. Open it by invoking:</para>
+      <screen>gedit bin/setclasspath.sh</screen>
+      <para>Scroll down to the bottom of the file, and add the following line at the <emphasis role="italic">
+          <emphasis role="underline">bottom</emphasis>
+        </emphasis>:</para>
+      <screen>LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH</screen>
+      <para>Then save and exit.</para>
+    </section>
+  </section>
+  <section>
+    <title>Prepare for startup</title>
+    <para>This section will guide you through the last preparations you need to do before you can start using DHIS 2.</para>
+    <section>
+      <title>Creating the DHIS2_HOME folder</title>
+      <para>If you want to use your own database, DHIS 2 needs an environment variable called <code>DHIS2_HOME</code>. If you have not set this, see the section <emphasis role="italic">Preparing Tomcat</emphasis> to learn how you set this. If you have followed this guide, the <code>DHIS2_HOME</code> environment variable points to the folder <code>/home/your-user-name/dhis2/DHIS2_HOME</code>. However, this folder has not yet been created, so you need to create the folder. From the terminal, invoke the following command to create that folder:</para>
+      <screen>mkdir ~/dhis2/DHIS2_HOME</screen>
+    </section>
+    <section>
+      <title>Download and prepare DHIS 2</title>
+      <para>Download the latest built DHIS 2 .war file from http://dhis2.org/downloads</para>
+      <para>The &apos;Download&apos; folder (in which the downloaded files probably are store) can be found by navigating to</para>
+      <itemizedlist>
+        <listitem>
+          <para>Places (on the menu bar) -&gt; Downloads.</para>
+        </listitem>
+      </itemizedlist>
+      <para>Copy the <emphasis role="italic">dhis.war</emphasis> file (Right-click on the file, and then click &apos;Copy&apos;). Then go to the Tomcat webapps folder. The webapps folder can be found by navigating to:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Places (on the menu bar) -&gt; File System -&gt; usr -&gt; local -&gt; apache-tomcat-7.0.8 -&gt; webapps</para>
+        </listitem>
+      </itemizedlist>
+      <para>To paste the file in the folder, right-click on a white space within the folder and click &apos;Paste&apos;.</para>
+    </section>
+    <section>
+      <title>Create the hibernate.properties file</title>
+      <para>To create the <emphasis role="italic">hibernate.properties</emphasis> file, invoke the following command from the terminal:</para>
+      <screen>gedit ~/dhis2/DHIS2_HOME/hibernate.properties</screen>
+      <para>In the empty file, paste the following lines and adjust database-name, user and password:</para>
+      <screen>hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+hibernate.connection.driver_class = org.postgresql.Driver
+hibernate.connection.url = jdbc:postgresql:your-database-name
+hibernate.connection.username = your-database-user
+hibernate.connection.password = your-database-user-password
+hibernate.hbm2ddl.auto = update</screen>
+      <para>Then save and exit.</para>
+    </section>
+  </section>
+  <section>
+    <title>Run DHIS 2</title>
+    <section>
+      <title>Start Tomcat</title>
+      <para>To start DHIS 2, you first need to start Apache Tomcat. Invoke the following command from the terminal to start Tomcat:</para>
+      <screen>sh /usr/local/apache-­tomcat­7.0.8/bin/startup.sh</screen>
+    </section>
+    <section>
+      <title>Open DHIS 2</title>
+      <para>To start using DHIS 2, open a web browser and navigate to http://localhost:8080/dhis</para>
+      <para>The DHIS 2 team recommends Google&apos;s web browser Google Chrome for best experience with DHIS 2.
+You can download it from <ulink url="http://www.google.com/chrome">http://www.google.com/chrome</ulink> or by invoking the following command from the terminal:</para>
+      <screen>sudo apt-get install google-chrome-stable</screen>
+    </section>
+    <section>
+      <title>Stop Tomcat</title>
+      <para>To stop Apache Tomcat from running, invoke the following command from the terminal:</para>
+      <screen>sh /usr/local/apache-­tomcat­7.0.8/bin/shutdown.sh</screen>
+    </section>
+  </section>
+</chapter>
