@@ -27,7 +27,7 @@
           <para>Track (follow-up) a beneficiary through the entire treatment period.</para>
         </listitem>
         <listitem>
-          <para>Facilitate the service provider ( health worker or doctor ) in ( beneficiary ) patient&apos;s treatment follow-up; by recording all treatment related information in one place ( makes it comprehensive for the service-provider ).</para>
+          <para>Facilitate the service provider (health worker or doctor) in beneficiary&apos;s treatment follow-up; by recording all treatment related information in one place (makes it comprehensive for the service-provider).</para>
         </listitem>
         <listitem>
           <para>Help the beneficiary in recording treatment history in one place, which could be used later in case of referral.</para>
@@ -36,7 +36,7 @@
       <para><emphasis role="bold">Advantages of Name Based Information Tracking :</emphasis></para>
       <orderedlist>
         <listitem>
-          <para>Facilitates in recording entire treatment information of each beneficiary ( patient ).</para>
+          <para>Facilitates in recording entire treatment information of each beneficiary.</para>
         </listitem>
         <listitem>
           <para>Facilitates health-workers in organizing out-reach.</para>
@@ -45,7 +45,7 @@
           <para>Facilitates service-provider in treatment follow-up.</para>
         </listitem>
         <listitem>
-          <para>Facilitates in effective monitoring of different health services and drill down to individual beneficiary ( patient ) information.</para>
+          <para>Facilitates in effective monitoring of different health services and drill down to individual beneficiary information.</para>
         </listitem>
         <listitem>
           <para>Helps strengthen the quality and fidelity of data.</para>
@@ -73,7 +73,7 @@
       <section>
         <title>Registration and Identification for a beneficiary</title>
         <para>The system has a function to manage facilities which allow to registry new benificiaries or not. To start creating a patient, we need to select a facility which allows to registry a new benificiary.</para>
-        <para>The process of creating a new beneficiary in the system is through the registration process. The beneficiary is first registered in the system ( or checked if beneficiary already exists in system ). Searching a beneficiary can be done through identifiers, name, location or benificary&apos;s attributes (address, phone number, e.g. ). If the beneficiary already exists in the system, the encounter details can be opened and filled and the programme process can continue. If the beneficiary does not exist in the system, then new registration takes place. </para>
+        <para>The process of creating a new beneficiary in the system is through the registration process. The beneficiary is first registered in the system (or checked if beneficiary already exists in system). Searching a beneficiary can be done through identifiers, name, location or benificary&apos;s attributes (address, phone number, e.g.). If the beneficiary already exists in the system, the encounter details can be opened and filled and the programme process can continue. If the beneficiary does not exist in the system, then new registration takes place. </para>
         <para>When a beneficiary is registered in the system, multiple identifiers can be associated with the registration, such as Passport number, PAN, driving license, health identifier, UID. Internally, a location unique identifier is used to track the beneficiary.</para>
         <para>The process of identification is location independent, this implies that irrespective of location where beneficiary registered for service the service/medical record can be searched and pulled-up in any other facility provided the same is in the database. For facilities, which are not in the database, for e.g. a private facility, it will just be noted that &quot;<emphasis role="italic">Service is provided at other facility</emphasis>&quot;. In such case, the beneficiary should be encouraged, to provide these details of services taken from other facility to the ANM. The health worker is first identified through any of the identifiers or username in the system and the beneficiary is identified through identifiers for receiving a health service. After identification, the beneficiary&apos;s case history can be viewed or case can be updated with the new care that they have received</para>
       </section>
@@ -187,7 +187,7 @@
             </screenshot>
           </listitem>
           <listitem>
-            <para>Now click on the <emphasis role="italic">Beneficiaries</emphasis> option to go to <emphasis role="italic">Beneficiary Registration</emphasis> window.</para>
+            <para>Now click on the <emphasis role="italic">Beneficiary</emphasis> option to go to <emphasis role="italic">Beneficiary Registration</emphasis> window.</para>
             <screenshot>
               <screeninfo>Figure 2.3.4</screeninfo>
               <mediaobject>
@@ -656,7 +656,7 @@ There are two way to search a patient -<itemizedlist>
                 <screeninfo>Figure 2.5.4.6 - Resultafter running the query builder</screeninfo>
                 <mediaobject>
                   <imageobject>
-                    <imagedata fileref="resources/images/patients_programs/Fig. 2.5.4.6.png" format="PNG" width="70%"/>
+                    <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.5.4.6.png" format="PNG"/>
                   </imageobject>
                 </mediaobject>
               </screenshot>
@@ -681,9 +681,146 @@ There are two way to search a patient -<itemizedlist>
       <title>Advanced functions</title>
       <para>The content in this part is for the expert users or administrative users who are capable and responsible for development and change</para>
       <section>
+        <title>Create a beneficiary attribute</title>
+        <section>
+          <title>Create a beneficiary attribute</title>
+          <para>From <emphasis role="italic">Maintenance</emphasis> menu, go to <emphasis role="italic">Beneficiaries and Programs</emphasis> option and click on it. Select <emphasis role="italic">Beneficiary Attribute</emphasis> option to create a new attribute for beneficiaries. </para>
+          <screenshot>
+            <screeninfo>Fig. 2.7.1.1.1</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.7.1.1.1.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+          <para>After, click on <emphasis role="italic">Add</emphasis> button into <emphasis role="italic">Beneficiary Attribute Management</emphasis> window to go to <emphasis role="italic">Add New Beneficiary Attribute Management</emphasis> window.<screenshot>
+              <screeninfo>Fig. 2.7.1.1.2</screeninfo>
+              <mediaobject>
+                <imageobject>
+                  <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.7.1.1.2.png" format="PNG"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot><screenshot>
+              <screeninfo>Fig. 2.7.1.1.3</screeninfo>
+              <mediaobject>
+                <imageobject>
+                  <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.7.1.1.3.png" format="PNG"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot></para>
+          <para>Basic information</para>
+          <itemizedlist>
+            <listitem>
+              <para><emphasis role="italic">Name</emphasis>: Name of beneficiary attribute.</para>
+            </listitem>
+            <listitem>
+              <para><emphasis role="italic">Description</emphasis>: Description of beneficiary attribute.</para>
+            </listitem>
+            <listitem>
+              <para><emphasis role="italic">Mandatory</emphasis>: Entering value for this attribute is required or not.</para>
+            </listitem>
+            <listitem>
+              <para><emphasis role="italic">Inheritable</emphasis>: </para>
+            </listitem>
+            <listitem>
+              <para><emphasis role="italic">Number of characters</emphasis>: Maximumn number of characters for value inputed.</para>
+            </listitem>
+            <listitem>
+              <para><emphasis role="italic">Value Type</emphasis>: Data type of value inputed.</para>
+            </listitem>
+          </itemizedlist>
+        </section>
+        <section>
+          <title>Create a beneficiary attribute group</title>
+          <para>From <emphasis role="italic">Maintenance</emphasis> menu, go to <emphasis role="italic">Beneficiaries and Programs</emphasis> option and click on it. Select <emphasis role="italic">Beneficiary Attribute Group</emphasis> option to create a new an attribute group.</para>
+          <screenshot>
+            <screeninfo>Fig. 2.7.1.2.1</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.7.1.2.1.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+          <para>After, click on Add button into <emphasis role="italic">Beneficiary Attribute Group</emphasis> window to go to <emphasis role="italic">Add New Beneficiary Attribute Group</emphasis> window.</para>
+          <screenshot>
+            <screeninfo>Fig. 2.7.1.2.2</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.7.1.2.2.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+          <para>Basic information -</para>
+          <itemizedlist>
+            <listitem>
+              <para><emphasis role="italic">Name</emphasis>: Name of group</para>
+            </listitem>
+            <listitem>
+              <para><emphasis role="italic">Description</emphasis>: Description of group</para>
+            </listitem>
+            <listitem>
+              <para><emphasis role="italic">Selected attributes</emphasis>: Choose appropriated attributes to add into the group.</para>
+            </listitem>
+          </itemizedlist>
+        </section>
+      </section>
+      <section>
+        <title>Create a beneficiary identifier type</title>
+        <para>From <emphasis role="italic">Maintenance</emphasis> menu, go to <emphasis role="italic">Beneficiaries and Programs</emphasis> option and click on it. Select <emphasis role="italic">Beneficiary Identifier Type</emphasis> option to create a new identifier type.</para>
+        <screenshot>
+          <screeninfo>Fig. 2.7.2a</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="resources/images/patients_programs/Fig. 2.7.2a.png" format="PNG" width="70%"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>After, click on <emphasis role="italic">Add</emphasis> button into <emphasis role="italic">Beneficiary Identifier Type Management </emphasis>window to go to <emphasis role="italic">Add New Beneficiary Identifier Type</emphasis> window.</para>
+        <screenshot>
+          <screeninfo>Fig. 2.7.2b</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="resources/images/patients_programs/Fig. 2.7.2b.png" format="PNG" width="70%"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>Basic information -</para>
+        <itemizedlist>
+          <listitem>
+            <para><emphasis role="italic">Name</emphasis>: Name of identifier type.</para>
+          </listitem>
+          <listitem>
+            <para><emphasis role="italic">Description</emphasis>: Description of identifier type.</para>
+          </listitem>
+          <listitem>
+            <para><emphasis role="italic">Identifier Format</emphasis>: There two options, include <emphasis role="italic">State Format</emphasis> or not. State format has a format as follows, <emphasis role="italic">Organisation unit</emphasis>&apos;s code (9 characters) - <emphasis role="italic">Program</emphasis>&apos;s code - <emphasis role="italic">Year</emphasis> (2 digits) - <emphasis role="italic">Beneficiacy</emphasis>&apos;s code (4 characters).</para>
+          </listitem>
+          <listitem>
+            <para><emphasis role="italic">Mandatory</emphasis>: Entering value for the  identifier is required or not.</para>
+          </listitem>
+          <listitem>
+            <para><emphasis role="italic">Related</emphasis>: </para>
+          </listitem>
+          <listitem>
+            <para><emphasis role="italic">Number of characters</emphasis>: Maximumn number of characters for value inputed. </para>
+          </listitem>
+          <listitem>
+            <para><emphasis role="italic">Type</emphasis>: Data type of value inputed.</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+      <section>
+        <title>Define a relationship type</title>
+        <para/>
+      </section>
+      <section>
+        <title>Beneficary Organisation Unit Registration</title>
+        <para/>
+      </section>
+      <section>
         <title>Create a new program</title>
         <section>
-          <title>STEP 1 : Create a new program</title>
+          <title>Create a new program</title>
           <para><screenshot>
               <screeninfo>Figure 2.5.1.1</screeninfo>
               <mediaobject>
@@ -705,7 +842,7 @@ There are two way to search a patient -<itemizedlist>
 For example: the date in which a beneficiary enrols to the system.</para>
               </listitem>
               <listitem>
-                <para><emphasis role="italic">Date of Incidence Description</emphasis>: the date in which a beneficiary practically enrol to the health program. E.g. In the Immunization program for child under 1yr old, the incident date is the birthday; In the maternal program, the incident date is the date of last menstrual period (LMP)</para>
+                <para><emphasis role="italic">Date of Incidence Description</emphasis>: the date in which a beneficiary practically enrol to the health program. E.g. In the Immunization program for child under 1yr old, the incident date is the birthday; in the maternal program, the incident date is the date of last menstrual period (LMP)</para>
               </listitem>
               <listitem>
                 <para><emphasis role="italic">Number of min days allowed to input data</emphasis>.</para>
@@ -716,8 +853,8 @@ For example: the date in which a beneficiary enrols to the system.</para>
             </itemizedlist></para>
         </section>
         <section>
-          <title>STEP 2: Define (Create) stages for a health program</title>
-          <para>By clicking on the <emphasis role="italic">Program Stage Management</emphasis>  icon ( Fig. 2.5.1.2a ) and then <emphasis role="italic">Add new</emphasis> button  (Fig. 2.5.1.2b ).</para>
+          <title>Define (Create) stages for a health program</title>
+          <para>By clicking on the <emphasis role="italic">Program Stage Management</emphasis>  icon (Fig. 2.5.1.2a) and then <emphasis role="italic">Add new</emphasis> button  (Fig. 2.5.1.2b).</para>
           <screenshot>
             <screeninfo>Figure 2.5.1.2a</screeninfo>
             <mediaobject>
