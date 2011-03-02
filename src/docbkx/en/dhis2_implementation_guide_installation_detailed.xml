@@ -489,4 +489,55 @@ You can download it from <ulink url="http://www.google.com/chrome">http://www.go
       <screen>sh /usr/local/apache-­tomcat­7.0.8/bin/shutdown.sh</screen>
     </section>
   </section>
+  <section>
+    <title>Useful scripts</title>
+    <para>A script can be considered as a &quot;shortcut&quot; in Linux (or any other opreating systems). In a script file, we can write several commands, and by calling the script file, all these commands will be executed automatically.</para>
+    <para>This section will teach you how to create some useful scripts to ease the startup and shutdown process.</para>
+    <section>
+      <title>DHIS 2 start and stop script</title>
+      <para>First of all, it can be wise to create a folder in which we can store all the scripts. I&apos;ve chosen the folder <code>~/dhis2/scripts</code>. To create this folder, from the terminal, invoke the following command:</para>
+      <para><emphasis>Again, note that</emphasis> <code>~/</code><emphasis> points to your local home folder. The full address will be </emphasis><code>/home/your-user-name/dhis2/scripts</code><emphasis>. Ubuntu understands however the </emphasis><code>~/</code><emphasis> shortcut, so it&apos;s no problem to use it.</emphasis></para>
+      <screen>mkdir ~/dhis2/scripts</screen>
+      <para>Now we need to tell the system that we have scripts in this folder. We have to add the folder to the <code>PATH</code> environment variable. This can be done by editing the <emphasis role="italic">.bashrc</emphasis> file. Open it by invoking:</para>
+      <screen>gedit .bashrc</screen>
+      <para>At the <emphasis role="italic">
+          <emphasis role="underline">bottom</emphasis>
+        </emphasis> of the file, add the following line:</para>
+      <screen>export PATH=~/dhis2/scripts:$PATH</screen>
+      <para>Then save and exit.</para>
+      <section>
+        <title>The dhis script file</title>
+        <para>To create the file, invoke:</para>
+        <screen>gedit ~/dhis2/scripts/dhis</screen>
+        <para>In the file, paste the following lines:</para>
+        <screen>if [[ $# &gt; 0 &amp;&amp; $1 == &apos;start&apos; ]]
+then
+    sh /usr/local/apache-tomcat-7.0.8/bin/startup.sh
+elif [[ $# &gt; 0 &amp;&amp; 1 == &apos;stop&apos; ]]
+then
+    sh /usr/local/apache-tomcat-7.0.8/bin/startup.sh
+    echo
+    echo Please be patient while DHIS 2 is starting...
+    sleep 1
+    echo Point your web browser to http://localhost:8080/dhis
+    echo
+else
+    echo 
+    echo Wrong usage:
+    echo You have to type dhis start or dhis stop
+    echo
+fi</screen>
+        <para><emphasis><emphasis role="bold">Note:</emphasis> If you have installed Apache Tomcat in a different location from what is given in the example, you will need to change the path both places it say </emphasis><code>/usr/local/apache-tomcat-7.0.8/</code><emphasis> in the example.
+        Also, if your war file is not called </emphasis><code>dhis.war</code><emphasis>, but something different, adjust the URL </emphasis><code>http://localhost:8080/dhis</code><emphasis> correspondingly. Note that </emphasis><code>.war</code><emphasis> is not supposed to be in the URL.</emphasis></para>
+        <para/>
+        <para>What&apos;s left now, is to make the file executable. To do that, invoke the following two commands from the terminal:</para>
+        <screen>cd ~/dhis2/scripts
+chmod +x dhis</screen>
+        <para/>
+        <para>Now your script is ready to being executed. From the terminal, you can invoke the following commands to start or stop DHIS 2:</para>
+        <screen>dhis start
+dhis stop</screen>
+      </section>
+    </section>
+  </section>
 </chapter>
