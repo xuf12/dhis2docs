@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<project>
+﻿<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.hisp.dhis</groupId>
   <artifactId>dhis-documentation-docbook</artifactId>
   <name>DHIS 2 Documentation</name>
-  <version>2.0.4-SNAPSHOT</version>
+  <version>2.2-SNAPSHOT</version>
   <description>DHIS 2 Documentation</description>
   <packaging>pom</packaging>
 
@@ -17,13 +17,13 @@
       <plugin>
         <groupId>com.agilejava.docbkx</groupId>
         <artifactId>docbkx-maven-plugin</artifactId>
-        <version>2.0.11</version> 
+        <version>2.0.11</version>
         <configuration>
           <xincludeSupported>true</xincludeSupported>
-		 </configuration>
+        </configuration>
         <executions>
           <execution>
-            <id>chunked-html-docs-en</id>
+            <id>chunked-html-docs-user</id>
             <phase>package</phase>
             <goals>
               <goal>generate-html</goal>
@@ -36,28 +36,92 @@
               <chunkedOutput>true</chunkedOutput>
               <includes>dhis2_user_manual_en.xml</includes>
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+              <targetDirectory>${docbook.target}/en/user/html</targetDirectory>
+
               <postProcess>
-                <copy todir="${docbook.target}/en/">
-                  <fileset dir="target/docbkx/">
-                    <include name="**/*.html"/>
-                  </fileset>
-                </copy>
-                <copy todir="${docbook.target}/en/html/resources/images">
+                <move file="${docbook.target}/en/user/html/dhis2_user_manual_en.html" tofile="${docbook.target}/en/user/html/index.html" />
+                <copy todir="${docbook.target}/en/user/html/resources/images">
                   <fileset dir="src/docbkx/en/resources/images">
-                    <include name="**/*.png"/>
-                    <include name="**/*.gif"/>
-                    <include name="**/*.jpg"/>
+                    <include name="**/*.png" />
+                    <include name="**/*.gif" />
+                    <include name="**/*.jpg" />
                   </fileset>
                 </copy>
-                <copy todir="${docbook.target}/en/html/resources/css">
+                <copy todir="${docbook.target}/en/user/html/resources/css">
                   <fileset dir="src/docbkx/en/resources/css">
-                    <include name="**/*.css"/>
+                    <include name="**/*.css" />
                   </fileset>
                 </copy>
-                <delete file="target/docbkx/html/dhis2_user_manual_en.html"/>
               </postProcess>
             </configuration>
           </execution>
+
+          <execution>
+            <id>chunked-html-docs-end-user</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-html</goal>
+            </goals>
+            <configuration>
+              <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
+              <glossaryCollection>resources/glossary_en.xml</glossaryCollection>
+              <sectionAutolabel>1</sectionAutolabel>
+              <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
+              <chunkedOutput>true</chunkedOutput>
+              <includes>dhis2_end_user_manual.xml</includes>
+              <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+              <targetDirectory>${docbook.target}/en/end-user/html</targetDirectory>
+              <postProcess>
+                <move file="${docbook.target}/en/end-user/html/dhis2_end_user_manual.html" tofile="${docbook.target}/en/end-user/html/index.html" />
+                <copy todir="${docbook.target}/en/end-user/html/resources/images">
+                  <fileset dir="src/docbkx/en/resources/images">
+                    <include name="**/*.png" />
+                    <include name="**/*.gif" />
+                    <include name="**/*.jpg" />
+                  </fileset>
+                </copy>
+                <copy todir="${docbook.target}/en/end-user/html/resources/css">
+                  <fileset dir="src/docbkx/en/resources/css">
+                    <include name="**/*.css" />
+                  </fileset>
+                </copy>
+              </postProcess>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>chunked-html-docs-implementer</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-html</goal>
+            </goals>
+            <configuration>
+              <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
+              <glossaryCollection>resources/glossary_en.xml</glossaryCollection>
+              <sectionAutolabel>1</sectionAutolabel>
+              <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
+              <chunkedOutput>true</chunkedOutput>
+              <includes>dhis2_implementation_guide_en.xml</includes>
+              <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+              <targetDirectory>${docbook.target}/en/implementer/html</targetDirectory>
+              <postProcess>
+                <move file="${docbook.target}/en/implementer/html/dhis2_implementation_guide_en.html" tofile="${docbook.target}/en/implementer/html/index.html" />
+                <copy todir="${docbook.target}/en/implementer/html/resources/images">
+                  <fileset dir="src/docbkx/en/resources/images">
+                    <include name="**/*.png" />
+                    <include name="**/*.gif" />
+                    <include name="**/*.jpg" />
+                  </fileset>
+                </copy>
+                <copy todir="${docbook.target}/en/implementer/html/resources/css">
+                  <fileset dir="src/docbkx/en/resources/css">
+                    <include name="**/*.css" />
+                  </fileset>
+                </copy>
+              </postProcess>
+            </configuration>
+          </execution>
+
           <execution>
             <id>html-docs-en</id>
             <phase>package</phase>
@@ -70,18 +134,16 @@
               <sectionAutolabel>1</sectionAutolabel>
               <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
               <chunkedOutput>false</chunkedOutput>
-              <includes>dhis2_user_manual_en.xml</includes>
+              <includes>dhis2_user_manual_en.xml,dhis2_end_user_manual.xml,dhis2_implementation_guide_en.xml</includes>
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <postProcess>
-                <move file="target/docbkx/html/dhis2_user_manual_en.html" tofile="target/docbkx/html/dhis2_user_manual_full.html"/>
-                <copy todir="${docbook.target}/en/">
-                  <fileset dir="target/docbkx/">
-                    <include name="**/dhis2_user_manual_full.html"/>
-                  </fileset>
-                </copy>
+                <move file="target/docbkx/html/dhis2_user_manual_en.html" tofile="${docbook.target}/en/user/html/full.html" />
+                <move file="target/docbkx/html/dhis2_end_user_manual.html" tofile="${docbook.target}/en/end-user/html/full.html" />
+                <move file="target/docbkx/html/dhis2_implementation_guide_en.html" tofile="${docbook.target}/en/implementer/html/full.html" />
               </postProcess>
             </configuration>
           </execution>
+
           <execution>
             <id>pdf-docs-en</id>
             <phase>package</phase>
@@ -95,102 +157,9 @@
               <includes>*.xml</includes>
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <postProcess>
-                <copy todir="target/site/en">
-                  <fileset dir="target/docbkx/">
-                    <include name="**/*.pdf"/>
-                  </fileset>
-                </copy>
-              </postProcess>
-            </configuration>
-          </execution>
-          <execution>
-            <id>chunked-html-docs-vn</id>
-            <phase>package</phase>
-            <goals>
-              <goal>generate-html</goal>
-            </goals>
-            <configuration>
-              <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
-              <glossaryCollection>resources/glossary_vn.xml</glossaryCollection>
-              <sectionAutolabel>1</sectionAutolabel>
-              <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
-              <chunkedOutput>true</chunkedOutput>
-              <includes>dhis2_user_manual_vn.xml</includes>
-              <sourceDirectory>${docbook.source}/vn/</sourceDirectory>              
-              <postProcess>
-                <copy todir="${docbook.target}/vn/">
-                  <fileset dir="target/docbkx/">
-                    <include name="**/*.html"/>
-                  </fileset>
-                </copy>
-                <copy todir="${docbook.target}/vn/html/resources/images">
-                  <fileset dir="src/docbkx/vn/resources/images">
-                    <include name="**/*.png"/>
-                    <include name="**/*.gif"/>
-                    <include name="**/*.jpg"/>
-                  </fileset>
-                </copy>
-                <copy todir="${docbook.target}/vn/html/resources/css">
-                  <fileset dir="src/docbkx/vn/resources/css">
-                    <include name="**/*.css"/>
-                  </fileset>
-                </copy>
-		<delete file="target/docbkx/html/dhis2_user_manual_vn.html"/>
-              </postProcess>
-            </configuration>
-          </execution>
-          <execution>
-            <id>html-docs-vn</id>
-            <phase>package</phase>
-            <goals>
-              <goal>generate-html</goal>
-            </goals>
-            <configuration>
-              <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
-              <glossaryCollection>resources/glossary_vn.xml</glossaryCollection>
-              <sectionAutolabel>1</sectionAutolabel>
-              <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
-              <chunkedOutput>false</chunkedOutput>
-              <includes>dhis2_user_manual_vn.xml</includes>
-              <sourceDirectory>${docbook.source}/vn/</sourceDirectory>
-              <postProcess>
-                <move file="target/docbkx/html/dhis2_user_manual_vn.html" tofile="target/docbkx/html/dhis2_user_manual_full.html"/>
-                <copy todir="${docbook.target}/vn/">
-                  <fileset dir="target/docbkx/">
-                    <include name="**/dhis2_user_manual_full.html"/>
-                  </fileset>
-                </copy>
-              </postProcess>
-            </configuration>
-          </execution>
-          <execution>
-            <id>pdf-docs-vn</id>
-            <phase>package</phase>
-            <goals>
-              <goal>generate-pdf</goal>
-            </goals>
-            <configuration>
-			<bodyFontFamily>DejaVu Sans</bodyFontFamily>
-			<fonts>
-				<font>
-					<name>DejaVu Sans</name>
-					<style>normal</style>
-					<weight>normal</weight>
-					<embedFile>${project.basedir}/src/fonts/DejaVuSans.ttf</embedFile>
-					<metricsFile>${project.basedir}/target/fonts/DejaVuSans-metrics.xml</metricsFile>
-				</font>
-			  </fonts>
-              <argLine>-Xmx1024m</argLine>
-              <foCustomization>${docbook.source}/vn/resources/xsl/fop-cust.xsl</foCustomization>
-              <doubleSided>1</doubleSided>
-              <includes>*.xml</includes>
-              <sourceDirectory>${docbook.source}/vn/</sourceDirectory>
-              <postProcess>
-                <copy todir="target/site/vn">
-                  <fileset dir="target/docbkx/">
-                    <include name="**/*.pdf"/>
-                  </fileset>
-                </copy>
+                <move file="target/docbkx/pdf/dhis2_user_manual_en.pdf" todir="${docbook.target}/en/user" />
+                <move file="target/docbkx/pdf/dhis2_end_user_manual.pdf" todir="${docbook.target}/en/end-user" />
+                <move file="target/docbkx/pdf/dhis2_implementation_guide_en.pdf" todir="${docbook.target}/en/implementer" />
               </postProcess>
             </configuration>
           </execution>
@@ -205,8 +174,8 @@
           </dependency>
         </dependencies>
       </plugin>
-	  <plugin>
-	  <groupId>com.agilejava.docbkx</groupId>
+      <plugin>
+        <groupId>com.agilejava.docbkx</groupId>
         <artifactId>docbkx-fop-support</artifactId>
         <executions>
           <execution>
