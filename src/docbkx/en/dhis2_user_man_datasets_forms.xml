@@ -20,6 +20,14 @@ In addition to the default list-based data entry form there are two more alterna
     <section id="dataset_sections">
       <title>Section forms</title>
       <para>Section forms allow for a bit more flexibility when it comes to using tabular forms and are quick and simple to design.    Often your data entry form will need multiple tables with subheadings, and sometimes you need to disable (grey out) a few fields in the table, both of these functions are supported in section forms. </para>
+   <screenshot>
+      <screeninfo>Section form example</screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="100%" fileref="resources/images/dhis2UserManual/section_form.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+   </screenshot>
       <para>When designing a section form the procedure is as follows:
 </para>
       <para>1) Set up your dataset as described above
