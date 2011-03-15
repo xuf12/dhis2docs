@@ -418,6 +418,31 @@ export DHIS2_HOME=/home/your-user-name/dhis2/DHIS2_HOME</screen>
       <para><code>JAVA_HOME</code> will set the location of your Java Runtime Environment, <code>JAVA_OPTS</code> allocates memory to Tomcat, and <code>DHIS2_HOME</code> sets the location where the <emphasis role="italic">hibernate.properties</emphasis> file is stored (see section later on how to create this file and the <code>DHIS2_HOME</code> folder).</para>
     </section>
     <section>
+      <title>Reverse proxying with Tomcat and Apache</title>
+      <para>Tomcat should be run as a non-privileged user. Typically, it is run as &quot;tomcat6&quot; or &quot;tomcat&quot; . Since non-prviileged users are not able to run services on ports lower than port 1024, one must use the Apache HTTP server in order to &quot;reverse&quot; proxy Tomcat. </para>
+      <para><screen>sudo apt-get install apache2 libapache2-mod-proxy-html libapache2-mod-jk
+a2enmod proxy proxy_ajp proxy_connect</screen></para>
+      <para>The first command will install the necessary Tomcat modules and the second command will make them active. </para>
+      <para>Lets define an AJP connector which Apache HTTP server will use to connect to Tomcat with. The Tomcat server.xml file should be located in the /usr/local/apache-tomcat-7.0.8/conf/ directory. Be sure this line is uncommented.You can set the port to anything you like which is unused.</para>
+      <para><screen>&lt;Connector port=&quot;8009&quot; protocol=&quot;AJP/1.3&quot; redirectPort=&quot;8443&quot; /&gt;
+</screen>Now, we need to make the adjustments to the Apache HTTP server which will answer requests on port 80 and pass them to the Tomcat server through an AJP connector. Edit the file /etc/apache2/mods-enabled/proxy.conf so that it looks like the example below. Be sure that the port defined in the configuration file matches the one from Tomcat.</para>
+      <para><screen>&lt;IfModule mod_proxy.c&gt;
+ProxyPreserveHost On
+ProxyRequests Off
+ProxyPass /dhis  ajp://localhost:8009/dhis
+ProxyPassReverse /dhis  ajp://localhost:8009/dhis
+ProxyVia On
+&lt;Location &quot;/dhis&quot;&gt;
+  Order allow,deny
+  Allow from all
+&lt;/Location&gt;     
+&lt;/IfModule&gt;
+</screen></para>
+      <para>You now can restart Tomcat and the Apache HTTPD server and your DHIS 2 instance should not be available on http://localhost/dhis. </para>
+    </section>
+    <section/>
+    <section/>
+    <section>
       <title>Performance tuning</title>
       <para>To increase Tomcat&apos;s performance, you can install the native APR library by invoking:</para>
       <screen>sudo apt-get install libtcnative-1</screen>
@@ -527,8 +552,7 @@ else
     echo You have to type dhis start or dhis stop
     echo
 fi</screen>
-        <para><emphasis><emphasis role="bold">Note:</emphasis> If you have installed Apache Tomcat in a different location from what is given in the example, you will need to change the path both places it say </emphasis><code>/usr/local/apache-tomcat-7.0.8/</code><emphasis> in the example.
-        Also, if your war file is not called </emphasis><code>dhis.war</code><emphasis>, but something different, adjust the URL </emphasis><code>http://localhost:8080/dhis</code><emphasis> correspondingly. Note that </emphasis><code>.war</code><emphasis> is not supposed to be in the URL.</emphasis></para>
+        <para><emphasis><emphasis role="bold">Note:</emphasis> If you have installed Apache Tomcat in a different location from what is given in the example, you will need to change the path both places it say </emphasis><code>/usr/local/apache-tomcat-7.0.8/</code><emphasis> in the example. Also, if your war file is not called </emphasis><code>dhis.war</code><emphasis>, but something different, adjust the URL </emphasis><code>http://localhost:8080/dhis</code><emphasis> correspondingly. Note that </emphasis><code>.war</code><emphasis> is not supposed to be in the URL.</emphasis></para>
         <para/>
         <para>What&apos;s left now, is to make the file executable. To do that, invoke the following two commands from the terminal:</para>
         <screen>cd ~/dhis2/scripts
