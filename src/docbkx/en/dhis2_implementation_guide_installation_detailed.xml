@@ -442,8 +442,8 @@ ProxyVia On
     </section>
     <section>
       <title>Implementing SSL encryption</title>
-      <para>In certain deployments, data may need to  be encrypted between the client and server. Using Apache and the reverse proxywa  setup mentioned above, we can easily implement secure transfer of data between clients and the server over HTTPS. This section will describe how to use self-signed certificates, although you can easily skip this section if you have certificates which have been generated and authenticated by a third-party. </para>
-      <para>First (as root), generate and key files and CSR (Certificate Signing Request) </para>
+      <para>In certain deployments, data may need to  be encrypted between the client and server. Using Apache and the reverse proxy  setup described in the previous section, we can easily implement encrypted transfer of data between clients and the server over HTTPS. This section will describe how to use self-signed certificates, although  the same procedure could be used if you have fully-signed certificates as well. </para>
+      <para>First (as root), generate the necessary private key files and CSR (Certificate Signing Request) </para>
       <screen>mkdir /etc/apache2/ssl
 cd /etc/apache2/ssl
 openssl genrsa -des3 -out server.key 1024
@@ -452,11 +452,11 @@ openssl req -new -key server.key -out server.csr</screen>
       <para><screen>cp server.key server.key.org
 openssl rsa -in server.key.org -out server.key</screen></para>
       <para>Next, generate a self-signed certificate which will be valid for one year.</para>
-      <screen>penssl x509 -req -days 365 -in server.csr -signkey \ server.key -out server.crt</screen>
-      <para>Now, lets configure Apache by the SSL modules and creating a default site.</para>
+      <screen>openssl x509 -req -days 365 -in server.csr -signkey \ server.key -out server.crt</screen>
+      <para>Now, lets configure Apache by enabling the SSL modules and creating a default site.</para>
       <screen>a2enmod ssl
 a2ensite default-ssl</screen>
-      <para>Now, we need to edit the default-ssl (located at <filename>/etc/apache2/sites-enabled/default-ssl</filename>) file in order to enable the SSL transfer fully. </para>
+      <para>Now, we need to edit the default-ssl (located at <filename>/etc/apache2/sites-enabled/default-ssl</filename>) file in order to enable the SSL transfer functionality of Apache. </para>
       <para><screen>&lt;VirtualHost *:443&gt;
         ServerAdmin wemaster@mydomain.org
        SSLEngine On
