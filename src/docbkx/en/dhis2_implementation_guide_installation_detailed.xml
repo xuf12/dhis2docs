@@ -136,6 +136,84 @@ local   all         all                               ident</screen>
       <para>Save and exit.</para>
     </section>
     <section>
+      <title>Setting up ODBC Connections to the Postgresql server</title>
+      <para>Some implementations may require users to connect directly to the database with external software such as Excel, Stata, R or other analysis software.  Using ODBC, a connection to the server can be established over the Internet or LAN, between the server and the clients computer. </para>
+      <section>
+        <title>Setting up a Windows 7 (32 bit) ODBC connection</title>
+        <orderedlist>
+          <listitem>
+            <para>Download and install the current ODBC driver from this <ulink url="http://www.postgresql.org/ftp/odbc/versions/msi/">location</ulink>.</para>
+          </listitem>
+          <listitem>
+            <para>Execute from Start-&gt;Run this command to open the ODBC Data Source Administrator</para>
+            <screen>%windir%\system32\odbcad32.exe</screen>
+          </listitem>
+          <listitem>
+            <para>Click &quot;Add&quot; and choose the &quot;Postgresql UNICODE&quot; driver type and click &quot;Finish&quot;.</para>
+          </listitem>
+          <listitem>
+            <para>Fill in the values in this dialog box.</para>
+            <screenshot>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="resources/images/odbc/odbc_screen_1.PNG" width="30%" align="center"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot>
+            <itemizedlist>
+              <listitem>
+                <para>Data Source: The name of the ODBC data source.</para>
+              </listitem>
+              <listitem>
+                <para>Database: The name of the database to connect to.This should be the name of the DHIS 2 database in most cases.</para>
+              </listitem>
+              <listitem>
+                <para>Server: This should be the fully qualified domain name or the IP address of the server.</para>
+              </listitem>
+              <listitem>
+                <para>User Name: The user name which has properly configured permissions to connect to the database. The user will need to have the correct security settings (at least SELECT privileges) on the required tables.</para>
+              </listitem>
+              <listitem>
+                <para>Description: You can include a description of the ODBC connection here.</para>
+              </listitem>
+              <listitem>
+                <para>SSL mode: Determines whether to use an encrypted connection or not.</para>
+              </listitem>
+              <listitem>
+                <para>Port: The connection port for the database server.</para>
+              </listitem>
+              <listitem>
+                <para>Password: The password for the user which will be used to connec to the database.</para>
+              </listitem>
+            </itemizedlist>
+          </listitem>
+          <listitem>
+            <para>Click the &quot;Datasource&quot; button, and be sure that the &quot;Use Declare/Fech&quot; option is enabled. </para>
+            <screenshot>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="resources/images/odbc/odbc_screen_2.PNG" width="30%" align="center"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot>
+          </listitem>
+          <listitem>
+            <para>ClickOK to exit this dialog box, and the click &quot;Test&quot; to see if the connection works.</para>
+            <screenshot>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="resources/images/odbc/odbc_screen_3.PNG" width="20%" align="center"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot>
+          </listitem>
+          <listitem>
+            <para>Click save to save the ODBC connection. The connection should be available to client applications such as Excel now. </para>
+          </listitem>
+        </orderedlist>
+      </section>
+    </section>
+    <section>
       <title>Performance tuning</title>
       <para>If you want to increase the performance of PostgreSQL, you can do some changes in some configuration files.</para>
       <section>
