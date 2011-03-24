@@ -40,7 +40,7 @@
 
               <postProcess>
                 <copy file="${docbook.target}/en/user/html/dhis2_user_manual_en.html" tofile="${docbook.target}/en/user/html/index.html" />
-                <copy todir="${docbook.ytarget}/en/user/html/resources/images">
+                <copy todir="${docbook.target}/en/user/html/resources/images">
                   <fileset dir="src/docbkx/en/resources/images">
                     <include name="**/*.png" />
                     <include name="**/*.gif" />
