@@ -156,7 +156,7 @@ local   all         all                               ident</screen>
             <screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata fileref="resources/images/odbc/odbc_screen_1.PNG" width="30%" align="center"/>
+                  <imagedata width="30%" align="center" fileref="resources/images/odbc/odbc_screen_1.PNG"/>
                 </imageobject>
               </mediaobject>
             </screenshot>
@@ -192,7 +192,7 @@ local   all         all                               ident</screen>
             <screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata fileref="resources/images/odbc/odbc_screen_2.PNG" width="30%" align="center"/>
+                  <imagedata width="30%" align="center" fileref="resources/images/odbc/odbc_screen_2.PNG"/>
                 </imageobject>
               </mediaobject>
             </screenshot>
@@ -202,7 +202,7 @@ local   all         all                               ident</screen>
             <screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata fileref="resources/images/odbc/odbc_screen_3.PNG" width="20%" align="center"/>
+                  <imagedata width="20%" align="center" fileref="resources/images/odbc/odbc_screen_3.PNG"/>
                 </imageobject>
               </mediaobject>
             </screenshot>
@@ -497,7 +497,7 @@ export DHIS2_HOME=/home/your-user-name/dhis2/DHIS2_HOME</screen>
     </section>
     <section>
       <title>Reverse proxying with Tomcat and Apache</title>
-      <para>Tomcat should be run as a non-privileged user. Typically, it is run as &quot;tomcat6&quot; or &quot;tomcat&quot; . Since non-prviileged users are not able to run services on ports lower than port 1024, one must use the Apache HTTP server in order to &quot;reverse&quot; proxy Tomcat. </para>
+      <para>Tomcat should be run as a non-privileged user and the service will usually run on port 8080. If you want to run the DHIS 2 server on the nomal HTTP port (80), you will need to configure a reverse proxy using the Apache HTTPD server.   First we need to install a few necessary programs. </para>
       <para><screen>sudo apt-get install apache2 libapache2-mod-proxy-html libapache2-mod-jk
 a2enmod proxy proxy_ajp proxy_connect</screen></para>
       <para>The first command will install the necessary Tomcat modules and the second command will make them active. </para>

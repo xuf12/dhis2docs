@@ -36,11 +36,11 @@
               <chunkedOutput>true</chunkedOutput>
               <includes>dhis2_user_manual_en.xml</includes>
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
-              <targetDirectory>${docbook.target}/en/user/html</targetDirectory>
+              <targetDirectory>${docbook.target}/en/user/html/</targetDirectory>
 
               <postProcess>
-                <move file="${docbook.target}/en/user/html/dhis2_user_manual_en.html" tofile="${docbook.target}/en/user/html/index.html" />
-                <copy todir="${docbook.target}/en/user/html/resources/images">
+                <copy file="${docbook.target}/en/user/html/dhis2_user_manual_en.html" tofile="${docbook.target}/en/user/html/index.html" />
+                <copy todir="${docbook.ytarget}/en/user/html/resources/images">
                   <fileset dir="src/docbkx/en/resources/images">
                     <include name="**/*.png" />
                     <include name="**/*.gif" />
@@ -72,7 +72,7 @@
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <targetDirectory>${docbook.target}/en/end-user/html</targetDirectory>
               <postProcess>
-                <move file="${docbook.target}/en/end-user/html/dhis2_end_user_manual.html" tofile="${docbook.target}/en/end-user/html/index.html" />
+                <copy file="${docbook.target}/en/end-user/html/dhis2_end_user_manual.html" tofile="${docbook.target}/en/end-user/html/index.html" />
                 <copy todir="${docbook.target}/en/end-user/html/resources/images">
                   <fileset dir="src/docbkx/en/resources/images">
                     <include name="**/*.png" />
@@ -105,7 +105,7 @@
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <targetDirectory>${docbook.target}/en/implementer/html</targetDirectory>
               <postProcess>
-                <move file="${docbook.target}/en/implementer/html/dhis2_implementation_guide_en.html" tofile="${docbook.target}/en/implementer/html/index.html" />
+                <copy file="${docbook.target}/en/implementer/html/dhis2_implementation_guide_en.html" tofile="${docbook.target}/en/implementer/html/index.html" />
                 <copy todir="${docbook.target}/en/implementer/html/resources/images">
                   <fileset dir="src/docbkx/en/resources/images">
                     <include name="**/*.png" />
@@ -137,9 +137,9 @@
               <includes>dhis2_user_manual_en.xml,dhis2_end_user_manual.xml,dhis2_implementation_guide_en.xml</includes>
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <postProcess>
-                <move file="target/docbkx/html/dhis2_user_manual_en.html" tofile="${docbook.target}/en/user/html/full.html" />
-                <move file="target/docbkx/html/dhis2_end_user_manual.html" tofile="${docbook.target}/en/end-user/html/full.html" />
-                <move file="target/docbkx/html/dhis2_implementation_guide_en.html" tofile="${docbook.target}/en/implementer/html/full.html" />
+                <copy file="target/docbkx/html/dhis2_user_manual_en.html" tofile="${docbook.target}/en/user/html/full.html" />
+                <copy file="target/docbkx/html/dhis2_end_user_manual.html" tofile="${docbook.target}/en/end-user/html/full.html" />
+                <copy file="target/docbkx/html/dhis2_implementation_guide_en.html" tofile="${docbook.target}/en/implementer/html/full.html" />
               </postProcess>
             </configuration>
           </execution>
@@ -157,9 +157,9 @@
               <includes>*.xml</includes>
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <postProcess>
-                <move file="target/docbkx/pdf/dhis2_user_manual_en.pdf" todir="${docbook.target}/en/user" />
-                <move file="target/docbkx/pdf/dhis2_end_user_manual.pdf" todir="${docbook.target}/en/end-user" />
-                <move file="target/docbkx/pdf/dhis2_implementation_guide_en.pdf" todir="${docbook.target}/en/implementer" />
+                <copy file="target/docbkx/pdf/dhis2_user_manual_en.pdf" todir="${docbook.target}/en/user" />
+                <copy file="target/docbkx/pdf/dhis2_end_user_manual.pdf" todir="${docbook.target}/en/end-user" />
+                <copy file="target/docbkx/pdf/dhis2_implementation_guide_en.pdf" todir="${docbook.target}/en/implementer" />
               </postProcess>
             </configuration>
           </execution>
