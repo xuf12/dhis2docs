@@ -402,168 +402,47 @@ Above the table there are currently six buttons; five download buttons and one B
     </section>
     <section>
       <title>Initial guidelines</title>
-      <para><emphasis role="bold">Selecting the standard reporting framework in System settings</emphasis></para>
-      <para>In System Settings there is a property called reporting Framework (up to v. 2.0.6). Two options have been supported: Jasper Reports and BIRT Reports. When creating and running standard reports, the system behave according to this setting, so make sure your report designs match the selected reporting framework. A quick comparison is that Jasper is fully integrated and requires no extra maintenance, while BIRT is run as a separate web application and needs to be deployed and maintained separately, which also adds to the size of the installation package. From version 2.1, only Jasper reports will be supported in DHIS 2.</para>
       <para><emphasis role="bold">Add a new standard report:</emphasis></para>
-      <para>In DHIS 2, go to Services -&gt; Reports -&gt; Standard Report and click the right side &apos;Add new&apos; button. Provide a name for the report, upload your design file (.rptdesign (BIRT) or .xml (Jasper)) and select the report table(s) you have used in your report. Then Save.</para>
-      <para>NOTE ON DB CONNECTIONS:  all the connection strings in your design file will be automatically updated to connect to the database used by the DHIS 2 you are uploading to. This means that e.g. you can design reports against a local copy of the database and upload and use the design on an online server. This of course requires that data elements, indicators, report tables etc. are the same on both databases.</para>
+      <para>In DHIS 2, go to Services -&gt; Reports -&gt; Standard Report and click the right side &apos;Add new&apos; button. Provide a name for the report, upload your design file (.xml) and select the report table you have used in your report. Then Save.</para>
     </section>
     <section>
       <title>Designing Standard reports in iReport</title>
-      <para>
-Jasper iReport Designer is a tool for creating reports that can be used as Standard Reports in DHIS 2. The tool allows for the creation of standard report templates that can easily be exported from DHIS 2 with up to date data. The process of creating reports involves four major steps. First, a report table must be created in DHIS 2 with the indicators/data elements/datasets to be used in the report. Secondly, a connection must be set up from iReport to the DHIS 2 database. The layout of the report can then be made. Finally, the finished report can be uploaded to DHIS 2 to be used as a standard report. 
-</para>
+      <para>Jasper iReport Designer is a tool for creating reports that can be used as Standard Reports in DHIS 2. The tool allows for the creation of standard report templates that can easily be exported from DHIS 2 with up to date data. The process of creating reports involves four major steps:</para>
+      <orderedlist spacing="compact">
+        <listitem>
+          <para>A report table must be created in DHIS 2 with the indicators/data elements/datasets to be used in the report.</para>
+        </listitem>
+        <listitem>
+          <para>You have to run the report table and download the design file (Click the &quot;Download as JRXML&quot; button).</para>
+        </listitem>
+        <listitem>
+          <para>Open the downloaded .jrxml file using the free software Jasper iReport Designer to edit the layout of the report.</para>
+        </listitem>
+        <listitem>
+          <para>The edited report can then be uploaded to DHIS 2 to be used as a standard report.</para>
+        </listitem>
+      </orderedlist>
+      <para>If you want to preview your report during the design in iReport, you actually have to upload your file to DHIS 2 to see how it looks.</para>
+      <para>These four steps will be describe in detail in the coming sections.</para>
       <section>
-        <title>Connecting iReport to the DHIS 2 Database</title>
-        <para>
-This section will explain how to connect iReport to the DHIS 2 database.
-</para>
-        <para>
-Click the &quot;Report Datasource&quot; icon to start setting up the database connection.
-</para>
-        <screenshot>
-          <screeninfo>Click to open &quot;Connections/Datasources&quot; window</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="100%" fileref="resources/images/dhis2_creating_reporting/ireport/1_home.jpg" format="JPEG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-        <para>
-In the window that pops up, click &quot;New&quot;.
-</para>
-        <screenshot>
-          <screeninfo>Create a new database connection</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="50%" fileref="resources/images/dhis2_creating_reporting/ireport/2_new.jpg" format="JPEG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-        <para>
-For datasource type, select &quot;Database JDBC connection&quot;, then click the &quot;Next&quot; button.
-</para>
-        <screenshot>
-          <screeninfo>Choose JDBC as datasource</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="25%" fileref="resources/images/dhis2_creating_reporting/ireport/3_driver.jpg" format="JPEG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-        <para>
-In the next window, we need to enter information about the DHIS 2 database. First, provide a name for the connection. Most of the other information can be retrieved by entering DHIS 2, and opening the &quot;About&quot; page (Help -&gt; About DHIS 2). Fill in the form as illustrated below, then click the &quot;Wiz&quot;-button so that the &quot;JDBC URL&quot; is updated.
-</para>
-        <screenshot>
-          <screeninfo>Fill in connection data from DHIS 2</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="100%" fileref="resources/images/dhis2_creating_reporting/ireport/4_dhis_info.jpg" format="JPEG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-        <para>
-Note that the &apos;Server Address&apos; is the address <emphasis role="underline">before</emphasis> the colon (the &apos;:&apos;) in the URL. The next step is to fill in the password for the database user, check the &quot;Save Password&quot; checkbox, and click &quot;Test&quot; to check if the connection is OK. A window stating that the connection is OK should appear, otherwise control the data you have entered.
-<screenshot>
-            <screeninfo>The connection is OK if this message appears</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="25%" fileref="resources/images/dhis2_creating_reporting/ireport/6_conn_test.jpg" format="JPEG"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
-</para>
-        <para>
-Click &quot;OK&quot;, and save the connection data. The list of connections should now have the connection you just created listed. Close the window.
-</para>
+        <title>Download and open the design file</title>
+        <para><emphasis>Note: If you have not created a report table yet, you have to do so. See section &quot;How to create report tables&quot; to do so.</emphasis></para>
+        <para>Locate your desired report table and run it by clicking the green circle with a white arrow inside. When the report is shown, click the &quot;Download as JRXML&quot; button to download the design file. Then open that file in the Jasper iReport Designer software.</para>
       </section>
       <section>
-        <title>Getting Information from the Database</title>
-        <para>
-The next step is to perform a database query and fetch data from the Report Table we want to use in DHIS 2. To do this, we must create a new document to import this data into. Choose &quot;File&quot; from the top menu, and select &quot;New&quot;.
-</para>
-        <screenshot>
-          <screeninfo>Choose File -&gt; New</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="50%" fileref="resources/images/dhis2_creating_reporting/ireport/7_new1.jpg" format="JPEG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-        <para>
-A window will appear, where you can choose the template layout for the report. Select your desired format (preferably a blank layout), then click &quot;Open this Template&quot;. 
-</para>
-        <para>
-Another window will now appear. Enter a filename for the report, and a location to save it to. After entering this information, click &quot;Next&quot; and &quot;Finish&quot;.
-</para>
-        <screenshot>
-          <screeninfo>Enter file name and location, then click next</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="33%" fileref="resources/images/dhis2_creating_reporting/ireport/9_new3.jpg" format="JPEG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-        <para>
-We are now ready to fetch data from the Report Table in DHIS 2. We do this by right-clicking on the report name in the &quot;Report Inspector&quot; and selecting &quot;Edit Query&quot;.
-</para>
-        <screenshot>
-          <screeninfo>Right click on the report and choose Edit Query</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="25%" fileref="resources/images/dhis2_creating_reporting/ireport/10_edit_query.jpg" format="JPEG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-        <para>
-In the &quot;Report Query&quot; window that appears, you now need to enter an SQL query from the database. To do this, you need to enter the name of the DHIS 2 Report Table you want to use. In the example below, we use the &quot;Outpatients&quot; table. Click on the &quot;i&quot; icon, and a box will appear. Note the &apos;Table name&apos;.
-</para>
-        <screenshot>
-          <screeninfo>Find the name of the Report Table to use</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="66%" fileref="resources/images/dhis2_creating_reporting/ireport/10_2_rep_table_i.jpg" format="JPEG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-        <para>
-The statement we need to enter is on the form <code>SELECT * FROM &lt;Name of table&gt;</code>. In our example, the complete statement we enter is then <code>SELECT * FROM _report_outpatients</code>. If the name of the report table contains a white space, it should be replaced with an underscore (_). As soon as we enter the name, the table at the bottom of the window is populated with data. Click &quot;OK&quot;.
-</para>
-        <screenshot>
-          <screeninfo>Enter the SQL query &quot;select * from [table_name]&quot;</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="66%" fileref="resources/images/dhis2_creating_reporting/ireport/12_sql_win.jpg" format="JPEG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-        <para>
-If we look at the &quot;Report Inspector&quot; in iReport, under &quot;Fields&quot;, we see all the available column headings from the report table.
-</para>
-        <screenshot>
-          <screeninfo>Check that there are elements available in &quot;Fields&quot;</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="25%" fileref="resources/images/dhis2_creating_reporting/ireport/13_fields.jpg" format="JPEG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-      </section>
-      <section>
-        <title>Creating and Editing a Report</title>
-        <para>
-We are now ready to create the layout of the report. The main iReport window consists of a &quot;Report Inspector&quot; to the left, the document in the middle, a &quot;Palette&quot; area on the upper right hand side and a &quot;Properties&quot; area on the lower right hand side. The &quot;Report Inspector&quot; are used for selecting and examining the various properties of the report, and when selecting an item in the inspector, the &quot;Properties&quot; panel changes to display properties relating to the selection. The &quot;Palette&quot; is used for adding various elements, e.g. text boxes, images and charts to the document.  
+        <title>Editing the report</title>
+        <para>You are now ready to create the layout of the report. The main iReport window consists of a &quot;Report Inspector&quot; to the left, the report document in the middle, a &quot;Palette&quot; area on the upper right hand side and a &quot;Properties&quot; area on the lower right hand side. The &quot;Report Inspector&quot; are used for selecting and examining the various properties of the report, and when selecting an item in the inspector, the &quot;Properties&quot; panel changes to display properties relating to the selection. The &quot;Palette&quot; is used for adding various elements, e.g. text boxes, images and charts to the document.  
 </para>
         <screenshot>
           <screeninfo>Overview of the main iReport window</screeninfo>
           <mediaobject>
             <imageobject>
-              <imagedata width="100%" fileref="resources/images/dhis2_creating_reporting/ireport/14_window.jpg" format="JPEG"/>
+              <imagedata width="100%" fileref="resources/images/dhis2_creating_reporting/ireport/iReport-window.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
         <para>
-The iReport document is divided into seven main parts, divided by layout separators (the blue lines). These lines are used to decide how big each of the areas should be on the report. 
+The iReport document is divided into seven main bands, divided by layout separators (the blue lines). These lines are used to decide how big each of the areas should be on the report. 
 </para>
         <para>
 The areas all have different purposes:
@@ -605,63 +484,40 @@ Summary - elements in this area will be placed at the end of the report
 </para>
           </listitem>
         </itemizedlist>
-        <para>
-Data fields entered into the &quot;Detail 1&quot; area iterated over to create a table. For example, if a field called &quot;datalemenentname&quot; is placed in the &quot;Detailed&quot; area, all data elements in the report table will be listed here. To add the &quot;dataelementname&quot; field to the table, we simply drag it to the &quot;Detail 1&quot; area from the &quot;Report Inspector&quot;. The column header will be added automatically.
-</para>
-        <para>
-Next, we may want to see what the report currently looks like. To do this, we click the &quot;Preview&quot; button. To get back to the editing tab later, click the &quot;Designer&quot; button. 
-</para>
+        <para>By default you will see that only the Title, Column Header and the Detail 1 bands have data.
+        For most reports this is OK. The Title band is suitable for a title and e.g. a chart. 
+        Data fields entered into the Detail 1 area will be iterated over to create a table. 
+        For example, if a field called &quot;datalementname&quot; is placed in the Detail 1 band,
+        all data elements in the report table will be listed here. 
+        We&apos;ll come back to data fields management just a little below.</para>
+        <para>The unused bands in the report are shrinked to add more space for your report data. You can
+        however increase/decrease the band height as you like. There are two ways to do that. The first way is simply to drag the blue band-line as shown below.</para>
         <screenshot>
-          <screeninfo>Select the Preview button to get to the report preview</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="66%" fileref="resources/images/dhis2_creating_reporting/ireport/16_preview.jpg" format="JPEG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-        <screenshot>
-          <screeninfo>The preview of the report</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="100%" fileref="resources/images/dhis2_creating_reporting/ireport/16_preview2.jpg" format="JPEG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-        <para>
-As we can see from the preview above, it seems we need to adjust the height of the &quot;Detail 1&quot; area to remove some of the whitespace between each row. There are two ways to do this. The first way is to simply drag the blue layout-line as shown below.
-</para>
-        <screenshot>
-          <screeninfo>Drag the blue lines to change the size of layout areas</screeninfo>
+          <screeninfo>Drag the blue lines to change the band heights</screeninfo>
           <mediaobject>
             <imageobject>
               <imagedata width="66%" fileref="resources/images/dhis2_creating_reporting/ireport/17_drag.jpg" format="JPEG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
-        <para>
-The other way to adjust the height of the row is to select the &quot;Detail 1&quot; element in the &quot;Report Inspector&quot;, and then adjust the &quot;Band height&quot; value in the &quot;Detail 1 - properties&quot; area in the lower right corner.
-<screenshot>
-            <screeninfo>Adjust the size of layout areas by changing the Band height property</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="60%" fileref="resources/images/dhis2_creating_reporting/ireport/18_adjust.jpg" format="JPEG"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
-</para>
-        <para>
-We can also give the column title a more informative name. To do this, simply double click on the text field and edit the name.
-</para>
+        <para>The other way to adjust the band height is to select a band in the 
+        &quot;Report Inspector&quot;, and then adjust the &quot;Band height&quot; value in the 
+        &quot;Detail 1 - properties&quot; area in the lower right corner.</para>
         <screenshot>
-          <screeninfo>Double click to edit text fields and text labels</screeninfo>
+          <screeninfo>Adjust the size of layout areas by changing the Band height property</screeninfo>
           <mediaobject>
             <imageobject>
-              <imagedata width="25%" fileref="resources/images/dhis2_creating_reporting/ireport/19_edit_text.jpg" format="JPEG"/>
+              <imagedata width="60%" fileref="resources/images/dhis2_creating_reporting/ireport/18_adjust.jpg" format="JPEG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
-        <para>
-Now, the table with data itself looks better. But we need to add a title. To do this, find the &quot;Static Text&quot; element in the &quot;Palette&quot;, and drag a text field onto the document.
+        <para>As the fields are already present on the report, you probably don&apos;t want to do anything
+        than just fix the layout and drag fields around. If you want to change the text in the column
+        headers, you simply double click the field and change the text. You can edit the table in the same way.</para>
+        <para>To add the a field to the table, 
+        we simply drag it to the Detail 1 band from the &quot;Report Inspector&quot;. 
+        The column header will be added automatically.</para>
+        <para>By double clicking the box, the text can be edited. The format of the text, such as size, font and alignment, can be adjusted with the tools above the document.
 </para>
         <screenshot>
           <screeninfo>Add text by dragging the static text element to the report</screeninfo>
@@ -671,9 +527,6 @@ Now, the table with data itself looks better. But we need to add a title. To do 
             </imageobject>
           </mediaobject>
         </screenshot>
-        <para>
-By double clicking the box, the text can be edited. The format of the text, such as size, font and alignment, can be adjusted with the tools above the document.
-</para>
         <screenshot>
           <screeninfo>Double click to edit the text, and change its appearance</screeninfo>
           <mediaobject>
@@ -682,6 +535,10 @@ By double clicking the box, the text can be edited. The format of the text, such
             </imageobject>
           </mediaobject>
         </screenshot>
+        <para><emphasis>
+            <emphasis role="bold">NOTE: Fields starting with &quot;$F&quot; present values that are retrieved from the database every time the report is run. The values here will vary, so do not change these fields unless you want a static value here!</emphasis>
+          </emphasis>
+        </para>
       </section>
       <section>
         <title>Adding Charts</title>
