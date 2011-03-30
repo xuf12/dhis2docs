@@ -352,13 +352,13 @@ When the report table is run, the system will calculate values for specified ind
       </mediaobject>
     </screenshot>
     <para>
-Above the table there are currently six buttons; five download buttons and one Back button. Clicking the Back button will simply take you back to the previous screen. The function of the five download buttons, are presented below the screenshot:
+Above the table there are six buttons; five download buttons and one Back button. Clicking the Back button will simply take you back to the previous screen. The function of the five download buttons, are presented below the screenshot:
 </para>
     <screenshot>
-      <screeninfo>Example report table</screeninfo>
+      <screeninfo>The download buttons</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata width="100%" fileref="resources/images/dhis2_creating_reporting/report-table_output.jpg" format="JPEG"/>
+          <imagedata width="100%" fileref="resources/images/dhis2_creating_reporting/report-table_output.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -366,28 +366,27 @@ Above the table there are currently six buttons; five download buttons and one B
     <itemizedlist>
       <listitem>
         <para><emphasis role="italic">Download as Excel:</emphasis></para>
-        <para>Downloads a generated Excel file you can open in Excel.
-</para>
+        <para>Downloads a generated Excel file you can open in Excel.</para>
+        <para/>
       </listitem>
       <listitem>
         <para><emphasis role="italic">Download as CSV:</emphasis></para>
-        <para>Downloads a generated .csv file. CSV stands for <emphasis role="bold">C</emphasis>omma <emphasis role="bold">S</emphasis>eparated <emphasis role="bold">V</emphasis>alues. It&apos;s a text file with the file ending .csv. Each  line in the file corresponds to a row in the table, while the columns are separated with semi colons (;). The file can be opened in a text editor as well as in a spread sheet program (such as Excel).
-</para>
+        <para>Downloads a generated .csv file. CSV stands for <emphasis role="bold">C</emphasis>omma <emphasis role="bold">S</emphasis>eparated <emphasis role="bold">V</emphasis>alues. It&apos;s a text file with the file ending .csv. Each  line in the file corresponds to a row in the table, while the columns are separated with semi colons (;). The file can be opened in a text editor as well as in a spread sheet program (such as Excel).</para>
+        <para/>
       </listitem>
       <listitem>
         <para><emphasis role="italic">Download as PDF:</emphasis></para>
-        <para>Downloads a generated pdf file. The data will be presented in a similar layout as the generated table you are already viewing in DHIS 2.
-</para>
+        <para>Downloads a generated pdf file. The data will be presented in a similar layout as the generated table you are already viewing in DHIS 2.</para>
+        <para/>
       </listitem>
       <listitem>
-        <para><emphasis role="italic">Download as Jasper:</emphasis></para>
-        <para>Downloads a &quot;styled&quot; pdf file. In addition to present the data in a table layout, this file also presents a chart, showing the aggregated data from all the chosen periods and the parent organisation unit chosen for the report table. The report is generated using the Jasper report engine.
-</para>
+        <para><emphasis role="italic">Download as Report:</emphasis></para>
+        <para>Downloads a &quot;styled&quot; pdf file. In addition to present the data in a table layout, this file also presents a chart, showing the aggregated data from all the chosen periods and the parent organisation unit chosen for the report table. The report is generated using the Jasper report engine.</para>
+        <para/>
       </listitem>
       <listitem>
         <para><emphasis role="italic">Download as JRXML:</emphasis></para>
-        <para>Downloads the design file for the generated Jasper PDF file described in the previous bullet. The design file (with the file ending .jrxml) can be opened in the Jasper iReport Designer software. If you plan to design standard reports, this can be a useful starting point.
-</para>
+        <para>Downloads the design file for the generated Report described in the previous bullet. The design file (with the file ending .jrxml) can be opened in the Jasper iReport Designer software. If you plan to design standard reports, this is the starting point.</para>
       </listitem>
     </itemizedlist>
   </section>
@@ -395,20 +394,13 @@ Above the table there are currently six buttons; five download buttons and one B
     <title>Standard reports</title>
     <section>
       <title>What is a standard report?</title>
-      <para>A standard report is a manually designed report that presents manually chosen data in a manually specified layout. Still, it&apos;s highly flexible, as it can be designed to be reused over and over again, by making use of the powerful report tables.
-</para>
-      <para>A standard report can present any value from any table in the DHIS 2 database, but for the report design, we want the reports to be flexible, so we want to connect the reports to tables that changes through time. The report tables are therefore ideal for the report design.
-</para>
-    </section>
-    <section>
-      <title>Initial guidelines</title>
-      <para><emphasis role="bold">Add a new standard report:</emphasis></para>
-      <para>In DHIS 2, go to Services -&gt; Reports -&gt; Standard Report and click the right side &apos;Add new&apos; button. Provide a name for the report, upload your design file (.xml) and select the report table you have used in your report. Then Save.</para>
+      <para>A standard report is a manually designed report that presents manually chosen data in a manually specified layout. Still, it&apos;s highly flexible, as it can be designed to be reused over and over again, by making use of the powerful report tables.</para>
+      <para>A standard report can present any value from any table in the DHIS 2 database, but for the report design, we want the reports to be flexible, so we want to connect the reports to tables that changes through time. The report tables are therefore ideal for the report design.</para>
     </section>
     <section>
       <title>Designing Standard reports in iReport</title>
       <para>Jasper iReport Designer is a tool for creating reports that can be used as Standard Reports in DHIS 2. The tool allows for the creation of standard report templates that can easily be exported from DHIS 2 with up to date data. The process of creating reports involves four major steps:</para>
-      <orderedlist spacing="compact">
+      <orderedlist>
         <listitem>
           <para>A report table must be created in DHIS 2 with the indicators/data elements/datasets to be used in the report.</para>
         </listitem>
@@ -431,7 +423,7 @@ Above the table there are currently six buttons; five download buttons and one B
       </section>
       <section>
         <title>Editing the report</title>
-        <para>You are now ready to create the layout of the report. The main iReport window consists of a &quot;Report Inspector&quot; to the left, the report document in the middle, a &quot;Palette&quot; area on the upper right hand side and a &quot;Properties&quot; area on the lower right hand side. The &quot;Report Inspector&quot; are used for selecting and examining the various properties of the report, and when selecting an item in the inspector, the &quot;Properties&quot; panel changes to display properties relating to the selection. The &quot;Palette&quot; is used for adding various elements, e.g. text boxes, images and charts to the document.  
+        <para>You are now ready to edit the layout of the report. The main iReport window consists of a &quot;Report Inspector&quot; to the left, the report document in the middle, a &quot;Palette&quot; area on the upper right hand side and a &quot;Properties&quot; area on the lower right hand side. The &quot;Report Inspector&quot; are used for selecting and examining the various properties of the report, and when selecting an item in the inspector, the &quot;Properties&quot; panel changes to display properties relating to the selection. The &quot;Palette&quot; is used for adding various elements, e.g. text boxes, images and charts to the document.  
 </para>
         <screenshot>
           <screeninfo>Overview of the main iReport window</screeninfo>
@@ -441,45 +433,32 @@ Above the table there are currently six buttons; five download buttons and one B
             </imageobject>
           </mediaobject>
         </screenshot>
+        <para><emphasis>Note: If you cannot see the Palette or Properties sidebar, you can enable them from the menu item called &quot;Window&quot; on the menu bar.</emphasis></para>
         <para>The iReport document is divided into seven main bands, divided by layout separators (the blue lines). These lines are used to decide how big each of the areas should be on the report. 
 </para>
         <para>The areas all have different purposes:
 </para>
         <itemizedlist>
           <listitem>
-            <para>
-Title - area for the title of the report
-</para>
+            <para>Title - area for the title of the report</para>
           </listitem>
           <listitem>
-            <para>
-Page header - area for the page header
-</para>
+            <para>Page header - area for the page header</para>
           </listitem>
           <listitem>
-            <para>
-Column header - area for column headers (for the table)
-</para>
+            <para>Column header - area for column headers (for the table)</para>
           </listitem>
           <listitem>
-            <para>
-Detail 1 - area where the actual report data will be placed
-</para>
+            <para>Detail 1 - area where the actual report data will be placed</para>
           </listitem>
           <listitem>
-            <para>
-Column footer - area to make footer of the table
-</para>
+            <para>Column footer - area to make footer of the table</para>
           </listitem>
           <listitem>
-            <para>
-Page footer - area for the page footer
-</para>
+            <para>Page footer - area for the page footer</para>
           </listitem>
           <listitem>
-            <para>
-Summary - elements in this area will be placed at the end of the report
-</para>
+            <para>Summary - elements in this area will be placed at the end of the report</para>
           </listitem>
         </itemizedlist>
         <para>By default you will see that only the Title, Column Header and the Detail 1 bands have data.
@@ -510,21 +489,9 @@ Summary - elements in this area will be placed at the end of the report
           </mediaobject>
         </screenshot>
         <para>As the fields are already present on the report, you probably don&apos;t want to do anything
-        than just fix the layout and drag fields around. If you want to change the text in the column
-        headers, you simply double click the field and change the text. You can edit the table in the same way.</para>
-        <para>To add the a field to the table, 
-        we simply drag it to the Detail 1 band from the &quot;Report Inspector&quot;. 
-        The column header will be added automatically.</para>
-        <para>By double clicking the box, the text can be edited. The format of the text, such as size, font and alignment, can be adjusted with the tools above the document.
-</para>
-        <screenshot>
-          <screeninfo>Add text by dragging the static text element to the report</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="66%" fileref="resources/images/dhis2_creating_reporting/ireport/20_title_add.jpg" format="JPEG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
+        than just fix the layout and drag fields around. You can also resize the fields by dragging the side, top or bottom lines. If you want to change the text in the column headers, you simply double click the field and change the text.</para>
+        <para>To add the a field to the table, we simply drag it to the Detail 1 band from the &quot;Report Inspector&quot;. The column header will be added automatically.</para>
+        <para>By double clicking the box, the text can be edited. The format of the text, such as size, font and alignment, can be adjusted with the tools above the document.</para>
         <screenshot>
           <screeninfo>Double click to edit the text, and change its appearance</screeninfo>
           <mediaobject>
@@ -538,7 +505,7 @@ Summary - elements in this area will be placed at the end of the report
           </emphasis>
         </para>
       </section>
-      <section><title>Charts</title><para>The auto-generated report comes shipped with a chart within. This can however be edited. To do that, right-click on the chart and select &quot;Chart Data&quot;.</para><screenshot>
+      <section><title>Charts</title><para>The auto-generated report already has a chart. This can however be edited. To do that, right-click on the chart and select &quot;Chart Data&quot;.</para><screenshot>
           <screeninfo>Select Chart Data by right clicking on the chart</screeninfo>
           <mediaobject>
             <imageobject>
@@ -568,33 +535,30 @@ Summary - elements in this area will be placed at the end of the report
               <imagedata width="66%" fileref="resources/images/dhis2_creating_reporting/ireport/35_editchart_4.jpg" format="JPEG"/>
             </imageobject>
           </mediaobject>
-        </screenshot><para>A new window appears with the available fields. A list of available fields to put in the chart will show. If you double-click one of the items, it will be added to the Expression editor.
-</para><screenshot>
+        </screenshot>
+        <para>A new window appears with the available fields. A list of available fields to put in the chart will show. If you double-click one of the items, it will be added to the Expression editor.</para>
+        <screenshot>
           <screeninfo>Double click on the desired field</screeninfo>
           <mediaobject>
             <imageobject>
               <imagedata width="66%" fileref="resources/images/dhis2_creating_reporting/ireport/36_editchart_5.jpg" format="JPEG"/>
             </imageobject>
           </mediaobject>
-        </screenshot><para>
-To make the chart more informative and better looking, we can select it by clicking on it and use the &quot;Properties&quot; panel on the right hand side to make adjustments. For example, you can add a title to the chart, change the font, rotate the axis labels (as shown below) and so on.
-</para><screenshot>
+        </screenshot>
+        <para>To make the chart more informative and better looking, we can select it by clicking on it and use the &quot;Properties&quot; panel on the right hand side to make adjustments. For example, you can add a title to the chart, change the font, rotate the axis labels (as shown below) and so on.</para>
+        <screenshot>
           <screeninfo>Edit the chart properties</screeninfo>
           <mediaobject>
             <imageobject>
               <imagedata width="66%" fileref="resources/images/dhis2_creating_reporting/ireport/39_editchart_9.jpg" format="JPEG"/>
             </imageobject>
           </mediaobject>
-        </screenshot></section>
+        </screenshot>
+      </section>
       <section>
         <title>Adding the Report to DHIS 2</title>
-        <para>To use the report we have created as a Standard Report in DHIS 2, we must first prepare the file in iReport and then upload the file to DHIS 2.   
-</para>
-        <para>We must change the file format of the report from .jrxml to .xml. We do this by selecting &quot;File -&gt; Save As...&quot; and simply replacing .jrxml with .xml in the file name. Then click &quot;Save&quot;.
-</para>
-        <para>We can now switch to DHIS 2 and import our report. Go to the Report Module in DHIS 2, and select &quot;Standard Report&quot;. In the &quot;Standard Report&quot; screen, click &quot;Add new&quot;, or edit an existing one.
-</para>
-        <para>In the following screen, there are several actions we need to take. First, enter a name for the new &quot;Standard Report&quot;. Second, for design, click &quot;Choose File&quot; and find the .xml-file we created in iReport. Then we select the report table that we used as a basis for the report in iReport. Click add, and it should move to the &quot;Selected report tables&quot; area. Finally, click save. 
+        <para>We can now switch to DHIS 2 and import our report. Go to the Report Module in DHIS 2, and select &quot;Standard Report&quot;. In the &quot;Standard Report&quot; screen, click &quot;Add new&quot;, or edit an existing one.</para>
+        <para>In the following screen, there are several actions we need to take. First, enter a name for the new &quot;Standard Report&quot;. Second, for design, click &quot;Choose File&quot; and find the .jrxml-file you have edited in iReport. Then we select the report table that we used as a basis for the report in iReport. Click add, and it should move to the &quot;Selected report tables&quot; area. Finally, click save. 
 </para>
         <screenshot>
           <screeninfo>Upload the file and choose the right report table</screeninfo>
@@ -604,8 +568,7 @@ To make the chart more informative and better looking, we can select it by click
             </imageobject>
           </mediaobject>
         </screenshot>
-        <para>The report is now available as a &quot;Standard Report&quot; in DHIS 2.
-</para>
+        <para>The report is now available as a &quot;Standard Report&quot; in DHIS 2:</para>
         <screenshot>
           <screeninfo>The report is available as a Standard Report</screeninfo>
           <mediaobject>
@@ -723,7 +686,70 @@ Directory: the name of the birt viewer folder, e.g. birt
     </section>
   </section>
   <section>
-    <title>Creating charts</title>
+    <title>Charts</title>
+    <para>Charts present analysis of data using indicators and subjecting it to comparisons 
+across organisation units and over time.</para>
+    <section>
+      <title>Creating charts</title>
+      <para>To create a chart, navigate to Services -&gt; Reports -&gt; Charts. There are three different kinds of charts you can create: Period, organisation or indicator chart. For each chart you can choose whether you want to have bar charts or line charts.</para>
+      <itemizedlist>
+        <listitem>
+          <para><emphasis>Period chart</emphasis></para>
+          <para>The period chart lets you choose several indicators, several periods and one organisation unit.</para>
+          <para>The chosen periods are listed on the X-axis, and the values for each selected indicator is shown.</para>
+          <para>The period chart supports relative periods. That means that if you don&apos;t select any periods when you create the chart, but rather tick the box &quot;Reporting month&quot; under &quot;Relative periods&quot;, the chart will show the results from previous month each time it is run. For example, if you run the chart in June 2011, the chart will present the values for May 2011.</para>
+          <screenshot>
+            <screeninfo>Example period charts</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="100%" fileref="resources/images/dhis2_creating_reporting/chart_period.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </listitem>
+        <listitem>
+          <para><emphasis>Organisation unit chart</emphasis></para>
+          <para>The organisation unit chart lets you choose several indicators, several organisation units and one period.</para>
+          <para>The organisation units are listed on the X-axis, and the values for each indicator is shown.</para>
+          <para>The organisation unit chart does <emphasis>not</emphasis> support relative periods.</para>
+          <screenshot>
+            <screeninfo>Example organisation unit charts</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="100%" fileref="resources/images/dhis2_creating_reporting/chart_orgunit.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </listitem>
+        <listitem>
+          <para><emphasis>Indicator chart</emphasis></para>
+          <para>The indicator chart is similar to the period chart in all but one area:</para>
+          <para>The chosen indicators are listed along the X-axis, and the values for each period is shown.</para>
+          <screenshot>
+            <screeninfo>Example indicator charts</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="100%" fileref="resources/images/dhis2_creating_reporting/chart_indicator.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </listitem>
+      </itemizedlist>
+      <section>
+        <title>Options when creating charts</title>
+        <itemizedlist>
+          <listitem>
+            <para><emphasis>Include regression line</emphasis></para>
+            <para>This option adds a line showing the trend of the indicator(s) presented in the chart</para>
+          </listitem>
+          <listitem>
+            <para><emphasis>Include current user organisation unit</emphasis> (from v. 2.2)</para>
+            <para>This option includes the organisation unit the current user is assigned to, in addition to other selected organisation units. For example, if the user is assigned to a region, the chart will show values for this region in addition to other selected organisation units.</para>
+            <para><emphasis>Note:</emphasis> If this option is chosen when creating a period chart, another organisation unit should not be chosen, as values for only one organisation unit can be presented in a period chart.</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+    </section>
   </section>
   <section>
     <title>Setting up and maintaining pivot tables</title>
