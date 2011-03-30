@@ -161,7 +161,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis_mobile/mobile_login_screen.png" align="center"/>
+                <imagedata align="center" fileref="resources/images/dhis_mobile/mobile_login_screen.png"/>
               </imageobject>
             </mediaobject>
           </screenshot>Once the client has been installed ot the phone, an initialization process must occur by providing a user name, password and server URL. </para>
@@ -187,7 +187,7 @@
             <screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata fileref="resources/images/dhis_mobile/mobile_enter_pin.png" align="center"/>
+                  <imagedata align="center" fileref="resources/images/dhis_mobile/mobile_enter_pin.png"/>
                 </imageobject>
               </mediaobject>
             </screenshot>
@@ -228,7 +228,7 @@
             <screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata fileref="resources/images/dhis_mobile/select_report_form.png" align="center"/>
+                  <imagedata align="center" fileref="resources/images/dhis_mobile/select_report_form.png"/>
                 </imageobject>
               </mediaobject>
             </screenshot>
@@ -238,7 +238,7 @@
             <screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata fileref="resources/images/dhis_mobile/aggregate_select_periods.png" align="center"/>
+                  <imagedata align="center" fileref="resources/images/dhis_mobile/aggregate_select_periods.png"/>
                 </imageobject>
               </mediaobject>
             </screenshot>
@@ -260,7 +260,7 @@
             <screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata fileref="resources/images/dhis_mobile/aggregate_data_entry_form.png" align="center"/>
+                  <imagedata align="center" fileref="resources/images/dhis_mobile/aggregate_data_entry_form.png"/>
                 </imageobject>
               </mediaobject>
             </screenshot>
@@ -271,7 +271,7 @@
             <screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata fileref="resources/images/dhis_mobile/aggregate_save_complete.png" align="center"/>
+                  <imagedata align="center" fileref="resources/images/dhis_mobile/aggregate_save_complete.png"/>
                 </imageobject>
               </mediaobject>
             </screenshot>
@@ -279,7 +279,7 @@
             <screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata fileref="resources/images/dhis_mobile/aggregate_data_entry_form_saved.png" align="center"/>
+                  <imagedata align="center" fileref="resources/images/dhis_mobile/aggregate_data_entry_form_saved.png"/>
                 </imageobject>
               </mediaobject>
             </screenshot>
@@ -287,7 +287,7 @@
             <screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata fileref="resources/images/dhis_mobile/aggregate_report_success.png" align="center"/>
+                  <imagedata align="center" fileref="resources/images/dhis_mobile/aggregate_report_success.png"/>
                 </imageobject>
               </mediaobject>
             </screenshot>
@@ -303,7 +303,7 @@
             <screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata fileref="resources/images/dhis_mobile/aggregate_save_completed_periods.png" align="center"/>
+                  <imagedata align="center" fileref="resources/images/dhis_mobile/aggregate_save_completed_periods.png"/>
                 </imageobject>
               </mediaobject>
             </screenshot>
@@ -342,7 +342,7 @@
             <screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata fileref="resources/images/dhis_mobile/dataset_locked_upload_failed.png" align="center"/>
+                  <imagedata align="center" fileref="resources/images/dhis_mobile/dataset_locked_upload_failed.png"/>
                 </imageobject>
               </mediaobject>
             </screenshot>
@@ -370,12 +370,6 @@
                 </listitem>
                 <listitem>
                   <para>Completed Activity Plan: Contain all the activities that have been completed and sent to server. This list is for review only.</para>
-                </listitem>
-                <listitem>
-                  <para>Update Activity Plan: Update the list of new activities.</para>
-                </listitem>
-                <listitem>
-                  <para>Update Program Form: Synchronize the program form structure between server and mobile client.</para>
                 </listitem>
               </itemizedlist></para>
           </listitem>
@@ -407,7 +401,9 @@
                   <para>For the field with pre-suggested values: press the select button to open the popup menu then you can choose one of the options. Select “Select Option” means that you have no data for that field..</para>
                 </listitem>
                 <listitem>
-                  <para>For date-type field: the input format is [date]-[month]-[year].</para>
+                  <para>For date-type value: </para>
+                  <para>- If server Date is available,  a checkbox will be displayed with a label next to it. Check on the checkbox to take the current Date as value.</para>
+                  <para>- If  server Date is not available, a DateField will be displayed for user input Date in   [date]-[month]-[year] format.</para>
                 </listitem>
               </itemizedlist></para>
           </listitem>
@@ -454,39 +450,24 @@
         </orderedlist>
       </section>
       <section>
-        <title>Updating Activity Plan</title>
-        <para>After one year, month or week, new Activities may automatically generated from server. In order to update these new Activities to mobile client, the following process is required.</para>
-        <para><graphic fileref="resources/images/dhis_mobile/update_activity_plan_command.png" align="center"/></para>
+        <title>Updating Activity Plan and Program Form</title>
+        <para>After some days, weeks or months, new Activities may automatically generated from server, some Program Stage Data Element may be removed  from original form. In order to update these new changes, we have a &quot;Automatic Update Activity Plan and Program&quot; function.</para>
+        <para><graphic fileref="resources/images/dhis_mobile/activity_plan_blocked.png" align="center"/></para>
         <orderedlist>
           <listitem>
-            <para>Select “Update Activity Plan”</para>
-            <para>From Activity Main Menu, select “Update Activity Plan”. </para>
+            <para>This function is completely automatic. After user start the application and enter PIN, a requested to be sent to server to update new data.</para>
           </listitem>
           <listitem>
-            <para>Please wait</para>
-            <para>A wait screen will be displayed with a message “Please wait”. </para>
+            <para>While this function perform, the &quot;Current Activity Plan&quot; is temporarily blocked and it will be open again as soon as the updating process complete.</para>
           </listitem>
           <listitem>
-            <para>Success Message</para>
+            <para>This function update both &quot;Activity Plan&quot; and &quot;Program Form&quot;.</para>
             <para>“Update Completed” message will appear on the screen after the update process finish. Select ”Dismiss” to close this window and go back to Activity Main Menu. Your Current Activity Plan is now updated.</para>
           </listitem>
-        </orderedlist>
-      </section>
-      <section>
-        <title>Updating Program Form</title>
-        <para>For various reasons, some times the Program Stage Form may be changed by server admin (add or remove some data element). In that case, you need to run the “Update Program Form” function in order to synchronize the form structure between server and mobile client. </para>
-        <para><graphic fileref="resources/images/dhis_mobile/update_program_form_command.png" align="center"/></para>
-        <orderedlist>
           <listitem>
-            <para>Select “Update Program Form”</para>
-            <para>Form Activity Main Menu selects “Update Program Form”.</para>
-          </listitem>
-          <listitem>
-            <para>Success Message</para>
-            <para>“Update completed” message will appear on the screen. Select “Dismiss” to close this window and go back to Activity Main Menu. All of your Program Stage Form on your mobile phone is now updated.</para>
+            <para>When a data element removed due to the changing of form structure, all data value that related to that data element will be hiding also. You are no longer seeing the value in the form. </para>
           </listitem>
         </orderedlist>
-        <para><emphasis role="bold">*Note</emphasis>: When a data element removed due to the changing of form structure, all data value that related to this data element will be hiding also. You are no longer seeing the value in the form. </para>
       </section>
     </section>
   </section>
