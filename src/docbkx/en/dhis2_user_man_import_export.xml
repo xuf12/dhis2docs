@@ -155,24 +155,6 @@ If there are no datasets defined for an organisation unit, it indicates that no 
       <title>Importing data from DHIS 1.4</title>
       <para>There are two ways to import data from a DHIS 1.4 database; 1) through the 1.4 XML-based export files, or 2) directly from the DHIS 1.4 data file (.mdb). Both are accessible from the DHIS 1.4 Import menu under Import in the Import-Export module.</para>
       <para>It is critical that all data integrity violations which are present in the DHIS 1.4 database be fully resolved before attemtping an import into DHIS 2. You can check the data integrity of DHIS 1.4 through the CORE Module-&gt;Advanced-&gt;Data integrity checks. A report will be generated of all data integrity violations which should be resolved prior to importing into DHIS 2.</para>
-      <para>Currently, the import of some metadata is not supported from DHIS 1.4 to DHIS 2. This includes:</para>
-      <itemizedlist>
-        <listitem>
-          <para>Validation rules</para>
-        </listitem>
-        <listitem>
-          <para>Organisational unit alternate names</para>
-        </listitem>
-        <listitem>
-          <para>Compulsory data element pairings</para>
-        </listitem>
-        <listitem>
-          <para>Custom data entry forms</para>
-        </listitem>
-        <listitem>
-          <para>Dataset data entry levels</para>
-        </listitem>
-      </itemizedlist>
       <section>
         <title>DHIS 1.4 File (database) Import</title>
         <para>This method is recommend when doing large imports from 1.4, and especially when importing into a new  DHIS 2 database.</para>
@@ -199,10 +181,32 @@ If there are no datasets defined for an organisation unit, it indicates that no 
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="resources/images/import_export/dhis14_export.png" width="40%" align="center"/>
+              <imagedata width="40%" align="center" fileref="resources/images/import_export/dhis14_export.png"/>
             </imageobject>
           </mediaobject>
         </screenshot>
+      </section>
+      <section>
+        <title>Limitations to DHIS 1.4 imports</title>
+        <para>Although it is possible to import and export data between instances of   DHIS 1.4 and DHIS 2, there are significant limiations. Currently, the import of some metadata is not supported from DHIS 1.4 to DHIS 2. This includes:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Validation rules</para>
+          </listitem>
+          <listitem>
+            <para>Organisational unit alternate names</para>
+          </listitem>
+          <listitem>
+            <para>Compulsory data element pairings</para>
+          </listitem>
+          <listitem>
+            <para>Custom data entry forms</para>
+          </listitem>
+          <listitem>
+            <para>Dataset data entry levels</para>
+          </listitem>
+        </itemizedlist>
+        <para>It is also important that the aggregation operator defined in DHIS 1.4 be set to the correct value. Some data, such as population, should have their aggregation operator set to &quot;Average&quot; in DHIS 2, as this controls how the aggregation of data is handled over time (but not within the organisational unit hierarchy). </para>
       </section>
     </section>
   </section>

@@ -1,8 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+<!ENTITY version '2.X'>]>
 <book>
   <bookinfo>
     <title>DHIS 2 User Manual</title>
+    <releaseinfo><?eval ${project.version}?></releaseinfo>
     <keywordset>
       <keyword>DHIS2</keyword>
       <keyword>HMIS</keyword>

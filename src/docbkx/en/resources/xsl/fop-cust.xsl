@@ -16,6 +16,7 @@
                 version="1.0"
                 xmlns="http://www.w3.org/TR/xhtml1/transitional"
                 xmlns:fo="http://www.w3.org/1999/XSL/Format"
+				xmlns:db="http://docbook.org/ns/docbook"
                 exclude-result-prefixes="#default">
                 
 <xsl:import href="urn:docbkx:stylesheet"/>
@@ -48,38 +49,64 @@
                    Custom Title Page
     ################################################### --> 
     
-
+	<xsl:template name="book.titlepage.before.recto"></xsl:template>
     <xsl:template name="book.titlepage.recto">
-        <fo:block font-family="Helvetica" font-size="30pt" text-align="center" padding-before="85mm">
-            <xsl:text>DHIS 2 User Manual</xsl:text>
-        </fo:block>
         <fo:block padding-before="5mm">
             <fo:table table-layout="fixed" width="175mm">
                 <fo:table-column column-width="175mm"/>
                 <fo:table-body>
-                    <fo:table-row>
+					<fo:table-row >
+						<fo:table-cell text-align="center">
+							<fo:block text-align="center" font-size="22pt" font-weight="bold" padding-before="70mm">
+								<xsl:value-of select="db:bookinfo/db:title" />
+							</fo:block>
+						</fo:table-cell>
+					</fo:table-row>
+					<fo:table-row >
                         <fo:table-cell text-align="center">
-                            <fo:block>
+                            <fo:block padding-before="5mm">
                                 <fo:external-graphic scaling="uniform" src="file:./resources/images/dhis2_images/logo.png"/>
                             </fo:block>
                         </fo:table-cell>
                     </fo:table-row>
+					<fo:table-row >
+						<fo:table-cell text-align="center">
+							<fo:block text-align="center" font-size="14pt" font-weight="bold" padding-before="10mm">
+								<xsl:value-of select="db:bookinfo/db:releaseinfo" />
+							</fo:block>
+						</fo:table-cell>
+					</fo:table-row>
                 </fo:table-body>
             </fo:table>
-        </fo:block>
-        <fo:block font-family="Helvetica" font-size="11pt" text-align="center" padding-before="7mm">
-            <xsl:text>Copyright &copyright; 2006-2010</xsl:text>
-        </fo:block>
-    </xsl:template>
-
+        </fo:block>	
+	</xsl:template>
 
     <!-- Prevent blank pages in output -->    
-    <xsl:template name="book.titlepage.before.verso">
-    </xsl:template>
-    <xsl:template name="book.titlepage.verso">
-    </xsl:template>
-    <xsl:template name="book.titlepage.separator">
-    </xsl:template>
+ 
+	<xsl:template name="book.titlepage.verso">
+	        <fo:block padding-before="150mm">
+            <fo:table table-layout="fixed" width="175mm">
+                <fo:table-column column-width="175mm"/>
+                <fo:table-body>
+					<fo:table-row >
+						<fo:table-cell text-align="left">
+							<fo:block text-align="left" font-size="12pt">
+								 <xsl:text>Copyright &copyright; 2006-2010</xsl:text>
+							</fo:block>
+						</fo:table-cell>
+					</fo:table-row>
+					<fo:table-row >
+						<fo:table-cell text-align="left" padding-before="15mm">
+							<fo:block text-align="left" font-size="12pt" >
+								 <xsl:value-of select="db:bookinfo/db:legalnotice" />
+							</fo:block>
+						</fo:table-cell>
+					</fo:table-row>
+	             </fo:table-body>
+            </fo:table>
+        </fo:block>	
+	</xsl:template>
+
         
 <!--###################################################
                       Header
@@ -87,7 +114,7 @@
 
     <!-- More space in the center header for long text -->
     <xsl:attribute-set name="header.content.properties">
-        <xsl:attribute name="font-family">Helvetica</xsl:attribute>
+        <xsl:attribute name="font-family">Arial</xsl:attribute>
         <xsl:attribute name="font-size">9pt</xsl:attribute>
 		
 <!--
@@ -208,7 +235,7 @@
                       Custom Footer
     ################################################### -->  
     <xsl:attribute-set name="footer.content.properties">
-        <xsl:attribute name="font-family">Helvetica</xsl:attribute>
+        <xsl:attribute name="font-family">Arial</xsl:attribute>
         <xsl:attribute name="font-size">9pt</xsl:attribute>
     </xsl:attribute-set>
    
@@ -218,8 +245,8 @@
 		<xsl:param name="position" select="''" />
 		<xsl:param name="gentext-key" select="''" />
 		<xsl:variable name="Version">
-			<xsl:if test="//releaseinfo">
-				<xsl:value-of select="//bookinfo/title" /><xsl:text> (</xsl:text><xsl:value-of select="//releaseinfo" /><xsl:text>)</xsl:text>
+			<xsl:if test="db:bookinfo/db:releaseinfo">
+				<xsl:value-of select="db:bookinfo/db:title" /><xsl:text> (</xsl:text><xsl:value-of select="db:bookinfo/db:releaseinfo" /><xsl:text>)</xsl:text>
 			</xsl:if>
 		</xsl:variable>
 
@@ -357,9 +384,9 @@
     <xsl:param name="region.before.extent">10mm</xsl:param>
     <xsl:param name="body.margin.top">10mm</xsl:param>
     
-    <xsl:param name="body.margin.bottom">15mm</xsl:param>
+    <xsl:param name="body.margin.bottom">10mm</xsl:param>
     <xsl:param name="region.after.extent">10mm</xsl:param>
-    <xsl:param name="page.margin.bottom">5mm</xsl:param>
+    <xsl:param name="page.margin.bottom">10mm</xsl:param>
     
     <xsl:param name="page.margin.outer">18mm</xsl:param>
     <xsl:param name="page.margin.inner">18mm</xsl:param>
@@ -376,10 +403,10 @@
     <xsl:param name="hyphenate">false</xsl:param>
 
     <!-- Default Font size -->
-	<xsl:param name="body.font.family">Times-Roman</xsl:param>
+	<xsl:param name="body.font.family">Arial</xsl:param>
     <xsl:param name="body.font.master">10</xsl:param>
     <xsl:param name="body.font.small">9</xsl:param>
-	<xsl:param name="symbol.font.family">Times-Roman</xsl:param>
+	<xsl:param name="symbol.font.family">Arial</xsl:param>
 
     <!-- Line height in body text -->
     <xsl:param name="line-height">1.3</xsl:param>
