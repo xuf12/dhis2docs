@@ -98,7 +98,7 @@
 					<fo:table-row >
 						<fo:table-cell text-align="left">
 							<fo:block text-align="left" font-size="12pt" padding-before="15mm">
-								 <xsl:text>Revision </xsl:text><xsl:value-of select="db:bookinfo/db:revhistory/db:revision/db:revnumber" />
+								 <xsl:value-of select="db:bookinfo/db:revhistory/db:revision/db:revnumber" />
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
