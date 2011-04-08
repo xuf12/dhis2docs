@@ -91,7 +91,21 @@
 					<fo:table-row >
 						<fo:table-cell text-align="left">
 							<fo:block text-align="left" font-size="12pt">
-								 <xsl:text>Copyright &copyright; 2006-2010</xsl:text>
+								 <xsl:text>Copyright &copyright; 2006-2011</xsl:text>
+							</fo:block>
+						</fo:table-cell>
+					</fo:table-row>
+					<fo:table-row >
+						<fo:table-cell text-align="left">
+							<fo:block text-align="left" font-size="12pt" padding-before="15mm">
+								 <xsl:text>Revision </xsl:text><xsl:value-of select="db:bookinfo/db:revhistory/db:revision/db:revnumber" />
+							</fo:block>
+						</fo:table-cell>
+					</fo:table-row>
+					<fo:table-row >
+						<fo:table-cell text-align="left">
+							<fo:block text-align="left" font-size="12pt">
+								 <xsl:value-of select="db:bookinfo/db:revhistory/db:revision/db:revremark" />
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>

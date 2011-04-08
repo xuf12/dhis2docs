@@ -15,6 +15,29 @@
 
   <build>
     <plugins>
+	 <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>generate-resources</phase>
+            <configuration>
+              <tasks>
+                <tstamp>
+                  <format property="now" pattern="yyyy-MM-dd HH:mm:ss"/>
+                </tstamp>
+                <exec executable="bzr" outputproperty="revision" failifexecutionfails="false">
+                      <arg line="revno -q"/>
+                </exec>
+               <echo file="${project.basedir}/src/docbkx/build.properties" message="&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;&lt;revhistory&gt;&lt;revision&gt;&lt;revnumber&gt;${revision}&lt;/revnumber&gt;&lt;revremark&gt;Version ${project.version} ${now}&lt;/revremark&gt;&lt;/revision&gt;&lt;/revhistory&gt;" />
+              </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>com.agilejava.docbkx</groupId>
         <artifactId>docbkx-maven-plugin</artifactId>
@@ -155,7 +178,7 @@
               <argLine>-Xmx1024m</argLine>
               <foCustomization>${docbook.source}/en/resources/xsl/fop-cust.xsl</foCustomization>
               <doubleSided>1</doubleSided>
-              <includes>*.xml</includes>
+              <includes>dhis2_user_manual_en.xml,dhis2_end_user_manual.xml,dhis2_implementation_guide_en.xml</includes>
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <postProcess>
                 <copy file="target/docbkx/pdf/dhis2_user_manual_en.pdf" todir="${docbook.target}/en/user" />
