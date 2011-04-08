@@ -20,7 +20,7 @@
         <artifactId>maven-antrun-plugin</artifactId>
         <executions>
           <execution>
-            <phase>generate-resources</phase>
+            <phase>package</phase>
             <configuration>
               <tasks>
                 <tstamp>
