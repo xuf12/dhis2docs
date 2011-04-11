@@ -9,6 +9,7 @@
   <packaging>pom</packaging>
 
   <properties>
+    <docbkx.plugin.version>2.0.12</docbkx.plugin.version>
     <docbook.source>${project.basedir}/src/docbkx</docbook.source>
     <docbook.target>${project.basedir}/target/site</docbook.target>
   </properties>
@@ -41,7 +42,7 @@
       <plugin>
         <groupId>com.agilejava.docbkx</groupId>
         <artifactId>docbkx-maven-plugin</artifactId>
-        <version>2.0.12</version>
+        <version>${docbkx.plugin.version}</version>
         <configuration>
           <xincludeSupported>true</xincludeSupported>
         </configuration>
@@ -289,6 +290,7 @@
       <plugin>
         <groupId>com.agilejava.docbkx</groupId>
         <artifactId>docbkx-fop-support</artifactId>
+        <version>${docbkx.plugin.version}</version>
         <executions>
           <execution>
             <phase>generate-resources</phase>
