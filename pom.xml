@@ -41,7 +41,7 @@
       <plugin>
         <groupId>com.agilejava.docbkx</groupId>
         <artifactId>docbkx-maven-plugin</artifactId>
-        <version>2.0.11</version>
+        <version>2.0.12</version>
         <configuration>
           <xincludeSupported>true</xincludeSupported>
         </configuration>
@@ -187,8 +187,27 @@
               </postProcess>
             </configuration>
           </execution>
+        
+		 <execution>
+            <id>rtf-docs-en</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-rtf</goal>
+            </goals>
+            <configuration>
+              <argLine>-Xmx1024m</argLine>
+              <foCustomization>${docbook.source}/en/resources/xsl/fop-cust.xsl</foCustomization>
+              <doubleSided>1</doubleSided>
+              <includes>dhis2_user_manual_en.xml,dhis2_end_user_manual.xml</includes>
+              <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+              <postProcess>
+                <copy file="target/docbkx/rtf/dhis2_user_manual_en.rtf" todir="${docbook.target}/en/user" />
+                <copy file="target/docbkx/rtf/dhis2_end_user_manual.rtf" todir="${docbook.target}/en/end-user" />
+              </postProcess> 
+            </configuration>
+          </execution>
         </executions>
-
+		
         <dependencies>
           <dependency>
             <groupId>org.docbook</groupId>
