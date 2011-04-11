@@ -168,8 +168,9 @@
             </configuration>
           </execution>
 
+
           <execution>
-            <id>pdf-docs-en</id>
+            <id>pdf-docs-en-user</id>
             <phase>package</phase>
             <goals>
               <goal>generate-pdf</goal>
@@ -178,18 +179,52 @@
               <argLine>-Xmx1024m</argLine>
               <foCustomization>${docbook.source}/en/resources/xsl/fop-cust.xsl</foCustomization>
               <doubleSided>1</doubleSided>
-              <includes>dhis2_user_manual_en.xml,dhis2_end_user_manual.xml,dhis2_implementation_guide_en.xml</includes>
+              <includes>dhis2_end_user_manual.xml</includes>
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <postProcess>
-                <copy file="target/docbkx/pdf/dhis2_user_manual_en.pdf" todir="${docbook.target}/en/user" />
-                <copy file="target/docbkx/pdf/dhis2_end_user_manual.pdf" todir="${docbook.target}/en/end-user" />
+               <copy file="target/docbkx/pdf/dhis2_end_user_manual.pdf" todir="${docbook.target}/en/user" />
+              </postProcess>
+            </configuration>
+          </execution>
+		  
+		  <execution>
+            <id>pdf-docs-en-implementer</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-pdf</goal>
+            </goals>
+            <configuration>
+              <argLine>-Xmx1024m</argLine>
+              <foCustomization>${docbook.source}/en/resources/xsl/fop-cust.xsl</foCustomization>
+              <doubleSided>1</doubleSided>
+              <includes>dhis2_implementation_guide_en.xml</includes>
+              <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+              <postProcess>
                 <copy file="target/docbkx/pdf/dhis2_implementation_guide_en.pdf" todir="${docbook.target}/en/implementer" />
               </postProcess>
             </configuration>
           </execution>
+		  
+		    <execution>
+            <id>pdf-docs-en-end-user</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-pdf</goal>
+            </goals>
+            <configuration>
+              <argLine>-Xmx1024m</argLine>
+              <foCustomization>${docbook.source}/en/resources/xsl/fop-cust.xsl</foCustomization>
+              <doubleSided>1</doubleSided>
+              <includes>dhis2_end_user_manual.xml</includes>
+              <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+              <postProcess>
+                <copy file="target/docbkx/pdf/dhis2_implementation_guide_en.pdf" todir="${docbook.target}/en/end-user" />
+              </postProcess>
+            </configuration>
+          </execution>
         
-		 <execution>
-            <id>rtf-docs-en</id>
+          <execution>
+            <id>rtf-docs-en-user</id>
             <phase>package</phase>
             <goals>
               <goal>generate-rtf</goal>
@@ -198,16 +233,50 @@
               <argLine>-Xmx1024m</argLine>
               <foCustomization>${docbook.source}/en/resources/xsl/fop-cust.xsl</foCustomization>
               <doubleSided>1</doubleSided>
-              <includes>dhis2_user_manual_en.xml,dhis2_end_user_manual.xml</includes>
+              <includes>dhis2_end_user_manual.xml</includes>
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <postProcess>
-                <copy file="target/docbkx/rtf/dhis2_user_manual_en.rtf" todir="${docbook.target}/en/user" />
-                <copy file="target/docbkx/rtf/dhis2_end_user_manual.rtf" todir="${docbook.target}/en/end-user" />
-              </postProcess> 
+               <copy file="target/docbkx/rtf/dhis2_end_user_manual.rtf" todir="${docbook.target}/en/user" />
+              </postProcess>
             </configuration>
           </execution>
-        </executions>
-		
+		  
+		  <execution>
+            <id>rtf-docs-en-implementer</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-rtf</goal>
+            </goals>
+            <configuration>
+              <argLine>-Xmx1024m</argLine>
+              <foCustomization>${docbook.source}/en/resources/xsl/fop-cust.xsl</foCustomization>
+              <doubleSided>1</doubleSided>
+              <includes>dhis2_implementation_guide_en.xml</includes>
+              <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+              <postProcess>
+                <copy file="target/docbkx/rtf/dhis2_implementation_guide_en.rtf" todir="${docbook.target}/en/implementer" />
+              </postProcess>
+            </configuration>
+          </execution>
+		  
+		    <execution>
+            <id>rtf-docs-en-end-user</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-rtf</goal>
+            </goals>
+            <configuration>
+              <argLine>-Xmx1024m</argLine>
+              <foCustomization>${docbook.source}/en/resources/xsl/fop-cust.xsl</foCustomization>
+              <doubleSided>1</doubleSided>
+              <includes>dhis2_end_user_manual.xml</includes>
+              <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+              <postProcess>
+                <copy file="target/docbkx/rtf/dhis2_end_user_manual.rtf" todir="${docbook.target}/en/end-user" />
+              </postProcess>
+            </configuration>
+          </execution>
+		</executions>
         <dependencies>
           <dependency>
             <groupId>org.docbook</groupId>
