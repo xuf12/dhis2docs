@@ -1,11 +1,11 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.5/docbookx.dtd" []>
 <chapter>
   <title>Data Administration in DHIS 2</title>
   <para>The data administration module provides a range of functions to ensure that the data stored in the DHIS2 database is integral and that the database performance is optimised. These functions should be executed on a regular basis by a data administrator to ensure that the quality of the data stored is optimal. </para>
   <section id="dataBrowser">
     <title>Data browser</title>
-    <para>The data browser maintenance and analysis module which allows the user to produce a summary of the data contained in the DHIS2 database. The summary view provides a count of data elements which have been entered at the selected organisation unit as well as its descendants. Raw data for all data elements for a range of time periods and a given organisational unit can be browsed and exported to either PDF or Excel. There are four modes of the data browser, which determine how the data is summarized</para>
+    <para>The data browser maintenance and analysis module which allows the user to produce a summary of the data contained in the DHIS2 database. The summary view provides a count of data elements which have been entered at the selected organisation unit as well as its descendants. Raw data for all data elements for a range of time periods and a given organisational unit can be browsed and exported to Excel, CSV, or PDF formats. There are four modes of the data browser, which determine how the data is summarized</para>
     <itemizedlist>
       <listitem>
         <para>Data sets</para>
@@ -62,8 +62,23 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>By clicking on one of the organisational units, a detailed list of data elements is presented by each time period.</para>
-    <para>For each of the data browser summaries, a PDF export can be produced by specifying a filename in the &quot;Filename&quot; field, selecting a font size, a page layout (Landscape or Portrait) and pressing  the <guibutton>&quot;Export PDF&quot;</guibutton> button. You will then be prompted to select a location to save the file to, which can then be viewed with any PDF reader (e.g. Adobe Acrobat Reader, xpdf, etc). </para>
+    <para>By clicking on one of the organisational units, two drill down modes are presented to the user. </para>
+    <itemizedlist>
+      <listitem>
+        <para>Summary drill down- Drill down to the selected organisational units children to see the count of data elements. </para>
+      </listitem>
+      <listitem>
+        <para>View raw data at this level: View the actual raw data at the selected organisational unit. A typical view of the raw data export can be seen below.</para>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="40%" align="center" fileref="resources/images/maintainence/data_browser_org_unit_raw.png"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>Data can be exported into Excel, CSV and as a PDF report by clicking the appropriate button.</para>
+      </listitem>
+    </itemizedlist>
   </section>
   <section id="dataIntegrity">
     <title>Data integrity</title>
