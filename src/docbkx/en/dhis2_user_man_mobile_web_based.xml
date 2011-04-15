@@ -142,8 +142,9 @@
     </section>
     <section>
       <title>Language support</title>
-      <para>Language support for the form contents is not fully supported yet, as of the current
-        version (?)</para>
+      <para>Multi-language support is available.</para>
+      <para>DataSet and DataElement are translated through web-based function. Default language on server is used on mobile in cases requested language from mobile is not available.</para>
+      <para><graphic fileref="resources/images/dhis_mobile/translateDataSet.jpg" align="center"/></para>
     </section>
   </section>
   <section>
@@ -160,7 +161,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata align="center" fileref="resources/images/dhis_mobile/mobile_login_screen.png" width="260px"/>
+                <imagedata width="260px" align="center" fileref="resources/images/dhis_mobile/mobile_login_screen.png"/>
               </imageobject>
             </mediaobject>
           </screenshot>Once the client has been installed ot the phone, an initialization process must occur by providing a user name, password and server URL. </para>
@@ -186,7 +187,7 @@
             <screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata align="center" fileref="resources/images/dhis_mobile/mobile_enter_pin.png" width="260px"/>
+                  <imagedata width="260px" align="center" fileref="resources/images/dhis_mobile/mobile_enter_pin.png"/>
                 </imageobject>
               </mediaobject>
             </screenshot>
@@ -348,8 +349,19 @@
           </listitem>
           <listitem>
             <para>Update Forms:</para>
-            <para>This function is used to synchronize the forms on mobile and on server. </para>
-            <para>On the list of forms, push &quot;Update DataSets&quot; to update from the server.</para>
+            <para>This function is used to synchronize the forms on mobile and on server. The process is automatically triggered after entering PIN number.</para>
+            <para>Note: Checking and downloading updated forms process run in background. After finished, prompt is displayed to ask user whether refresh form list or stay where they are.</para>
+          </listitem>
+          <listitem>
+            <para>Multi-Language Support:</para>
+            <para>This function help user to choose language of mobile&apos;s GUI (graphical user interface) and content&apos;s language (Forms).</para>
+            <para>The forms must be translated on server, otherwise, default language is used.</para>
+            <para>Default language of first login is English. Change language in Setting menu will affect both interface and content.</para>
+            <para><graphic fileref="resources/images/dhis_mobile/settingCmd.jpg" align="center"/></para>
+            <para><graphic fileref="resources/images/dhis_mobile/settingScreen.jpg" align="center"/></para>
+            <para><graphic fileref="resources/images/dhis_mobile/supportedLanguageList.jpg" align="center"/></para>
+            <para>Multi-Language Interface: In Setting menu, there are list of  supported language (downloaded from server). Language of GUI is only changed after restart application.</para>
+            <para>Multi-Language Content (forms): Form&apos;s language is change after click &quot;Save&quot;. In case there are many forms, it take several minutes to save setting.</para>
           </listitem>
         </orderedlist>
       </section>
@@ -357,7 +369,7 @@
         <title>Troubleshooting</title>
         <itemizedlist>
           <listitem>
-            <para>Data has tbeen entered on the phone but does not appear on the server</para>
+            <para>Data has been entered on the phone but does not appear on the server</para>
             <para>This usually occurs when users enter data on the phone, but cannot send it to the server. This may be because of the configuration of the phone, lack of credit on the phone, or lack of coverage. Usually an error message is displayed as shown below. </para>
             <screenshot>
               <mediaobject>
