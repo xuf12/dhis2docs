@@ -219,7 +219,7 @@
               <includes>dhis2_end_user_manual.xml</includes>
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <postProcess>
-                <copy file="target/docbkx/pdf/dhis2_implementation_guide_en.pdf" todir="${docbook.target}/en/end-user" />
+                <copy file="target/docbkx/pdf/dhis2_end_user_manual.pdf" todir="${docbook.target}/en/end-user" />
               </postProcess>
             </configuration>
           </execution>
