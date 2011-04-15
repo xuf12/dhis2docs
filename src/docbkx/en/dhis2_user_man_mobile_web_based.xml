@@ -53,6 +53,12 @@
     </itemizedlist>
   </section>
   <section>
+    <title>Server side setup for activity reporting</title>
+    <para>Like facility reporting module, sever side of activity reporting included in DHIS2 war file.</para>
+    <para>Basically, server side setup for activity does not require any additional step. The mobile application use the same user name and password as  the web-based application. Make sure that the user is assigned to the correct organization unit.</para>
+    <para>In short, if a user is able to enter data for activity reporting in DHIS2 web-based application, he/she is able to download and enter data in mobile application.</para>
+  </section>
+  <section>
     <title>Detailed configuration of data sets and reporting forms</title>
     <para>Though the previous steps is all that should be needed for testing the solution more detail configuration of the datasets may be required and are described in the following sections. </para>
     <section>
@@ -397,7 +403,7 @@
                   <para>Current Activity Plan: Contain all new activities that need to be completed.</para>
                 </listitem>
                 <listitem>
-                  <para>Completed Activity Plan: Contain all the activities that have been completed and sent to server. This list is for review only.</para>
+                  <para>Sent Activity Plan: Contain all the activities that have been completed and sent to server. This list is for review only.</para>
                 </listitem>
               </itemizedlist></para>
           </listitem>
@@ -407,6 +413,11 @@
             <para>From Activity main menu, select “Current Activity Plan”. You will be navigated to “Grampanchayat Name” screen where you can select the village. Use the “Up” or “Down” button on your mobile phone to focus on a village. Use “Select” button to select a village.</para>
           </listitem>
           <listitem>
+            <para>Choose Beneficiary</para>
+            <para><graphic fileref="resources/images/dhis_mobile/choose_beneficiary.png" align="center"/></para>
+            <para>In a village, beneficiary name will be display in a list. User can use the &quot;Select&quot; button to view the activities of  the selected name.</para>
+          </listitem>
+          <listitem>
             <para>Choose Activity</para>
             <para><graphic fileref="resources/images/dhis_mobile/choose_activity.png" align="center"/></para>
             <para>Each Activity is represented by the name of the Beneficiary.  Select the name of the beneficiary you want to view. Note that the name start with “*” means that this is a late Activity.</para>
@@ -414,7 +425,7 @@
           <listitem>
             <para>Beneficiary Detail</para>
             <para><graphic fileref="resources/images/dhis_mobile/beneficiary_detail_screen.png" align="center"/></para>
-            <para>After you select an activity, a Beneficiary Detail screen will be displayed.  The detail screen may contain personal information and some additional information of the Beneficiary (depends on the setting from server). Select “OK” to go to the Entry screen.</para>
+            <para>Select the &quot;Detail&quot; command on the left of the activity screen , a Beneficiary Detail screen will be displayed.  The detail screen may contain personal information and some additional information of the Beneficiary (depends on the setting from server). Select “OK” to go back to activity screen.</para>
           </listitem>
           <listitem>
             <para>Fill in values (Entry screen)</para>
@@ -430,8 +441,8 @@
                 </listitem>
                 <listitem>
                   <para>For date-type value: </para>
-                  <para>- If server Date is available,  a checkbox will be displayed with a label next to it. Check on the checkbox to take the current Date as value.</para>
-                  <para>- If  server Date is not available, a DateField will be displayed for user input Date in   [date]-[month]-[year] format.</para>
+                  <para>- If server Date is available,  application will take server Date as default value.</para>
+                  <para>- If  server Date is not available, date filed will be leave blank for user to input manually.</para>
                 </listitem>
               </itemizedlist></para>
           </listitem>
@@ -474,6 +485,13 @@
                     </itemizedlist></para>
                 </listitem>
               </itemizedlist></para>
+          </listitem>
+          <listitem>
+            <para>Sent Activities</para>
+            <para><graphic fileref="resources/images/dhis_mobile/sent_activities.png" align="center"/></para>
+            <para>From &quot;Activity Main Menu&quot; screen, select &quot;Sent Activities&quot; to go to the list of all activities you sent to server. The structure of this screen is exactly the same as &quot;Activity Plan List&quot;. Select &quot;Detail&quot; to see the detail of the activity of select &quot;Select&quot; to go to the &quot;Uneditable Screen&quot;.</para>
+            <para><graphic fileref="resources/images/dhis_mobile/unediatble_form.png" align="center"/></para>
+            <para>In this screen, user can only review the form they sent to server. No edit or change is allowed. Select &quot;Back&quot; to go back to &quot;Sent Activities&quot; screen.</para>
           </listitem>
         </orderedlist>
       </section>
