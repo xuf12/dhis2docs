@@ -7,9 +7,21 @@
   <version>2.2-SNAPSHOT</version>
   <description>DHIS 2 Documentation</description>
   <packaging>pom</packaging>
-
+	<pluginRepositories>
+  <pluginRepository>
+    <id>docbkx.snapshots</id>
+    <name>Maven Plugin Snapshots</name>
+    <url>http://docbkx-tools.sourceforge.net/snapshots/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
   <properties>
-    <docbkx.plugin.version>2.0.12</docbkx.plugin.version>
+    <docbkx.plugin.version>2.0.13-SNAPSHOT</docbkx.plugin.version>
     <docbook.source>${project.basedir}/src/docbkx</docbook.source>
     <docbook.target>${project.basedir}/target/site</docbook.target>
   </properties>
@@ -62,7 +74,6 @@
               <includes>dhis2_user_manual_en.xml</includes>
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <targetDirectory>${docbook.target}/en/user/html/</targetDirectory>
-
               <postProcess>
                 <copy file="${docbook.target}/en/user/html/dhis2_user_manual_en.html" tofile="${docbook.target}/en/user/html/index.html" />
                 <copy todir="${docbook.target}/en/user/html/resources/images">
@@ -168,7 +179,6 @@
               </postProcess>
             </configuration>
           </execution>
-
 
           <execution>
             <id>pdf-docs-en-user</id>
