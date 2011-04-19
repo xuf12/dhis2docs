@@ -179,7 +179,36 @@
               </postProcess>
             </configuration>
           </execution>
-
+	      
+		  <execution>
+            <id>webhelp-docs-en</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-webhelp</goal>
+            </goals>
+            <configuration>
+			  <webhelpIndexerLanguage>en</webhelpIndexerLanguage>
+              <webhelpIncludeSearchTab>1</webhelpIncludeSearchTab>
+              <includes>dhis2_user_manual_en.xml</includes>
+              <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+            </configuration>
+          </execution>
+		  
+		   <execution>
+            <id>epub-docs-en</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-epub</goal>
+            </goals>
+            <configuration>
+			   <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
+                <chunkQuietly>true</chunkQuietly>
+              <includes>dhis2_user_manual_en.xml</includes>
+              <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+            </configuration>
+          </execution>
+		  
+		  
           <execution>
             <id>pdf-docs-en-user</id>
             <phase>package</phase>
