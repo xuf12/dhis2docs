@@ -86,8 +86,8 @@ Along the time dimension there are several possibilities, the two most common wa
         <title>Advanced aggregation settings (aggregation levels)</title>
         <section>
           <title>Aggregation levels</title>
-          <para>The normal rule of the system is to aggregate all raw data together when moving up the organisational hierarchy, and the system assumes that data entry is not being duplicated by entering �the same services provided to the same clients� at both facility level and also entering an &apos;aggregated&apos; (sum of all facilities) number at a higher level. This is to more easily facilitate aggregation when the same services are provided but to different clients/catchment populations at facilities on level 5 and a PHC (the parent of the same facilities) at level 4. In this way a facility at level 5 and a PHC at level 4 can share the same data elements and simply add together their numbers to provide the total of services provided in the geographical area.</para>
-          <para>Sometimes such an aggregation is not desired, simply because it would mean duplicating data about the same population. This is the case when you have two different sources of data for two different orgunit levels. E.g. catchment population for facilities can come from a different source than district populations and therefore the sum of the facility catchment populations do not match the district population provided by e.g. census data. If this is the case we would actually want �duplicated� data in the system so that each level can have as accurate numbers as possible, but then we do NOT want to aggregate these data sources together.
+          <para>The normal rule of the system is to aggregate all raw data together when moving up the organisational hierarchy, and the system assumes that data entry is not being duplicated by entering the same services provided to the same clients at both facility level and also entering an &apos;aggregated&apos; (sum of all facilities) number at a higher level. This is to more easily facilitate aggregation when the same services are provided but to different clients/catchment populations at facilities on level 5 and a PHC (the parent of the same facilities) at level 4. In this way a facility at level 5 and a PHC at level 4 can share the same data elements and simply add together their numbers to provide the total of services provided in the geographical area.</para>
+          <para>Sometimes such an aggregation is not desired, simply because it would mean duplicating data about the same population. This is the case when you have two different sources of data for two different orgunit levels. E.g. catchment population for facilities can come from a different source than district populations and therefore the sum of the facility catchment populations do not match the district population provided by e.g. census data. If this is the case we would actually want duplicated data in the system so that each level can have as accurate numbers as possible, but then we do NOT want to aggregate these data sources together.
 </para>
           <para>In the Data Element section you can edit data elements and for each of them specify how aggregation is done for each level. In the case described above we need to tell the system NOT to include facility data on population in any of the aggregations above that level, as the level above, in this case the districts have registered their population directly as raw data. The district population data should then be used at all levels above and including the district level, while facility level should use its own data.</para>
         </section>
@@ -500,10 +500,17 @@ Above the table there are six buttons; five download buttons and one Back button
             </imageobject>
           </mediaobject>
         </screenshot>
-        <para><emphasis>
-            <emphasis role="bold">NOTE: Fields starting with &quot;$F&quot; present values that are retrieved from the database every time the report is run. The values here will vary, so do not change these fields unless you want a static value here!</emphasis>
-          </emphasis>
-        </para>
+        <para><emphasis role="bold">
+            <emphasis role="italic">
+              <emphasis role="bold">
+                <emphasis role="bold">
+                  <emphasis>
+                    <emphasis role="bold">NOTE: Fields starting with &quot;$F&quot; present values that are retrieved from the database every time the report is run. The values here will vary, so do not change these fields unless you want a static value here!</emphasis>
+                  </emphasis>
+                 </emphasis>
+              </emphasis>
+            </emphasis>
+          </emphasis></para>
       </section>
       <section><title>Charts</title><para>The auto-generated report already has a chart. This can however be edited. To do that, right-click on the chart and select &quot;Chart Data&quot;.</para><screenshot>
           <screeninfo>Select Chart Data by right clicking on the chart</screeninfo>
@@ -535,26 +542,21 @@ Above the table there are six buttons; five download buttons and one Back button
               <imagedata width="66%" fileref="resources/images/dhis2_creating_reporting/ireport/35_editchart_4.jpg" format="JPEG"/>
             </imageobject>
           </mediaobject>
-        </screenshot>
-        <para>A new window appears with the available fields. A list of available fields to put in the chart will show. If you double-click one of the items, it will be added to the Expression editor.</para>
-        <screenshot>
+        </screenshot><para>A new window appears with the available fields. A list of available fields to put in the chart will show. If you double-click one of the items, it will be added to the Expression editor.</para><screenshot>
           <screeninfo>Double click on the desired field</screeninfo>
           <mediaobject>
             <imageobject>
               <imagedata width="66%" fileref="resources/images/dhis2_creating_reporting/ireport/36_editchart_5.jpg" format="JPEG"/>
             </imageobject>
           </mediaobject>
-        </screenshot>
-        <para>To make the chart more informative and better looking, we can select it by clicking on it and use the &quot;Properties&quot; panel on the right hand side to make adjustments. For example, you can add a title to the chart, change the font, rotate the axis labels (as shown below) and so on.</para>
-        <screenshot>
+        </screenshot><para>To make the chart more informative and better looking, we can select it by clicking on it and use the &quot;Properties&quot; panel on the right hand side to make adjustments. For example, you can add a title to the chart, change the font, rotate the axis labels (as shown below) and so on.</para><screenshot>
           <screeninfo>Edit the chart properties</screeninfo>
           <mediaobject>
             <imageobject>
               <imagedata width="66%" fileref="resources/images/dhis2_creating_reporting/ireport/39_editchart_9.jpg" format="JPEG"/>
             </imageobject>
           </mediaobject>
-        </screenshot>
-      </section>
+        </screenshot></section>
       <section>
         <title>Adding the Report to DHIS 2</title>
         <para>We can now switch to DHIS 2 and import our report. Go to the Report Module in DHIS 2, and select &quot;Standard Report&quot;. In the &quot;Standard Report&quot; screen, click &quot;Add new&quot;, or edit an existing one.</para>
@@ -588,100 +590,9 @@ Above the table there are six buttons; five download buttons and one Back button
             <para>Use report tables with cross tab dimensions  as your data source for your report designs. This will make it a lot easier to design reports where you need to put specific indicators, periods, or orgunits on columns.</para>
           </listitem>
           <listitem>
-            <para>Learn from others, there are many DHIS 2 report designs for Jasper and BIRT on  launchpad, see http://bazaar.launchpad.net/~DHIS 2-devs-core/DHIS 2/trunk/files/head:/resources/</para>
+            <para>Learn from others, there are many DHIS 2 report designs for Jasper  on  launchpad, see http://bazaar.launchpad.net/~DHIS 2-devs-core/DHIS 2/trunk/files/head:/resources/</para>
           </listitem>
         </itemizedlist>
-      </section>
-    </section>
-    <section>
-      <title>BIRT reports (not supported after 2.0.6)</title>
-      <section>
-        <title>A Step by Step guide to designing and using BIRT reports in DHIS 2</title>
-        <section>
-          <title>Preparations</title>
-          <para><emphasis role="bold">1) Provide drivers for BIRT report designer and viewer</emphasis>
-</para>
-          <para>To connect to the DHIS 2 database from BIRT (both when designing and viewing reports) a jdbc connection is needed, and for this you will need a jdbc driver for your database server (e.g. PostgreSQL or MySQL).
-
-</para>
-          <para><emphasis role="bold">MySQL:</emphasis> Download the driver from XX, should be on the form mysql-connector-java-5.0.4-bin.jar (the exact name depends on the version)
-
-</para>
-          <para><emphasis role="bold">PostgreSQL:</emphasis> Download the driver from XXX, should be on the form postgresql-8.3-603.jdbc3.jar (the exact name depends on the version)
-
-</para>
-          <para><emphasis role="bold">H2:</emphasis> Download the driver from XXX, should be on the form h2-1.2.123.jar (the exact name depends on the version)
-
-(these examples use the postgres driver, just replace as needed)</para>
-          <para><emphasis role="bold">2)</emphasis> <emphasis role="bold">Designer:</emphasis>
-</para>
-          <para>Copy the file postgresql-8.3-603.jdbc3.jar to the folder &lt;BIRT_designer_install_path&gt;\plugins\org.eclipse.birt.report.data.oda.jdbc_2.3.0.v20080610\drivers, for the designer version 2-3-0
-
-</para>
-          <para><emphasis role="bold">3) Viewer:</emphasis>
-</para>
-          <para>The birt viewer distributed by HISP already contains the necessary drivers. If you download the BIRT viewer from the Eclipse BIRT project you need to put the driver yourself:
-</para>
-          <para>Copy the file postgresql-8.3-603.jdbc3.jar to the folder (inside tomcat/webapps/) &lt;BIRT_viewer_path&gt;\WEB-INF\platform\plugins\org.eclipse.birt.report.data.oda.jdbc_2.3.0.v20080610\drivers 
-
-</para>
-          <para>This will serve as a connection between the reports to be designed and the database from which you will be fetching data.
-</para>
-        </section>
-        <section>
-          <title>Configure BIRT report viewer in DHIS 2</title>
-          <para>In Maintenance-&gt;System Settings set the Reporting Framework to BIRT.
-</para>
-          <para>In Reports-&gt;Standard reports fill in the in the details on where the BIRT viewer web application is located
-</para>
-          <para>Home: the absolute path to your birt viwer, e.g. E:\DHIS 2\tomcat\webapps\birt
-Directory: the name of the birt viewer folder, e.g. birt
-</para>
-        </section>
-        <section>
-          <title>Create a report table in the DHIS 2 that will serve as the data source for your report</title>
-          <para>Normally you define one table per report, but multiple tables for one report is also allowed. A report table can be a cross tabulated table on any of the dimensions period/indicator/data element / orgunit, and also in combination, like �BCG &lt; 1 coverage + last 3 months� and �BCG coverage &lt; 1 year+ last month�. This cross-tabulation makes it a lot easier to control the design of the report which is then done by dragging and dropping column headings onto the report. The report table can also have report parameters like reporting month, organisation unit and organisation unit parent (if you are e.g. listing all sub-districts in a given district). See Report Tables for more details.</para>
-        </section>
-        <section>
-          <title>Design a report using the BIRT report designer</title>
-          <para>The BIRT designer is a standalone desktop application based on the Eclipse platform. It can be run wither a standalone app or as part of a larger Eclipse installation. Be careful with the version you use as BIRT is very sensitive to version changes and it is important that the designer and viewer versions match.
-</para>
-          <para><emphasis role="bold">1) open a new blank report</emphasis> 
-</para>
-          <para>In the designer, go to the top menu select File-&gt;New-&gt;New Report
-</para>
-          <para>Fill in where to save the report and then go &apos;next&apos; and opt for a blank report
-
-</para>
-          <para><emphasis role="bold">2) set up the database connection for your report</emphasis> 
-</para>
-          <para>Right click &apos;Data Source&apos; and choose &apos;New Data Source&apos;. In the list, go for &apos;JDBC Data Source&apos;, then fill in as shown below
-</para>
-          <para>- Driver Class: org.postgresql.Driver (v8.3)
-</para>
-          <para>- Driver URL: jdbc:postgresql:&lt;name of the database you are using (this can be copied from the hibernate.properties file, the url line)
-</para>
-          <para>- User Name: &lt;Name of the Database User&gt; (can also copied from the hibernate.properties, in the line with user name)
-</para>
-          <para>Test the Connection, if successful, go for &apos;finish&apos; and you are done with the connection
-
-</para>
-          <para><emphasis role="bold">3) set up the dataset(s) needed for the report</emphasis>
-</para>
-          <para>Right-click on the &apos;Data Set&apos; New Data Set &lt;give it a name&gt; Next
-</para>
-          <para>Look up the report table you want to use and in the SQL field simply write &apos;Select * from &lt;report table name&gt;&apos;.
-
-</para>
-          <para><emphasis role="bold">4) Design the report</emphasis>
-</para>
-          <para>The report can then be designer using the report objects in the palette and the fields in the dataset(s). At any pint you can switch to the preview window to see how the report will look like in the BIRT viewer. The built in help tool in the BIRT designer includes a nice manual for how to design reports.
-</para>
-        </section>
-        <section>
-          <title>Link the report design to a standard report in DHIS 2</title>
-          <para>See: Define and run reports in DHIS 2</para>
-        </section>
       </section>
     </section>
   </section>
@@ -837,8 +748,7 @@ oSSL mode: prefer</para>
 </para>
         <para>2) Go to Data --&gt; PivotTable and PivotChartReport.
 </para>
-        <para>3) External data source --&gt; next
-�Get data --&gt; choose the data source name which we made in previous step.
+        <para>3) External data source --&gt; next --&gt; Get data --&gt; choose the data source name which we made in previous step.
 </para>
         <para>4) The first time you do this the first query window you get is quite poor, so click cancel and wait for Microsoft Query to open.
 </para>
