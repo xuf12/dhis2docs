@@ -247,22 +247,14 @@ local   all         all                               ident</screen>
           <listitem>
             <para>Locate the following line:</para>
             <screen>shared_buffers = 24MB   # min 128kB</screen>
-            <para>Change it so it reads (if your computer has 12 GB of RAM):</para>
+            <para>Change it so it reads  (this assumes that your computer has 12 GB of RAM, if not, adjust the value accordingly):</para>
             <screen>shared_buffers = 512MB   # min 128kB</screen>
-            <itemizedlist>
-              <listitem>
-                <para>If your computer has less RAM, adjust the value accordingly;</para>
-                <para>For example, for 4 GB of RAM, you can use:</para>
-                <screen>shared_buffers = 176MB   # min 128kB</screen>
-              </listitem>
-            </itemizedlist>
-            <para/>
           </listitem>
           <listitem>
             <para>Then locate the following line:</para>
             <screen>#synchronous_commit = on  # immediate fsync at commit</screen>
-            <para>and remove <emphasis role="underline">the first</emphasis> <code>#</code> from the line.</para>
-            <para/>
+            <para>Change it so it reads:</para>
+            <para><screen>synchronous_commit = off</screen></para>
           </listitem>
           <listitem>
             <para>Now, locate the following line:</para>
@@ -270,7 +262,6 @@ local   all         all                               ident</screen>
             <para>Change it so it reads (your computer&apos;s RAM does not matter here):</para>
             <screen>wal_writer_delay = 10000ms  # 1-10000 milliseconds</screen>
             <para>i.e. remove <emphasis role="underline">the first</emphasis> <code>#</code> and set the value to <code>10000ms</code> (ten thousand)</para>
-            <para/>
           </listitem>
           <listitem>
             <para>Finally, locate the following line:</para>
@@ -278,13 +269,6 @@ local   all         all                               ident</screen>
             <para>Change it so it reads (for 12 GB of RAM):</para>
             <screen>effective_cache_size = 3750MB</screen>
             <para>i.e. remove <emphasis role="underline">the first</emphasis> <code>#</code> and set the value to <code>3750MB</code></para>
-            <itemizedlist>
-              <listitem>
-                <para>If your computer has less RAM, adjust the value accordingly;</para>
-                <para>For example, for 4 GB of RAM, you can use:</para>
-                <screen>effective_cache_size = 1024MB</screen>
-              </listitem>
-            </itemizedlist>
           </listitem>
         </itemizedlist>
         <para>Now, save the file and exit.</para>
