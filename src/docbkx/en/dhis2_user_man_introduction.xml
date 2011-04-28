@@ -12,7 +12,7 @@
           HMIS</para>
         </listitem>
         <listitem>
-          <para>What is the difference between patient based and <glossterm baseform="aggregateData">aggregate data</glossterm>.</para>
+          <para>What is the difference between patient based and aggregate data.</para>
         </listitem>
         <listitem>
           <para>What are the different modules in DHIS 2.</para>
@@ -93,7 +93,7 @@
     provide.</para>
   </section>
   <section>
-    <title>Purpose of DHIS2</title>
+    <title>Purpose of DHIS 2</title>
     <para>The purpose of DHIS can be summarised as follows:</para>
     <orderedlist>
       <listitem>
@@ -142,13 +142,11 @@
           <acronym>RIMS</acronym>.</para>
       </listitem>
       <listitem>
-        <para>Integration with 
-            <glossterm>Geographic Information Systems</glossterm> (<acronym>GIS</acronym>).</para>
+        <para>Provision of Geographic Information Systems (GIS).</para>
       </listitem>
       <listitem>
         <para>User management 
-              module for passwords, security, and defining
-          authorisation.</para>
+              module for passwords, security, and access control.</para>
       </listitem>
       <listitem>
         <para>Further modules can be
@@ -158,13 +156,12 @@
     </orderedlist>
     <para>In summary, DHIS 2 provides a comprehensive HMIS solution for the
       reporting and analysis needs of health facilities at any level. It is a
-      tried and tested application in various countries, and also now being
-      adopted by WHO for their HMN implementation</para>
+      tried and tested application in various countries, and also adopted by WHO for their HMN implementation</para>
   </section>
   <section>
     <title>Difference between Aggregated and Patient data in a HMIS</title>
     <para>
-   <emphasis>Patient data</emphasis> is data relating to ONE patient,
+   <emphasis>Patient data</emphasis> is data relating to a single patient,
       such as his/her diagnosis, name, age, earlier medical history etc.
       Patient based data is important when you want to track longitudinally
       the progress of a patient over time. For example, if we want to track
@@ -253,10 +250,10 @@
       managers.</para>
   </section>
   <section>
-    <title>Overview of DHIS 2.0</title>
+    <title>Overview of DHIS 2</title>
     <section>
       <title>The different modules of DHIS 2</title>
-      <para>DHIS is based on a modular approach of design. A module can be
+      <para>DHIS 2 is based on a modular approach of design. A module can be
         seen as an independent component of application that is capable of
         both processing inputs as well as outputs, that is used to communicate
         with other modules. The modules are flexible enough to allow changes
@@ -269,7 +266,7 @@
         applications such as Excel pivot tables and GIS. Thus modularity
         allows DHIS 2 to be flexible, and changes can take place in the
         different modules without affecting others.</para>
-      <para>Currently, DHIS2 has several modules for functions such as data
+      <para>Currently, DHIS 2 has several modules for functions such as data
         entry, data quality checks, report generation etc. These modules have
         been categorised and presented under two core categories namely
         Maintenance and Services. The Services module supports data record,
