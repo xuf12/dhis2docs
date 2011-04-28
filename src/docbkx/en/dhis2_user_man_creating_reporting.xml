@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+﻿<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>Setting up report functionality</title>
@@ -6,8 +6,7 @@
     <title>Data sources for reporting</title>
     <section>
       <title>Types of data and aggregation</title>
-      <para>
-In the bigger picture of HIS terminology all data in DHIS are usually called aggregated as they are aggregates (e.g. monthly summaries) of medical records or some kind of service registers reported from the health facilities. Aggregation inside DHIS however, which is the topic here, is concerned with how the raw data captured in DHIS (through data entry or import)are further aggregated over time (e.g. from monthly to quarterly values) or up the organisational hierarchy (e.g. from facility to district values). 
+      <para>In the bigger picture of HIS terminology all data in DHIS are usually called aggregated as they are aggregates (e.g. monthly summaries) of medical records or some kind of service registers reported from the health facilities. Aggregation inside DHIS however, which is the topic here, is concerned with how the raw data captured in DHIS (through data entry or import)are further aggregated over time (e.g. from monthly to quarterly values) or up the organisational hierarchy (e.g. from facility to district values). 
 </para>
       <section>
         <title>Terminology</title>
@@ -535,7 +534,7 @@ Above the table there are six buttons; five download buttons and one Back button
               <imagedata width="50%" fileref="resources/images/dhis2_creating_reporting/ireport/34_editchart_3.jpg" format="JPEG"/>
             </imageobject>
           </mediaobject>
-        </screenshot>You can edit each field by pressing the edit button on the right:<screenshot>
+        </screenshot><para>You can edit each field by pressing the edit button on the righ.t</para><screenshot>
           <screeninfo>Edit the category expression</screeninfo>
           <mediaobject>
             <imageobject>
