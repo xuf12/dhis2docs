@@ -34,7 +34,6 @@
       <section>
         <title>Starting up with a blank database</title>
         <para>The live package comes with a demo database just like what you see on the online demo (which is based on the national Sierra Leone HMIS), and if you want to start with a blank system/database and build up your own system then you need to do the following:
-
 </para>
         <para>1) Stop the DHIS2 live if it is already running.  Right click on the tray icon  and select Exit.
 The tray icon is  the green symbol on the bottom right of your screen (on Windows) which  should say&apos; DHIS2 Server  running&apos; if you hold your mouse pointer over it.</para>
@@ -82,85 +81,12 @@ locate the string &apos;jdbc:h2:./database/dhis2&apos; and replace the &apos;dhi
             <para>User name is sa, password not needed. Finally, select a name and folder for the .odb file.</para>
           </listitem>
         </itemizedlist>
-        <ulink url="http://www.oooforum.org/forum/viewtopic.phtml?t=97522">More tips</ulink>
-        
+        <ulink url="http://www.oooforum.org/forum/viewtopic.phtml?t=97522">More tips</ulink>        
       </para>
     </section>
     <section>
       <title>Downloading and installing the server version</title>
-      <para>DHIS2 functions both as a
-      desktop application, as well as a web-enabled client-server application.
-      For larger, production installations with many users and large volumes
-      of data (for instance as a national level server) it is recommended to
-      install the server version. The latest version of the infrastructure can be
-      found <ulink url="http://dhis.uio.no/ci/job/Dhis2%20Web%20Trunk/lastSuccessfulBuild/artifact/dhis-2/dhis-web/dhis-web-portal/target/dhis.war">here</ulink>.
-      </para>
-      <para>There are many permutations of getting a server installation up and running, and will depend very much on the nature of the installation. A typical installation for a single machine, running Ubuntu Linux will be described in the discussion that follows. This type of single-installation would be appropriate for a small work-group. There are so many different ways to get the application running, and this will depend to a large extent on the number of users you will be catering to, the type of hardware you have available, and the nature of the implementation of the application (e.g one central server as opposed to multiple subnational installations). The example provided here is meant to be a rough guide for those that are setting up a DHIS2 server instance from scratch, however, you should consider all security requirements of your implementation before blindly following this example. </para>
-      <para>You will need to decide which back-end database system you will use. DHIS2 is a database agnostic application in principle, and should run on any system with a compatible JDBC driver. However, it is recommended either to use Postgresql or MySQL, as these systems are widely used by other members of the DHIS2 community. In addition to a back-end database system, you will need a compatible servlet container. Apache Tomcat 6 is recommended by the developers, however in principle, the application should run in any  container that conforms to the Servlet 2.5 specification. </para>
-      <para>It is certainly possible to install all packages from source code, but it is suggested that you install most of the basic packages through your systems package manager. Depending on which version of Linux that you may be using, you may need to install a newer version of both the back-end database system (such as Postgresql and MySQL) and Servlet container. It is recommended to use at least Postgresl version 8.3 or MySQL 5.0. </para>
-      <para>To get started downloading the necessary packages, execute the following commands. Note that you may need to add the <command>sudo</command> command before these commands, if you are not running as root. </para>
-      <para><programlisting><userinput>apt-get install nano <userinput>wget nano /etc/apt/sources.list </userinput></userinput></programlisting></para>
-      <para>Uncomment and add “multiverse” after “universe” in each line of this file. </para>
-      <para>After editing the sources.list execute these commands. </para>
-      <para><programlisting><userinput>apt-get update </userinput>
-<userinput>apt-get install sun-java6-jdk postgresql postgresql-client</userinput>
-<userinput>postgresql-contrib postgresql-8.3-postgis</userinput></programlisting></para>
-      <para>This will install a number of packages on your system, including Java and the Postgresql database system. In principle, DHIS2 will run under any servlet container, but it is recommended to use Apache Tomcat. Check with the DHIS2 developers if you have questions about using other servlet containers. To get Tomcat, execute the following commands</para>
-      <para><programlisting><userinput><userinput>wget http://apache.mirror.testserver.li/tomcat/tomcat-6/v6.0.20/bin/apache-tomcat-6.0.20.tar.gz</userinput> tar xvzf apache-tomcat-6.0.20.tar.gz mv apache-tomcat-6.0.20 /usr/local/tomcat</userinput></programlisting></para>
-      <para>If you need plan on installing Geoserver as part of your DHIS2 installation, go ahead and download and install it. You should check on the <ulink url="http://www.geoserver.org">Geoserver web page</ulink> for the latest version.  </para>
-      <para>
-
-<userinput>wget http://downloads.sourceforge.net/geoserver/geoserver-2.0.0a-war.zip</userinput></para>
-      <para><userinput>unzip geoserver-2.0.0a-war.zip</userinput></para>
-      <para>
-<userinput>unzip geoserver.war -d /usr/local/tomcat/webapps </userinput></para>
-      <para>
-<userinput>mv /usr/local/tomcat/webapps/geoserver/data /usr/local/geodata</userinput></para>
-      <para>You should now change the default Geoserver password to something more secure. Execute<userinput> nano /usr/local/geodata/security/users.properties </userinput>and change the password and then save all changes. </para>
-      <para>Edit one of your persistent environment variables (see <ulink url="https://help.ubuntu.com/community/EnvironmentVariables#Persistent%20environment%20variables">this page</ulink> for details). Add the following lines to the chosen file. </para>
-      <para><envar>export JAVA_HOME=/usr/lib/jvm/java-6-sun</envar></para>
-      <para><envar>export JDK_HOME= /usr/lib/jvm/java-6-sun</envar>
-</para>
-      <para><envar>export JAVA_OPTS=-XX:PermSize=256m -XX:MaxPermSize=1536 -Xms512m -Xmx1024m -server</envar>
-</para>
-      <para><envar>export GEOSERVER_DATA_DIR=/usr/local/geodata</envar>
-</para>
-      <para><envar>export DHIS2_HOME=/root/dhis/dhis2</envar>
-</para>
-      <para>Note that you may need to alter the file paths to point to the actual directories on your system. </para>
-      <para>Assuming that you have installed the postgresql database system, you can create a new database with the following commands. </para>
-      <para><userinput>sudo su - postgres</userinput></para>
-      <para><userinput>createdb createdb -E utf-8 <parameter>dhis</parameter></userinput></para>
-      <para>Note that you can change the name of the database to anything that suits your environment. </para>
-      <para> To tell the DHIS2 application where to find its database you need a <filename>hibernate.properties</filename> file in <envar>DHIS2_HOME</envar> . For a postgres database connection to a database called &apos;dhis&apos;, with user name and password &apos;dhis&apos;, you need to put the following inside your file /root/dhis/dhis2/hibernate.properties: </para>
-      <para><userinput>hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect</userinput></para>
-      <para><userinput>hibernate.connection.driver_class = org.postgresql.Driver</userinput>
-</para>
-      <para><userinput>hibernate.connection.url = jdbc:postgresql:dhis</userinput></para>
-      <para><userinput>hibernate.connection.username = dhis </userinput></para>
-      <para><userinput>hibernate.connection.password = dhis</userinput>
-</para>
-      <para><userinput>hibernate.hbm2ddl.auto = update</userinput></para>
-      <para>Save this file in the DHIS2_HOME directory.  Exit the current shell in order to reload the environment variables and open a new shell. You will need to start both postgresql as well as the tomcat server. If you installed postgresql with the apt-get command, you can start this from the /etc/init.d/ directory with the commands.  </para>
-      <para><userinput>sudo su - </userinput></para>
-      <para><userinput>cd /etc/init.d/</userinput></para>
-      <para><userinput>./S18postgresql start</userinput></para>
-      <para>Note that you may need to alter this command to your particular system. </para>
-      <para>It is good security practise to run the tomcat application as a separate user. If you do not already have a separate user account, you can create one with the following commands.  </para>
-      <para>    <userinput>sudo useradd -d /home/tomcat6 -m tomcat6</userinput></para>
-      <para><userinput>sudo passwd tomcat6 </userinput></para>
-      <para>You should not change the file permissions for the entire directory that you installed Tomcat to, with the following command. </para>
-      <para><userinput>sudo chown -R tomcat6:tomcat6 /usr/local/tomcat</userinput></para>
-      <para>To start the application, login as the user, navigate to the <filename>/usr/local/tomcat/bin/</filename> directory, and execute the <filename>start.sh</filename> script. </para>
-      <para><userinput>sudo su - tomcat6</userinput></para>
-      <para><userinput>cd /usr/local/tomcat/bin</userinput></para>
-      <para><userinput>./startup.sh</userinput></para>
-    </section>
-    <section>
-      <title>Installing DHIS2 with the Debian install package</title>
-      <para>If you are using Ubuntu or Debian, a separate Debian installation package has been created to simplify the installation process. You can simply download this <ulink url="http://www.dhis2.org/download/dhis2-2.0.3.deb">file</ulink> and then install DHIS2 from the command line with the following command. </para>
-      <para><userinput>sudo dpkg -i dhis2-2.0.3.deb</userinput></para>
-      <para>You can also install this Debian package from your systems package manager. </para>
+      <para>The server version can be downloaded from dhis2.org/download. For detailed information on how to install it please refer to the installation chapter in the implementation manual.</para>
     </section>
   </section>
   <section id="mod2_2">
