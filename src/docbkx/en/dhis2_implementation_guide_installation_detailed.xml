@@ -29,7 +29,7 @@
       </mediaobject>
     </screenshot>
   </section>
-  <section>
+  <section id="sec.install_postgres">
     <title>Instaling PostgreSQL</title>
     <para>In the terminal, invoke the following command to install PostgreSQL:</para>
     <screen>sudo apt-get install postgresql-8.4</screen>
@@ -654,5 +654,77 @@ chmod +x dhis</screen>
 dhis stop</screen>
       </section>
     </section>
+  </section>
+  <section>
+    <title> Using Amazon Web services</title>
+    <para>Amazon Web Services (AWS) offers virtual cloud-computing resources which allow developers and implementers to quickly scale an application, both horizontally and vertically, in a cost effective manner. AWS offers multiple operating systems and instance sizes depending on the exact nature of the deployment. This section will describe a basic setup with the AWS Elastic Cloud Compute (EC2) system using the Basic 32 bit Amazon AMI, which is based on the Red Hat Linux distribution. </para>
+    <para>Estimating the cost of an AWS instance can be performed using the<ulink url="http://calculator.s3.amazonaws.com/calc5.html"> &quot;Simple Monthly Cal culator&quot;</ulink>. AWS costs are based entirely on usage. As your applicatio
+n usage grows, you can provision new servers. </para>
+    <orderedlist>
+      <listitem>
+        <para>You will need an existing AWS account. If you do not have one, you can create one <ulink url="http://aws.amazon.com/">here</ulink>.  Once you have created and enabled your account, login to the<ulink url="https://console.aws.amazon.com/s3/home"> AWS console</ulink>. </para>
+      </listitem>
+      <listitem>
+        <para>Once you have logged in, select the &quot;EC2&quot; tab. You will need to select a region in which to instantiate your instance. Users in Europeand Africa, should probably use the EU West region, while users in Asia should probably use on of the Asia Pacific regions (either Singapore or Tokyo). Selection of the appropriate region will reduce latency between the server and clients.</para>
+      </listitem>
+      <listitem>
+        <para>Click the &quot;Instances&quot; link on the right menu, and thenthe &quot;Launch Instances&quot; button. </para>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="60%" align="center" fileref="resources/images/aws/create_instance.PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>Select one of the AMIs for your server. Using either of the Basic Amazon AMIs (either 32 or 64 bit) is recommended, but you can use whichever AMI is most appropriate. </para>
+      </listitem>
+      <listitem>
+        <para>Next, you will need to select the size of your instance. The size of the instance selected will depend on the number of anticipated users. Selecting the &quot;Micro&quot; size, will enable you to test DHIS  2 in the AWS environment for a period of one year, at no cost if you use one of the &quot;Free tier eligible&quot; AMIs. </para>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="60%" align="center" fileref="resources/images/aws/instance_size.PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+      </listitem>
+      <listitem>
+        <para>Once you have selected the instance size, you can select a specific kernel ID and RAM disk ID. If you do not have a specific reason, just use the defaults and proceed to the next dialog. </para>
+      </listitem>
+      <listitem>
+        <para>Next, you can add key-value pairs to help you to easily identify the instance. This is just metadata for your own usage. </para>
+      </listitem>
+      <listitem>
+        <para>Next, you will need a key pair which will enable you to remotely access your instance. If you have an existing key pair you can use it, otherwise, you can create a new key pair. </para>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="60%" align="center" fileref="resources/images/a ws/create_key_pairs.PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+      </listitem>
+      <listitem>
+        <para>You will need to assign a security group to the instance. Security groups can be used to expose certain services (SSH, HTTP, Tomcat, etc) to the Internet.With security groups, you can control which ports will be open to specific network ranges. For DHIS 2, you would normally need at least port 22 (SSH) and port 80 (HTTP) open to the internet or specific address ranges. </para>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="50%" align="center" fileref="resources/images/aws/security_groups.PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+      </listitem>
+      <listitem>
+        <para>Finally, you can review and launch your instance. </para>
+      </listitem>
+      <listitem>
+        <para>Once the instance, has been launched, you can connect via PuTTY or any other SSH client to the instance using the instance&apos;s Public DNS, which is listed on the EC2 control panel. You will need to install a few packages if you are using the Amazon default AMI.</para>
+        <screen>yum install jdk.i586 postgresql-server.i686 apache-tomcat-apis.
+noarch tomcat-native.i686 httpd.i686</screen>
+      </listitem>
+      <listitem>
+        <para>Once you have installed these packages, you can follow the instructions provided in the <link linkend="sec.install_postgres">previous section</link> on setting up a server.  </para>
+      </listitem>
+    </orderedlist>
   </section>
 </chapter>
