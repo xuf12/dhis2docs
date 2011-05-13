@@ -6,9 +6,7 @@ Otherwise, just execute
 
 mvn package
 
-The latest maven docbook plugin can be checked out with subversion like this:
-
-svn checkout http://docbkx-tools.googlecode.com/svn/trunk/docbkx-tools-read-only
+to build the documentation
 
 For further information, contact the groups mailing list at
-dhis2-documenters@lists.launchpad.net
+https://launchpad.net/~dhis2-documenters
