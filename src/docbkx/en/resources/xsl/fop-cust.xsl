@@ -84,14 +84,21 @@
     <!-- Prevent blank pages in output -->    
  
 	<xsl:template name="book.titlepage.verso">
-	        <fo:block padding-before="150mm">
+	        <fo:block padding-before="50mm">
             <fo:table table-layout="fixed" width="175mm">
                 <fo:table-column column-width="175mm"/>
                 <fo:table-body>
 					<fo:table-row >
 						<fo:table-cell text-align="left">
 							<fo:block text-align="left" font-size="12pt">
-								 <xsl:text>Copyright &copyright; 2006-2011</xsl:text>
+								 <xsl:value-of select="db:bookinfo/db:copyright" />
+							</fo:block>
+						</fo:table-cell>
+					</fo:table-row>
+				    <fo:table-row >
+						<fo:table-cell text-align="left">
+							<fo:block text-align="left" font-size="12pt">
+								 <xsl:value-of select="db:bookinfo/db:authorgroup" />
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
@@ -112,7 +119,14 @@
 					<fo:table-row >
 						<fo:table-cell text-align="left" padding-before="15mm">
 							<fo:block text-align="left" font-size="12pt" >
-								 <xsl:value-of select="db:bookinfo/db:legalnotice" />
+								 <xsl:value-of select="db:bookinfo/db:legalnotice/db:formalpara[@id='warranty']" />
+							</fo:block>
+						</fo:table-cell>
+					</fo:table-row>
+									<fo:table-row >
+						<fo:table-cell text-align="left" padding-before="15mm">
+							<fo:block text-align="left" font-size="12pt" >
+								 <xsl:value-of select="db:bookinfo/db:legalnotice/db:formalpara[@id='license']" />
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
