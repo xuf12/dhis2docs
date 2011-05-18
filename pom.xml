@@ -21,7 +21,7 @@
 		</pluginRepository>
 	</pluginRepositories>
   <properties>
-    <docbkx.plugin.version>2.0.12</docbkx.plugin.version>
+    <docbkx.plugin.version>2.0.13-SNAPSHOT</docbkx.plugin.version>
     <docbook.source>${project.basedir}/src/docbkx</docbook.source>
     <docbook.target>${project.basedir}/target/site</docbook.target>
   </properties>
@@ -75,7 +75,7 @@
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <targetDirectory>${docbook.target}/en/user/html/</targetDirectory>
               <postProcess>
-                <copy file="${docbook.target}/en/user/html/dhis2_user_manual_en.html" tofile="${docbook.target}/en/user/html/index.html" />
+                <copy file="${docbook.target}/en/user/html/dhis2_user_manual_en/dhis2_user_manual_en.html" tofile="${docbook.target}/en/user/html/index.html" />
                 <copy todir="${docbook.target}/en/user/html/resources/images">
                   <fileset dir="src/docbkx/en/resources/images">
                     <include name="**/*.png" />
@@ -108,7 +108,7 @@
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <targetDirectory>${docbook.target}/en/end-user/html</targetDirectory>
               <postProcess>
-                <copy file="${docbook.target}/en/end-user/html/dhis2_end_user_manual.html" tofile="${docbook.target}/en/end-user/html/index.html" />
+                <copy file="${docbook.target}/en/end-user/html/dhis2_end_user_manual/dhis2_end_user_manual.html" tofile="${docbook.target}/en/end-user/html/index.html" />
                 <copy todir="${docbook.target}/en/end-user/html/resources/images">
                   <fileset dir="src/docbkx/en/resources/images">
                     <include name="**/*.png" />
@@ -141,7 +141,7 @@
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <targetDirectory>${docbook.target}/en/implementer/html</targetDirectory>
               <postProcess>
-                <copy file="${docbook.target}/en/implementer/html/dhis2_implementation_guide_en.html" tofile="${docbook.target}/en/implementer/html/index.html" />
+                <copy file="${docbook.target}/en/implementer/html/dhis2_implementation_guide_en/dhis2_implementation_guide_en.html" tofile="${docbook.target}/en/implementer/html/index.html" />
                 <copy todir="${docbook.target}/en/implementer/html/resources/images">
                   <fileset dir="src/docbkx/en/resources/images">
                     <include name="**/*.png" />
