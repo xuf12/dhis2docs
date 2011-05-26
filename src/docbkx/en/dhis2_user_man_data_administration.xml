@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.5/docbookx.dtd" []>
 <chapter>
-  <title>Data Administration in DHIS 2</title>
+  <title>Data Administration</title>
   <para>The data administration module provides a range of functions to ensure that the data stored in the DHIS2 database is integral and that the database performance is optimised. These functions should be executed on a regular basis by a data administrator to ensure that the quality of the data stored is optimal. </para>
   <section id="dataBrowser">
     <title>Data browser</title>
@@ -197,7 +197,9 @@
     <para>Resource tables are supporting tables that are used during analysis of data. One would typically join the contents of these tables with the data value table when doing queries from third-party applications like Microsoft Excel. Simply select the tables that should be regenerated and press &quot;Generate tables&quot;. Regeneration of the resource tables should only be done once all data integrity issues are resolved. </para>
     <itemizedlist>
       <listitem>
-        <para>Organisation unit structure (orgunitstructure)</para>
+        <para>Organisation unit structure (orgunitstructure)<indexterm>
+            <primary>orgunitstructure</primary>
+          </indexterm></para>
         <para>This table should be regenerated any time there have been any changes made to the organisational unit hierarchy. This table provides information about the organisation unit hierarchy. It has one row for each organisation unit, one  column for each organisation unit level and the organisation unit identifiers for all parents in the lineage as values.</para>
       </listitem>
       <listitem>
@@ -237,7 +239,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/maintainence/create_sql_view.PNG" align="center" width="60%"/>
+            <imagedata width="60%" align="center" fileref="resources/images/maintainence/create_sql_view.PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -292,7 +294,7 @@ yearly for which the data is to be locked. The month, quarter or year for which 
   </section>
   <section id="zeroValueStorage">
     <title>Zero value storage</title>
-    <para>The zero value storage function makes it possible to define for which data elements the system should store zero values. In most cases zeros are significant only for a subset of the data elements in the database. Zero values will be ignored during data entry for selected data elements.</para>
+    <para>The zero value storage function makes it possible to define for which data elements the system should store zero values. In most cases zeros are significant only for a subset of the data elements in the database. Any zeroes entered during data entry will be ignored by default, except for data elements where the zero value storage has been enabled. </para>
   </section>
   <section id="cacheStatistics">
     <title>Cache Statistics </title>
