@@ -274,10 +274,10 @@
               <argLine>-Xmx1024m</argLine>
               <foCustomization>${docbook.source}/en/resources/xsl/fop-cust.xsl</foCustomization>
               <doubleSided>1</doubleSided>
-              <includes>dhis2_end_user_manual.xml</includes>
+              <includes>dhis2_user_manual_en.xml</includes>
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <postProcess>
-               <copy file="target/docbkx/rtf/dhis2_end_user_manual.rtf" todir="${docbook.target}/en/user" />
+               <copy file="target/docbkx/rtf/dhis2_user_manual_en.rtf" todir="${docbook.target}/en/user" />
               </postProcess>
             </configuration>
           </execution>
