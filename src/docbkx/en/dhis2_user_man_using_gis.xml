@@ -4,7 +4,7 @@
   <title>Using GIS</title>
   <section>
     <title>Using the GIS module</title>
-    <para>You can access the GIS module from the Services -&gt; GIS link in the top menu. The picture below shows the various panels you can use to interact with the maps.</para>
+    <para>You can access the GIS module from the Services -&gt; GIS link in the top menu. The picture below shows the various panels you can use to interact with the map.</para>
     <screenshot>
       <screeninfo>Main GIS screen</screeninfo>
       <mediaobject>
@@ -15,18 +15,27 @@
     </screenshot>
     <section id="gisThematicMap">
       <title>Thematic mapping</title>
-      <para>This panel lets you use your registered maps for thematic mapping. All you need to do is selecting your desired indicator/dataelement-period-map combination in the left side menu. Then click either boundary or level to open the organisation unit selection window. Here you may select both the parent organisation unit and the level of its children. If your database has coordinates for these organisation units they will appear on the map.</para>
-      <para>Calculation method
-    alludes to the  size  of the legend classes. Set to <guimenuitem>Equal intervals</guimenuitem> they will be “highest map value – lowest map value
-    / number of classes”. Set to <guimenuitem>Equal group count</guimenuitem> the legend creator will try to distribute the organisation units evenly. Choose <guimenuitem>Fixed bounds </guimenuitem>and
-    you may define your own class break values, type e.g. “20,40,60” using a comma to
-    separate each of them.</para>
-      <para>The map view combo box lists all map views (favorites) saved by the user. The settings that are stored in the map view will be automatically applied to the thematic map panel.</para>
+      <para>The two thematic layer panels let you use your data for thematic mapping. All you need to do is selecting your desired indicator/dataelement-period-map combination. Then click either boundary or level to open the organisation unit selection window. Here you are supposed to select the parent organisation unit and the level of its children. If your database has coordinates for these organisation units they will appear on the map.</para>
+      <para>You may choose between legend types: <guimenuitem>automatic</guimenuitem> and <guimenuitem>predefined</guimenuitem>. Automatic means that the application will create a legend set for you based on your what method, number of classes, low color and high color you select. Method alludes to the size of the legend classes. Set to <guimenuitem>Equal intervals</guimenuitem> they will be “highest map value – lowest map value / number of classes”. Set to <guimenuitem>Equal group count</guimenuitem> the legend creator will try to distribute the organisation units evenly. Choose <guimenuitem>Fixed bounds </guimenuitem>and you may define your own class break values, type e.g. “20,40,60” using a comma to separate each of them. The legend will appear as an even gradation from the start color to the end color. Predefined legend sets are described in section 1.4.</para>
+      <para>Low radius and high radius only have effect on points (facilities) and decides the the circle radius for points with the lowest and highest value.</para>
+      <para>The map view combo box lists all map views (favorites) saved by the user. The settings that are stored in the map view is automatically applied to the thematic map panel.</para>
       <screenshot>
         <screeninfo>Thematic mapping</screeninfo>
         <mediaobject>
           <imageobject>
             <imagedata width="100%" fileref="resources/images/gis/gis_thematic_mapping.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </section>
+    <section id="gisSymbolicMap">
+      <title>Symbolic mapping</title>
+      <para>This layer displays icons that represent facilities based on the facility type. Currently, <guimenuitem>type</guimenuitem> is the only supported group set. Polygons will not show up on the map, so make sure to select a facility level. Click an icon on the map to open the information window.</para>
+      <screenshot>
+        <screeninfo>Symbolic mapping</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="100%" fileref="resources/images/gis/gis_symbolic_mapping.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -52,9 +61,13 @@
       <title>Exporting/saving map images</title>
       <para>Click the image icon on the map toolbar and the  print window will open. Title: Image title, will appear as a headline in the image. Layers: Choose whether polygons, points or both will be printed. Width/Height: The pixel resolution of the image. Choose among the predefined &quot;small&quot; (800x600), &quot;medium&quot; (1190x880), &quot;large&quot; (1920x1200) or type the exact number of pixels yourself (type the number only, avoid text like &quot;px&quot;). If you want to exclude the legend from the image, untick the legend checkbox. Finally click the export button to print the image  (PNG). Please see the referred window in section 1.1.</para>
     </section>
+    <section id="gisMeasureDistance">
+      <title>Measure distance</title>
+      <para>Click the two-way arrow icon on the map toolbar to enter measuring mode. Now, click your desired start location on the map and a dotted line will follow the cursor towards your destination. Single click to create a line point, double click to finish the line. To exit measuring mode, click the toolbar icon again or close the window.</para>
+    </section>
     <section id="gisLayerOptions">
       <title>Layer options</title>
-      <para>Right-click any layer in the layer tree in the upper right corner to open the layer options context menu. There are currently three layer options available for vector layers: &quot;Locate feature&quot;, &quot;Labels&quot; and &quot;Opacity&quot;. See picture below.
+      <para>Right-click or left-click any layer in the layer tree in the upper right corner to open the layer options context menu. There are currently three layer options available for vector layers: &quot;Locate feature&quot;, &quot;Labels&quot; and &quot;Opacity&quot;. See picture below.
           <screenshot>
             <screeninfo>Layer options</screeninfo>
             <mediaobject>
@@ -99,7 +112,7 @@
     </section>
     <section id="gisAdministratorSettings">
       <title>Administrator settings</title>
-      <para>Administrator settings are available only to users with admin rights. Date: Choose between fixed periods and start/end dates. Fixed periods refers to the periods created by the DHIS 2. Start/end dates means that you can define the period yourself by selecting the exact start date and end date of the period. Google Maps: In order to have Google Maps as background you need to fill in an Google Maps API key created for the domain the applcation is running on. The default key works for localhost. If you want to set up GIS on an external server you have to create and fill in the key for this domain, more info here http://code.google.com/apis/maps/signup.html. You will be provided with a link such as: http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAut6AhySExnYIXm5s2OFIkxRKNzJ-_9njnryRTbvC6CtrS4sRvRREWnxwlZUa630pLuPf3nD9i4fq9w. Note that you are supposed to fill in the key only, i.e. the part that follows after "key=", not the entire link.
+      <para>Administrator settings are available only to users with admin rights. Date: Choose between fixed periods and start/end dates. Fixed periods refers to the periods created by the DHIS 2. Start/end dates means that you can define the period yourself by selecting the exact start date and end date of the period. Google Maps: In order to have Google Maps as background you need to fill in an Google Maps API key created for the domain the applcation is running on. The default key works for localhost. If you want to set up GIS on an external server you have to create and fill in the key for this domain, more info here http://code.google.com/apis/maps/signup.html. You will be provided with a link such as: http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAut6AhySExnYIXm5s2OFIkxRKNzJ-_9njnryRTbvC6CtrS4sRvRREWnxwlZUa630pLuPf3nD9i4fq9w. Note that you are supposed to fill in the key only, i.e. the encrypted string that follows after "key=", not the entire link.
           <screenshot>
             <screeninfo>View history</screeninfo>
             <mediaobject>
