@@ -1,38 +1,70 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
-  <title>GIS</title>
+  <title>Setting up GIS</title>
   <section>
-    <title>OpenHealthMapper</title>
-    <para>The DHIS 2 GIS web module is inspired by the <ulink url="http://www.who.int/health_mapping/tools/healthmapper/en/">WHO HealthMapper</ulink> desktop application.</para>
+    <title>Context</title>
+    <para>
+      Setting up the GIS simply means storing coordinates for the organisation units you want to show on the map in the database. Coordinates are distributed in shapefiles, which is the most common geospatial vector data format for desktop applications (you might find shapefiles for your country at http://www.diva-gis.org/gdata). The work that needs to be done in order to use these coordinates in DHIS 2 GIS is transfering them and storing them with the corresponding organisation units in the database.
+    </para>
+    <para>If you go to the organisation unit module and edit one of the units, you can see a textfield called Coordinates. Here you may fill in its coordinates directly (geojson format) which is quite neat if you just want to update a couple of units. However, if you are going to e.g. add coordinates for all units at a certain level you don't want to do that manually. This is where the automatic GML import comes into play and the following section explains the preferred way of using it.
+    </para>
   </section>
-  <section>
-    <title>Setting up the GIS module</title>
-    <section id="gisSetup">
-      <title>Importing geographical layers for orgunit thematic mapping with GML</title>
-      <para>The maps are generated off the coordinates information linked to the Organisation Units in the database. No additional files are needed. As soon as the orgunits have coordinates the maps will be available in the GIS module. Although it is possible to add/edit coordinates directly in the Edit Organisation Unit window (in Maintenance-&gt;Organisation Unit) we recommend doing this in a batch job using the general import process in  the import/export module. The import process will need a GML file with at least the  two properties; &quot;Name&quot; and &quot;coordinates&quot;.</para>
-      <para>To generate the GML file start by installing the open source tool called  ogr2ogr. This should be available for most Linux distros (&quot;sudo apt-get install
-gdal-bin&quot;). For Windows, get FWTools:  http://fwtools.maptools.org/</para>
-      <para>The most common format for GIS data is the ESRI shapefile, which consists of three identically named files with extensions .shp, .shx and .dbf.
-(You can use ogr2ogr to convert between any formats, see example below). Open the .dbf in a spreadsheet application (e.g. MS Excel). Make sure 
- there is a field (column) called &quot;Name&quot; which has orgunit names, and that these orgunits are already existing in DHIS2. Also make sure all spellings are identical since the matching is done on this name.
-</para>
-      <para>On Windows, open the FWTools Shell and navigate to the folder with the shapefile. Issue the following command (replace &quot;output&quot; and
-&quot;input&quot; with the actual names):
-    <programlisting><userinput> ogr2ogr -F GML output.gml input.shp </userinput></programlisting> 
-</para>
-      <para>The column in the .dbf file with the orgunit name will have been converted to an XML element inside the GML file. Open the GML file in
-a text editor (e.g. Notepad++) and do a search/replace to make sure this element is called exactly ogr:Name (case sensitive), e.g.
-&lt;ogr:Name&gt;Badjia&lt;/ogr:Name&gt;
-</para>
-      <para>Import the GML file into DHIS2 through the import process in the import/export module (under services menu). There is no need to zip the file. Change import type to &quot;preview&quot; before doing the import to see which changes that will be made and resolve any issues with orgunit name matching etc. See the import/export chapter in the manual for more details on import processes. After import the coordinates will be added to the orgunit&apos;s metadata and also be available from the orgunit edit window (Maintenance-&gt;Organisation Units).</para>
-    </section>
+  <section id="gisSetup">
+    <title>Importing coordinates</title>
+    <para>Step 1 - Simplify/generalize your shapefile</para>
+    <para>
+      The boundaries in shapefiles are usually very accurate. This does not cause any trouble for hardware accelerated desktop based GIS software, but it might be too heavy for the web based GIS application in DHIS 2. Thus, we need to make the boundary lines less detailed by removing some of the line points. Go to http://mapshaper.com/test/demo.html and upload your shapefile. Then, at the center bottom you see a slider that starts at 0%. It is usually ok to drag it up to about 80%. In the left menu you can check "show original lines" to compare the result and you may want to give a different simplification method a try. When you are happy with the result, click "export" in the top right corner. Then check the first of the four options called "Shapefile - polygons", click "create" and wait for the download buttons to appear. Now, download the two files and overwrite the existing .shp and .shx files in your shapefile set (a shapefile is actually a set that has three mandatory files called .shp, .shx and .dbf and sometimes up to 15 files in total). Move on to the next step with your new simplified shapefile.
+    </para>
+    <para></para>
+    <para>Step 2 - Convert the shapefile to GML</para>
+    <para>
+      The recommended tool for geographical format conversions is called "ogr2ogr". This should be available for most Linux distros ("sudo apt-get install gdal-bin"). For Windows, go to http://fwtools.maptools.org/ and download "FWTools". During the format conversion we also want to ensure that the output has the correct coordinate projection (called EPSG:4326 with regular longitude and latitude). We can do this with the "-t_srs" flag (means "transform spatial reference system"). The command syntax is: "ogr2ogr -t_srs output_proj -f output_format output_file.output_format input_file.input_format". Now, if we have a shapefile called "sl_districts" and want to convert it to GML, use the following command: <programlisting><userinput> ogr2ogr -t_srs EPSG:4326 -f GML sl_districts.gml sl_districts.shp </userinput></programlisting> You will find the created GML file in the same folder as the shapefile.
+    </para>
+    <para></para>
+    <para>Step 3 - Prepare the GML file</para>
+    <para>
+      Unfortunately, the GML file is not likely to be ready for importation yet. Open it in a robust text editor like Geany (Linux) or Notepad++ (Windows). The DHIS 2 importer will look for a property called "ogr:Name" in this file when it matches the GML file to the organisation units in the database. Figure out what property that is holding the name of the organisation unit (could be "ogr:DISTRICT_NAME" or whatever, this differs from shapefile to shapefile) and rename it to "ogr:Name". Ensure that both the start tag and the end tag is renamed properly, they are supposed to look like this: &lt;ogr:Name&gt;Moyamba District&lt;/ogr:Name&gt;
+    </para>
+    <para>
+      Note that the name of the organisation units in the GML file must be spelled exactly the same as the organisation units in the database. Otherwise the importer will not recognize it and thus not transfer any coordinates. E.g. "Moyamba" in the GML file migth be called "Moyamba District" in the database. Creative use of the "rename all" function in the text editor is usually of great help in these situations.
+    </para>
+    <para>
+      Now, go to Services -> Import-Export, upload the file, select "Preview" and click "Import". Look for new/updated organisation units. If the intention is to add coordinates to already existing organisation units in the database, you want as many as updates as possible and 0 new. Those listed as new will be created as root units and mess up the organisation unit trees in DHIS 2. In the GML file, remove the organisation units that were listed as new and run preview again. When there are 0 new, switch the import type from "Preview" to "Import" and click the "Import" button. If it completes successfully, skip step 4.
+    </para>
+    <para></para>
+    <para>Step 4 - Fix possible error causes</para>
+    <para>
+      Common error causes are:
+      <para>- Name duplicates in the GML file. The name column in the database is unique and does not accept two organisation units with the same name.</para>
+      <para>- The "shortname" database column has a too small varchar definition. Increase it to 100.</para>
+      <para>- Special name characters in the GML file. Rename or remove.</para>
+    </para>
+    <para>
+      Finally, retry the GML file importation.
+    </para>   
   </section>
   <section>
     <title>Administering the GIS module</title>
-    <section id="gisAdministration">
+    <section id="gisAdministratorSettings">
       <title>Administrator settings</title>
-      <para>The administrator settings window can be opened from the map toolbar, click on the wrench symbol (tooltip says &quot;Administrator settings&quot;). Here you can define the Date Type used to select periods. Either use fixed periods corresponding to the periods used in DHIS data collection (weeks, months, quarters, 6-months, years etc.) or use the more flexible start and end dates.</para>
+      <para>
+        Administrator settings are available only to users with admin rights. The administrator settings window can be opened from the map toolbar, click on the gears symbol (tooltip says "Administrator settings").
+      </para>
+      <para>
+        - Google Maps: In order to have Google Maps as background you need to fill in an Google Maps API key created for the domain the applcation is running on. The default key works for localhost. If you want to set up GIS on an external server you have to create and fill in the key for this domain, more info here http://code.google.com/apis/maps/signup.html. You will be provided with a link such as: http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAut6AhySExnYIXm5s2OFIkxRKNzJ-_9njnryRTbvC6CtrS4sRvRREWnxwlZUa630pLuPf3nD9i4fq9w. Note that you are supposed to fill in the key only, i.e. the encrypted string that follows after "key=", not the entire link.
+          <screenshot>
+            <screeninfo>Layer options</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="50%" fileref="resources/images/gis/gis_google_key.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+      </para>
+      <para>
+        - Date: Choose between fixed periods and start/end dates. Fixed periods refers to the periods created by the DHIS 2. Start/end dates means that you can define the period yourself by selecting the exact start date and end date of the period.
+      </para>
     </section>
     <section id="gisOverlay">
       <title>Register overlays</title>
@@ -75,149 +107,6 @@ a text editor (e.g. Notepad++) and do a search/replace to make sure this element
       DHIS2_HOME/geojson of your DHIS application to be accessible to the GIS
       module. If the GeoJSON directory does not exist, you will need to create
       it manually and copy your GeoJSON files there.</para>
-      </section>
-    </section>
-  </section>
-  <section>
-    <title>Background information</title>
-    <section>
-      <title>Identifying map data</title>
-      <para>Geographical data can be divided in two basic groups - raster and vector. </para>
-      <section>
-        <title>Raster images</title>
-        <para>Raster can be thought of as pictures such as satellite images. Images can be used as background for maps, and the OHM can pull them in from any standard compliant 
-      <ulink url="http://en.wikipedia.org/wiki/Web_Map_Service">Web Map Service (WMS)</ulink>. It is also of great interest to
-      combine the DHIS2 installation with a <ulink url="http://geoserver.org/display/GEOS/Welcome">GeoServer</ulink> instance, 
-      which can be downloaded as a .war-file and run in the same servlet container (e.g. Tomcat, Jetty, Resin). Geoserver can provide
-      both background layers such as roads, lakes etc. or also display thematic data as an alternative to the browser-rendered 
-      main mode which uses GeoJSON.</para>
-      </section>
-      <section>
-        <title>Vector data</title>
-        <para>In order to create thematic maps (also known as <ulink url="http://en.wikipedia.org/wiki/Choropleth_map">choropleth maps</ulink>)
-    we need to have vector polygons (e.g. for facility catchment areas or administrative regions). Also, vector files are required for 
-    points (e.g. health facility locations or even different wards within a hospital). Such vector files consist of a collection of (x,y)
-    coordinates with a number of associated attributes (at least a name). Vector data can come in a lot of formats, such as GPS 
-    coordinates for facilities. The most common is the <ulink url="http://en.wikipedia.org/wiki/Shapefile">ESRI shapefile format</ulink>. 
-    In order to make web maps interactive, DHIS 2 uses the <ulink url="http://en.wikipedia.org/wiki/GeoJSON">javascript GeoJSON format</ulink>.</para>
-      </section>
-      <section>
-        <title>Getting data</title>
-        <para>
-        In order to use the OHM with DHIS2, it is necessary to have vector data for each orgunit level one wants to see in the map.
-        In many countries, the Ministry of Health will have shapefiles for the health-related administrative divisions. In other cases,
-        such files may have to be procured from a ministry of planning or from private vendors. Facility coordinates can easily be
-        assembled into a layer (file) for facilities - and if they are not available, these can be collected by cheap GPS units (increasingly
-        available also in mobile phones). Additionally, a lot of data are available freely on the web - especially bacground layers and
-        overlays, but also facility positions and administrative boundaries. Below is a list of sources of such data:</para>
-        <itemizedlist>
-          <listitem>
-            <para><ulink url="http://www.openstreetmap.org">OpenStreetMap</ulink></para>
-          </listitem>
-          <listitem>
-            <para><ulink url="http://www.openhealthconsortium.org/wiki/doku.php?id=layers_from_openstreetmap">Handling the layers</ulink></para>
-          </listitem>
-          <listitem>
-            <para><ulink url="http://www.maplibrary.org/stacks/africa">Maplibrary</ulink></para>
-          </listitem>
-          <listitem>
-            <para><ulink url="http://www.gadm.org/country">Global Administrative Areas</ulink></para>
-          </listitem>
-          <listitem>
-            <para><ulink url="http://www.unsalb.org">UN organizations, especially WHO and FAO, have administrative boundaries</ulink></para>
-          </listitem>
-        </itemizedlist>
-      </section>
-      <section>
-        <title>Projections</title>
-        <para>DHIS 2 uses latitude/longitude (lat/lon) coordinates in the standard EPSG:4326 projection, which is
-        very widespread. But it is also common to get data in UTM formats [http://en.wikipedia.org/wiki/
-        Universal_Transverse_Mercator_coordinate_system]. For example, data for Malawi is often distributed as UTM 36S
-        projection, which corresponds to EPSG:2736. The conversion can be done by be done by using either Geoserver or ogr2ogr
-        wich is part of GDAL and comes with Ubuntu. For Windows, it comes as part of <ulink url="http://www.bostongis.com/           PrinterFriendly.aspx?content_name=ogr_cheatsheet">FW Tools </ulink>. For example, the following line will convert a shapefile 
-        called inputfile.shp in UTM 36S projection to a GeoJSON file in lat/lon:
-        <programlisting><userinput> ogr2ogr s_srs EPSG:2736 a_srs EPSG:4326 -f &quot;GeoJSON&quot; outputfile.json inputfile.shp </userinput></programlisting> 
-      </para>
-      </section>
-      <section>
-        <title>GIS software to view and manipulate map data</title>
-        <para>There are many powerful free and open source GIS packages. We recommend the following:</para>
-        <itemizedlist>
-          <listitem>
-            <para><ulink url="http://www.qgis.org/">Quantum GIS</ulink></para>
-          </listitem>
-          <listitem>
-            <para><ulink url="http://www.openjump.org/">OpenJUMP</ulink></para>
-          </listitem>
-          <listitem>
-            <para><ulink url="http://udig.refractions.net/">uDig</ulink>, which also forms basis for <ulink url="http://udig.refractions.net/gallery/cgiar/">DIVA-GIS</ulink></para>
-          </listitem>
-          <listitem>
-            <para><ulink url="http://www.gvsig.gva.es/eng/inicio-gvsig/">gvSIG</ulink></para>
-          </listitem>
-        </itemizedlist>
-        <para>These tools can for example be used to merge village boundary polygons into district polygons (provided the district that each village belongs to is listed as an attribute), and
-        one can edit files to reflect new divisions or correct errors.
-        Another power tool for working with GIS data is <ulink url="http://postgis.refractions.net/">PostGIS</ulink>, which can be used on itself or in conjunction
-          with the above applications.
-        </para>
-      </section>
-    </section>
-    <section>
-      <title>Conversion of geographical data to GeoJSON format</title>
-      <para>The DHIS2 mapping client relies on GeoJSON files in order to display
-    a map in the browser window. Often times, geographical data is received in
-    many different formats, but the ESRI shape file format is one of the most
-    common. Several procedures will be described below. It is important, but
-    not required, that the names in your geographical data match those in the
-    DHIS2 organisational hierarchy. If they do not, you will need to manually
-    match them in a later step</para>
-      <section>
-        <title>Production of GeoJSON files with GDAL</title>
-        <para>GDAL is a multi-platform toolkit for the manipulation of
-      geographical data. It is freely available for a wide-range of platforms
-      at <ulink url="http://gdal.org">http://gdal.org</ulink></para>
-        <para>Production of GeoJSON files are straightforward with GDAL. Just
-      execute (on Windows)</para>
-        <programlisting><userinput>ogr2ogr.exe -f &quot;GeoJSON&quot; dst_datasource_name src_datasource_name</userinput></programlisting>
-        <para>or on Linux<programlisting><userinput>ogr2ogr -f &quot;GeoJSON&quot;dst_datasource_name src_datasource_name</userinput></programlisting></para>
-        <para>Replace <parameter>dst_datasource_name</parameter> with the path
-      to the destination geographical data file (following the naming
-      convention described above) and
-      <parameter>src_datasource_name</parameter> with the source geographical
-      data file. Take note that you may need to specify input and output coordinate systems as described above.</para>
-      </section>
-      <section>
-        <title>Using Geoserver</title>
-        <para>Geoserver is capable of outputting GeoJSON formats. If you have
-      geoserver running someplace, you can execute the following query.</para>
-        <para><ulink url="http://localhost:8080/geoserver/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typename=topp:states&amp;outputformat=json&amp;srs_name=EPSG:4326">http://localhost:8080/geoserver/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typename=topp:states&amp;outputformat=json&amp;srs_name=EPSG:4326</ulink></para>
-        <para> Take note that you need to specify the spatial coordinate system. By default, Geoserver will return GeoJSON files with the format &quot;long/lat&quot; while
-the DHIS mapping client expects the ordering of the coordinates in &quot;lat/long&quot; format.  The explicit declaration of the spatial reference system will ensure that coordinates are returned in the proper order. At the time of writing, the DHIS mapping client does not support spatial reference systems other than EPSG 4326. If you are using Geoserver, the application will handle the reprojection from the native format of the geographical data to EPSG 4326. If you are using other methods as described below to generate the GeoJSON file, you will need to ensure that the GeoJSON output is set to EPSG 4326 (Geographical Lat/long). </para>
-        <para>You will need to adjust the host destination if the machine is not
-      your local machine as well as defining the actual layer in Geoserver
-      which should be output to GeoJSON (in this case
-      <parameter>topp:states</parameter>).</para>
-        <para>Upon execution of the URL, Geoserver will produce a GeoJSON file,
-      and you will be asked to save it. Once it has finished downloading,
-      rename the file following the suggested naming convention:</para>
-        <para>ISO2CountryCode followed by an underscore, followed by the layer
-      type (e.g. “admin” for administrative layers, “health” for health
-      administrative boundaries). For instance, the first administrative layer
-      for Zambia would be named as &quot;zm_admin1&quot;.</para>
-      </section>
-      <section>
-        <title>Production of GeoJSON with PostGIS</title>
-        <para>In certain situations, direct updates of the coordinates which are stored  via a database query may be needed or desireable. The coordinate which are accepted by DHIS2 are similar to a normal GeoJSON clause for a geographical object with a few minor modifications. GeoJSON can be rather easily produced from a PostGIS database with a simple query as shown below.</para>
-        <programlisting>CREATE OR REPLACE VIEW districts_as_geojson AS 
- SELECT district::character varying(230) AS name, 
- substring(st_asgeojson(1, geom, 4) from 38 for(length(st_asgeojson(1,geom,4)) - 38 )) 
- AS coordinates
-   FROM district_geometry;
-</programlisting>
-        <para>Basically, all the query does is to produce  version 1 GeoJSON from the geometry column (in this case named &quot;geom&quot;) and strip oeut some initial and final text which DHIS2 generates automatically when it assembled a group of geometrical objects for presentation on the GIS. The paramater of hte st_asgeojson command also allows you to control the number of decimal </para>
-        <para>Once this is created as a view in your DHIS2 database, you can issue a simple update statement to automatically update the coordinates.</para>
-        <programlisting>UPDATE organisationunit a SET coordinates = b.coordinates from districts_as_geojson b where a.name = b.name;</programlisting>
       </section>
     </section>
   </section>

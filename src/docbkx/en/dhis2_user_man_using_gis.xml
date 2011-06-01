@@ -110,17 +110,5 @@
           </screenshot>
       </para>
     </section>
-    <section id="gisAdministratorSettings">
-      <title>Administrator settings</title>
-      <para>Administrator settings are available only to users with admin rights. Date: Choose between fixed periods and start/end dates. Fixed periods refers to the periods created by the DHIS 2. Start/end dates means that you can define the period yourself by selecting the exact start date and end date of the period. Google Maps: In order to have Google Maps as background you need to fill in an Google Maps API key created for the domain the applcation is running on. The default key works for localhost. If you want to set up GIS on an external server you have to create and fill in the key for this domain, more info here http://code.google.com/apis/maps/signup.html. You will be provided with a link such as: http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAut6AhySExnYIXm5s2OFIkxRKNzJ-_9njnryRTbvC6CtrS4sRvRREWnxwlZUa630pLuPf3nD9i4fq9w. Note that you are supposed to fill in the key only, i.e. the encrypted string that follows after "key=", not the entire link.
-          <screenshot>
-            <screeninfo>View history</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="50%" fileref="resources/images/gis/gis_google_key.png" format="PNG"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
-      </para>
-    </section>  </section>
+  </section>
 </chapter>
