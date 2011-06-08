@@ -1,0 +1,88 @@
+Index: java/net/sf/jabref/export/ExportFormats.java
+===================================================================
+--- java/net/sf/jabref/export/ExportFormats.java	(revision 3552)
++++ java/net/sf/jabref/export/ExportFormats.java	(working copy)
+@@ -40,6 +40,7 @@
+         putFormat(new ExportFormat(
+                 Globals.lang("Simple HTML"), "simplehtml", "simplehtml", null, ".html"));
+         putFormat(new ExportFormat(Globals.lang("Docbook"), "docbook", "docbook", null, ".xml"));
++        putFormat(new ExportFormat(Globals.lang("Docbook 4.4"), "docbook44", "docbook44", "docbook44", ".xml"));
+         putFormat(new ExportFormat(Globals.lang("BibTeXML"), "bibtexml", "bibtexml", null, ".xml"));
+         putFormat(new ExportFormat(Globals.lang("BibO RDF"), "bibordf", "bibordf", null, ".rdf"));
+         putFormat(new ModsExportFormat());
+Index: java/net/sf/jabref/export/layout/format/CreateDocBookAuthors.java
+===================================================================
+--- java/net/sf/jabref/export/layout/format/CreateDocBookAuthors.java	(revision 3552)
++++ java/net/sf/jabref/export/layout/format/CreateDocBookAuthors.java	(working copy)
+@@ -99,12 +99,12 @@
+                 sb.append("</othername>");
+             }
+             if ((a.getLast() != null) && (a.getLast().length() > 0)) {
+-                sb.append("<lastname>");
++                sb.append("<surname>");
+                 sb.append(xc.format(a.getLast()));
+                 if ((a.getJr() != null) && (a.getJr().length() > 0)) {
+                     sb.append(" "+xc.format(a.getJr()));
+                 }
+-                sb.append("</lastname>");
++                sb.append("</surname>");
+             }
+ 
+             if (i < al.size()-1)
+Index: resource/layout/docbook44/docbook44.mastersthesis.layout
+===================================================================
+--- resource/layout/docbook44/docbook44.mastersthesis.layout	(revision 0)
++++ resource/layout/docbook44/docbook44.mastersthesis.layout	(revision 0)
+@@ -0,0 +1,11 @@
++<biblioentry xreflabel="\bibtexkey" id="\bibtexkey">
++   <authorgroup>
++\begin{author}       \format[CreateDocBookAuthors]{\author} \end{author}
++   </authorgroup>
++   <citetitle pubwork="manuscript">\format[XMLChars,RemoveLatexCommands]{\title}</citetitle>
++\begin{school}   <publisher>
++      <publishername>\format[XMLChars]{\school}</publishername>
++   </publisher>\end{school}
++\begin{year}   <pubdate>\year</pubdate>  \end{year}
++\begin{url}  <bibliomisc><ulink url="\format[XMLChars]{\url}">\format[XMLChars]{\url}</ulink></bibliomisc>\end{url}
++</biblioentry>
+Index: resource/layout/docbook44/docbook44.layout
+===================================================================
+--- resource/layout/docbook44/docbook44.layout	(revision 0)
++++ resource/layout/docbook44/docbook44.layout	(revision 0)
+@@ -0,0 +1,20 @@
++<biblioentry xreflabel="\bibtexkey" id="\bibtexkey">
++   <authorgroup>
++\begin{author}       \format[CreateDocBookAuthors]{\author} \end{author}
++\begin{editor}       \format[CreateDocBookEditors]{\editor} \end{editor}
++   </authorgroup>
++   <citetitle pubwork="article">\format[XMLChars,RemoveLatexCommands]{\title}</citetitle>
++\begin{journal}   <citetitle pubwork="journal">\format[XMLChars]{\journal}</citetitle>\end{journal}
++\begin{publisher}   <publisher>
++      <publishername>\format[XMLChars]{\publisher}</publishername>
++   </publisher>\end{publisher}
++\begin{volume}   <volumenum>\volume</volumenum> \end{volume}
++\begin{edition}   <edition>\format[XMLChars,RemoveLatexCommands]{\edition}</edition> \end{edition}
++\begin{pages}   <artpagenums>\format[FormatPagesForXML]{\pages}</artpagenums> \end{pages}
++\begin{year}   <pubdate>\year</pubdate>  \end{year}
++\begin{url}  <bibliomisc><ulink url="\format[XMLChars]{\url}">\format[XMLChars]{\url}</ulink></bibliomisc>\end{url}
++\begin{abstract}   <abstract>
++      <para>\format[XMLChars,RemoveLatexCommands]{\abstract}
++      </para>
++   </abstract>\end{abstract}
++</biblioentry>
+Index: resource/layout/docbook44/docbook44.begin.layout
+===================================================================
+--- resource/layout/docbook44/docbook44.begin.layout	(revision 0)
++++ resource/layout/docbook44/docbook44.begin.layout	(revision 0)
+@@ -0,0 +1,4 @@
++<?xml version='1.0' encoding='UTF-8'?>
++<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
++<!-- This file was exported from JabRef -->
++<bibliography>
+\ No newline at end of file
+Index: resource/layout/docbook44/docbook44.end.layout
+===================================================================
+--- resource/layout/docbook44/docbook44.end.layout	(revision 0)
++++ resource/layout/docbook44/docbook44.end.layout	(revision 0)
+@@ -0,0 +1 @@
++</bibliography>
