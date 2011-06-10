@@ -90,7 +90,7 @@
 					<fo:table-row >
 						<fo:table-cell text-align="left">
 							<fo:block text-align="left" font-size="12pt">
-								 <xsl:value-of select="db:bookinfo/db:copyright" />
+								 <xsl:text>&copyright; </xsl:text><xsl:value-of select="db:bookinfo/db:copyright/db:year" />
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
