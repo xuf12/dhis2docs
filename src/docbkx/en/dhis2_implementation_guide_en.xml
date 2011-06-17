@@ -1,10 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" 
+[
+<!ENTITY version '2.X'>
+ ]>
 <book>
   <bookinfo>
-    <title>DHIS Implementation Guide</title>
-    <releaseinfo>
-<?eval ${project.version}?>    </releaseinfo>
+    <title>DHIS2 Implementation Guide</title>
+    <releaseinfo><?eval ${project.version}?></releaseinfo>
     <keywordset>
       <keyword>DHIS2</keyword>
       <keyword>HMIS</keyword>
@@ -33,23 +35,25 @@
     under the terms of the GNU Free Documentation License, Version 1.3
     or any later version published by the Free Software Foundation;
     with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
-    A copy of the license is included in the source of this documentation, and is available <ulink url="http://www.gnu.org/licenses/fdl.html">here</ulink>.</para>
+    A copy of the license is included in the source of this documentation, and is available here online:<ulink url="http://www.gnu.org/licenses/fdl.html"> http://www.gnu.org/licenses/fdl.html</ulink>.</para>
       </formalpara>
     </legalnotice>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../build.properties" encoding="UTF-8"/>
   </bookinfo>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_implementation_guide_system_design.xml" encoding="UTF-8"/>
+  <!-- <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_implementation_guide_system_design.xml" encoding="UTF-8"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_implementation_guide_database_development.xml" encoding="UTF-8"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_implementation_guide_data_elements_and_forms.xml" encoding="UTF-8"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_implementation_guide_harmonisation.xml" encoding="UTF-8"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_implementation_guide_data_analysis.xml" encoding="UTF-8"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_implementation_guide_data_analysis.xml" encoding="UTF-8"/> -->
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_implementation_guide_installation.xml" encoding="UTF-8"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_implementation_guide_installation_detailed.xml" encoding="UTF-8"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_implementation_guide_deployment.xml" encoding="UTF-8"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_implementation_guide_maintenance.xml" encoding="UTF-8"/>
+  <!-- <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_implementation_guide_deployment.xml" encoding="UTF-8"/> -->
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_ireport.xml" encoding="UTF-8"/> 
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_ireport2.xml" encoding="UTF-8"/>
+  <!-- <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_implementation_guide_maintenance.xml" encoding="UTF-8"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_implementation_guide_human_resource.xml" encoding="UTF-8"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_implementation_guide_support.xml" encoding="UTF-8"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_implementation_guide_user_training.xml" encoding="UTF-8"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_implementation_guide_integration.xml" encoding="UTF-8"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_implementation_startup_strategies.xml" encoding="UTF-8"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_implementation_startup_strategies.xml" encoding="UTF-8"/> -->
 </book>
