@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>Setting up report functionality</title>
@@ -414,7 +414,7 @@ Above the table there are six buttons; five download buttons and one Back button
         </listitem>
       </orderedlist>
       <para>If you want to preview your report during the design in iReport, you actually have to upload your file to DHIS 2 to see how it looks.</para>
-      <para>These four steps will be describe in detail in the coming sections.</para>
+      <para>These four steps will be describe in detail in the coming sections. In general, when you are making standard reports you should have a clear idea of how it should look before you even make the report table, as how the report table is designed has implications for how the report can be formatted in iReport. For example, what crosstab dimensions are selected in the report table has consequences for what crosstabs are available for the standard report, and it has consequences for what types of charts you can make.</para>
       <section>
         <title>Download and open the design file</title>
         <para><emphasis>Note: If you have not created a report table yet, you have to do so. See section &quot;How to create report tables&quot; to do so.</emphasis></para>
@@ -916,39 +916,47 @@ Above the table there are six buttons; five download buttons and one Back button
         <para>By default, a 3D bar chart is included in the .jrxml file that is downloaded from DHIS 2. This is set up so that only data from the «parameter orgnisation unit» (often the parent or grand parent) is used. Usually, this is a good solution. Since it is the default, we will start by looking at bar charts, before looking at line charts.</para>
         <section>
           <title>Bar charts</title>
-          <para>Bar charts are the default. To edit the chart, right click and choose Chart data.</para>
+            <screenshot>
+            <screeninfo>Example bar chart</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="90%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_54.jpg" format="JPEG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+          <para>Bar charts are the default chart type in DHIS 2. In this section, we will look at how to make a bar charts like the one above, comparing the value of one inidcator in several districts. To edit the default chart in iReport, right click on it and choose Chart data.</para>
           <screenshot>
             <screeninfo>Choose Edit Chart Data</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata width="80%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_46.jpg" format="JPEG"/>
+                <imagedata width="70%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_46.jpg" format="JPEG"/>
               </imageobject>
             </mediaobject>
           </screenshot>
-          <para>A window will appear. By default, the Filter expression is filled in so that only data for the parent organisation unit will be displayed. If for some reason you do not want this, simply delete the text in the text box. To continue, click the details tab.</para>
+          <para>A window will appear. By default, the Filter expression is filled in so that only data for the parent organisation unit will be displayed. If for some reason you do not want this, simply delete the text in the text box. In this case we do NOT want the filter, as we are making a chart showing a comparison across districts. To continue, click the details tab.</para>
           <screenshot>
             <screeninfo>Select the Details tab</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata width="70%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_47.jpg" format="JPEG"/>
+                <imagedata width="60%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_47.jpg" format="JPEG"/>
               </imageobject>
             </mediaobject>
           </screenshot>
-          <para>Under details, you see the list of series for the chart. By default, one series is created per crosstab column. In this case, we are looking at data with four quarters along the crosstab dimension.</para>
+          <para>Under details, you see the list of series for the chart. By default, one series is created per crosstab column. In this case, we are looking at data for one indicator for the whole of 2010, for a number of districts. The indicator is along the crosstab dimension.</para>
           <screenshot>
             <screeninfo>List of data series</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata width="70%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_48.jpg" format="JPEG"/>
+                <imagedata width="60%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_48.jpg" format="JPEG"/>
               </imageobject>
             </mediaobject>
           </screenshot>
-          <para>To make changes to any of the series, select it and click modify. Another window will appear where there are four areas that can be edit. The three first are required, but it is sufficient to add an empty quote («») in one of the first two.</para>
+          <para>To make changes to a series, select it and click modify. Another window will appear where there are four areas that can be edit. The three first are required, but it is sufficient to add an empty quote («») in one of the first two.</para>
           <screenshot>
             <screeninfo>The data series editor</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata width="70%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_49.jpg" format="JPEG"/>
+                <imagedata width="60%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_500.jpg" format="JPEG"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -957,11 +965,40 @@ Above the table there are six buttons; five download buttons and one Back button
             <screeninfo>Chart legend</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata width="90%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_50.jpg" format="JPEG"/>
+                <imagedata width="15%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_50.jpg" format="JPEG"/>
               </imageobject>
             </mediaobject>
           </screenshot>
-          <para>However, if you want to have the name of each bar along the x-axis of the chart instead of using the legend, this can be done by adding whatever text you want to present in the Category expression field. </para>
+          <para>However, if you want to have the name of each bar along the x-axis of the chart instead of using the legend, this can be done by adding whatever text you want to present in the Category expression field, or by inserting an expression to have it filled automatically when the report is run. In this case, we want to have one bar for each organisation unit. We therefore edit the category expression by clicking on the button to the right.</para>
+          <screenshot>
+            <screeninfo>Editing the category expression</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="70%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_49.jpg" format="JPEG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+          
+          <para>As the expression, we chose organisationunitname, as shown below.</para>
+          <screenshot>
+            <screeninfo>Choose organisation unit name.</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="70%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_490.jpg" format="JPEG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+
+		<para>When we are finished, the series editor should look like below. Click OK, then Close to close the Chart Details window.</para>
+          <screenshot>
+            <screeninfo>Series editor.</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="70%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_501.jpg" format="JPEG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+          
           <para>If you add a good description in the Category expression area, you can leave out the legend box. This is done in the Report properties panel of iReport, where you can also edit many other details of the chart.</para>
           <screenshot>
             <screeninfo>Checkbox to show/hide chart legend</screeninfo>
@@ -976,7 +1013,7 @@ Above the table there are six buttons; five download buttons and one Back button
             <screeninfo>Edit chart title</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata width="50%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_55.jpg" format="JPEG"/>
+                <imagedata width="40%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_55.jpg" format="JPEG"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -985,28 +1022,12 @@ Above the table there are six buttons; five download buttons and one Back button
             <screeninfo>Expression editor</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata width="90%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_56.jpg" format="JPEG"/>
+                <imagedata width="70%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_56.jpg" format="JPEG"/>
               </imageobject>
             </mediaobject>
           </screenshot>
-          <para>Below, you can see what effect the above changes have had to make the chart more clean and readable.</para>
-          <screenshot>
-            <screeninfo>Chart - before</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="90%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_53.jpg" format="JPEG"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
-          <screenshot>
-            <screeninfo>Chart - after</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="90%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_54.jpg" format="JPEG"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
-        </section>
+          <para>The chart is now ready.</para>
+                      </section>
         <section>
           <title>Line charts</title>
           <para>Line charts can be useful in many circumstances. However, to make line charts the report data (report table) must be suited for it. Thus if you want to make a line chart, it is important that the report table does not have periods in the crosstab dimension. Examples where this is useful is if you are making a report for a single organisation unit with one or more indicators, or if you are making a report with one indicator and one or more organisation units.</para>
@@ -1189,8 +1210,10 @@ Above the table there are six buttons; five download buttons and one Back button
               <imagedata width="66%" fileref="resources/images/dhis2_creating_reporting/ireport/39_editchart_9.jpg" format="JPEG"/>
             </imageobject>
           </mediaobject>
-        </screenshot></section>
- -->      <section>
+        </screenshot>
+        </section>-->
+
+      <section>
         <title>Adding the Report to DHIS 2</title>
         <para>We can now switch to DHIS 2 and import our report. Go to the Report Module in DHIS 2, and select &quot;Standard Report&quot;. In the &quot;Standard Report&quot; screen, click &quot;Add new&quot;, or edit an existing one.</para>
         <para>In the following screen, there are several actions we need to take. First, enter a name for the new &quot;Standard Report&quot;. Second, for design, click &quot;Choose File&quot; and find the .jrxml-file you have edited in iReport. Then we select the report table that we used as a basis for the report in iReport. Click add, and it should move to the &quot;Selected report tables&quot; area. Finally, click save. 
