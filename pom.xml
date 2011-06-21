@@ -76,7 +76,11 @@
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <targetDirectory>${docbook.target}/en/user/html/</targetDirectory>
               <postProcess>
-                <copy file="${docbook.target}/en/user/html/dhis2_user_manual_en/dhis2_user_manual_en.html" tofile="${docbook.target}/en/user/html/index.html" />
+                <copy todir="${docbook.target}/en/user/html">
+                  <fileset dir="${docbook.target}/en/user/html/dhis2_user_manual_en" />
+                </copy>
+                <delete dir="${docbook.target}/en/user/html/dhis2_user_manual_en" />
+                <move file="${docbook.target}/en/user/html/dhis2_user_manual_en.html" tofile="${docbook.target}/en/user/html/index.html" />
                 <copy todir="${docbook.target}/en/user/html/resources/images">
                   <fileset dir="src/docbkx/en/resources/images">
                     <include name="**/*.png" />
@@ -109,7 +113,11 @@
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <targetDirectory>${docbook.target}/en/end-user/html</targetDirectory>
               <postProcess>
-                <copy file="${docbook.target}/en/end-user/html/dhis2_end_user_manual/dhis2_end_user_manual.html" tofile="${docbook.target}/en/end-user/html/index.html" />
+                <copy todir="${docbook.target}/en/end-user/html">
+                  <fileset dir="${docbook.target}/en/end-user/html/dhis2_end_user_manual" />
+                </copy>
+                <delete dir="${docbook.target}/en/end-user/html/dhis2_end_user_manual" />
+                <move file="${docbook.target}/en/end-user/html/dhis2_end_user_manual.html" tofile="${docbook.target}/en/end-user/html/index.html" />
                 <copy todir="${docbook.target}/en/end-user/html/resources/images">
                   <fileset dir="src/docbkx/en/resources/images">
                     <include name="**/*.png" />
@@ -142,7 +150,11 @@
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <targetDirectory>${docbook.target}/en/implementer/html</targetDirectory>
               <postProcess>
-                <copy file="${docbook.target}/en/implementer/html/dhis2_implementation_guide_en/dhis2_implementation_guide_en.html" tofile="${docbook.target}/en/implementer/html/index.html" />
+                <copy todir="${docbook.target}/en/implementer/html">
+                  <fileset dir="${docbook.target}/en/implementer/html/dhis2_implementation_guide_en" />
+                </copy>
+                <delete dir="${docbook.target}/en/implementer/html/dhis2_implementation_guide_en" />
+                <move file="${docbook.target}/en/implementer/html/dhis2_implementation_guide_en.html" tofile="${docbook.target}/en/implementer/html/index.html" />
                 <copy todir="${docbook.target}/en/implementer/html/resources/images">
                   <fileset dir="src/docbkx/en/resources/images">
                     <include name="**/*.png" />
