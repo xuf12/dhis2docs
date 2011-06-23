@@ -752,6 +752,46 @@ Above the table there are six buttons; five download buttons and one Back button
         </section>
       </section>
       <section>
+        <title>Sorting</title>
+        <para>Often you will be making reports where the first column is organisation unit names. However, it can be a problem that the list of organisation units are not sorted alphabetically. This can be fixed in iReport through a few simple steps.</para>
+        <para>In the report inspector, right click on the name of the report (by default this is dpt) and select Edit query. </para>
+        <screenshot>
+          <screeninfo>Choose Edit Query</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="40%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_21.jpg" format="JPEG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>A Report query window will appear. Click on the Sort options button.</para>
+        <screenshot>
+          <screeninfo>Choose Sort Options...</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="90%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_22.jpg" format="JPEG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>A Sorting window as show below will appear. Here, we can add our sorting options. Click the Add field button. Another small window will show up, with a drop down menu where you can choose Sort by organisationunitname to have the table sorted alphabetically by name.</para>
+        <screenshot>
+          <screeninfo>Choose Add</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="60%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_23.jpg" format="JPEG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <screenshot>
+          <screeninfo>Choose sort parameter</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="30%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_24.jpg" format="JPEG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>Click OK - Close - OK to close the three windows. The table should now be sorted.</para>
+      </section>
+      <section>
         <title>Changing indicator/data element names</title>
         <para>By default, the reports from DHIS 2 uses the short names for indicators and data elements in reports and charts. In some cases these are not always very meaningful for third parties, but with some work they can be given custom names through iReport. This is useful for example if you are making a report with indicators as rows and periods as column, or for charts with indicators. </para>
         <screenshot>
