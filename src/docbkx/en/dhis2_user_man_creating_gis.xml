@@ -24,25 +24,20 @@
     <para></para>
     <para>Step 3 - Prepare the GML file</para>
     <para>
-      Unfortunately, the GML file is not likely to be ready for importation yet. Open it in a robust text editor like Geany (Linux) or Notepad++ (Windows). The DHIS 2 importer will look for a property called "ogr:Name" in this file when it matches the GML file to the organisation units in the database. Figure out what property that is holding the name of the organisation unit (could be "ogr:DISTRICT_NAME" or whatever, this differs from shapefile to shapefile) and rename it to "ogr:Name". Ensure that both the start tag and the end tag is renamed properly, they are supposed to look like this: &lt;ogr:Name&gt;Moyamba District&lt;/ogr:Name&gt;
+      Unfortunately, the GML file is not ready for importation yet. Open it in a robust text editor like Geany (Linux) or Notepad++ (Windows). GML is an XML based format which means that you will recognize the regular XML tag hierarchy. In the GML file an organisation unit is represented as a &lt;gml:featureMember&gt;. Inside the feature members we usually find a lot of attributes, but we are just going to import their coordinates. In order to do this DHIS 2 will match the name of the feature members to the organisation unit names in the database. To get the name of the feature memebers in the GML file the importer will look for a property called "ogr:Name". Figure out what property that is holding the name of the feature members (could be "ogr:DISTRICT_NAME", "ogr:NAME_1" or whatever, this differs from shapefile to shapefile) and rename it to "ogr:Name". Ensure that both the start and the end tags are renamed properly. They are supposed to look like e.g.: &lt;ogr:Name&gt;Moyamba District&lt;/ogr:Name&gt;
     </para>
     <para>
-      Note that the name of the organisation units in the GML file must be spelled exactly the same as the organisation units in the database. Otherwise the importer will not recognize it and thus not transfer any coordinates. E.g. "Moyamba" in the GML file migth be called "Moyamba District" in the database. Creative use of the "rename all" function in the text editor is usually of great help in these situations.
+      Note that the name of the feature members in the GML file must be spelled exactly the same as the organisation units in the database. Otherwise the importer will not recognize it and thus not transfer any coordinates. E.g. "Moyamba" in the GML file migth be called "Moyamba District" in the database. Creative use of the "rename all" function in the text editor is usually of great help in these situations, as you do not want to edit numerous feature members manually. Have a brief look at the names and compare them to the names in the database. If they seem to match fairly good, it is about time to do a preview in the import-export module.
     </para>
     <para>
-      Now, go to Services -> Import-Export, upload the file, select "Preview" and click "Import". Look for new/updated organisation units. If the intention is to add coordinates to already existing organisation units in the database, you want as many as updates as possible and 0 new. Those listed as new will be created as root units and mess up the organisation unit trees in DHIS 2. In the GML file, remove the organisation units that were listed as new and run preview again. When there are 0 new, switch the import type from "Preview" to "Import" and click the "Import" button. If it completes successfully, skip step 4.
-    </para>
-    <para></para>
-    <para>Step 4 - Fix possible error causes</para>
-    <para>
-      Common error causes are:
-      <para>- Name duplicates in the GML file. The name column in the database is unique and does not accept two organisation units with the same name.</para>
-      <para>- The "shortname" database column has a too small varchar definition. Increase it to 100.</para>
-      <para>- Special name characters in the GML file. Rename or remove.</para>
+      Go to Services -> Import-Export, select "Preview", select the GML file and click "Import". Look for new/updated organisation units. Our intention is to add coordinates to already existing organisation units in the database, so we want as many updates as possible and 0 new. Those listed as new will be created as root units and mess up the organisation unit trees in DHIS 2. If any listed as new, click the number and the organisation units in question will appear in the list below. If there are any slight misspellings compared to the organisation unit names in the database - fix them and do the preview again. Otherwise, click the "discard all" button below the list and then the "Import all" button above the list.
     </para>
     <para>
-      Finally, retry the GML file importation.
-    </para>   
+      If the import process completes successfully, you are good to go. If not, check the log for hints and look for common errors such as:    
+    </para>
+    <para>- Name duplicates in the GML file. The name column in the database is unique and does not accept two organisation units with the same name.</para>
+    <para>- The "shortname" column in the organisationunit table in your database has a too small varchar definition. Increase it to 100.</para>
+    <para>- Special name characters in the GML file. Rename or remove.</para>
   </section>
   <section>
     <title>Administering the GIS module</title>
