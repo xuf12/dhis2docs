@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <chapter>
   <title>Data elements</title>
@@ -6,7 +6,7 @@
   <screenshot>
     <mediaobject>
       <imageobject>
-        <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_main.png"/>
+        <imagedata width="100%" fileref="resources/images/maintainence/data_element_main.png" format="PNG"/>
       </imageobject>
     </mediaobject>
   </screenshot>
@@ -51,7 +51,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_main2.png"/>
+            <imagedata width="100%" fileref="resources/images/maintainence/data_element_main2.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -62,7 +62,7 @@
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_edit.png"/>
+              <imagedata width="100%" fileref="resources/images/maintainence/data_element_edit.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -110,6 +110,14 @@
           <listitem>
             <para>Aggregation levels:  The Aggregation Levels option allows the data element to be aggregated at one or more levels. When the user clicks on the Aggregation levels option, a drop down menu appears which displays available aggregation levels. The desired aggregation level is then selected by clicking the ‘Add Selected’ button. By default, the aggregation will start at the lowest assigned organisation unit. If e.g. Chiefdom is selected below it means that Chiefdom, District, and National aggregates will use Chiefdom (the  highest aggregation level available) as the data source, and PHU data will not be included. PHU data will still be available for the PHU level, but not included in aggregations to the levels above. If District and Chiefdom are both selected then the District and National level aggregates will use District data as their source, Chiefdom will use Chiefdom, and PHU will use PHU. Read more about aggregation levels in the Reporting chapter i the section on data sources for reporting.</para>
           </listitem>
+          <listitem>
+            <para>Number type: In order to increase the robustness of data entry, DHIS2 supports several different number types. Each of the available options are described below. </para>
+            <orderedlist>
+              <listitem>
+                <para>Number: This number type supports any real value with a single decimal point, an optional negative sign, and no thousands seperators. </para>
+              </listitem>
+            </orderedlist>
+          </listitem>
         </itemizedlist>
         <para>After making the required changes, click ‘Save’ to institute them. The ‘Cancel’ button aborts all changes made.</para>
       </section>
@@ -119,7 +127,7 @@
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_translate.png"/>
+              <imagedata width="100%" fileref="resources/images/maintainence/data_element_translate.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -151,13 +159,13 @@
       <para>Data element groups provide a mechanism for classifying related data elements into a common theme. For instance, two data elements &quot;Measles immunisation&quot; and  &quot;BCG Immunisation&quot; might be grouped together into a data element group &quot;Childhood immunisation&quot;. To access the data element group maintenance page, click Maintenance -&gt; Data elements and Indicators -&gt; Data Element Group.</para>
       <para>Similar to the &quot;Data element&quot; maintenance page, data elements groups can be searched with by entering a search string in the &quot;Filter by name&quot; field. </para>
       <para>To add a new data element group, click the <guibutton>&quot;Add new&quot;</guibutton> button and the following screen will be displayed:</para>
-        <screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_group_add.png"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="100%" fileref="resources/images/maintainence/data_element_group_add.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
       <para>Fill in the &quot;Name&quot; field and then select all data elements that should belong to the group from the left panel. Click the &quot;Move selected&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/>button to add the selected data elements to the data element group. Click the &quot;Remove selected&quot; button to remove all data elements from the group that have been selected in the right panel.  Finally, click the &quot;Add&quot; button to save changes, or the &quot;Cancel&quot; button to discard any changes. </para>
     </section>
     <section id="dataElementGroupEditor">
@@ -165,7 +173,7 @@
       <para>The data element group editor provides advanced functionality to the administrator to allow multiple data elements to be added or removed from a group. It is also possible to create new data element groups, rename existing groups, and delete groups entirely. To access the data element group editor, go to <guimenu>&quot;Maintenance -&gt; Data elements and Indicators -&gt; Data Element Group Editor&quot;</guimenu>. The following screen will appear.<screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_group_editor_start.png"/>
+              <imagedata width="100%" fileref="resources/images/maintainence/data_element_group_editor_start.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot></para>
@@ -177,7 +185,7 @@
       <para>Existing data element group  set members can be edited by clicking the &quot;Edit&quot; button <inlinegraphic fileref="resources/images/dhis2_images/edit.png" align="center"/> of the desired data element group set as seen below.</para>
       <mediaobject>
         <imageobject>
-          <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_group_set.png"/>
+          <imagedata width="100%" fileref="resources/images/maintainence/data_element_group_set.png" format="PNG"/>
         </imageobject>
       </mediaobject>
       <para>Available data element groups are displayed in the left panel. They can be moved into the selected data element group set by pressing the &quot;Move right&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/> button. Data element groups that are currently members of the data element group set are displayed in the right hand panel. They can be removed from the data element group set by clicking the desired data element group and pressing the &quot;Move left&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_left.png" align="center"/> button.  The ordering of the data element groups can be set with the &quot;Move Up&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_up.png" align="center"/> and &quot;Move Down&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_down.png" align="center"/>arrows. This ordering will be used in the datamart and reports to order the data element groups.  Press the <guibutton>&quot;Update&quot;</guibutton> button to save any changes and the <guibutton>&quot;Cancel&quot;</guibutton> button to discard all changes. </para>
@@ -198,13 +206,12 @@
       </itemizedlist>
       <para>Effective use of data element categories greatly simplifies the process of setting up the DHIS2 system, as the data element categories can be reused to disaggregate many different data elements. Otherwise, each of the data elements listed above, would need to be created separately. Judicious use of data element categories will greatly simplify the DHIS2 implementation, and allow for subsequent advanced analysis. </para>
       <para>Data element categories are composed of category options. Category options must be defined when a data element category is created for the first time. Subsequent changes to the data element category, i.e.  adding or deleting new category options, are not allowed once the data element category has been created. </para>
-        <para>It is critical that the proper categories and category options are defined in the initial definition step, as further changes to the category and its options will are not possible. </para>
-
+      <para>It is critical that the proper categories and category options are defined in the initial definition step, as further changes to the category and its options will are not possible. </para>
       <para>To access the data element category maintenance module, press &quot;Maintenance -&gt; Data Elements and Indicators-&gt;Data Element Category&quot;. The following screen will be displayed:</para>
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_categories_start.png"/>
+            <imagedata width="100%" fileref="resources/images/maintainence/data_element_categories_start.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -212,7 +219,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_categories_add_new.png"/>
+            <imagedata width="100%" fileref="resources/images/maintainence/data_element_categories_add_new.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -236,29 +243,29 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_category_combo_add_new.png"/>
+            <imagedata width="100%" fileref="resources/images/maintainence/data_element_category_combo_add_new.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
       <para>Type the name of the category combination in the &quot;Name&quot; field, and then select the desired categories from the left panel. Press the &quot;Move right&quot; button to add the selected categories to the category combination. Press &quot;Move left&quot; to remove any categories that should not be part of the category combination. </para>
-        <para>Categories can only be added to a category combination at this step. Categories can be removed from category combinations later by editing the category combination, however, it is not allowed to add additional categories once the combination has been created. Ensure that the category combination and its respective categories is final before you create the category combination and assign it to a data element. </para>
+      <para>Categories can only be added to a category combination at this step. Categories can be removed from category combinations later by editing the category combination, however, it is not allowed to add additional categories once the combination has been created. Ensure that the category combination and its respective categories is final before you create the category combination and assign it to a data element. </para>
     </section>
-      <section id="dataDictionary">
-    <title>Data dictionaries</title>
-    <para>Data dictionaries are used to group data elements and indicators during filtering operations. They are useful for combining related groups of data elements and indicators according to the programs to which they belong. For instance a data dictionary called &quot;MCH&quot; could be created, and all maternal and child health data elements and indicators could be added to the dictionary. The data dictionary can be access by choosing Maintenance-&gt;Data elements and indicators-&gt;Data dictionary. The following screen will be displayed in the browser. </para>
-    <screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_dictionary.png"/>
-        </imageobject>
-      </mediaobject>
-    </screenshot>
-    <para>Provide a name for the data dictionary in the &quot;Name&quot; field and a description of its contents. Data elements and indicators can be added or removed from the dictionary. Click &quot;Save&quot; if you are creating a new data dictionary or &quot;Add&quot; if you are editing the contents of an existing data dictionary.   </para>
-  </section>
-  <section id="translation">
-    <title>Translations</title>
-    <para>DHIS 2 provides functionality for translations of data element, data element group, indicator, indicator group, and data element category names.  These elements can be translated to any number of locales. A locale  represents a specific geographical, political, or cultural region. </para>
-    <para>To add a translation click the Translate icon next to the element you would like to translate. Start by selecting the desired locale from the Locale select box. If your locale is not in the list you need to add it first. Fill in locale language and locale country code. The locale language is a lower-case, two-letter valid ISO Language Code. The locale country is a upper-case, two-letter valid ISO Country Code. Then in the Translate section, select your locale, then enter values for the avaliable element properties. You can select the reference locale, that is the locale the current element is displayed in, from the select box to the right. Translations can be enabled by selecting the desired locale under Database Language under User Settings in the Settings module.</para>
-  </section>
+    <section id="dataDictionary">
+      <title>Data dictionaries</title>
+      <para>Data dictionaries are used to group data elements and indicators during filtering operations. They are useful for combining related groups of data elements and indicators according to the programs to which they belong. For instance a data dictionary called &quot;MCH&quot; could be created, and all maternal and child health data elements and indicators could be added to the dictionary. The data dictionary can be access by choosing Maintenance-&gt;Data elements and indicators-&gt;Data dictionary. The following screen will be displayed in the browser. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="100%" fileref="resources/images/maintainence/data_dictionary.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Provide a name for the data dictionary in the &quot;Name&quot; field and a description of its contents. Data elements and indicators can be added or removed from the dictionary. Click &quot;Save&quot; if you are creating a new data dictionary or &quot;Add&quot; if you are editing the contents of an existing data dictionary.   </para>
+    </section>
+    <section id="translation">
+      <title>Translations</title>
+      <para>DHIS 2 provides functionality for translations of data element, data element group, indicator, indicator group, and data element category names.  These elements can be translated to any number of locales. A locale  represents a specific geographical, political, or cultural region. </para>
+      <para>To add a translation click the Translate icon next to the element you would like to translate. Start by selecting the desired locale from the Locale select box. If your locale is not in the list you need to add it first. Fill in locale language and locale country code. The locale language is a lower-case, two-letter valid ISO Language Code. The locale country is a upper-case, two-letter valid ISO Country Code. Then in the Translate section, select your locale, then enter values for the avaliable element properties. You can select the reference locale, that is the locale the current element is displayed in, from the select box to the right. Translations can be enabled by selecting the desired locale under Database Language under User Settings in the Settings module.</para>
+    </section>
   </section>
 </chapter>
