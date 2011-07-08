@@ -865,6 +865,38 @@ Above the table there are six buttons; five download buttons and one Back button
         <para>The same expressions can be used for example when having indicator names along the category axis of a chart.</para>
       </section>
       <section>
+        <title>Adding horizontal totals</title>
+        <para>By using the expression editor, it is possible to add a column to the table with totals for each row. In the following example, we will make a table with three months as columns as well as a column with the totals for the three months.</para>
+        <para>We start by dragging a text label into the table header and changing its text to &quot;Total&quot;, and dragging a text field into the details row. </para>
+        <screenshot>
+        <screeninfo>Add a text field</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="70%" fileref="resources/images/dhis2_creating_reporting/text_field.jpg" format="JPEG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+        <para>As was discussed in the section on &quot;Text field&quot;, we have to change the properties of the new text field so that it can display numbers. To do this, change the &quot;Expressions Class&quot; in the properties panel to &quot;java.lang.Double&quot;.</para>
+         <screenshot>
+        <screeninfo>Change text field type</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="50%" fileref="resources/images/dhis2_creating_reporting/text_field_type.jpg" format="JPEG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+        <para>Right click the text field and choose &quot;Edit Expression&quot;. This will bring up the &quot;Expressions editor&quot;.  As the expression, we want to sum up all the columns. In this case we have three value expressions we want to sum up: &quot;September&quot;, &quot;October 2010&quot;, &quot;November 2010&quot;. The name of these fields will vary depending on the crosstab dimension you have chosen in the report table. In our case, the  expression we make is  &quot;$f{September}+$f{October 2010}+$f{November 2010}&quot;:</para>
+         <screenshot>
+        <screeninfo>Edit the expression</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="90%" fileref="resources/images/dhis2_creating_reporting/expression.jpg" format="JPEG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+        <para>Each row of the table have a totals column to the right.</para>
+      </section>
+      <section>
         <title>Groups of tables</title>
         <para>There are cases when it can be useful to have several tables in one report. This can be done using Report groups. Using this functionality, one can for example create a report one table for each indicator, or one table of each organisation unit. In the following, we will go through the steps needed to make a report with three indicators, each represented in one table. It is important that the report table does not crosstab on indicators when we want to make groups of tables based on indicators. </para>
         <para>In our example, the .jrxml file downloaded from DHIS 2 will by default have one column for organisation unit and on for indicators (assuming we have chosen periods as the only crosstab dimension). We start by removing the indicator column, since this in not needed in our case, and realign the other fields to fit the report.</para>
