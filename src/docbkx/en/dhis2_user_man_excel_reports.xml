@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
-  <title>DHIS 2 Excel Reporting</title>
-  <para>A key requirement of a health information system is that the information contained in the system is available in many different formats that are familiar to the end-users. Many health information personnel are familiar with standard office productivity packages such as <productname>Microsoft Office</productname> or OpenOffice. Production of reports in Excel format allows health workers to submit reports to managers and other persons that may not have access to the HMIS, or lack training in its use. Excel offers the capability to deliver powerful, user-friendly reports to many different clients of the information system.</para>
-  <para>Users, especially health workers, can use DHIS 2 easily with the new Excel reporting tool developed by HISP Vietnam team.  This module has been  based on HISP India team’s ideas and technologies.  The module has subsequently been merged into the main DHIS2 application.  This reporting tool with Excel output files uses less memory and is comparatively faster when compared to other reporting platforms. The Excel reporting module provides a flexible reporting framework, which should be immediately intuitively useful for many users who are familiar with its functions.  </para>
+  <title>DHIS 2 Spreadsheet Reporting</title>
+  <para>The information  in the system is available in many different formats, such as:  .xls, .doc, .pdf, .csv., etc. which are familiar to different end-users. In this sense, a sustainable information system with an extended support for .xls (tables, sheets, and expressions) is a prerequisite while in the developing countries like Vietnam, India, Sri Lanka, etc use spreadsheet application (from Microsoft Office and Open Office) for their routine documents and reports. At the same time, this also supports efficiently for implementation processes by reducing time and effort for training and maintenance because of its friendliness and powerfulness of availability and flexibility.</para>
+  <para>The end-users, especially health workers with an average knowledge of computing, can use DHIS 2 easily with the new spreadsheet reporting tool (or probably called  as Spreadsheet reporting) developed by the Vietnam developer  team.  This module has been  based on HISP India team’s ideas and technologies.  The module has subsequently been merged into the main DHIS2 application under the Vietnam (vn) local branch for available usage. There will be a session for instructing &quot;how to include the Spreadsheet reporting module into DHIS2&quot;.  This reporting tool with spreadsheet output files uses less memory and it is comparatively faster when compared to other reporting platforms. The spreadsheet reporting module provides a flexible reporting framework, which should be immediately intuitively useful for many users who are familiar with this.  </para>
   <screenshot>
     <mediaobject>
       <imageobject>
@@ -11,33 +11,103 @@
       </imageobject>
     </mediaobject>
   </screenshot>
+  <para><emphasis role="italic">Figure 1: Administration sections</emphasis></para>
+  <section>
+    <title>Include &apos;Spreadsheet reports&apos; module into DHIS2</title>
+    <para>The following is the steps of building/developing an DHIS2 package with spreadsheet report module.</para>
+    <para><emphasis role="bold">Step 1: Download DHIS2 source-code and some other necessary tools</emphasis></para>
+    <para>See the instructions from here: <ulink url="http://dhis2.org/development#quickstart">http://dhis2.org/development#quickstart</ulink></para>
+    <para>esp. the first 3 points.</para>
+    <para><emphasis role="bold">Step 2: Build the source-code at first without the Spreadsheet module</emphasis></para>
+    <para>See the instructions from here: <ulink url="http://dhis2.org/development#quickstart">http://dhis2.org/development#quickstart</ulink></para>
+    <para>esp. the fourth point with 2 build commands with maven.</para>
+    <para><emphasis role="bold">Step 3: Build the Spreadsheet module and then rebuild the DHIS2 package including it</emphasis></para>
+    <para>Go to the spreadsheet module and execute the building commands: <emphasis role="italic">mvn clean install -Dmaven.test.skip=true</emphasis></para>
+    <para>Normally, the spreadsheet module is  located at: &lt;dhis2_source_folder&gt;\dhis2\local\vn:</para>
+    <para>3.1: Run the mvn command under &quot;dhis-service-excel-reporting&quot; folder.</para>
+    <para><emphasis role="underline">for example: </emphasis></para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/spreadsheet-maven.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>3.1: Run the mvn command under &quot;dhis-web-excel-reporting&quot; folder. </para>
+    <para>3.2: Edit the pom.xml file under &quot;dhis-web-portal&quot; (at: &lt;dhis2_source_folder&gt;\dhis2\dhis-2\dhis-web\dhis-web-portal) to include the Spreadsheet module</para>
+    <para>for example:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/spreadsheet-pom.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot></para>
+    <para>3.3: Build the web-portal module: </para>
+    <para>(at: &lt;dhis2_source_folder&gt;\dhis2\dhis-2\dhis-web\dhis-web-portal)</para>
+    <para>for example:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/spreadsheet-maven-1.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot></para>
+    <para>After successfully build the package, the dhis.war in the target folder of dhis-web-portal module will be produced.</para>
+    <para>Copy this war file to the webapps folder of your tomcat folder.</para>
+    <para>In order to make a fresh update for your new dhis2, before starting tomcat, delete the old dhis.war file and &quot;dhis&quot; folder under webapps.</para>
+    <para><emphasis role="bold">Step 4: Run the DHIS2 built package with Spreadsheet module</emphasis></para>
+    <para>Run tomcat (execute the bath file under &lt;tomcat_folder&gt;\bin\startup.bat (for Windows) or ...\startup.sh (for Linux).</para>
+    <para>Then wait until the start-up finishes and open a web browser (Firefox recommended) to run the DHIS2 application with the local url or your IP address:</para>
+    <para><ulink url="http://localhost:8080/dhis">http://localhost:8080/dhis</ulink></para>
+    <para>So good-luck to you for further exploration/hacking with dhis2.</para>
+    <para>For further support, please send an email to the developer mailing list: </para>
+    <para>&quot;DHIS 2 developers&quot; &lt;<ulink url="dhis2-devs@lists.launchpad.net">dhis2-devs@lists.launchpad.net</ulink>&gt;</para>
+    <para/>
+  </section>
   <section>
     <title>Administration</title>
-    <para>There are six function of this module.</para>
+    <para>There are 6 sections for the &quot;Administration&quot; of this reporting tool.</para>
     <orderedlist>
       <listitem>
-        <para><emphasis role="italic">Configuration</emphasis>: Set a path to the directory where the excel template files are stored. This file path should be an absolute directory on your system. For instance, if the templates are stored in C:\Program Files\DHIS2\conf\excelreporting\templates&quot;, you should navigate to this directory by clicking the &quot;Browse&quot; button.  These templates are used to define the layout of the report, and must be produced through a process documented below.</para>
+        <para><emphasis role="italic">Configuration</emphasis>: Set a path to the directory where the spreadsheet template files are stored. This file path should be a relative directory on your system. For instance, if the home directory of DHIS 2  (by setting the absolute path with the DHIS2_HOME environmental variable) is &quot;C:\dhis2&quot; and you want to name the template folder &quot;templates&quot;, just set: &quot;templates&quot; for Windows or &quot;templates&quot; for Linux, then the absolute path of your template folder will be: &quot;C:\dhis2\spreadsheet_template\templates&quot; (Windows).</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/configuration_0.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para><emphasis role="italic">Figure 2: Configuration setting</emphasis></para>
       </listitem>
       <listitem>
-        <para><emphasis role="italic">List of reports</emphasis>: This module allows users to assign reports to different organizational units . There are four types of reports that are currently supported: a report containing standard data elements,  a report listing organisation unit groups as rows, a report listing period of time as columns, a report generating data elements combined with categories.</para>
-        <para>Report associations are used to determine which organizational units the report should be associated with. Click the &quot;Report Asssociations&quot; button, and assign all the organizational units which this report applies to by either clicking on the organizational units listed in the hierarchy tree, or by selecting the appropriate organizational unit group through the drop down menu. </para>
+        <para><emphasis role="italic">Export reports</emphasis>: This module allows users to assign reports to different organizational units . There are four types of reports that are currently supported: a report containing standard data elements,  a report listing organisation unit groups as rows, a report listing period of time as columns, a report generating data elements combined with categories.</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/report_associations.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para><emphasis role="italic">Figure 3: Export report list</emphasis></para>
+        <para>Report associations are used to determine which organizational units the report should be associated with. Click the &quot;Report Associations&quot; button, and assign all the organizational units which this report applies to by either clicking on the organizational units listed in the hierarchy tree, or by selecting the appropriate organizational unit group through the drop down menu. </para>
       </listitem>
       <listitem>
         <para><emphasis role="italic">Data Entry Status</emphasis> (or view the status of the data entry): View the data entry status to know about data  entered, reports finished or not finished yet with data entry. In order to view the data entry status, adding data sets which is equivalent to the data entry is mandatory.</para>
       </listitem>
       <listitem>
-        <para><emphasis role="italic">Excel items</emphasis>: In many situations, health workers in the field may not have good Internet access, and will therefore need to enter data offline and to transmit this data via email or other means, for subsequent importation into the DHIS database.  The Excel Report data import feature allows users to import data from a pre-designed Excel templates directly into the DHIS database automatically. Users enter data into a predefined Excel template, send via email or other means for importation into DHIS2. It is also possible to import selected elements. This module supports three types of reports namely a report containing standard data elements,  a report listing organisation unit groups as rows, a report generating data elements combined with categories.</para>
+        <para><emphasis role="italic">Import Reports items</emphasis>: In many situations, health workers in the field may not have good Internet access, and will therefore need to enter data offline and to transmit this data via email or other means, for subsequent importation into the DHIS database.  The spreadsheet Report data import feature allows users to import data from a pre-designed spreadsheet templates directly into the DHIS database automatically. Users enter data into a predefined spreadsheet template, send via email or other means for importation into DHIS2. It is also possible to import selected elements. This module supports three types of reports namely a report containing standard data elements,  a report listing organisation unit groups as rows, a report generating data elements combined with categories.</para>
       </listitem>
       <listitem>
-        <para><emphasis role="italic">Excel Template Management</emphasis>: Manage Template Excel files which are used to export reports, includes upload, download, delete and rename files.</para>
+        <para><emphasis role="italic">Excel /Spreadsheet Template Management</emphasis>: Manage the Template spreadsheet files which are used to export reports, includes upload, download, delete and rename files.</para>
       </listitem>
       <listitem>
-        <para><emphasis role="italic">Clean temporary directory</emphasis>: Every time a user generates a report, the system creates an Excel file in the temporary directory (<envar>excelreporttemplate</envar> directory). This disk space occupied by this directory will become progressively larger after some time. This function will remove all the temporary files from the directory, and therefore decrease the total amount of disk space used.</para>
+        <para><emphasis role="italic">Clean temporary directory</emphasis>: Every time a user generates a report, the system creates an spreadsheet file in the temporary directory (<envar>spreadsheetreporttemplate</envar> directory). This disk space occupied by this directory will become progressively larger after some time. This function will remove all the temporary files from the directory, and therefore decrease the total amount of disk space used.</para>
       </listitem>
     </orderedlist>
     <section id="excelReportingConfiguration">
       <title>Configuration</title>
-      <para>The directory configuration is to set the path of the directory containing the Excel Template (.xls) file. </para>
+      <para>The directory configuration is to set the path of the directory containing the spreadsheet Template (.xls) file. </para>
       <para>In order to set the directory, choose  <emphasis role="bold">Administrator &gt; Configuration&gt;</emphasis> Set path and specify the path. The procedure is outlined in more detail below. </para>
       <orderedlist>
         <listitem>
@@ -49,13 +119,14 @@
               </imageobject>
             </mediaobject>
           </screenshot>
+          <para><emphasis role="italic">Figure 4: Configuration menu</emphasis></para>
         </listitem>
         <listitem>
           <para>Click <emphasis role="bold">Configuration</emphasis> button</para>
         </listitem>
         <listitem>
-          <para>Set a path to the folder containing excel file </para>
-          <para>An Excel template directory is simply a directory that will be used to contain all the necessary files. It is recommended  to create this folder inside the <envar>DHIS2_HOME</envar> folder. </para>
+          <para>Set a relative path to the folder containing spreadsheet file </para>
+          <para>An spreadsheet template directory is simply a directory that will be used to contain all the necessary files. It is automatically created the folder under <envar>DHIS2_HOME</envar> folder. </para>
           <screenshot>
             <mediaobject>
               <imageobject>
@@ -63,16 +134,17 @@
               </imageobject>
             </mediaobject>
           </screenshot>
+          <para><emphasis role="italic">Figure 5: Configure the directory relative path for spreadsheet templates</emphasis></para>
           <para>Click <emphasis role="bold">OK</emphasis> to save</para>
         </listitem>
       </orderedlist>
     </section>
     <section id="excelReportingListOfReports">
-      <title>List of reports </title>
+      <title>Export Reports </title>
       <para>The function allows users to create reports and its items and to assign the organisation units or the organisation unit groups to the reports. Each of the functions of this module will be described below. </para>
       <section>
         <title>Types of report</title>
-        <para>Before generating reports, there is a need to create  Excel report template files.  Reports will be generated in a standard format according to the structure defined in the template. Currently, there are four report types that the module can support.</para>
+        <para>Before generating reports, there is a need to create  spreadsheet report template files.  Reports will be generated in a standard format according to the structure defined in the template. Currently, there are four report types that the module can support.</para>
         <orderedlist>
           <listitem>
             <para><emphasis role="bold">Standard reports contain default data elements and indicators</emphasis></para>
@@ -84,6 +156,7 @@
                 </imageobject>
               </mediaobject>
             </screenshot>
+            <para><emphasis role="italic">Figure 6: A spreadsheet template with standard reports</emphasis></para>
           </listitem>
           <listitem>
             <para><emphasis role="bold">Row-based reports with multiple organisational</emphasis></para>
@@ -95,16 +168,19 @@
                 </imageobject>
               </mediaobject>
             </screenshot>
+            <para><emphasis role="italic">Figure 7: A spreadsheet template with row-based reports</emphasis></para>
           </listitem>
           <listitem>
             <para><emphasis role="bold">Reports list time periods in the columns</emphasis></para>
-            <para>This report display data values according to the fixed data element names, and the list of time periods are displayed automatically.<screenshot>
+            <para>This report display data values according to the fixed data element names, and the list of time periods are displayed automatically.</para>
+            <para><screenshot>
                 <mediaobject>
                   <imageobject>
                     <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/list_time_period_report_template.png" format="PNG"/>
                   </imageobject>
                 </mediaobject>
               </screenshot></para>
+            <para><emphasis role="italic">Figure 8: A spreadsheet template with period-listing reports</emphasis></para>
           </listitem>
           <listitem>
             <para><emphasis role="bold">Reports with data elements and categories</emphasis></para>
@@ -116,23 +192,24 @@
                 </imageobject>
               </mediaobject>
             </screenshot>
+            <para><emphasis role="italic">Figure 9: A spreadsheet template with data-element and categories reports</emphasis></para>
           </listitem>
         </orderedlist>
       </section>
       <section>
-        <title>Create a new report in DHIS2 with Excel report template file</title>
-        <para>When the Excel report template file is available, creating a new report and the relevant report items are required. A step-by-step procedure is provided below.</para>
+        <title>Create a new report in DHIS2 with spreadsheet report template file</title>
+        <para>When the spreadsheet report template file is available, creating a new report and the relevant report items are required. A step-by-step procedure is provided below.</para>
         <orderedlist>
           <listitem>
-            <para>To create a new report, choose  <emphasis role="bold">Administration</emphasis> --&gt; <emphasis role="bold">List Of Report</emphasis> --&gt; <emphasis role="bold">Add</emphasis> --&gt; Fill the information form --&gt; <emphasis role="bold">OK</emphasis></para>
+            <para>To create a new report, choose  <emphasis role="bold">Administration</emphasis> --&gt; <emphasis role="bold">Export Reports</emphasis> --&gt; <emphasis role="bold">Add</emphasis> --&gt; Fill the information form --&gt; <emphasis role="bold">OK</emphasis></para>
           </listitem>
           <listitem>
-            <para>To create report items in the report  choose <emphasis role="bold">Administration</emphasis> --&gt; <emphasis role="bold">List Of Report</emphasis> --&gt; Choose a report --&gt; <emphasis role="bold">Report Item</emphasis> --&gt; <emphasis role="bold">Add</emphasis> --&gt; Fill information form --&gt; <emphasis role="bold">OK</emphasis></para>
+            <para>To create report items in the report  choose <emphasis role="bold">Administration</emphasis> --&gt; <emphasis role="bold">Export Reports</emphasis> --&gt; Choose a report --&gt; <emphasis role="bold">Report Items</emphasis> --&gt; <emphasis role="bold">Add</emphasis> --&gt; Fill information form --&gt; <emphasis role="bold">OK</emphasis></para>
           </listitem>
         </orderedlist>
         <section>
           <title>Create new report </title>
-          <para>Click <emphasis role="bold">List Of Report</emphasis> </para>
+          <para>Click <emphasis role="bold">Export Reports</emphasis> </para>
           <screenshot>
             <mediaobject>
               <imageobject>
@@ -140,6 +217,7 @@
               </imageobject>
             </mediaobject>
           </screenshot>
+          <para><emphasis role="italic">Figure 10: Administration - Export Reports menu</emphasis></para>
           <para>Add new report: Click Add button to add new report</para>
           <screenshot>
             <mediaobject>
@@ -148,6 +226,7 @@
               </imageobject>
             </mediaobject>
           </screenshot>
+          <para><emphasis role="italic">Figure 11: The list of export reports</emphasis></para>
           <para>Each of the fields should be filled in. </para>
           <screenshot>
             <mediaobject>
@@ -161,13 +240,22 @@
               <para><emphasis role="italic">Name</emphasis> *: Enter a descriptive name of the report. </para>
             </listitem>
             <listitem>
-              <para><emphasis role="italic">Excel Template</emphasis>*: Enter name of Excel report template file. (include extension) </para>
+              <para><emphasis role="italic">spreadsheet Template</emphasis>*:  Choose a spreadsheet report template file from the list.</para>
             </listitem>
             <listitem>
-              <para>Report Type *: Choose report type </para>
+              <screenshot>
+                <mediaobject>
+                  <imageobject>
+                    <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/add_new_report_1.png" format="PNG"/>
+                  </imageobject>
+                </mediaobject>
+              </screenshot>
+              <para><emphasis role="italic">Figure 12: Choose a template for an export report</emphasis></para>
+              <para>The template files can be updated by uploading the spreadsheet files under &quot;spreadsheet Template Management&quot; session.</para>
+              <para><emphasis role="bold">Report Type *: Choose report type </emphasis></para>
               <itemizedlist>
                 <listitem>
-                  <para>Normal : to create reports include just data elements or indicator</para>
+                  <para>Normal : to create reports include just data elements or indicators</para>
                 </listitem>
                 <listitem>
                   <para>Category : to create reports with data values are combined of data elements and categories </para>
@@ -181,10 +269,10 @@
               </itemizedlist>
             </listitem>
             <listitem>
-              <para>Period position row and Period position column: Row and Column Number in Excel template file where to put Period value.</para>
+              <para>Period position row and Period position column: Row and Column Number in spreadsheet template file where to put Period value.</para>
             </listitem>
             <listitem>
-              <para>Organisation Unit Row and Organisation Unit Column: Row and Column Number in Excel template file where to put Organisation Unit Name.</para>
+              <para>Organisation Unit Row and Organisation Unit Column: Row and Column Number in spreadsheet template file where to put Organisation Unit Name.</para>
             </listitem>
             <listitem>
               <para>Click <emphasis role="bold">OK</emphasis> button to create new report</para>
@@ -197,14 +285,16 @@
               </imageobject>
             </mediaobject>
           </screenshot>
+          <para><emphasis role="italic">Figure 13: Overview of functions for an export report</emphasis></para>
           <para>There are  buttons that can be used for various actions as depicted below: </para>
           <screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/list_of_reports_4.png" format="PNG"/>
+                <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/export_report_1.png" format="PNG"/>
               </imageobject>
             </mediaobject>
           </screenshot>
+          <para><emphasis role="italic">Figure 14: Functions with detailed descriptions.</emphasis></para>
           <itemizedlist>
             <listitem>
               <para>Organisation level <inlinegraphic fileref="resources/images/dhis_excel_reports/list_of_reports_Set_orgunit_group_level.png" align="center"/>for setting organisation group level.</para>
@@ -214,10 +304,10 @@
               <para>Simply select the organizational units that this report will be generated for. </para>
             </listitem>
             <listitem>
-              <para>The Report Item  <inlinegraphic fileref="resources/images/dhis_excel_reports/report_item.png"/>    function is used to define which values will appear in the desired report. Report items consist of specific values of data which will be placed into particular cells of the Excel sheet when the report is generated.Further information for configuration of the report items will be provided in the next section. </para>
+              <para>The Report Item  <inlinegraphic fileref="resources/images/dhis_excel_reports/report_item.png"/>    function is used to define which values will appear in the desired report. Report items consist of specific values of data which will be placed into particular cells of the spreadsheet when the report is generated.Further information for configuration of the report items will be provided in the next section. </para>
             </listitem>
             <listitem>
-              <para> The Remove  <inlinegraphic fileref="resources/images/dhis_excel_reports/remove_report.png"/> deletes the Excel report. </para>
+              <para> The Remove  <inlinegraphic fileref="resources/images/dhis_excel_reports/remove_report.png"/> deletes the spreadsheet report. </para>
             </listitem>
             <listitem>
               <para>Edit  <inlinegraphic fileref="resources/images/dhis_excel_reports/edit_report.png"/>for editing report’s information.</para>
@@ -235,15 +325,16 @@
         </section>
         <section>
           <title>Create report items</title>
-          <para>Click <emphasis role="bold">Create Report Item</emphasis> button to begin the process of defining a new report. Report items consist of different types of data that will be dynamically generated based on a user&apos;s inputs during the report generation phase. Report items must be defined and referenced to a particular Excel template. </para>
+          <para>Click <emphasis role="bold">Create Report Item</emphasis> button to begin the process of defining a new report. Report items consist of different types of data that will be dynamically generated based on a user&apos;s inputs during the report generation phase. Report items must be defined and referenced to a particular spreadsheet template. </para>
           <screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/list_of_reports_5.png" format="PNG"/>
+                <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/create_new_report_0.png" format="PNG"/>
               </imageobject>
             </mediaobject>
           </screenshot>
-          <para>Click <emphasis role="bold">Add</emphasis> button to open a form</para>
+          <para><emphasis role="italic">Figure 15: Export Item List menu</emphasis></para>
+          <para>Click on the list of &quot;Export Item&quot; (screen-shot above) </para>
           <screenshot>
             <mediaobject>
               <imageobject>
@@ -251,6 +342,8 @@
               </imageobject>
             </mediaobject>
           </screenshot>
+          <para><emphasis role="italic">Figure 16: Overview the operations toward an export-items</emphasis></para>
+          <para><emphasis role="bold">Add</emphasis> button to open a form</para>
           <para>Fill the report item’s information. Each of the fields is described below in more detail. </para>
           <screenshot>
             <mediaobject>
@@ -259,6 +352,7 @@
               </imageobject>
             </mediaobject>
           </screenshot>
+          <para><emphasis role="italic">Figure 17: Instructions for creating an item</emphasis></para>
           <itemizedlist>
             <listitem>
               <para><emphasis role="italic">Name</emphasis>: Enter a descriptive name for the report. (Ex: Total person joined HIA)</para>
@@ -267,13 +361,13 @@
               <para><emphasis role="italic">Item</emphasis> Type: </para>
               <orderedlist>
                 <listitem>
-                  <para><emphasis role="italic">Data element</emphasis> : Select this item type if the value of a particular data element  should be placed in the Excel report. </para>
+                  <para><emphasis role="italic">Data element</emphasis> : Select this item type if the value of a particular data element  should be placed in the spreadsheet report. </para>
                 </listitem>
                 <listitem>
-                  <para><emphasis role="italic">Indicator</emphasis>: Select this item type if the value of a particular indicator should be placed in the Excel report. </para>
+                  <para><emphasis role="italic">Indicator</emphasis>: Select this item type if the value of a particular indicator should be placed in the spreadsheet report. </para>
                 </listitem>
                 <listitem>
-                  <para><emphasis role="italic">Excel formula</emphasis>: Select this item type if an Excel formula should be placed in the cell. You will need to define the Excel formula in the next step. </para>
+                  <para><emphasis role="italic">Spreadsheet formula</emphasis>: Select this item type if an spreadsheet formula should be placed in the cell. You will need to define the spreadsheet formula in the next step. </para>
                 </listitem>
                 <listitem>
                   <para><emphasis role="italic">Serial</emphasis> : A sequential number will automatically be generated and placed in the report.</para>
@@ -287,14 +381,7 @@
               <para><emphasis role="italic">Period Type</emphasis>*: Chose period type which data values of that report item would be aggregated and displays according to period parameter that user will choose when generate report. (Last 3 months, Last 6 months, So far this year, Quarterly, Six-Monthly, Yearly).</para>
             </listitem>
             <listitem>
-              <para><emphasis role="italic">Expression</emphasis> *: Click Expression button to define a particular data element or combination of data elements in a formula, if you have selected this report item type. If this report item type is &quot;Organization&quot; or &quot;Serial&quot; this option is not relevant. If the report item type is an Excel formula, it should be entered directly in the text box. For instance, a valid Excel formula might be &quot;=C1R1/C2R1&quot;, which would divide the cell in position (1,1) in the excel sheet by the cell in position (2,1)</para>
-              <screenshot>
-                <mediaobject>
-                  <imageobject>
-                    <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/create_expression.png" format="PNG"/>
-                  </imageobject>
-                </mediaobject>
-              </screenshot>
+              <para><emphasis role="italic">Expression</emphasis> *: Click Expression button to define a particular data element or combination of data elements in a formula, if you have selected this report item type. If this report item type is &quot;Organization&quot; or &quot;Serial&quot; this option is not relevant. If the report item type is an spreadsheet formula, it should be entered directly in the text box. For instance, a valid spreadsheet formula might be &quot;=C1R1/C2R1&quot;, which would divide the cell in position (1,1) in the spreadsheet by the cell in position (2,1)</para>
               <screenshot>
                 <mediaobject>
                   <imageobject>
@@ -302,16 +389,17 @@
                   </imageobject>
                 </mediaobject>
               </screenshot>
+              <para><emphasis role="italic">Figure 18: Instructions for defining an expression for an item</emphasis></para>
               <para>The category option would be  <emphasis role="italic">default</emphasis> if data element hasn’t been combined with any category combo. Other options are described below:</para>
             </listitem>
             <listitem>
-              <para><emphasis role="italic">Sheet No</emphasis>*: Specify the  sheet number where this report item would be display in the Excel template file. </para>
+              <para><emphasis role="italic">Sheet No</emphasis>*: Specify the  sheet number where this report item would be display in the spreadsheet template file. </para>
             </listitem>
             <listitem>
-              <para><emphasis role="italic">Row</emphasis>*: Row number refers to cell where report item would be display in Excel file.</para>
+              <para><emphasis role="italic">Row</emphasis>*: Row number refers to cell where report item would be display in spreadsheet file.</para>
             </listitem>
             <listitem>
-              <para><emphasis role="italic">Column</emphasis>*: Column number refers to cell where report item would be display in Excel file.</para>
+              <para><emphasis role="italic">Column</emphasis>*: Column number refers to cell where report item would be display in spreadsheet file.</para>
             </listitem>
             <listitem>
               <para>Once all items have been filled in, click the &quot;<emphasis role="bold">OK</emphasis>&quot; button to save the report definition. </para>
@@ -324,32 +412,23 @@
               </imageobject>
             </mediaobject>
           </screenshot>
+          <para><emphasis role="italic">Figure 19: Confirm and Save the item&apos;s modification</emphasis></para>
           <para>You will be informed that a new report item has been created. </para>
-          <screenshot>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/new_report_item_1.png" format="PNG"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
-          <para>
-            <para>There must be at least one period type in a report.</para>
-          </para>
-          <para>The &quot;<emphasis role="bold">Copy selected items to&quot;</emphasis>  function can be used to copy Excel report items from one report to another. Therefore, there is no need to redefine an Excel report item, if it will appear in two different reports. You can simply copy the item from one report definition to the other by following this procedure. <orderedlist>
+          <para>The &quot;<emphasis role="bold">Copy to Export&quot;</emphasis>  function can be used to copy spreadsheet report items from one report to another. Therefore, there is no need to redefine an spreadsheet report item, if it will appear in two different reports. You can simply copy the item from one report definition to the other by following this procedure. <orderedlist>
               <listitem>
                 <para>From list of reports page, click &quot;Add  new report.&quot;</para>
               </listitem>
               <listitem>
-                <para>From the source report, select the report items that should be copied by clicking on the approriate check boxes of the items.</para>
+                <para>From the source report, select the report items that should be copied by clicking on the appropriate check boxes of the items.</para>
               </listitem>
               <listitem>
-                <para>Click the <emphasis role="bold">&quot;Copy selected items to&quot;</emphasis> button.</para>
+                <para>Click the <emphasis role="bold">&quot;Copy report items to Export&quot;</emphasis> button.</para>
               </listitem>
               <listitem>
-                <para><emphasis role="italic">List of report</emphasis>: Chose the destination report. </para>
+                <para><emphasis role="italic">Export report</emphasis>: Chose the destination report. </para>
               </listitem>
               <listitem>
-                <para><emphasis role="italic">Sheet No</emphasis>: Choose the Excel sheet number where the report item would be displayed.</para>
+                <para><emphasis role="italic">Sheet No</emphasis>: Choose the sheet number where the report items would be displayed.</para>
               </listitem>
               <listitem>
                 <para>Finally, Click the <emphasis role="bold">OK</emphasis> button to copy the report items. </para>
@@ -357,25 +436,25 @@
             </orderedlist><screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/copy_report_item.png" format="PNG"/>
+                  <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/export_items_copy.png" format="PNG"/>
                 </imageobject>
               </mediaobject>
-            </screenshot><emphasis role="bold">Copy to excel items</emphasis> button: To copy the report items when the new report has an item which can be reused from the existing report. </para>
-          <para>
-            <para>Copy selected items to other reports for quickly developing many reports with the same data elements but with the different periods.</para>
-          </para>
+            </screenshot></para>
+          <para><emphasis role="italic">Figure 20: Choose a report and sheet number for copying the items to</emphasis></para>
+          <para><emphasis role="bold">Copy to export items to Import</emphasis>  button: To copy the report items from the export reports to an import report.</para>
+          <para> </para>
           <para><orderedlist>
               <listitem>
                 <para>From source report, select report items need to be copied.</para>
               </listitem>
               <listitem>
-                <para>Click the <emphasis role="bold">Copy to excel items</emphasis> button</para>
+                <para>Click the <emphasis role="bold">Copy export items to Import</emphasis> button</para>
               </listitem>
               <listitem>
-                <para><emphasis role="italic">List of groups</emphasis>: chose a destination report</para>
+                <para><emphasis role="italic">Import Reports</emphasis>: chose a destination report</para>
               </listitem>
               <listitem>
-                <para><emphasis role="italic">Sheet No</emphasis>: Choose the Sheet No which report Item would be display.</para>
+                <para><emphasis role="italic">Sheet No</emphasis>: Choose the Sheet No at which the import item would be copied to (equilavent to the sheet of the expected importing spreadsheet file).</para>
               </listitem>
               <listitem>
                 <para>Click <emphasis role="bold">OK</emphasis> button to copy</para>
@@ -383,20 +462,18 @@
             </orderedlist><screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/copy_to_excel_item.png" format="PNG"/>
+                  <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/import_items_copy.png" format="PNG"/>
                 </imageobject>
               </mediaobject>
             </screenshot></para>
-          <para>
-            <para>Copy selected items to Excel item groups for quickly developing many groups with the same data elements.</para>
-          </para>
+          <para><emphasis role="italic">Figure 21: Choose an import report and sheet number for copying the items to</emphasis></para>
         </section>
       </section>
       <section>
-        <title>Assign report </title>
+        <title>Report Assignment </title>
         <section>
-          <title>Assign report to Org Units </title>
-          <para>Thsi function will determine which organizational units the report should be assigned to. Click the<emphasis role="bold">Report Associations</emphasis> button from the main page. </para>
+          <title>Assign a report to Org Units </title>
+          <para>This function will determine which organizational units the report should be assigned to. Click the<emphasis role="bold">Report Associations</emphasis> button from the main page. </para>
           <screenshot>
             <mediaobject>
               <imageobject>
@@ -404,6 +481,7 @@
               </imageobject>
             </mediaobject>
           </screenshot>
+          <para><emphasis role="italic">Figure 22: Report Assignment for OrganizationUnits</emphasis></para>
           <para>Chose OrgUnits to assign and click  the Save button.</para>
           <screenshot>
             <mediaobject>
@@ -412,7 +490,8 @@
               </imageobject>
             </mediaobject>
           </screenshot>
-          <para>Select each organizational unit that the report can be generated for, or alternatively, select multiple organizational units by selecting a particlar organizational unit level or group.</para>
+          <para><emphasis role="italic">Figure 23: Report Assignment for OrganizationUnits</emphasis> (cont.)</para>
+          <para>Select each organizational unit that the report can be generated for, or alternatively, select multiple organizational units by selecting a particular organizational unit level or group.</para>
           <para>This function only appears in <emphasis role="bold">Organization Unit Listing</emphasis> report type. </para>
           <para>Click <emphasis role="bold">Organisation Unit group</emphasis> button.</para>
           <screenshot>
@@ -422,6 +501,7 @@
               </imageobject>
             </mediaobject>
           </screenshot>
+          <para><emphasis role="italic">Figure 24: OrganizationUnit Group setting for an export report</emphasis></para>
           <para>Select Organisation unit groups, arrange sequence of these groups, and click <emphasis role="bold">OK</emphasis> to save.</para>
           <screenshot>
             <mediaobject>
@@ -430,16 +510,14 @@
               </imageobject>
             </mediaobject>
           </screenshot>
+          <para><emphasis role="italic">Figure 25: In details for OrganizationUnit Group setting</emphasis></para>
         </section>
         <section>
           <title>Assign report to user role</title>
           <para>To manage the authority of using the reports, we should assign reports to user roles. This allows the administrator to decide which users are able to view certain reports.</para>
           <orderedlist>
             <listitem>
-              <para>From <emphasis role="bold">Main</emphasis> menu, choose <emphasis role="bold">Maintenance</emphasis> &gt; <emphasis role="bold">Users</emphasis></para>
-            </listitem>
-            <listitem>
-              <para>From Left menu, chose User Role</para>
+              <para>From <emphasis role="bold">Export Reports</emphasis> sub-menu (see Fig. 22), choose <emphasis role="bold">Assign user-role for the export report</emphasis></para>
               <screenshot>
                 <mediaobject>
                   <imageobject>
@@ -447,9 +525,10 @@
                   </imageobject>
                 </mediaobject>
               </screenshot>
+              <para><emphasis role="italic">Figure 26: User Role menu</emphasis></para>
             </listitem>
             <listitem>
-              <para>Click <emphasis role="bold">Edit</emphasis> button to edit User role’s information</para>
+              <para>Then setting the  User Roles for the export report</para>
               <screenshot>
                 <mediaobject>
                   <imageobject>
@@ -457,16 +536,38 @@
                   </imageobject>
                 </mediaobject>
               </screenshot>
-            </listitem>
-            <listitem>
-              <para>Select Excel reports, click <emphasis role="bold">Save</emphasis> button to assign excel reports to user role.</para>
-              <screenshot>
-                <mediaobject>
-                  <imageobject>
-                    <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/select_excel_reports.png" format="PNG"/>
-                  </imageobject>
-                </mediaobject>
-              </screenshot>
+              <para><emphasis role="italic">Figure 27: User role</emphasis> <emphasis role="italic">setting for the report</emphasis></para>
+              <para><emphasis role="underline">
+                  <emphasis role="bold">How to define an user-role, see the following screenshots:</emphasis>
+                </emphasis></para>
+              <para>Go to User Role management:</para>
+              <para>Maintenance &gt;&gt; Users &gt;&gt; User Role</para>
+              <para><screenshot>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/edit_user_role_1.png" format="PNG"/>
+                    </imageobject>
+                  </mediaobject>
+                </screenshot></para>
+              <para><emphasis role="italic">Figure 28: User Role menu</emphasis></para>
+              <para>Then choose an user role to edit or create a new user role:</para>
+              <para><screenshot>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/edit_user_role_2.png" format="PNG"/>
+                    </imageobject>
+                  </mediaobject>
+                </screenshot></para>
+              <para><emphasis role="italic">Figure 29: User Role management</emphasis></para>
+              <para>Setting for an user role:</para>
+              <para><screenshot>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/edit_user_role_3.png" format="PNG"/>
+                    </imageobject>
+                  </mediaobject>
+                </screenshot></para>
+              <para><emphasis role="italic">Figure 30: User Role settings for dataset and functions access</emphasis></para>
             </listitem>
           </orderedlist>
         </section>
@@ -483,6 +584,7 @@
           </imageobject>
         </mediaobject>
       </screenshot>
+      <para><emphasis role="italic">Figure 31: Data-Entry Status Management menu</emphasis></para>
       <para><emphasis role="bold">Data Entry Status</emphasis> page would be displayed. Click <emphasis role="bold">Add</emphasis> button to add data set.</para>
       <screenshot>
         <mediaobject>
@@ -491,18 +593,55 @@
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>Select the desired data set and Organisation Unit from the menu.</para>
+      <para><emphasis role="italic">Figure 32: Add a new status management</emphasis></para>
+      <para>Then select the desired data set and Organisation Unit from the menu.</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/add_data_entry_status_1.png" format="PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot></para>
+      <para><emphasis role="italic">Figure 33: Choose an Organization Unit for data-entry status</emphasis></para>
+      <para>And set-up for the data-entry status by choosing the dataset:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/add_data_entry_status_2.png" format="PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot></para>
+      <para><emphasis role="italic">Figure 34: Choose an dataset for data-entry status</emphasis></para>
+      <para>Moreover, you can choose/pick the statuses as the defaults for the organization unit:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/add_data_entry_status_3a.png" format="PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot></para>
+      <para><emphasis role="italic">Figure 35a: Set-up a status as default</emphasis></para>
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/add_data_entry_status_1.png" format="PNG"/>
+            <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/add_data_entry_status_3b.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
+      <para><emphasis role="italic">Figure 35b: The list of data-entry status</emphasis></para>
+      <para>An screen-shot example:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="70%" align="center" fileref="" format="PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot></para>
+      <para><emphasis role="italic">Figure 35c: Data-entry status of a dataset</emphasis></para>
     </section>
     <section id="excelReportingExcelItems">
-      <title>Excel items</title>
-      <para>The function allows users to import data from a pre-designed Excel templates directly into the DHIS database automatically. Alternatively, selected elements may be imported. This is a particularly useful feature for importing data from other users that may not have DHIS2 installed on their computers. For instance, it may be more feasible to have users at a primary  care health facility enter their values in Excel directly. Users may be immediately familiar with Excel, and can easily enter data into a pre-defined template. Installation of DHIS2 on their computers may complicate a particular implementation, and require additional resources in terms of training. By using pre-defined templates for importation into the DHIS2 database, users that do  not have DHIS2 can easily transmit data to users that do, for instance from the primary health care facility to the district level. </para>
+      <title>Spreadsheet/Import items</title>
+      <para>The function allows users to import data from a pre-designed spreadsheet templates directly into the DHIS database automatically. Alternatively, selected elements may be imported. This is a particularly useful feature for importing data from other users that may not have DHIS2 installed on their computers. For instance, it may be more feasible to have users at a primary  care health facility enter their values in spreadsheet directly. Users may be immediately familiar with spreadsheet, and can easily enter data into a pre-defined template. Installation of DHIS2 on their computers may complicate a particular implementation, and require additional resources in terms of training. By using pre-defined templates for importation into the DHIS2 database, users that do  not have DHIS2 can easily transmit data to users that do, for instance from the primary health care facility to the district level. </para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -510,16 +649,17 @@
           </imageobject>
         </mediaobject>
       </screenshot>
+      <para><emphasis role="italic">Figure 33: Import Report List</emphasis></para>
       <section>
         <title>Create a template to import</title>
         <para><orderedlist>
             <listitem>
-              <para>To create a group, choose  <emphasis role="bold">Administration</emphasis> -&gt;<emphasis role="bold"> Excel items</emphasis> -&gt; <emphasis role="bold">Add </emphasis>--&gt; Fill the information form and press <emphasis role="bold">OK</emphasis>.</para>
+              <para>To create a group, choose  <emphasis role="bold">Administration</emphasis> -&gt;<emphasis role="bold"> Import Reports</emphasis> -&gt; <emphasis role="bold">Add </emphasis>--&gt; Fill the information form and press <emphasis role="bold">OK</emphasis>.</para>
             </listitem>
             <listitem>
-              <para>To create items in the grorp,  choose <emphasis role="bold">Administration</emphasis> --&gt; <emphasis role="bold">Excel items</emphasis> --&gt; Choose a group --&gt; <emphasis role="bold">Excel items </emphasis>--&gt; Fill information form -&gt; <emphasis role="bold">OK</emphasis>.</para>
+              <para>To create items in the grorp,  choose <emphasis role="bold">Administration</emphasis> --&gt; <emphasis role="bold">Import Reports</emphasis> --&gt; Choose a group --&gt; <emphasis role="bold">Spreadsheet/Excel items </emphasis>--&gt; Fill information form -&gt; <emphasis role="bold">OK</emphasis>.</para>
             </listitem>
-          </orderedlist>Creating a Excel items group which contains Excel items. A Excel item correspond with a data cell into imputted template Excel files. A step-by-step procedure is provided below.</para>
+          </orderedlist>Creating a spreadsheet items group which contains spreadsheet items. A spreadsheet item correspond with a data cell into inputted template spreadsheet files. A step-by-step procedure is provided below.</para>
         <screenshot>
           <mediaobject>
             <imageobject>
@@ -527,6 +667,7 @@
             </imageobject>
           </mediaobject>
         </screenshot>
+        <para><emphasis role="italic">Figure 32: Create a new Import Item</emphasis></para>
         <itemizedlist>
           <listitem>
             <para><emphasis role="italic">Name </emphasis>*: Enter Name of report.</para>
@@ -557,15 +698,16 @@
             </imageobject>
           </mediaobject>
         </screenshot>
+        <para><emphasis role="italic">Figure 33: Operations of import reports</emphasis></para>
         <itemizedlist>
           <listitem>
             <para> Associations    <inlinegraphic fileref="resources/images/dhis_excel_reports/association_org_unit.GIF"/>for assigning a group to organisation units.</para>
           </listitem>
           <listitem>
-            <para>Excel item group <inlinegraphic fileref="resources/images/dhis_excel_reports/report_item.png"/>for creating report items in the report.</para>
+            <para>Spreadsheet item group <inlinegraphic fileref="resources/images/dhis_excel_reports/report_item.png"/>for creating report items in the report.</para>
           </listitem>
           <listitem>
-            <para>Remove  <inlinegraphic fileref="resources/images/dhis_excel_reports/remove_report.png"/>for removing excel item group.</para>
+            <para>Remove  <inlinegraphic fileref="resources/images/dhis_excel_reports/remove_report.png"/>for removing spreadsheet item group.</para>
           </listitem>
           <listitem>
             <para>Edit  <inlinegraphic fileref="resources/images/dhis_excel_reports/edit_report.png"/>for editing  information of group.</para>
@@ -579,28 +721,23 @@
         </itemizedlist>
       </section>
       <section>
-        <title>Create excel items</title>
+        <title>Create spreadsheet items</title>
         <para>Click <emphasis role="bold">Add</emphasis> button to open a form.
-          <screenshot>
+          </para>
+        <para><screenshot>
             <mediaobject>
               <imageobject>
                 <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/add_excelitem.png" format="PNG"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
-        <para>Fill information of an excel items.<itemizedlist>
+        <para><emphasis role="italic"> Figure 34: Import item description</emphasis></para>
+        <para>Fill information of an spreadsheet items.<itemizedlist>
             <listitem>
               <para>Name*: Enter  item name</para>
             </listitem>
             <listitem>
-              <para>Expression *: Click Expression button to choose Data element, Indicator, Or just type excel formula if Item type is Excel formula.</para>
-              <screenshot>
-                <mediaobject>
-                  <imageobject>
-                    <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/create_expression.png" format="PNG"/>
-                  </imageobject>
-                </mediaobject>
-              </screenshot>
+              <para>Expression *: Click Expression button to choose Data element, Indicator, Or just type spreadsheet formula if Item type is spreadsheet formula.</para>
               <screenshot>
                 <mediaobject>
                   <imageobject>
@@ -608,52 +745,53 @@
                   </imageobject>
                 </mediaobject>
               </screenshot>
+              <para><emphasis role="italic">Figure 35: Expression building</emphasis></para>
               <para>The category option would be  <emphasis role="italic">default</emphasis> if data element hasn’t been combined with any category combo. Other options are described below:</para>
             </listitem>
             <listitem>
-              <para>Sheet No*: type sheet no where this  item would be display in excel template file</para>
+              <para>Sheet No*: type sheet no where this  item would be display in spreadsheet template file</para>
             </listitem>
             <listitem>
-              <para>Row*: row number refers to cell where  item would be display in Excel file.</para>
+              <para>Row*: row number refers to cell where  item would be display in spreadsheet file.</para>
             </listitem>
             <listitem>
-              <para>Column*: column number refers to cell where  item would be display in Excel file.</para>
+              <para>Column*: column number refers to cell where  item would be display in spreadsheet file.</para>
             </listitem>
             <listitem>
               <para>Click <emphasis role="bold">OK</emphasis> button to create  item.</para>
             </listitem>
           </itemizedlist></para>
-        <para><emphasis role="bold">Copy selected items to</emphasis> button: To copy the report items when the new report has an item which can be reused from the existing report<screenshot>
+        <para><emphasis role="bold">Copy selected items to</emphasis> button: To copy the report items when the new report has an item which can be reused from the existing report</para>
+        <para><screenshot>
             <mediaobject>
               <imageobject>
                 <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/copy_report_item.png" format="PNG"/>
               </imageobject>
             </mediaobject>
-          </screenshot><orderedlist>
-            <listitem>
-              <para>From List of groups page, select  items need to be copied.</para>
-            </listitem>
-            <listitem>
-              <para>Click the <emphasis role="bold">Copy selected items to</emphasis> button.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">List of groups</emphasis>: chose a destination report.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Sheet No</emphasis>: Choose the Sheet No which report Item would be display.</para>
-            </listitem>
-            <listitem>
-              <para>Click <emphasis role="bold">OK</emphasis> button to copy.</para>
-            </listitem>
-          </orderedlist></para>
-        <para>
-          <para>Copy selected items to other groups for quickly developing many groups with the same data elements but with the different periods</para>
-        </para>
+          </screenshot></para>
+        <para><emphasis role="italic">Figure 36: Choose import report and sheet number</emphasis></para>
+        <orderedlist>
+          <listitem>
+            <para>From List of groups page, select  items need to be copied.</para>
+          </listitem>
+          <listitem>
+            <para>Click the <emphasis role="bold">Copy selected items to</emphasis> button.</para>
+          </listitem>
+          <listitem>
+            <para><emphasis role="italic">List of groups</emphasis>: chose a destination report.</para>
+          </listitem>
+          <listitem>
+            <para><emphasis role="italic">Sheet No</emphasis>: Choose the Sheet No which report Item would be display.</para>
+          </listitem>
+          <listitem>
+            <para>Click <emphasis role="bold">OK</emphasis> button to copy.</para>
+          </listitem>
+        </orderedlist>
       </section>
     </section>
     <section id="excelReportingExcelTemplateManagement">
-      <title>Excel Template Management </title>
-      <para>This is used to manage Template Excel files which are  used to export reports, includes upload, download, delete and rename files.</para>
+      <title>Spreadsheet Template Management </title>
+      <para>This is used to manage Template spreadsheet files which are  used to export reports, includes upload, download, delete and rename files.</para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -661,6 +799,7 @@
           </imageobject>
         </mediaobject>
       </screenshot>
+      <para><emphasis role="italic">Figure 37: Excel Template Management</emphasis></para>
       <para>To upload template file, choose <emphasis role="bold">Browse</emphasis> button.<screenshot>
           <mediaobject>
             <imageobject>
@@ -668,23 +807,19 @@
             </imageobject>
           </mediaobject>
         </screenshot></para>
-      <para arch="">Choose a file from shown dialog<screenshot>
+      <para arch=""><emphasis role="italic">Figure 38: Upload a template</emphasis></para>
+      <para arch="">Choose a file from shown dialog</para>
+      <para arch=""><screenshot>
           <mediaobject>
             <imageobject>
               <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/choose_upload_file.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot></para>
-      <para>Click <emphasis role="bold">Open</emphasis> to choose file, and click <emphasis role="bold">Upload</emphasis> button to upload. If to upload successfully, a message shown :<screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/upload_success.png" format="PNG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot></para>
+      <para arch=""><emphasis role="italic">Figure 39: Choose a spreadsheet file</emphasis></para>
+      <para>Click <emphasis role="bold">Open</emphasis> to choose file, and click <emphasis role="bold">Upload</emphasis> button to upload. If successfully, the uploaded file will be shown in the list:</para>
       <para>
-        <para>No upload if the chosen file is not excel file.</para>
-      </para>
+        No upload if the chosen file is not spreadsheet file.</para>
     </section>
     <section id="excelReportingCleanTemporaryDirectory">
       <title>
@@ -701,31 +836,23 @@
               </imageobject>
             </mediaobject>
           </screenshot>
+          <para><emphasis role="italic">Figure 40: Clean-up temporary files</emphasis></para>
         </listitem>
       </itemizedlist>
     </section>
   </section>
   <section>
-    <title>Generate Report</title>
-    <para>There are six functions of this module.</para>
+    <title>Spreadsheet Reports</title>
+    <para>There are 3 functions of the module.</para>
     <orderedlist>
       <listitem>
-        <para><emphasis role="italic">Generate Report</emphasis>: Allow users to generate reports according to parameters such as time period, organisation unit, organisation unit group  and to generate group of reports to many sheets of a single  Excel file.</para>
+        <para><emphasis role="italic">Generate Report</emphasis>: Allow users to generate reports according to parameters such as time period, organisation unit, organisation unit group  and to generate group of reports to many sheets of a single  spreadsheet file.</para>
       </listitem>
       <listitem>
-        <para><emphasis role="italic">Generate advanced report</emphasis>: Generates reports by OrgUnit group.</para>
-      </listitem>
-      <listitem>
-        <para><emphasis role="italic">Import excel files</emphasis>: Imports data values from an Excel file to the DHIS database.</para>
-      </listitem>
-      <listitem>
-        <para><emphasis role="italic">Data Set completed reports</emphasis>: Generates the report which show status of completeness of entering data .</para>
+        <para><emphasis role="italic">Import spreadsheet files</emphasis>: Imports data values from an spreadsheet file to the DHIS2 system.</para>
       </listitem>
       <listitem>
         <para><emphasis role="italic">Data entry Status</emphasis>: View data entry status.</para>
-      </listitem>
-      <listitem>
-        <para><emphasis role="italic">Individual reports</emphasis>: Generate user defined reports which list data elements and a list of periods  which can be chosen by the user.</para>
       </listitem>
     </orderedlist>
     <section id="excelReportingReport">
@@ -736,16 +863,16 @@
           <para>Click &quot;Generate Report&quot;.</para>
         </listitem>
         <listitem>
-          <para>Select the organisational unit that the report should be generated for.</para>
+          <para>Select an Organisational Unit on the left.</para>
         </listitem>
         <listitem>
-          <para>Select the Report Group. </para>
+          <para>Select a Report Group. </para>
         </listitem>
         <listitem>
-          <para>Select the desired report from the Report list.</para>
+          <para>Select a Report from the Report list.</para>
         </listitem>
         <listitem>
-          <para>Select the desired time period from the Period drop-down.</para>
+          <para>Select a period of time from the Period drop-down.</para>
         </listitem>
         <listitem>
           <para>Click Generate Report button to generate the report.</para>
@@ -758,61 +885,13 @@
           </screenshot>
         </listitem>
       </orderedlist>
-    </section>
-    <section id="excelReportingAdvancedReport">
-      <title>Generate advanced report</title>
-      <para>This <emphasis role="italic">Generate Advanced Report</emphasis> function allow users to generate a report according to the parameters such as: <emphasis role="italic">Report group name</emphasis>, <emphasis role="italic">Report name</emphasis>, <emphasis role="italic">selected period</emphasis>, and <emphasis role="italic">organisation unit</emphasis> <emphasis role="italic">group name</emphasis>. The difference between <emphasis role="italic">Generate Advanced Report</emphasis> function and <emphasis role="italic">Generate Report</emphasis> function is that  the advanced function is capable of  generating reports according to groups of organisational units within the same level as depicted below.</para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/generate_advanced_report.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
+      <para>With &quot;Preview Report&quot; function, you can preview the report with DHIS2 before download the equivalent spreadsheet report.</para>
+      <para>With &quot;Print Preview&quot; (or maybe labelled as &quot;Print Draft&quot;), you can download/print out the current preview report directly without generating a spreadsheet file and this will reduce time-consuming.</para>
     </section>
     <section id="excelReportingImportData">
       <title>
-        <emphasis role="bold">Import excel files</emphasis>
+        <emphasis role="bold">Import data from spreadsheet files</emphasis>
       </title>
-      <para>This feature is current still in development. More information on this feature will be added soon. </para>
-      <para>The <emphasis role="bold">EXCEL REPORTING</emphasis> module is continuing develop and the documentation of it for users will be updated. If there is any other type of report template which are not supported by DHIS, feel free to send the requirements. All feedback will be appreciated, please inform us at <emphasis role="underline">
-          <email>dhis2-documenters@lists.launchpad.net</email>
-        </emphasis>.</para>
-    </section>
-    <section id="excelReportingDataSetCompleteReport">
-      <title>Data set complete reports</title>
-      <para>When users finish entering data for a data set, they need to click the <emphasis role="bold">COMPLETE</emphasis> button to identify that the data set is completely entered. The View Data set complete report function takes care of this completeness. There are two ways of viewing data set complete reports: View as Period or Dataset. When viewing by Period, users can see complete status of 1 dataset in many  periods of time. When view by Dataset , users can see many data sets in only a specified period. This function is only used for management users in the upper Organisation Unit. </para>
-      <para>To view data set complete reports, do steps below</para>
-      <orderedlist>
-        <listitem>
-          <para>From the left menu, click Dataset complete reports</para>
-        </listitem>
-        <listitem>
-          <para>Choose Orgunit name. (Parent Organisation Units)</para>
-        </listitem>
-        <listitem>
-          <para>Select Period Type</para>
-        </listitem>
-        <listitem>
-          <para>Select View Type.</para>
-        </listitem>
-        <listitem>
-          <para>Select data set (Select only 1 data set if view by Period)</para>
-        </listitem>
-        <listitem>
-          <para>Select Period (Select only 1 period if view by Dataset)</para>
-        </listitem>
-        <listitem>
-          <para>Click View Report button</para>
-        </listitem>
-      </orderedlist>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/dateset_completed_reports.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
     </section>
     <section id="excelReportingDataEntryStatusReport">
       <title>Data entry status report</title>
@@ -827,49 +906,6 @@
         </mediaobject>
       </screenshot>
       <para>The Data entry status is displayed as percentage. The relative percentage of data elements that were entered in the form. </para>
-    </section>
-    <section id="excelReportingIndividualReport">
-      <title>Generate an individual report</title>
-      <para>This function allows users to generate the reports with data elements and a list of period as their individual decision. Another way, user can generate a dirty report by selecting data elements, periods to generate a simple excel report without excel template file or creating report or report items. Then, user can bookmark this report for generating later. The steps to generate individual report are listed below</para>
-      <orderedlist>
-        <listitem>
-          <para>Click Individual report function from the left menu</para>
-        </listitem>
-        <listitem>
-          <para>Select organisation unit</para>
-        </listitem>
-        <listitem>
-          <para>Select data elements</para>
-        </listitem>
-        <listitem>
-          <para>Select category option of selected data element</para>
-        </listitem>
-        <listitem>
-          <para>Click select button</para>
-        </listitem>
-        <listitem>
-          <para>Select period type</para>
-        </listitem>
-        <listitem>
-          <para>Select periods</para>
-        </listitem>
-        <listitem>
-          <para>Click select button</para>
-        </listitem>
-        <listitem>
-          <para>Click generate report button</para>
-        </listitem>
-        <listitem>
-          <para>Click  Book mark button for generate later</para>
-        </listitem>
-      </orderedlist>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="70%" align="center" fileref="resources/images/dhis_excel_reports/generate_individual_report_1.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
     </section>
   </section>
 </chapter>
