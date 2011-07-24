@@ -28,7 +28,7 @@
     </para>
     <para>Step 3 - Prepare the GML file</para>
     <para>
-      Unfortunately, the GML file is not ready for importation yet. Open it in a robust text editor like Geany (Linux) or Notepad++ (Windows). GML is an XML based format which means that you will recognize the regular XML tag hierarchy. In the GML file an organisation unit is represented as a &lt;gml:featureMember&gt;. Inside the feature members we usually find a lot of attributes, but we are just going to import their coordinates. In order to do this DHIS 2 will match the name of the feature members to the organisation unit names in the database. To get the name of the feature memebers in the GML file the importer will look for a property called &quot;ogr:Name&quot;. Figure out what property that is holding the name of the feature members (could be &quot;ogr:DISTRICT_NAME&quot;, &quot;ogr:NAME_1&quot; or whatever, this differs from shapefile to shapefile) and rename it to &quot;ogr:Name&quot;. Ensure that both the start and the end tags are renamed properly. They are supposed to look like e.g.: &lt;ogr:Name&gt;Moyamba District&lt;/ogr:Name&gt;
+      Unfortunately, the GML file is not ready for importation yet. Open it in a robust text editor like Geany (Linux) or Notepad++ (Windows). GML is an XML based format which means that you will recognize the regular XML tag hierarchy. In the GML file an organisation unit is represented as a &lt;gml:featureMember&gt;. Inside the feature members we usually find a lot of attributes, but we are just going to import their coordinates. In order to do this DHIS 2 will match the name of the feature members to the organisation unit names in the database. To get the name of the feature members in the GML file the importer will look for a property called &quot;ogr:Name&quot;. Figure out what property that is holding the name of the feature members (could be &quot;ogr:DISTRICT_NAME&quot;, &quot;ogr:NAME_1&quot; or whatever, this differs from shapefile to shapefile) and rename it to &quot;ogr:Name&quot;. Ensure that both the start and the end tags are renamed properly. They are supposed to look like e.g.: &lt;ogr:Name&gt;Moyamba District&lt;/ogr:Name&gt;
     </para>
     <para>
       Note that the name of the feature members in the GML file must be spelled exactly the same as the organisation units in the database. Otherwise the importer will not recognize it and thus not transfer any coordinates. E.g. &quot;Moyamba&quot; in the GML file migth be called &quot;Moyamba District&quot; in the database. Creative use of the &quot;rename all&quot; function in the text editor is usually of great help in these situations, as you do not want to edit numerous feature members manually. Have a brief look at the names and compare them to the names in the database. If they seem to match fairly good, it is about time to do a preview in the import-export module.
@@ -45,26 +45,6 @@
   </section>
   <section>
     <title>Administering the GIS module</title>
-    <section id="gisAdministratorSettings">
-      <title>Administrator settings</title>
-      <para>
-        Administrator settings are available only to users with admin rights. The administrator settings window can be opened from the map toolbar, click on the gears symbol (tooltip says &quot;Administrator settings&quot;).
-      </para>
-      <para>
-        - Google Maps: In order to have Google Maps as background you need to fill in an Google Maps API key created for the domain the applcation is running on. The default key works for localhost. If you want to set up GIS on an external server you have to create and fill in the key for this domain, more info here http://code.google.com/apis/maps/signup.html. You will be provided with a link such as: http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAut6AhySExnYIXm5s2OFIkxRKNzJ-_9njnryRTbvC6CtrS4sRvRREWnxwlZUa630pLuPf3nD9i4fq9w. Note that you are supposed to fill in the key only, i.e. the encrypted string that follows after &quot;key=&quot;, not the entire link.
-          <screenshot>
-          <screeninfo>Layer options</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="50%" fileref="resources/images/gis/gis_google_key.png" format="PNG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-      </para>
-      <para>
-        - Date: Choose between fixed periods and start/end dates. Fixed periods refers to the periods created by the DHIS 2. Start/end dates means that you can define the period yourself by selecting the exact start date and end date of the period.
-      </para>
-    </section>
     <section id="gisOverlay">
       <title>Register overlays</title>
       <para>Overlays are geographical layers that do not have any direct linkage
