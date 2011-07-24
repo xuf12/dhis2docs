@@ -21,9 +21,9 @@
     <para>
       The recommended tool for geographical format conversions is called &quot;ogr2ogr&quot;. This should be available for most Linux distros (&quot;sudo apt-get install gdal-bin&quot;). For Windows, go to http://fwtools.maptools.org/ and download &quot;FWTools&quot;, install it and open up the FWTools command shell. During the format conversion we also want to ensure that the output has the correct coordinate projection (called EPSG:4326 with geographic longitude and latitude). For a more detailed reference of geographic coordinates, please refer to this <ulink url="http://www.epsg-registry.org/">site</ulink>.  If you have already reprojected the geographic data to the geographic latitude/longitude (EPSG:4326) system, there is no need to explicitly define the output coordinate system, assuming that <command>ogr2ogr</command> can determine the input spatial reference system. You can determine the spatial reference system by executing the following command.</para>
     <para><programlisting><userinput>ogrinfo -al -so filename.shp</userinput></programlisting></para>
-    <para>Assuming that the projection is reported to be EPSG:27700 by <command>ogrinfo</command>, we can transform it to EPSG by executing the following command.<programlisting><userinput> ogr2ogr -s_srs EPSG:27700 -t_srs EPSG:4326 -f GML filename.gml filename.shp </userinput></programlisting></para>
+    <para>Assuming that the projection is reported to be EPSG:27700 by <command>ogrinfo</command>, we can transform it to EPSG:4326 by executing the following command.<programlisting><userinput> ogr2ogr -s_srs EPSG:27700 -t_srs EPSG:4326 -f GML filename.gml filename.shp </userinput></programlisting></para>
     <para>If the geographic data is already in EPSG:4326, you can simply transform the shapefile to GML by executing the following command. </para>
-    <para><programlisting><userinput>ogr2ogr -s_srs EPSG:27700 -t_srs EPSG:4326 -f GML filename.gml filename.shp</userinput></programlisting></para>
+    <para><programlisting><userinput>ogr2ogr -f GML filename.gml filename.shp</userinput></programlisting></para>
     <para> You will find the created GML file in the same folder as the shapefile.
     </para>
     <para>Step 3 - Prepare the GML file</para>
