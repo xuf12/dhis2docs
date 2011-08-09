@@ -104,7 +104,9 @@
             <para>Data element group sets: Click the check box to activate this option  hen choose which data element group sets this data element should belong to. Available data element group sets are displayed din the upper window. Click the desired data element group set, then the <guibutton>&quot;Add selected&quot;</guibutton> button to add the data element to the group set. To remove a data element from a group set, click the data element group set in the lower list, and then click<guibutton> &quot;Remove selected&quot;</guibutton>. </para>
           </listitem>
           <listitem>
-            <para>Calculated: This option is available only when a data element is created. </para>
+            <para>Calculated: This option is available only when a data element is created.<important>
+                <para>As of version 2.3, calculated data elements have been deprecated. Calculated data elements should therefore be implemented as indicators instead.</para>
+              </important></para>
             <para>Select the data elements that will be used to define the calculated data element, and then click &quot;Add selected&quot; to add them calculated data element composition list. Fill in the correct factor for the data element calculation component (defaults to 1). Component elements of the calculated data element can be removed from the definition by pressing the &quot;Remove&quot; button.</para>
           </listitem>
           <listitem>

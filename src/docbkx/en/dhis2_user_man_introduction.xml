@@ -9,21 +9,21 @@
       <itemizedlist>
         <listitem>
           <para>What is DHIS2 and what purpose it serves with respect to
-          HMIS</para>
+          health management information systems (HMIS)?</para>
         </listitem>
         <listitem>
-          <para>What is the difference between patient based and aggregate data.</para>
+          <para>What is the difference between patient based and aggregate data?</para>
         </listitem>
         <listitem>
-          <para>What are the different modules in DHIS 2.</para>
+          <para>What are the different modules in DHIS 2?</para>
         </listitem>
         <listitem>
           <para>What is Free and Open Source Software (FOSS), platform
-          (in)dependency, and its implications for HMIS.</para>
+          (in)dependency, and its implications for HMIS?</para>
         </listitem>
         <listitem>
           <para>What is FOSS, platform (in)dependency, and their implications
-          for HMIS.</para>
+          for HMIS?</para>
         </listitem>
       </itemizedlist>
     </highlights>
@@ -70,31 +70,22 @@
     1.3/1.4) was developed and subsequently upgraded on an ongoing base
     continuously upgraded in South Africa by HISP South Africa since 1997.
     This version was developed on Microsoft Office platform, and distributed
-    free. This application is currently the national standard in South Africa
-    and being used in all the health facilities in the country. Further, this
-    application is being used in many countries in Africa such as Ethiopia,
-    Nigeria, Botswana, Tanzania, Zambia, and, various other countries.</para>
+    freely. This application is currently the national standard in South Africa
+    and being used in all the health facilities in the country. DHIS1.4 
+    is  being used in many countries in Africa such as Ethiopia,
+    Nigeria, Botswana, Tanzania, Zambia, and various other countries.</para>
     <para>In 2005, based on the various comments and feedback from the field
     level use, the University of Oslo initiated the process of developing
-    Version 2 of DHIS, which used DHIS 1.4 as the basis for the functional
-    requirements. Using a modular structure DHIS 2 was developed based on data
-    warehousing principles. DHIS 2 is built on Java based frameworks. It is
-    platform independent, can run on both on-line and offline modes, is multi
-    language enabled and integrated with various other applications such as
-    Geographic Information Systems and Excel.</para>
-    <para>The WHO and HMN (Health Metrics Network) are currently using DHIS 2
-    for implementing an integrated solution in the first HMN country – Sierra
-    Leone. While DHIS 2 will be used for the aggregated statistics component
-    of the HMIS, it will be integrated with a free software application called
-    Open MRS for patient based management, and the WHO created Open Health for
-    GIS and Web pivot tables.</para>
-    <para>In this training manual, we will take the DHIS 2 as the basis to
-    illustrate the various functionalities that a computer based HMIS should
-    provide.</para>
+    the second version of DHIS.  DHIS 1.4 was used primarily as the basis for the functional
+    requirements. Using a modular structure DHIS2, was developed based on data
+    warehousing principles. DHIS2 is built on free and open source (FOSS) Java based frameworks. It is
+    platform independent, can run on both on-line and offline modes, is multi-language enabled and integrated with various other applications such as
+    Geographic Information Systems and Microsoft Excel.</para>
+    <para>The documentation provided in herewith, will attempt to provide a comprehensive overview of the application. Given the abstract nature of the application, this manual will not serve as a complete step-by-step guide of how to use the application in each and every circumstance, but rather will seek to provide illustrations and examples of how DHIS2 can be implemented in a variety of situations through generalized examples.</para>
   </section>
   <section>
-    <title>Purpose of DHIS 2</title>
-    <para>The purpose of DHIS can be summarised as follows:</para>
+    <title>Purpose of DHIS2</title>
+    <para>The purpose of DHIS2 can be summarised as follows:</para>
     <orderedlist>
       <listitem>
         <para>Provide a comprehensive HMIS solution based on data
@@ -154,16 +145,15 @@
           management) and integrated as per user needs.</para>
       </listitem>
     </orderedlist>
-    <para>In summary, DHIS 2 provides a comprehensive HMIS solution for the
+    <para>In summary, DHIS2 provides a comprehensive HMIS solution for the
       reporting and analysis needs of health facilities at any level. It is a
-      tried and tested application in various countries, and also adopted by WHO for their HMN implementation</para>
+      tried and tested application in various countries, and also adopted by WHO for their HMN implementations in various countries.</para>
   </section>
   <section>
     <title>Difference between Aggregated and Patient data in a HMIS</title>
     <para>
    <emphasis>Patient data</emphasis> is data relating to a single patient,
-      such as his/her diagnosis, name, age, earlier medical history etc.
-      Patient based data is important when you want to track longitudinally
+      such as his/her diagnosis, name, age, earlier medical history etc. This data is typically based on a single patient-health care worker interaction. For instance, when a patient visits a health care clinic, a variety of details may be recored, such as the patient&apos;s temperature, their weight, and various blood tests. Should this patient be diagnosed as having &quot;Vitamin B 12 deficiency anaemia, unspecified&quot; corresponding to ICD-10 code D51.9, this particular interaction might eventually get recorded as an instance of &quot;Anaemia&quot; in an aggregate based system. Patient based data is important when you want to track longitudinally
       the progress of a patient over time. For example, if we want to track
       how a patient is adhering to and responding to the process of TB
       treatment (typically taking place over 6-9 months), we would need
@@ -174,19 +164,18 @@
       specific patient. They are merely counts, such as incidences of Malaria,
       TB, or other diseases. Typically, the routine data that a health
       facility deals with is this kind of aggregated statistics, and is used
-      for the generation of routine reports and indicators.</para>
+      for the generation of routine reports and indicators, and most importantly, strategic planning within the health system. Aggregate data cannot provide the type of detailed information which patient level data can, but is crucial for planning and guidance of the performance of health systems. </para>
     <para>Patient data is highly confidential and therefore must be
       protected so that no one other than doctors can get it. When in paper,
       it must be properly stored in a secure place. For computers, patient
       data needs secure systems with passwords and restrained access.</para>
     <para>Security concerns for aggregated data are not as crucial as for
-      patient data, as there are no ways of relating it to a person. However,
+      patient data, as it is usually impossible  to identify a particular person to a aggregate statistic . However,
       data can still be misused and misinterpreted by others, and should not
-      be distributed uncritically. A data policy needs to be established by
-      the managers about who gets access to what data.</para>
+      be distributed without adequate data dissemination policies in place. </para>
   </section>
   <section>
-    <title>Use of DHIS 2 in HMIS: data collection, processing, interpretation, and analysis.</title>
+    <title>Use of DHIS2 in HMIS: data collection, processing, interpretation, and analysis.</title>
     <para>The wider context of HMIS can be comprehensively described through
       the information cycle presented in Figure 1.1 below. The information
       cycle pictorially depicts the different components, stages and processes
@@ -200,7 +189,7 @@
         </imageobject>
       </mediaobject>
     </figure>
-    <para>DHIS 2 supports the different facets of the information cycle
+    <para>DHIS2 supports the different facets of the information cycle
       including:<itemizedlist>
         <listitem>
           <para>Collecting data.</para>
@@ -228,60 +217,60 @@
         </listitem>
       </itemizedlist>
   </para>
-    <para>As a first step, DHIS 2 serves as a data collection, recording and
+    <para>As a first step, DHIS2 serves as a data collection, recording and
       compilation tool, and all data (be it in numbers or text form) can be
       entered into it. Data entry can be done in lists of data elements or in
-      customised user defined forms based on the paper forms.</para>
-    <para>As a next step, DHIS 2 can be used to increase data quality.
+      customised user defined forms which can be developed to mimic paper based forms in order to ease the process of data entry.</para>
+    <para>As a next step, DHIS2 can be used to increase data quality.
       Firstly, at the point of data entry, a check can be made to see if data
       falls within acceptable range levels of minimum and maximum values for
       any particular data element. Such checking, for example, can help to
       identify typing errors at the time of data entry. Further, user can
-      define various validation rules, and DHIS 2 can run the data through the
+      define various validation rules, and DHIS2 can run the data through the
       validation rules to identify violations.</para>
-    <para>When data has been entered and verified, DHIS 2 can help to make
+    <para>When data has been entered and verified, DHIS2 can help to make
       different kinds of reports. The first kind are the routine reports that
       can be predefined, so that all those reports that need to be routine
-      generated can be done on a click of a button. Further, DHIS 2 can help
+      generated can be done on a click of a button. Further, DHIS2 can help
       in the generation of analytical reports through comparisons of for
       example indicators across facilities or over time. Graphs, maps, reports
-      and health profiles are among the outputs that DHIS 2 can produce, and
+      and health profiles are among the outputs that DHIS2 can produce, and
       these should routinely be produced, analysed, and acted upon by health
       managers.</para>
   </section>
   <section>
-    <title>Overview of DHIS 2</title>
+    <title>Overview of DHIS2</title>
     <section>
-      <title>The different modules of DHIS 2</title>
-      <para>DHIS 2 is based on a modular approach of design. A module can be
+      <title>Overview of DHIS2 modules</title>
+      <para>DHIS2 is based on a modular approach of design. A module can be
         seen as an independent component of application that is capable of
         both processing inputs as well as outputs, that is used to communicate
         with other modules. The modules are flexible enough to allow changes
         in one module without having any effect on other modules. As long as
-        input and output stays the same, it doesn’t matter what happens inside
+        input and output stays the same, it doesn&apos;t matter what happens inside
         a module. A module can then be changed without affecting other
         modules, which will be working as long as the output from the first
-        module comes out as normal. This modular feature allows DHIS 2 to be
+        module comes out as normal. This modular feature allows DHIS2 to be
         constantly upgraded in terms of functionality, integrated with other
         applications such as Excel pivot tables and GIS. Thus modularity
-        allows DHIS 2 to be flexible, and changes can take place in the
+        allows DHIS2 to be flexible, and changes can take place in the
         different modules without affecting others.</para>
-      <para>Currently, DHIS 2 has several modules for functions such as data
+      <para>Currently, DHIS2 has several modules for functions such as data
         entry, data quality checks, report generation etc. These modules have
         been categorised and presented under two core categories namely
         Maintenance and Services. The Services module supports data record,
         analysis, report generation etc. And the Maintenance module allows you
-        to set the content and structure of the Services module.</para>
+        to set the content and structure of the Services module. Each of these modules will be discussed at greater length in this document. </para>
     </section>
     <section>
       <title>Web-based versus standalone HMIS and their suitability</title>
-      <para>DHIS 2 can run both as a web based and offline application. As a
-        web based application, the DHIS 2 application can run on a central
+      <para>DHIS2 can run both as a web based and offline application. As a
+        web based application, the DHIS2 application can run on a central
         server and make use of client-server architecture. For example, at the
-        state level, the DHIS 2 can run on a server, and the different
+        state level, the DHIS2 can run on a server, and the different
         districts act as clients, drawing upon the server application through
         the Internet for local use of the application.</para>
-      <para>In a standalone application, the DHIS 2 can run as an
+      <para>In a standalone application, the DHIS2 can run as an
         independent application on individual computers in different sites
         such as <abbrev>PHC</abbrev>s, <abbrev>CHC</abbrev>s etc. So, if computerisation is taking place at the
         Block level, then the DHIS 2 will be installed separately on each of
@@ -364,30 +353,23 @@
       </itemizedlist>
     </section>
     <section>
-      <title>Understanding platform independency</title>
+      <title>Understanding platform independence</title>
       <para>All computers have an Operating System (OS) to manage it and the
         programs running it. The operating system serves as the middle layer between the
-        software application, such as DHIS 2, and the hardware, such as the
-        CPU and RAM. The most popularly used OS is Microsoft Windows, which
-        comes in various versions (such as XP, Vista). However, this OS costs
-        money, and have also been reported to have security issues that makes
-        it vulnerable to virus attacks. Operating Systems like Linux are free,
-        and are more secure with respect to virus attacks. Usually, many of
-        the applications will work on one OS, and not on others. Platform
-        independency implies that the software application can run on ANY OS -
-        Windows, Linux, Macintosh etc. DHIS 2 is platform independent, and is
-        extremely useful in the context of public health when typically you
-        have systems in different places running different kinds of OS.</para>
+        software application, such as DHIS2, and the hardware, such as the
+        CPU and RAM.    DHIS2 runs on the Java Virtual Machine, and can therefore run on any operating system which supports Java. Platform
+        independence implies that the software application can run on ANY OS -
+        Windows, Linux, Macintosh etc. DHIS2 is platform independent, and is
+        extremely useful in the context of public health, where multiple operating systems may be in use. </para>
     </section>
     <section>
-      <title>Auxiliary software that can be used with DHIS</title>
-      <para>A variety of auxiliary software can be run with DHIS 2, such as
-        GIS (for mapping), BIRT (for reporting), Excel (for analysis through
-        pivot table operations), Open MRS (for patient based management), and
-        CRIS (for HIV/AIDS management). Being based on Open Standards and an
-        Open Architecture, DHIS 2 can build bridges to speak to the other
+      <title>Auxiliary software that can be used with DHIS2</title>
+      <para>A variety of auxiliary software can be run with DHIS2, such as
+        GIS (for mapping), JasperReports (for reporting), Excel (for analysis through
+        pivot table operations), OpenMRS (for patient based management). Being based on Open Standards and an
+        Open Architecture, DHIS2 can build bridges to speak to the other
         systems. Further, auxiliary modules can be developed and integrated
-        with the core DHIS 2 application.</para>
+        with the core DHIS2 application.</para>
     </section>
   </section>
 </chapter>
