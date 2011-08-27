@@ -1,56 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
-                      "http://www.docbook.org/xml/4.4/docbookx.dtd">
-<book>
-    <bookinfo>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
+<article>
         <title>MyDatamart User Manual</title>
-        <!--        <releaseinfo><?eval ${project.version}?></releaseinfo>-->
-        <releaseinfo>1.0</releaseinfo>
-        <keywordset>
+        <articleinfo>
+            <keywordset>
             <keyword>DHIS2</keyword>
             <keyword>HMIS</keyword>
             <keyword>aggregate data</keyword>
             <keyword>Health Management Information System</keyword>
             <keyword>Integrated data repository</keyword>
             <keyword>Health Information System</keyword>
-        </keywordset>
-        <copyright>
-            <year>2006-2011</year>
-        </copyright>
-        <author>
-            <firstname>Dhis2</firstname>
-            <surname>Documentation Team</surname>
-        </author>
-        <legalnotice>
-            <formalpara id="warranty">
-                <title>Warranty:</title>
-                <para> THIS DOCUMENT IS PROVIDED BY THE AUTHORS &apos;&apos;AS IS&apos;&apos; AND
-                    ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-                    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-                    DISCLAIMED. IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE LIABLE FOR ANY
-                    DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-                    (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-                    LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
-                    ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-                    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-                    MANUAL AND PRODUCTS MENTIONED HEREIN, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
-                    DAMAGE.</para>
-            </formalpara>
-            <formalpara id="license">
-                <title>License:</title>
-                <para> Permission is granted to copy, distribute and/or modify this document under
-                    the terms of the GNU Free Documentation License, Version 1.3 or any later
-                    version published by the Free Software Foundation; with no Invariant Sections,
-                    no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included
-                    in the source of this documentation, and is available here online:<ulink
-                        url="http://www.gnu.org/licenses/fdl.html">
-                        http://www.gnu.org/licenses/fdl.html</ulink>.</para>
-            </formalpara>
-        </legalnotice>
-        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../build.properties"
-            encoding="UTF-8"/>
-    </bookinfo>
-    <chapter>
+            </keywordset>
+        </articleinfo> 
+    <section id="Background">
         <title>Background</title>
         <para>The Mydatamart tool was created to address a changing paradigm in the deployment of
             DHIS2. In the past, going back to the days even before DHIS was a web application, the
@@ -104,9 +66,9 @@
             configured to use ODBC connections to the local Sqlite database instead of the remote
             database server.</para>
 
-    </chapter>
+    </section>
 
-    <chapter>
+    <section id="Installation">
         <title>Installation</title>
         <para>Installation of Mydatamart has been made as simple as possible. The application itself
             is a self-contained executable which doesn't require any additional installation
@@ -174,9 +136,9 @@
                 </listitem>
             </orderedlist>
         </para>
-    </chapter>
+    </section>
 
-    <chapter>
+    <section id="Application">
         <title>The Mydatamart application</title>
         <para>The purpose of the Mydatamart application is to manage a local datamart store which is
             populated by downloading small chunks of data from the central DHIS2 web application. It
@@ -479,10 +441,10 @@
             option or by simply pressing the "F2" shortcut key.</para>
             <para>It is a good idea to capture the content of this console log when reporting problems to the developers.</para>
         </section>
-    </chapter>
-    <chapter>
+    </section>
+    <section id="Summary">
         <title>Summmary notes</title>
         <para><emphasis>Put some short quick reference notes for common tasks here - Ed.</emphasis></para>
-    </chapter>
+    </section>
 
-</book>
+</article>
