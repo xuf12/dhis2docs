@@ -296,6 +296,32 @@ yearly for which the data is to be locked. The month, quarter or year for which 
     <title>Zero value storage</title>
     <para>The zero value storage function makes it possible to define for which data elements the system should store zero values. In most cases zeros are significant only for a subset of the data elements in the database. Any zeroes entered during data entry will be ignored by default, except for data elements where the zero value storage has been enabled. </para>
   </section>
+  <section>
+    <title>Organisation unit pruning</title>
+    <para>If you need to prune out branches of the organisational unit hierarchy, you can use the  organisational unit pruning function. Keep in mind that the only selected organisational (and its children) will be kept. All other orgunits  (and any data associated with them) will be deleted from the database. </para>
+  </section>
+  <section>
+    <title>Min-Max Value Generation</title>
+    <para>This administrative function can be used to generate min-max values, which are used as part of the data quality and validation process for specific organization units and data sets. Simply select the dataset from the left hand frame, and then select the required orgunits to generate the min-max values for from the organisational units selector on the right. Press the &quot;Generate&quot; button to generate or regenerate all min-max values. Press &quot;Remove&quot; to remove all min-max values which are currently stored in the database. </para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resources/images/maintainence/min_max_value_generation.PNG" align="center" width="907px"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot></para>
+  </section>
+  <section>
+    <title>Constant</title>
+    <para>Constants are static values which can be made available to users for use in data elements and indicators. Some indicators, such as &quot;Couple year protection rate&quot; depend on constants which usually do not change over time. Simply press &quot;Add&quot; and provide a name in the &quot;Name&quot; field and define it&apos;s value in the &quot;Value&quot; field. Press &quot;Add&quot; . The constant will now be available to users for use in their expressions.</para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resources/images/maintainence/add_new_constant.PNG" align="center" width="338px"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </section>
   <section id="cacheStatistics">
     <title>Cache Statistics </title>
     <para>This option is for system administrators only to use. The cache statistics shows the status of the application level cache. The application level cache refers to the objects and query results that the application is caching in order to speed up performance. If the database has been modified directly the application cache needs to be cleared for it to take effect.</para>

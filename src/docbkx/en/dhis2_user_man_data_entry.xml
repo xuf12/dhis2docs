@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>Data entry</title>
@@ -68,6 +68,47 @@
         <mediaobject>
           <imageobject>
             <imagedata width="100%" fileref="resources/images/dhis2UserManual/data_entry_validation_result.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </section>
+    <section>
+      <title>Offline data entry</title>
+      <para> The data entry module will function even if during data entry the Internet connectivity is not stable. In order to utilize this functionality, you must login to the server while the Internet is functional, but if during data entry, the Internet link between your computer and the server becomes unstable, data can still be entered into the data entry form, saved to your local computer, and then pushed to the server once the Internet connectivity has been restored. Data can be entered
+and stored locally while being offline and uploaded to the central
+server when on-line. This means that the on-line deployment strategy
+will be more viable in areas with unstable Internet connectivity. The
+total bandwidth usage is greatly reduced since forms no longer are
+retrieved from the server for each rendering.</para>
+      <para>When the server is able to be reached through the Internet connection, a message is displayed  at the top of the data entry screen  below. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="577px" align="center" fileref="resources/images/data_entry/data_entry_online.PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>If the Internet connection should disconnect for some reason during the data entry process, this will be detected by the application, and you will be informed that your data will be stored locally. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resources/images/data_entry/data_entry_offline.PNG" align="center" width="577px"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Data entry can proceed as normal. Once you have entered all of the necessary data, and the application detects that the server is back on-line, you will be informed that you have data which needs to be synchronized with the server. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resources/images/data_entry/data_entry_offline_upload1.PNG" align="center" width="577px"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Once the data has successfully synchronized with the server, you will receive a confirmation message that the data has been successfully uploaded to the server. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resources/images/data_entry/data_entry_offline_upload_success.PNG" align="center" width="577px"/>
           </imageobject>
         </mediaobject>
       </screenshot>
