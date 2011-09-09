@@ -7,8 +7,12 @@
     <para>
       Setting up the GIS simply means storing coordinates for the organisation units you want to show on the map in the database. Coordinates are distributed in shapefiles, which is the most common geospatial vector data format for desktop applications (you might find shapefiles for your country at http://www.diva-gis.org/gdata). The work that needs to be done in order to use these coordinates in DHIS 2 GIS is transfering them and storing them with the corresponding organisation units in the database.
     </para>
-    <para>If you go to the organisation unit module and edit one of the units, you can see a textfield called Coordinates. Here you may fill in its coordinates directly (geojson format) which is quite neat if you just want to update a couple of units. However, if you are going to e.g. add coordinates for all units at a certain level you don&apos;t want to do that manually. This is where the automatic GML import comes into play and the following section explains the preferred way of using it.
-    </para>
+    <para>If you go to the organisation unit module and edit one of the units, you can see a textfield called Coordinates. Here you may fill in its coordinates directly (geojson format) which is quite neat if you just want to update a couple of units.</para>
+    <para>An example point/facility coordinate:</para>
+    <para><programlisting><userinput>[29.341,-11.154]</userinput></programlisting></para>
+    <para>An example polygon/area coordinates string:</para>
+    <para><programlisting><userinput>[[[[29.343,-11.154],[28.329,-11.342],[28.481,-10.239],[29.833,-10.412]]]]</userinput></programlisting></para>
+    <para>However, if you are going to e.g. add coordinates for all units at a certain level you don&apos;t want to do that manually. This is where the automatic GML import comes into play and the following section explains the preferred way of using it.</para>
   </section>
   <section id="gisSetup">
     <title>Importing coordinates</title>

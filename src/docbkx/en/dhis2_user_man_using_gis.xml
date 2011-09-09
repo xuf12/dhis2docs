@@ -15,10 +15,6 @@
     </screenshot>
     <para>On the right hand side there is a panel called "Map layers". There are three available "base layers", which means background map, including OpenStreetMap and Google Maps. You may click the text to open a context menu that lets you adjust the opacity/transparency of the background. "Overlays" are described later in this chapter. The final four layers are the vector layers which the user has at his disposal for thematic mapping. You may use this layer tree to show/hide layers by checking/uncheking their checkbox. The next panel called "Cursor position" tells you at what longitude and latitude your mouse cursor is positioned. The "Feature data" panel provides you with quick information on the organisation units you mouse hover in your thematic maps. Finally there is a legend panel for all the thematic layers.</para>
     <para>The picture below shows the map toolbar:</para>
-    <para>The "Map" buttons from the left: "Zoom in", "Zoom out", "Zoom to visible extent" (all thematic map data fit inside the viewport).</para>
-	<para>The "Layers" buttons from the left: "Thematic layer 1", "Thematic layer 2", "Facility layer", "Symbol layer".</para>
-	<para>The "Tools" buttons from the left: "Favorite map views", "Predefines legend sets", "Export map to PNG", "Measure distances on map".</para>
-	<para>The two final buttons are "Administrator settings" and "Help".</para>
 	<screenshot>
         <screeninfo>Map toolbar</screeninfo>
         <mediaobject>
@@ -27,6 +23,10 @@
           </imageobject>
         </mediaobject>
 	</screenshot>
+    <para>The "Map" buttons from the left: "Zoom in", "Zoom out", "Zoom to visible extent" (all thematic map data fits inside the viewport).</para>
+	<para>The "Layers" buttons from the left: "Thematic layer 1", "Thematic layer 2", "Facility layer", "Symbol layer".</para>
+	<para>The "Tools" buttons from the left: "Favorite map views", "Predefines legend sets", "Export map to PNG", "Measure distances on map".</para>
+	<para>The two final buttons are "Administrator settings" and "Help".</para>
   </section>
   <section>
     <title>Thematic mapping</title>
@@ -45,7 +45,7 @@
       <para>The two thematic layer panels let you use your data for thematic mapping. All you need to do is selecting your desired indicator/dataelement-period-map combination, then the organisation unit level and finally the parent to define the boundary. If your database has coordinates for these organisation units they will appear on the map.</para>
       <para>You may choose between legend types: <guimenuitem>automatic</guimenuitem> and <guimenuitem>predefined</guimenuitem>. Automatic means that the application will create a legend set for you based on your what method, number of classes, low color and high color you select. Method alludes to the size of the legend classes. Set to <guimenuitem>Equal intervals</guimenuitem> they will be “highest map value – lowest map value / number of classes”. Set to <guimenuitem>Equal group count</guimenuitem> the legend creator will try to distribute the organisation units evenly. Choose <guimenuitem>Fixed bounds </guimenuitem>and you may define your own class break values, type e.g. “20,40,60” using a comma to separate each of them. The legend will appear as an even gradation from the start color to the end color. Predefined legend sets are described in section 1.5.</para>
       <para>Low radius and high radius only have effect on points (facilities) and decides the the circle radius for points with the lowest and highest value.</para>
-      <para>The map view combo box lists all map views (favorites) saved by the user. The settings that are stored in the map view is automatically applied to the thematic map panel. Favorite map views are described in section 1.4.</para>
+      <para>The map view combo box lists all map views (favorites) saved by the user. The settings that are stored in the map view is automatically applied to the thematic map panel. Favorite map views are described in section 3.1.</para>
       
       <para>All available layer options are now grouped together in the thematic layer menu, see picture below.</para>
       <screenshot>
