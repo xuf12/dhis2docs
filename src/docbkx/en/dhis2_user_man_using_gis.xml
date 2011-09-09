@@ -43,7 +43,7 @@
         </mediaobject>
       </screenshot>
       <para>The two thematic layer panels let you use your data for thematic mapping. All you need to do is selecting your desired indicator/dataelement-period-map combination, then the organisation unit level and finally the parent to define the boundary. If your database has coordinates for these organisation units they will appear on the map.</para>
-      <para>You may choose between legend types: <guimenuitem>automatic</guimenuitem> and <guimenuitem>predefined</guimenuitem>. Automatic means that the application will create a legend set for you based on your what method, number of classes, low color and high color you select. Method alludes to the size of the legend classes. Set to <guimenuitem>Equal intervals</guimenuitem> they will be “highest map value – lowest map value / number of classes”. Set to <guimenuitem>Equal group count</guimenuitem> the legend creator will try to distribute the organisation units evenly. Choose <guimenuitem>Fixed bounds </guimenuitem>and you may define your own class break values, type e.g. “20,40,60” using a comma to separate each of them. The legend will appear as an even gradation from the start color to the end color. Predefined legend sets are described in section 1.5.</para>
+      <para>You may choose between legend types: <guimenuitem>automatic</guimenuitem> and <guimenuitem>predefined</guimenuitem>. Automatic means that the application will create a legend set for you based on your what method, number of classes, low color and high color you select. Method alludes to the size of the legend classes. Set to <guimenuitem>Equal intervals</guimenuitem> they will be “highest map value – lowest map value / number of classes”. Set to <guimenuitem>Equal group count</guimenuitem> the legend creator will try to distribute the organisation units evenly. Choose <guimenuitem>Fixed bounds </guimenuitem>and you may define your own class break values, type e.g. “20,40,60” using a comma to separate each of them. The legend will appear as an even gradation from the start color to the end color. Predefined legend sets are described in section 3.2.</para>
       <para>Low radius and high radius only have effect on points (facilities) and decides the the circle radius for points with the lowest and highest value.</para>
       <para>The map view combo box lists all map views (favorites) saved by the user. The settings that are stored in the map view is automatically applied to the thematic map panel. Favorite map views are described in section 3.1.</para>
       
@@ -105,7 +105,7 @@
     
     <section id="gisSymbolMap">
       <title>Symbol layer</title>
-      <para>This layer displays icons that represent areas/polygons like provinces, districts etc instead of facilities/points. Thus, in this layer you are not supposed to select a facility level, but instead a level of provinces, districts etc. In order to render this layer you need to create a predefined legend set of images, described in section 3.5.</para>
+      <para>This layer displays icons that represent areas/polygons like provinces, districts etc instead of facilities/points. Thus, in this layer you are not supposed to select a facility level, but instead a level of provinces, districts etc. In order to render this layer you need to create a predefined legend set of images, described in section 3.2.</para>
       <screenshot>
         <screeninfo>Symbol layer</screeninfo>
         <mediaobject>
