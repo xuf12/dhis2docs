@@ -92,7 +92,24 @@
             <para>Value type: Defines the type of data this data element will be used to record. Currently there are four options: number, text, yes/no (boolean), and date. </para>
           </listitem>
           <listitem>
-            <para>Aggregation operator: Defines the default aggregation operation that will be used on this data element. </para>
+            <para>Number type: In order to increase the robustness of data entry, DHIS2 supports several different number types. During data entry, users will be restricted to enter the defined number types only.  Each of the available options are described below. </para>
+            <orderedlist>
+              <listitem>
+                <para>Number: This number type supports any real value with a single decimal point, an optional negative sign, and no thousands separators. </para>
+              </listitem>
+              <listitem>
+                <para>Integer: Any whole number (positive and negative), including zero.</para>
+              </listitem>
+              <listitem>
+                <para>Positive integer: Any whole number greater than (but not including) zero.</para>
+              </listitem>
+              <listitem>
+                <para>Negative integer: Any whole number less than (but not including) zero.</para>
+              </listitem>
+            </orderedlist>
+          </listitem>
+          <listitem>
+            <para>Aggregation operator: Defines the default aggregation operation that will be used on this data element. Most data elements should have the &quot;SUM&quot; option set. This includes all  data elements which should be added together. Other data elements, such as staffing levels, should be set to use the &quot;AVERAGE&quot; operator, when values along the time dimension should not be added together, but rather averaged.</para>
           </listitem>
           <listitem>
             <para>URL: A URL having an in-depth description of the data element can be entered in the ‘URL’ field. This could be for instance, a link to a metadata repository or registry that contains detailed technical information about the definition and measurement of the data element. </para>
@@ -104,21 +121,14 @@
             <para>Data element group sets: Click the check box to activate this option  hen choose which data element group sets this data element should belong to. Available data element group sets are displayed din the upper window. Click the desired data element group set, then the <guibutton>&quot;Add selected&quot;</guibutton> button to add the data element to the group set. To remove a data element from a group set, click the data element group set in the lower list, and then click<guibutton> &quot;Remove selected&quot;</guibutton>. </para>
           </listitem>
           <listitem>
-            <para>Calculated: This option is available only when a data element is created.<important>
-                <para>As of version 2.3, calculated data elements have been deprecated. Calculated data elements should therefore be implemented as indicators instead.</para>
-              </important></para>
+            <para>Calculated: This option is available only when a data element is created.</para>
+            <note>
+              <para>As of version 2.3, calculated data elements have been deprecated. Calculated data elements should therefore be implemented as indicators instead.</para>
+            </note>
             <para>Select the data elements that will be used to define the calculated data element, and then click &quot;Add selected&quot; to add them calculated data element composition list. Fill in the correct factor for the data element calculation component (defaults to 1). Component elements of the calculated data element can be removed from the definition by pressing the &quot;Remove&quot; button.</para>
           </listitem>
           <listitem>
             <para>Aggregation levels:  The Aggregation Levels option allows the data element to be aggregated at one or more levels. When the user clicks on the Aggregation levels option, a drop down menu appears which displays available aggregation levels. The desired aggregation level is then selected by clicking the ‘Add Selected’ button. By default, the aggregation will start at the lowest assigned organisation unit. If e.g. Chiefdom is selected below it means that Chiefdom, District, and National aggregates will use Chiefdom (the  highest aggregation level available) as the data source, and PHU data will not be included. PHU data will still be available for the PHU level, but not included in aggregations to the levels above. If District and Chiefdom are both selected then the District and National level aggregates will use District data as their source, Chiefdom will use Chiefdom, and PHU will use PHU. Read more about aggregation levels in the Reporting chapter i the section on data sources for reporting.</para>
-          </listitem>
-          <listitem>
-            <para>Number type: In order to increase the robustness of data entry, DHIS2 supports several different number types. Each of the available options are described below. </para>
-            <orderedlist>
-              <listitem>
-                <para>Number: This number type supports any real value with a single decimal point, an optional negative sign, and no thousands seperators. </para>
-              </listitem>
-            </orderedlist>
           </listitem>
         </itemizedlist>
         <para>After making the required changes, click ‘Save’ to institute them. The ‘Cancel’ button aborts all changes made.</para>
