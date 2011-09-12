@@ -682,10 +682,37 @@
     <!-- Use nice graphics for admonitions -->
     <xsl:param name="admon.graphics">1</xsl:param>
 	<xsl:param name="admon.graphics.path">resources/images/admon/</xsl:param>
-	
-	<xsl:template match="*" mode="admon.graphic.width">
+		<xsl:template match="*" mode="admon.graphic.width">
 		<xsl:text>14pt</xsl:text>
 	</xsl:template>
+	<!-- this is an alternate view of admonitions which maybe preferable
+  <xsl:template name="graphical.admonition">
+  <xsl:variable name="id">
+    <xsl:call-template name="object.id"/>
+  </xsl:variable>
+
+  <fo:block space-before.minimum="0.8em"
+            space-before.optimum="1em"
+            space-before.maximum="1.2em"
+            start-indent="0.25in"
+            end-indent="0.25in"
+            border-top="0.5pt solid black"
+            border-bottom="0.5pt solid black"
+            padding-top="4pt"
+            padding-bottom="4pt"
+            id="{$id}">
+    <xsl:if test="$admon.textlabel != 0 or title">
+      <fo:block keep-with-next='always'
+                xsl:use-attribute-sets="admonition.title.properties">
+         <xsl:apply-templates select="." mode="object.title.markup"/>
+      </fo:block>
+    </xsl:if>
+
+    <fo:block xsl:use-attribute-sets="admonition.properties">
+      <xsl:apply-templates/>
+    </fo:block>
+  </fo:block>
+</xsl:template> -->
 <!--###################################################
                           Misc
     ################################################### -->   
