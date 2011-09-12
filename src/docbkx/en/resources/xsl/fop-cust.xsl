@@ -44,10 +44,15 @@
     <xsl:param name="graphicsize.use.img.src.path">0</xsl:param>
 	<xsl:param name="ignore.image.scaling" select="0"></xsl:param>
 -->
+<!--###################################################
+                   SGlobal attributes
+    ################################################### --> 
     <xsl:attribute-set name="xref.properties">
-        <xsl:attribute name="color" >blue</xsl:attribute>
-		<xsl:attribute name="text-decoration" >underline</xsl:attribute>
+        <xsl:attribute name="color">blue</xsl:attribute>
+		<xsl:attribute name="text-decoration">underline</xsl:attribute>
     </xsl:attribute-set>
+	 <!-- Hide URL -->
+  <xsl:param name="ulink.show" select="0"/>
 
 <!--###################################################
                    Custom Title Page
