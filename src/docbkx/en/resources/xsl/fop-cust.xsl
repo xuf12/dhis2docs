@@ -45,7 +45,7 @@
 	<xsl:param name="ignore.image.scaling" select="0"></xsl:param>
 -->
 <!--###################################################
-                   SGlobal attributes
+                   Global attributes
     ################################################### --> 
     <xsl:attribute-set name="xref.properties">
         <xsl:attribute name="color">blue</xsl:attribute>
@@ -680,8 +680,12 @@
     ################################################### -->   
 
     <!-- Use nice graphics for admonitions -->
-    <xsl:param name="admon.graphics">'1'</xsl:param>
-
+    <xsl:param name="admon.graphics">1</xsl:param>
+	<xsl:param name="admon.graphics.path">resources/images/admon/</xsl:param>
+	
+	<xsl:template match="*" mode="admon.graphic.width">
+		<xsl:text>14pt</xsl:text>
+	</xsl:template>
 <!--###################################################
                           Misc
     ################################################### -->   

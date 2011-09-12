@@ -67,6 +67,8 @@
               <goal>generate-html</goal>
             </goals>
             <configuration>
+			  <admonGraphics>1</admonGraphics>
+			  <admonGraphicsPath>resources/images/admon/</admonGraphicsPath>
               <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
               <glossaryCollection>resources/glossary_en.xml</glossaryCollection>
               <sectionAutolabel>1</sectionAutolabel>
@@ -104,6 +106,8 @@
               <goal>generate-html</goal>
             </goals>
             <configuration>
+			  <admonGraphics>1</admonGraphics>
+			  <admonGraphicsPath>resources/images/admon/</admonGraphicsPath>
               <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
               <glossaryCollection>resources/glossary_en.xml</glossaryCollection>
               <sectionAutolabel>1</sectionAutolabel>
@@ -142,6 +146,8 @@
               <goal>generate-html</goal>
             </goals>
             <configuration>
+			  <admonGraphics>1</admonGraphics>
+			  <admonGraphicsPath>resources/images/admon/</admonGraphicsPath>
               <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
               <glossaryCollection>resources/glossary_en.xml</glossaryCollection>
               <sectionAutolabel>1</sectionAutolabel>
@@ -180,7 +186,9 @@
               <goal>generate-html</goal>
             </goals>
             <configuration>
-              <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
+			  <admonGraphics>1</admonGraphics>
+			  <admonGraphicsPath>resources/images/admon/</admonGraphicsPath>
+			  <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
               <glossaryCollection>resources/glossary_en.xml</glossaryCollection>
               <sectionAutolabel>1</sectionAutolabel>
               <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
