@@ -121,6 +121,7 @@
                 <copy todir="${docbook.target}/en/end-user/html/resources/images">
                   <fileset dir="src/docbkx/en/resources/images">
                     <include name="**/*.png" />
+					<include name="**/*.PNG" />
                     <include name="**/*.gif" />
                     <include name="**/*.jpg" />
                   </fileset>
@@ -158,6 +159,7 @@
                 <copy todir="${docbook.target}/en/implementer/html/resources/images">
                   <fileset dir="src/docbkx/en/resources/images">
                     <include name="**/*.png" />
+					<include name="**/*.PNG" />
                     <include name="**/*.gif" />
                     <include name="**/*.jpg" />
                   </fileset>

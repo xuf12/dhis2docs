@@ -13,9 +13,10 @@
 ]>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                version="1.0"
+                version="1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns="http://www.w3.org/TR/xhtml1/transitional"
                 xmlns:fo="http://www.w3.org/1999/XSL/Format"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
 				xmlns:db="http://docbook.org/ns/docbook"
                 exclude-result-prefixes="#default">
                 
@@ -43,6 +44,10 @@
     <xsl:param name="graphicsize.use.img.src.path">0</xsl:param>
 	<xsl:param name="ignore.image.scaling" select="0"></xsl:param>
 -->
+    <xsl:attribute-set name="xref.properties">
+        <xsl:attribute name="color" >blue</xsl:attribute>
+		<xsl:attribute name="text-decoration" >underline</xsl:attribute>
+    </xsl:attribute-set>
 
 <!--###################################################
                    Custom Title Page
@@ -710,7 +715,7 @@
               colored and hyphenated links 
     ###################################################  -->
 
-	
+	<!--Ulinks 
        <xsl:template match="ulink"> 
        <fo:basic-link external-destination="{@url}" 
                        xsl:use-attribute-sets="xref.properties" 
@@ -725,7 +730,24 @@
                        </xsl:otherwise> 
                        </xsl:choose> 
                        </fo:basic-link> 
-       </xsl:template>
+      </xsl:template> 
+	  
+	  <xsl:template match="link">
+        <fo:basic-link internal-destination="{@linkend}"
+                xsl:use-attribute-sets="xref.properties"
+                text-decoration="underline"
+                color="blue">
+            <xsl:choose>
+                <xsl:when test="count(child::node())=0">
+                    <xsl:value-of select="@linkend"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <fo:inline color="blue" text-decoration="underline"><xsl:apply-templates/></fo:inline>
+                </xsl:otherwise>
+            </xsl:choose>
+        </fo:basic-link>
+    </xsl:template> -->
+
     <xsl:template match="varlistentry/term"> 
     <fo:inline font-style="italic"> 
             <xsl:apply-templates/>

@@ -50,7 +50,7 @@ Along the time dimension there are several possibilities, the two most common wa
         <title>Dimensions of aggregation</title>
         <section>
           <title>Organisational units and levels</title>
-          <para>Organisational units are used to represent the &apos;where&apos; dimension associated with data values. In DHIS 2, organisational units are arranged in a hierarchy, which typically corresponds to the hierarchical nature of the organisation or country. Organisational unit levels correspond to the distinct levels within the hierarchy. For instance, a country may be organized into provinces, then districts, then facilities, and then sub-centers. This organisational hierarchy would have five levels. Within each level, a number of organisational units would exist. During the aggregation process, data is aggregated from the lower organisational unit levels to higher levels. Depending on the aggregation operator, data may be &apos;summed&apos; or &apos;averaged&apos; within a given organisational unit level, to derive the aggregate total for all the organisational units that are contained within a higher level organisational unit level. For instance, if there are ten districts contained in a province and the aggregation operator for a given data element has been defined as &apos;SUM&apos;,  the aggregate total for the province would be calculated as the sum of the values of the individual ten distrincts contained in that province.</para>
+          <para>Organisational units are used to represent the &apos;where&apos; dimension associated with data values. In DHIS 2, organisational units are arranged in a hierarchy, which typically corresponds to the hierarchical nature of the organisation or country. Organisational unit levels correspond to the distinct levels within the hierarchy. For instance, a country may be organized into provinces, then districts, then facilities, and then sub-centers. This organisational hierarchy would have five levels. Within each level, a number of organisational units would exist. During the aggregation process, data is aggregated from the lower organisational unit levels to higher levels. Depending on the aggregation operator, data may be &apos;summed&apos; or &apos;averaged&apos; within a given organisational unit level, to derive the aggregate total for all the organisational units that are contained within a higher level organisational unit level. For instance, if there are ten districts contained in a province and the aggregation operator for a given data element has been defined as &apos;SUM&apos;,  the aggregate total for the province would be calculated as the sum of the values of the individual ten districts contained in that province.</para>
         </section>
         <section>
           <title>Period</title>
@@ -65,7 +65,7 @@ Along the time dimension there are several possibilities, the two most common wa
         <title>Aggregation operators, methods for aggregation</title>
         <section>
           <title>Sum</title>
-          <para>The &apos;sum&apos; operator simply calcuates the sum of all data values that are contained within a particular aggregation matrix. For instance, if data is recorded on a monthly basis at the district level and is aggregated to provincial quarterly totals, all data contained in all districts for a given province and all weeks for the given quarter will be added together to obtaine the aggregate total.</para>
+          <para>The &apos;sum&apos; operator simply calculates the sum of all data values that are contained within a particular aggregation matrix. For instance, if data is recorded on a monthly basis at the district level and is aggregated to provincial quarterly totals, all data contained in all districts for a given province and all weeks for the given quarter will be added together to obtain the aggregate total.</para>
         </section>
         <section>
           <title>Average</title>
@@ -242,7 +242,7 @@ If you cross-tab on indicators and organisation units, the column headers of the
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>Note that the options made here regarding crosstab dimentions may have consequences for what options are available when using the report table as a data source later, for example for standard reports.</para>
+      <para>Note that the options made here regarding crosstab dimensions may have consequences for what options are available when using the report table as a data source later, for example for standard reports.</para>
       <para><emphasis role="bold">Sort order</emphasis></para>
       <para>Affects the rightmost column in the table, allows you to choose to sort it low to high or high to low.</para>
       <para><emphasis role="bold">Top limit</emphasis></para>
@@ -869,31 +869,31 @@ Above the table there are six buttons; five download buttons and one Back button
         <para>By using the expression editor, it is possible to add a column to the table with totals for each row. In the following example, we will make a table with three months as columns as well as a column with the totals for the three months.</para>
         <para>We start by dragging a text label into the table header and changing its text to &quot;Total&quot;, and dragging a text field into the details row. </para>
         <screenshot>
-        <screeninfo>Add a text field</screeninfo>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="70%" fileref="resources/images/dhis2_creating_reporting/text_field.jpg" format="JPEG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
+          <screeninfo>Add a text field</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="70%" fileref="resources/images/dhis2_creating_reporting/text_field.jpg" format="JPEG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
         <para>As was discussed in the section on &quot;Text field&quot;, we have to change the properties of the new text field so that it can display numbers. To do this, change the &quot;Expressions Class&quot; in the properties panel to &quot;java.lang.Double&quot;.</para>
-         <screenshot>
-        <screeninfo>Change text field type</screeninfo>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="50%" fileref="resources/images/dhis2_creating_reporting/text_field_type.jpg" format="JPEG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
+        <screenshot>
+          <screeninfo>Change text field type</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="50%" fileref="resources/images/dhis2_creating_reporting/text_field_type.jpg" format="JPEG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
         <para>Right click the text field and choose &quot;Edit Expression&quot;. This will bring up the &quot;Expressions editor&quot;.  As the expression, we want to sum up all the columns. In this case we have three value expressions we want to sum up: &quot;September&quot;, &quot;October 2010&quot;, &quot;November 2010&quot;. The name of these fields will vary depending on the crosstab dimension you have chosen in the report table. In our case, the  expression we make is  &quot;$f{September}+$f{October 2010}+$f{November 2010}&quot;:</para>
-         <screenshot>
-        <screeninfo>Edit the expression</screeninfo>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="90%" fileref="resources/images/dhis2_creating_reporting/expression.jpg" format="JPEG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
+        <screenshot>
+          <screeninfo>Edit the expression</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="90%" fileref="resources/images/dhis2_creating_reporting/expression.jpg" format="JPEG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
         <para>Each row of the table have a totals column to the right.</para>
       </section>
       <section>
