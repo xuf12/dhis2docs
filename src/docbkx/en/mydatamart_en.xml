@@ -1,40 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <article>
-        <title>MyDatamart User Manual</title>
-        <articleinfo>
-            <keywordset>
-            <keyword>DHIS2</keyword>
-            <keyword>HMIS</keyword>
-            <keyword>aggregate data</keyword>
-            <keyword>Health Management Information System</keyword>
-            <keyword>Integrated data repository</keyword>
-            <keyword>Health Information System</keyword>
-            </keywordset>
-        </articleinfo> 
-    <section id="Background">
-        <title>Background</title>
-        <para>The Mydatamart tool was created to address a changing paradigm in the deployment of
+  <title>MyDatamart User Manual</title>
+  <articleinfo>
+    <keywordset>
+      <keyword>DHIS2</keyword>
+      <keyword>HMIS</keyword>
+      <keyword>aggregate data</keyword>
+      <keyword>Health Management Information System</keyword>
+      <keyword>Integrated data repository</keyword>
+      <keyword>Health Information System</keyword>
+    </keywordset>
+  </articleinfo>
+  <section id="Background">
+    <title>Background</title>
+    <para>The Mydatamart tool was created to address a changing paradigm in the deployment of
             DHIS2. In the past, going back to the days even before DHIS was a web application, the
             typical data flows of the system, as installed in a district office, was between
             components which were closely located to one another. The DHIS application was used to
             provide a user interface to a database, which stored all the data and metadata for the
             application. In many settings the user interface, the application and the database might
             even be on the same computer. In other settings these three components might exist
-            seperately on a small Local Area Network (LAN) within the district office.</para>
-        <para>The user would interact with the database in two different ways. In the normal flow of
+            separately on a small Local Area Network (LAN) within the district office.</para>
+    <para>The user would interact with the database in two different ways. In the normal flow of
             working with DHIS2 she would work through the web interface and the DHIS2 web
             application would take care of updating the database in the background. When analyzing
             data, the typical approach is to create pivot tables using Microsoft Excel, and
             configure Excel to fetch the data required by configuring an ODBC connection which
-            points to the database. These flows of data are illustrated in <xref
-                linkend="dataflow_orig"/> below.</para>
-        <figure id="dataflow_orig">
-            <title>Data flows using DHIS2</title>
-            <graphic align="center" width="4in"
-                fileref="resources/images/mydatamart/dataflow_orig.png"/>
-        </figure>
-        <para>It is important to understand that the quantity of data being transported between the
+            points to the database. These flows of data are illustrated in <xref linkend="dataflow_orig"/> below.</para>
+    <figure id="dataflow_orig">
+      <title>Data flows using DHIS2</title>
+      <graphic fileref="resources/images/mydatamart/dataflow_orig.png" width="4in" align="center"/>
+    </figure>
+    <para>It is important to understand that the quantity of data being transported between the
             database and Excel pivot table (data flow 3 in the figure) can be quite large. By and
             large this is acceptable so long as the user is working on the same computer as the
             database or at least on the same high speed LAN. But the requirement for the user to be
@@ -43,232 +41,214 @@
             benefits of a web application is that the application server does not need to be
             physically present in the district office. Having everything co-located creates an
             additional burden of hardware and software maintenance which distracts from the core
-            function of the district office. Where the district office has reasonable internet
+            function of the district office. Where the district office has reasonable Internet
             connectivity it is preferable to be able to host the DHIS2 web application at some
             central location within a data centre where it can be professionally managed by system
             administrators with the requisite skills.</para>
-        <para>The challenge that is introduced by this type of deployment is that we can no longer
+    <para>The challenge that is introduced by this type of deployment is that we can no longer
             rely on users analyzing their data by performing frequent and voluminous updates of
             their pivot tables from the back end database. In fact, in a properly secured
             deployment, the district user will not be able to access the database at all. All
             interaction with DHIS2 would be through the web interface to the application.</para>
-        <para>Mydatamart was created to address this problem. With Mydatamart, the data that is
-            required to be analyzed in pivot tables is pulled incrementally from the dhis database
-            via the dhis2 webserver and stored locally in a small but efficient local database. This
-            database makes use of the widely deployed Sqlite database engine. This new dataflow is
+    <para>Mydatamart was created to address this problem. With Mydatamart, the data that is
+            required to be analyzed in pivot tables is pulled incrementally from the DHIS database
+            via the dhis2 web server and stored locally in a small but efficient local database. This
+            database makes use of the widely deployed Sqlite database engine. This new data flow is
             shown in red in <xref linkend="dataflow_new"/>.</para>
-        <figure id="dataflow_new">
-            <title>Using a local datamart</title>
-            <graphic align="center" width="5in"
-                fileref="resources/images/mydatamart/dataflow_new.png"/>
-        </figure>
-        <para>With the data available locally, pivot tables in the district office can now be
+    <figure id="dataflow_new">
+      <title>Using a local datamart</title>
+      <graphic fileref="resources/images/mydatamart/dataflow_new.png" width="5in" align="center"/>
+    </figure>
+    <para>With the data available locally, pivot tables in the district office can now be
             configured to use ODBC connections to the local Sqlite database instead of the remote
             database server.</para>
-
-    </section>
-
-    <section id="Installation">
-        <title>Installation</title>
-        <para>Installation of Mydatamart has been made as simple as possible. The application itself
-            is a self-contained executable which doesn't require any additional installation
+  </section>
+  <section id="Installation">
+    <title>Installation</title>
+    <para>Installation of Mydatamart has been made as simple as possible. The application itself
+            is a self-contained executable which doesn&apos;t require any additional installation
             procedure. If you have the executable then it is ready to run. If you are going to use
             Microsoft Excel to create and use pivot tables linked to your local datamart, then you
             do also need to install the Sqlite3 ODBC driver. In addition, power users might also
-            want to make use of a database GUI application to inspect ot manipulate the datamart
+            want to make use of a database GUI application to inspect or manipulate the datamart
             files directly. There are a number of freely available applications for viewing sqlite3
-            databases - we highly recommend a program called sqlitestudio.</para>
-        <table id="software">
-            <title>Software and where to get it</title>
-            <tgroup cols="3">
-                <thead>
-                    <row>
-                        <entry>Software</entry>
-                        <entry>Purpose</entry>
-                        <entry>Download</entry>
-                    </row>
-                </thead>
-                <tbody>
-                    <row>
-                        <entry>Mydatamart</entry>
-                        <entry>Desktop tool for managing local datamart</entry>
-                        <entry>The latest version can always be found at
-                            http://www.dhis2.org</entry>
-                    </row>
-                    <row>
-                        <entry>Sqlite3 ODBC driver</entry>
-                        <entry>Required for Excel to be able to link to datamart files.</entry>
-                        <entry>The home page is http://www.ch-werner.de/sqliteodbc/. You should
-                            download the file sqliteodbc.exe. For convenience a version can also be
-                            found at http://www.dhis2.org.</entry>
-                    </row>
-                    <row>
-                        <entry>Sqlitestudio</entry>
-                        <entry>This is not required but may be useful for power users to inspect the
-                            sqlite3 database files.</entry>
-                        <entry>The home page is http://sqlitestudio.one.pl/. Check here for most
-                            current version. For convenience A version can also be found here
-                            http://www.dhis2.org.</entry>
-                    </row>
-                </tbody>
-            </tgroup>
-
-        </table>
-        <para>The following provides a list of step by step instructions to get started: <orderedlist>
-                <listitem>
-                    <para>Download the file sqliteodbc.exe from one of the locations indicated
+            databases - we highly recommend a program called <ulink url="http://sqlitestudio.one.pl/">sqlitestudio</ulink>.</para>
+    <table id="software">
+      <title>Software and where to get it</title>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry>Software</entry>
+            <entry>Purpose</entry>
+            <entry>Download</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>Mydatamart</entry>
+            <entry>Desktop tool for managing local datamart</entry>
+            <entry>The latest version can always be found at <ulink url="http://www.dhis2.org/">http://www.dhis2.org</ulink></entry>
+          </row>
+          <row>
+            <entry>Sqlite3 ODBC driver</entry>
+            <entry>Required for Excel to be able to link to datamart files.</entry>
+            <entry>The home page is <ulink url="http://www.ch-werner.de/sqliteodbc/">http://www.ch-werner.de/sqliteodbc/</ulink>. You should download the file sqliteodbc.exe. For convenience a version can also be found at http://www.dhis2.org.</entry>
+          </row>
+          <row>
+            <entry>Sqlitestudio</entry>
+            <entry>This is not required but may be useful for power users to inspect the sqlite3 database files.</entry>
+            <entry>The home page is <ulink url="http://sqlitestudio.one.pl/">http://sqlitestudio.one.pl/</ulink>. Check here for most current version. For convenience A version can also be found <ulink url="http://www.dhis2.org">here</ulink>.</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>The following provides a list of step by step instructions to get started: <orderedlist>
+        <listitem>
+          <para>Download the file <filename>sqliteodbc.exe</filename> from one of the locations indicated
                         above</para>
-                </listitem>
-                <listitem>
-                    <para>Double-click on the downloaded file to install the driver. Follow the on
+        </listitem>
+        <listitem>
+          <para>Double-click on the downloaded file to install the driver. Follow the on
                         screen instructions and accept all defaults.</para>
-                </listitem>
-                <listitem>
-                    <para>Download the file mydatamart.exe and place it somewhere visible on your
-                        desktop. The icon should be a small blue feather as indicated in <xref
-                            linkend="icon"/> below.</para>
-                    <figure id="icon">
-                        <title>Mydatamart desktop icon</title>
-                        <graphic align="center" width="2in"
-                            fileref="resources/images/mydatamart/icon.png"/>
-                    </figure>
-                    <para>The application can be launched by double-clicking on this icon.</para>
-                </listitem>
-            </orderedlist>
+        </listitem>
+        <listitem>
+          <para>Download the file <filename>mydatamart.exe</filename> and place it somewhere visible on your
+                        desktop. The icon should be a small blue feather as indicated in <xref linkend="icon"/> below.</para>
+          <figure id="icon">
+            <title>Mydatamart desktop icon</title>
+            <graphic fileref="resources/images/mydatamart/icon.png" width="2in" align="center"/>
+          </figure>
+          <para>The application can be launched by double-clicking on this icon.</para>
+        </listitem>
+      </orderedlist>
         </para>
-    </section>
-
-    <section id="Application">
-        <title>The Mydatamart application</title>
-        <para>The purpose of the Mydatamart application is to manage a local datamart store which is
+  </section>
+  <section id="Application">
+    <title>The Mydatamart application</title>
+    <para>The purpose of the Mydatamart application is to manage a local datamart store which is
             populated by downloading small chunks of data from the central DHIS2 web application. It
             also manages the details of ODBC connection parameters required to link Excel workbooks
             to your data.</para>
-        <para>The simplest way to start mydatamart.exe is to double-click on the icon on your
+    <para>The simplest way to start mydatamart.exe is to double-click on the icon on your
             desktop. The application should open and show a window like <xref linkend="first"/>
             below:</para>
-        <figure id="first">
-            <title>Mydatamart on first open</title>
-            <graphic align="center" width="3in" fileref="resources/images/mydatamart/first.png"/>
-        </figure>
-        <para>All of the functionality of mydatamart is available through the menu items in the
+    <figure id="first">
+      <title>Mydatamart on first open</title>
+      <graphic fileref="resources/images/mydatamart/first.png" width="3in" align="center"/>
+    </figure>
+    <para>All of the functionality of mydatamart is available through the menu items in the
             upper menu bar. Some of the more commonly used functions are also available through the
             image button bar immediately below the menu. If you hover your mouse slowly over these
             buttons a tooltip window should show the functions of each.</para>
-        <section>
-            <title>Maintaining the local datamart</title>
-            <para/>
-            <section>
-                <title>Creating a new datamart</title>
-                <para>Now the main purpose of mydatamart is to manage your personal datamart files
+    <section>
+      <title>Maintaining the local datamart</title>
+      <para/>
+      <section>
+        <title>Creating a new datamart</title>
+        <para>Now the main purpose of mydatamart is to manage your personal datamart files
                     so the first thing you will need to do is to create a new datamart. You can
-                    create a new datamart either through the File->New menu option or by pressing
+                    create a new datamart either through the File-&gt;New menu option or by pressing
                     the button with the blue cross. When you create this new datamart you will be
                     prompted for a file name. The extension .dmart will be appended automatically to
                     the name. Give some thought to how and where you are going to store this file as
                     it will soon be full of valuable data so you really do need to look after it.
                     You can create a backup at any time by simply making a copy of this file, eg.
                     onto a USB memory stick.</para>
-                <note>
-                    <para>The .dmart file is actually an sqlite3 database file which you can also
+        <note>
+          <para>The .dmart file is actually an sqlite3 database file which you can also
                         open and view or edit with any sqlite3 capable tool, such as
                         sqlitestudio.</para>
-                </note>
-                <para>When you create the new datamart, the application will present a dialog like
+        </note>
+        <para>When you create the new datamart, the application will present a dialog like
                         <xref linkend="new"/>.</para>
-                <figure id="new">
-                    <title>Creating a new datamart</title>
-                    <graphic align="center" width="3in"
-                        fileref="resources/images/mydatamart/new.png"/>
-                </figure>
-                <para>The first thing you must do is to establish a connection with your dhis
+        <figure id="new">
+          <title>Creating a new datamart</title>
+          <graphic fileref="resources/images/mydatamart/new.png" width="3in" align="center"/>
+        </figure>
+        <para>The first thing you must do is to establish a connection with your dhis
                     server. To do this enter the full url (including http://) of the dhis server
                     into the box labelled <emphasis>URL</emphasis>. Then enter your online dhis user
                     name and password. Your password will not be saved anywhere on your machine. To
                     login press the button labelled <emphasis>Login</emphasis>. If the login was
                     successful you will be rewarded with a green tick icon next to the login
                     button.</para>
-                <figure id="loggedin">
-                    <title>Logging in to dhis2 server</title>
-                    <graphic align="center" width="3in"
-                        fileref="resources/images/mydatamart/loggedin.png"/>
-                </figure>
-            </section>
-            <section>
-                <title>Populating the datamart with metadata</title>
-                <para>The local datamart is designed to store aggregated data values from
+        <figure id="loggedin">
+          <title>Logging in to dhis2 server</title>
+          <graphic fileref="resources/images/mydatamart/loggedin.png" width="3in" align="center"/>
+        </figure>
+      </section>
+      <section>
+        <title>Populating the datamart with metadata</title>
+        <para>The local datamart is designed to store aggregated data values from
                     dataelements and indicators in the online DHIS2 application. But before you can
                     do this, you must first populate the local datamart with
                         <emphasis>metadata</emphasis> from the remote dhis2.</para>
-                <para>Metadata refers to the parts of the database which give the data values
+        <para>Metadata refers to the parts of the database which give the data values
                     meaning. This includes: <itemizedlist>
-                        <listitem>
-                            <para>Organisation units and hierarchy;</para>
-                        </listitem>
-                        <listitem>
-                            <para>Dataelement and Indicator names;</para>
-                        </listitem>
-                        <listitem>
-                            <para>Datavalue disaggregations (categories and categoryoptions);</para>
-                        </listitem>
-                        <listitem>
-                            <para>Various groups and groupsets.</para>
-                        </listitem>
-                    </itemizedlist> This information is required to work with pivot tables and to
+            <listitem>
+              <para>Organisation units and hierarchy;</para>
+            </listitem>
+            <listitem>
+              <para>Dataelement and Indicator names;</para>
+            </listitem>
+            <listitem>
+              <para>Datavalue disaggregations (categories and categoryoptions);</para>
+            </listitem>
+            <listitem>
+              <para>Various groups and groupsets.</para>
+            </listitem>
+          </itemizedlist> This information is required to work with pivot tables and to
                     select important parameters relating to your organisation unit. </para>
-                <para>Fortunately populating with metadata is a straightforward, if time consuming,
+        <para>Fortunately populating with metadata is a straightforward, if time consuming,
                     operation. The easiest way to load metadata from DHIS2 is to press the toolbar
-                    button with the <inlinegraphic
-                        fileref="resources/images/mydatamart/hierarchy.png" width="0.5cm"/> image.
-                    It can also be done via the "Datamart->Load metadata from dhis" menu
+                    button with the <inlinegraphic fileref="resources/images/mydatamart/hierarchy.png" width="0.5cm"/> image.
+                    It can also be done via the &quot;Datamart-&gt;Load metadata from dhis&quot; menu
                     option.</para>
-                <para>The Mydatamart application will then contact the remote DHIS2 server and
+        <para>The Mydatamart application will then contact the remote DHIS2 server and
                     download, transform and save the metadata into the local database.</para>
-                <note>
-                    <para>Currently the transform part of the operation is quite slow. Expect it to
+        <note>
+          <para>Currently the transform part of the operation is quite slow. Expect it to
                         take as long as ten minutes. During this time you cannot work with the
                         application so you have to be patient. The reason for the long time is that
                         it must process all of the orgunits in the dhis hierarchy, which for many
                         countries can be quite large. In future editions of Mydatamart we will
                         improve on this by cutting down the number of orgunits to be
                         processed.</para>
-                </note>
-                <para>Once the metadata download is complete the user will be returned to the
+        </note>
+        <para>Once the metadata download is complete the user will be returned to the
                     Settings interface where she can proceed to enter information about her
                     organisation unit and the level of analysis to be used. This configuration is
                     covered in the following section.</para>
-            </section>
-            <section>
-                <title>Choosing Organisation unit and analysis level</title>
-                <para>The benefit of using mydatamart is that you only need to download the data
+      </section>
+      <section>
+        <title>Choosing Organisation unit and analysis level</title>
+        <para>The benefit of using mydatamart is that you only need to download the data
                     from the dhis2 server which you need in your routine analysis. By selecting the
                     appropriate orgunit and level of analysis you ensure that your regular data
                     updates will be small and manageable even when bandwidth is limited.</para>
-                <para>The two concepts to be aware of are your <emphasis>root orgunit</emphasis> and
+        <para>The two concepts to be aware of are your <emphasis>root orgunit</emphasis> and
                     your <emphasis>analysis level</emphasis>. To illustrate this using an example
                     from Kenya, let us assume you are based in the district office of Nyeri North in
                     Nyeri County. You have either been given pivot tables or you will make them to
                     analyze your data down to facility level. So you require data for all the
                     facilities within Nyeri North and you also require to see data for your peers
                     ie. the other districts within Nyeri County.</para>
-                <para>Once you have created a new datamart and have downloaded metadata as described
+        <para>Once you have created a new datamart and have downloaded metadata as described
                     in the previous section, you should be able to set these two parameters in the
                     settings dialog as illustrated below. If the dialog is not visible you can
-                    access it by pressing the <inlinegraphic
-                        fileref="resources/images/mydatamart/configuration.png" width="0.5cm"/>
+                    access it by pressing the <inlinegraphic fileref="resources/images/mydatamart/configuration.png" width="0.5cm"/>
                     button.</para>
-                <figure id="analysis_level">
-                    <title>Setting analysis parameters</title>
-                    <graphic align="center" width="3in"
-                        fileref="resources/images/mydatamart/analysis_level.png"/>
-                </figure>
-                <para>Once you have set these once they will be saved with your datamart file.
+        <figure id="analysis_level">
+          <title>Setting analysis parameters</title>
+          <graphic fileref="resources/images/mydatamart/analysis_level.png" width="3in" align="center"/>
+        </figure>
+        <para>Once you have set these once they will be saved with your datamart file.
                     Though they can be changed at any time or you might have different datamart
                     files with different settings. In most cases you will likely be maintaining a
                     single datamart file which you will have set up like the case of Nyeri North
                     above.</para>
-                <note>
-                    <para>You will have noticed from <xref linkend="analysis_level"/> that the
+        <note>
+          <para>You will have noticed from <xref linkend="analysis_level"/> that the
                         analysis level is converted to a number. So for example, in Kenya, the
                         facility is at level 5, the district is level 4 etc. These correspond to
                         orgunit hierarchy levels within dhis2. These numbers will vary from one
@@ -276,53 +256,51 @@
                         concerned with the number of the level, except when you come to selecting
                         views for analysis. Here you will see that the level number is used as part
                         of the naming convention for views.</para>
-                </note>
-            </section>
-            <section>
-                <title>Downloading data</title>
-                <para>Now that you have your local datamart set up you are ready to start populating
+        </note>
+      </section>
+      <section>
+        <title>Downloading data</title>
+        <para>Now that you have your local datamart set up you are ready to start populating
                     it with data from your online dhis2 server. Whereas you will probably only
                     adjust the settings when creating a new datamart, you will be doing regular
                     synching of your local datamart with the online server. If data is being
                     downloaded once a month, then the incremental size of each download will be
                     small. You can get to the data download screen either by pressing the
-                        <inlinegraphic fileref="resources/images/mydatamart/data_mart_export.png"
-                        width="0.5cm"/> button or by navigating to the "Datamart->Update Aggregate
-                    Data" menu item.</para>
-                <para><xref linkend="download"/>, shows the datamart update screen. You can set the
+                        <inlinegraphic fileref="resources/images/mydatamart/data_mart_export.png" width="0.5cm"/> button or by navigating to the &quot;Datamart-&gt;Update Aggregate
+                    Data&quot; menu item.</para>
+        <para><xref linkend="download"/>, shows the datamart update screen. You can set the
                     detailed options for your download here. There is not much to be done as the
                     defaults should match your typical operations.</para>
-                <figure id="download">
-                    <title>Downloading data</title>
-                    <graphic align="center" width="3in"
-                        fileref="resources/images/mydatamart/download.png"/>
-                </figure>
-                <para>On the left hand side there are check boxes which you should set to indicate
+        <figure id="download">
+          <title>Downloading data</title>
+          <graphic fileref="resources/images/mydatamart/download.png" width="3in" align="center"/>
+        </figure>
+        <para>On the left hand side there are check boxes which you should set to indicate
                     whether you need data weekly, monthly, quarterly or yearly (you can select more
                     than one). These are independently set for aggregated datavaues as well as
                     aggregated indicator values, though in most cases you will require the same
                     periodicity of databvalue and indicator value.</para>
-                <para>On the right hand side you have the option to set the time period you are
+        <para>On the right hand side you have the option to set the time period you are
                     downloading. The application will attempt to select a reasonable period for you.
                     Other than the very first time you download data, the default should be to
-                    download the previous month's data.</para>
-                <para>Below the period selection section are the two buttons which actually initiate
+                    download the previous month&apos;s data.</para>
+        <para>Below the period selection section are the two buttons which actually initiate
                     the download. The first button is used to download data for orgunits below the
                     root orgunit at the level which was specified previously. So in the example, it
                     will download aggregated data at the facility level (level 5) for facilities in
                     Nyere North.</para>
-                <para>The second button is used to download aggregate data of our peers. In this
+        <para>The second button is used to download aggregate data of our peers. In this
                     case it would ensure that we had data for all the districts in Nyere County.
                     This will allow the Nyere North user to analyze the data for all facilities in
                     Nyere North as well as to compare the performance of Nyere North district with
                     Nyere South district.</para>
-            </section>
-        </section>
-        <section>
-            <title>Working with Excel</title>
-            <section>
-                <title>Creating a new Excel workbook for analysis</title>
-                <para>Pivot tables in Microsoft Excel are commonly used to analyze data in dhis2.
+      </section>
+    </section>
+    <section>
+      <title>Working with Excel</title>
+      <section>
+        <title>Creating a new Excel workbook for analysis</title>
+        <para>Pivot tables in Microsoft Excel are commonly used to analyze data in dhis2.
                     The mydatamart tool does not create pivot tables for you, but it does provide a
                     simple interface to get you started with an Excel workbook which is already
                     linked to views in your local datamart. This means that users do not need to
@@ -330,121 +308,115 @@
                     what have you. This section describes how you get started with that. It does not
                     go into the detail of actually designing the pivot tables as this is described
                     elsewhere in the dhis2 user manual.</para>
-                <para>The most important thing to have prepared when designing a pivot table are the
-                    database views you will use. Mydatamart automatically creates some "standard"
+        <para>The most important thing to have prepared when designing a pivot table are the
+                    database views you will use. Mydatamart automatically creates some &quot;standard&quot;
                     views for dataelement values and indicator values for different periodicities -
                     weekly, monthly, quarterly, semesterly (every 6 months), yearly etc. Expert
                     users might also want to design additional custom views. Using a 3rd party tool
                     such as sqlstudio is useful for this. There is also an option to import an
                     arbitrary sql file into the database which can be used to share custom
                     views.</para>
-                <para>To start the process of creating an Excel pivot table workbook, the user
-                    should select "Reports->New Excel file" from the menu bar. She will immediately
-                    be greeted with a dialog for selecting views such as illustrated in <xref
-                        linkend="views"/> below.</para>
-                <figure id="views">
-                    <title>Selecting views</title>
-                    <graphic align="center" width="3in"
-                        fileref="resources/images/mydatamart/views.png"/>
-                </figure>
-                <para>Mydatamart will present a list of all defined views in the listbox on the
+        <para>To start the process of creating an Excel pivot table workbook, the user
+                    should select &quot;Reports-&gt;New Excel file&quot; from the menu bar. She will immediately
+                    be greeted with a dialog for selecting views such as illustrated in <xref linkend="views"/> below.</para>
+        <figure id="views">
+          <title>Selecting views</title>
+          <graphic fileref="resources/images/mydatamart/views.png" width="3in" align="center"/>
+        </figure>
+        <para>Mydatamart will present a list of all defined views in the listbox on the
                     left. These include the automatically generated ones as well as any custom views
                     which may have been created outside of the tool. The names of the views give
                     some indication of their content. The auto generated views are named as
                     follows:</para>
-                <para><code>pivotsource_&lt;datatype>_ou_&lt;level>_&lt;periodicity></code></para>
-                <para>In <xref linkend="views"/> we can see that monthly and quarterly views for
+        <para><code>pivotsource_&lt;datatype&gt;_ou_&lt;level&gt;_&lt;periodicity&gt;</code></para>
+        <para>In <xref linkend="views"/> we can see that monthly and quarterly views for
                     indicators at level 4 (district) and 5 (facility) have been selected.
                     Double-clicking on a view in the left listbox causes the view to be selected for
                     inclusion. Similarly, double-clicking on a view in the right listbox causes the
                     view to be removed from the selection.</para>
-                <note>
-                    <para>A warning to power users creating custom views. You can name these views
+        <note>
+          <para>A warning to power users creating custom views. You can name these views
                         whatever you like, but be sure not to use the name of one of the built in
                         views. If you do that your custom view will get overwritten when the
                         metadata is updated.</para>
-                </note>
-                <para>Once you have selected the required views you can click on "Create Excel
-                    workbook". This will prompt you for a name and location for your new Excel
+        </note>
+        <para>Once you have selected the required views you can click on &quot;Create Excel
+                    workbook&quot;. This will prompt you for a name and location for your new Excel
                     file.</para>
-            </section>
-            <section>
-                <title>Working with your new Excel file</title>
-                <para>When you create a new Excel file as described in the section above, Excel
+      </section>
+      <section>
+        <title>Working with your new Excel file</title>
+        <para>When you create a new Excel file as described in the section above, Excel
                     should automatically open the new file. This file will have the database
                     connections to your selected views already populated. To see these connections
-                    (on Excel 2007) first click on the "Data" menu, then select "Existing
-                    Connections" from the toolbar. You should see something like <xref
-                        linkend="existing_connections"/> below, showing the views that you selected
+                    (on Excel 2007) first click on the &quot;Data&quot; menu, then select &quot;Existing
+                    Connections&quot; from the toolbar. You should see something like <xref linkend="existing_connections"/> below, showing the views that you selected
                     in the previous step.</para>
-                <figure id="existing_connections">
-                    <title>Datamart connections</title>
-                    <graphic align="center" width="4in"
-                        fileref="resources/images/mydatamart/existing_connections.png"/>
-                </figure>
-                <para>You can use these views to create pivot tables or simply to view the data
+        <figure id="existing_connections">
+          <title>Datamart connections</title>
+          <graphic fileref="resources/images/mydatamart/existing_connections.png" width="4in" align="center"/>
+        </figure>
+        <para>You can use these views to create pivot tables or simply to view the data
                     within a worksheet. To make use of a view simply double click on it. You will be
                     presented with a dialog similar to <xref linkend="pivotwizard"/>.</para>
-                <figure id="pivotwizard">
-                    <title>Pivot report wizard</title>
-                    <graphic align="center" width="3in"
-                        fileref="resources/images/mydatamart/pivotwizard.png"/>
-                </figure>
-                <para>From this point, creating pivot tables is the same as is described in the
+        <figure id="pivotwizard">
+          <title>Pivot report wizard</title>
+          <graphic fileref="resources/images/mydatamart/pivotwizard.png" width="3in" align="center"/>
+        </figure>
+        <para>From this point, creating pivot tables is the same as is described in the
                     DHIS2 User Manual.</para>
-                <note>
-                    <para>Remember to define the Indicator value calculation when using indicator
+        <note>
+          <para>Remember to define the Indicator value calculation when using indicator
                         views. This process is as described in the DHIS2 User Manual.</para>
-                </note>
-                <para>On completion of your pivot table design you can save it and/or copy it to a
+        </note>
+        <para>On completion of your pivot table design you can save it and/or copy it to a
                     new location. Whenever you have new data in your datamart you can refresh the
                     pivot tables. Refresh times should be reasonably fast as the data is coming from
                     your local datamart file.</para>
-                <para>You can also share your pivot design with other mydatamart users, particularly
+        <para>You can also share your pivot design with other mydatamart users, particularly
                     those at the same administrative level as yourself, as they will likely be
                     interested in the same views and analysis. To do this you should first ensure
                     that the Excel pivot cache is empty so that you are not trying to send enormous
-                    files around by email (<emphasis>Instructions required on doing this -
-                        Ed.</emphasis>).</para>
-                <para>Remember that the database links in the Excel file are pointing at your
+                    files around by email (<emphasis>Instructions required on doing this - Ed.</emphasis>).</para>
+        <para>Remember that the database links in the Excel file are pointing at your
                     datamart file (the file with a .dmart extension which you create when starting a
                     new datamart). If you move that datamart file your connections will no longer
                     work. Similarly if you send the file to someone else, they will need to connect
                     the Excel file to their own datamart. This process is straightforward and is
                     described in the next section.</para>
-            </section>
-            <section>
-                <title>Linking an existing Excel file to a datamart</title>
-                <para>If you have been sent a pivot table report from another mydatamart user, or you have moved the location of your .dmart file
+      </section>
+      <section>
+        <title>Linking an existing Excel file to a datamart</title>
+        <para>If you have been sent a pivot table report from another mydatamart user, or you have moved the location of your .dmart file
                 you will need to recreate the link between your datamart and the Excel file.  This is accomplished simply:</para>
-                <itemizedlist>
-                    <listitem>
-                        <para>Open your datamart file using the mydatamart tool;</para>
-                    </listitem>
-                    <listitem>
-                        <para>Select "Reports->Connect to existing excel file" or use the
+        <itemizedlist>
+          <listitem>
+            <para>Open your datamart file using the mydatamart tool;</para>
+          </listitem>
+          <listitem>
+            <para>Select &quot;Reports-&gt;Connect to existing excel file&quot; or use the
                                 <inlinegraphic fileref="resources/images/mydatamart/excel.png"/>
                             shortcut</para>
-                    </listitem>
-                    <listitem><para>Select the excel file you wish to connect to in the ensuing dialog.</para></listitem>
-                </itemizedlist>
-                <para>The excel file will automatically have its database links <emphasis>repaired</emphasis> to point to your current datamart.</para>
-            </section>
-        </section>
-        
-        <section>
-            <title>Troubleshooting</title>
-            <para>In the event of things not behaving as expected, or if you wish to report buggy or surprizing behaviour, it can be
+          </listitem>
+          <listitem>
+            <para>Select the excel file you wish to connect to in the ensuing dialog.</para>
+          </listitem>
+        </itemizedlist>
+        <para>The excel file will automatically have its database links <emphasis>repaired</emphasis> to point to your current datamart.</para>
+      </section>
+    </section>
+    <section>
+      <title>Troubleshooting</title>
+      <para>In the event of things not behaving as expected, or if you wish to report buggy or surprizing behaviour, it can be
             useful (particularly for the developer) to have more detailed information than that which is normally displayed to the user.</para>
-            <para>The mydatamart application creates an internal log with lots of low level information about what the program is doing at any
-            point in time.  To view this internal log you need to display the program console.  You can either do this through the "Help" menu
-            option or by simply pressing the "F2" shortcut key.</para>
-            <para>It is a good idea to capture the content of this console log when reporting problems to the developers.</para>
-        </section>
+      <para>The mydatamart application creates an internal log with lots of low level information about what the program is doing at any
+            point in time.  To view this internal log you need to display the program console.  You can either do this through the &quot;Help&quot; menu
+            option or by simply pressing the &quot;F2&quot; shortcut key.</para>
+      <para>It is a good idea to capture the content of this console log when reporting problems to the developers.</para>
     </section>
-    <section id="Summary">
-        <title>Summmary notes</title>
-        <para><emphasis>Put some short quick reference notes for common tasks here - Ed.</emphasis></para>
-    </section>
-
+  </section>
+  <section id="Summary">
+    <title>Summmary notes</title>
+    <para><emphasis>Put some short quick reference notes for common tasks here - Ed.</emphasis></para>
+  </section>
 </article>

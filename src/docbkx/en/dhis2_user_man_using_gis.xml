@@ -42,9 +42,9 @@
         </mediaobject>
       </screenshot>
       <para>The two thematic layer panels let you use your data for thematic mapping. All you need to do is selecting your desired indicator/dataelement-period-map combination, then the organisation unit level and finally the parent to define the boundary. If your database has coordinates for these organisation units they will appear on the map.</para>
-      <para>You may choose between legend types: <guimenuitem>automatic</guimenuitem> and <guimenuitem>predefined</guimenuitem>. Automatic means that the application will create a legend set for you based on your what method, number of classes, low color and high color you select. Method alludes to the size of the legend classes. Set to <guimenuitem>Equal intervals</guimenuitem> they will be “highest map value – lowest map value / number of classes”. Set to <guimenuitem>Equal group count</guimenuitem> the legend creator will try to distribute the organisation units evenly. Choose <guimenuitem>Fixed bounds </guimenuitem>and you may define your own class break values, type e.g. “20,40,60” using a comma to separate each of them. The legend will appear as an even gradation from the start color to the end color. Predefined legend sets are described in this <link linkend="gisLegendSet">section</link>.</para>
+      <para>You may choose between legend types: <guimenuitem>automatic</guimenuitem> and <guimenuitem>predefined</guimenuitem>. Automatic means that the application will create a legend set for you based on your what method, number of classes, low color and high color you select. Method alludes to the size of the legend classes. Set to <guimenuitem>Equal intervals</guimenuitem> they will be “highest map value – lowest map value / number of classes”. Set to <guimenuitem>Equal group count</guimenuitem> the legend creator will try to distribute the organisation units evenly. Choose <guimenuitem>Fixed bounds </guimenuitem>and you may define your own class break values, type e.g. “20,40,60” using a comma to separate each of them. The legend will appear as an even gradation from the start color to the end color. Predefined legend sets are described in  <xref linkend="gisLegendSet"/> .</para>
       <para>Low radius and high radius only have effect on points (facilities) and decides the the circle radius for points with the lowest and highest value.</para>
-      <para>The map view combo box lists all map views (favorites) saved by the user. The settings that are stored in the map view is automatically applied to the thematic map panel. Favorite map views are described in <link linkend="gisFavoriteMapView">here</link>.</para>
+      <para>The map view combo box lists all map views (favorites) saved by the user. The settings that are stored in the map view is automatically applied to the thematic map panel. Favorite map views are described in<xref linkend="gisFavoriteMapView"/> .</para>
       <para>All available layer options are now grouped together in the thematic layer menu, see picture below.</para>
       <screenshot>
         <screeninfo>Thematic layer options</screeninfo>
@@ -84,7 +84,7 @@
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>Opacity: Set the layer opacity/transparency to 10, 20, 30, 40, 50, 60, 70, 80, 90 or 100%.</para>
+      <para>Opacity: Set the layer opacity/transparency to 10, 20, 30, 40, 50, 60, 70, 80, 90 or 100%. Higher values of opacity make the layer more transparent, so that the underlying layer is more visible. An opacity level of zero will provide a fully opaque layer.</para>
       <para>History: Provides you with a list of your 10 previous maps/selections. They are temporary and thus gone when the application is restarted.</para>
     </section>
     <section id="gisFacilityMap">
@@ -101,7 +101,7 @@
     </section>
     <section id="gisSymbolMap">
       <title>Symbol layer</title>
-      <para>This layer displays icons that represent areas/polygons like provinces, districts etc instead of facilities/points. Thus, in this layer you are not supposed to select a facility level, but instead a level of provinces, districts etc. In order to render this layer you need to create a predefined legend set of images, described in this <link linkend="gisLegendSet">section</link>.</para>
+      <para>This layer displays icons that represent areas/polygons like provinces, districts etc instead of facilities/points. Thus, in this layer you are not supposed to select a facility level, but instead a level of provinces, districts etc. In order to render this layer you need to create a predefined legend set of images, described in <xref linkend="gisLegendSet"/>.</para>
       <screenshot>
         <screeninfo>Symbol layer</screeninfo>
         <mediaobject>
@@ -114,7 +114,7 @@
   </section>
   <section>
     <title>Tools</title>
-    <para>This section describes the available GIS tools, see &quot;Tools&quot; on the map toolbar.</para>
+    <para>This section describes the available GIS tools, which are available on the  &quot;Tools&quot; section of the map toolbar.</para>
     <section id="gisFavoriteMapView">
       <title>Register favorite map views</title>
       <para>Click the &quot;Favorite map views&quot; button (star icon) on the toolbar to get the context menu. The first option is &quot;Manage favorites&quot; which opens up a window where you are supposed to type the name of the favorite and select the layer you want to save. If you are an administrator you can check the &quot;System&quot; checkbox to make the favorite available to all users. From the bottom combobox you may delete a favorite or add it to the DHIS 2 dashboard.</para>
@@ -129,7 +129,7 @@
     </section>
     <section id="gisMeasureDistance">
       <title>Measure distance</title>
-      <para>Click the two-way arrow icon on the map toolbar to enter measuring mode. Now, click your desired start location on the map and a dotted line will follow the cursor towards your destination. Single click to create a line point, double click to finish the line. To exit measuring mode, click the toolbar icon again or close the window.</para>
+      <para>Click the two-way arrow icon on the map toolbar to enter measuring mode. Now, click your desired start location on the map and a dotted line will follow the cursor toward your destination. Single click to create a line point, double click to finish the line. To exit measuring mode, click the toolbar icon again or close the window.</para>
     </section>
   </section>
 </chapter>

@@ -48,12 +48,12 @@
                    Global attributes
     ################################################### --> 
     <xsl:attribute-set name="xref.properties">
-        <xsl:attribute name="color">blue</xsl:attribute>
+		<xsl:attribute name="color">blue</xsl:attribute>
 		<xsl:attribute name="text-decoration">underline</xsl:attribute>
     </xsl:attribute-set>
-	 <!-- Hide URL -->
-  <xsl:param name="ulink.show" select="0"/>
-
+	 <!-- Hide URL but show footnotes instead -->
+     <xsl:param name="ulink.show" select="0"/>
+     <xsl:param name="ulink.footnotes" select="1"/>
 <!--###################################################
                    Custom Title Page
     ################################################### --> 
@@ -751,38 +751,6 @@
               colored and hyphenated links 
     ###################################################  -->
 
-	<!--Ulinks 
-       <xsl:template match="ulink"> 
-       <fo:basic-link external-destination="{@url}" 
-                       xsl:use-attribute-sets="xref.properties" 
-                       text-decoration="underline" 
-                       color="blue"> 
-                       <xsl:choose> 
-                       <xsl:when test="count(child::node())=0"> 
-                       <xsl:value-of select="@url"/> 
-                       </xsl:when> 
-                       <xsl:otherwise> 
-                         <fo:inline color="blue" text-decoration="underline"><xsl:apply-templates/></fo:inline> 
-                       </xsl:otherwise> 
-                       </xsl:choose> 
-                       </fo:basic-link> 
-      </xsl:template> 
-	  
-	  <xsl:template match="link">
-        <fo:basic-link internal-destination="{@linkend}"
-                xsl:use-attribute-sets="xref.properties"
-                text-decoration="underline"
-                color="blue">
-            <xsl:choose>
-                <xsl:when test="count(child::node())=0">
-                    <xsl:value-of select="@linkend"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <fo:inline color="blue" text-decoration="underline"><xsl:apply-templates/></fo:inline>
-                </xsl:otherwise>
-            </xsl:choose>
-        </fo:basic-link>
-    </xsl:template> -->
 
     <xsl:template match="varlistentry/term"> 
     <fo:inline font-style="italic"> 
@@ -796,8 +764,7 @@
     </fo:inline> 
     </xsl:template> 
  -->
-    
-<!--
+ <!--
 <xsl:template match="title" mode="list.title.mode">
 	<fo:block font-size="10pt" font-weight="bold" xsl:use-attribute-sets="normal.para.spacing">
 		<xsl:apply-templates/>
@@ -810,7 +777,41 @@
             <xsl:apply-templates/>
         </fo:inline> 
     </xsl:template> 
-
-
+<!--###################################################
+              Footnotes 
+    ###################################################  -->
+<xsl:template match="footnote">
+  <fo:footnote>
+    <fo:inline
+      font-size="70%"
+      vertical-align="super"
+   >
+      <xsl:number count="footnote" from="chapter" level="any" format="1"/>
+    </fo:inline>
+    <fo:footnote-body>
+      <fo:list-block>
+        <fo:list-item
+          space-before="5mm"
+       >
+          <fo:list-item-label end-indent="label-end()">
+            <fo:block
+              font-size="7pt"
+           >
+              <xsl:number count="footnote" from="chapter" 
+                level="any" format="1"/>
+            </fo:block>
+          </fo:list-item-label>
+          <fo:list-item-body start-indent="body-start()">
+            <fo:block
+              font-size="7pt"
+           >
+              <xsl:apply-templates/>
+            </fo:block>
+          </fo:list-item-body>
+        </fo:list-item>
+      </fo:list-block>
+    </fo:footnote-body>
+  </fo:footnote>
+</xsl:template>
 	
-</xsl:stylesheet>
+	</xsl:stylesheet>
