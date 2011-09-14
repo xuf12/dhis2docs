@@ -48,7 +48,10 @@
   <section id="docs_2">
     <title>Introduction</title>
     <para>One of the main advantages of DocBook is that there is complete separation between the
-content and presentation. DocBook is a pure XML format, and is well documented. It is believed that only a very small subset of its features will be required in order to achieve much higher quality documentation for DHIS. There are some 400 separate mark-up elements that cater to almost any level of technical documentation needs, but in reality, only a few dozen of these element will probably need to be employed to achieve high-quality documentation for DHIS 2, both for printed as well as on-line formats such as HTML or integrated help systems within the application itself. Therefore, there are wide range of possibilities in terms of which editor can be used for the creation of DocBook files. A fairly complete list of possibilities is located <ulink url="http://wiki.docbook.org/topic/DocBookAuthoringTools">here</ulink>. It is currently recommended to use <ulink url="http://www.syntext.com/products/serna-free/ ">Syntext Serna Free</ulink> for editing DocBook source files as WYSIWYG. It is not recommended to use the editor XMLmind XML Editor Personal Edition (also known as XXE Personal), as the editor &quot;silently&quot; places unneeded whitespace and other ornamentation to the DocBook source which makes collaborative editing of documents very difficult. </para>
+content and presentation. DocBook is a pure XML format, and is well documented. It is believed that only a very small subset of its features will be required in order to achieve much higher quality documentation for DHIS. There are some 400 separate mark-up elements that cater to almost any level of technical documentation needs, but in reality, only a few dozen of these element will probably need to be employed to achieve high-quality documentation for DHIS 2, both for printed as well as on-line formats such as HTML or integrated help systems within the application itself. Therefore, there are wide range of possibilities in terms of which editor can be used for the creation of DocBook files. A fairly complete list of possibilities is located <ulink url="http://wiki.docbook.org/topic/DocBookAuthoringTools">here</ulink>. It is currently recommended to use <ulink url="http://www.syntext.com/products/serna-free/ ">Syntext Serna Free</ulink> for editing DocBook source files as WYSIWYG. In principle, any text editing program or XML editor will be capable of being used to create DocBook files.  It is not recommended to use the editor XMLmind XML Editor Personal Edition (also known as XXE Personal), as the editor &quot;silently&quot; places unneeded whitespace and other ornamentation to the DocBook source which makes collaborative editing of documents very difficult. </para>
+    <note>
+      <para>It is not recommended to use the editor XMLmind XML Editor Personal Edition (also known as XXE Personal), as the editor &quot;silently&quot; places unneeded whitespace and other ornamentation to the DocBook source which makes collaborative editing of documents very difficult. </para>
+    </note>
     <para>One of the key concepts to keep in mind when authoring documentation in DocBook, or other
 presentation neutral formats, is that the <emphasis role="bold">content </emphasis>of the document should be considered in the first instance. The <emphasis role="bold">presentation </emphasis>of the document will take place in a separate step, where it will be rendered into
 different formats, such as HTML and PDF. It is therefore important that the document is will organised and structured, with appropriate DocBook tags and structural elements being considered.</para>
@@ -146,7 +149,7 @@ images in a sub-directory , replacing XX with the actual ISO 639-1 code for the 
     <title>Building the documentation</title>
     <para>One of the key advantages of the DocBook format is that the source documentation can be
 transformed into a wide variety of formats, including HTML, chunked HTML, XHTML, PDF, and a number of other formats. There are a wide variety of tools that are capable of performing this task. Basically the XML source of the document is transformed using the standard DocBook XSL style sheets into the desired format. The complete list of tools capable of transforming DocBook will not be listed here, but a few examples are provided below. </para>
-    <para>Latest builds of the documentation are available </para>
+    <para>Latest builds of the documentation are available from the <ulink url="http://www.dhis2.org/documentation">DHIS2 website</ulink>. The latest snapshot builds are available through the continuous integration server located <ulink url="http://apps.dhis2.org/ci/job/dhis-documentation/lastSuccessfulBuild/artifact/*zip*/archive.zip">here</ulink>.</para>
     <section>
       <title>Building the documentation with Apache maven</title>
       <para>In order to transform the documentation source files to different formats, such as HTML
@@ -162,10 +165,7 @@ transforming DocBook documents into many different formats. More information on 
   <section id="docs_10">
     <title>Committing your changes back to Launchpad</title>
     <para>Once you have finished editing your document, you will need to commit your changes back to
-Launchpad. Open up a command prompt on Windows or a shell on Linux, and navigate to the folder where you have placed your documentation. If you have added any new files or folders to your local repository, you will need to add them to the source tree with the <command>bzr add</command> command, followed by the folder or file name(s) that you have added  Once you have added all of your new files, you should update you local repository to make sure there are no conflicts.</para>
-    <blockquote>
-      <para><command>bzr update</command></para>
-    </blockquote>
+Launchpad. Open up a command prompt on Windows or a shell on Linux, and navigate to the folder where you have placed your documentation. If you have added any new files or folders to your local repository, you will need to add them to the source tree with the <command>bzr add</command> command, followed by the folder or file name(s) that you have added  Once you have added all of your new files, you should update you local repository to make sure there are no conflicts using the following command<command> bzr update</command></para>
     <para>If there are conflicts, bazaar will notify you of this. Your conflicts can also be listed by using the <command>bzr conflicts</command>  command. If there are conflicts in a file, bazaar will create three versions of the file:</para>
     <itemizedlist>
       <listitem>
@@ -178,7 +178,7 @@ Launchpad. Open up a command prompt on Windows or a shell on Linux, and navigate
         <para><emphasis role="italic">filename.OTHER</emphasis></para>
       </listitem>
     </itemizedlist>
-    <para>corresponding to the common parts of the file, the local version and the version on the server respectively. The files will contain markers to indicate areas in conflict. After resolving the conflicts by editing each file and removing the conflict markers, use <command>bzr resolve</command>. This will tell bazaar that the conflict is resolved, and clean up the BASE, THIS, OTHER files.</para>
+    <para>These files correspond to the common parts of the file, the local version and the version on the server respectively. The files will contain markers to indicate areas in conflict. After resolving the conflicts by editing each file and removing the conflict markers, use <command>bzr resolve</command>. This will tell bazaar that the conflict is resolved, and clean up the BASE, THIS, OTHER files.</para>
     <para>Once your source code is updated and any conflicts resolved, commit you changes with an informative message about the changes you have made: </para>
     <para><blockquote>
         <para><command>bzr commit -m &quot;Created Amharic translation of documentation&quot;</command></para>
