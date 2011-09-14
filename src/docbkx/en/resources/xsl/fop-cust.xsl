@@ -777,41 +777,5 @@
             <xsl:apply-templates/>
         </fo:inline> 
     </xsl:template> 
-<!--###################################################
-              Footnotes 
-    ###################################################  -->
-<xsl:template match="footnote">
-  <fo:footnote>
-    <fo:inline
-      font-size="70%"
-      vertical-align="super"
-   >
-      <xsl:number count="footnote" from="chapter" level="any" format="1"/>
-    </fo:inline>
-    <fo:footnote-body>
-      <fo:list-block>
-        <fo:list-item
-          space-before="5mm"
-       >
-          <fo:list-item-label end-indent="label-end()">
-            <fo:block
-              font-size="7pt"
-           >
-              <xsl:number count="footnote" from="chapter" 
-                level="any" format="1"/>
-            </fo:block>
-          </fo:list-item-label>
-          <fo:list-item-body start-indent="body-start()">
-            <fo:block
-              font-size="7pt"
-           >
-              <xsl:apply-templates/>
-            </fo:block>
-          </fo:list-item-body>
-        </fo:list-item>
-      </fo:list-block>
-    </fo:footnote-body>
-  </fo:footnote>
-</xsl:template>
-	
+
 	</xsl:stylesheet>

@@ -16,7 +16,7 @@ In order to use a dataset to collect data for a specific orgunit you must assign
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="70%" align="center" fileref="resources/images/datasets/datasets_0.PNG"/>
+            <imagedata width="70%" align="center" fileref="resources/images/datasets/datasets_0.png"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -91,7 +91,7 @@ In addition to the default list-based data entry form there are two more alterna
           <screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/datasets/grey_field_management.PNG"/>
+                <imagedata fileref="resources/images/datasets/grey_field_management.png" align="center" width="60%"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -118,12 +118,12 @@ In addition to the default list-based data entry form there are two more alterna
       <para>To add a custom form design to a dataset then first locate your dataset in the Dataset Management window and click on the Design data entry form icon under Operations (the fifth icon), see the mouse-over text to be sure.
 </para>
       <para>First provide a Name for the form. There are a few important buttons in the Editor that you must pay special attention to. The blue monitor icon is the full screen mode on/off button, which can be very useful. The there is a Source button that shows the HTML code for your form. </para>
-      <para>If you already have the HTML for your form then you should start by pasting it in here. Click on Source again to go back to preview/non-html mode. Then there is an icon in the top right corner with a + sign on it, this will open a list of available data elements to add to your form, the Data Element Selector window. </para>
+      <para>If you already have the HTML for your form then you should start by pasting it in here. Click on Source again to go back to preview/non-HTML mode. Then there is an icon in the top right corner with a + sign on it, this will open a list of available data elements to add to your form, the Data Element Selector window. </para>
       <para>All the input fields need to have a link to a data element or indicator. To add new data elements to the form, double-click them from the data element/indicator box as shown below. You can also select a data element/indicator and press the &quot;+Insert&quot; button. You can switch between either data elements or indicators by pressing the respective buttons.</para>
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/datasets/custom_forms_data_elements.png" width="50%" align="center"/>
+            <imagedata width="50%" align="center" fileref="resources/images/datasets/custom_forms_data_elements.png"/>
           </imageobject>
         </mediaobject>
       </screenshot>
