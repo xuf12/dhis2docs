@@ -144,7 +144,8 @@
         </fo:block>	
 	</xsl:template>
 
-        
+	
+		
 <!--###################################################
                       Header
     ################################################### -->  
@@ -405,7 +406,6 @@
 	  </xsl:attribute>
 	</xsl:attribute-set>
 
-        
 <!--###################################################
                    Paper & Page Size
     ################################################### -->  
@@ -650,12 +650,12 @@
     </xsl:attribute-set>    
 
     <!-- Shade (background) programlistings -->    
-<!--
+
     <xsl:param name="shade.verbatim">1</xsl:param>
     <xsl:attribute-set name="shade.verbatim.style">
         <xsl:attribute name="background-color">#f0f0f0</xsl:attribute>
     </xsl:attribute-set>
-    -->
+    
     
     <xsl:template match="programlistings/emphasis"> 
         <fo:inline font-weight="bold">
