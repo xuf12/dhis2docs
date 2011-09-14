@@ -44,7 +44,7 @@
             <para>Code: In many countries, orgunits are assigned a code. This code can be entered in this field. </para>
           </listitem>
           <listitem>
-            <para>Opening date: Used to control which orgunits that where existing  at a point in time, e.g. when analysing historical data. This attribute is required. As there is no default, you must enter a value through the calendar.</para>
+            <para>Opening date: Used to control which orgunits that where existing  at a point in time, e.g. when analysing historical data. This attribute is required. The default date for opening of organisation units is 1900-01-01, but can be set to any date (even dates which occur in the future).</para>
           </listitem>
           <listitem>
             <para>Registers data: This property is used to identify which orgunits that can register data or not. Sometimes administrative orgunits at higher levels in the hierarchy are not supposed to register any data. This can help control the data entry process as only orgunits with this property set to Yes will be available for data entry.  </para>
