@@ -196,12 +196,10 @@ This format makes it much easier for e.g. pivot tables or other OLAP tools to ag
     </section>
     <section id="reportTable">
       <title>Report tables</title>
-      <para>Report tables are meant to be database tables fulfilling the specific data needs of a report, chart, pivot table or other output format. It can be understood as a mini data mart that contains only the data needed for its purpose (the report). The rationale behind this concept is to automatically provide the data sources for reports without bothering the users every time, like a normal data mart, and to speed up the data processing and aggregation (small targeted data marts are obviously faster than big ones).
-
-</para>
-      <para>When created and generated a report table will appear in the DHIS 2 database as a normal table, but always with the prefix &apos;_report_&apos;. This table should not be altered manually as it is controlled by the system. These tables are constantly being deleted and recreated as the user wants new updated data within the same table structure. These tables can then be access and used from any third party tool for displaying data. DHIS 2 now suports reports created with Jaspersoft iReport Designer (up to v 2.0.6 DHIS 2 was integrated with the BIRT report designer from the Eclipse platform), and this makes it especially easy to link Jasper reports to report tables and to run these reports from within DHIS 2. However, we see report tables as a much broader tool and concept than to just support Jasper reports. It can and should (for performance gain and automation) be used for as many data output purposes as possible, e.g. as data sources for the database views used for Excel pivot tables.
-</para>
-      <para>A report table is a data source that can be defined once and then run automatically in the background when a report needs new and updated data. Standard reports are directly linked to a report table, which is then automatically processed in the background when the report is run. Report parameters are added to the report tables to make these generic and reusable over time or across different orgunits. </para>
+      <para>Report tables are defined, cross-tabulated reports which can be used as the basis of further reports, such as Excel Pivot Tables or simply downloaded as an Excel sheet.Report tables are intended to provide a specific view of data which is required, such as &quot;Monthly National ANC Indicators&quot;. This report table might provide all ANC indicators for a country, aggregated by month for the entire country.  This data could of course be retrieved from the main datamart, but report tables generally perform faster and present well defined views of data to users. </para>
+      <important>
+        <para> It is therefore important to keep in mind that when the aggregation strategy of the system is set to &quot;Batch&quot;, the data for each report table must also be present in the data mart. </para>
+      </important>
     </section>
   </section>
   <section>
@@ -219,7 +217,7 @@ This format makes it much easier for e.g. pivot tables or other OLAP tools to ag
         </mediaobject>
       </screenshot>
       <para><emphasis role="bold">Cross tab dimensions</emphasis></para>
-      <para>You can cross-tab one or more of the following dimensions: data element/indicator, orgunit, and period, which means that columns will be created based on the values of the dimensions chosen, e.g. if indicators is selected you will get column names in the table reflecting the names of the selected indicators. You must select at least 1 dimension for the table to be valid. Selecting all 3 is possible, but makes little sense.</para>
+      <para>You can cross-tab one or more of the following dimensions: data element/indicator, orgunit, and period, which means that columns will be created based on the values of the dimensions chosen, e.g. if indicators is selected you will get column names in the table reflecting the names of the selected indicators. </para>
       <para>
 For example, if you cross-tab on indicators and periods, the column headers will say &quot;&lt;indicator title&gt; &lt;period&gt;&quot;. The organisation units will be listed as rows. See screenshot for clarification:
 </para>
@@ -364,7 +362,7 @@ male+&lt;1, male+&gt;1, Female+&lt;1, female+&gt;1, male, female,&lt;1, &gt;1, t
     </section>
     <section>
       <title>Report table - best practices</title>
-      <para>To make the report tables reusable over time and across orgunits they can have \ parameters. Four types of parameters are allowed; orgunit, parent orgunit (for listing of orgunits in one area), grand parent orgunit and reporting month. As a side note it can be mentioned that we are looking into expanding this to include reporting quarter and year, or to make that period parameter more generic with regard to period type somehow. The ability to use period as a parameter makes the report table reusable over time and as such fits nicely with report needs such as monthly, quarterly or annual reports. When a report is run by the user in DHIS 2, the user must specify the values for the report tables that are linked to the report. First the report table is re-generated (deleted and re-created with updated data), and then the report is run (in the background, in Jasper report engine).
+      <para>To make the report tables reusable over time and across orgunits they can have  parameters. Four types of parameters are allowed; orgunit, parent orgunit (for listing of orgunits in one area), grand parent orgunit and reporting month. As a side note it can be mentioned that we are looking into expanding this to include reporting quarter and year, or to make that period parameter more generic with regard to period type somehow. The ability to use period as a parameter makes the report table reusable over time and as such fits nicely with report needs such as monthly, quarterly or annual reports. When a report is run by the user in DHIS 2, the user must specify the values for the report tables that are linked to the report. First the report table is re-generated (deleted and re-created with updated data), and then the report is run (in the background, in Jasper report engine).
 
 </para>
       <para>Report tables can consist of  values related to data elements, indicators or data completeness, which is related to completeness of reporting across orgunits for a given month. Completeness reports will be covered in a separate section.</para>
@@ -408,22 +406,18 @@ Above the table there are six buttons; five download buttons and one Back button
       <listitem>
         <para><emphasis role="italic">Download as Excel:</emphasis></para>
         <para>Downloads a generated Excel file you can open in Excel.</para>
-        <para/>
       </listitem>
       <listitem>
         <para><emphasis role="italic">Download as CSV:</emphasis></para>
         <para>Downloads a generated .csv file. CSV stands for <emphasis role="bold">C</emphasis>omma <emphasis role="bold">S</emphasis>eparated <emphasis role="bold">V</emphasis>alues. It&apos;s a text file with the file ending .csv. Each  line in the file corresponds to a row in the table, while the columns are separated with semi colons (;). The file can be opened in a text editor as well as in a spread sheet program (such as Excel).</para>
-        <para/>
       </listitem>
       <listitem>
         <para><emphasis role="italic">Download as PDF:</emphasis></para>
         <para>Downloads a generated pdf file. The data will be presented in a similar layout as the generated table you are already viewing in DHIS 2.</para>
-        <para/>
       </listitem>
       <listitem>
         <para><emphasis role="italic">Download as Report:</emphasis></para>
         <para>Downloads a &quot;styled&quot; pdf file. In addition to present the data in a table layout, this file also presents a chart, showing the aggregated data from all the chosen periods and the parent organisation unit chosen for the report table. The report is generated using the Jasper report engine.</para>
-        <para/>
       </listitem>
       <listitem>
         <para><emphasis role="italic">Download as JRXML:</emphasis></para>

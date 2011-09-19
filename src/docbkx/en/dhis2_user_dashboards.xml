@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. -->
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
+<chapter>
+  <title>Dashboards</title>
+  <para>Dashboards are intended to provide quick access to individual users to the data which has been stored in DHIS2. Dashboards consist of several sections, some of which provide links to reports or mapview which have already been defined. Other sections of the dashboard allow users to add charts which have been defined and made available through the charting module. </para>
+  <section>
+    <title>Setting up the dashboard</title>
+    <para>The dashboard is divided into two main sections. The right-side pane (denoted as A in the screenshot below) can be used to contain links to reports, documents (static reports), report tables, map views, and an RSS Health feed. The left-side zone (denoted as B in the screen shot)  can be used to contain up to six separate charts which have been previously created in the charting reporting module. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resources/images/dashboard/dashboard_main.PNG" width="90%" align="center"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>In this screen shot, the dashboard has already been populated with a number of reports and mapviews. Simply clicking on one of the blue links will bring you automatically to the report or map view. Clicking on one of the charts will display a larger chart, which you can save as an image, and include in a report or other document. </para>
+    <para>You can redefine the structure of the dashboard by clearing the each of the windows by clicking the &quot;Clear&quot; link. By clicking &quot;Insert&quot; again, you can then select a new chart to appear in the window. </para>
+    <para>All reports, documents, report tables and charts can be added to the list of available options by clicking on the &quot;Add to dashboard&quot; icon <inlinegraphic fileref="resources/images/dhis2_images/add_to_dashboard.png"/> in each of the respective modules. Please refer to the sections to each of the sections in this manual for more detailed instructions. Once you have added the object to the list of available objects, you can&quot;Insert&quot; it on the dashboard.</para>
+    <note>
+      <para>Dashboard are configured for each individual user. </para>
+    </note>
+  </section>
+</chapter>
