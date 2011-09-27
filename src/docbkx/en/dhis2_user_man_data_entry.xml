@@ -28,9 +28,17 @@
     <section>
       <title>Selecting the data entry form</title>
       <para>To start entering data the first step is to open the correct form. Follow these steps:</para>
-      <para>1) Locate the orgunit you want to register data for in the tree menu to the left. Expand and close branches by clicking on the +/- symbols.  A quick way to find an orgunit is to use the search box just above the tree (the green symbol), but you need to write in the full name to get a match.</para>
-      <para>2) Select a data set from the dropdown list of data sets available to your selected orgunit.  </para>
-      <para>3) Select a period to register data for. The available periods are controlled by the dataset&apos;s period type (reporting frequency). You can jump a year back or forward by using the arrows above the period.</para>
+      <orderedlist>
+        <listitem>
+          <para> Locate the orgunit you want to register data for in the tree menu to the left. Expand and close branches by clicking on the +/- symbols.  A quick way to find an orgunit is to use the search box just above the tree (the green symbol), but you need to write in the full name to get a match.</para>
+        </listitem>
+        <listitem>
+          <para>Select a data set from the dropdown list of data sets available to your selected orgunit.  </para>
+        </listitem>
+        <listitem>
+          <para>Select a period to register data for. The available periods are controlled by the dataset&apos;s period type (reporting frequency). You can jump a year back or forward by using the arrows above the period.</para>
+        </listitem>
+      </orderedlist>
       <para>By now you should see the data entry form. </para>
       <para>You can change the type of form using the radio buttons above the form in the top right corner. The available types are: 1) &quot;Default forms&quot; which are  simple list-based or tabular forms, 2) &quot;Section forms&quot; which can consist of multiple tables and better mimic the paper forms, or 3) &quot;Custom forms&quot; which follow a completely custom design defined by the user. Section and custom forms require that these have been set up by the user first, while default is always available. In the top-right corner just above the form you can switch between the three types of forms.    </para>
       <screenshot>
