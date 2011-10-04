@@ -52,19 +52,19 @@
     <glossentry>
       <glossterm>Data exchange format</glossterm>
       <glossdef>
-        <para>In the context of DHIS2, the &quot;data exchange format&quot; refers to a XML schema that enables the transportation of data and metadata between disconnected DHIS instances, as well as between different applications that suppor the DXF schema. </para>
+        <para>In the context of DHIS2, the &quot;data exchange format&quot; refers to a XML schema that enables the transportation of data and metadata between disconnected DHIS instances, as well as between different applications that support the DXF schema. </para>
       </glossdef>
     </glossentry>
     <glossentry>
       <glossterm>Datamart</glossterm>
       <glossdef>
-        <para>A set of database tables in DHIS2 that contians processed data elements and indicator values that is generated based on aggregation rules and calculated data element and indicator formular. Datamart tables are used for analysis  and report production. Typically, users should not work directly with unaggregated data values, but rather with values that have resulted from a datamart export for analysis. </para>
+        <para>A set of database tables in DHIS2 that contains processed data elements and indicator values that is generated based on aggregation rules and calculated data element and indicator formular. Datamart tables are used for analysis  and report production. Typically, users should not work directly with unaggregated data values, but rather with values that have resulted from a datamart export for analysis. </para>
       </glossdef>
     </glossentry>
     <glossentry>
       <glossterm>Data element</glossterm>
       <glossdef>
-        <para>A data element is the fundemental building block of DHIS2. It is an atomic unit of data with well-defined meaning. Essentially it is a data value that has been actually observed or recorded which is further characterized by a number of dimensions. As an example the data element &quot;Number of fully immunized children&quot; would refer to the number of children that received this particular service. Data elements are always linked to a period as as well as an organizational unit. They optionally may be linked to other dimensions. </para>
+        <para>A data element is the fundamental building block of DHIS2. It is an atomic unit of data with well-defined meaning. Essentially it is a data value that has been actually observed or recorded which is further characterized by a number of dimensions. As an example the data element &quot;Number of fully immunized children&quot; would refer to the number of children that received this particular service. Data elements are always linked to a period as as well as an organizational unit. They optionally may be linked to other dimensions. </para>
       </glossdef>
     </glossentry>
     <glossentry>
@@ -128,7 +128,7 @@
         <para>The divisor of an indicator. Can be composed of multiple data elements with the use of an indicator formula.<equation>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/test_drawing.svg"/>
+                <imagedata width="40%" align="center" fileref="resources/images/indicator.png"/>
               </imageobject>
             </mediaobject>
           </equation></para>
@@ -162,7 +162,7 @@
       <glossterm>Organisational unit</glossterm>
       <abbrev>orgunit</abbrev>
       <glossdef>
-        <para>Typically, an orgunit is a unit within a geographical hierarchy. As an example, in the United States, &quot;Georgia&quot; would be considered an orgunit with in the orgunit level of &quot;State&quot;. Organizational units can also represent units, such as wards within a hospital, withn a single geographical location. </para>
+        <para>An organisational unit is usually a geographical unit, which exists within  hierarchy.  As an example, in the United States, &quot;Georgia&quot; would be considered an organisational unit with in the orgunit level of &quot;State&quot;. Organizational units can also be used to specify an administrative unit, such as a ward within a hospital. The organisational unit dimension specifies essentially &quot;where&quot; a particular data value occurs.</para>
       </glossdef>
     </glossentry>
     <glossentry>
@@ -173,10 +173,16 @@
       </glossdef>
     </glossentry>
   </glossdiv>
-<!--<glossdiv>
-    <title>P</title>
-  </glossdiv>
   <glossdiv>
+    <title>P</title>
+    <glossentry>
+      <glossterm>Period</glossterm>
+      <glossdef>
+        <para>A period is a specific time interval which consists of a start date and end date. For instance &quot;January 2011&quot; would refer to the time interval of January 1st 2011-January 31st 2011. </para>
+      </glossdef>
+    </glossentry>
+  </glossdiv>
+<!--<glossdiv>
     <title>Q</title>
   </glossdiv>
   <glossdiv>
