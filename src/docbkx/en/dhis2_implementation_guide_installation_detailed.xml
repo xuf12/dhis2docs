@@ -658,21 +658,20 @@ dhis stop</screen>
   <section>
     <title> Using Amazon Web services</title>
     <para>Amazon Web Services (AWS) offers virtual cloud-computing resources which allow developers and implementers to quickly scale an application, both horizontally and vertically, in a cost effective manner. AWS offers multiple operating systems and instance sizes depending on the exact nature of the deployment. This section will describe a basic setup with the AWS Elastic Cloud Compute (EC2) system using the Basic 32 bit Amazon AMI, which is based on the Red Hat Linux distribution. </para>
-    <para>Estimating the cost of an AWS instance can be performed using the<ulink url="http://calculator.s3.amazonaws.com/calc5.html"> &quot;Simple Monthly Cal culator&quot;</ulink>. AWS costs are based entirely on usage. As your applicatio
-n usage grows, you can provision new servers. </para>
+    <para>Estimating the cost of an AWS instance can be performed using the<ulink url="http://calculator.s3.amazonaws.com/calc5.html"> &quot;Simple Monthly Cal culator&quot;</ulink>. AWS costs are based entirely on usage. As your application usage grows, you can provision new servers. </para>
     <orderedlist>
       <listitem>
         <para>You will need an existing AWS account. If you do not have one, you can create one <ulink url="http://aws.amazon.com/">here</ulink>.  Once you have created and enabled your account, login to the<ulink url="https://console.aws.amazon.com/s3/home"> AWS console</ulink>. </para>
       </listitem>
       <listitem>
-        <para>Once you have logged in, select the &quot;EC2&quot; tab. You will need to select a region in which to instantiate your instance. Users in Europeand Africa, should probably use the EU West region, while users in Asia should probably use on of the Asia Pacific regions (either Singapore or Tokyo). Selection of the appropriate region will reduce latency between the server and clients.</para>
+        <para>Once you have logged in, select the &quot;EC2&quot; tab. You will need to select a region in which to instantiate your instance. Users in Europe and Africa, should probably use the EU West region, while users in Asia should probably use on of the Asia Pacific regions (either Singapore or Tokyo). Selection of the appropriate region will reduce latency between the server and clients.</para>
       </listitem>
       <listitem>
-        <para>Click the &quot;Instances&quot; link on the right menu, and thenthe &quot;Launch Instances&quot; button. </para>
+        <para>Click the &quot;Instances&quot; link on the right menu, and then the &quot;Launch Instances&quot; button. </para>
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="60%" align="center" fileref="resources/images/aws/create_instance.PNG"/>
+              <imagedata width="60%" align="center" fileref="resources/images/aws/create_instance.png"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -683,7 +682,7 @@ n usage grows, you can provision new servers. </para>
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="60%" align="center" fileref="resources/images/aws/instance_size.PNG"/>
+              <imagedata width="60%" align="center" fileref="resources/images/aws/instance_size.png"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -699,7 +698,7 @@ n usage grows, you can provision new servers. </para>
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="60%" align="center" fileref="resources/images/a ws/create_key_pairs.PNG"/>
+              <imagedata width="60%" align="center" fileref="resources/images/aws/create_key_pairs.png"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -709,7 +708,7 @@ n usage grows, you can provision new servers. </para>
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="50%" align="center" fileref="resources/images/aws/security_groups.PNG"/>
+              <imagedata width="50%" align="center" fileref="resources/images/aws/security_groups.png"/>
             </imageobject>
           </mediaobject>
         </screenshot>

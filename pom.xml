@@ -29,6 +29,7 @@
 
   <build>
     <plugins>
+	<!--This section dynamically builds the build.properites which is replaced inside the document preface -->
 	 <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-antrun-plugin</artifactId>
@@ -74,6 +75,7 @@
               <sectionAutolabel>1</sectionAutolabel>
               <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
               <chunkedOutput>true</chunkedOutput>
+			  <useEmbedForSvg>1</useEmbedForSvg>
               <includes>dhis2_user_manual_en.xml</includes>
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <targetDirectory>${docbook.target}/en/user/html/</targetDirectory>
@@ -86,8 +88,10 @@
                 <copy todir="${docbook.target}/en/user/html/resources/images">
                   <fileset dir="src/docbkx/en/resources/images">
                     <include name="**/*.png" />
+					<include name="**/*.PNG" />
                     <include name="**/*.gif" />
                     <include name="**/*.jpg" />
+					<include name="**/*.svg" />
                   </fileset>
                 </copy>
                 <copy todir="${docbook.target}/en/user/html/resources/css">
@@ -128,6 +132,7 @@
 					<include name="**/*.PNG" />
                     <include name="**/*.gif" />
                     <include name="**/*.jpg" />
+					<include name="**/*.svg" />
                   </fileset>
                 </copy>
                 <copy todir="${docbook.target}/en/end-user/html/resources/css">
@@ -168,6 +173,7 @@
 					<include name="**/*.PNG" />
                     <include name="**/*.gif" />
                     <include name="**/*.jpg" />
+					<include name="**/*.svg" />
                   </fileset>
                 </copy>
                 <copy todir="${docbook.target}/en/implementer/html/resources/css">
