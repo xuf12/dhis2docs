@@ -1,9 +1,72 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <section>
   <title>Mobile data entry with DHIS2</title>
-  <para>DHIS2 provides a range of options to allow data entry from mobile devices, including a dedicated GPRS/3G J2ME client, a SMS based client, and a version of DHIS2 which has been optimized specfically for mobile browsers. Each of these solutions will be described in detail in the following sections.</para>
-  <section>
+  <section id="mobile_broswer_based">
+    <title>Mobile browser based data entry</title>
+    <para>DHIS2 has been optimized for use browsers in mobile devices through a module known as DHIS2 Light. This module has been optimized to provide a small memory footprint and to be capable of working over relatively modest bandwidths. To access the module, you should go to &lt;to do&gt;</para>
+    <section>
+      <title>Getting started with mobile browser data entry</title>
+      <para>Once you have entered in the URL of you DHIS2 instance, simply login with your username and password. Press the login button to continue, or the &quot;Reset&quot; button to clear all fields.</para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="40%" align="center" fileref="resources/images/dhis-web-light-data-entry/mobile-browser-login.png"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Once you have logged in, Select the &quot;Data entry&quot; option. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="40%" align="center" fileref="resources/images/dhis-web-light-data-entry/after-login.png"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Then select from a list of available organisation units which the user is allowed to enter data on behalf of. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="40%" align="center" fileref="resources/images/dhis-web-light-data-entry/select-org-unit.png"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Next, select a dataset to enter data for. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="40%" align="center" fileref="resources/images/dhis-web-light-data-entry/select-dataset.png"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Select from a list of available periods to enter data for from the next screen.</para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="40%" align="center" fileref="resources/images/dhis-web-light-data-entry/select-period.png"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Next, enter data for each data element. The category options for each data element are indicated in parentheses at the end of the name of the data element.</para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="40%" align="center" fileref="resources/images/dhis-web-light-data-entry/data-entry.PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Once you have finished entering all the data, you will be given the option to mark the dataset as complete and save it. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="40%" align="center" fileref="resources/images/dhis-web-light-data-entry/dataset-complete-save.png"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Once you have finished entering data, you can logout by pressing the &quot;Logout&quot; link. </para>
+    </section>
+  </section>
+  <section id="mobile_j2me_gprs_client">
     <title>J2ME GPRS/3G Client</title>
     <para>The DHIS2 GPRS/3G mobile module provides a mechanism for remote clients using mobile phones to enter data directly into the DHIS2 system. There are two functions of the client, namely:</para>
     <para>The solution relies on the mobile phone having a data connection available (i.e.
@@ -26,7 +89,7 @@
       <title>Data connection availability</title>
       <para>Data connection availability can be a problem in many of the contexts where DHIS2 mobile
       reporting would otherwise be a good solution for getting data directly into DHIS2. If that is
-      the case for you, you might want to consider trying the SMS based solution described in a seperate document.
+      the case for you, you might want to consider trying the SMS based solution described in a separate document.
       Keep in mind that even though a data connection is currently required for communication between
       the server and the mobile phone, it is only required when initializing or updating the mobile
       application and when sending reports to the server. The phone stores all entered data locally,
@@ -519,70 +582,6 @@
           </orderedlist>
         </section>
       </section>
-    </section>
-  </section>
-  <section>
-    <title>Mobile browser based data entry</title>
-    <para>DHIS2 has been optimized for use browsers in mobile devices through a module known as DHIS2 Light. This module has been optimized to provide a small memory footprint and to be capable of working over relatively modest bandwidths. To access the module, you should go to &lt;to do&gt;</para>
-    <section>
-      <title>Getting started with mobile browser data entry</title>
-      <para>Once you have entered in the URL of you DHIS2 instance, simply login with your username and password. Press the login button to continue, or the &quot;Reset&quot; button to clear all fields.</para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="resources/images/dhis-web-light-data-entry/mobile-browser-login.png" align="center" width="40%"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Once you have logged in, Select the &quot;Data entry&quot; option. </para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="resources/images/dhis-web-light-data-entry/after-login.png" align="center" width="40%"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Then select from a list of available organisation units which the user is allowed to enter data on behalf of. </para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="resources/images/dhis-web-light-data-entry/select-org-unit.png" align="center" width="40%"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Next, select a dataset to enter data for. </para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="resources/images/dhis-web-light-data-entry/select-dataset.png" align="center" width="40%"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Select from a list of available periods to enter data for from the next screen.</para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="resources/images/dhis-web-light-data-entry/select-period.png" align="center" width="40%"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Next, enter data for each data element. The category options for each data element are indicated in parentheses at the end of the name of the data element.</para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="resources/images/dhis-web-light-data-entry/data-entry.PNG" align="center" width="40%"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Once you have finished entering all the data, you will be given the option to mark the dataset as complete and save it. </para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="resources/images/dhis-web-light-data-entry/dataset-complete-save.png" align="center" width="40%"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Once you have finished entering data, you can logout by pressing the &quot;Logout&quot; link. </para>
     </section>
   </section>
 </section>
