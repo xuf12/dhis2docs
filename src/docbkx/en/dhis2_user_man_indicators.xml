@@ -6,7 +6,7 @@
   <screenshot>
     <mediaobject>
       <imageobject>
-        <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/data_element_main.png"/>
+        <imagedata width="100%" fileref="resources/images/maintainence/data_element_main.png" format="PNG"/>
       </imageobject>
     </mediaobject>
   </screenshot>
@@ -22,7 +22,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/indicator_maintenance_main.png"/>
+            <imagedata width="100%" fileref="resources/images/maintainence/indicator_maintenance_main.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -45,7 +45,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/indicator_add.png"/>
+            <imagedata width="100%" fileref="resources/images/maintainence/indicator_add.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -55,13 +55,13 @@
           <para>Name: The full name of the indicator, such as &quot;Incidence of confirmed malaria cases per 1000 population&quot;</para>
         </listitem>
         <listitem>
-          <para>Short name: An abbreviated name of the indicator such as &quot;Inc conf. malaria per 1000 pop&quot;</para>
+          <para>Short name: An abbreviated name of the indicator such as &quot;Inc conf. malaria per 1000 pop&quot;. The short name must be less than or equal to 25 characters, including spaces.</para>
         </listitem>
         <listitem>
           <para>Alternative name: An additional field for a possible alternative name of the indicator. </para>
         </listitem>
         <listitem>
-          <para>Code: In many countries, indicator are often assigned a particular code. This code can be entered here. </para>
+          <para>Code: In many countries, indicators are often assigned a particular code. This code can be entered here. </para>
         </listitem>
         <listitem>
           <para>Description: A brief, informative description of the indicator and how it is calculated can be entered here. </para>
@@ -80,17 +80,20 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/indicator_numerator_denominator.png"/>
+            <imagedata width="100%" fileref="resources/images/maintainence/indicator_numerator_denominator.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>Essentially, an indicator is a formula that can be composed of multiple data element, constant factors, and mathematical operators. In order to define a new indicator proceed with the following steps.  </para>
+      <para>Essentially, an indicator is a formula that can be composed of multiple data elements, constant factors, and mathematical operators. In order to define a new indicator proceed with the following steps.  </para>
       <orderedlist>
         <listitem>
-          <para>Provide a description of the numerator can be provided in the &quot;Description field&quot;. </para>
+          <para>Enter at least the required fields (Name and short name) from the indicator maintenance screen.</para>
         </listitem>
         <listitem>
-          <para>Choose the aggregation operator, either as a SUM or COUNT. </para>
+          <para>Next, press &quot;Edit numerator&quot; from the main indicator maintenance screen. This will provide a dialog where you can define the actual formula of the indicator&apos;s numerator..</para>
+        </listitem>
+        <listitem>
+          <para>A description of the numerator/denominator must be provided in the &quot;Description field&quot;. This should provide a clear description of </para>
         </listitem>
         <listitem>
           <para>Define the formula of the indicator by selecting the data elements that should compose the numerator from the &quot;Data elements&quot; field. Simply select the data element, and double click it. It will now appear in the formula. You formula must be mathematically valid, including the proper use of parentheses when necessary. You can double click on each of the mathematical operator buttons below the indicator formula definition  to add them to your formula. </para>
@@ -111,11 +114,13 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/indicator_type.png"/>
+            <imagedata width="100%" fileref="resources/images/maintainence/indicator_type.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para/>
+      <note>
+        <para>As of version 2.4 of DHIS2, the &quot;Calculated data element&quot; object has been deprecated. Instead, a calculated data element can be created by creating an indicator type with a factor of &quot;1&quot; and by setting the &quot;Number&quot; option to &quot;Yes&quot;. The effect of setting the &quot;Number&quot; option to &quot;Yes&quot; will be that the indicator will effectively not have a denominator. You will therefore only be able to define a numerator, which will serve as the formula of the calculated data element.</para>
+      </note>
     </section>
     <section id="indicatorGroup">
       <title>Indicator groups</title>
@@ -131,12 +136,11 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" format="PNG" fileref="resources/images/maintainence/indicator_group_sets.png"/>
+            <imagedata width="100%" fileref="resources/images/maintainence/indicator_group_sets.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
       <para>Supply a name for the indicator group set, and then move the desired members from the &quot;Available Indicator Groups&quot; to the &quot;Group members&quot;. Click &quot;Add&quot; to save your changes and &quot;Cancel&quot; to discard any changes. </para>
     </section>
   </section>
-
 </chapter>
