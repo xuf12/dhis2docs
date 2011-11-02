@@ -636,7 +636,7 @@ Above the table there are six buttons; five download buttons and one Back button
         <para>In the default table exported from DHIS 2, there are some rows that it might be better to leave out of the table, and some that it would be preferable to have at the end. For example, when making a table based on a report table with the «parent organisation unit» parameter, the default table might have a row with the national level somewhere in between all the regions. In iReport, this can be changed so that the «parent organisation unit» appears at the bottom of the table. This involves two steps that will be explained below. Note that this will not work where there is only one organisation units, and it is therefore most useful when using the «parent organisation unit» or «grand parent organisation unit» parameters in the report table.</para>
         <section>
           <title>Hiding the «parameter organisation unit» from the table</title>
-          <para>First, we must make sure that the row with the parent organisation unit (for example the national level) is left out of the regular table. We do this by using a property specific to the Details band called Print when expression. To set a Print when expression, start by selecting the Detail band in the Report inspector, then edit the Print when expression in the properties panel.</para>
+          <para>We exclude the "paramter organisation unit" from the table by using a property in the Details band called "Print when expression". To set a Print when expression, start by selecting the Detail band in the Report inspector, then edit the Print when expression in the properties panel.</para>
           <screenshot>
             <screeninfo>Select Detail 1 in the Report Inspector</screeninfo>
             <mediaobject>
@@ -666,6 +666,11 @@ Above the table there are six buttons; five download buttons and one Back button
           </screenshot>
         </section>
         <section>
+          <title>Putting the "param organisation unit" at the bottom of the table</title>
+          <para>Instead of removing the "param organisation unit" from the table entirely, it is also possible to put it at the bottom (or top) of the table. This is done by using the sort functionality explained in the next section, and choosing to sort first by "organisation_unit_is_parent". Other sorting options can be added in addition to this, for example to make a list where the param organisation unit is at the bottom of the table, with the other organisation units listed alphabetically above it.
+          </para>
+        </section>
+        <section>
           <title>Hiding other rows</title>
           <para>Using the expression editor it is also possible to exclude other rows from the table, in addition to the parent organisation unit as was explained above. In Ghana, for example, all regions have a «fake district» which is the name of the region in square brackets. This can also be excluded from the table using the Print when expression that was introduced above. To to this, follow the instructions above to bring up the Expression editor window. Then, we use Java expressions to test whether or not the row should be hidden.</para>
           <section>
@@ -684,61 +689,6 @@ Above the table there are six buttons; five download buttons and one Back button
               </mediaobject>
             </screenshot>
           </section>
-        </section>
-        <section>
-          <title>Showing the parameter organisation unit at the end of the table</title>
-          <para>We have now made sure that the parameter organisation unit is not included in the table as a regular row. However, we often want to include it somewhere in the report. A good way to do this is to add it in the summary band so that it will appear below the table. The easiest way to do this is to copy all the text fields from the Detail band into the summary band, and then just edit the expression for the first column.</para>
-          <itemizedlist>
-            <listitem>
-              <para>Select all the fields in the detail band and choose</para>
-            </listitem>
-            <listitem>
-              <para>Copy from the Edit menu</para>
-            </listitem>
-            <listitem>
-              <para>Click once on the Summary area</para>
-            </listitem>
-            <listitem>
-              <para>Choose Paste from the Edit menu</para>
-            </listitem>
-            <listitem>
-              <para>￼Position the new fields correctly</para>
-            </listitem>
-          </itemizedlist>
-          <screenshot>
-            <screeninfo>Select fields in the details band and copy them</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="90%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_16.jpg" format="JPEG"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
-          <screenshot>
-            <screeninfo>Past fields into Summary band</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="90%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_25.jpg" format="JPEG"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
-          <screenshot>
-            <screeninfo>Realign fields</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="90%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_26.jpg" format="JPEG"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
-          <para>The final step is to edit the expression of the first column to make sure that the correct organisation unit is displayed here. Open the Expression editor window and change the expression to $F{param_organisationunit_name}.</para>
-          <screenshot>
-            <screeninfo>Choose the parameter organisation unit</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="90%" fileref="resources/images/dhis2_creating_reporting/ireportadv/irep_screen_19.jpg" format="JPEG"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
-          <para>￼The report should now have all the «regular» organisation units as normal rows with their «parent» or «grand parent» at the bottom of the table.</para>
         </section>
       </section>
       <section>
