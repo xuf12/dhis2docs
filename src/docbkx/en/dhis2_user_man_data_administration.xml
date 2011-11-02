@@ -326,4 +326,17 @@ yearly for which the data is to be locked. The month, quarter or year for which 
     <title>Cache Statistics </title>
     <para>This option is for system administrators only to use. The cache statistics shows the status of the application level cache. The application level cache refers to the objects and query results that the application is caching in order to speed up performance. If the database has been modified directly the application cache needs to be cleared for it to take effect.</para>
   </section>
+  <section>
+    <title>Dynamic attributes</title>
+    <para>Dynamic attributes can be used to add additional information to certain objects (namely data elements, indicators, organisation units and users). In addition to the standard attributes each of these objects have, it may be required in certain installations to have additional attributes, such as a fax number which is associated with an organisation unit. To add a new dynamic attribute to an object, select &quot;Maintenance-&gt;Data administration&quot; from the main menue, then &quot;Attribute&quot; from the left side panel, and press the &quot;Add new&quot; button.</para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resources/images/maintainence/add_new_dynamic_attribute.png" width="40%" align="center"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>To create a new attribute, assign it a name. Each attribute should have a unique name. Check the tick-box &quot;Mandatory&quot; if the object should always have the dynamic attribute. Next, select which object (or objects) the attribute should be assigned to. Lastly, select the value type. You can choose from &quot;Text&quot;, &quot;Yes/No&quot;, &quot;Date&quot;, &quot;Number&quot;, &quot;Integer&quot;, &quot;Positive integer&quot; and &quot;Negative integer&quot;. If the value supplied for the attribute does not match the value type, an error will result. Finally, click &quot;Save&quot; to save the attribute. </para>
+    <para>The dynamic attribute will now be present in the object which you assigned it to in the respective &quot;Edit&quot; screen of each the object.</para>
+  </section>
 </chapter>
