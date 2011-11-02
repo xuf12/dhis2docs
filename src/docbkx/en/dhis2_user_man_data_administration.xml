@@ -92,6 +92,12 @@
       <para>Some Data Elements have been allocated to several Data Element Groups. This is currently not allowed, because it will result in duplication of linked data records in the PivotSource recordsets that `feed` the pivot tables. Go to Maintenance -&gt; Data Element Groups to review each Data Element identified and remove the incorrect Group allocations.</para>
     </section>
     <section>
+      <title>Data elements violating exclusive group sets</title>
+      <para>
+      Some data elements have been allocated to several data element groups that are members of the same data element group set. All group sets in DHIS are defined as exclusive, which means that a data element can <emphasis>only</emphasis> be allocated to <emphasis>one</emphasis> data element group within that group set. Go to Maintenance -&gt; Data elements and indicators -&gt;Data element groups to review each data element identified in the integrity check. Either remove the data element from all groups except the one that it should be allocated to, or see if one of the groups should be placed in a different group set.
+      </para>
+    </section>
+    <section>
       <title>Data elements assigned to data sets with different period types</title>
       <para>Data Elements should not be assigned to two separate data sets whose period types differ. The recommended approach would be to create two separate data elements (for instance a monthly and yearly data element) and assign these to respective datasets. </para>
     </section>
@@ -115,6 +121,12 @@
       <title>Invalid indicator denominators</title>
       <para>Violations of this rule may be caused by an incorrect reference to a deleted or modified data element. Review the indicator and make corrections to the denominator definition. </para>
     </section>
+        <section>
+      <title>Indicators violating exclusive group sets</title>
+      <para>
+      Some indicators have been allocated to several indicator groups that are members of the same indicator group set. All group sets in DHIS are defined as exclusive, which means that an indicator can <emphasis>only</emphasis> be allocated to <emphasis>one</emphasis> indicator group within that group set. Go to Maintenance -&gt; Data elements and indicators -&gt;Indicator groups to review each indicator identified in the integrity check. Either remove the indicator from all groups except the one that it should be allocated to, or see if one of the groups should be placed in a different group set.
+      </para>
+    </section>
     <section>
       <title> Organisation units with cyclic references</title>
       <para>Organisation units cannot be both parent and children of each other, directly nor indirectly.</para>
@@ -133,7 +145,7 @@
     </section>
     <section>
       <title>Organisation units violating exclusive group sets</title>
-      <para>Some organisation units have been allocated to several organisation unit groups that are members of the same exclusive organisation unit group set. When a group set is defined as exclusive, it means that an organisation unit can <emphasis>only</emphasis> be allocated to <emphasis>one</emphasis> organisation unit group within that Group Set. For instance, one organisation unit cannot normally belong to the both the &apos;Hospital&apos; and &apos;Clinic&apos; groups , but rather to only to one of them. Go to Maintenance -&gt; organisation unit-&gt;Organisation unit groups to review each organisation unit identified in the integrity check. Remove the organisation unit from all groups except the one that it should be allocated to. </para>
+      <para>Some organisation units have been allocated to several organisation unit groups that are members of the same organisation unit group set. All group sets in DHIS are defined as exclusive, which means that an organisation unit can <emphasis>only</emphasis> be allocated to <emphasis>one</emphasis> organisation unit group within that Group Set. For instance, one organisation unit cannot normally belong to the both the &apos;Hospital&apos; and &apos;Clinic&apos; groups , but rather to only to one of them. Go to Maintenance -&gt; organisation unit-&gt;Organisation unit groups to review each organisation unit identified in the integrity check. Remove the organisation unit from all groups except the one that it should be allocated to.</para>
     </section>
     <section>
       <title> Organisation unit groups without group sets</title>
