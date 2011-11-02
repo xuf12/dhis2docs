@@ -150,10 +150,6 @@ For DHIS 1.4 users this means that there is no longer a separate table per level
           <para>Each data value for a data element has a reference to a category option combo, which is a combination of the disaggregations for the data value, e.g. (male,&lt;5y) or (In PHU, &lt;1y). These disaggregations are exported as they are to the data mart, and no aggregation is done on this dimension. See the data elements section for more on data element categories and the resource tables section for more information on how to do aggregation on these categories.</para>
         </section>
         <section>
-          <title>Limitation to the number of data elements per export</title>
-          <para>Due to the limitation in number of columns per table in the database there is a limit to how many data elements that can be selected per data mart export. In postgres this limit is 255 (need to verify this number) data elements. If you need to export more than this number of data elements you have to split it up into multiple data mart exports and run them one by one.</para>
-        </section>
-        <section>
           <title>Adding new data to an existing data mart</title>
           <para>When you add new data to an existing data mart the new values will be appended to the existing so that the data mart grows for each new process if new selections (such as new periods) have been made. If any of the selected values are already in the data mart, then the old will be replaced by the newly generated values. </para>
         </section>

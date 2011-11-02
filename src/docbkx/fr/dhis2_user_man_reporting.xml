@@ -150,10 +150,6 @@ Pour DHIS 1,4 utilisateurs, cela signifie que il n'y a plus un tableau distinct 
           <para> Chaque valeur de données pour un élément de données est une référence à un combo option catégorie, qui est une combinaison de la ventilation de la valeur des données, par exemple, (Homme, <5a) ou (PHU, <1a). Ces ventilations sont exportés comme ils sont à l'entrepôt de données, et pas de l'agrégation se fait sur cette dimension. Voir la section des données pour plus d'éléments sur les catégories d'éléments de données et la section des ressources tableaux pour plus d'informations sur la façon de faire l'agrégation de ces catégories. </para>
         </section>
         <section>
-          <title> Limitation du nombre d'éléments de données par exportation</title>
-          <para> En raison de la limitation dans le nombre de colonnes par table dans la base de données il ya une limite au nombre des éléments de données qui peuvent être sélectionnés par Mart données sur les exportations. Dans ce limot postgres est 255 (besoin de vérifier ce nombre) des éléments de données. Si vous avez besoin d'exporter plus que ce nombre d'éléments de données que vous avez à le diviser en plusieurs exporte les données Mart et de les exécuter un par un. </para>
-        </section>
-        <section>
           <title> ajout de nouvelles données à un Mart données existantes</title>
           <para> Lorsque vous ajoutez de nouvelles données à un entrepôt de données existantes que les nouvelles valeurs seront ajoutées à l'existant de sorte que le data mart croît pour chaque nouveau processus, si de nouvelles sélections (tels que les nouvelles périodes) ont été faites. Si l'une des valeurs sélectionnées sont déjà dans les dépôts de données, puis les anciens seront remplacés par les valeurs nouvellement créées. </para>
         </section>
