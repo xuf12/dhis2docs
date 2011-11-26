@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<chapter>
+  <title>Using Data Visualizer</title>
+  <section id="dvIntro">
+    <title>Data Visualizer overview</title>
+    <para>The data visualizer module enables users to easily create dynamic data analysis and visualizations through charts and data tables.  You can access this module by going to &quot;Services - Data Visualizer&quot; in the main menu. The image below shows the viewport of the module. For a quick start:</para>
+    <orderedlist>
+      <listitem>
+        <para> Look under the &quot;Indicator&quot; heading and select an indicator group from the list of groups. </para>
+      </listitem>
+      <listitem>
+        <para>Look under &quot;Available indicators&quot; and select a few indicators from the list by double-clicking on them.</para>
+      </listitem>
+      <listitem>
+        <para>Click &quot;Update&quot; in the top bar and see the chart unfold.</para>
+      </listitem>
+    </orderedlist>
+    <para>The data visualizer is designed firstly to be easy-to-use - you can simply select the indicators, data elements, periods and organisation units you want to include and click &quot;Update&quot; to get your visualization. Secondly its designed  to be fast and work well over poor Internet connections - charts are generated in the web browser and very little data is transferred over the Internet.</para>
+    <screenshot>
+      <screeninfo>Data visualizer module displaying a column chart.</screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="100%" fileref="resources/images/visualizer/column_chart.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </section>
+  <section id="dvChartTypes">
+    <title>Selecting chart type</title>
+    <para>The visualizer module provides seven different chart types, each with different characteristics. You can select the type of your chart by clicking on one of the icons  in  top left bar titled &quot;Chart type&quot;.</para>
+    <orderedlist>
+      <listitem>
+        <para>Column chart: Chart which displays information as vertical rectangular columns with lengths proportional to the values they represent. Useful eg. for comparing performance of different districts.</para>
+      </listitem>
+      <listitem>
+        <para>Stacked column chart: Chart with vertical rectangular columns where bars representing multiple categories are stacked on top of each other. Useful eg. for displaying trends or sums of related data elements.</para>
+      </listitem>
+      <listitem>
+        <para>Bar chart: Same as column chart, only with horizontal bars.</para>
+      </listitem>
+      <listitem>
+        <para>Stacked bar chart: Same as stacked column chart, only with horizontal bars.</para>
+      </listitem>
+      <listitem>
+        <para>Line chart: Graph wich displays information as a series of points connected by straight lines. Also referred to as time series. Useful eg. to visualize trends in indicator data over multiple time periods.</para>
+      </listitem>
+      <listitem>
+        <para>Area chart: Chart which is based on line chart, with the space between the axis and the line filled with colors and the lines stacked on top of each other. Useful for comparing the trends of related indicators.</para>
+      </listitem>
+      <listitem>
+        <para>Pie chart: Circular chart divided into sectors (or slices). Useful eg. to visualize the proportion of data for individual data elements compared to the total sum of all data elements in the chart.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+  <section id="dvSeriesCategoryFilter">
+    <title>Selecting series, category and filter</title>
+    <para>This section lets you define which dimension of the data you want to appear as series, category and filter. This asks for a closer explanation. Dimension in this regard refers to the elements which describe the data values in the system. We have three main dimensions in the system:</para>
+    <orderedlist>
+      <listitem>
+        <para>Data: Includes data elements and indicators, describing the phenomena or event of the data.</para>
+      </listitem>
+      <listitem>
+        <para>Periods: Describes when the event took place.</para>
+      </listitem>
+      <listitem>
+        <para>Organisation units: Describes where the event took place.</para>
+      </listitem>
+    </orderedlist>
+    <para>The visualization module lets you use these dimensions completely flexible in terms of appearing as series, categories and filter. Understanding these concepts is most easily done by looking at the screenshot from the opening page below: </para>
+    <screenshot>
+      <screeninfo>Example chart illustrating the concepts of series, categories and filter.</screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="70%" fileref="resources/images/visualizer/series_category_filter.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>More formally this can be described as following:</para>
+    <orderedlist>
+      <listitem>
+        <para>Series: A series is a set of continous, related elements (eg. periods or data elements)   which you want to visualize in order to emphasize trends or relations in its data.</para>
+      </listitem>
+      <listitem>
+        <para>Categories: A category is a set of elements (eg. indicators or organisation units) for which you want to compare its data.</para>
+      </listitem>
+      <listitem>
+        <para>Filter: Since most charts are two-dimensional, a filter must be used on the third dimension  use only a single element  in order to produce a create meaningful chart.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+  <section>
+    <title>Selecting indicators and data elements</title>
+    <para>The visualizer module can display any number of indicators and data elements in a chart and data table. Both indicators and data elements can be selected and appear together in the same chart. You can select indicators by clicking at the &quot;Indicators&quot; header  and selecting an indicator group from the list of groups below it. This will make the indicators in the selected group appear in the list under &quot;Available indicators&quot; to the left. From that list you can double click on any indicator in order to select it, this will move it to the list under &quot;Selected indicators&quot;. Alternatively you can mark one or more indicators and click the single-arrow button. To select all indicators you simply click on the double-arrow button. To deselect indicators you can do correspondingly in the &quot;Selected indicators&quot; list.</para>
+    <para>To select data elements click on the &quot;Data elements&quot; header. The same principle for selecting and deselecting applies as for indicators.</para>
+  </section>
+  <section>
+    <title>Selecting periods</title>
+    <para>To select periods click on the &quot;Periods&quot; header. You can select any number of periods from the set of periods listed under the header, such as &quot;Last month&quot;, &quot;Months this year&quot; and &quot;Last 5 years&quot;. The names should be fairly self-descriptive. All periods are relative to the current date, meaning that if the current month is March and you select &quot;Last month&quot;, the month of February will be included in the chart.</para>
+  </section>
+  <section>
+    <title>Selecting organisation units</title>
+    <para>You can select which organisation units to include in the chart by clicking on the &quot;Organisation units&quot; header. This section features a tree including all organisaiton units in the system. You can select any of the organisation units by clicking on them. If you want to select multiple, arbitrary organisation units you can press the Ctrl button and then click away in the tree. If you want to include all organisation units existing directly under a specific organisation unit (the children of the parent organisation unit in other terms) you can right-click on the organisation unit and select &quot;Select all children&quot;.</para>
+  </section>
+  <section id="dvDisplayChart">
+    <title>Displaying a chart</title>
+    <para>You can display a chart based on your selections simply by clicking the &quot;Update&quot; button on the top centre menu. This requires that you have selected one more elements from all of the three dimensions - data, periods and organisation units. Note that &quot;Months this year&quot; from the period dimension and the root organisation unit is selected by default.</para>
+    <para>Notice that you can hide and show individual data series in the chart by clicking directly on the series label in the chart - they appear either at the top or at the left of the chart.</para>
+    <para>If you want to give the chart more space on your screen you can click on the triple-arrow button on the top centre menu. This will collapse the left side menu. You can get this menu back by clicking on the same button again.</para>
+  </section>
+  <section id="dvDisplayDataTable">
+    <title>Displaying a data table</title>
+    <para>After you have rendered a chart you can display the data in a table by clicking on the &quot;Data table&quot; button on the top centre menu (next to &quot;Update&quot;). This will show a table with four columns, one for data (meaning data element or indicator), period, organisation unit and data value. This table can be sorted ascending or descending on any of the columns.</para>
+    <screenshot>
+      <screeninfo>Example chart illustrating the concepts of series, categories and filter.</screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="70%" fileref="resources/images/visualizer/data_table.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </section>
+  <section id="dvSaveChart">
+    <title>Saving chart as image or PDF</title>
+    <para>After you have rendered a chart you can save that view as file and download it to your local computer by clicking on &quot;Save as&quot; on the top centre menu. You can select between PNG (image) or PDF. The file will be automatically downloaded to your computer - for instance can you now embed the image file into a text document as part of a report.</para>
+  </section>
+  <section>
+    <title>Exiting the data visualizer module</title>
+    <para>If you want to exit the module and go back to the DHIS start page you can click on the &quot;Exit&quot; button to the right side of the top centre menu.</para>
+  </section>
+</chapter>
