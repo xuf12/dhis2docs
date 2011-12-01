@@ -40,12 +40,12 @@
         </listitem>
       </orderedlist>
       <para>By now you should see the data entry form. </para>
-      <para>You can change the type of form using the radio buttons above the form in the top right corner. The available types are: 1) &quot;Default forms&quot; which are  simple list-based or tabular forms, 2) &quot;Section forms&quot; which can consist of multiple tables and better mimic the paper forms, or 3) &quot;Custom forms&quot; which follow a completely custom design defined by the user. Section and custom forms require that these have been set up by the user first, while default is always available. In the top-right corner just above the form you can switch between the three types of forms.    </para>
+      <para>Depending on how the data entry form has been implemented, you will see three different types of foms: Default forms, section forms, or custom forms. If a custom form exists, it will be displayed, followed in order of precedence by a section form, and finally a default form.</para>
       <screenshot>
         <screeninfo>Main data entry screen</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" fileref="resources/images/dhis2UserManual/data_entry_ke.png" format="PNG"/>
+            <imagedata width="100%" fileref="resources/images/data_entry/data_entry_overview.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -55,7 +55,6 @@
       <para>Simply start entering data by clicking inside the first field and type in the value. Move to the next field using the Tab button. Shift+Tab will take you back one step. The values are saved immediately and do not require any save/finished button click. A green field indicates that the value has been saved in the system (on the server). On a slow connection it might take some time before the values are saved. </para>
       <para><emphasis role="bold">Input validation:</emphasis> If you type in an invalid value, e.g. a character in a field that only accepts numeric values you will get a pop-up that explains the problem and the field will be coloured yellow (not saved) until you have corrected the value. If you have defined a min/max range for the field (data element+organisation unit combination) a pop-up message will notify you when the value is out of range, and the value will remain unsaved until you have changed the value (or updated the  range and then re-entered the value). </para>
       <para><emphasis role="bold">Disabled fields:</emphasis> If a field is disabled (grey) it means that the field should not be filled. The cursor will automatically jump to the next open field. </para>
-      <para><emphasis role="bold">Hide/show section data:</emphasis> When using section forms it is possible to minimise and maximise sections by clicking on the section headers.</para>
       <para><emphasis role="bold">Data history:</emphasis> By double-clicking on any input field in the form a data history window opens showing the last 12 values registered for the current field (organisation unit+data element+categoryoptioncombo) in a bar chart. This window also shows the min and max range and allows for adjusting the range for the specific organisation unit and data element combination. </para>
       <screenshot>
         <screeninfo>Data entry section form with history pop-up</screeninfo>
