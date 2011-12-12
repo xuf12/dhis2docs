@@ -532,7 +532,30 @@ XXX.XX.XXX.XXX foo.mydomain.org</screen></para>
       <para>Now, just restart Apache and you should be able to view https://foo.mydomain.org/dhis. </para>
       <screen>/etc/init.d/apache2 restart</screen>
     </section>
-    <section/>
+    <section>
+      <title>Reverse proxy with nginx</title>
+      <para><ulink url="http://wiki.nginx.org">Nginx</ulink> is a high-performance web server and reverse proxy with built with high concurrency, performance and low-memory usage in mind. For more installations, <application>nginx </application>may be a better alternative than the Apache web server for reverse proxy implementations. </para>
+      <para>To get started, simply install nginx on your system with the following command.</para>
+      <para><screen>sudo apt-get install nginx</screen></para>
+      <para>A sample configuration file is below, and should be placed in <filename>/etc/nginx/sites-available</filename>.</para>
+      <para><screen>server {
+    listen  *:80;
+    server_name  dhis.foo.org;
+location ~ \.(gif|jpg|png|css|js)$ {
+
+root /var/lib/tomcat6/webapps/;
+}
+
+location / {
+      proxy_pass http://localhost:8080/;
+      proxy_set_header        X-Real-IP $remote_addr;
+      proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header        Host $http_host;
+ }
+}
+</screen></para>
+      <para>You will need to adjust the <varname>server_name</varname>, and <varname>proxy_pass</varname> variables to suit your particular setup. The server name must match exactly the name of the server which will be running DHIS. In this particular setup, nginx will serve all static content and then redirect dynamic requests to the application server. Once you have adjusted the configuration file to suit your needs, be sure to activate it by creating a symbolic link in the <filename>/etc/nginx/sites-enabled </filename>directory which points to the file.</para>
+    </section>
     <section>
       <title>Performance tuning</title>
       <para>To increase Tomcat&apos;s performance, you can install the native APR library by invoking:</para>
