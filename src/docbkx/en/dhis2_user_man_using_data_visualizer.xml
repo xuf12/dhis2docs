@@ -102,6 +102,11 @@
     <title>Selecting organisation units</title>
     <para>You can select which organisation units to include in the chart by clicking on the &quot;Organisation units&quot; header. This section features a tree including all organisaiton units in the system. You can select any of the organisation units by clicking on them. If you want to select multiple, arbitrary organisation units you can press the Ctrl button and then click away in the tree. If you want to include all organisation units existing directly under a specific organisation unit (the children of the parent organisation unit in other terms) you can right-click on the organisation unit and select &quot;Select all children&quot;.</para>
   </section>
+  <section>
+    <title>Selecting chart options</title>
+    <para>To set your preferred chart options you can click on the &quot;Chart options&quot; header. The available options are trend line (makes sense when periods are selected as category dimension), hide chart subtitle, hide chart legend, include current user&apos;s organsation unit in the chart, x and y axis labels, target line value and label.</para>
+    <para><emphasis role="italic">Please note that the chart options are not yet implemented in the data visualizer module. They will however take effect for the image (PNG) version of the charts which can be accessed by creating a chart favorite and including it on your personal dashboard in the dashboard module.</emphasis></para>
+  </section>
   <section id="dvDisplayChart">
     <title>Displaying a chart</title>
     <para>You can display a chart based on your selections simply by clicking the &quot;Update&quot; button on the top centre menu. This requires that you have selected one or more elements from all of the three dimensions - data, periods and organisation units. Note that &quot;Months this year&quot; from the period dimension and the root organisation unit are selected by default.</para>
@@ -121,8 +126,21 @@
     </screenshot>
   </section>
   <section id="dvSaveChart">
-    <title>Saving chart as image or PDF</title>
+    <title>Downloading chart as image or PDF</title>
     <para>After you have rendered a chart you can save that view as file and download it to your local computer by clicking on &quot;Save as&quot; on the top centre menu. You can select between PNG (image) or PDF. The file will be automatically downloaded to your computer - for instance can you now embed the image file into a text document as part of a report.</para>
+  </section>
+  <section id="dvFavorites">
+    <title>Saving chart as favorite</title>
+    <para>Once you have rendered a chart you can save it as a favorite. Click on the &quot;Favorites&quot; button on the top menu and then on the &quot;Manage favorites&quot; link. In the name field enter the desired name for your chart. By ticking the &quot;System&quot; checkbox the chart will be visible to all users of the system, if you do not tick it the chart will be visible only to yourself. This requres that your user account has the privilege to create system charts.  You can rename any favorite by selecting it in the list, modifying its name in the name input field and clicking &quot;Rename&quot;. You can delete any favorite by selecting it and then clicking &quot;Delete&quot;.</para>
+    <para>These favorite charts can later be included on your personal dashboard. After saving you can navigate to the dashboard module, click on the &quot;Insert&quot; link over the chart areas and select your preferred chart.</para>
+    <screenshot>
+      <screeninfo>Data visualizer module displaying a column chart.</screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="100%" fileref="resources/images/visualizer/favorites.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
   </section>
   <section>
     <title>Exiting the data visualizer module</title>
