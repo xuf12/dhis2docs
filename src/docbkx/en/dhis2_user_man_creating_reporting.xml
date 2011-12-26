@@ -72,14 +72,6 @@ Along the time dimension there are several possibilities, the two most common wa
           <para>When the average aggregation operator is selected, the unweighted average of all data values within a given aggregation matrix are calculated. </para>
           <para>It is important to understand how DHIS 2 treats null values in the context of the average operator. It is fairly common for some organisational units not to submit data for certain data elements. In the context of the average operator, the average results from the number of data elemements that are actually present (therefore NOT NULL) within a given aggregation matrix. If there are 12 districts within a given province, but only 10 of these have submitted data, the average aggreate will result from these ten values that are actually present in the database, and will not take into account the missing values.  </para>
         </section>
-        <section>
-          <title>Count</title>
-          <para/>
-        </section>
-        <section>
-          <title>Where to specify </title>
-          <para/>
-        </section>
       </section>
       <section>
         <title>Advanced aggregation settings (aggregation levels)</title>
@@ -157,11 +149,9 @@ For DHIS 1.4 users this means that there is no longer a separate table per level
       <section>
         <title>Saved data mart exports</title>
         <para>To simplify the selection process, you can save a data mart export, which basically means saving the selected items (not the data), so that you can run the same at a later point without re-selecting everything. New months need to be added though, while orgunits, data elements and indicators usually stay the same.</para>
-        <para>RELATIVE PERIODS IN Data mart -NEW!!</para>
       </section>
       <section>
         <title>Routinely data mart export procedures</title>
-        <para>RELATIVE PERIODS IN Data mart -NEW!!</para>
         <para>In a monthly data entry cycle, the typical work routine would be to run all the data mart exports after the data entry process has been finalised. For each of the saved data marts you would typically select the current reporting month and export only for that period to add the newly registered values (and aggregates based on these) to the existing data mart. If any backlog data has been entered or values for previous period have been corrected since the last data mart export then these periods also need to be added.   
 
 E.g. in Sierra Leone they have set up a series of saved data mart exports:
@@ -192,7 +182,7 @@ This format makes it much easier for e.g. pivot tables or other OLAP tools to ag
     </section>
     <section id="reportTable">
       <title>Report tables</title>
-      <para>Report tables are defined, cross-tabulated reports which can be used as the basis of further reports, such as Excel Pivot Tables or simply downloaded as an Excel sheet.Report tables are intended to provide a specific view of data which is required, such as &quot;Monthly National ANC Indicators&quot;. This report table might provide all ANC indicators for a country, aggregated by month for the entire country.  This data could of course be retrieved from the main datamart, but report tables generally perform faster and present well defined views of data to users. </para>
+      <para>Report tables are defined, cross-tabulated reports which can be used as the basis of further reports, such as Excel Pivot Tables or simply downloaded as an Excel sheet. Report tables are intended to provide a specific view of data which is required, such as &quot;Monthly National ANC Indicators&quot;. This report table might provide all ANC indicators for a country, aggregated by month for the entire country.  This data could of course be retrieved from the main datamart, but report tables generally perform faster and present well defined views of data to users. </para>
       <important>
         <para> It is therefore important to keep in mind that when the aggregation strategy of the system is set to &quot;Batch&quot;, the data for each report table must also be present in the data mart. </para>
       </important>
@@ -201,7 +191,7 @@ This format makes it much easier for e.g. pivot tables or other OLAP tools to ag
   <section>
     <title>How to create report tables</title>
     <para>To create a new report table, go to the Report tables section of the Reports module (Reports -&gt; Report Table). Above the list of standard reports, use the &quot;Add report table&quot; or &quot;Add Dataelement Dimension Table&quot; buttons. A regular report table can be used to hold data on data elements, indicators or dataset completeness, while Dataelement  dimension tables are used to include data element categories in report tables. Creating the tables are done in the same way, however, the only exception being when choosing data.</para>
-    <para>To create a report table, you start by making some general choices for the table, the most important of which is the crosstab dimension. Then, you choose what data elements, indicators,  datasets or data element dimensions you want to report on. Finally, you make you options on reporting parameters relating to organisation units and time periods. Each of these steps are described in detail below.</para>
+    <para>To create a report table, you start by making some general choices for the table, the most important of which is the crosstab dimension. Then, you choose which data elements, indicators,  datasets or data element dimensions you want to include. Finally you select which organisation units and time periods to use in the report table. Each of these steps are described in detail below.</para>
     <section>
       <title>General options</title>
       <screenshot>
@@ -636,7 +626,7 @@ Above the table there are six buttons; five download buttons and one Back button
         <para>In the default table exported from DHIS 2, there are some rows that it might be better to leave out of the table, and some that it would be preferable to have at the end. For example, when making a table based on a report table with the «parent organisation unit» parameter, the default table might have a row with the national level somewhere in between all the regions. In iReport, this can be changed so that the «parent organisation unit» appears at the bottom of the table. This involves two steps that will be explained below. Note that this will not work where there is only one organisation units, and it is therefore most useful when using the «parent organisation unit» or «grand parent organisation unit» parameters in the report table.</para>
         <section>
           <title>Hiding the «parameter organisation unit» from the table</title>
-          <para>We exclude the "paramter organisation unit" from the table by using a property in the Details band called "Print when expression". To set a Print when expression, start by selecting the Detail band in the Report inspector, then edit the Print when expression in the properties panel.</para>
+          <para>We exclude the &quot;paramter organisation unit&quot; from the table by using a property in the Details band called &quot;Print when expression&quot;. To set a Print when expression, start by selecting the Detail band in the Report inspector, then edit the Print when expression in the properties panel.</para>
           <screenshot>
             <screeninfo>Select Detail 1 in the Report Inspector</screeninfo>
             <mediaobject>
@@ -666,8 +656,8 @@ Above the table there are six buttons; five download buttons and one Back button
           </screenshot>
         </section>
         <section>
-          <title>Putting the "param organisation unit" at the bottom of the table</title>
-          <para>Instead of removing the "param organisation unit" from the table entirely, it is also possible to put it at the bottom (or top) of the table. This is done by using the sort functionality explained in the next section, and choosing to sort first by "organisation_unit_is_parent". Other sorting options can be added in addition to this, for example to make a list where the param organisation unit is at the bottom of the table, with the other organisation units listed alphabetically above it.
+          <title>Putting the &quot;param organisation unit&quot; at the bottom of the table</title>
+          <para>Instead of removing the &quot;param organisation unit&quot; from the table entirely, it is also possible to put it at the bottom (or top) of the table. This is done by using the sort functionality explained in the next section, and choosing to sort first by &quot;organisation_unit_is_parent&quot;. Other sorting options can be added in addition to this, for example to make a list where the param organisation unit is at the bottom of the table, with the other organisation units listed alphabetically above it.
           </para>
         </section>
         <section>
@@ -808,32 +798,8 @@ Above the table there are six buttons; five download buttons and one Back button
         <title>Adding horizontal totals</title>
         <para>By using the expression editor, it is possible to add a column to the table with totals for each row. In the following example, we will make a table with three months as columns as well as a column with the totals for the three months.</para>
         <para>We start by dragging a text label into the table header and changing its text to &quot;Total&quot;, and dragging a text field into the details row. </para>
-        <screenshot>
-          <screeninfo>Add a text field</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="70%" fileref="resources/images/dhis2_creating_reporting/text_field.jpg" format="JPEG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
         <para>As was discussed in the section on &quot;Text field&quot;, we have to change the properties of the new text field so that it can display numbers. To do this, change the &quot;Expressions Class&quot; in the properties panel to &quot;java.lang.Double&quot;.</para>
-        <screenshot>
-          <screeninfo>Change text field type</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="50%" fileref="resources/images/dhis2_creating_reporting/text_field_type.jpg" format="JPEG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
         <para>Right click the text field and choose &quot;Edit Expression&quot;. This will bring up the &quot;Expressions editor&quot;.  As the expression, we want to sum up all the columns. In this case we have three value expressions we want to sum up: &quot;September&quot;, &quot;October 2010&quot;, &quot;November 2010&quot;. The name of these fields will vary depending on the crosstab dimension you have chosen in the report table. In our case, the  expression we make is  &quot;$f{September}+$f{October 2010}+$f{November 2010}&quot;:</para>
-        <screenshot>
-          <screeninfo>Edit the expression</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="90%" fileref="resources/images/dhis2_creating_reporting/expression.jpg" format="JPEG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
         <para>Each row of the table have a totals column to the right.</para>
       </section>
       <section>
@@ -1258,211 +1224,6 @@ Above the table there are six buttons; five download buttons and one Back button
             <para>Learn from others, there are many DHIS 2 report designs for Jasper  on  launchpad, see http://bazaar.launchpad.net/~DHIS 2-devs-core/DHIS 2/trunk/files/head:/resources/</para>
           </listitem>
         </itemizedlist>
-      </section>
-    </section>
-  </section>
-  <section>
-    <title>Charts</title>
-    <para>Charts present analysis of data using indicators and subjecting it to comparisons 
-across organisation units and over time.</para>
-    <section>
-      <title>Creating charts</title>
-      <para>To create a chart, navigate to Services -&gt; Reports -&gt; Charts. There are three different kinds of charts you can create: Period, organisation or indicator chart. For each chart you can choose whether you want to have bar charts or line charts.</para>
-      <itemizedlist>
-        <listitem>
-          <para><emphasis>Period chart</emphasis></para>
-          <para>The period chart lets you choose several indicators, several periods and one organisation unit.</para>
-          <para>The chosen periods are listed on the X-axis, and the values for each selected indicator is shown.</para>
-          <para>The period chart supports relative periods. That means that if you don&apos;t select any periods when you create the chart, but rather tick the box &quot;Reporting month&quot; under &quot;Relative periods&quot;, the chart will show the results from previous month each time it is run. For example, if you run the chart in June 2011, the chart will present the values for May 2011.</para>
-          <screenshot>
-            <screeninfo>Example period charts</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="100%" fileref="resources/images/dhis2_creating_reporting/chart_period.png" format="PNG"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
-        </listitem>
-        <listitem>
-          <para><emphasis>Organisation unit chart</emphasis></para>
-          <para>The organisation unit chart lets you choose several indicators, several organisation units and one period.</para>
-          <para>The organisation units are listed on the X-axis, and the values for each indicator is shown.</para>
-          <para>The organisation unit chart does <emphasis>not</emphasis> support relative periods.</para>
-          <screenshot>
-            <screeninfo>Example organisation unit charts</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="100%" fileref="resources/images/dhis2_creating_reporting/chart_orgunit.png" format="PNG"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
-        </listitem>
-        <listitem>
-          <para><emphasis>Indicator chart</emphasis></para>
-          <para>The indicator chart is similar to the period chart in all but one area:</para>
-          <para>The chosen indicators are listed along the X-axis, and the values for each period is shown.</para>
-          <screenshot>
-            <screeninfo>Example indicator charts</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="100%" fileref="resources/images/dhis2_creating_reporting/chart_indicator.png" format="PNG"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
-        </listitem>
-      </itemizedlist>
-      <section>
-        <title>Options when creating charts</title>
-        <itemizedlist>
-          <listitem>
-            <para><emphasis>Include regression line</emphasis></para>
-            <para>This option adds a line showing the trend of the indicator(s) presented in the chart</para>
-          </listitem>
-          <listitem>
-            <para><emphasis>Include current user organisation unit</emphasis> (from v. 2.2)</para>
-            <para>This option includes the organisation unit the current user is assigned to, in addition to other selected organisation units. For example, if the user is assigned to a region, the chart will show values for this region in addition to other selected organisation units.</para>
-            <para><emphasis>Note:</emphasis> If this option is chosen when creating a period chart, another organisation unit should not be chosen, as values for only one organisation unit can be presented in a period chart.</para>
-          </listitem>
-        </itemizedlist>
-      </section>
-    </section>
-  </section>
-  <section>
-    <title>Setting up and maintaining pivot tables</title>
-    <para>Pivot tables provide an excellent and dynamic data analysis tool that can be automatically linked to the DHIS 2 data. Each pivot table has a connection to the database and makes use of the pivot source views (sql queries) in the database to fetch the data. These queries pull all their data from the data mart tables so it is important to keep the data mart updated at all times in order to get the most recent data into the pivot tables. A pivot table can connect to a database on the local computer or on a server. This makes it well suitable for use in a local network where there is only one shared database and multiple clients using pivot tables on their own machines. Excel can also connect to databases running on Linux. The database connection used in the pivot tables is specified in odbc data sources on the computers running pivot tables.</para>
-    <para>With the use of the resource tables in the database we can easily get all group sets and categories over to Excel as pivot fields, which is a major improvement to the data analysis process. Here is a short how-to:
-
-</para>
-    <para/>
-    <para><emphasis role="bold">First time setup</emphasis>
-</para>
-    <para>1) In DHIS 2, Data Administration, Resource Tables, Tick all and generate
-</para>
-    <para>2) in DHIS 2, export the data you need to the data mart
-</para>
-    <para>3) In database (e.g. pgAdmin), insert the pivot views (download at DHIS 2.org)
-</para>
-    <para>4) Add a Windows data source (administrative tools-&gt;data sources) that links to your database (odbc connection). x64 users on Vista and Win7 need to use the 32bit version to be able to access the postgres odbc driver. This version of the data sources program can be found in the XXX folder.
-</para>
-    <para>5) In Excel use the Pivot table wizard, connect to your dhis database using the odbc connection and do a select * from one of the pivot views
-</para>
-    <para>6) define the layout of the table (e.g. pick the dimensions you want to see)
-
-</para>
-    <para/>
-    <para><emphasis role="bold">On data updates</emphasis>
-</para>
-    <para>1) Export the new data to data mart
-</para>
-    <para>2) Refresh the pivot tables
- 
-</para>
-    <para/>
-    <para><emphasis role="bold">Changes needed after meta data updates (new indicators, new categories, new groups etc.)</emphasis></para>
-    <para>1) Drop/delete all the pivot views in your database
-</para>
-    <para>2) Re-generate all the resource tables
-</para>
-    <para>3) Put the views back in
-</para>
-    <para>4) Refresh your pivot table. If you get errors referring to missing fields then you have to go back to the pivot&apos;s query designer and remove the fields that no longer exists, e.g. if a group set or category has been deleted. To get new categories or group sets in to the table you need to select these in the pivot query designer (data source) as well. Changes to category options or groups and group memberships are pulled in automatically on refresh and require no changes to the pivot query (data source).
-</para>
-    <section>
-      <title>Create a Windows data source (ODBC)</title>
-      <para>1) Download (http://www.postgresql.org/ftp/odbc/versions/msi/) and install (straight forward) the postgres odbc driver.
-
-</para>
-      <para>2) Open Control Panel --&gt; Administrative tools --&gt; Data Source (ODBC).
-
-</para>
-      <para>3) In System DNS tab, add a new data source: 
-</para>
-      <para>Click &apos;Add&apos; button</para>
-      <para>Choose &apos;PostgreSQL Unicode&apos;</para>
-      <para>Fill information fixed with your system. e.g.:</para>
-      <itemizedlist>
-        <listitem>
-          <para>Data Source: DHIS 2_sl</para>
-        </listitem>
-        <listitem>
-          <para>Description: DHIS 2 data source in PostgreSQL, used for Excel Pivot Tables</para>
-        </listitem>
-        <listitem>
-          <para>Database: DHIS 2_sl
-oSSL mode: prefer</para>
-        </listitem>
-        <listitem>
-          <para>Server: localhost (replace with IP address if connecting over a network)</para>
-        </listitem>
-        <listitem>
-          <para>Port: 5432 (this is the default postgres port, change if the postgres server has another port. Same as in hibernate.properties)</para>
-        </listitem>
-        <listitem>
-          <para>Username: dhis  (the user needed to connect to the database, same as in hibernate properties)</para>
-        </listitem>
-        <listitem>
-          <para>Password: dhis (as above)</para>
-        </listitem>
-      </itemizedlist>
-    </section>
-    <section>
-      <title>Design the pivot table</title>
-      <section>
-        <title>Office 2003</title>
-        <para>1) Open a new blank spreadsheet
-</para>
-        <para>2) Go to Data --&gt; PivotTable and PivotChartReport.
-</para>
-        <para>3) External data source --&gt; next --&gt; Get data --&gt; choose the data source name which we made in previous step.
-</para>
-        <para>4) The first time you do this the first query window you get is quite poor, so click cancel and wait for Microsoft Query to open.
-</para>
-        <para>5) In the table selector look for the pivot_source view you need and select that.
-</para>
-        <para>6) Either select columns one by one or simply select all by double-clicking on the * symbol in the table</para>
-        <para>
-7) When you have the result set you need (you should be able to see the values in the result set table with your selected fields) you select Return to Excel in the Top menu-&gt;File
-</para>
-        <para>8) Go next and open the layout window
-</para>
-        <para>9) Drag and drop the necessary fields for your table. Make sure that routine data tables have the datavalue column in the data area
-Notice: Later you can modify the field name by right clicking on it and opening &apos;Field settings&apos;, add a title, some notices and so on for a better pivot table.
-</para>
-        <para>10) Additional step for indicator tables:
-</para>
-        <para>Your indicator values should be calculated by Excel using the formula &apos;Factor*Numerator/Denominator&apos; sto make sure Excel aggregates the values (such as percentages) properly. This can be done by inserting a calculated field into the Data field area. In the layout window in the wizard just put any field in data field, e.g. denominatorvalue (the wizard does not accept an empty data field). Then close and when you can see the table in normal view select the denominatorvalue field and in the top menu go to Insert-&gt;Calculated field. In the new window you can give your field the name e.g. IndicatorValue and specify the formula based on the available fields in the list to form the formula &apos;numxfactor/denominatorvalue&apos;. numxfactor is a pre-calculated value of the factor x numeratorvalue.
-</para>
-      </section>
-      <section>
-        <title>Office 2007</title>
-        <para>1) open a new worksheet
-</para>
-        <para>2) Go to Data menu, then From Other Sources, From Microsoft Query
-</para>
-        <para>3) Click yes to confirm opening if you get a security warning popup
-</para>
-        <para>4) In Choose Data Source: select your odbc connection
-</para>
-        <para>5) In Query Wizard - Choose Columns, click Cancel, and then Yes to continue editing the query in Microsoft Query
-</para>
-        <para>6) In Add tables, locate the pivot view you need and select it. Go to Options and filter only Views to make it easier to see the Views. When you can see your table/view in the designer, then close the Add table dialogue.
-</para>
-        <para>7) Double-click on the * in your table to select all the columns, or pick one by one
-</para>
-        <para>8) When you can see the data in the designer (it may take some time to load), then go to the top menu File-&gt;Return data to Microsoft Office Excel
-</para>
-        <para>9) In Excel you&apos;ll see the Import Data dialogue, and there you select to view the data in a Pivot Table Report
-</para>
-        <para>10) You will then see the Pivot table field list on the right side, and there you can drag and drop fields from the top list to the different areas (filter, column, row, data). You will see that the pivot table is updated automatically.
-</para>
-        <para>11) Rename the pivot fields by right-clicking on a field and open the Field Settings menu.There you can write in a Custom Name, e.g. &apos;District&apos; in stead of Orgunit2.
-</para>
-        <para>12) Save your file and the next time you have new data in your data mart you can refresh the pivot table to see all the data in your data mart (filtered by your pivot view), both old and new data.
-</para>
-        <para>13) If you for some reason need to empty your pivot table, e.g. to send to another computer over email, and you cannot send with data (big size), you can first empty/clean the data mart from the DHIS Data Administration window, and then refresh your pivot table.
-</para>
-        <para>10) Additional step for indicator tables: See instructions for 2003 above.
-</para>
       </section>
     </section>
   </section>
