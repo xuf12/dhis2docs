@@ -15,7 +15,7 @@
       <screeninfo>Java license agreement</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata width="67%" fileref="resources/images/dhis2_ubuntu_installation/Java-agreement.png" format="PNG"/>
+          <imagedata width="67%" fileref="../resources/images/dhis2_ubuntu_installation/Java-agreement.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -30,7 +30,7 @@
       <screeninfo>Type Y when you&apos;re asked if you want to continue</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata width="75%" fileref="resources/images/dhis2_ubuntu_installation/Continue-Yes.png" format="PNG"/>
+          <imagedata width="75%" fileref="../resources/images/dhis2_ubuntu_installation/Continue-Yes.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -42,7 +42,7 @@
         <screeninfo>Set password for the system user</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="50%" fileref="resources/images/dhis2_ubuntu_installation/edit_password-unix.png" format="PNG"/>
+            <imagedata width="50%" fileref="../resources/images/dhis2_ubuntu_installation/edit_password-unix.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -78,7 +78,7 @@
         <screeninfo>Create a new database user and database</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="50%" fileref="resources/images/dhis2_ubuntu_installation/postgres.png" format="PNG"/>
+            <imagedata width="50%" fileref="../resources/images/dhis2_ubuntu_installation/postgres.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -101,7 +101,7 @@ CONNECTIONS AND AUTHENTICATION
         <screeninfo>Modify the postgresql.conf file to open the server for connections</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="75%" fileref="resources/images/dhis2_ubuntu_installation/Postgresql.conf.png" format="PNG"/>
+            <imagedata width="75%" fileref="../resources/images/dhis2_ubuntu_installation/Postgresql.conf.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -121,7 +121,7 @@ local   all         all                               ident</screen>
         <screeninfo>Edit the pg_hba.conf file to define authorizations</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="75%" fileref="resources/images/dhis2_ubuntu_installation/Pg_hba.conf.png" format="PNG"/>
+            <imagedata width="75%" fileref="../resources/images/dhis2_ubuntu_installation/Pg_hba.conf.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -148,7 +148,7 @@ local   all         all                               ident</screen>
             <screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata width="30%" align="center" fileref="resources/images/odbc/odbc_screen_1.PNG"/>
+                  <imagedata width="30%" align="center" fileref="../resources/images/odbc/odbc_screen_1.PNG"/>
                 </imageobject>
               </mediaobject>
             </screenshot>
@@ -184,7 +184,7 @@ local   all         all                               ident</screen>
             <screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata width="30%" align="center" fileref="resources/images/odbc/odbc_screen_2.PNG"/>
+                  <imagedata width="30%" align="center" fileref="../resources/images/odbc/odbc_screen_2.PNG"/>
                 </imageobject>
               </mediaobject>
             </screenshot>
@@ -194,7 +194,7 @@ local   all         all                               ident</screen>
             <screenshot>
               <mediaobject>
                 <imageobject>
-                  <imagedata width="20%" align="center" fileref="resources/images/odbc/odbc_screen_3.PNG"/>
+                  <imagedata width="20%" align="center" fileref="../resources/images/odbc/odbc_screen_3.PNG"/>
                 </imageobject>
               </mediaobject>
             </screenshot>
@@ -292,7 +292,7 @@ mkdir ~/dhis2/databases</screen>
         <screeninfo>Click the button with the plug to create a server connection</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="75%" fileref="resources/images/dhis2_ubuntu_installation/PgAdmin-Add-Server.png" format="PNG"/>
+            <imagedata width="75%" fileref="../resources/images/dhis2_ubuntu_installation/PgAdmin-Add-Server.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -322,7 +322,7 @@ mkdir ~/dhis2/databases</screen>
         <screeninfo>Enter the credentials for the server connection</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="50%" fileref="resources/images/dhis2_ubuntu_installation/PgAdmin_NewServerRegistration.png" format="PNG"/>
+            <imagedata width="50%" fileref="../resources/images/dhis2_ubuntu_installation/PgAdmin_NewServerRegistration.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -331,7 +331,7 @@ mkdir ~/dhis2/databases</screen>
         <screeninfo>The warning message when you choose to save the password</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="75%" fileref="resources/images/dhis2_ubuntu_installation/PgAdmin-Guru Hint - Saving passwords.png" format="PNG"/>
+            <imagedata width="75%" fileref="../resources/images/dhis2_ubuntu_installation/PgAdmin-Guru Hint - Saving passwords.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -346,7 +346,7 @@ mkdir ~/dhis2/databases</screen>
         <screeninfo>The warning message when you choose to save the password</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="33%" fileref="resources/images/dhis2_ubuntu_installation/pgAdmin-Restore.png" format="PNG"/>
+            <imagedata width="33%" fileref="../resources/images/dhis2_ubuntu_installation/pgAdmin-Restore.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -356,7 +356,7 @@ mkdir ~/dhis2/databases</screen>
         <screeninfo>Open your bakup file</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="33%" fileref="resources/images/dhis2_ubuntu_installation/pgAdmin_FindBackup.png" format="PNG"/>
+            <imagedata width="33%" fileref="../resources/images/dhis2_ubuntu_installation/pgAdmin_FindBackup.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -383,7 +383,7 @@ mkdir ~/dhis2/databases</screen>
           <screeninfo>Select your database and click the SQL button</screeninfo>
           <mediaobject>
             <imageobject>
-              <imagedata width="33%" fileref="resources/images/dhis2_ubuntu_installation/pgAdmin-SQL.png" format="PNG"/>
+              <imagedata width="33%" fileref="../resources/images/dhis2_ubuntu_installation/pgAdmin-SQL.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -393,7 +393,7 @@ mkdir ~/dhis2/databases</screen>
           <screeninfo>SQL open icon</screeninfo>
           <mediaobject>
             <imageobject>
-              <imagedata width="5%" fileref="resources/images/dhis2_ubuntu_installation/pgAdmin-SQL-open.png" format="PNG"/>
+              <imagedata width="5%" fileref="../resources/images/dhis2_ubuntu_installation/pgAdmin-SQL-open.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -403,7 +403,7 @@ mkdir ~/dhis2/databases</screen>
           <screeninfo>Open your plain text backup file</screeninfo>
           <mediaobject>
             <imageobject>
-              <imagedata width="75%" fileref="resources/images/dhis2_ubuntu_installation/pgAdmin-SQL-file.png" format="PNG"/>
+              <imagedata width="75%" fileref="../resources/images/dhis2_ubuntu_installation/pgAdmin-SQL-file.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -413,7 +413,7 @@ mkdir ~/dhis2/databases</screen>
           <screeninfo>Click the leftmost green arrow to execute the query</screeninfo>
           <mediaobject>
             <imageobject>
-              <imagedata width="10%" fileref="resources/images/dhis2_ubuntu_installation/pgAdmin-SQL-run.png" format="PNG"/>
+              <imagedata width="10%" fileref="../resources/images/dhis2_ubuntu_installation/pgAdmin-SQL-run.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -423,7 +423,7 @@ mkdir ~/dhis2/databases</screen>
           <screeninfo>It will say &quot;Query running&quot; while the query is running</screeninfo>
           <mediaobject>
             <imageobject>
-              <imagedata width="10%" fileref="resources/images/dhis2_ubuntu_installation/pgAdmin-SQL-Query-running.png" format="PNG"/>
+              <imagedata width="10%" fileref="../resources/images/dhis2_ubuntu_installation/pgAdmin-SQL-Query-running.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -686,7 +686,7 @@ dhis stop</screen>
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="60%" align="center" fileref="resources/images/aws/create_instance.png"/>
+              <imagedata width="60%" align="center" fileref="../resources/images/aws/create_instance.png"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -697,7 +697,7 @@ dhis stop</screen>
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="60%" align="center" fileref="resources/images/aws/instance_size.png"/>
+              <imagedata width="60%" align="center" fileref="../resources/images/aws/instance_size.png"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -713,7 +713,7 @@ dhis stop</screen>
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="60%" align="center" fileref="resources/images/aws/create_key_pairs.png"/>
+              <imagedata width="60%" align="center" fileref="../resources/images/aws/create_key_pairs.png"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -723,7 +723,7 @@ dhis stop</screen>
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="50%" align="center" fileref="resources/images/aws/security_groups.png"/>
+              <imagedata width="50%" align="center" fileref="../resources/images/aws/security_groups.png"/>
             </imageobject>
           </mediaobject>
         </screenshot>

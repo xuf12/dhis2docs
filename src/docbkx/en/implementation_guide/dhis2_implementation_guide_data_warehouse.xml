@@ -7,7 +7,7 @@
     <title>Data warehouses and operational systems</title>
     <para>A <emphasis role="italic">data warehouse</emphasis> is commonly understood as a database used for analysis. Typically data is uploaded from various operational / transactional systems. Before data is loaded into the data warehouse it usually goes through various stages where it is cleaned for anomalies and redundancy and transformed to conform with the overall structure of the integrated database. Data is then made available for use by analysis, also known under terms such as<emphasis role="italic"> data mining </emphasis>and <emphasis role="italic">online analytical processing</emphasis>. The data warehouse design is optimized for speed of data retrieval and analysis. To improve performance the data storage is often redundant in the sense that the data is stored both in its most granular form and in an aggregated (summarized) form.</para>
     <para>A <emphasis role="italic">transactional system</emphasis> (or <emphasis role="italic">operational system</emphasis> from a data warehouse perspective) is a system that collects, stores and modifies low level data. This system is typically used on a day-to-day basis for data entry and validation. The design is optimized for fast insert and update performance.</para>
-    <graphic fileref="resources/images/implementation_guide/data_warehouse.png" width="80%" format="PNG" align="center"/>
+    <graphic fileref="../resources/images/implementation_guide/data_warehouse.png" width="80%" format="PNG" align="center"/>
     <para>There are several benefits of maintaining a data warehouse, some of them being:</para>
     <itemizedlist>
       <listitem>
@@ -43,7 +43,7 @@
         <para>OpenELIS: Laboratory enterprise information system. This system can generate and export data on number and outcome of laboratory tests.</para>
       </listitem>
     </itemizedlist>
-    <graphic fileref="resources/images/implementation_guide/dhis_data_warehouse.png" format="PNG" width="80%" align="center"/>
+    <graphic fileref="../resources/images/implementation_guide/dhis_data_warehouse.png" format="PNG" width="80%" align="center"/>
   </section>
   <section>
     <title>Aggregation strategies in DHIS 2</title>
