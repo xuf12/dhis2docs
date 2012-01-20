@@ -294,6 +294,25 @@
               </postProcess>
             </configuration>
           </execution>
+		  
+		    <execution>
+            <id>pdf-documentation-guide</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-pdf</goal>
+            </goals>
+            <configuration>
+              <argLine>-Xmx1024m</argLine>
+              <foCustomization>${docbook.source}/en/resources/xsl/fop-cust.xsl</foCustomization>
+              <doubleSided>1</doubleSided>
+			  <paperType>A4</paperType>
+              <includes>dhis2_documentation_guide.xml</includes>
+              <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+              <postProcess>
+                <copy file="target/docbkx/pdf/dhis2_documentation_guide.pdf" todir="${docbook.target}/en/implementer" />
+              </postProcess>
+            </configuration>
+          </execution>
         
           <execution>
             <id>rtf-docs-en-user</id>
