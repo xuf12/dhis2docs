@@ -1,10 +1,9 @@
 <!-- 
-
-    This is the XSL FO (PDF) stylesheet for the Spring reference
+     This is the XSL FO (PDF) stylesheet for the DHIS2 reference
     documentation.
-    
+
     Thanks are due to Christian Bauer of the Hibernate project
-    team for writing the original stylesheet upon which this one
+    team  and Spring project for writing the original stylesheet upon which this one
     is based.
 -->
 
@@ -58,7 +57,7 @@
                    Custom Title Page
     ################################################### --> 
     
-	<xsl:template name="book.titlepage.before.recto"></xsl:template>
+	<xsl:template name="book.titlepage.before.recto"/>
     <xsl:template name="book.titlepage.recto">
         <fo:block padding-before="5mm">
             <fo:table table-layout="fixed" width="175mm">
@@ -67,7 +66,7 @@
 					<fo:table-row >
 						<fo:table-cell text-align="center">
 							<fo:block text-align="center" font-size="22pt" font-weight="bold" padding-before="70mm">
-								<xsl:value-of select="db:bookinfo/db:title" />
+								<xsl:value-of select="db:title" />
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>

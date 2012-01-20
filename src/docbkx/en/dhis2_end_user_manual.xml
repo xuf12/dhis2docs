@@ -1,43 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+       <!ENTITY title 'DHIS 2 End-user Manual'>]>
 <book>
-  <bookinfo>
-    <title>DHIS 2 End-user Manual</title>
-    <releaseinfo>
-<?eval ${project.version}?>    </releaseinfo>
-    <keywordset>
-      <keyword>DHIS2</keyword>
-      <keyword>HMIS</keyword>
-      <keyword>aggregate data</keyword>
-      <keyword>Health Management Information System</keyword>
-      <keyword>Integrated data repository</keyword>
-      <keyword>Health Information System</keyword>
-    </keywordset>
-    <copyright>
-      <year>2006-2011</year>
-    </copyright>
-    <authorgroup>
-      <author>
-        <firstname>DHIS2</firstname>
-        <surname>Documentation Team</surname>
-      </author>
-    </authorgroup>
-    <legalnotice>
-      <formalpara id="warranty">
-        <title>Warranty:</title>
-        <para> THIS DOCUMENT IS PROVIDED BY  THE AUTHORS &apos;&apos;AS IS&apos;&apos; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS MANUAL AND PRODUCTS MENTIONED HEREIN, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</para>
-      </formalpara>
-      <formalpara id="license">
-        <title>License:</title>
-        <para> Permission is granted to copy, distribute and/or modify this document
-    under the terms of the GNU Free Documentation License, Version 1.3
-    or any later version published by the Free Software Foundation;
-    with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
-    A copy of the license is included in the source of this documentation, and is available <ulink url="http://www.gnu.org/licenses/fdl.html">here</ulink>.</para>
-      </formalpara>
-    </legalnotice>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../build.properties" encoding="UTF-8"/>
-  </bookinfo>
+ <title>&title;</title>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="resources/bookinfo/bookinfo.xml" encoding="UTF-8"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_getting_started_enduser.xml" encoding="UTF-8"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_data_entry.xml" encoding="UTF-8"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_using_data_quality.xml" encoding="UTF-8"/>
