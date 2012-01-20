@@ -306,10 +306,10 @@
               <foCustomization>${docbook.source}/en/resources/xsl/fop-cust.xsl</foCustomization>
               <doubleSided>1</doubleSided>
 			  <paperType>A4</paperType>
-              <includes>dhis2_documentation_guide.xml</includes>
+              <includes>dhis2_documentation_guide_book.xml</includes>
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <postProcess>
-                <copy file="target/docbkx/pdf/dhis2_documentation_guide.pdf" todir="${docbook.target}/en/implementer" />
+                <copy file="target/docbkx/pdf/dhis2_documentation_guide_book.pdf" tofile="${docbook.target}/en/implementer/dhis2_documentation_guide.pdf" />
               </postProcess>
             </configuration>
           </execution>

@@ -607,9 +607,10 @@
         <xsl:attribute name="space-after.minimum">0.4em</xsl:attribute>
         <xsl:attribute name="space-after.optimum">0.6em</xsl:attribute>
         <xsl:attribute name="space-after.maximum">0.8em</xsl:attribute>
-    </xsl:attribute-set>    
+    </xsl:attribute-set>
 
-
+    <!--Turn off all revhistory information from the title page -->
+    <xsl:template match="revhistory" mode="titlepage.mode"/>
 
 <!--###################################################
                       Formal paras
@@ -745,7 +746,8 @@
 	  <xsl:attribute name="space-before.minimum">0.2em</xsl:attribute>
 	  <xsl:attribute name="space-before.maximum">0.8em</xsl:attribute>
 	</xsl:attribute-set>
-    
+
+
 <!--###################################################
               colored and hyphenated links 
     ###################################################  -->
