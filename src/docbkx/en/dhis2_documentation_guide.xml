@@ -9,7 +9,7 @@
   <section id="docs_2">
     <title>Introduction</title>
     <para>One of the main advantages of DocBook is that there is complete separation between the
-content and presentation. DocBook is a pure XML format, and is well documented. It is believed that only a very small subset of its features will be required in order to achieve much higher quality documentation for DHIS. There are some 400 separate mark-up elements that cater to almost any level of technical documentation needs, but in reality, only a few dozen of these element will probably need to be employed to achieve high-quality documentation for DHIS 2, both for printed as well as on-line formats such as HTML or integrated help systems within the application itself. Therefore, there are wide range of possibilities in terms of which editor can be used for the creation of DocBook files. A fairly complete list of possibilities is located <ulink url="http://wiki.docbook.org/topic/DocBookAuthoringTools">here</ulink>. It is currently recommended to use <ulink url="http://www.syntext.com/products/serna-free/ ">Syntext Serna Free</ulink> for editing DocBook source files as WYSIWYG. In principle, any text editing program or XML editor will be capable of being used to create DocBook files.  It is not recommended to use the editor XMLmind XML Editor Personal Edition (also known as XXE Personal), as the editor &quot;silently&quot; places unneeded whitespace and other ornamentation to the DocBook source which makes collaborative editing of documents very difficult. </para>
+content and presentation. DocBook is a pure XML format, and is well documented. It is believed that only a very small subset of its features will be required in order to achieve much higher quality documentation for DHIS. There are some 400 separate mark-up elements that cater to almost any level of technical documentation needs, but in reality, only a few dozen of these element will probably need to be employed to achieve high-quality documentation for DHIS 2, both for printed as well as on-line formats such as HTML or integrated help systems within the application itself. Therefore, there are wide range of possibilities in terms of which editor can be used for the creation of DocBook files. A fairly complete list of possibilities is located <ulink url="http://wiki.docbook.org/topic/DocBookAuthoringTools">here</ulink>. It is currently recommended to use <ulink url="http://www.syntext.com/products/serna-free/ ">Syntext Serna Free</ulink> for editing DocBook source files as WYSIWYG. In principle, any text editing program or XML editor will be capable of being used to create DocBook files. </para>
     <note>
       <para>It is not recommended to use the editor XMLmind XML Editor Personal Edition (also known as XXE Personal), as the editor &quot;silently&quot; places unneeded whitespace and other ornamentation to the DocBook source which makes collaborative editing of documents very difficult. </para>
     </note>
@@ -56,7 +56,7 @@ dhis2-docbook-docs directory. All documents should be placed in the <filename>dh
   <section>
     <title>DHIS2 Bibliography</title>
     <para>DHIS2 has a rich set of academic literature which can serve as invaluable resources during implementations, project proposals and more detailed reading than what is appropriate for a general user manual. A specialized bibliography has been added to the source code of the application. <ulink url="http://www.bibtex.org">BibTeX</ulink> is a specialized language which is widely used in the academic world to handle bibliographic databases. A large number of free and open source tools are capable of working with BibTeX. Currently, the recommended tool of choice for manipulating the DHIS2 bibliography is <ulink url="http://jabref.sourceforge.net/">JabRef</ulink>. </para>
-    <para>To get started with the bibliography, download a copy of JabRef and open the <filename>/src/bibliography/dhis2_bibliography.bib file</filename>.  You will need to add the custom export filters available in <filename>/src/bibliography/docbook44.layout</filename>. Consult the JabRef documentation for more information on how to use the custom export filters. Add some new references, then export the bibliography back to the <filename>/src/docbkx/en/dhis2_bibliography.xml</filename> file. The updated bibliography will automatically be included in the documentation. </para>
+    <para>To get started with the bibliography, download a copy of JabRef and open the <filename>/src/bibliography/dhis2_bibliography.bib file</filename>. . Add some new references, then export the bibliography back to the <filename>/src/docbkx/en/dhis2_bibliography.xml</filename> file, using the DocBook 4.4 export format. The updated bibliography will automatically be included in the documentation after you commit your changes.</para>
   </section>
   <section id="docs_6">
     <title>Using images</title>
@@ -144,7 +144,9 @@ Launchpad. Open up a command prompt on Windows or a shell on Linux, and navigate
     <para><blockquote>
         <para><command>bzr commit -m &quot;Created Amharic translation of documentation&quot;</command></para>
       </blockquote></para>
-    <para>Never commit code using <command>bzr push</command>, as this will overwrite any changes in the repository, and revision history will be lost. </para>
+    <important>
+      <para>Never commit code using <command>bzr push</command>, as this will overwrite any changes in the repository, and revision history will be lost. </para>
+    </important>
     <para>If you have any questions, or cannot find that you can get started, just send an email
 with your problem to <email>dhis2-documenters@lists.launchpad.net</email>.</para>
   </section>
