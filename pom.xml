@@ -295,7 +295,7 @@
             </configuration>
           </execution>
 		  
-		    <execution>
+		  <execution>
             <id>pdf-documentation-guide</id>
             <phase>package</phase>
             <goals>
@@ -314,6 +314,7 @@
             </configuration>
           </execution>
         
+          <!--
           <execution>
             <id>rtf-docs-en-user</id>
             <phase>package</phase>
@@ -330,8 +331,7 @@
                <copy file="target/docbkx/rtf/dhis2_user_manual_en.rtf" todir="${docbook.target}/en/user" />
               </postProcess>
             </configuration>
-          </execution>
-		  
+          </execution>		  
 		  <execution>
             <id>rtf-docs-en-implementer</id>
             <phase>package</phase>
@@ -348,9 +348,8 @@
                 <copy file="target/docbkx/rtf/dhis2_implementation_guide_en.rtf" todir="${docbook.target}/en/implementer" />
               </postProcess>
             </configuration>
-          </execution>
-		  
-		    <execution>
+          </execution>		  
+		  <execution>
             <id>rtf-docs-en-end-user</id>
             <phase>package</phase>
             <goals>
@@ -367,6 +366,7 @@
               </postProcess>
             </configuration>
           </execution>
+          -->
 		</executions>
         <dependencies>
           <dependency>
