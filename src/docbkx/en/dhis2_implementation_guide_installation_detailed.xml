@@ -532,9 +532,16 @@ XXX.XX.XXX.XXX foo.mydomain.org</screen></para>
       <para>A sample configuration file is below, and should be placed in <filename>/etc/nginx/sites-available</filename>.</para>
       <para><screen>server {
     listen  *:80;
+    #This can be adjusted to allow larger upload file
+    #sizes, e.g. DXF files.
+    client_max_body_size 4M;
+    client_body_buffer_size 128k;
+    #This should be replaced with your DNS name.
     server_name  dhis.foo.org;
+#Direct nginx access with these file types.
 location ~ \.(gif|jpg|png|css|js)$ {
-
+#This should be adjusted to the location of where the 
+#dhis.war file is located.
 root /var/lib/tomcat6/webapps/;
 }
 
