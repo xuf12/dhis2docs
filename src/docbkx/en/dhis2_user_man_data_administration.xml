@@ -121,7 +121,7 @@
       <title>Invalid indicator denominators</title>
       <para>Violations of this rule may be caused by an incorrect reference to a deleted or modified data element. Review the indicator and make corrections to the denominator definition. </para>
     </section>
-        <section>
+    <section>
       <title>Indicators violating exclusive group sets</title>
       <para>
       Some indicators have been allocated to several indicator groups that are members of the same indicator group set. All group sets in DHIS are defined as exclusive, which means that an indicator can <emphasis>only</emphasis> be allocated to <emphasis>one</emphasis> indicator group within that group set. Go to Maintenance -&gt; Data elements and indicators -&gt;Indicator groups to review each indicator identified in the integrity check. Either remove the indicator from all groups except the one that it should be allocated to, or see if one of the groups should be placed in a different group set.
@@ -287,22 +287,16 @@
     <para>The total number of each type of object is presented in a table, as well as a graph. </para>
   </section>
   <section id="dataLocking">
-    <title>Data locking</title>
-    <para>This module gives users the privilege of locking certain datasets for chosen organisation units. This encourages timely data entry and prevents unwanted to changes to the data once it has been entered. When the ‘Data Administration’ option is chosen the data locking interface is displayed. The user has to select the periodicity of the report e.g. monthly, quarterly or
-yearly for which the data is to be locked. The month, quarter or year for which the reports are to be locked is then specified. </para>
+    <title>Lock exceptions</title>
+    <para>Lock exceptions provide fine-grained control over exemption from a locked data set. After the expiry of the data set, data entry will be denied by default, unless an exception has been granted through the Lock exception interface. To enable a lock exception, select the desired organization units, data sets, and time period and press &quot;Add&quot;. By granting a lock exception, data entry will be enabled even after the expiry period of the data set has passed. </para>
     <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata width="100%" fileref="resources/images/maintainence/data_locking_main.png" format="PNG"/>
+          <imagedata align="center" width="50%" fileref="resources/images/maintainence/create_lock_exception.png"/>
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>The unlocked data sets for the period are displayed and the user will then have to choose the data sets to be locked.
-</para>
-    <para>After choosing the datasets to be locked, double click on each one by one to display the organisation unit tree in the field below. Click on the organisation unit to lock the dataset.
-</para>
-    <para>The <guibutton>Apply Locks on All</guibutton> button locks the dataset for all the organisation units to which that dataset has been assigned. <guibutton>‘Remove locks on All’</guibutton> removes all locks put on the organisation units corresponding to the selected dataset. After the operations are completed the user must click <guibutton>‘Save’</guibutton> to apply the settings. The <guibutton>‘Lock at level’</guibutton> button locks datasets at a particular level that the user chooses. . <guibutton>‘Unlock at Level’</guibutton> removes locks that have been put on the organisation units corresponding to the selected dataset at the selected level. After the operations are completed, the user must click <guibutton>‘Save’</guibutton> to apply the settings. The <guibutton>‘Save’</guibutton> button will also lock those organisation unit datasets that have been specified by the user.
-</para>
+    <para>In the example above, a data lock exception would be created for &quot;ab Abundant Life Organization&quot; and &quot;ab Seventh Day Hospital&quot; for the &quot;Care and Support&quot; dataset for &quot;February 2012&quot;. </para>
   </section>
   <section id="zeroValueStorage">
     <title>Zero value storage</title>
@@ -334,6 +328,17 @@ yearly for which the data is to be locked. The month, quarter or year for which 
       </mediaobject>
     </screenshot>
   </section>
+  <section>
+    <title>Option sets</title>
+    <para> Option sets can be associated with data
+elements in the add / update data element interface for name-based data elements. You can define any kind of options, for instance an option set
+called &quot;Delivery type&quot; where &quot;Normal&quot;, &quot;Breach&quot;, &quot;Caesarian&quot; and
+&quot;Assisted&quot; would be the options. This option set can later be
+associated with any number of data elements. When doing data entry in
+name-based records module those elements will then appear in the form
+as drop-down lists with auto-completion support.
+</para>
+  </section>
   <section id="cacheStatistics">
     <title>Cache Statistics </title>
     <para>This option is for system administrators only to use. The cache statistics shows the status of the application level cache. The application level cache refers to the objects and query results that the application is caching in order to speed up performance. If the database has been modified directly the application cache needs to be cleared for it to take effect.</para>
@@ -344,11 +349,22 @@ yearly for which the data is to be locked. The month, quarter or year for which 
     <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/maintainence/add_new_dynamic_attribute.png" width="40%" align="center"/>
+          <imagedata width="40%" align="center" fileref="resources/images/maintainence/add_new_dynamic_attribute.png"/>
         </imageobject>
       </mediaobject>
     </screenshot>
     <para>To create a new attribute, assign it a name. Each attribute should have a unique name. Check the tick-box &quot;Mandatory&quot; if the object should always have the dynamic attribute. Next, select which object (or objects) the attribute should be assigned to. Lastly, select the value type. You can choose from &quot;Text&quot;, &quot;Yes/No&quot;, &quot;Date&quot;, &quot;Number&quot;, &quot;Integer&quot;, &quot;Positive integer&quot; and &quot;Negative integer&quot;. If the value supplied for the attribute does not match the value type, an error will result. Finally, click &quot;Save&quot; to save the attribute. </para>
     <para>The dynamic attribute will now be present in the object which you assigned it to in the respective &quot;Edit&quot; screen of each the object.</para>
+  </section>
+  <section>
+    <title>Scheduling</title>
+    <para>Data mart jobs can be automatically scheduled to run on regular intervals. Simply select the aggregation period types, organisation unit group set aggregation level, and strategy to configure how the scheduled job should run. Pressing &quot;Start&quot; will enable the scheduled job to run at a pre-determined time or can be run immediately by pressing &quot;Execute now&quot;</para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata align="center" width="50%" fileref="resources/images/maintainence/scheduling.png"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
   </section>
 </chapter>

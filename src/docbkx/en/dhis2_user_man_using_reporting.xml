@@ -2,7 +2,7 @@
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>Using reporting functionality</title>
-  <section>
+  <section id="reporting_intro">
     <title>Reporting functionality in DHIS 2</title>
     <para>The reporting module in DHIS 2 provides a range of reporting alternatives, and this section will explain how to use them to view and analyse data. Another section explains how to configure and set up the various reporting tools.</para>
     <para><emphasis role="bold">Dashboard:</emphasis> The fastest way to view your data. The dashboard can display  up to four updated charts as well as shortcuts to your favourite reports, report tables, and map views. Each user can configure a personal dashboard.</para>
@@ -16,7 +16,7 @@
     <para><emphasis role="bold">Web-based pivot tables:</emphasis> The built in pivot table tool is a simple web-based tool to display indicator data by orgunit and period in a typical pivot table view and allows for some basic pivoting manipulations of the tables. It is a quick and easy way to look at many indicator values at the same time (by orgunit and/or period), but does not have the same functionality as the offline Excel pivot tables. </para>
     <para><emphasis role="bold">GIS:</emphasis> Present and analyse your data using thematic maps. You can view both data elements and indicators and given that you have coordinates for all your orgunits you can drill down the hierarchy and view maps for all levels from country polygons to facility points.  See the separate chapter on GIS for more details. All the map information is built into DHIS 2 and all you need to do is to register coordinates for your organisation units and the maps will be available.</para>
   </section>
-  <section>
+  <section id="report_tables">
     <title>Using report tables</title>
     <para>Report tables are one of the more basic report options, but are fast and simple to use. To run a report table first navigate to the list of available report tables in Services-&gt;Reports-&gt;Report Tables and the click on the Green and white  arrow (the first symbol in the operations list) next to the report table you want to view. </para>
     <para><emphasis role="bold">Report parameters:</emphasis> Most report tables have parameters, which means that you can filter which orgunits and/or periods you want in the report. This makes the reports much more reusable. When you run the report table a Report parameter window will open and ask the user to input values for the selected parameters. The possible parameters are Reporting Month and Organisation Unit, and either one of these or both will show in the window.    After selecting the values click on the Get Report button.</para>
@@ -39,7 +39,7 @@
     </screenshot>
     <para> </para>
   </section>
-  <section>
+  <section id="standard_reports">
     <title>Using standard reports</title>
     <para>You access the available reports from the Services drop-down menu, by selecting Reports. In the report menu in the left bar, click Standard Report. A list of all pre-defined reports will appear in the main window. </para>
     <screenshot>
@@ -52,7 +52,7 @@
     </screenshot>
     <para>You run/view a report by clicking on the white and green arrow next to the report you want. You will then see a report parameter window where you must fill in the values needed for orgunit and/or reporting month, depending on what has been defined in the underlying report table(s). Click on &quot;Get Report&quot; when you are ready. The report will wither apper directly in your browser or be available as a .pdf file for download, depending on your browser settings for handling pdf files. You can save the file and keep it locally on your computer for later use. </para>
   </section>
-  <section>
+  <section id="dataset_reports">
     <title>Using dataset reports</title>
     <para>Dataset reports are printer friendly views of the data entry screen filled with either raw or aggregated data. These are only available for data sets that have custom data entry forms and not for default or section forms.</para>
     <para>You can access data set reports from the Report menu under Services.</para>
@@ -63,11 +63,11 @@
     <para><emphasis role="bold">Reporting Organisation unit:</emphasis> Here you select the orgunit you want the report for. This can be at any level in the hierarchy as the data will be aggregated up to this level automatically (if you do not tick the option above).</para>
     <para>When you are done filling in the report criteria you click on &quot;Generate&quot;. The report will appear in html view in a printer-friendly format. Use print and save as functions in the browser to print or save (as html) the report.</para>
   </section>
-  <section>
+  <section id="data_visualizer">
     <title>Using data visualizer</title>
     <para>The data visualizer module can be accessed under &quot;Services&quot; in the top menu. See the chapter called &quot;Using data visualizer&quot; for a thorough explanation of this module.</para>
   </section>
-  <section>
+  <section id="reporting_dashboard">
     <title>Using the dashboard</title>
     <para>The dashboard is your first view into the data every time you log on to the system. Every user has its own dashboard, and a dashboard consists of 4 chart areas to the right and 3 short cut areas to the left.</para>
     <screenshot>
@@ -91,7 +91,7 @@
       </mediaobject>
     </screenshot>
   </section>
-  <section>
+  <section id="reporting_reporting_rate_summary">
     <title>Using reporting rate summary</title>
     <para>Access the reporting rate summary from the Services-&gt;Reports menu. Reporting rate summaries will show how many datasets (forms) that have been submitted by organisation unit and period. You an use one of three different methods to calculate completeness; 1) based on complete button in data entry, 2) based on a set of defined compulsory data elements, or 3) based on the total registered data values for a dataset.  </para>
     <para><emphasis role="bold">To run the report do the following:</emphasis></para>
@@ -110,7 +110,7 @@
       </mediaobject>
     </screenshot>
   </section>
-  <section>
+  <section id="orgunit_distribution_reports">
     <title>Using organisation unit distribution reports</title>
     <para>You can access the Orgunit Distribution reports from the left side menu in the Services-&gt;Reports module. </para>
     <para>Orgunit distribution reports are reports that show how the orgunits are distributed on various properties like type and ownership, and by geographical areas.</para>

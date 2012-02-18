@@ -1,9 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. -->
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <chapter>
   <title>Localization concepts</title>
-  <para>Localization involves the adaptation of an application to another location. Translation of the user interface elements, messages, layout, date and time formats, currency and other aspects must be considered.  DHIS2 supports internationalization (i18n) of the user interface through the use of Java property strings. Each element in the user interface has been assigned a specific key, which is linked to a value.</para>
+  <para>Localization involves the adaptation of an application to another location.  When implementing DHIS2 in a given country, adequate resources should be allocated to translate the application when required. Translation of the user interface elements, messages, layout, date and time formats, currency and other aspects must be considered.  DHIS2 supports internationalization (i18n) of the user interface through the use of Java property strings. Each element in the user interface has been assigned a specific key, which is linked to a value.</para>
   <para> As an example, consider the following key/value pairs.</para>
   <programlisting>org_unit_tree=Organisation Unit Tree
 error_occurred=An error has occurred.</programlisting>
@@ -20,7 +19,7 @@ error_occurred=Une erreur s&apos;est produite</programlisting>
     <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata align="center" width="80%" fileref="resources/images/i18n/i18n_web_portal_translate.PNG"/>
+          <imagedata width="80%" align="center" fileref="resources/images/i18n/i18n_web_portal_translate.PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -34,7 +33,7 @@ error_occurred=Une erreur s&apos;est produite</programlisting>
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="resources/images/i18n/i18n_tool_startup.PNG" align="center" width="30%"/>
+              <imagedata width="30%" align="center" fileref="resources/images/i18n/i18n_tool_startup.PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -44,7 +43,7 @@ error_occurred=Une erreur s&apos;est produite</programlisting>
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata align="center" fileref="resources/images/i18n/i18n_tool_select_locale.PNG" width="30%"/>
+              <imagedata width="30%" align="center" fileref="resources/images/i18n/i18n_tool_select_locale.PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -54,7 +53,7 @@ error_occurred=Une erreur s&apos;est produite</programlisting>
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata align="center" width="80%" fileref="resources/images/i18n/i18n_tool_main_window.png"/>
+              <imagedata width="80%" align="center" fileref="resources/images/i18n/i18n_tool_main_window.png"/>
             </imageobject>
           </mediaobject>
         </screenshot>
