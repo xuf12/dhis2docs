@@ -276,8 +276,9 @@
     </section>
     <section id="translation">
       <title>Translations</title>
-      <para>DHIS 2 provides functionality for translations of data element, data element group, indicator, indicator group, and data element category names.  These elements can be translated to any number of locales. A locale  represents a specific geographical, political, or cultural region. </para>
-      <para>To add a translation click the Translate icon next to the element you would like to translate. Start by selecting the desired locale from the Locale select box. If your locale is not in the list you need to add it first. Fill in locale language and locale country code. The locale language is a lower-case, two-letter valid ISO Language Code. The locale country is a upper-case, two-letter valid ISO Country Code. Then in the Translate section, select your locale, then enter values for the avaliable element properties. You can select the reference locale, that is the locale the current element is displayed in, from the select box to the right. Translations can be enabled by selecting the desired locale under Database Language under User Settings in the Settings module.</para>
+      <para>DHIS 2 provides functionality for translations of database content like data elements, data element groups, indicators, indicator groups, validation rules and more.  These elements can be translated to any number of locales. A locale  represents a specific geographical, political, or cultural region. </para>
+      <para>To add a translation click the Translate icon next to the element you would like to translate. Start by selecting the desired locale from the Locale select box. In the Translate screen, select your locale and enter values for the avaliable element properties. The reference property values are shown on the right. These values are the values which have been entered in the regular add or update user interface for the current object.</para>
+      <para>Translations can be enabled by selecting the desired locale under Database Language under User General Settings in the Settings module.</para>
     </section>
   </section>
 </chapter>
