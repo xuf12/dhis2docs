@@ -51,6 +51,58 @@
     <para>Make the startup script executable by invoking <code>chmod 755 bin/*</code> DHIS 2 can now be started by invoking <code>bin/startup.sh</code> The log can be monitored by invoking <code>tail -f logs/catalina.out</code> DHIS 2 can be stopped by invoking <code>bin/shutdown.sh</code></para>
   </section>
   <section>
+	  <title>NGINX</title>
+	  <para>
+      </para>
+      <para><emphasis role="bold">Reverse Proxy</emphasis></para>
+	  <para>
+<code>
+server {
+	listen       80;
+	server_name  localhost;
+
+	location / {
+		proxy_pass         http://localhost:8081/;
+		proxy_redirect     off;
+		proxy_set_header   Host            $host;
+		proxy_set_header   X-Real-IP       $remote_addr;
+		proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+	}
+}
+</code>
+      </para>
+      <para><emphasis role="bold">Encrypted connections with SSL</emphasis></para>
+	  <para>After tomcat is hidden behind the reverse proxy, its time to configure NGINX to use SSL. Using SSL for serving DHIS2 will give you more security since it encrypt the connection to the server, this is the same kind of security that can be found in gmail, facebook, etc.</para>
+	  <para>For configuring NGINX to use SSL, you will need a proper SSL certificate from an SSL provider, the cost of a certificate varies a lot depending on how secure you want it, but getting a cheap one from <emphasis role="italic">https://www.rapidsslonline.com</emphasis> should serve most purposes.</para>
+	  <para>When you have your certificate files (.pem and .key) you will need to place them in a location which is reachable for NGINX. A good location for this can be the same directory where your nginx.conf is located.</para>
+	  <para>Below is a nginx server block where the files are named server.pem and server.key, and it's using a reverse proxy from port 443 (HTTPS) to an internal DHIS2 instance running on port 8080.</para>
+<code>	  
+server {
+	listen       443;
+	server_name  localhost;
+
+	ssl                  on;
+	ssl_certificate      server.pem;
+	ssl_certificate_key  server.key;
+
+	ssl_session_timeout  5m;
+
+	ssl_protocols  SSLv2 SSLv3 TLSv1;
+	ssl_ciphers  HIGH:!aNULL:!MD5;
+	ssl_prefer_server_ciphers   on;
+
+	location / {
+		proxy_pass         http://localhost:8080/dhis;
+		proxy_redirect     off;
+		proxy_set_header   Host            $host;
+		proxy_set_header   X-Real-IP       $remote_addr;
+		proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+	}
+}
+</code>
+  <para>Please note that this requires that you enter your SSL password every time you start your server. You can have SSL certificates without a password, but this is not recommended.</para>
+  </section>
+  <section>
     <title>DHIS 2 Live setup</title>
     <para>The DHIS 2 Live package is extremely convenient to install and run. It is intended for demonstrations, for users who want to explore the system and for small, offline installations typically at districts or facilities. It only requires a Java Runtime Environment and runs on all browsers except Internet Explorer 7 and lower.</para>
     <para>To install start by downloading DHIS 2 Live from <emphasis role="italic">http://dhis2.org</emphasis> and extract the archive to any location. On Windows click the executable archive. On Linux invoke the startup.sh script. After the startup process is done your default web browser will automtically be pointed to  <emphasis role="italic">http://localhost:8082</emphasis> where the application is accessible. A system tray menu is accessible on most operating systems where you can start and stop the server and start new browser sesssions. Please note that if you have the server running there is no need to start it again, simply open the application from the tray  menu.</para>
