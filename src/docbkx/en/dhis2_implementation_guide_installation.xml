@@ -56,8 +56,7 @@
       </para>
       <para><emphasis role="bold">Reverse Proxy</emphasis></para>
 	  <para>
-<code>
-server {
+<screen><![CDATA[server {
 	listen       80;
 	server_name  localhost;
 
@@ -68,16 +67,14 @@ server {
 		proxy_set_header   X-Real-IP       $remote_addr;
 		proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
 	}
-}
-</code>
+}]]></screen>
       </para>
       <para><emphasis role="bold">Encrypted connections with SSL</emphasis></para>
 	  <para>After tomcat is hidden behind the reverse proxy, its time to configure NGINX to use SSL. Using SSL for serving DHIS2 will give you more security since it encrypt the connection to the server, this is the same kind of security that can be found in gmail, facebook, etc.</para>
 	  <para>For configuring NGINX to use SSL, you will need a proper SSL certificate from an SSL provider, the cost of a certificate varies a lot depending on how secure you want it, but getting a cheap one from <emphasis role="italic">https://www.rapidsslonline.com</emphasis> should serve most purposes.</para>
 	  <para>When you have your certificate files (.pem and .key) you will need to place them in a location which is reachable for NGINX. A good location for this can be the same directory where your nginx.conf is located.</para>
 	  <para>Below is a nginx server block where the files are named server.pem and server.key, and it's using a reverse proxy from port 443 (HTTPS) to an internal DHIS2 instance running on port 8080.</para>
-<code>	  
-server {
+<screen><![CDATA[server {
 	listen       443;
 	server_name  localhost;
 
@@ -98,8 +95,7 @@ server {
 		proxy_set_header   X-Real-IP       $remote_addr;
 		proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
 	}
-}
-</code>
+}]]></screen>
   <para>Please note that this requires that you enter your SSL password every time you start your server. You can have SSL certificates without a password, but this is not recommended.</para>
   </section>
   <section>
