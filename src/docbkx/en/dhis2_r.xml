@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
+<chapter id="dhis2_r">
+  <title>DHIS2 and R integration</title>
+  <section id="dhis2_r_example">
+    <title>DHIS2 and R</title>
+    <para>R is freely available, open source statistical computing environment. R refer to  both the computer programming language, as well as the software which can be used to create and run R scripts. There are <ulink url="http://cran.r-project.org/">numerous sources on the web</ulink> which describe the extensive set of features of R. </para>
+    <para>R is a natural extension to DHIS2, as it provides  powerful statistical routines, data manipulation functions, and visualization tools. This chapter will describe how to setup R and DHIS2 on the same server, and will provide a simple example of how to retrieve data from the DHIS2 database into an R data frame. </para>
+    <para>In this example, we will use a system-wide ODBC connector which will be used to retrieve data from the DHIS2 database. There are some disadvantages with this approach, as ODBC is slower than other methods and it does raise some security concerns by providing a system-wide connector to all users. However, it is a convenient method to provide a connection to multiple users. The use of the R package RODBC will be used in this case. Other alternatives would be the use of the <ulink url="http://dirk.eddelbuettel.com/code/rpostgresql.html">RPostgreSQL</ulink> package, which can interface directly through the  Postgresql driver.</para>
+    <para>First, we will install R and some other required and useful packages. Invoke the following command:</para>
+    <para><command>apt-get install r-base r-cran-odbc r-cran-lattice odbc-postgresql</command> </para>
+    <para>Next, we need to configure the ODBC connection. Edit the file to suit your local situation using the following template as a guide. Edit a file called odbc.ini</para>
+    <para><screen>[dhis2]
+Description         = DHIS2 Database
+Driver              = /usr/lib/odbc/psqlodbcw.so
+Trace               = No
+TraceFile           = /tmp/sql.log
+Database            = dhis2
+Servername          = 127.0.0.1
+UserName            = postgres
+Password            = SomethingSecure
+Port                = 5432
+Protocol            = 9.0
+ReadOnly            = Yes
+RowVersioning       = No
+ShowSystemTables    = No
+ShowOidColumn       = No
+FakeOidIndex        = No
+ConnSettings        =
+Debug = 0</screen>
+</para>
+    <para>Finally, we need to install the ODBC connection with <command>odbcinst -i -d -f odbc.ini</command></para>
+    <para>Next, lets execute R and see if the ODBC connection is working. Invoke <command>R</command> from the command line. </para>
+    <para><screen>foo@bar:~$ R
+
+R version 2.14.1 (2011-12-22)
+Copyright (C) 2011 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: i686-pc-linux-gnu (32-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type &apos;license()&apos; or &apos;licence()&apos; for distribution details.
+
+R is a collaborative project with many contributors.
+Type &apos;contributors()&apos; for more information and
+&apos;citation()&apos; on how to cite R or R packages in publications.
+
+Type &apos;demo()&apos; for some demos, &apos;help()&apos; for on-line help, or
+&apos;help.start()&apos; for an HTML browser interface to help.
+Type &apos;q()&apos; to quit R.
+
+[Previously saved workspace restored]
+
+&gt;
+</screen></para>
+    <para>This shows that R is working properly. </para>
+    <para>From the R prompt, execute the following commands to connect to the DHIS2 database. </para>
+    <para><screen>&gt; library(RODBC)
+&gt; channel&lt;-odbcConnect(&quot;dhis2&quot;)#Note that the name must match the ODBC connector name
+&gt; sqlTest&lt;-c(&quot;SELECT dataeleemntid, name FROM dataelement LIMIT 10;&quot;)
+&gt; sqlQuery(channel,sqlTest)
+                                                                        name
+1   OPD First Attendances Under 5
+2   OPD First Attendances Over 5
+3   Deaths Anaemia Under 5 Years
+4   Deaths Clinical Case of Malaria Under 5 Years
+5   Inpatient discharges under 5
+6   Inpatient Under 5 Admissions
+7   Number ITNs
+8   OPD 1st Attendance Clinical Case of Malaria Under 5
+9  IP Discharge Clinical Case of Malaria Under 5 Years
+10 Deaths of malaria case provided with anti-malarial treatment 1 to 5 Years
+&gt;
+</screen></para>
+    <para>It seems R is able to retreive data from the DHIS2 database. As an illustrative example, lets say we have been asked to calculate the relative percentage of OPD male and female under 5 attendances for the last twelve months.First, lets create an SQL query which will provide us the basic information which will be required.</para>
+    <para><screen>OPD&lt;-sqlQuery(channel,&quot;SELECT p.startdate, de.name as de, sum(dv.value::double precision)
+ FROM datavalue dv
+ INNER JOIN period p on dv.periodid = p.periodid
+ INNER JOIN dataelement de on dv.dataelementid = de.dataelementid
+ WHERE p.startdate &gt;= &apos;2011-01-01&apos;
+ and p.enddate &lt;= &apos;2011-12-31&apos;
+ and de.name ~*(&apos;Attendance OPD&apos;)
+ GROUP BY p.startdate, de.name;&quot;)</screen></para>
+    <para>We have stored the result of the SQL query in an R data frame called OPD. Lets take a look at what the data looks like. </para>
+    <para><screen>&gt; str(OPD.ct)
+List of 7
+ $ startdate                         : Date[1:12], format: &quot;2011-01-01&quot; &quot;2011-02-01&quot; &quot;2011-03-01&quot; ...
+ $ Attendance OPD 12-59 months female: int [1:12] 208879 237521 268141 232637 206140 179559 161946 159530 144090 138224 ...
+ $ Attendance OPD 12-59 months male  : int [1:12] 200734 225217 252989 222649 195315 168896 150998 150014 137925 130591 ...
+ $ Attendance OPD &lt;12 months female  : int [1:12] 116005 127485 140947 125511 110515 107205 100424 102100 93548 86301 ...
+ $ Attendance OPD &lt;12 months male    : int [1:12] 109745 118643 131398 118729 105303 99383 94239 96428 88538 82174 ...
+ $ Attendance OPD &gt;5 years female    : int [1:12] 550302 593682 656577 606291 553018 500631 458789 483245 458325 412032 ...
+ $ Attendance OPD &gt;5 years male      : int [1:12] 409310 433319 489064 448069 409164 374119 347728 348012 325802 303556 ...
+ - attr(*, &quot;row.names&quot;)= int [1:12] 1 2 3 4 5 6 7 8 9 10 ...
+ - attr(*, &quot;idvars&quot;)= chr &quot;startdate&quot;
+ - attr(*, &quot;rdimnames&quot;)=List of 2
+  ..$ :&apos;data.frame&apos;:12 obs. of  1 variable:
+  .. ..$ startdate: Date[1:12], format: &quot;2011-01-01&quot; &quot;2011-02-01&quot; &quot;2011-03-01&quot; ...
+  ..$ :&apos;data.frame&apos;:6 obs. of  1 variable:
+  .. ..$ de: Factor w/ 6 levels &quot;Attendance OPD 12-59 months female&quot;,..: 1 2 3 4 5 6
+&gt; </screen>
+</para>
+    <para>We can see that we need to aggregate the two age groups (&lt; 12 months and 12-59 months) into a single variable, based on the gender. Lets reshape the data into a crosstabulated table  to make this easier to visualize and calculate the summaries.</para>
+    <para><screen>&gt;OPD.ct&lt;-cast(OPD,startdate ~ de) 
+&gt;colnames(OPD.ct)
+[1] &quot;startdate&quot;                          &quot;Attendance OPD 12-59 months female&quot;
+[3] &quot;Attendance OPD 12-59 months male&quot;   &quot;Attendance OPD &lt;12 months female&quot;  
+[5] &quot;Attendance OPD &lt;12 months male&quot;     &quot;Attendance OPD &gt;5 years female&quot;    
+[7] &quot;Attendance OPD &gt;5 years male&quot; </screen>     
+</para>
+    <para>It looks like we need to aggregate the second and fourth columns together to get the female attendance, and then the third and fifth columns to get the male under 5 attendance.After this, lets subset the data into a new data frame just to get the required information and display the results.</para>
+    <para><screen>&gt; OPD.ct$OPDUnder5Female&lt;-OPD.ct[,2]+OPD.ct[,4]#Females
+&gt; OPD.ct$OPDUnder5Male&lt;-OPD.ct[,3]+OPD.ct[,5]#males
+&gt; OPD.ct.summary&lt;-OPD.ct[,c(1,8,9)]#new summary data frame
+&gt; OPD.ct.summary$FemalePercent&lt;-OPD.ct.summary$OPDUnder5Female/(OPD.ct.summary$OPDUnder5Female + OPD.ct.summary$OPDUnder5Male)
+&gt; OPD.ct.summary$FemalePercent&lt;-OPD.ct.summary$OPDUnder5Female/(OPD.ct.summary$OPDUnder5Female + OPD.ct.summary$OPDUnder5Male)*100
+&gt; OPD.ct.summary$MalePercent&lt;-OPD.ct.summary$OPDUnder5Male/(OPD.ct.summary$OPDUnder5Female + OPD.ct.summary$OPDUnder5Male)*100
+
+
+</screen></para>
+    <para>Of course, this could be accomplished much more elegantly, but for the purpose of the illustration, this code is rather verbose.Finally, lets display the required information.</para>
+    <para><screen>&gt; OPD.ct.summary[,c(1,4,5)]
+    startdate FemalePercent MalePercent
+1  2011-01-01      51.13360    48.86640
+2  2011-02-01      51.49154    48.50846
+3  2011-03-01      51.55651    48.44349
+4  2011-04-01      51.19867    48.80133
+5  2011-05-01      51.29902    48.70098
+6  2011-06-01      51.66519    48.33481
+7  2011-07-01      51.68762    48.31238
+8  2011-08-01      51.49467    48.50533
+9  2011-09-01      51.20394    48.79606
+10 2011-10-01      51.34465    48.65535
+11 2011-11-01      51.42526    48.57474
+12 2011-12-01      50.68933    49.31067</screen></para>
+    <para/>
+  </section>
+</chapter>

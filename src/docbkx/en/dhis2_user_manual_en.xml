@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" 
-[
+<!-- This document was created with Syntext Serna Free. -->
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
 <!ENTITY version '2.X'>
 <!ENTITY title 'DHIS2 User Manual'>
  ]>
@@ -49,6 +49,10 @@
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mydatamart_en.xml" encoding="UTF-8" xpointer="mydatamartOverview"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mydatamart_en.xml" encoding="UTF-8" xpointer="mydatamartInstallation"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mydatamart_en.xml" encoding="UTF-8" xpointer="mydatamartApplication"/>
+  </appendix>
+  <appendix>
+    <title>R and DHIS2 Integration</title>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_r.xml" encoding="UTF-8" xpointer="dhis2_r_example"/>
   </appendix>
   <appendix>
     <title> DHIS Technical Architecture Guide</title>
