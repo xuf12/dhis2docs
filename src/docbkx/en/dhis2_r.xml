@@ -197,4 +197,114 @@ dev.off()</screen>
       </imageobject>
     </mediaobject>
   </section>
+  <section id="dhis2_r_maps">
+    <title>Mapping with R and Postgresql</title>
+    <para>A somewhat more extended example, will use the RPostgreSQL library and several other libaries to produce a map from the coordinates stored in the database. We will define a few helper functions to provide a layer of abstraction, which will make the R code more reusable. </para>
+    <programlisting>#load some dependent libraries
+ library(maps)
+ library(maptools)
+ library(ColorBrewer)
+ library(ClassInt)
+ library(RPostgreSQL)
+
+#Define some helper functions
+ 
+#Returns a dataframe from the connection for a valid statement
+dfFromSQL&lt;-function (con,sql){
+    rs&lt;-dbSendQuery(con,sql)
+    result&lt;-fetch(rs,n=-1)
+    return(result)
+}
+#Returns a list of latitudes and
+ longitudes from the orgunit table
+dhisGetFacilityCoordinates&lt;- function(con,levelLimit=4) {
+sqlCoords&lt;-paste(&quot;SELECT ou.organisationunitid, ou.name,
+substring(ou.coordinates from E&apos;(?=,?)-[0-9]+\\.[0-9]+&apos;)::double precision as latitude,
+substring(ou.coordinates from E&apos;[0-9\\.]+&apos;)::double precision as
+ longitude FROM organisationunit ou where ou.organisationunitid
+ in (SELECT DISTINCT idlevel&quot;,levelLimit, &quot; from _orgunitstructure)
+ and ou.featuretype = &apos;Point&apos;
+ ;&quot;,sep=&quot;&quot;)
+ result&lt;-dfFromSQL(con,sqlCoords)
+ return(result)
+ }
+
+#Gets a dataframe of IndicatorValues,
+# provided the name of the indicator,
+# startdate, periodtype and level
+dhisGetAggregatedIndicatorValues&lt;-function(con,
+indicatorName,
+startdate,
+periodtype=&quot;Yearly&quot;,
+level=4)
+{
+  sql&lt;-paste(&quot;SELECT organisationunitid,dv.value FROM aggregatedindicatorvalue dv
+where dv.indicatorid  =
+(SELECT indicatorid from indicator where name = \&apos;&quot;,indicatorName,&quot;\&apos;) and dv.level
+ =&quot;, level,&quot;and
+ dv.periodid  = 
+(SELECT periodid from period where 
+startdate = \&apos;&quot;,startdate,&quot;\&apos;
+and periodtypeid = 
+(SELECT periodtypeid from periodtype
+ where name = \&apos;&quot;,periodtype,&quot;\&apos;));&quot;,sep=&quot;&quot;)
+   result&lt;-dfFromSQL(con,sql)
+ return(result)
+ }
+
+#Main function which handles the plotting.
+#con is the database connection
+#IndicatorName is the name of the Indicator
+#StartDate is the startdate
+#baselayer is the baselayer
+plotIndicator&lt;-function(con,
+IndicatorName,
+StartDate,
+periodtype=&quot;Yearly&quot;,
+level=4,baselayer) 
+{
+myDF&lt;-dhisGetAggregatedIndicatorValues(con,
+IndicatorName,StartDate,periodtype,level)
+coords&lt;-dhisGetFacilityCoordinates(con,level)
+myDF&lt;-merge(myDF,coords)
+myDF&lt;-SpatialPointsDataFrame(myDF[,
+c(&quot;longitude&quot;,&quot;latitude&quot;)],myDF)
+IndColors&lt;-c(&quot;firebrick4&quot;,&quot;firebrick1&quot;,&quot;gold&quot;
+,&quot;darkolivegreen1&quot;,&quot;darkgreen&quot;)
+class&lt;-classIntervals(myDF$value,n=6,style=&quot;quantile&quot;
+,pal=IndColors)
+colCode&lt;-findColours(class,IndColors)
+myPlot&lt;-plot.new()
+plot(baselayer)
+points(myDF,col=colCode,pch=19)
+title(main=IndicatorName,sub=StartDate)
+return(myPlot) }
+
+
+</programlisting>
+    <para>Up until this point, we have defined a few functions to help us make a map. We need to get the coordinates stored in the database and merge these with the indicator which we plan to map. We then retrieve the data from the aggregated indicator table, create a special type of data frame (SpatialPointsDataFrame), apply some styling to this, and then create the plot. </para>
+    <programlisting>
+#Now we define the actual thing to do
+con &lt;- dbConnect(PostgreSQL(), user= &quot;dhis&quot;, password=&quot;SomethingSecure&quot;, dbname=&quot;dhis&quot;)
+#Define the name of the indicator to plot
+MyIndicatorName&lt;-&quot;Total OPD Attendance&quot;
+MyPeriodType&lt;-&quot;Yearly&quot;
+#This should match the level where coordinates are stored
+MyLevel&lt;-4
+#Given the startdate and period type, it is enough
+#to determine the period
+MyStartDate&lt;-&quot;2010-01-01&quot;
+#Get some Some Zambia district data from GADM
+con &lt;- url(&quot;http://www.filefactory.com/file/c2a3898/n/ZMB_adm2_RData&quot;)
+print(load(con))#saved as gadm object
+#Make the map
+plotIndicator(con,MyIndicatorName,MyStartDate,MyPeriodType,MyLevel,gadm)</programlisting>
+    <para>The results of the plotIndicator function are shown below.</para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="resources/images/r/OPDAttendance.png"/>
+      </imageobject>
+    </mediaobject>
+    <para>In this example, we showed how to use the RPostgreSQL library and other helper libraries(Maptools, ColorBrewer) to create a simple map from the DHIS2 data mart. </para>
+  </section>
 </chapter>
