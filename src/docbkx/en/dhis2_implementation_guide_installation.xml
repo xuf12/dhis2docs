@@ -52,16 +52,16 @@ hibernate.hbm2ddl.auto = update</screen></para>
     <para>A common mistake is to have a white-space after the last property value - make sure there is no white-space at the end of any line.</para>
     <para><emphasis role="bold">Install Tomcat</emphasis></para>
     <para>Download the Tomcat binary distribution from  <emphasis role="italic">http://tomcat.apache.org/download-70.cgi</emphasis> A useful tool for downloading files from the web is <emphasis role="italic">wget</emphasis>. Extract to a convenient location. This guide assumes that you have navigated to the root directory of the extracted archive.</para>
-    <para>Clear the pre-installed web applications by invoking <code>rm -rf webapps/*</code> Download the latest DHIS 2 WAR file from <emphasis role="italic">http://dhis2.org/download</emphasis> and move it to the <emphasis role="italic">webapps</emphasis> directory.</para>
+    <para>Clear the pre-installed web applications by invoking <code>rm -rf webapps/*</code> Download the latest DHIS 2 WAR file from <emphasis role="italic">http://dhis2.org/download</emphasis>, move it to the <emphasis role="italic">webapps</emphasis> directory and rename it to <emphasis role="italic">ROOT.war</emphasis></para>
     <para>Open file <emphasis role="italic">bin/setclasspath.sh</emphasis> and add the lines below. The first will set the location of your Java Runtime Environment, the second will dedicate memory to Tomcat and the third will set the location for where DHIS 2 will search for the <emphasis role="italic">hibernate.properties</emphasis> configuration file, note that you should adjust this to your environment:</para>
-    <para><screen>JAVA_HOME=&apos;/usr/lib/jvm/java-7-openjdk&apos;
-JAVA_OPTS=&apos;-Xmx6000m -Xms3000m -XX:MaxPermSize=800m -XX:PermSize=400m&apos;
-DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
+    <para><screen>export JAVA_HOME=&apos;/usr/lib/jvm/java-7-openjdk&apos;
+export JAVA_OPTS=&apos;-Xmx6000m -Xms3000m -XX:MaxPermSize=800m -XX:PermSize=400m&apos;
+export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
     <para>To do basic performance tuning (optional) you can install the native  <emphasis role="italic">APR</emphasis> library by invoking <code>sudo apt-get install libtcnative-1</code> Then open file<emphasis role="italic"> bin/setclasspath.sh</emphasis> and add this line at the end of the file: <emphasis role="italic">LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH</emphasis></para>
     <para>If you need to change the <emphasis role="italic">port</emphasis> of which Tomcat listens for requests you can open the Tomcat configuration file <emphasis role="italic">/conf/server.xml</emphasis>, locate the <emphasis role="italic">&lt;Connector&gt;</emphasis> element which is not commented out and change the <emphasis role="italic">port</emphasis> attribute value to the desired port number.</para>
     <para>To monitor the behavior of Tomcat the log is the primary source of information. The log can be easily viewed with the command <code>tail -f logs/catalina.out</code></para>
     <para><emphasis role="bold">Run DHIS 2</emphasis></para>
-    <para>Make the startup script executable by invoking <code>chmod 755 bin/*</code> DHIS 2 can now be started by invoking <code>bin/startup.sh</code> The log can be monitored by invoking <code>tail -f logs/catalina.out</code> DHIS 2 can be stopped by invoking <code>bin/shutdown.sh</code> Assuming that the WAR file is called dhis.war, you can now access your DHIS instance at <emphasis role="italic">http://localhost:8080/dhis</emphasis></para>
+    <para>Make the startup script executable by invoking <code>chmod 755 bin/*</code> DHIS 2 can now be started by invoking <code>bin/startup.sh</code> The log can be monitored by invoking <code>tail -f logs/catalina.out</code> DHIS 2 can be stopped by invoking <code>bin/shutdown.sh</code> Assuming that the WAR file is called ROOT.war, you can now access your DHIS instance at <emphasis role="italic">http://localhost:8080</emphasis></para>
   </section>
   <section>
     <title>Reverse proxy with nginx (optional)</title>
@@ -89,7 +89,7 @@ DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
     <para>nginx can now be started and stopped with the following commands:</para>
     <para><code>sudo /usr/local/nginx/sbin/nginx</code></para>
     <para><code>sudo /usr/local/nginx/sbin/nginx -s stop</code></para>
-    <para>Now that we have installed nginx we will now continue to configure regular proxying of requests to our Tomcat instance, which we assume runs at http://localhost:8080/dhis. To configure nginx you can open the configuration file by invoking</para>
+    <para>Now that we have installed nginx we will now continue to configure regular proxying of requests to our Tomcat instance, which we assume runs at <emphasis role="italic">http://localhost:8080</emphasis>. To configure nginx you can open the configuration file by invoking</para>
     <para><code>sudo nano /usr/local/nginx/conf/nginx.conf</code></para>
     <para>nginx configuration is built around a hierarchy of blocks representing http, server and location, where each block inherit settings from parent blocks. To configure nginx to proxy pass (redirect) requests from port 80 (which is the port nginx will listen on by default) to our Tomcat instance  include the following configuration in nginx.conf:</para>
     <para><screen><![CDATA[server {
@@ -97,7 +97,7 @@ DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
  server_name  localhost;
 
  location / {
-  proxy_pass        http://localhost:8080/dhis;
+  proxy_pass        http://localhost:8080/;
   proxy_redirect    off;
   proxy_set_header  Host            $host;
   proxy_set_header  X-Real-IP       $remote_addr;
@@ -110,7 +110,7 @@ DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
     <para>In order to improve security it is recommended to configure the server running DHIS to communicate with clients over an encrypted connection and to identify itself to clients using a trusted certificate. This can be achieved through SSL which is an cryptographic communication protocol running on top of TCP/IP.</para>
     <para>To configure nginx to use SSL you will need a proper SSL certificate from an SSL provider. The cost of a certificate varies a lot depending on encryption strength. An affordable certificate from <emphasis role="italic">https://www.rapidsslonline.com</emphasis> should serve most purposes.</para>
     <para>When you have your certificate files (.pem and .key) you will need to place them in a location which is reachable by nginx. A good location for this can be the same directory as where your nginx.conf file is located.</para>
-    <para>Below is an nginx server block where the certificate files are named server.pem and server.key. Since SSL connections usually occur on port 443 (HTTPS) we pass requests on that port (443) on to the DHIS instance running on http://localhost:8080/dhis. The first server block will rewrite all requests connecting to port 80 and force the use of HTTPS/SSL. This is also necessary because DHIS is using a lot of redirects internally which must be passed on to use HTTPS. Remember to replace <emphasis role="italic">&lt;server-ip&gt;</emphasis> with the  IP of your server. These blocks should replace the  one from the previous section.</para>
+    <para>Below is an nginx server block where the certificate files are named server.crt and server.key. Since SSL connections usually occur on port 443 (HTTPS) we pass requests on that port (443) on to the DHIS instance running on <emphasis role="italic">http://localhost:8080</emphasis> The first server block will rewrite all requests connecting to port 80 and force the use of HTTPS/SSL. This is also necessary because DHIS is using a lot of redirects internally which must be passed on to use HTTPS. Remember to replace <emphasis role="italic">&lt;server-ip&gt;</emphasis> with the  IP of your server. These blocks should replace the  one from the previous section.</para>
     <screen><![CDATA[# Rewrite block to force use of SSL
 
 server {
@@ -126,7 +126,7 @@ server {
  server_name  localhost;
 
  ssl                  on;
- ssl_certificate      server.pem;
+ ssl_certificate      server.crt;
  ssl_certificate_key  server.key;
 
  ssl_session_timeout  5m;
@@ -136,7 +136,7 @@ server {
  ssl_prefer_server_ciphers   on;
 
  location / {
-  proxy_pass        http://localhost:8080/dhis;
+  proxy_pass        http://localhost:8080/;
   proxy_redirect    off;
   proxy_set_header  Host            $host;
   proxy_set_header  X-Real-IP       $remote_addr;
