@@ -9,9 +9,16 @@
   <section>
     <title>Server setup</title>
     <para>This section describes how to set up a server instance of  DHIS 2 on Ubuntu 10.04 64 bit with PostgreSQL as database system and Tomcat as Servlet container. The term <emphasis role="italic">invoke</emphasis> refers to executing a given command in a terminal. You can find the terminal in <emphasis role="italic">Applications</emphasis> - <emphasis role="italic">Accessories</emphasis> - <emphasis role="italic">Terminal</emphasis>.</para>
-    <para>For a national server the recommended configuration is a quad-core 2 Ghz processor or higher and 12 Gb RAM or higher. Note that a 64 bit operating system is required for utilizing more than 4 Gb of RAM, the Ubuntu 10.04 64 bit edition is thus recommended. For this guide we assume that 4 Gb RAM is allocated for PostgreSQL and 7 GB RAM is allocated for Tomcat. If you are running a different configuration <emphasis role="italic">please adjust the suggested values accordingly</emphasis>. The steps related to performance tuning are not compulsory and can be done at a later stage.</para>
+    <para>For a national server the recommended configuration is a quad-core 2 Ghz processor or higher and 12 Gb RAM or higher. Note that a 64 bit operating system is required for utilizing more than 4 Gb of RAM, the Ubuntu 10.04 64 bit edition is thus recommended. </para>
+    <para>For this guide we assume that 4 Gb RAM is allocated for PostgreSQL and 7 GB RAM is allocated for Tomcat. <emphasis role="italic">If you are running a different configuration please adjust the suggested values accordingly!</emphasis> The steps related to performance tuning are optional and can be done at a later stage.</para>
     <para><emphasis role="bold">Create new user (optional)</emphasis></para>
-    <para>You might want to create a dedicated user for running DHIS - it is not recommended to run as the root user. Create a new user called dhis  by invoking <code>useradd -d /home/dhis -m dhis -s /bin/bash</code>     Then make the user able to perform operations temporarily as root user by invoking <code>adduser dhis admin</code> Then invoke <code>passwd dhis</code> to set the password for your account. Make sure you set a strong password with at least 15 random characters.</para>
+    <para>You might want to create a dedicated user for running DHIS - it is not recommended to run as the root user. Create a new user called dhis  by invoking <code>useradd -d /home/dhis -m dhis -s /bin/bash</code>     Then make the user able to perform operations temporarily as root user by invoking <code>adduser dhis admin</code> Then invoke <code>passwd dhis</code> to set the password for your account. Make sure you set a strong password with at least 15 random characters. You might want to disable remote login for the root account for improved security by invoking<emphasis role="italic"> sudo passwd -l root</emphasis></para>
+    <para><emphasis role="bold">Operating system kernel tuning (optional)</emphasis></para>
+    <para>These settings are optional except for the shared memory setting which is required for PostgreSQL memory allocation. Open the kernel configuration file by invoking <code>sudo nano /etc/sysctl.conf</code> At the end of the file add the following lines and save.</para>
+    <screen>kernel.shmmax = 1073741824
+net.core.rmem_max = 8388608
+net.core.wmem_max = 8388608</screen>
+    <para>Make the changes take effect by invoking <code>sudo sysctl -p</code></para>
     <para><emphasis role="bold">Install Java</emphasis></para>
     <para>Install Java by invoking <code>sudo apt-get install openjdk-7-jdk</code></para>
     <para><emphasis role="bold">Install PostgreSQL</emphasis></para>
