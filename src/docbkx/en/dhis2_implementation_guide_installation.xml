@@ -11,12 +11,11 @@
     <para>This section describes how to set up a server instance of  DHIS 2 on Ubuntu 10.04 64 bit with PostgreSQL as database system and Tomcat as Servlet container. The term <emphasis role="italic">invoke</emphasis> refers to executing a given command in a terminal. You can find the terminal in <emphasis role="italic">Applications</emphasis> - <emphasis role="italic">Accessories</emphasis> - <emphasis role="italic">Terminal</emphasis>.</para>
     <para>For a national server the recommended configuration is a quad-core 2 Ghz processor or higher and 12 Gb RAM or higher. Note that a 64 bit operating system is required for utilizing more than 4 Gb of RAM, the Ubuntu 10.04 64 bit edition is thus recommended. For this guide we assume that 4 Gb RAM is allocated for PostgreSQL and 7 GB RAM is allocated for Tomcat. If you are running a different configuration <emphasis role="italic">please adjust the suggested values accordingly</emphasis>. The steps related to performance tuning are not compulsory and can be done at a later stage.</para>
     <para><emphasis role="bold">Create new user (optional)</emphasis></para>
-    <para>You might want to create a dedicated user for running DHIS - it is not recommended to run as the root user. Create a new user called dhis  by invoking <code>useradd -d /home/dhis -m dhis -s /bin/bash</code>     Then make the user able to perform operations temporarily as root user by invoking <code>adduser dhis admin</code> Then invoke <code>passwd dhis</code> to set the password for your account.MM</para>
+    <para>You might want to create a dedicated user for running DHIS - it is not recommended to run as the root user. Create a new user called dhis  by invoking <code>useradd -d /home/dhis -m dhis -s /bin/bash</code>     Then make the user able to perform operations temporarily as root user by invoking <code>adduser dhis admin</code> Then invoke <code>passwd dhis</code> to set the password for your account. Make sure you set a strong password with at least 15 random characters.</para>
     <para><emphasis role="bold">Install Java</emphasis></para>
-    <para>Enable Partner repositories by opening <emphasis role="italic">/etc/apt/sources.list</emphasis>and adding the line <emphasis role="italic">deb http://archive.canonical.com/ubuntu maverick partner</emphasis> at the end of the file. Then invoke <code>sudo apt-get -f install</code> to update the package list.</para>
-    <para>Install Java by invoking <code>sudo apt-get install sun-java6-jdk</code></para>
+    <para>Install Java by invoking <code>sudo apt-get install openjdk-7-jdk</code></para>
     <para><emphasis role="bold">Install PostgreSQL</emphasis></para>
-    <para>Install PostgreSQL by invoking <code>sudo apt-get install postgresql-8.4</code></para>
+    <para>Install PostgreSQL by invoking <code>sudo apt-get install postgresql-9.1</code></para>
     <para>Set the password for the postgres Unix user by invoking <code>sudo passwd postgres</code> and following the instructions. Switch to the postgres user by invoking <code>su postgres</code> and entering the password when prompted.</para>
     <para>Log into psql by invoking <code>psql</code> Create a user called <emphasis role="italic">dhis</emphasis>  by invoking <code>create user dhis with password &apos;&lt;dhis&gt;&apos;</code> Replace the password <emphasis role="italic">&lt;dhis&gt;</emphasis> with something secure. Create a database by invoking <code>create database dhis2 with owner dhis encoding &apos;utf&apos;</code> Exit psql by invoking <code>\q</code> Return to your session by invoking <code>exit</code> You now have a PostgreSQL user called <emphasis role="italic">dhis</emphasis> and a database called <emphasis role="italic">dhis2</emphasis>.</para>
     <para>Do basic performance tuning by increasing the operating system kernel shared memory by opening file /etc/sysctl.conf and adding the line <emphasis role="italic">kernel.shmmax = 1073741824</emphasis> at the end of it. Make the change take effect by invoking <code>sysctl -p</code>  Then open  file <emphasis role="italic">/etc/postgresql/8.4/main/postgresql.conf</emphasis> and set the following properties: </para>
@@ -37,66 +36,106 @@
     <para>Restart PostgreSQL by invoking <code>sudo /etc/init.d/postgresql restart</code></para>
     <para><emphasis role="bold">Set the database configuration</emphasis></para>
     <para>The database connection information is provided to DHIS 2 through a configuration file called <emphasis role="italic">hibernate.properties</emphasis>. Create this file and save it in a convenient location. A  file corresponding to the above setup has these properties: </para>
-    <para><code>hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect hibernate.connection.driver_class = org.postgresql.Driver hibernate.connection.url = jdbc:postgresql:dhis2 hibernate.connection.username = dhis hibernate.connection.password = dhis hibernate.hbm2ddl.auto = update</code></para>
-    <para>A common mistake is to have a white-space after the last property value - make sure there is no white-space at the end of the line.</para>
+    <para><screen>hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+hibernate.connection.driver_class = org.postgresql.Driver
+hibernate.connection.url = jdbc:postgresql:dhis2
+hibernate.connection.username = dhis
+hibernate.connection.password = dhis
+hibernate.hbm2ddl.auto = update</screen></para>
+    <para>A common mistake is to have a white-space after the last property value - make sure there is no white-space at the end of any line.</para>
     <para><emphasis role="bold">Install Tomcat</emphasis></para>
     <para>Download the Tomcat binary distribution from  <emphasis role="italic">http://tomcat.apache.org/download-70.cgi</emphasis> A useful tool for downloading files from the web is <emphasis role="italic">wget</emphasis>. Extract to a convenient location. This guide assumes that you have navigated to the root directory of the extracted archive.</para>
     <para>Clear the pre-installed web applications by invoking <code>rm -rf webapps/*</code> Download the latest DHIS 2 WAR file from <emphasis role="italic">http://dhis2.org/download</emphasis> and move it to the <emphasis role="italic">webapps</emphasis> directory.</para>
     <para>Open file <emphasis role="italic">bin/setclasspath.sh</emphasis> and add the lines below. The first will set the location of your Java Runtime Environment, the second will dedicate memory to Tomcat and the third will set the location for where DHIS 2 will search for the <emphasis role="italic">hibernate.properties</emphasis> configuration file, note that you should adjust this to your environment:</para>
-    <para><code>JAVA_HOME=&apos;/usr/lib/jvm/java-6-sun&apos; | JAVA_OPTS=&apos;-Xmx6000m -XX:MaxPermSize=1000m&apos; | DHIS2_HOME=&apos;/home/dhis/config&apos;</code></para>
-    <para>To do basic performance tuning you can install the native  <emphasis role="italic">APR</emphasis> library by invoking <code>sudo apt-get install libtcnative-1</code> Then open file<emphasis role="italic"> bin/setclasspath.sh</emphasis> and add this line at the end of the file: <emphasis role="italic">LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH</emphasis></para>
+    <para><screen>JAVA_HOME=&apos;/usr/lib/jvm/java-7-openjdk&apos;
+JAVA_OPTS=&apos;-Xmx6000m -XX:MaxPermSize=1000m&apos;
+DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
+    <para>To do basic performance tuning (optional) you can install the native  <emphasis role="italic">APR</emphasis> library by invoking <code>sudo apt-get install libtcnative-1</code> Then open file<emphasis role="italic"> bin/setclasspath.sh</emphasis> and add this line at the end of the file: <emphasis role="italic">LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH</emphasis></para>
     <para>If you need to change the <emphasis role="italic">port</emphasis> of which Tomcat listens for requests you can open the Tomcat configuration file <emphasis role="italic">/conf/server.xml</emphasis>, locate the <emphasis role="italic">&lt;Connector&gt;</emphasis> element which is not commented out and change the <emphasis role="italic">port</emphasis> attribute value to the desired port number.</para>
     <para>To monitor the behavior of Tomcat the log is the primary source of information. The log can be easily viewed with the command <code>tail -f logs/catalina.out</code></para>
     <para><emphasis role="bold">Run DHIS 2</emphasis></para>
-    <para>Make the startup script executable by invoking <code>chmod 755 bin/*</code> DHIS 2 can now be started by invoking <code>bin/startup.sh</code> The log can be monitored by invoking <code>tail -f logs/catalina.out</code> DHIS 2 can be stopped by invoking <code>bin/shutdown.sh</code></para>
+    <para>Make the startup script executable by invoking <code>chmod 755 bin/*</code> DHIS 2 can now be started by invoking <code>bin/startup.sh</code> The log can be monitored by invoking <code>tail -f logs/catalina.out</code> DHIS 2 can be stopped by invoking <code>bin/shutdown.sh</code> Assuming that the WAR file is called dhis.war, you can now access your DHIS instance at <emphasis role="italic">http://localhost:8080/dhis</emphasis></para>
   </section>
   <section>
-	  <title>nginx</title>
-	  <para>
-      </para>
-      <para><emphasis role="bold">Reverse Proxy</emphasis></para>
-	  <para>
-<screen><![CDATA[server {
-	listen       80;
-	server_name  localhost;
+    <title>Reverse proxy (optional)</title>
+    <para>A reverse proxy is a proxy server that acts on behalf of a server. Using a reverse proxy in combination with a servlet container is optional but has many advantages:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Requests can be mapped and passed on to multiple servlet containers - this improves flexibility and makes it easier to run multiple instances of DHIS on the same server. It also makes it possible to change the internal server setup without affecting clients.</para>
+      </listitem>
+      <listitem>
+        <para>The DHIS application can be run as a non-root user on a port different than 80 which reduces the consequences of session hijacking.</para>
+      </listitem>
+      <listitem>
+        <para>The reverse proxy can  act as a single SSL server and be configured to inspect requests for malicious content, log requests and responses and provide non-sensitive error messages which will improve security.</para>
+      </listitem>
+    </itemizedlist>
+    <para><emphasis role="bold">nginx</emphasis></para>
+    <para>We recommend using nginx  (http://wiki.nginx.org) as reverse proxy due to its low memory footprint and ease of use. To get the latest version we recommend installing from source:</para>
+    <para><code>sudo apt-get install make gcc libpcre3 libpcre3-dev zlibc zlib1g zlib1g-dev libssl-dev openssl</code></para>
+    <para><code>wget http://nginx.org/download/nginx-1.0.13.tar.gz (check for latest!)</code></para>
+    <para><code>tar xzvf nginx-1.0.13.tar.gz</code></para>
+    <para><code>cd nginx-1.0.13</code></para>
+    <para><code>./configure --with-http_ssl_module</code></para>
+    <para><code>make</code></para>
+    <para><code>sudo make install</code></para>
+    <para>nginx can now be started and stopped with the following commands:</para>
+    <para><code>sudo /usr/local/nginx/sbin/nginx</code></para>
+    <para><code>sudo /usr/local/nginx/sbin/nginx -s stop</code></para>
+    <para>Now that we have installed nginx we will now continue to configure regular proxying of requests to our Tomcat instance, which we assume runs at http://localhost:8080/dhis. To configure nginx you can open the configuration file by invoking</para>
+    <para><code>sudo nano /usr/local/nginx/conf/nginx.conf</code></para>
+    <para>nginx configuration is built around a hierarchy of blocks representing http, server and location, where each block inherit settings from parent blocks. To configure nginx to proxy pass (redirect) requests from port 80 (which is the port nginx will listen on by default) to our Tomcat instance  include the following configuration in nginx.conf:</para>
+    <para><screen><![CDATA[server {
+ listen       80;
+ server_name  localhost;
 
-	location / {
-		proxy_pass         http://localhost:8080/;
-		proxy_redirect     off;
-		proxy_set_header   Host            $host;
-		proxy_set_header   X-Real-IP       $remote_addr;
-		proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
-	}
+ location / {
+  proxy_pass        http://localhost:8080/dhis;
+  proxy_redirect    off;
+  proxy_set_header  Host            $host;
+  proxy_set_header  X-Real-IP       $remote_addr;
+  proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+ }
+}]]></screen></para>
+    <para>Now that the reverse proxy is set up we can improve security by making Tomcat only listen for local connections. In <emphasis role="italic">/conf/server.xml</emphasis> you can add an <emphasis role="italic">address</emphasis> attribute with the value <emphasis role="italic">localhost</emphasis> to the Connetor element for HTTP 1.1 like this:</para>
+    <para><screen>&lt;Connector address=&quot;localhost&quot; protocol=&quot;HTTP/1.1&quot; ... &gt;</screen></para>
+    <para><emphasis role="bold">Encrypted connections with SSL</emphasis></para>
+    <para>In order to improve security it is recommended to configure the server running DHIS to communicate with clients over an encrypted connection and to identify itself to clients using a trusted certificate. This can be achieved through SSL which is an cryptographic communication protocol running on top of TCP/IP.</para>
+    <para>To configure nginx to use SSL you will need a proper SSL certificate from an SSL provider. The cost of a certificate varies a lot depending on encryption strength. An affordable certificate from <emphasis role="italic">https://www.rapidsslonline.com</emphasis> should serve most purposes.</para>
+    <para>When you have your certificate files (.pem and .key) you will need to place them in a location which is reachable by nginx. A good location for this can be the same directory as where your nginx.conf file is located.</para>
+    <para>Below is an nginx server block where the certificate files are named server.pem and server.key. Since SSL connections usually occur on port 443 (HTTPS) we pass requests on that port (443) on to the DHIS instance running on http://localhost:8080/dhis. The first server block will rewrite all requests connecting to port 80 and force the use of HTTPS/SSL. This is also necessary because DHIS is using a lot of redirects internally which must be passed on to use HTTPS.</para>
+    <screen><![CDATA[# Rewrite block to force use of SSL
+
+server {
+  listen      80;
+  server_name localhost;
+  rewrite     ^ https://<server-ip>$request_uri? permanent;
+}
+
+# SSL server block
+
+server {
+ listen       443;
+ server_name  localhost;
+
+ ssl                  on;
+ ssl_certificate      server.pem;
+ ssl_certificate_key  server.key;
+
+ ssl_session_timeout  5m;
+
+ ssl_protocols  SSLv2 SSLv3 TLSv1;
+ ssl_ciphers  HIGH:!aNULL:!MD5;
+ ssl_prefer_server_ciphers   on;
+
+ location / {
+  proxy_pass        http://localhost:8080/dhis;
+  proxy_redirect    off;
+  proxy_set_header  Host            $host;
+  proxy_set_header  X-Real-IP       $remote_addr;
+  proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+ }
 }]]></screen>
-      </para>
-      <para><emphasis role="bold">Encrypted connections with SSL</emphasis></para>
-	  <para>After tomcat is set up behind the reverse proxy, it is time to configure nginx to use SSL. Using SSL for serving DHIS 2 will provide better security since it encrypts the connection to the server.</para>
-	  <para>To configure nginx to use SSL you will need a proper SSL certificate from an SSL provider. The cost of a certificate varies a lot depending on encryption strength. An affordable certificate from <emphasis role="italic">https://www.rapidsslonline.com</emphasis> should serve most purposes.</para>
-	  <para>When you have your certificate files (.pem and .key) you will need to place them in a location which is reachable by nginx. A good location for this can be the same directory as where your nginx.conf file is located.</para>
-	  <para>Below is an nginx server block where the files are named server.pem and server.key and using a reverse proxy from port 443 (HTTPS) passed on to a DHIS 2 instance running on port 8080.</para>
-<screen><![CDATA[server {
-	listen       443;
-	server_name  localhost;
-
-	ssl                  on;
-	ssl_certificate      server.pem;
-	ssl_certificate_key  server.key;
-
-	ssl_session_timeout  5m;
-
-	ssl_protocols  SSLv2 SSLv3 TLSv1;
-	ssl_ciphers  HIGH:!aNULL:!MD5;
-	ssl_prefer_server_ciphers   on;
-
-	location / {
-		proxy_pass         http://localhost:8080/;
-		proxy_redirect     off;
-		proxy_set_header   Host            $host;
-		proxy_set_header   X-Real-IP       $remote_addr;
-		proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
-	}
-}]]></screen>
-  <para>Please note that this requires that you enter your SSL password every time you start your server. You can have SSL certificates without a password, but this is not recommended.</para>
   </section>
   <section>
     <title>DHIS 2 Live setup</title>
@@ -110,6 +149,6 @@
     <para>Backup should be central in a disaster recovery plan. Even though such a plan should cover additional subjects, the database is the key component to consider since this is where all data used in the DHIS 2 application is stored. Most other parts of the IT infrastructure surrounding the application can be restored based on standard components.</para>
     <para>There are of course many ways to set up backup; however the following describes a setup where the database is copied into a dump file and saved on the file system. This can be considered a <emphasis role="italic">full</emphasis> backup. The backup is done with a <emphasis role="italic">cron job</emphasis>, which is a time-based scheduler in Unix/Linux operating systems.</para>
     <remark>You can download both files from http://dhis2.com/download/pg_backup.zip</remark>
-    <para>The cron job is set up with two files. The first is a <emphasis role="italic">script</emphasis> which performs the actual task of backup up the database. It uses a PostgreSQL program called <emphasis role="italic">pg_dump</emphasis> for creating the database copy. The second is a crontab file which runs the backup script every day at 23:00. Note that this script backs up the database file to the local disk. It is strongly recommended to store a copy of the backup at a location outside the server where the application is hosted. This can be achieved with the <emphasis role="italic">scp</emphasis> tool.</para>
+    <para>The cron job is set up with two files. The first is a <emphasis role="italic">script</emphasis> which performs the actual task of backup up the database. It uses a PostgreSQL program called <emphasis role="italic">pg_dump</emphasis> for creating the database copy. The second is a crontab file which runs the backup script every day at 23:00. Note that this script backs up the database file to the local disk. It is strongly recommended to store a copy of the backup at a location outside the server where the application is hosted. This can be achieved with the <emphasis role="italic">scp</emphasis> tool. Make sure that you have set the system date correctly on your server.</para>
   </section>
 </chapter>
