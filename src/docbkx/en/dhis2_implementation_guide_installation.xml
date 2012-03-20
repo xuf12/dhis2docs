@@ -92,16 +92,16 @@ export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
     <para><code>sudo /usr/local/nginx/sbin/nginx -s stop</code></para>
     <para>Now that we have installed nginx we will now continue to configure regular proxying of requests to our Tomcat instance, which we assume runs at <emphasis role="italic">http://localhost:8080</emphasis>. To configure nginx you can open the configuration file by invoking</para>
     <para><code>sudo nano /usr/local/nginx/conf/nginx.conf</code></para>
-    <para>nginx configuration is built around a hierarchy of blocks representing http, server and location, where each block inherit settings from parent blocks. The following snippet will configure nginx to proxy pass (redirect) requests from port 80 (which is the port nginx will listen on by default) to our Tomcat instance. It will also make nginx serve requests for static content such as javascript, stylesheets and images and instruct clients to cache it for 14 days which will reduce the load on Tomcat and improve overall performance. Include the following configuration in nginx.conf:</para>
+    <para>nginx configuration is built around a hierarchy of blocks representing http, server and location, where each block inherit settings from parent blocks. The following snippet will configure nginx to proxy pass (redirect) requests from port 80 (which is the port nginx will listen on by default) to our Tomcat instance. It will also make nginx serve requests for static content such as javascript, stylesheets and images and instruct clients to cache it for 4 days which will reduce the load on Tomcat and improve overall performance. Include the following configuration in nginx.conf:</para>
     <para><screen><![CDATA[server {
   listen       80;
 
   # Serve static content
   # Root points to your DHIS webapp location, update it!
 
-  location ~* (\.js$|\.css$|\.gif$|^/images/|^/icons/) {
+  location ~* (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
     root     /home/dhis/tomcat/webapps/ROOT;
-    expires  14d;
+    expires  4d;
   } 
 
   # Proxy pass to servlet container
@@ -145,9 +145,9 @@ server {
 
   # Root points to your DHIS webapp location, update it!
 
-  location ~* (\.js$|\.css$|\.gif$|^/images/|^/icons/) {
+  location ~* location ~* (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
     root     /home/dhis/tomcat/webapps/ROOT;
-    expires  14d;
+    expires  4d;
   } 
 
   location / {
@@ -158,6 +158,7 @@ server {
     proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
  }
 }]]></screen>
+    <para>The location block for static content is essential as web browser will not cache static content by default over SSL. It will only cache such content on the client side  if told explicitly by the web server.</para>
   </section>
   <section>
     <title>Reverse proxy with Apache (optional)</title>
