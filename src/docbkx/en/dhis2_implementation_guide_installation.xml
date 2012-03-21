@@ -159,6 +159,22 @@ server {
  }
 }]]></screen>
     <para>The location block for static content is essential as web browser will not cache static content by default over SSL. It will only cache such content on the client side  if told explicitly by the web server.</para>
+    <para><emphasis role="bold">Making resources publicly available</emphasis></para>
+    <para>In some scenarios it is desirable to make certain resources publicly available on the Web without requiring auhentication. One example is when you want to make the data analysis related resources in the Web API available in a Web portal. The following example will allow access to charts, maps, reports, report table and document resources through basic authentication by injecting an <emphasis role="italic">Authorization</emphasis> HTTP  header into the request. It will remove the Cookie header from the request and the Set-Cookie header from the response in order to avoid changing the currently logged in user. It is recommended to create a user for this purpose given only the minimum authorities required. The Authorization value can be constructed by Base64-encoding the username appended with a colon and the password and prefix it &quot;Basic &quot;, more precisely &quot;Basic base64_encode(username:password)&quot;. It will check the HTTP method used for requests and return <emphasis role="italic">405 Method Not Allowed</emphasis> if anything but GET is detected.</para>
+    <screen>location ~ ^/api/(charts|maps|reports|reportTables|documents)/ {
+  if ($request_method != GET) {
+    return 405;
+  }
+
+  proxy_pass        http://localhost:8080;
+  proxy_redirect    off;
+  proxy_set_header  Host              $host;
+  proxy_set_header  X-Real-IP         $remote_addr;
+  proxy_set_header  X-Forwarded-For   $proxy_add_x_forwarded_for;
+  proxy_set_header  Authorization     &quot;Basic YWRtaW46ZGlzdHJpY3Q=&quot;;
+  proxy_set_header  Cookie            &quot;&quot;;
+  proxy_hide_header Set-Cookie;
+}</screen>
   </section>
   <section>
     <title>Reverse proxy with Apache (optional)</title>
