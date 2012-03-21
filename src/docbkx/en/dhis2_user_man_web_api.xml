@@ -94,10 +94,9 @@
     <para>There are many ways to authenticate over the Web and each method has its advantages and disadvantages. For this example we will use an  approach where we emulate a  login from the web-based login form. To help us we will use the <emphasis role="italic">jQuery</emphasis>  javascript library. This javascript code should be embedded in the <emphasis role="italic">head</emphasis> section of the Web page:</para>
     <screen>jQuery(document).ready(function() {
   var base = &quot;http://apps.dhis2.org/demo/&quot;;
-  $.post( base + &quot;dhis-web-commons-security/login.action&quot;,{
+  $.post( base + &quot;dhis-web-commons-security/login.action&quot;, {
       j_username: &quot;admin&quot;, j_password: &quot;district&quot; 
-    },
-    setLinks
+    }
   );
 });</screen>
     <para>In this code block we ask jQuery to send a POST request to the standard authentication point with two name-value pairs containing the username and password information. We assume that the user has the necessary authorities to view reports in the DHIS 2 Web API. If  authentication was successful the server will send a HTTP cookie in the response with a session identifier. This will make sure that the current user is authorized to view reports for up to 60 minutes.</para>
