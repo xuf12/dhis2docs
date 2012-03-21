@@ -136,7 +136,7 @@ OPD.ct.summary$OPDUnder5Male/
 11 2011-11-01      51.42526    48.57474
 12 2011-12-01      50.68933    49.31067</screen></para>
     <para>We can see that the male and female attendances are very similar for each month of the year, with seemingly higher male attendance relative to female attendance in the month of December.</para>
-    <para>In this example, we showed how to retreive data from the DHIS2 database and manipulate in with some simple R commands. The basic pattern for using DHIS2 and R together, will be the retrieval of data from the DHIS2 database with an SQL query into an R data frame, followed by whatever routines (statistical analysis, plotting, etc) which may be required.  </para>
+    <para>In this example, we showed how to retrieve data from the DHIS2 database and manipulate in with some simple R commands. The basic pattern for using DHIS2 and R together, will be the retrieval of data from the DHIS2 database with an SQL query into an R data frame, followed by whatever routines (statistical analysis, plotting, etc) which may be required.  </para>
   </section>
   <section id="dhis2_r_mydatamart">
     <title>Using R with MyDatamart</title>
@@ -168,7 +168,7 @@ dbDisconnect(db)</screen>
 colnames(Inds)
 #output not shown for brevity
 levels(as.factor(Inds$indshort)) </screen>
-    <para>We see from the <command>colnames</command> commnand that there is an column called &quot;indshort&quot; which looks like it contains some indicator names. We can see the names using the second command. After we have determined which ones we need (ANC 1, 2, and 3), lets further subset the data so that we only have these. </para>
+    <para>We see from the <command>colnames</command> command that there is an column called &quot;indshort&quot; which looks like it contains some indicator names. We can see the names using the second command. After we have determined which ones we need (ANC 1, 2, and 3), lets further subset the data so that we only have these. </para>
     <screen>#Subset the data for ANC
 ANC&lt;-Inds[grep(&quot;ANC (1|2|3) Coverage&quot;,as.factor(Inds$indshort)),]</screen>
     <para>We just used R&apos;s grep function to retrieve all the rows and columns of the Inds data frame which matched the regular expression &quot;ANC (1|2|3) Coverage&quot; and put this into a new data frame called &quot;ANC&quot;. </para>
@@ -199,7 +199,7 @@ dev.off()</screen>
   </section>
   <section id="dhis2_r_maps">
     <title>Mapping with R and Postgresql</title>
-    <para>A somewhat more extended example, will use the RPostgreSQL library and several other libaries to produce a map from the coordinates stored in the database. We will define a few helper functions to provide a layer of abstraction, which will make the R code more reusable. </para>
+    <para>A somewhat more extended example, will use the RPostgreSQL library and several other libraries to produce a map from the coordinates stored in the database. We will define a few helper functions to provide a layer of abstraction, which will make the R code more reusable. </para>
     <programlisting>#load some dependent libraries
  library(maps)
  library(maptools)
@@ -263,21 +263,36 @@ StartDate,
 periodtype=&quot;Yearly&quot;,
 level=4,baselayer) 
 {
+#First, get the desired indicator data
 myDF&lt;-dhisGetAggregatedIndicatorValues(con,
 IndicatorName,StartDate,periodtype,level)
+#Next, get the coordinates
 coords&lt;-dhisGetFacilityCoordinates(con,level)
+#Merge the indicataors with the coordinates data frame
 myDF&lt;-merge(myDF,coords)
+#We need to cast the new data fram to a spatial data
+#frame in order to utilize plot
 myDF&lt;-SpatialPointsDataFrame(myDF[,
 c(&quot;longitude&quot;,&quot;latitude&quot;)],myDF)
+#Define some color scales
 IndColors&lt;-c(&quot;firebrick4&quot;,&quot;firebrick1&quot;,&quot;gold&quot;
 ,&quot;darkolivegreen1&quot;,&quot;darkgreen&quot;)
+#Define the class breaks. In this case, we are going
+#to use 6 quantiles
 class&lt;-classIntervals(myDF$value,n=6,style=&quot;quantile&quot;
 ,pal=IndColors)
+#Define a vector for the color codes to be used for the
+#coloring of points by class
 colCode&lt;-findColours(class,IndColors)
+#Go ahead and make the plot
 myPlot&lt;-plot.new()
+#First, plot the base layer
 plot(baselayer)
+#Next, add the points data frame
 points(myDF,col=colCode,pch=19)
+#Add the indicator name to the title of the map
 title(main=IndicatorName,sub=StartDate)
+#Finally, return the plot from the function
 return(myPlot) }
 
 
@@ -285,6 +300,7 @@ return(myPlot) }
     <para>Up until this point, we have defined a few functions to help us make a map. We need to get the coordinates stored in the database and merge these with the indicator which we plan to map. We then retrieve the data from the aggregated indicator table, create a special type of data frame (SpatialPointsDataFrame), apply some styling to this, and then create the plot. </para>
     <programlisting>
 #Now we define the actual thing to do
+#Lets get a connection to the database
 con &lt;- dbConnect(PostgreSQL(), user= &quot;dhis&quot;, password=&quot;SomethingSecure&quot;, dbname=&quot;dhis&quot;)
 #Define the name of the indicator to plot
 MyIndicatorName&lt;-&quot;Total OPD Attendance&quot;
@@ -295,6 +311,7 @@ MyLevel&lt;-4
 #to determine the period
 MyStartDate&lt;-&quot;2010-01-01&quot;
 #Get some Some Zambia district data from GADM
+#This is going to be used as the background layer
 con &lt;- url(&quot;http://www.filefactory.com/file/c2a3898/n/ZMB_adm2_RData&quot;)
 print(load(con))#saved as gadm object
 #Make the map
