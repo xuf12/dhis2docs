@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- $Header: /cvsroot/autodoc/autodoc/xml.tmpl,v 1.3 2012/01/05 15:22:28 rbt Exp $ --><!-- This document was created with Syntext Serna Free. -->
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
-<book id="database.zm-dhis2-nmcc" xreflabel="zm_dhis2_nmcc database schema">
-  <title>zm_dhis2_nmcc Model</title>
+<book id="dhis2-database-model" xreflabel="dhis2-database-model">
+  <title>DHIS2 Data Model</title>
   <chapter id="public.schema" xreflabel="public">
-    <title>Schema public</title>
-    <para>standard public schema</para>
+    <title>DHIS2 Database Model</title>
+    <para>Standard DHIS2 Data model</para>
     <section id="public.table.-categoryoptioncomboname" xreflabel="public._categoryoptioncomboname">
       <title id="public.table.-categoryoptioncomboname-title"> Table: <database class="view">_categoryoptioncomboname</database></title>
       <para>
@@ -10552,65 +10552,6 @@
               <para>
                 <database class="datatype">character varying(230)</database>
                 <database class="constraint">NOT NULL</database>
-              </para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </para>
-    </section>
-    <section id="public.table.spatial-ref-sys" xreflabel="public.spatial_ref_sys">
-      <title id="public.table.spatial-ref-sys-title"> Table: <database class="view">spatial_ref_sys</database></title>
-      <para>
-          <variablelist>
-          <title> Structure of <database class="table">spatial_ref_sys</database></title>
-          <varlistentry>
-            <term>
-              <database class="field">srid</database>
-            </term>
-            <listitem>
-              <para>
-                <database class="datatype">integer</database>
-                <database class="constraint">PRIMARY KEY</database>
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>
-              <database class="field">auth_name</database>
-            </term>
-            <listitem>
-              <para>
-                <database class="datatype">character varying(256)</database>
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>
-              <database class="field">auth_srid</database>
-            </term>
-            <listitem>
-              <para>
-                <database class="datatype">integer</database>
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>
-              <database class="field">srtext</database>
-            </term>
-            <listitem>
-              <para>
-                <database class="datatype">character varying(2048)</database>
-              </para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>
-              <database class="field">proj4text</database>
-            </term>
-            <listitem>
-              <para>
-                <database class="datatype">character varying(2048)</database>
               </para>
             </listitem>
           </varlistentry>
