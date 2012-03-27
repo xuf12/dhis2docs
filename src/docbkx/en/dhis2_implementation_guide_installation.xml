@@ -94,7 +94,8 @@ export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
     <para><code>sudo nano /usr/local/nginx/conf/nginx.conf</code></para>
     <para>nginx configuration is built around a hierarchy of blocks representing http, server and location, where each block inherit settings from parent blocks. The following snippet will configure nginx to proxy pass (redirect) requests from port 80 (which is the port nginx will listen on by default) to our Tomcat instance. It will also make nginx serve requests for static content such as javascript, stylesheets and images and instruct clients to cache it for 4 days which will reduce the load on Tomcat and improve overall performance. Include the following configuration in nginx.conf:</para>
     <para><screen><![CDATA[server {
-  listen       80;
+  listen               80;
+  client_max_body_size 10M; # Default 1M, change it!
 
   # Serve static content
   # Root points to your DHIS webapp location, update it!
@@ -132,7 +133,8 @@ server {
 # SSL server block
 
 server {
-  listen       443;
+  listen               443;
+  client_max_body_size 10M;
 
   ssl                  on;
   ssl_certificate      server.crt;
