@@ -1249,12 +1249,16 @@ ORDER BY oul.level,par.name,ou.name</screen>
         </table>The <emphasis role="italic">dimension</emphasis> query parameter defines which
         dimensions should be included in the analytics query. Any number of dimensions can be
         specified in a query. The dimension parameter should be repeated for each dimension to
-        include in the query.</para>
+        include in the query. The query response can potentially contain aggregated values for all
+        combinations of the specified dimension items.</para>
     <para>The <emphasis role="italic">filter</emphasis> parameter defines which dimensions should be
         used as filters for the data retrieved in the analytics query. Any number of filters can be
         specified in a query. The filter parameter should be repeated for each filter to use in the
-        query. As an example, to query for certain data elements filtered by the periods and
-        organisation units you can use the following URL:</para>
+        query. The difference between a regular dimension and a filter dimension is that the filter
+        dimensions will not be part of the query response content, and that the aggregated values in
+        the response will be collapsed on the filter dimensions. As an example, to query for certain
+        data elements filtered by the periods and organisation units you can use the following
+        URL:</para>
     <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;filter=pe:2012Q1;2012Q2&amp;filter=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
     <para>The <emphasis role="italic">aggregationType</emphasis> query parameter lets you define
         which aggregation operator should be used for the query. By default the aggregation operator
