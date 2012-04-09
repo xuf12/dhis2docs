@@ -7,11 +7,45 @@
     <para>R is freely available, open source statistical computing environment. R refers to  both the computer programming language, as well as the software which can be used to create and run R scripts. There are <ulink url="http://cran.r-project.org/">numerous sources on the web</ulink> which describe the extensive set of features of R. </para>
     <para>R is a natural extension to DHIS2, as it provides  powerful statistical routines, data manipulation functions, and visualization tools. This chapter will describe how to setup R and DHIS2 on the same server, and will provide a simple example of how to retrieve data from the DHIS2 database into an R data frame and perform some basic calculations.</para>
   </section>
+  <section id="r_install">
+    <title>Installing R</title>
+    <para>If you are installing R on the same server as DHIS, you should consider using the Comprehensive R Archive Network (CRAN) to get the latest distribution of R. All you need to do is to add the following like to you <filename>/etc/apt/source.list</filename> file. </para>
+    <para><emphasis role="bold">deb &lt;your R mirror&gt;/bin/linux/ubuntu &lt;your Ubuntu distribution&gt;</emphasis></para>
+    <para>You will need to replace <emphasis role="bold">&lt;your R mirror&gt;</emphasis> with one from the list available <ulink url="http://cran.r-project.org/mirrors.html">here.</ulink> You will also need to replace <emphasis role="bold">&lt;your Ubuntu distribution&gt;</emphasis> with the name of the distribution you are using. </para>
+    <para>Once you have done this, invoke the following commands</para>
+    <para><screen>sudo apt-get update
+gpg --keyserver pgp.mit.edu --recv-keys 51716619E084DAB9
+gpg --armor --export 51716619E084DAB9 | apt-key add -
+sudo apt-get install r-base r-cran-dbi</screen></para>
+    <para>At this point, you should have a functional R installation on your machine. </para>
+    <para>Next, lets see if everything   is working by simpling invoking <command>R</command> from the command line. </para>
+    <para><screen>foo@bar:~$ R
+
+R version 2.14.1 (2011-12-22)
+Copyright (C) 2011 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: i686-pc-linux-gnu (32-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type &apos;license()&apos; or &apos;licence()&apos; for distribution details.
+
+R is a collaborative project with many contributors.
+Type &apos;contributors()&apos; for more information and
+&apos;citation()&apos; on how to cite R or R packages in publications.
+
+Type &apos;demo()&apos; for some demos, &apos;help()&apos; for on-line help, or
+&apos;help.start()&apos; for an HTML browser interface to help.
+Type &apos;q()&apos; to quit R.
+
+&gt;
+</screen></para>
+  </section>
   <section id="dhis2_r_odbc">
     <title>Using ODBC to retrieve data from DHIS2 into R</title>
-    <para>In this example, we will use a system-wide ODBC connector which will be used to retrieve data from the DHIS2 database. There are some disadvantages with this approach, as ODBC is slower than other methods and it does raise some security concerns by providing a system-wide connector to all users. However, it is a convenient method to provide a connection to multiple users. The use of the R package RODBC will be used in this case. Other alternatives would be the use of the <ulink url="http://dirk.eddelbuettel.com/code/rpostgresql.html">RPostgreSQL</ulink> package, which can interface directly through the  Postgresql driver.</para>
-    <para>First, we will install R and some other required and useful packages. Invoke the following command:</para>
-    <para><command>apt-get install r-base r-cran-odbc r-cran-lattice odbc-postgresql</command> </para>
+    <para>In this example, we will use a system-wide ODBC connector which will be used to retrieve data from the DHIS2 database. There are some disadvantages with this approach, as ODBC is slower than other methods and it does raise some security concerns by providing a system-wide connector to all users. However, it is a convenient method to provide a connection to multiple users. The use of the R package RODBC will be used in this case. Other alternatives would be the use of the <ulink url="http://dirk.eddelbuettel.com/code/rpostgresql.html">RPostgreSQL</ulink> package, which can interface directly through the  Postgresql driver described in <xref linkend="dhis2_r_maps"/></para>
+    <para>Assuming you have already installed R from the procedure in the previous section. Invoke the following command to add the required libraries for this example.</para>
+    <para><command>apt-get install r-cran-odbc r-cran-lattice odbc-postgresql</command> </para>
     <para>Next, we need to configure the ODBC connection. Edit the file to suit your local situation using the following template as a guide. Lets create and edit a file called odbc.ini</para>
     <para><screen>[dhis2]
 Description         = DHIS2 Database
@@ -33,30 +67,6 @@ ConnSettings        =
 Debug = 0</screen>
 </para>
     <para>Finally, we need to install the ODBC connection with <command>odbcinst -i -d -f odbc.ini</command></para>
-    <para>Next, lets execute R and see if the ODBC connection is working. Invoke <command>R</command> from the command line. </para>
-    <para><screen>foo@bar:~$ R
-
-R version 2.14.1 (2011-12-22)
-Copyright (C) 2011 The R Foundation for Statistical Computing
-ISBN 3-900051-07-0
-Platform: i686-pc-linux-gnu (32-bit)
-
-R is free software and comes with ABSOLUTELY NO WARRANTY.
-You are welcome to redistribute it under certain conditions.
-Type &apos;license()&apos; or &apos;licence()&apos; for distribution details.
-
-R is a collaborative project with many contributors.
-Type &apos;contributors()&apos; for more information and
-&apos;citation()&apos; on how to cite R or R packages in publications.
-
-Type &apos;demo()&apos; for some demos, &apos;help()&apos; for on-line help, or
-&apos;help.start()&apos; for an HTML browser interface to help.
-Type &apos;q()&apos; to quit R.
-
-[Previously saved workspace restored]
-
-&gt;
-</screen></para>
     <para>This shows that R is working properly. </para>
     <para>From the R prompt, execute the following commands to connect to the DHIS2 database. </para>
     <para><screen>&gt; library(RODBC)
@@ -76,7 +86,7 @@ Type &apos;q()&apos; to quit R.
 10 Deaths of malaria case provided with anti-malarial treatment 1 to 5 Years
 &gt;
 </screen></para>
-    <para>It seems R is able to retreive data from the DHIS2 database. As an illustrative example, lets say we have been asked to calculate the relative percentage of OPD male and female under 5 attendances for the last twelve months.First, lets create an SQL query which will provide us the basic information which will be required.</para>
+    <para>It seems R is able to retrieve data from the DHIS2 database. As an illustrative example, lets say we have been asked to calculate the relative percentage of OPD male and female under 5 attendances for the last twelve months.First, lets create an SQL query which will provide us the basic information which will be required.</para>
     <para><screen>OPD&lt;-sqlQuery(channel,&quot;SELECT p.startdate, de.name as de, sum(dv.value::double precision)
  FROM datavalue dv
  INNER JOIN period p on dv.periodid = p.periodid
