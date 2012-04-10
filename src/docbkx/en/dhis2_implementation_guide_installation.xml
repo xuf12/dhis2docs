@@ -20,7 +20,13 @@ net.core.rmem_max = 8388608
 net.core.wmem_max = 8388608</screen>
     <para>Make the changes take effect by invoking <code>sudo sysctl -p</code></para>
     <para><emphasis role="bold">Install Java</emphasis></para>
-    <para>Install Java by invoking <code>sudo apt-get install openjdk-7-jdk</code></para>
+    <para>Install Java by invoking the following:</para>
+    <screen>sudo apt-get install openjdk-7-jdk
+
+sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-7-openjdk/bin/java 1
+
+sudo update-alternatives --set java /usr/lib/jvm/java-7-openjdk/bin/java</screen>
+    <para>Please check that the path the Java binaries are correct as they might vary from system to system, e.g. on AMD systems you might see <emphasis role="italic">../java-7-openjdk-amd64/..</emphasis> Check that your installation is okay by invoking <code>java -version</code></para>
     <para><emphasis role="bold">Install PostgreSQL</emphasis></para>
     <para>Install PostgreSQL by invoking <code>sudo apt-get install postgresql-8.4</code></para>
     <para>First configure client authentication by opening the following file by invoking</para>
@@ -58,12 +64,10 @@ hibernate.hbm2ddl.auto = update</screen></para>
     <para><emphasis role="bold">Install Tomcat</emphasis></para>
     <para>Download the Tomcat binary distribution from  <emphasis role="italic">http://tomcat.apache.org/download-70.cgi</emphasis> A useful tool for downloading files from the web is <emphasis role="italic">wget</emphasis>. Extract to a convenient location. This guide assumes that you have navigated to the root directory of the extracted archive.</para>
     <para>Clear the pre-installed web applications by invoking <code>rm -rf webapps/*</code> Download the latest DHIS 2 WAR file from <emphasis role="italic">http://dhis2.org/download</emphasis>, move it to the <emphasis role="italic">webapps</emphasis> directory and rename it to <emphasis role="italic">ROOT.war</emphasis></para>
-    <para>Open file <emphasis role="italic">bin/setclasspath.sh</emphasis> and add the lines below. The first will set the location of your Java Runtime Environment, the second will dedicate memory to Tomcat and the third will set the location for where DHIS 2 will search for the <emphasis role="italic">hibernate.properties</emphasis> configuration file, note that you should adjust this to your environment:</para>
+    <para>Open file <emphasis role="italic">bin/setclasspath.sh</emphasis> and add the lines below. The first will set the location of your Java Runtime Environment, the second will dedicate memory to Tomcat and the third will set the location for where DHIS 2 will search for the <emphasis role="italic">hibernate.properties</emphasis> configuration file. Please check that the path to the JDK location is correct. Note that you should adjust this to your environment:</para>
     <para><screen>export JAVA_HOME=&apos;/usr/lib/jvm/java-7-openjdk&apos;
 export JAVA_OPTS=&apos;-Xmx6000m -Xms3000m -XX:MaxPermSize=800m -XX:PermSize=400m&apos;
 export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
-    <para>To do basic performance tuning (optional) you can install the native  <emphasis role="italic">APR</emphasis> library by invoking <code>sudo apt-get install libtcnative-1</code> Then open file<emphasis role="italic"> bin/setclasspath.sh</emphasis> and add this line at the end: </para>
-    <para><screen>export LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH</screen></para>
     <para>If you need to change the <emphasis role="italic">port</emphasis> of which Tomcat listens for requests you can open the Tomcat configuration file <emphasis role="italic">/conf/server.xml</emphasis>, locate the <emphasis role="italic">&lt;Connector&gt;</emphasis> element which is not commented out and change the <emphasis role="italic">port</emphasis> attribute value to the desired port number.</para>
     <para>To monitor the behavior of Tomcat the log is the primary source of information. The log can be easily viewed with the command <code>tail -f logs/catalina.out</code></para>
     <para><emphasis role="bold">Run DHIS 2</emphasis></para>
@@ -86,9 +90,9 @@ export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
     <para><emphasis role="bold">nginx</emphasis></para>
     <para>We recommend using nginx  (http://wiki.nginx.org) as reverse proxy due to its low memory footprint and ease of use. To get the latest version we recommend installing from source:</para>
     <para><code>sudo apt-get install make gcc libpcre3 libpcre3-dev zlibc zlib1g zlib1g-dev libssl-dev openssl</code></para>
-    <para><code>wget http://nginx.org/download/nginx-1.0.13.tar.gz #check for latest vers!</code></para>
-    <para><code>tar xzvf nginx-1.0.13.tar.gz</code></para>
-    <para><code>cd nginx-1.0.13</code></para>
+    <para><code>wget http://nginx.org/download/nginx-1.0.14.tar.gz #check for latest vers!</code></para>
+    <para><code>tar xzvf nginx-1.0.14.tar.gz</code></para>
+    <para><code>cd nginx-1.0.14</code></para>
     <para><code>./configure --with-http_ssl_module</code></para>
     <para><code>make</code></para>
     <para><code>sudo make install</code></para>
