@@ -109,7 +109,7 @@ export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
   # Serve static content
   # Root points to your DHIS webapp location, update it!
 
-  location ~* (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
+  location ~ (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
     root     /home/dhis/tomcat/webapps/ROOT;
     expires  4d;
   } 
@@ -157,7 +157,7 @@ server {
 
   # Root points to your DHIS webapp location, update it!
 
-  location ~* location ~* (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
+  location ~ (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
     root     /home/dhis/tomcat/webapps/ROOT;
     expires  4d;
   } 
