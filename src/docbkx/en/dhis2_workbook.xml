@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
+<chapter>
+  <title>DHIS 2 Workbook</title>
+  <section id="workbookIntro">
+	<title>Introduction</title>
+    <para>This workbook is intended to be used as guide for training sessions, where the trainer can follow the outlined steps to give a comprehensive demo and explanation of the system. It is also meant to be used as a self test, where the user of DHIS 2 can recap and get a practical hands-on exercise. It contains sections for the data visualizer, GIS and reports modules of DHIS 2.</para>
+  </section>
+  <section id="workbookDataVisualizer">
+    <title>Data Visualizer</title>
+    <orderedlist>
+      <listitem>
+        <para>Explain briefly the various panels of the data visualizer module</para>
+        <itemizedlist>
+          <listitem>
+            <para>Left bar: Selection of chart type, input parameters and options for your visualization</para>
+          </listitem>
+          <listitem>
+            <para>Top bar: Buttons for updating your visualization, saving as favorite, downloading and viewing data table.</para>
+          </listitem>
+          <listitem>
+            <para>Viewport: The area where the visualization will be rendered.</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>Quickly create a minimal chart</para>
+        <itemizedlist>
+          <listitem>
+            <para>Select a few indicators and click <emphasis role="italic">Update</emphasis>.</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>Change the <emphasis role="italic">Chart type</emphasis> </para>
+        <itemizedlist>
+          <listitem>
+            <para>Set chart type to <emphasis role="italic">Line chart</emphasis> and update.</para>
+          </listitem>
+          <listitem>
+            <para>Observe how the data trend is visualized over multiple months.</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>Change the data <emphasis role="italic">Series</emphasis>, <emphasis role="italic">Category</emphasis> and <emphasis role="italic">Filter</emphasis></para>
+        <itemizedlist>
+          <listitem>
+            <para>Set chart type to <emphasis role="italic">Column chart</emphasis>.</para>
+          </listitem>
+          <listitem>
+            <para>Set category to organisation unit and filter to period.</para>
+          </listitem>
+          <listitem>
+            <para>Open Periods panel in the left bar, unselect <emphasis role="italic">Last 12 months</emphasis> and select <emphasis role="italic">This year</emphasis>.</para>
+          </listitem>
+          <listitem>
+            <para>Open <emphasis role="italic">Organisation Units</emphasis> panel in the  left bar.</para>
+          </listitem>
+          <listitem>
+            <para>Righ-click on the top organisation unit and click <emphasis role="italic">Select all children</emphasis>, then click update.</para>
+          </listitem>
+          <listitem>
+            <para>Observe how the the visaulization is comparing the organisation units.</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>Change <emphasis role="italic">Indicators</emphasis></para>
+        <itemizedlist>
+          <listitem>
+            <para>Remove the currently selected indicators by using the double-arrows.</para>
+          </listitem>
+          <listitem>
+            <para>Select an indicator group.</para>
+          </listitem>
+          <listitem>
+            <para>Select several indicators by double-clicking on them, then click update.</para>
+          </listitem>
+          <listitem>
+            <para>Repeat the process for data elements, which will display the aggregated numbers.</para>
+          </listitem>
+          <listitem>
+            <para>Repeat the process for reporting rates, which will display percentages for data sets.</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>Change <emphasis role="italic">Periods</emphasis></para>
+        <itemizedlist>
+          <listitem>
+            <para>Open Periods panel in the left bar.</para>
+          </listitem>
+          <listitem>
+            <para>Select Last 4 quarters, and click update.</para>
+          </listitem>
+          <listitem>
+            <para>Observe all the available relative periods and how they are renderd in the chart.</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>Use the <emphasis role="italic">Chart options</emphasis></para>
+        <itemizedlist>
+          <listitem>
+            <para>Create a line chart with one indicator and periods as category.</para>
+          </listitem>
+          <listitem>
+            <para>Select the <emphasis role="italic">Trend line</emphasis> option and click update, observe the trend line in the chart.</para>
+          </listitem>
+          <listitem>
+            <para>Insert a Target line value and Target line label, observe the target line in the chart.</para>
+          </listitem>
+          <listitem>
+            <para>Insert a Baseline value and Baseline label, observe the baseline in the chart.</para>
+          </listitem>
+        </itemizedlist>
+        <screenshot>
+          <screeninfo>Line chart with trend line, target line and baseline.</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="resources/images/visualizer/chart_options.png" format="PNG" width="100%"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+      </listitem>
+      <listitem>
+        <para>Save as <emphasis role="italic">Favorite</emphasis></para>
+        <itemizedlist>
+          <listitem>
+            <para>Click on the <emphasis role="italic">Favorite</emphasis> button on the top bar, then on <emphasis role="italic">Manage favorites</emphasis>.</para>
+          </listitem>
+          <listitem>
+            <para>Insert a name, click save and close the window.</para>
+          </listitem>
+          <listitem>
+            <para>Open favorites again and reload the favorite by clicking on it in the list.</para>
+          </listitem>
+          <listitem>
+            <para>Explore how you can put the chart in the dashboard in the dashboard module and open it in data visualizer by clicking on the <emphasis role="italic">Explore</emphasis> link.</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para><emphasis role="italic">Download</emphasis> chart to local computer</para>
+        <itemizedlist>
+          <listitem>
+            <para>Click on the <emphasis role="italic">Download</emphasis> button on the top bar.</para>
+          </listitem>
+          <listitem>
+            <para>Download as image file (in PNG format) by clicking on <emphasis role="italic">Image (PNG)</emphasis>.</para>
+          </listitem>
+          <listitem>
+            <para>Download as PDF document by clicking on <emphasis role="italic">PDF</emphasis>.</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>View data in <emphasis role="italic">Data table</emphasis></para>
+        <itemizedlist>
+          <listitem>
+            <para>Click on the <emphasis role="italic">Data table</emphasis> button and view the data in the table.</para>
+          </listitem>
+          <listitem>
+            <para>Observe how the columns can be sorted by clicking on the the column headers.</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+    </orderedlist>
+  </section>
+</chapter>

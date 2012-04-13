@@ -33,7 +33,7 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_data_dimensions.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_web_api.xml"/>
   <appendix>
-    <title> DHIS Documentation Guide</title>
+    <title> DHIS 2 Documentation Guide</title>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" encoding="UTF-8" xpointer="docs_1"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" encoding="UTF-8" xpointer="docs_2"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" encoding="UTF-8" xpointer="docs_3"/>
@@ -52,11 +52,16 @@
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mydatamart_en.xml" encoding="UTF-8" xpointer="mydatamartApplication"/>
   </appendix>
   <appendix>
-    <title>R and DHIS2 Integration</title>
+    <title>R and DHIS 2 Integration</title>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_r.xml" encoding="UTF-8" xpointer="dhis2_r_intro"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_r.xml" encoding="UTF-8" xpointer="dhis2_r_odbc"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_r.xml" encoding="UTF-8" xpointer="dhis2_r_mydatamart"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_r.xml" encoding="UTF-8" xpointer="dhis2_r_maps"/>
+  </appendix>
+  <appendix>
+    <title>DHIS 2 Workbook</title>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_workbook.xml" encoding="UTF-8" xpointer="workbookIntro"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_workbook.xml" encoding="UTF-8" xpointer="workbookDataVisualizer"/>
   </appendix>
   <appendix>
     <title> DHIS Technical Architecture Guide</title>
