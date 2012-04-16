@@ -286,7 +286,7 @@
     </screenshot>
     <para>The total number of each type of object is presented in a table, as well as a graph. </para>
   </section>
-  <section id="dataLocking">
+  <section id="lockException">
     <title>Lock exceptions</title>
     <para>Lock exceptions provide fine-grained control over exemption from a locked data set. After the expiry of the data set, data entry will be denied by default, unless an exception has been granted through the Lock exception interface. To enable a lock exception, select the desired organization units, data sets, and time period and press &quot;Add&quot;. By granting a lock exception, data entry will be enabled even after the expiry period of the data set has passed. </para>
     <screenshot>
@@ -306,7 +306,7 @@
     <title>Organisation unit pruning</title>
     <para>If you need to prune out branches of the organisational unit hierarchy, you can use the  organisational unit pruning function. Keep in mind that the only selected organisational (and its children) will be kept. All other orgunits  (and any data associated with them) will be deleted from the database. </para>
   </section>
-  <section>
+  <section id="minMaxValueGeneration">
     <title>Min-Max Value Generation</title>
     <para>This administrative function can be used to generate min-max values, which are used as part of the data quality and validation process for specific organization units and data sets. Simply select the dataset from the left hand frame, and then select the required orgunits to generate the min-max values for from the organisational units selector on the right. Press the &quot;Generate&quot; button to generate or regenerate all min-max values. Press &quot;Remove&quot; to remove all min-max values which are currently stored in the database. </para>
     <para><screenshot>
@@ -317,7 +317,7 @@
         </mediaobject>
       </screenshot></para>
   </section>
-  <section>
+  <section id="constant">
     <title>Constant</title>
     <para>Constants are static values which can be made available to users for use in data elements and indicators. Some indicators, such as &quot;Couple year protection rate&quot; depend on constants which usually do not change over time. Simply press &quot;Add&quot; and provide a name in the &quot;Name&quot; field and define it&apos;s value in the &quot;Value&quot; field. Press &quot;Add&quot; . The constant will now be available to users for use in their expressions.</para>
     <screenshot>
@@ -328,10 +328,9 @@
       </mediaobject>
     </screenshot>
   </section>
-  <section>
+  <section id="optionSet">
     <title>Option sets</title>
-    <para> Option sets can be associated with data
-elements in the add / update data element interface for name-based data elements. You can define any kind of options, for instance an option set
+    <para> Option sets can be associated with data elements in the add / update data element interface for name-based data elements. You can define any kind of options, for instance an option set
 called &quot;Delivery type&quot; where &quot;Normal&quot;, &quot;Breach&quot;, &quot;Caesarian&quot; and
 &quot;Assisted&quot; would be the options. This option set can later be
 associated with any number of data elements. When doing data entry in
@@ -343,7 +342,7 @@ as drop-down lists with auto-completion support.
     <title>Cache Statistics </title>
     <para>This option is for system administrators only to use. The cache statistics shows the status of the application level cache. The application level cache refers to the objects and query results that the application is caching in order to speed up performance. If the database has been modified directly the application cache needs to be cleared for it to take effect.</para>
   </section>
-  <section>
+  <section id="attribute">
     <title>Dynamic attributes</title>
     <para>Dynamic attributes can be used to add additional information to certain objects (namely data elements, indicators, organisation units and users). In addition to the standard attributes each of these objects have, it may be required in certain installations to have additional attributes, such as a fax number which is associated with an organisation unit. To add a new dynamic attribute to an object, select &quot;Maintenance-&gt;Data administration&quot; from the main menue, then &quot;Attribute&quot; from the left side panel, and press the &quot;Add new&quot; button.</para>
     <screenshot>
@@ -356,7 +355,7 @@ as drop-down lists with auto-completion support.
     <para>To create a new attribute, assign it a name. Each attribute should have a unique name. Check the tick-box &quot;Mandatory&quot; if the object should always have the dynamic attribute. Next, select which object (or objects) the attribute should be assigned to. Lastly, select the value type. You can choose from &quot;Text&quot;, &quot;Yes/No&quot;, &quot;Date&quot;, &quot;Number&quot;, &quot;Integer&quot;, &quot;Positive integer&quot; and &quot;Negative integer&quot;. If the value supplied for the attribute does not match the value type, an error will result. Finally, click &quot;Save&quot; to save the attribute. </para>
     <para>The dynamic attribute will now be present in the object which you assigned it to in the respective &quot;Edit&quot; screen of each the object.</para>
   </section>
-  <section>
+  <section id="scheduling">
     <title>Scheduling</title>
     <para>Data mart jobs can be automatically scheduled to run on regular intervals. Simply select the aggregation period types, organisation unit group set aggregation level, and strategy to configure how the scheduled job should run. Pressing &quot;Start&quot; will enable the scheduled job to run at a pre-determined time or can be run immediately by pressing &quot;Execute now&quot;</para>
     <screenshot>
