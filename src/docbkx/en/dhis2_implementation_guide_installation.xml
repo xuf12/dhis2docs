@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+﻿<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>Installation</title>
@@ -135,8 +135,8 @@ export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
     <screen><![CDATA[# Rewrite block to force use of SSL
 
 server {
-  listen      80;
-  rewrite   ^ https://<server-ip>$request_uri? permanent;
+  listen     80;
+  rewrite    ^ https://<server-ip>$request_uri? permanent;
 }
 
 # SSL server block
@@ -151,9 +151,9 @@ server {
 
   ssl_session_timeout  5m;
 
-  ssl_protocols  SSLv2 SSLv3 TLSv1;
-  ssl_ciphers  HIGH:!aNULL:!MD5;
-  ssl_prefer_server_ciphers   on;
+  ssl_protocols              SSLv2 SSLv3 TLSv1;
+  ssl_ciphers                HIGH:!aNULL:!MD5;
+  ssl_prefer_server_ciphers  on;
 
   # Root points to your DHIS webapp location, update it!
 
@@ -170,9 +170,9 @@ server {
     proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
  }
 }]]></screen>
-    <para>The location block for static content is essential as web browser will not cache static content by default over SSL. It will only cache such content on the client side  if told explicitly by the web server.</para>
+    <para>The location block for static content is essential as web browsers will not cache static content by default over SSL. It will only cache such content on the client side if told explicitly by the web server.</para>
     <para><emphasis role="bold">Making resources publicly available</emphasis></para>
-    <para>In some scenarios it is desirable to make certain resources publicly available on the Web without requiring auhentication. One example is when you want to make the data analysis related resources in the Web API available in a Web portal. The following example will allow access to charts, maps, reports, report table and document resources through basic authentication by injecting an <emphasis role="italic">Authorization</emphasis> HTTP  header into the request. It will remove the Cookie header from the request and the Set-Cookie header from the response in order to avoid changing the currently logged in user. It is recommended to create a user for this purpose given only the minimum authorities required. The Authorization value can be constructed by Base64-encoding the username appended with a colon and the password and prefix it &quot;Basic &quot;, more precisely &quot;Basic base64_encode(username:password)&quot;. It will check the HTTP method used for requests and return <emphasis role="italic">405 Method Not Allowed</emphasis> if anything but GET is detected.</para>
+    <para>In some scenarios it is desirable to make certain resources publicly available on the Web without requiring auhentication. One example is when you want to make data analysis related resources in the Web API available in a Web portal. The following example will allow access to charts, maps, reports, report table and document resources through basic authentication by injecting an <emphasis role="italic">Authorization</emphasis> HTTP  header into the request. It will remove the Cookie header from the request and the Set-Cookie header from the response in order to avoid changing the currently logged in user. It is recommended to create a user for this purpose given only the minimum authorities required. The Authorization value can be constructed by Base64-encoding the username appended with a colon and the password and prefix it &quot;Basic &quot;, more precisely &quot;Basic base64_encode(username:password)&quot;. It will check the HTTP method used for requests and return <emphasis role="italic">405 Method Not Allowed</emphasis> if anything but GET is detected.</para>
     <screen>location ~ ^/api/(charts|maps|reports|reportTables|documents)/ {
   if ($request_method != GET) {
     return 405;
