@@ -20,13 +20,18 @@
         <para>Resource representations are <emphasis role="italic">linkable</emphasis>, meaning that representations advertise other resources which are relevant to the current one by embedding links into itself. This feature greatly improves the usability and robustness of the API as we will see later. For instance, you can easily navigate to the indicators which are associated with a report table from the <emphasis role="italic">reportTable</emphasis> resource  through the embedded links using your preferred representation format.</para>
       </listitem>
     </orderedlist>
-    <para>While all of this might sound complicated, the Web API is actually very simple to use. We will proceed with a few practical examples.</para>
+    <para>While all of this might sound complicated, the Web API is actually very simple to use. We will proceed with a few practical examples in a minute.</para>
+  </section>
+  <section>
+    <title>Authentication</title>
+    <para>In order to interoperate with the Web API you will have to authenticate using <emphasis role="italic">Basic authentication</emphasis>. Basic authentication is a technique for clients to send login credentials over HTTP to a web server. Technically speaking, the username is appended with a colon and the password, Base64-encoded, prefixed Basic  and   supplied as the value of the <emphasis role="italic">Authorization</emphasis> HTTP header. More formally that is<code> Authorization: Basic base64encode(username:password)</code> An important note is that this authentication scheme provides no security since the username and password is sent in plain text and can be easily decoded. Using it is  recommended only if the server is using SSL/TLS (HTTPS) to encrypt communication between itself and the client. Most DHIS 2 deployments typically use SSL today - consider it a hard requirement to provide secure interactions with the Web API.</para>
+    <para>Basic authenication was chosen for the DHIS 2 Web API because it is simple and straight-forward to use and has wide support in development frameworks.</para>
   </section>
   <section>
     <title>Example: Sending data values</title>
     <para>A common use-case for system integration is the need to send a set of data values from a third-party system into DHIS. In this example we will use the DHIS 2 demo on <ulink url="http://apps.dhis2.org/demo"/> as basis and we recommend that you follow the provided links with a web browser while reading (log in with <emphasis role="italic">admin</emphasis><emphasis role="italic">/district</emphasis> as username/password). We assume that we have collected case-based data using a simple software client running on mobile phones for the  <emphasis role="italic">Mortality &lt;5 years</emphasis> data set in the community of <emphasis role="italic">Ngelehun CHC</emphasis> (in <emphasis role="italic">Badjia</emphasis> chiedom, <emphasis role="italic">Bo</emphasis> district) for the month of January 2012. We have now aggregated our data into a statistical report and want to send that data to the national DHIS 2 instance.</para>
     <para>The entry point for the Web API running on the demo instance is <ulink url="http://apps.dhis2.org/demo/api"/>. The entry point provides a convenient HTML page with links to all of the available resources in the Web API. The resource which is most appropriate for our purpose of sending data values is the <emphasis role="italic">dataValueSets</emphasis> resource. A data value set represents a set of data values which have a logical relationship, usually from being captured off  the same data entry form. We follow the link to the HTML representation which will take us to <ulink url="http://apps.dhis2.org/demo/api/dataValueSets"/>. The default representation is a HTML page which provides us with  useful instructions on how to interact with this resources. It tells us that we can use the POST verb to send values using a XML format defined by the <emphasis role="italic">http://dhis2.org/schema/dxf/2.0</emphasis> namespace:</para>
-    <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; period=&quot;periodISODate&quot; dataSet=&quot;dataSetID&quot; orgUnit=&quot;orgUnitID&quot;&gt;
+    <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;dataSetID&quot; completeDate=&quot;ISODate&quot; period=&quot;periodISODate&quot; orgUnit=&quot;orgUnitID&quot;&gt;
   &lt;dataValue dataElement=&quot;dataElementID&quot; value=&quot;1&quot; /&gt;
   &lt;dataValue dataElement=&quot;dataElementID&quot; value=&quot;2&quot; /&gt;
   &lt;dataValue dataElement=&quot;dataElementID&quot; value=&quot;3&quot; /&gt;
@@ -36,7 +41,7 @@
     <para>To obtain the identifier for the data set we return to the the entry point at <ulink url="http://apps.dhis2.org/demo/api"/> and follow the embedded link pointing at the <emphasis role="italic">dataSets</emphasis> resource located at <ulink url="http://apps.dhis2.org/demo/api/dataSets"/>. From there we find and follow the link to the <emphasis role="italic">Mortality &lt; 5 years</emphasis> data set which leads us to <ulink url="http://apps.dhis2.org/demo/api/dataSets/pBOMPrpg1QX"/>. What we did was effectively to retrieve the HTML representation of our data set of interest, and from it we can easily see the identifier, which is <emphasis role="italic">pBOMPrpg1QX</emphasis>. The resource representation for the <emphasis role="italic">Mortality &lt; 5 years</emphasis> data set conveniently advertises links to the  data elements which are members of it. From here we can follow these links and obtain the identifiers of the data elements. For brevity we will only report on three data  elements: <emphasis role="italic">Measles</emphasis> with id <emphasis role="italic">f7n9E0hX8qk</emphasis>, <emphasis role="italic">Dysentery</emphasis> with id <emphasis role="italic">Ix2HsbDMLea</emphasis> and <emphasis role="italic">Cholera</emphasis> with id <emphasis role="italic">eY5ehpbEsB7</emphasis>.</para>
     <para>What remains is to get hold of the identifier of the facility (org unit). Again the <emphasis role="italic">dataSet</emphasis> representation conveniently provides link to org units which report on it so we search for<emphasis role="italic"> Ngelehun CHC</emphasis> and follow the link to the HTML representation at <ulink url="http://apps.dhis2.org/demo/api/organisationUnits/DiszpKrYNg8"/>, which tells us that the identifier of this org unit is <emphasis role="italic">DiszpKrYNg8</emphasis>.</para>
     <para>From our case-based data we assume that we have 12 cases of measles, 14 cases of dysentery and 16 cases of cholera. We have now gathered enough information to be able to put together the XML data value set message:</para>
-    <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; period=&quot;201201&quot; dataSet=&quot;pBOMPrpg1QX&quot; orgUnit=&quot;DiszpKrYNg8&quot;&gt;
+    <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;pBOMPrpg1QX&quot; completeDate=&quot;2012-02-03&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot;&gt;
   &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; value=&quot;12&quot; /&gt;
   &lt;dataValue dataElement=&quot;Ix2HsbDMLea&quot; value=&quot;14&quot; /&gt;
   &lt;dataValue dataElement=&quot;eY5ehpbEsB7&quot; value=&quot;16&quot; /&gt;
@@ -45,8 +50,73 @@
     <para><code>curl -d @datavalueset.xml &quot;http://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</code></para>
     <para>The command will dispatch a request to the demo Web API,  set <emphasis role="italic">application/xml</emphasis> as the content-type and  authenticate using admin/district as username/password.   If all goes well this will return a <emphasis role="italic">200 OK</emphasis> HTTP status code. You can verify that the data has been received by opening the data entry module in DHIS 2 and select the org unit, data set and period used in this example.</para>
     <para>The API follows normal semantics for error handling and HTTP status codes. If you supply an invalid username or password, <emphasis role="italic">401 Unauthorized</emphasis> is returned. If you supply a content-type other than application/xml, <emphasis role="italic">415 Unsupported Media Type</emphasis> is returned. If the XML content is invalid according to the DXF namespace, <emphasis role="italic">400 Bad Request</emphasis> is returned. If you provide an invalid identifier in the XML content, <emphasis role="italic">409 Conflict</emphasis> is returned together with a descriptive message.</para>
-    <para>In this example, cURL will authenticate to the server through <emphasis role="italic">basic authentication</emphasis> using our supplied username and password as credentials. Basic authentication is a technique for clients to send login credentials over HTTP to a web server. Technically speaking, the username is appended with a colon and the password, Base64-encoded and   supplied as the value of the <emphasis role="italic">Authorization</emphasis> HTTP header. An important note is that this authentication scheme provides no security since the username and password is sent in plain text and can be easily decoded. Using it is  recommended only if the server is using SSL/TLS (HTTPS) to encrypt communication between itself and the client.</para>
+    <para>In this example, cURL will authenticate to the server through  Basic authentication using our supplied username and password as credentials through the <emphasis role="italic">-u</emphasis> flag. </para>
     <para>In a real-world scenario, looking up identifiers, constructing and dispatching XML messages would be the task of the client software application. This software would probably interact with the more machine-friendly XML and JSON resource representations and not the human-friendly HTML representations like we  did in this example. Developing creative and robust consumers of the Web API services begins  here.</para>
+  </section>
+  <section>
+    <title>Example: Sending large bulks of data values</title>
+    <para>The previous example showed us how to send a set of related data values sharing the same period and organisation unit. This example will show us how to send large bulks of data values which don&apos;t necessarily are logically related.</para>
+    <para>Again we will interact with the with <ulink url="http://apps.dhis2.org/demo/api/dataValueSets"/> resource. This time we will not specify the dataSet and completeDate attributes. Also, we will specify the period and orgUnit attributes on the individual data value elements instead of on the outer data value set element. This will enable us to send data values for various periods and org units:</para>
+    <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
+  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot; value=&quot;12&quot; /&gt;
+  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201201&quot; orgUnit=&quot;FNnj3jKGS7i&quot; value=&quot;14&quot; /&gt;
+  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201202&quot; orgUnit=&quot;DiszpKrYNg8&quot; value=&quot;16&quot; /&gt;
+  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201202&quot; orgUnit=&quot;Jkhdsf8sdf4&quot; value=&quot;18&quot; /&gt;
+&lt;/dataValueSet&gt;</screen>
+    <para>We test by using cURL  to send the data values:</para>
+    <para><code>curl -d @datavalueset.xml &quot;http://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</code></para>
+    <para>The data value set resource provides an XML response which is useful when you want to verify the impact your request had. The first time we send the data value set request above the server will respond with the following<emphasis role="italic"> import summary</emphasis>:</para>
+    <screen>&lt;importSummary&gt;
+  &lt;dataValueCount imported=&quot;2&quot; updated=&quot;1&quot; ignored=&quot;1&quot;/&gt;
+  &lt;dataSetComplete&gt;false&lt;/dataSetComplete&gt;
+&lt;/importSummary&gt;</screen>
+    <para>This message tells us that 3 data values were imported, 1 data value was updated while zero data values were ignored. The single update comes as a result of us sending that data value in the previous example. A data value will be ignored if it references a non-existing data element, period, org unit or data set. In our case this single ignored value was caused by the last data vaue having an invalid reference to org unit. The data set complete element will display the date of which the data value set was completed, or false if no data element attribute was supplied.</para>
+    <para>The import process can be customized using a set of import parameters:</para>
+    <table>
+      <title>Import parameters</title>
+      <tgroup cols="3">
+        <tbody>
+          <row>
+            <entry>
+              <emphasis role="italic">Parameter</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Values (default first)</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Description</emphasis>
+            </entry>
+          </row>
+          <row>
+            <entry>dataElementIdScheme</entry>
+            <entry>uid | name | code</entry>
+            <entry>Which property on the data element object to reference from the XML attribute</entry>
+          </row>
+          <row>
+            <entry>orgUnitIdScheme</entry>
+            <entry>uid | name | code</entry>
+            <entry>Which property on the org unit object to reference from the XML attribute</entry>
+          </row>
+          <row>
+            <entry>dryRun</entry>
+            <entry>false | true</entry>
+            <entry>Whether to save changes on the server or just return the import summary</entry>
+          </row>
+          <row>
+            <entry>importStrategy</entry>
+            <entry>new_and_updates | new | updates</entry>
+            <entry>Save objects of all, new or update import status on the server</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>All parameters are optional and can be supplied as query parameters in the request URL like this:</para>
+    <screen>http://apps.dhis2.org/demo/api/dataValueSets?dataElementIdScheme=code&amp;orgUnitIdScheme=name&amp;dryRun=true&amp;importStrategy=new</screen>
+    <para>They can also be supplied as XML attributes on the data value set element like below. XML attributes will override query string parameters.</para>
+    <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataElementIdScheme=&quot;code&quot; orgUnitIdScheme=&quot;name&quot; dryRun=&quot;true&quot; importStrategy=&quot;new&quot;&gt;
+  ..
+&lt;/dataValueSet&gt;</screen>
+    <para>Regarding the id schemes, by default the  identifiers used in the XML messages refer to the DHIS stable object identifiers. In certain interoperability situations we might experience that the external system  decides the identifiers of the objects. In that case we can use the <emphasis role="italic">code</emphasis> property of the organisation unit and data element objects to set fixed identifiers dictated by the other system. When importing data values we hence need to reference the code property instead of the uid property, and can do so using the dataElementIScheme and orgUnitIdScheme paramaters.</para>
   </section>
   <section>
     <title>Example: Writing and reading messages</title>
@@ -99,7 +169,7 @@
   );
 });</screen>
     <para>In this code block we ask jQuery to send a POST request to the standard authentication point with two name-value pairs containing the username and password information. We assume that the user has the necessary authorities to view reports in the DHIS 2 Web API. If  authentication was successful the server will send a HTTP cookie in the response with a session identifier. This will make sure that the current user is authorized to view reports for up to 60 minutes.</para>
-    <para>Caveat:  The username and password will be present in the web page in plain text. Make sure  you create a dedicated user in DHIS 2 for this purpose provided only with the minimum authorities required.</para>
+    <para>Caveat:  The username and password will be present in the web page in plain text. Make sure  you create a dedicated user in DHIS 2 for this purpose provided only with the minimum authorities required. For a more robust way of exposing resources without requiring authentication see the the section on reverse proxy setup in the installation chapter.</para>
     <para>For a full example visit <ulink url="http://apps.dhis2.org/portal"/> and view the page source in a browser. Note that the example web page is hosted within the same domain (apps.dhis2.org) as the demo DHIS 2 instance. This is done to avoid issues related to the &quot;same origin policy&quot;, a concept which prevents scripts hosted on one domain to access resources running on another. While one can circumvent this through techniques such as <emphasis role="italic">CORS</emphasis>, there are none which have wide browser support at the moment. Therefore we recommend hosting web pages and portals on the same domain. Techniques using reverse proxies described in the &quot;installation&quot; chapter can be useful in this regard. Finally we provide some sample URLs pointing to various data resources for your inspiration:</para>
     <itemizedlist>
       <listitem>
