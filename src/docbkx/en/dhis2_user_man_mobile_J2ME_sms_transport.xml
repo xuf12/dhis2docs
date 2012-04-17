@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
-<section id="mobile_sms_based_data_entry">
-  <title>SMS based solution</title>
-  <para>With the SMS solution, the forms filled in on the phone is
+<section id="mobile_j2me_sms_transport">
+  <title>Legacy J2ME client with SMS transport</title>
+  <para>With the J2ME client with SMS transport solution, the forms filled in on the phone is
       sent using SMS messages to a
       central server. The SMS message is
       decrypted and converted, and then imported into the DHIS2
@@ -52,12 +52,12 @@
           </para>
         <para>
             <screen>
-                  &lt;dependency&gt;
-                  &lt;groupId&gt;org.hisp.dhis&lt;/groupId&gt;
-                  &lt;artifactId&gt;dhis-web-mobile&lt;/artifactId&gt;
-                  &lt;version&gt;${version}&lt;/version&gt;
-                  &lt;type&gt;war&lt;/type&gt;
-                  &lt;/dependency&gt; </screen>
+&lt;dependency&gt;
+    &lt;groupId&gt;org.hisp.dhis&lt;/groupId&gt;
+    &lt;artifactId&gt;dhis-web-mobile&lt;/artifactId&gt;
+    &lt;version&gt;${version}&lt;/version&gt;
+    &lt;type&gt;war&lt;/type&gt;
+&lt;/dependency&gt; </screen>
           </para>
       </listitem>
       <listitem>
@@ -271,17 +271,6 @@
             Pending&quot; button.
           </para>
       </section>
-    </section>
-    <section>
-      <title>Send SMS</title>
-      <para>
-          The mobile module can be used to send messages to one number at a
-          time. To send an SMS, the
-          SMS Service needs to be started. Use the local
-          phone number here
-          <emphasis>without</emphasis>
-          the country code.
-        </para>
     </section>
   </section>
 </section>

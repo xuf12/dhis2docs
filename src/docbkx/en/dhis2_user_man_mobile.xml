@@ -5,41 +5,29 @@
   <section>
     <title>Introduction</title>
     <para>DHIS2 provides a range of options to allow data entry from mobile devices, including a dedicated GPRS/3G J2ME client, a SMS based client, and a version of DHIS2 which has been optimized specifically for mobile browsers. Each of these solutions will be described in detail in the following sections.</para>
-    <para>Collection of data in the field can be technically challenging and expensive. Mobile phone
-      solutions has the potential to significantly reduce the complexity of deploying a distributed
-      data collection system. Using a simple Java client installed on a mobile phone or a web browser which works on the mobile phone, field workers
-      can report directly to the DHIS2 database through their mobile device.</para>
-    <para>While mobile phone solutions have a great potential, it is also an area that can be
-      difficult to &quot;get right&quot;. Phones lack processing power and have a small display,
-      need to be
-      charged and often makes the most sense in areas where mobile network coverage is weak and
-      patchy.</para>
-    <para>There are currently three main mobile solutions for DHIS2, and we continue to evolve these
-      as well as look at other possible solutions:</para>
+    <para>Collection of data in the field can be technically challenging and expensive. Mobile phone solutions has the potential to significantly reduce the complexity of deploying a distributed data collection system. Using a simple Java client installed on a mobile phone or a web browser which works on the mobile phone, field workers can report directly to the DHIS2 database through their mobile device.</para>
+    <para>While mobile phone solutions have a great potential, it is also an area that can be difficult to &quot;get right&quot;. Phones lack processing power and have a small display, need to be charged and often makes the most sense in areas where mobile network coverage is weak and patchy.</para>
+    <para>There are currently three main mobile solutions for DHIS2, and we continue to evolve these as well as look at other possible solutions:</para>
     <itemizedlist>
       <listitem>
-        <para>An mobile browser optimized data entry module</para>
-        <para>This module allows for data entry directly with the browser of the mobile device. A wide range of devices and mobile browsers  are supported including: Opera mini 3 &amp; 4 (basic and advanced)
-   - Opera mini 4,  Nokia S40 mobiles ,Windows Phone 7, Window Mobile 6
-   ,Palm Pre
-   ,Blackberry (v5 and v6)
-   , Firefox mobile, iOS devices (iPhone)
-    and  Android devices. An active GPRS/3G connection is required. This solution is described in <xref linkend="mobile_broswer_based"/></para>
+        <para>A mobile browser optimized data entry module</para>
+        <para>This module allows for data entry directly with the browser of the mobile device. A wide range of devices and mobile browsers are supported including: Opera mini 3 &amp; 4 (basic and advanced) - Opera mini 4, Nokia S40 mobiles ,Windows Phone 7, Window Mobile 6, Palm Pre, Blackberry (v5 and v6), Firefox mobile, iOS devices (iPhone) and Android devices. This client does not have offline-support, and an active GPRS/3G connection is required. It does not require a new application installation on the phone to support new features, but does require a stable data connection for use. This solution is described in <xref linkend="mobile_web_based"/></para>
       </listitem>
       <listitem>
-        <para>A dedicated J2ME GPRS/3G client</para>
-        <para>This solution  allows  for forms to be updated on the phone and also supports
-          community module reporting. An active GPRS/3G connection is required in order to send data to the DHIS2 database, but data can be entered offline and transmitted when a connection is present. This client is intended primarily for low-end devices which support J2ME applications. This solution is described in <xref linkend="mobile_j2me_gprs_client"/></para>
+        <para>J2ME GPRS/3G client (one client for facility reporting and one for program tracking)</para>
+        <para>DHIS-mobile includes two separate J2ME clients supporting GPRS as a transport. One clients supports facility aggregate reporting and the second client supports name-based program tracking. These clients are split into separate applications to make deployment easier. Some health workers may have both applications installed on their phone. Both of these clients support offline-storage of data. <xref linkend="mobile_j2me_gprs_3g"/></para>
+        <para>An active GPRS/3G connection is required in order to send data to the DHIS2 database, but data can be entered offline and transmitted when a connection is present. This client is intended primarily for low-end devices which support J2ME applications, although the offline-supports adds some memory requirements which limits the handset selection. While the solution is primarily tested on Nokia phones, it also works on several other J2ME capable handsets.</para>
+        <para>The facility reporting J2ME client is described in <xref linkend="mobile_j2me_gprs_3g_facility_reporting"/></para>
+        <para>The name-based program tracking J2ME client is described in  <xref linkend="mobile_j2me_gprs_3g_activity_reporting"/></para>
       </listitem>
       <listitem>
-        <para>SMS based solution</para>
-        <para>The SMS based solution is 
-          requires a custom built J2MER mobile application
-          and installation of a GSM modem and some manual
-          configuration on the server side. It would be an appropriate solution where GPRS/3G is not available but GSM coverage is available. Updating of forms to the client is not supported at this point in time. This solution is described in <xref linkend="mobile_sms_based_data_entry"/></para>
+        <para>Legacy J2ME client with SMS transport</para>
+        <para>DHIS2 can also be used with an earlier J2ME-client that uses SMS as a transport. This client requires some manual configuration on the server side, and is not supported by the standard build of DHIS2. The client is a custom built J2ME mobile application. The SMS-support is separate from the SMS support used in other parts of DHIS2. The solution has mainly been deployed using GSM modems, which are not good for high-volume applications, but can also be used as a basis for a more reliable SMSC-connection. Using SMS as a transport would be an appropriate solution where GPRS/3G is not available, but GSM coverage is available. Updating of forms to the client is not supported at this point in time, and new data sets require a new application install. This solution is described in <xref linkend="mobile_j2me_sms_transport"/></para>
+        <para>The DHIS-mobile team is working on a hybrid GPRS and SMS solution that is based on the newer J2ME-client and the new SMS-support within the platform.</para>
       </listitem>
     </itemizedlist>
   </section>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_mobile_web_based.xml" encoding="UTF-8"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_mobile_sms_data_entry.xml" encoding="UTF-8"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_mobile_web_based.xml" xpointer="mobile_web_based" encoding="UTF-8"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_mobile_J2ME_GPRS_3G.xml" xpointer="mobile_j2me_gprs_3g" encoding="UTF-8"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_mobile_J2ME_sms_transport.xml" xpointer="mobile_j2me_sms_transport" encoding="UTF-8"/>
 </chapter>
