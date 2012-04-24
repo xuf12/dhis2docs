@@ -334,4 +334,62 @@ plotIndicator(con,MyIndicatorName,MyStartDate,MyPeriodType,MyLevel,gadm)</progra
     </mediaobject>
     <para>In this example, we showed how to use the RPostgreSQL library and other helper libraries(Maptools, ColorBrewer) to create a simple map from the DHIS2 data mart. </para>
   </section>
+  <section>
+    <title>Using R, DHIS2 and the Google Visualization API</title>
+    <para>Google&apos;s Visualization API provides a very rich set of tools for the visualization of multi-dimensional data. In this simple example, we will show how to create a simple column chart with the Google Visualization API using the &quot;googleVis&quot; R package. Full information on the package can be found <ulink url="http://code.google.com/p/google-motion-charts-with-r/">here.</ulink>. The basic principle, as with the other examples, is to get some data from the DHIS2 database, and bring it into R, perform some minor alterations on the data to make it easier to work with, and then create the chart.</para>
+    <screen>#Load some libraries
+library(RPostgreSQL)
+library(googleVis)
+library(reshape)
+#A small helper function to get a data frame from some SQL
+dfFromSQL&lt;-function (con,sql){
+    rs&lt;-dbSendQuery(con,sql)
+    result&lt;-fetch(rs,n=-1)
+    return(result)
+}
+
+#Get a database connection
+user&lt;-&quot;postgres&quot;
+password&lt;-&quot;kfk3ep6&quot;
+host&lt;-&quot;127.0.0.1&quot;
+port&lt;-&quot;5432&quot;
+dbname&lt;-&quot;dhis2_demo&quot;
+con &lt;- dbConnect(PostgreSQL(), user= user, password=password,host=host, port=port,dbname=dbname)
+#Let&apos;s retrieve some ANC data from the demo database
+sql&lt;-&quot;SELECT ou.shortname as province,i.shortname as indicator,
+extract(year from p.startdate) as year, a.value FROM aggregatedindicatorvalue a
+INNER JOIN  organisationunit ou on a.organisationunitid = ou.organisationunitid
+INNER JOIN indicator i on a.indicatorid = i.indicatorid
+INNER JOIN period p on a.periodid = p.periodid
+where a.indicatorid in (SELECT DISTINCT indicatorid from indicator where shortname ~*(&apos;ANC [123] Coverage&apos;)) and
+a.organisationunitid in (SELECT DISTINCT idlevel2 from _orgunitstructure where idlevel2 is not null)
+and a.periodtypeid = (SELECT DISTINCT periodtypeid from periodtype where name = &apos;Yearly&apos;)&quot;
+anc&lt;-dfFromSQL(con,sql)
+#Change these columns to factors so that the reshape will work more easily
+anc$province&lt;-as.factor(anc$province)
+anc$indicator&lt;-as.factor(anc$indicator)
+anc$year&lt;-as.factor(anc$year)
+#Melt and cast the data into the correct format
+anc.m&lt;-melt(anc)
+#Lets only look at 2010 data
+anc.m.2010&lt;-subset(anc.m,year == 2010)
+#Create the cross tab to make it easy 
+#to work with in the chart
+cast(anc.m.2010,province ~ indicator + year)
+colnames(anc.m.2010.ct)&lt;-c(&quot;province&quot;,&quot;ANC1&quot;,&quot;ANC2&quot;,&quot;ANC3&quot;)
+#Create the column chart and plot it
+anc2010.colchart&lt;-gvisColumnChart(anc.m.2010.ct,
+     options=list(title=&quot;ANC Coverage 2010&quot;)
+)
+plot(anc2010.colchart)</screen>
+    <para>The resulting graph is displayed below.</para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resources/images/r/google_vis_col_chart.PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>Using packages like <ulink url="http://cran.r-project.org/package=brew">brew</ulink> or <ulink url="http://rapache.net">Rapache</ulink>, these types of graphs could be easily integrated into external web sites. </para>
+  </section>
 </chapter>
