@@ -334,7 +334,7 @@ plotIndicator(con,MyIndicatorName,MyStartDate,MyPeriodType,MyLevel,gadm)</progra
     </mediaobject>
     <para>In this example, we showed how to use the RPostgreSQL library and other helper libraries(Maptools, ColorBrewer) to create a simple map from the DHIS2 data mart. </para>
   </section>
-  <section>
+  <section id="dhis2_r_google_vis">
     <title>Using R, DHIS2 and the Google Visualization API</title>
     <para>Google&apos;s Visualization API provides a very rich set of tools for the visualization of multi-dimensional data. In this simple example, we will show how to create a simple column chart with the Google Visualization API using the &quot;googleVis&quot; R package. Full information on the package can be found <ulink url="http://code.google.com/p/google-motion-charts-with-r/">here.</ulink>. The basic principle, as with the other examples, is to get some data from the DHIS2 database, and bring it into R, perform some minor alterations on the data to make it easier to work with, and then create the chart.</para>
     <screen>#Load some libraries
