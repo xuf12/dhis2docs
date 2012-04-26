@@ -204,7 +204,7 @@ If there are no datasets defined for an organisation unit, it indicates that no 
   <section>
     <title>Importing CSV data</title>
     <para>DHIS 2 supports import of data in the CSV format. This can be used to import exchange file produced by DHIS 2 itself. It also comes in handy when you want to import data from a third-party system as CSV is widely supported in applications and is easy to produce manually.</para>
-    <para>To import a CSV data exchange file navigate to the <emphasis role="italic">CSV Data Import </emphasis>item in the left-side menu.</para>
+    <para>To import a CSV data exchange file navigate to the <emphasis role="italic">CSV Data Import </emphasis>item in the left-side menu. Upload the exchange file and click <emphasis role="italic">Import</emphasis>.</para>
     <para>The following section describes the CSV format used in DHIS 2. The first row is assumed to be a header row and will be ignored during import.</para>
     <para><table>
         <title>CSV format of DHIS 2</title>
@@ -268,5 +268,10 @@ If there are no datasets defined for an organisation unit, it indicates that no 
 &quot;DUSpd8Jq3M7&quot;,&quot;201202&quot;,&quot;gP6hn503KUX&quot;,&quot;Prlt0C1RF0s&quot;,&quot;7&quot;,&quot;bombali&quot;,&quot;2010-04-17&quot;,,&quot;false&quot;
 &quot;DUSpd8Jq3M7&quot;,&quot;201202&quot;,&quot;gP6hn503KUX&quot;,&quot;V6L425pT3A0&quot;,&quot;10&quot;,&quot;bombali&quot;,&quot;2010-04-17&quot;,,&quot;false&quot;
 &quot;DUSpd8Jq3M7&quot;,&quot;201202&quot;,&quot;OjTS752GbZE&quot;,&quot;V6L425pT3A0&quot;,&quot;9&quot;,&quot;bombali&quot;,&quot;2010-04-06&quot;,,&quot;false&quot;</screen>
+  </section>
+  <section>
+    <title>Importing XML data</title>
+    <para>DHIS 2 supports import of data in XMl format. The format is called DXF (DHIS Exchange Format). To import an XML file navigate to the XML Data Import item in the left side menu. Upload the exchange file and click <emphasis role="italic">Import</emphasis>.</para>
+    <para>If you need to manually produce such XML files please refer to the Web API chapter where you can find detailed documentation of the DXF format.</para>
   </section>
 </chapter>
