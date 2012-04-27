@@ -195,4 +195,177 @@
       </listitem>
     </itemizedlist>
   </section>
+  <section>
+    <title>Example: Embedding charts with the Visualizer Plugin</title>
+    <para>In this example we will see how we can embed good-looking Ext JS charts (<ulink url="http://www.sencha.com/products/extjs"/>) with data served from a DHIS back-end into a Web page. To accomplish this we will use the DHIS Visualizer plugin. The plugin is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/plugin.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
+    <para>We start by including three required Javascript files in the header section of the HTML document. The first file is the Ext JS CSS stylesheet and the second is the Ext JS Javascript library (we use  the Google content delivery network in this case). The third file is the Visualizer plugin. Make sure the path is pointing to your DHIS server installation.</para>
+    <screen>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://extjs-public.googlecode.com/svn/tags/extjs-4.0.7/release/resources/css/ext-all-gray.css&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://extjs-public.googlecode.com/svn/tags/extjs-4.0.7/release/ext-all.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://apps.dhis2.org/demo/dhis-web-visualizer/app/plugin/plugin.js&quot;&gt;&lt;/script&gt;</screen>
+    <para>To authenticate with the DHIS server we use the same approach as in the previous section. In the header of the HTML document we include the following Javascript inside a script element. The <emphasis role="italic">setLinks</emphasis> method will be implemented later. Make sure the <emphasis role="italic">base</emphasis> variabel is pointing to your DHIS installation.</para>
+    <screen>var base = &apos;http://apps.dhis2.org/demo/&apos;;
+
+Ext.onReady( function() {
+  Ext.Ajax.request({ 
+    url: base + &quot;dhis-web-commons-security/login.action&quot;,
+    method: &apos;POST&apos;,
+    params: { j_username: &quot;admin&quot;, j_password: &quot;district&quot; },
+    success: setLinks
+  });
+});</screen>
+    <para>Now let us have a look at the various options for the Visualizer plugin. If you want to refer to pre-defined charts already made inside DHIS you should use the <emphasis role="italic">uid</emphasis> parameter. If you want create dynamic charts you shoud include the indicators and/or dataelements parameter and omit the uid parameter. Asterisk (*) indicates that a parameter is required only when the uid  parameter is not used.</para>
+    <table>
+      <title>Visualizer plugin configuration</title>
+      <tgroup cols="5">
+        <tbody>
+          <row>
+            <entry>
+              <emphasis role="italic">Param</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Type</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Required</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Options (default first)</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Description</emphasis>
+            </entry>
+          </row>
+          <row>
+            <entry>uid</entry>
+            <entry>string</entry>
+            <entry>No</entry>
+            <entry/>
+            <entry>Identifier of a pre-defined chart in DHIS</entry>
+          </row>
+          <row>
+            <entry>type</entry>
+            <entry>string</entry>
+            <entry>No</entry>
+            <entry>column | stackedcolumn | bar | stackedbar | line | area | pie</entry>
+            <entry>Chart type</entry>
+          </row>
+          <row>
+            <entry>indicators</entry>
+            <entry>[integer]</entry>
+            <entry>Yes*</entry>
+            <entry/>
+            <entry>Identifiers of indicators to include in chart</entry>
+          </row>
+          <row>
+            <entry>dataelements</entry>
+            <entry>[integer]</entry>
+            <entry>Yes*</entry>
+            <entry/>
+            <entry>Identifiers of data elements to include in chart</entry>
+          </row>
+          <row>
+            <entry>periods</entry>
+            <entry>[string]</entry>
+            <entry>No</entry>
+            <entry>last12Months | lastMonth | lastQuarter | last4Quarters | lastSixMonth | last2SixMonths | thisYear | last5Years</entry>
+            <entry>Names of relative periods to include in chart</entry>
+          </row>
+          <row>
+            <entry>organisationunits</entry>
+            <entry>[integer]</entry>
+            <entry>Yes*</entry>
+            <entry/>
+            <entry>Identifiers of organisation units to include in chart</entry>
+          </row>
+          <row>
+            <entry>series</entry>
+            <entry>string</entry>
+            <entry>No</entry>
+            <entry>data | period | organisationunit</entry>
+            <entry>Dimension to use as chart series</entry>
+          </row>
+          <row>
+            <entry>category</entry>
+            <entry>string</entry>
+            <entry>No</entry>
+            <entry>data | period | organisationunit</entry>
+            <entry>Dimension to use as chart category</entry>
+          </row>
+          <row>
+            <entry>filter</entry>
+            <entry>string</entry>
+            <entry>No</entry>
+            <entry>data | period | organiastionunit</entry>
+            <entry>Dimension to use as chart filter</entry>
+          </row>
+          <row>
+            <entry>el</entry>
+            <entry>string</entry>
+            <entry>Yes</entry>
+            <entry/>
+            <entry>Identifier of HTML element to render the chart in</entry>
+          </row>
+          <row>
+            <entry>url</entry>
+            <entry>string</entry>
+            <entry>Yes</entry>
+            <entry/>
+            <entry>Base URL of the DHIS server</entry>
+          </row>
+          <row>
+            <entry>width</entry>
+            <entry>integer</entry>
+            <entry>No</entry>
+            <entry/>
+            <entry>Width of chart</entry>
+          </row>
+          <row>
+            <entry>height</entry>
+            <entry>integer</entry>
+            <entry>No</entry>
+            <entry/>
+            <entry>Height of chart</entry>
+          </row>
+          <row>
+            <entry>legendPosition</entry>
+            <entry>string</entry>
+            <entry>No</entry>
+            <entry>top | right | bottom | left</entry>
+            <entry>Position of chart legend</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>We continue by including two pre-defined charts and to dynamic charts to our HTML document. You can browse the list of available charts using the Web API here: <ulink url="http://apps.dhis2.org/demo/api/charts"/>.</para>
+    <screen>function setLinks() {
+  DHIS.getChart({ uid: &apos;R0DVGvXDUNP&apos;, el: &apos;chartA1&apos;, url: base });
+
+  DHIS.getChart({ uid: &apos;X0CPnV6uLjR&apos;, el: &apos;chartA2&apos;, url: base });
+
+
+  DHIS.getChart({ el: &apos;chartB1&apos;, url: base,
+    type: &apos;bar&apos;,
+    indicators: [&apos;FnYCr2EAzWS&apos;,&apos;eTDtyyaSA7f&apos;,&apos;tUIlpyeeX9N&apos;],
+    periods: &apos;last12Months&apos;,
+    organisationunits: [&apos;ImspTQPwCqd&apos;]
+  });
+
+  DHIS.getChart({ el: &apos;chartB2&apos;, url: base,
+    type: &apos;column&apos;,
+    indicators: [&apos;Uvn6LCg7dVU&apos;,&apos;sB79w2hiLp8&apos;],
+    periods: &apos;thisYear&apos;,
+    organisationunits: [&apos;O6uvpzGd5pu&apos;,&apos;fdc6uOvgoji&apos;,&apos;lc3eMKXaEfw&apos;,&apos;jmIPBj66vD6&apos;],
+    series: &apos;data&apos;,
+    category: &apos;organisationunit&apos;,
+    filter: &apos;period&apos;
+  });
+};</screen>
+    <para>Finally we include some <emphasis role="italic">div</emphasis> elements in the body section of the HTML document with the identifiers referred to in the plugin Javascript.</para>
+    <screen>&lt;div id=&quot;chartA1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;chartA2&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
+
+&lt;div id=&quot;chartB1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;chartB2&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;</screen>
+    <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/plugin.html"/>.</para>
+  </section>
 </chapter>
