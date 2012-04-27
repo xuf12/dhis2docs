@@ -239,12 +239,94 @@
     <para>Navigate to the Mobile module via Services -&gt; Mobiles</para>
     <section>
       <title>Start the SMS Service</title>
-      <para>To start the SMS Service, navigate to &quot;Receive Data and Import&quot; or
-          &quot;Send SMS&quot; in the left menu, and then press the Start button next to where
-          it
-          says: &quot;SMS Service: Not Started&quot;. If everything works well, it should
-          now say:
-          &quot;SMS Service: Started&quot;.</para>
+      <para>From the start-page DHIS2, go to Maintenance &gt;&gt; Mobile Configuration:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-startup-link.PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot></para>
+      <para>Then choosing the &quot;SMS Service Configuration&quot;:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-startup-link-server-config.PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot></para>
+      <para>The SMS Service Configuration main-page with descriptions:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-form.PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot></para>
+      <para>(The above screen-shot example with no gateway in the Gateways list)</para>
+      <para>If having no gateway registered, clicking on the &quot;Reload Configuration&quot; or &quot;Start SMS Service&quot; will have no use and a warning message appeared, see this screen-shot example:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-nogateway.PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot></para>
+      <para>Add or Update Gateway:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-addgateway.PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot></para>
+      <para>Currently, there are 4 gateway types:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-gatewaytypes.PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot></para>
+      <para>Then fill in the information for the gateway (the screen-shot example with BulkSMS Gateway):</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-fillinggateway.PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot></para>
+      <para>(The information for the gateway is from the Gateway providers)</para>
+      <para>After adding successfully the gateway, the service will automatically started.</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-gatewaystarted.PNG" align="center" width="40%"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot></para>
+    </section>
+    <section>
+      <title>Sending SMS</title>
+      <para>From the start-page DHIS2, go to Maintenance &gt;&gt; Mobile Configuration. Then navigate to &quot;Show send SMS form&quot;:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-sendingSMS.PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot></para>
+      <para>At this moment (DHIS version 2.8), this is the one-way sending out the SMS messages from the servers to the recipients (with mobile phone numbers).</para>
+      <para>See the below example form to send out the messages to the recipients&apos; numbers individuals or mobile number of registered Organisation Unit or by mobile number of the users assigned with Organisation Unit.</para>
+      <para>Below is an example screen-shot with listing of phone numbers (using &quot;;&quot; between the numbers in the list):</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-sendingSMS-form.PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot></para>
+      <para/>
     </section>
     <section>
       <title>Receive Data and Import</title>

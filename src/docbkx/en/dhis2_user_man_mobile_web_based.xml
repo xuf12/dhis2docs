@@ -4,74 +4,379 @@
   <title>Mobile browser based data entry</title>
   <section>
     <title>Getting started with mobile browser data entry</title>
-    <para>Once you have entered in the URL of you DHIS2 instance, simply login with your username and password. Press the login button to continue, or the &quot;Reset&quot; button to clear all fields.</para>
+    <para>This approach is for data-entry on a smart phone with a mobile browser by navigating to the URL of the DHIS2 instance, for example: the full URL link for demo on <ulink url="dhis2.org">dhis2.org</ulink> <ulink url="http://apps.dhis2.org/dev/mobile/index.action">http://apps.dhis2.org/dev/mobile/index.action</ulink> . And your mobile browser will automatically detect the DHIS2 application where the server URL is given (e.g: <ulink url="http://apps.dhis2.org/dev">http://apps.dhis2.org/dev</ulink>). Here is the login form to access the application with user-name and password. Click on &quot;Login&quot; to continue or &quot;Reset&quot; to reset:</para>
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="40%" align="center" fileref="resources/images/dhis-web-light-data-entry/mobile-browser-login.png"/>
+            <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-login.PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot></para>
-    <para>Once you have logged in you will have three options to choose from: Data entry, Settings, and reports.</para>
-    <para>To change the interface language of the mobile client, choose the &quot;Settings&quot; option, then select an &quot;Interface language&quot; by choosing a language from the drop-down list. Finally click &quot;Save&quot; to change the interface language.</para>
+    <para>After logging in, there are the list of functions:</para>
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="40%" align="center" fileref="resources/images/dhis-web-light-data-entry/mobile-browser-settings.png"/>
+            <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-after-login.PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot></para>
-    <para>To start data entry, choose the &quot;Data entry&quot; link from the &quot;Home&quot; screen. </para>
-    <important>
-      <para>If you choose the &quot;Desktop version&quot; link, you will be directed to the standard DHIS2 web interface. This  may consume much more bandwidth. Using the mobile data entry screen is the recommended method for entering data through mobile devices, so that the total amount of bandwidth consumed is minimized.</para>
-    </important>
-    <screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata width="40%" align="center" fileref="resources/images/dhis-web-light-data-entry/after-login.png"/>
-        </imageobject>
-      </mediaobject>
-    </screenshot>
-    <para>Then select from a list of available organisation units which the user is allowed to enter data on behalf of. </para>
-    <screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata width="40%" align="center" fileref="resources/images/dhis-web-light-data-entry/select-org-unit.png"/>
-        </imageobject>
-      </mediaobject>
-    </screenshot>
-    <para>Next, select a dataset to enter data for. </para>
-    <screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata width="40%" align="center" fileref="resources/images/dhis-web-light-data-entry/select-dataset.png"/>
-        </imageobject>
-      </mediaobject>
-    </screenshot>
-    <para>Select from a list of available periods to enter data for from the next screen. Periods which have been marked with a check mark indicate that they already have already been completed.</para>
-    <screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata width="40%" align="center" fileref="resources/images/dhis-web-light-data-entry/select-period.png"/>
-        </imageobject>
-      </mediaobject>
-    </screenshot>
-    <para>Next, enter data for each data element. The category options for each data element are indicated in parentheses at the end of the name of the data element.</para>
-    <screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata width="40%" align="center" fileref="resources/images/dhis-web-light-data-entry/data-entry.PNG"/>
-        </imageobject>
-      </mediaobject>
-    </screenshot>
-    <para>Once you have finished entering all the data, you will be given the option to mark the dataset as complete and save it. </para>
-    <screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata width="40%" align="center" fileref="resources/images/dhis-web-light-data-entry/dataset-complete-save.png"/>
-        </imageobject>
-      </mediaobject>
-    </screenshot>
-    <para>Once you have finished entering data, you can logout by pressing the &quot;Logout&quot; link.</para>
+    <para><emphasis role="bold">
+        <emphasis role="bold">- Data Entry:</emphasis>
+      </emphasis> Entries for aggregate data with defined/assigned dataset by organisation-units</para>
+    <para><emphasis role="bold">
+        <emphasis role="bold">- Name-based Data Entry:</emphasis>
+      </emphasis> Entries data for the beneficiaries by organisation-units, beneficiaries and programs/program-stages.</para>
+    <para><emphasis role="bold">
+        <emphasis role="bold">- Beneficiary Registration:</emphasis>
+      </emphasis> Registry a new beneficiary</para>
+    <para><emphasis role="bold">
+        <emphasis role="bold">- Beneficiary Enrollment:</emphasis>
+      </emphasis> Enroll a beneficiary to one or many programs</para>
+    <para><emphasis role="bold">
+        <emphasis role="bold">- Messages:</emphasis>
+      </emphasis> Manage the messages and discussions from the server. Message reply is available.</para>
+    <para><emphasis role="bold">
+        <emphasis role="bold">- Reports:</emphasis>
+      </emphasis> The output reports from the server</para>
+    <para><emphasis role="bold">
+        <emphasis role="bold">- Settings:</emphasis>
+      </emphasis> User-information (e.g: First-name, Surname, Phone number, E-mail) and the Interface language.</para>
+    <para><emphasis role="bold">- <emphasis role="bold">Feedback:</emphasis></emphasis> the extra function for creating a new message to send to the server. The new created feedback from this will be listed under &quot;<emphasis role="bold">Messages</emphasis>&quot;</para>
+    <para><emphasis role="bold">- Logout:</emphasis> to log out the application</para>
+    <para><emphasis role="bold">- Desktop version</emphasis>: navigate to the desktop version of DHIS2 for administration. This require a lof of resources from the client mobile, for example: the sufficient memory to load the pages. Not recommended for the nornal GPRS/3G/... phones.</para>
+    <para>The list above will be explained in details:</para>
+    <orderedlist>
+      <listitem>
+        <para><emphasis role="bold">
+            <emphasis role="bold">Data Entry:</emphasis>
+          </emphasis> Entries for aggregate data with defined/assigned dataset by organisation-units.</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-data-entry.PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>Click on the &quot;Data Entry&quot;, then choose an Organisation Unit from the list and the list of the datasets will be appeared for entering aggregate data. See the below example:</para>
+        <para><emphasis role="bold">Step 1: Select an Organisation Unit from the list</emphasis></para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-select-orgunit.PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para><emphasis role="bold">Step 2: Select a Dataset (entry form) from the list</emphasis></para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-select-dataset.PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para><emphasis role="bold">Step 3: Select a period (based on the period type of the chosen dataset) from the list</emphasis></para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-select-period.PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para><emphasis role="bold">Step 4: Entering the data</emphasis></para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-entry.PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para><emphasis role="bold">Step 5: Save the data entered after completing the data, choose the option for data completeness if having.</emphasis></para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-entry-complete-save.PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">
+            <emphasis role="bold">Name-based Data Entry:</emphasis>
+          </emphasis> Entries data for the beneficiaries by organisation-units, beneficiaries and programs/program-stages.</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-namebased-data-entry.PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>After clicking on the &quot;Namebased Data Entry&quot;, the next will guiding to the selections in the following steps:</para>
+        <para><emphasis role="bold">Step 1: Choose an Organisation Unit</emphasis></para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-namebased-choose-org.PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para><emphasis role="bold">Step 2: Choose the Activity Type</emphasis></para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-namebased-choose-AC.PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>(the screen-shot with an example with &quot;Current Activity Plan&quot; option)</para>
+        <para>There will be normally these two type of Activity: </para>
+        <para>+ &quot;Current Activity Plan&quot;: the list of the beneficiaries registered, enrolled, not yet finish/complete a/many program and there is at least a program-stage open for data-entry.</para>
+        <para>+ &quot;All Activity Plan&quot;:  the list of all beneficiaries registered, enrolled, not yet finish/complete a/many program.</para>
+        <para><emphasis role="bold">Step 3: Choose a Beneficiary for entry</emphasis></para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-namebased-choose-BE.PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>(the screen-shot with an example with &quot;Hybia Welde&quot; option)</para>
+        <para><emphasis role="bold">Step 4: Choose a current and active program-stage for entering the data</emphasis> </para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-namebased-choose-PGS.PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>(the screen-shot with an example with &quot;16-24 months after birth&quot; option)</para>
+        <para>You can also see the beneficiary&apos;s information (ID, gender, Date of Birth, and Blood Group) by clicking on the Details (on top of the list appeared)</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-namebased-choose-details.PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>The details information of the chosen beneficiary:</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-namebased-details-info.PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">
+            <emphasis role="bold">Beneficiary Registration:</emphasis>
+          </emphasis> Registry a new beneficiary</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-registration.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para><emphasis role="bold">Step 1: Choose an OrganisationUnit</emphasis></para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-registration-choose-OU.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para><emphasis role="bold">Step 2: Fill in the Beneficiary Registration form</emphasis></para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-registration-form.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>There necessary information: Full Name, Gender, Date of Birth (and Blood Group).</para>
+        <para>Click on &quot;SAVE&quot; to register a new beneficiary.</para>
+        <para>A message &quot;Successfully Saved&quot; will appear when the beneficiary is created/registered successfully.</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-registration-form-success.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">
+            <emphasis role="bold">Beneficiary Enrollment:</emphasis>
+          </emphasis> Enroll a beneficiary to one or many programs</para>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-enrollment.PNG" align="center" width="40%"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>Before enrolling a beneficiary to a program, the search function for a beneficiary is provided:</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-enrollment-searchBF.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>If the beneficiary is found, the result will be listed. The simply click on the beneficiary name for navigating to the programs in which the beneficiary enrolled:</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-enrollment-foundBF.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>The below screen-shot example describes the beneficiary named &quot;Nguyen Van A&quot;:</para>
+        <para>- Has not enrolled any programs before</para>
+        <para>- There is one program: &quot;Child Health Program&quot; available for enrollment</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-enrollment-4BF.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>The list of the available programs for enrollment will be listed. Just click on the program for enrollment by specifying the date of enrollment and the date of incident. See the example:</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-enrollment-date.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>After clicking on the &quot;ENROLL&quot; button, if successful, the program enrolled will be listed under &quot;Enrolled Programs  for&quot; + &lt;Name of the beneficiary&gt;, see the example:</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-enrollment-success.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">
+            <emphasis role="bold">Messages:</emphasis>
+          </emphasis> Manage the messages and discussions from the server. Message reply is available.</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-messages.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>The number showed is the unread messages. Click on that to view the list of the messages (the unread messages are in bold and dark blue color):</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-messages-unread.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>Then you can pick up the message/topic for the discussions by leaving the reply message, see this example:</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-messages-reply.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para/>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">
+            <emphasis role="bold">Reports:</emphasis>
+          </emphasis> The output reports from the server</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-reports.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>(will be updated)</para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">
+            <emphasis role="bold">Settings:</emphasis>
+          </emphasis> User-information (e.g: First-name, Surname, Phone number, E-mail) and the Interface language.</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-settings.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>Here is the form for setting the user account/access and the interface language. Click on &quot;SAVE&quot; for completing the settings, see the example below:</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-settings-update.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">
+            <emphasis role="bold">Feedback:</emphasis>
+          </emphasis> the extra function for creating a new message to send to the server. The new created feedback from this will be listed under &quot;<emphasis role="bold">Messages</emphasis>&quot;</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-feedback.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>After clicking on the &quot;Feedback&quot;, there will be a form for editing/sending out  a new message/discussion. See the example below:</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-feedback-new.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>After sending out the new feedback, the message (feedback) will be listed under &quot;Messages&quot; for further following up.</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-feedback-listed-in-messages.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">Logout:</emphasis> to log out the application</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-logout.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para/>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">Desktop version</emphasis>: navigate to the desktop version of DHIS2 for administration.</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-desktop-version.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>Here is the GUI of the desktop version (which require much memory for loading), not recommended for normal mobile. The example with DHIS2 Demo (from <ulink url="dhis2.org">dhis2.org</ulink>)</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-desktop-version-GUI.PNG" align="center" width="40%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+      </listitem>
+    </orderedlist>
   </section>
 </section>
