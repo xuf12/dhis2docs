@@ -95,6 +95,10 @@
     <para>To select data elements click on the &quot;Data elements&quot; header. The same principle for selecting and deselecting applies as for indicators.</para>
   </section>
   <section>
+    <title>Selecting reporting rates</title>
+    <para>The visualizer can display reporting rates in a chart, by itself or together with indicators and data elements. Reporting rates can be selected by clicking at the &quot;Reporting rates&quot; header. Reporting rates are defined by data sets. It can be selected by double-clicking in the list of available data sets to the left.</para>
+  </section>
+  <section>
     <title>Selecting periods</title>
     <para>To select periods click on the &quot;Periods&quot; header. You can select any number of periods from the set of periods listed under the header, such as &quot;Last month&quot;, &quot;Months this year&quot; and &quot;Last 5 years&quot;. The names should be fairly self-descriptive. All periods are relative to the current date, meaning that if the current month is March and you select &quot;Last month&quot;, the month of February will be included in the chart.</para>
   </section>
@@ -107,16 +111,22 @@
     <para>You can set various chart options by clicking on the &quot;Chart options&quot; header in the panel to the  left. </para>
     <itemizedlist>
       <listitem>
+        <para>Show data: Displays the corresponding value next to columns and bars in the chart.</para>
+      </listitem>
+      <listitem>
         <para>Hide subtitle: Hides the title and subtitle of your chart.</para>
       </listitem>
       <listitem>
-        <para>Hide legend: Hides the legend and leave more room for the chart itself.</para>
+        <para>User org unit: Includes the organisation unit of the  currently logged in user in the organisation unit selection. Useful when displaying the chart on the dashboard since each user will get a relevant chart for their own location. </para>
       </listitem>
       <listitem>
         <para>Trend line: The trend line will visualize how your data evolves over time - e.g. is performance improving or detoriating. Makes sense when periods are selected as category. </para>
       </listitem>
       <listitem>
-        <para>User org unit: Includes the currently logged in user in the organisation unit selection for the chart. Useful when displaying the chart on the dashboard, since each user will get a relevant chart for their own location. </para>
+        <para>Hide legend: Hides the legend and leave more room for the chart itself.</para>
+      </listitem>
+      <listitem>
+        <para>User org unit children: Includes the direct children of the organisation unit of the currently logged in user in the organisation unit selection.</para>
       </listitem>
       <listitem>
         <para>Domain axis label: Displays a label below the domain axis (also referred to as the X axis). Can give context information to the chart, e.g. the type of periods being listed.</para>
@@ -132,6 +142,9 @@
       </listitem>
       <listitem>
         <para>Base line value: Displays a horizontal line at the given domain value. Useful e.g. when you want to visualize how your performance has evolved since the beginning of a process.</para>
+      </listitem>
+      <listitem>
+        <para>Base line label: Displays a label next to the baseline.</para>
       </listitem>
     </itemizedlist>
   </section>
