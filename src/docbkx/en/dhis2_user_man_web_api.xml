@@ -119,6 +119,49 @@
     <para>Regarding the id schemes, by default the  identifiers used in the XML messages refer to the DHIS stable object identifiers. In certain interoperability situations we might experience that the external system  decides the identifiers of the objects. In that case we can use the <emphasis role="italic">code</emphasis> property of the organisation unit and data element objects to set fixed identifiers dictated by the other system. When importing data values we hence need to reference the code property instead of the uid property, and can do so using the dataElementIScheme and orgUnitIdScheme paramaters.</para>
   </section>
   <section>
+    <title>Example: Reading data values</title>
+    <para>This section explains how to retrieve data values from the Web API by interacting with the dataValueSets resource. Data values can currently be retrieved in XML format. Since we want to read data we will use the <emphasis role="italic">GET</emphasis> HTTP verb. We will also specify that we are interested in the XML resource representation by including an <emphasis role="italic">Accept</emphasis> HTTP header with our request. The following query parameters are required:</para>
+    <table>
+      <title>Data value set query parameters</title>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <emphasis role="italic">Parameter</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Description</emphasis>
+            </entry>
+          </row>
+          <row>
+            <entry>dataSet</entry>
+            <entry>Data set identifier</entry>
+          </row>
+          <row>
+            <entry>period</entry>
+            <entry>Period identifier in ISO format</entry>
+          </row>
+          <row>
+            <entry>orgUnit</entry>
+            <entry>Organisation unit identifier</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>It is assumed that we have posted data values to DHIS according to the previous section called &quot;Sending data values&quot;. We can now put together our request and send it using cURL:</para>
+    <para><code>curl &quot;http://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;period=201201&amp;orgUnit=DiszpKrYNg8&quot; -H &quot;Accept:application/xml&quot; -u admin:district -v </code></para>
+    <para>The  response will look something like this:</para>
+    <screen>HTTP/1.1 200 OK
+Content-Type: application/xml
+
+&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;pBOMPrpg1QX&quot; completeDate=&quot;2012-01-02&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot;&gt;
+&lt;dataValue dataElement=&quot;eY5ehpbEsB7&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot; categoryOptionCombo=&quot;bRowv6yZOF2&quot; value=&quot;10003&quot;/&gt;
+&lt;dataValue dataElement=&quot;Ix2HsbDMLea&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot; categoryOptionCombo=&quot;bRowv6yZOF2&quot; value=&quot;10002&quot;/&gt;
+&lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot; categoryOptionCombo=&quot;bRowv6yZOF2&quot; value=&quot;10001&quot;/&gt;
+&lt;/dataValueSet&gt;</screen>
+    <para>The header tells us that the request was processed successfully and that we are receiving a response in XML format. The XML message looks familiar - it is the data values we sent in the previous section.</para>
+  </section>
+  <section>
     <title>Example: Writing and reading messages</title>
     <para>DHIS 2 features a mechanism for sending messages for purposes such as user feedback, notifications and general information to  users. Messages are delivered to the DHIS 2 message inbox but can also be sent to the user&apos;s email addresses and mobile phones as SMS. In this example we will see how we can utilize the Web API to send and read messages. We will pretend to be the <emphasis role="italic">DHIS Administrator</emphasis>   user  and  send a message to the  <emphasis role="italic">Mobile</emphasis> user. We will then pretend to be the  mobile user and read our new message.</para>
     <para>The resource we need to interact with when sending and reading messages is the <emphasis role="italic">messageConversations</emphasis> resource. We start by visiting the Web API entry point at <ulink url="http://apps.dhis2.org/demo/api"/> where we find and follow the link to the <emphasis role="italic">messageConversations</emphasis> resource at <ulink url="http://apps.dhis2.org/demo/api/messageConversations"/>. The description tells us that we can use a POST request to create a new message using the following XML format:</para>
