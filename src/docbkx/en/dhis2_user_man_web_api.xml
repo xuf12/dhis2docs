@@ -28,6 +28,70 @@
     <para>Basic authenication was chosen for the DHIS 2 Web API because it is simple and straight-forward to use and has wide support in development frameworks.</para>
   </section>
   <section>
+    <title>Date and period format</title>
+    <para>Throughout the Web API we refer to dates and periods. The date format  is:</para>
+    <screen>yyyy-MM-dd</screen>
+    <para>For instance, if you want to express March 20, 2012 you must use <emphasis role="italic">2012-03-20</emphasis>.</para>
+    <para>The period format is described in the following table. </para>
+    <table>
+      <title>Period format</title>
+      <tgroup cols="4">
+        <tbody>
+          <row>
+            <entry>
+              <emphasis role="italic">Interval</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Format</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Example</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Description</emphasis>
+            </entry>
+          </row>
+          <row>
+            <entry>Day</entry>
+            <entry>yyyyMMdd</entry>
+            <entry>20040315</entry>
+            <entry>March 15 2004</entry>
+          </row>
+          <row>
+            <entry>Week</entry>
+            <entry>yyyyWn</entry>
+            <entry>2004W10</entry>
+            <entry>Week 10 2004</entry>
+          </row>
+          <row>
+            <entry>Month</entry>
+            <entry>yyyyMM</entry>
+            <entry>200403</entry>
+            <entry>March 2004</entry>
+          </row>
+          <row>
+            <entry>Quarter</entry>
+            <entry>yyyyQn</entry>
+            <entry>2004Q1</entry>
+            <entry>January-March 2004</entry>
+          </row>
+          <row>
+            <entry>Six-month</entry>
+            <entry>yyyySn</entry>
+            <entry>2004S1</entry>
+            <entry>Janary-June 2004</entry>
+          </row>
+          <row>
+            <entry>Year</entry>
+            <entry>yyyy</entry>
+            <entry>2004</entry>
+            <entry>2004</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+  <section>
     <title>Example: Sending data values</title>
     <para>A common use-case for system integration is the need to send a set of data values from a third-party system into DHIS. In this example we will use the DHIS 2 demo on <ulink url="http://apps.dhis2.org/demo"/> as basis and we recommend that you follow the provided links with a web browser while reading (log in with <emphasis role="italic">admin</emphasis><emphasis role="italic">/district</emphasis> as username/password). We assume that we have collected case-based data using a simple software client running on mobile phones for the  <emphasis role="italic">Mortality &lt;5 years</emphasis> data set in the community of <emphasis role="italic">Ngelehun CHC</emphasis> (in <emphasis role="italic">Badjia</emphasis> chiedom, <emphasis role="italic">Bo</emphasis> district) for the month of January 2012. We have now aggregated our data into a statistical report and want to send that data to the national DHIS 2 instance.</para>
     <para>The entry point for the Web API running on the demo instance is <ulink url="http://apps.dhis2.org/demo/api"/>. The entry point provides a convenient HTML page with links to all of the available resources in the Web API. The resource which is most appropriate for our purpose of sending data values is the <emphasis role="italic">dataValueSets</emphasis> resource. A data value set represents a set of data values which have a logical relationship, usually from being captured off  the same data entry form. We follow the link to the HTML representation which will take us to <ulink url="http://apps.dhis2.org/demo/api/dataValueSets"/>. The default representation is a HTML page which provides us with  useful instructions on how to interact with this resources. It tells us that we can use the POST verb to send values using a XML format defined by the <emphasis role="italic">http://dhis2.org/schema/dxf/2.0</emphasis> namespace:</para>
