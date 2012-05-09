@@ -393,4 +393,50 @@ plot(M)</screen>
     </screenshot>
     <para>Using packages like <ulink url="http://cran.r-project.org/package=brew">brew</ulink> or <ulink url="http://rapache.net">Rapache</ulink>, these types of graphs could be easily integrated into external web sites. </para>
   </section>
+  <section>
+    <title>Using PL/R with DHIS2</title>
+    <para>The procedural language for R is an extension to the core of Postgresql which allows data to be passed from the database to R, where calculations in R can be performed. The data can then be passed back to the database for further processing.. In this example, we will create a function to calculate some summary statistics which do not exist by default in SQL by  using R. We will then create an SQL View in DHIS2 to display the results. The advantage of utilizing R in this context is that we do not need to write any significant amount of code to return these summary statistics, but simply utilize the built-in functions of R to do the work for us. </para>
+    <para> First, you will need to install <ulink url="http://www.joeconway.com/plr/">PL/R</ulink>, which is described in detail <ulink url="http://www.joeconway.com/plr/doc/plr-install.html">here.</ulink>. Following the example from the PL/R site, we will create some custom aggregate functions as detailed <ulink url="http://www.joeconway.com/plr/doc/plr-aggregate-funcs.html">here.</ulink>  We will create two functions, to return the median and the skewness of a range of values.</para>
+    <para><screen>CREATE OR REPLACE FUNCTION r_median(_float8) returns float as &apos;
+  median(arg1)
+&apos; language &apos;plr&apos;;
+
+CREATE AGGREGATE median (
+  sfunc = plr_array_accum,
+  basetype = float8,
+  stype = _float8,
+  finalfunc = r_median
+);
+
+CREATE OR REPLACE FUNCTION r_skewness(_float8) returns float as &apos;
+  require(e1071)
+  skewness(arg1)
+&apos; language &apos;plr&apos;;
+
+CREATE AGGREGATE skewness (
+  sfunc = plr_array_accum,
+  basetype = float8,
+  stype = _float8,
+  finalfunc = r_skewness
+);</screen></para>
+    <para>Next, we will define an SQL query which will be used to retrieve the two new aggregate functions (median and skewness) which will be calculated using R. In this case, we will just get a single indicator from the data mart at the district level and calculate the summary values based on the name of the district which the values belong to. This query is very specific, but could be easily adapted to your own database.</para>
+    <para><screen>SELECT  ou.shortname,avg(dv.value),
+median(dv.value),skewness(dv.value) FROM aggregatedindicatorvalue dv
+INNER JOIN period p on p.periodid = dv.periodid
+INNER JOIN organisationunit ou on 
+dv.organisationunitid = ou.organisationunitid
+WHERE dv.indicatorid = 112670
+AND dv.level = 3
+AND dv.periodtypeid = 3
+AND p.startdate &gt;=&apos;2009-01-01&apos;
+GROUP BY ou.shortname;</screen></para>
+    <para>We can then save this query in the form of SQL View in DHIS2. A clipped version of the results are shown below. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata align="center" fileref="resources/images/r/r_plr.PNG" width="66%"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </section>
 </chapter>
