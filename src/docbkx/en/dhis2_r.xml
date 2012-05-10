@@ -391,7 +391,7 @@ plot(M)</screen>
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>Using packages like <ulink url="http://cran.r-project.org/package=brew">brew</ulink> or <ulink url="http://rapache.net">Rapache</ulink>, these types of graphs could be easily integrated into external web sites. </para>
+    <para>Using packages like <ulink url="http://cran.r-project.org/package=brew">brew</ulink> or <ulink url="http://rapache.net">Rapache</ulink>, these types of graphs could be easily integrated into external web sites. A fully functional version of the chart shown above can be accessed <ulink url="http://dhis2.net/R/google-motion-chart.html">here.</ulink></para>
   </section>
   <section>
     <title>Using PL/R with DHIS2</title>
@@ -434,7 +434,7 @@ GROUP BY ou.shortname;</screen></para>
     <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata align="center" fileref="resources/images/r/r_plr.PNG" width="66%"/>
+          <imagedata width="66%" align="center" fileref="resources/images/r/r_plr.PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
