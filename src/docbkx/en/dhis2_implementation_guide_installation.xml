@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>Installation</title>
@@ -187,6 +187,54 @@ server {
   proxy_set_header  Cookie            &quot;&quot;;
   proxy_hide_header Set-Cookie;
 }</screen>
+    <para><emphasis role="bold">Make services start at boot time</emphasis></para>
+    <para>In certain situations a server might reboot unexpectedly. It is hence preferrable to have Tomcat and nginx start automatically when the server starts. To achieve that the first step is to create init scripts. Create a new file called <code>tomcat</code> and paste the below content into it (adjust the HOME variable to your environment):</para>
+    <screen>#!/bin/sh
+#Tomcat init script
+
+HOME=/home/dhis/tomcat/bin;
+
+case $1 in
+start)
+        sh ${HOME}/startup.sh
+        ;;
+stop)
+        sh ${HOME}/shutdown.sh
+        ;;
+restart)
+        sh ${HOME}/shutdown.sh
+        sleep 5
+        sh ${HOME}/startup.sh
+        ;;
+esac
+exit 0</screen>
+    <para>Create a new file called <code>nginx</code> and paste the below content into it:</para>
+    <screen>#!/bin/sh
+#nginx init script
+
+DAEMON=/usr/local/nginx/sbin/nginx
+
+case $1 in
+start)
+        start-stop-daemon --start --exec $DAEMON
+        ;;
+stop)
+        start-stop-daemon --stop --exec $DAEMON
+        ;;
+restart)
+        start-stop-daemon --stop --exec $DAEMON
+        sleep 1
+        start-stop-daemon --start --exec $DAEMON
+        ;;
+esac
+exit 0</screen>
+    <para>Move both scripts to the init script directory and make them executable by invoking:</para>
+    <screen>sudo mv tomcat nginx /etc/init.d
+sudo chmod +x /etc/init.d/nginx /etc/init.d/tomcat</screen>
+    <para>Next make sure the init scripts will be invoked during system startup  and shutdown:</para>
+    <screen>sudo /usr/sbin/update-rc.d -f tomcat defaults
+sudo /usr/sbin/update-rc.d -f nginx defaults</screen>
+    <para>Tomcat and nginx will now be started at system startup and stopped at system shutdown. If you later need to revert this you can replace <emphasis role="italic">defaults</emphasis> with <emphasis role="italic">remove</emphasis> and invoke the above commands again.</para>
   </section>
   <section>
     <title>Reverse proxy with Apache (optional)</title>
