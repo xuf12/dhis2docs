@@ -192,7 +192,7 @@ server {
     <screen>#!/bin/sh
 #Tomcat init script
 
-HOME=/home/dhis/tomcat/bin;
+HOME=/home/dhis/tomcat/bin
 
 case $1 in
 start)
@@ -234,7 +234,7 @@ sudo chmod +x /etc/init.d/nginx /etc/init.d/tomcat</screen>
     <para>Next make sure the init scripts will be invoked during system startup  and shutdown:</para>
     <screen>sudo /usr/sbin/update-rc.d -f tomcat defaults
 sudo /usr/sbin/update-rc.d -f nginx defaults</screen>
-    <para>Tomcat and nginx will now be started at system startup and stopped at system shutdown. If you later need to revert this you can replace <emphasis role="italic">defaults</emphasis> with <emphasis role="italic">remove</emphasis> and invoke the above commands again.</para>
+    <para>Tomcat and nginx will now be started at system startup and stopped at system shutdown. If you later need to revert this you can replace <code>defaults</code> with  <code>remove</code> and invoke the above commands again.</para>
   </section>
   <section>
     <title>Reverse proxy with Apache (optional)</title>
