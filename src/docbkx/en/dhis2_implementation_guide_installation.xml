@@ -232,8 +232,8 @@ exit 0</screen>
     <screen>sudo mv tomcat nginx /etc/init.d
 sudo chmod +x /etc/init.d/nginx /etc/init.d/tomcat</screen>
     <para>Next make sure the init scripts will be invoked during system startup  and shutdown:</para>
-    <screen>sudo /usr/sbin/update-rc.d -f tomcat defaults
-sudo /usr/sbin/update-rc.d -f nginx defaults</screen>
+    <screen>sudo /usr/sbin/update-rc.d -f nginx defaults 80
+sudo /usr/sbin/update-rc.d -f tomcat defaults 81</screen>
     <para>Tomcat and nginx will now be started at system startup and stopped at system shutdown. If you later need to revert this you can replace <code>defaults</code> with  <code>remove</code> and invoke the above commands again.</para>
   </section>
   <section>
