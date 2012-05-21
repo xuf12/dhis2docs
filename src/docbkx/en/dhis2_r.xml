@@ -67,7 +67,7 @@ ConnSettings        =
 Debug = 0</screen>
 </para>
     <para>Finally, we need to install the ODBC connection with <command>odbcinst -i -d -f odbc.ini</command></para>
-    <para>This shows that R is working properly. </para>
+    <para/>
     <para>From the R prompt, execute the following commands to connect to the DHIS2 database. </para>
     <para><screen>&gt; library(RODBC)
 &gt; channel&lt;-odbcConnect(&quot;dhis2&quot;)#Note that the name must match the ODBC connector name
@@ -151,8 +151,7 @@ OPD.ct.summary$OPDUnder5Male/
   <section id="dhis2_r_mydatamart">
     <title>Using R with MyDatamart</title>
     <para>MyDatamart provides  useful interface to the DHIS2 database by making a local copy of the database available on a users desktop. This means that the user does not need direct access to the database and the data can be worked with offline on the users local machine. In this example, we will have used the <ulink url="http://apps.dhis2.org/demo">demo database</ulink>. Data was downloaded at the district level for Jan 2011-Dec 201l. Consult the MyDatamart section in this manual for more detailed information. </para>
-    <para/>
-    <para>First, lets load some required packages. If you do not have these packages already installed in your version of R, you will need to do so before proceeding with the example.</para>
+    <para>First, lets load some required R packages. If you do not have these packages already installed in your version of R, you will need to do so before proceeding with the example.</para>
     <screen>library(&quot;DBI&quot;)
 library(&quot;RSQLite&quot;)
 library(&quot;lattice&quot;)
@@ -393,7 +392,7 @@ plot(M)</screen>
     </screenshot>
     <para>Using packages like <ulink url="http://cran.r-project.org/package=brew">brew</ulink> or <ulink url="http://rapache.net">Rapache</ulink>, these types of graphs could be easily integrated into external web sites. A fully functional version of the chart shown above can be accessed <ulink url="http://dhis2.net/R/google-motion-chart.html">here.</ulink></para>
   </section>
-  <section>
+  <section id="dhis2_r_plr">
     <title>Using PL/R with DHIS2</title>
     <para>The procedural language for R is an extension to the core of Postgresql which allows data to be passed from the database to R, where calculations in R can be performed. The data can then be passed back to the database for further processing.. In this example, we will create a function to calculate some summary statistics which do not exist by default in SQL by  using R. We will then create an SQL View in DHIS2 to display the results. The advantage of utilizing R in this context is that we do not need to write any significant amount of code to return these summary statistics, but simply utilize the built-in functions of R to do the work for us. </para>
     <para> First, you will need to install <ulink url="http://www.joeconway.com/plr/">PL/R</ulink>, which is described in detail <ulink url="http://www.joeconway.com/plr/doc/plr-install.html">here.</ulink>. Following the example from the PL/R site, we will create some custom aggregate functions as detailed <ulink url="http://www.joeconway.com/plr/doc/plr-aggregate-funcs.html">here.</ulink>  We will create two functions, to return the median and the skewness of a range of values.</para>
@@ -438,5 +437,6 @@ GROUP BY ou.shortname;</screen></para>
         </imageobject>
       </mediaobject>
     </screenshot>
+    <para>In this simple example, we have shown how to use PL/R with the DHIS2 database and web interface to display some summary statistics using R to  perform the calculations. </para>
   </section>
 </chapter>
