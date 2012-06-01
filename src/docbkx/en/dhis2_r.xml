@@ -446,9 +446,18 @@ GROUP BY ou.shortname;</screen></para>
 require(RCurl)
 require(XML)
 #Just a URL with some data
-url&lt;-&quot;https://apps.dhis2.org/dev/api/reportTables/data.csv?de=fbfJHSPpUQD&amp;de=cYeuwXTCPkU&amp;in=Uvn6LCg7dVU&amp;ou=O6uvpzGd5pu&amp;last12Months=true&quot;
+
+url&lt;-&quot;https://apps.dhis2.org/dev/api/reportTables/data.csv?
+de=fbfJHSPpUQD
+&amp;de=cYeuwXTCPkU
+&amp;in=Uvn6LCg7dVU
+&amp;ou=O6uvpzGd5pu
+&amp;last12Months=true&quot;
 #Lets get the response and we do not need the headers
-response&lt;-getURL(url,userpwd=&quot;admin:district&quot;,httpauth = 1L, header=FALSE)
+#This site has some issues with its SSL certificate
+#so lets not verify it.
+response&lt;-getURL(url,userpwd=&quot;admin:district&quot;
+,httpauth = 1L, header=FALSE,ssl.verifypeer = FALSE)
 #Unquote the data
 data&lt;-noquote(response)
 #here is the data.
@@ -458,10 +467,12 @@ head(mydata)
     <para>Here, we have shown how to get some aggregate data from the DHIS2 demo database using the DHIS2&apos;s Web API.</para>
     <para>In the next code example, we will retrieve some metadata, namely a list of data elements and their unique identifiers.</para>
     <screen>#Get the list of data elements. Turn off paging and links
+#This site has some issues with its SSL certificate
+#so lets not verify it.
 url&lt;-&quot;https://apps.dhis2.org/dev/api/dataElements.xml?
 paging=false&amp;links=false&quot;
 response&lt;-getURL(url,userpwd=&quot;admin:district&quot;,
-httpauth = 1L, header=FALSE)
+httpauth = 1L, header=FALSE,ssl.verifypeer = FALSE)
 #We ned to parse the result
 bri&lt;-xmlParse(response)
 #And get the root
@@ -474,9 +485,10 @@ de_id&lt;-xmlSApply(r[[&apos;dataElements&apos;]],xmlGetAttr,&quot;id&quot;)
 #but we need to be careful for missing attribute values
 foo&lt;-cbind(de_names,de_id)
 #Recast this as a data frame
-data_elements&lt;-as.data.frame(foo,stringsAsFactors=FALSE,row.names=1:nrow(foo))
+data_elements&lt;-as.data.frame(foo,
+stringsAsFactors=FALSE,row.names=1:nrow(foo))
 head(data_elements)
 </screen>
-    <para>Note that the values which we are interested in are stored as XML attributes and were parsed into two seperate matrices and then combined together into a single data frame. </para>
+    <para>Note that the values which we are interested in are stored as XML attributes and were parsed into two separate matrices and then combined together into a single data frame. </para>
   </section>
 </chapter>
