@@ -94,20 +94,22 @@
     <title>Example: Sending data values</title>
     <para>A common use-case for system integration is the need to send a set of data values from a third-party system into DHIS. In this example we will use the DHIS 2 demo on <ulink url="http://apps.dhis2.org/demo"/> as basis and we recommend that you follow the provided links with a web browser while reading (log in with <emphasis role="italic">admin</emphasis><emphasis role="italic">/district</emphasis> as username/password). We assume that we have collected case-based data using a simple software client running on mobile phones for the  <emphasis role="italic">Mortality &lt;5 years</emphasis> data set in the community of <emphasis role="italic">Ngelehun CHC</emphasis> (in <emphasis role="italic">Badjia</emphasis> chiedom, <emphasis role="italic">Bo</emphasis> district) for the month of January 2012. We have now aggregated our data into a statistical report and want to send that data to the national DHIS 2 instance.</para>
     <para>The entry point for the Web API running on the demo instance is <ulink url="http://apps.dhis2.org/demo/api"/>. The entry point provides a convenient HTML page with links to all of the available resources in the Web API. The resource which is most appropriate for our purpose of sending data values is the <emphasis role="italic">dataValueSets</emphasis> resource. A data value set represents a set of data values which have a logical relationship, usually from being captured off  the same data entry form. We follow the link to the HTML representation which will take us to <ulink url="http://apps.dhis2.org/demo/api/dataValueSets"/>. The default representation is a HTML page which provides us with  useful instructions on how to interact with this resources. It tells us that we can use the POST verb to send values using a XML format defined by the <emphasis role="italic">http://dhis2.org/schema/dxf/2.0</emphasis> namespace:</para>
-    <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;dataSetID&quot; completeDate=&quot;ISODate&quot; period=&quot;periodISODate&quot; orgUnit=&quot;orgUnitID&quot;&gt;
-  &lt;dataValue dataElement=&quot;dataElementID&quot; value=&quot;1&quot; /&gt;
-  &lt;dataValue dataElement=&quot;dataElementID&quot; value=&quot;2&quot; /&gt;
-  &lt;dataValue dataElement=&quot;dataElementID&quot; value=&quot;3&quot; /&gt;
+    <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;dataSetID&quot; 
+  completeDate=&quot;date&quot; period=&quot;period&quot; orgUnit=&quot;orgUnitID&quot;&gt;
+  &lt;dataValue dataElement=&quot;dataElementID&quot; value=&quot;1&quot;/&gt;
+  &lt;dataValue dataElement=&quot;dataElementID&quot; value=&quot;2&quot;/&gt;
+  &lt;dataValue dataElement=&quot;dataElementID&quot; value=&quot;3&quot;/&gt;
 &lt;/dataValueSet&gt;</screen>
-    <para><emphasis role="italic">Note:</emphasis> We have omitted the <emphasis role="italic">categoryOptionCombo</emphasis> attribute as it is optional and not needed for this example.</para>
+    <para><emphasis role="italic">Note:</emphasis> We have omitted the <emphasis role="italic">categoryOptionCombo</emphasis> attribute as it is optional and not needed for this example. Please refer to the date and period section above for time formats.</para>
     <para>From the example we can see that we need to identify the period,  the data set, the org unit (facility) and the data elements for which to report. The <emphasis role="italic">dataValueSets</emphasis> resource description tells us that the identifier for monthly periods should be on the format <emphasis role="italic">yyyyMM</emphasis> which means that we will use <emphasis role="italic">201201</emphasis> for January 2012.</para>
     <para>To obtain the identifier for the data set we return to the the entry point at <ulink url="http://apps.dhis2.org/demo/api"/> and follow the embedded link pointing at the <emphasis role="italic">dataSets</emphasis> resource located at <ulink url="http://apps.dhis2.org/demo/api/dataSets"/>. From there we find and follow the link to the <emphasis role="italic">Mortality &lt; 5 years</emphasis> data set which leads us to <ulink url="http://apps.dhis2.org/demo/api/dataSets/pBOMPrpg1QX"/>. What we did was effectively to retrieve the HTML representation of our data set of interest, and from it we can easily see the identifier, which is <emphasis role="italic">pBOMPrpg1QX</emphasis>. The resource representation for the <emphasis role="italic">Mortality &lt; 5 years</emphasis> data set conveniently advertises links to the  data elements which are members of it. From here we can follow these links and obtain the identifiers of the data elements. For brevity we will only report on three data  elements: <emphasis role="italic">Measles</emphasis> with id <emphasis role="italic">f7n9E0hX8qk</emphasis>, <emphasis role="italic">Dysentery</emphasis> with id <emphasis role="italic">Ix2HsbDMLea</emphasis> and <emphasis role="italic">Cholera</emphasis> with id <emphasis role="italic">eY5ehpbEsB7</emphasis>.</para>
     <para>What remains is to get hold of the identifier of the facility (org unit). Again the <emphasis role="italic">dataSet</emphasis> representation conveniently provides link to org units which report on it so we search for<emphasis role="italic"> Ngelehun CHC</emphasis> and follow the link to the HTML representation at <ulink url="http://apps.dhis2.org/demo/api/organisationUnits/DiszpKrYNg8"/>, which tells us that the identifier of this org unit is <emphasis role="italic">DiszpKrYNg8</emphasis>.</para>
     <para>From our case-based data we assume that we have 12 cases of measles, 14 cases of dysentery and 16 cases of cholera. We have now gathered enough information to be able to put together the XML data value set message:</para>
-    <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;pBOMPrpg1QX&quot; completeDate=&quot;2012-02-03&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot;&gt;
-  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; value=&quot;12&quot; /&gt;
-  &lt;dataValue dataElement=&quot;Ix2HsbDMLea&quot; value=&quot;14&quot; /&gt;
-  &lt;dataValue dataElement=&quot;eY5ehpbEsB7&quot; value=&quot;16&quot; /&gt;
+    <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;pBOMPrpg1QX&quot; 
+  completeDate=&quot;2012-02-03&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot;&gt;
+  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; value=&quot;12&quot;/&gt;
+  &lt;dataValue dataElement=&quot;Ix2HsbDMLea&quot; value=&quot;14&quot;/&gt;
+  &lt;dataValue dataElement=&quot;eY5ehpbEsB7&quot; value=&quot;16&quot;/&gt;
 &lt;/dataValueSet&gt;</screen>
     <para>To perform  functional testing we will use the cURL tool (<ulink url="http://curl.haxx.se"/>) which provides an easy way of transferring data using HTTP. First we save the data value set XML content in a file called <emphasis role="italic">datavalueset.xml</emphasis> . From the directory where this file resides we invoke the following from the command line:</para>
     <para><code>curl -d @datavalueset.xml &quot;http://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</code></para>
@@ -121,10 +123,10 @@
     <para>The previous example showed us how to send a set of related data values sharing the same period and organisation unit. This example will show us how to send large bulks of data values which don&apos;t necessarily are logically related.</para>
     <para>Again we will interact with the with <ulink url="http://apps.dhis2.org/demo/api/dataValueSets"/> resource. This time we will not specify the dataSet and completeDate attributes. Also, we will specify the period and orgUnit attributes on the individual data value elements instead of on the outer data value set element. This will enable us to send data values for various periods and org units:</para>
     <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
-  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot; value=&quot;12&quot; /&gt;
-  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201201&quot; orgUnit=&quot;FNnj3jKGS7i&quot; value=&quot;14&quot; /&gt;
-  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201202&quot; orgUnit=&quot;DiszpKrYNg8&quot; value=&quot;16&quot; /&gt;
-  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201202&quot; orgUnit=&quot;Jkhdsf8sdf4&quot; value=&quot;18&quot; /&gt;
+  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot; value=&quot;12&quot;/&gt;
+  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201201&quot; orgUnit=&quot;FNnj3jKGS7i&quot; value=&quot;14&quot;/&gt;
+  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201202&quot; orgUnit=&quot;DiszpKrYNg8&quot; value=&quot;16&quot;/&gt;
+  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201202&quot; orgUnit=&quot;Jkhdsf8sdf4&quot; value=&quot;18&quot;/&gt;
 &lt;/dataValueSet&gt;</screen>
     <para>We test by using cURL  to send the data values:</para>
     <para><code>curl -d @datavalueset.xml &quot;http://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</code></para>
@@ -174,9 +176,11 @@
       </tgroup>
     </table>
     <para>All parameters are optional and can be supplied as query parameters in the request URL like this:</para>
-    <screen>http://apps.dhis2.org/demo/api/dataValueSets?dataElementIdScheme=code&amp;orgUnitIdScheme=name&amp;dryRun=true&amp;importStrategy=new</screen>
+    <screen>http://apps.dhis2.org/demo/api/dataValueSets?dataElementIdScheme=code&amp;
+  orgUnitIdScheme=name&amp;dryRun=true&amp;importStrategy=new</screen>
     <para>They can also be supplied as XML attributes on the data value set element like below. XML attributes will override query string parameters.</para>
-    <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataElementIdScheme=&quot;code&quot; orgUnitIdScheme=&quot;name&quot; dryRun=&quot;true&quot; importStrategy=&quot;new&quot;&gt;
+    <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataElementIdScheme=&quot;code&quot; 
+  orgUnitIdScheme=&quot;name&quot; dryRun=&quot;true&quot; importStrategy=&quot;new&quot;&gt;
   ..
 &lt;/dataValueSet&gt;</screen>
     <para>Regarding the id schemes, by default the  identifiers used in the XML messages refer to the DHIS stable object identifiers. In certain interoperability situations we might experience that the external system  decides the identifiers of the objects. In that case we can use the <emphasis role="italic">code</emphasis> property of the organisation unit and data element objects to set fixed identifiers dictated by the other system. When importing data values we hence need to reference the code property instead of the uid property, and can do so using the dataElementIScheme and orgUnitIdScheme paramaters.</para>
@@ -212,15 +216,20 @@
       </tgroup>
     </table>
     <para>It is assumed that we have posted data values to DHIS according to the previous section called &quot;Sending data values&quot;. We can now put together our request and send it using cURL:</para>
-    <para><code>curl &quot;http://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;period=201201&amp;orgUnit=DiszpKrYNg8&quot; -H &quot;Accept:application/xml&quot; -u admin:district -v </code></para>
+    <para><code>curl &quot;http://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX</code><code>&amp;period=201201&amp;orgUnit=DiszpKrYNg8&quot; -H &quot;Accept:application/xml&quot; -u admin:district -v </code></para>
     <para>The  response will look something like this:</para>
     <screen>HTTP/1.1 200 OK
 Content-Type: application/xml
 
-&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;pBOMPrpg1QX&quot; completeDate=&quot;2012-01-02&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot;&gt;
-&lt;dataValue dataElement=&quot;eY5ehpbEsB7&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot; categoryOptionCombo=&quot;bRowv6yZOF2&quot; value=&quot;10003&quot;/&gt;
-&lt;dataValue dataElement=&quot;Ix2HsbDMLea&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot; categoryOptionCombo=&quot;bRowv6yZOF2&quot; value=&quot;10002&quot;/&gt;
-&lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot; categoryOptionCombo=&quot;bRowv6yZOF2&quot; value=&quot;10001&quot;/&gt;
+&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;
+&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;pBOMPrpg1QX&quot;
+  completeDate=&quot;2012-01-02&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot;&gt;
+&lt;dataValue dataElement=&quot;eY5ehpbEsB7&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot; 
+  categoryOptionCombo=&quot;bRowv6yZOF2&quot; value=&quot;10003&quot;/&gt;
+&lt;dataValue dataElement=&quot;Ix2HsbDMLea&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot; 
+  categoryOptionCombo=&quot;bRowv6yZOF2&quot; value=&quot;10002&quot;/&gt;
+&lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot; 
+  categoryOptionCombo=&quot;bRowv6yZOF2&quot; value=&quot;10001&quot;/&gt;
 &lt;/dataValueSet&gt;</screen>
     <para>The header tells us that the request was processed successfully and that we are receiving a response in XML format. The XML message looks familiar - it is the data values we sent in the previous section.</para>
   </section>
@@ -251,9 +260,12 @@ Content-Type: application/xml
     <para>We will now pretend to be the mobile user and read the message which was just sent by dispatching a GET request to the <emphasis role="italic">messageConversations</emphasis> resource. We supply an <emphasis role="italic">Accept</emphasis> header with <emphasis role="italic">application/xml</emphasis> as the value to indicate that we are interested in the XML resource representation and we authenticate as the <emphasis role="italic">mobile</emphasis> user:</para>
     <para><code>curl &quot;http://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Accept:application/xml&quot; -u mobile:district -X GET -v</code></para>
     <para>In response we get the following XML:</para>
-    <screen>&lt;messageConversations xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; link=&quot;http://apps.dhis2.org/demo/api/messageConversations&quot;&gt;
-  &lt;messageConversation name=&quot;Mortality data reporting&quot; id=&quot;ZjHHSjyyeJ2&quot; link=&quot;http://apps.dhis2.org/demo/api/messageConversations/ZjHHSjyyeJ2&quot;/&gt;
-  &lt;messageConversation name=&quot;DHIS version 2.7 is deployed&quot; id=&quot;GDBqVfkmnp2&quot; link=&quot;http://apps.dhis2.org/demo/api/messageConversations/GDBqVfkmnp2&quot;/&gt;
+    <screen>&lt;messageConversations xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;
+  link=&quot;http://apps.dhis2.org/demo/api/messageConversations&quot;&gt;
+  &lt;messageConversation name=&quot;Mortality data reporting&quot; id=&quot;ZjHHSjyyeJ2&quot;
+    link=&quot;http://apps.dhis2.org/demo/api/messageConversations/ZjHHSjyyeJ2&quot;/&gt;
+  &lt;messageConversation name=&quot;DHIS version 2.7 is deployed&quot; id=&quot;GDBqVfkmnp2&quot;
+    link=&quot;http://apps.dhis2.org/demo/api/messageConversations/GDBqVfkmnp2&quot;/&gt;
 &lt;/messageConversations&gt;</screen>
     <para>From the response we are able to read the identifier of the newly sent message which is <emphasis role="italic">ZjHHSjyyeJ2</emphasis>. Note that the link to the specific resource is embedded and available for  consumers to use. From the description at <ulink url="http://apps.dhis2.org/demo/api/messageConversations"/> we learned that we can reply directly to an existing message conversation once we know the URL by including the message text as the  request payload (body). We are now able to construct a URL for sending our reply:</para>
     <para><code>curl -d &quot;Yes the Mortality data set has been reported&quot; &quot;http://apps.dhis2.org/demo/api/messageConversations/ZjHHSjyyeJ2&quot; -H &quot;Content-Type:text/plain&quot; -u mobile:district -X POST -v</code> </para>
@@ -266,7 +278,8 @@ Content-Type: application/xml
     <para>We  start as usual at the Web API entrypoint at <ulink url="http://apps.dhis2.org/demo/api"/>. We look for a relevant  report table by following the <emphasis role="italic">reportTables</emphasis> link to <ulink url="http://apps.dhis2.org/demo/api/reportTables"/>. We assume that we are interested in the &quot;District Maternal Health&quot; report and follow the link to <ulink url="http://apps.dhis2.org/demo/api/reportTables/xIWpSo5jjT1"/>. This resource provides meta-data information about the report table. From here we can follow the link to the default data view of aggregated data, which leads us to  <ulink url="http://apps.dhis2.org/demo/api/reportTables/xIWpSo5jjT1/data"/>. As we can see we are provided with a  report table in HTML format, which is the default representation format for report tables.</para>
     <para>As stated in the introduction there are three ways of indicating which resource representation format you prefer for the response. The most suitable alternative for direct use in web pages is to append a file suffix to the URL. We assume that we are interested in the PDF representation and indicate that by appending <emphasis role="italic">.pdf</emphasis> to our URL: <ulink url="http://apps.dhis2.org/demo/api/reportTables/xIWpSo5jjT1/data.pdf"/>. Go ahead and try out all valid extensions for this resource which are <emphasis role="italic">.html</emphasis>, <emphasis role="italic">.pdf</emphasis>, <emphasis role="italic">.xls</emphasis> and <emphasis role="italic">.csv</emphasis>.</para>
     <para>The report table can be parameterized with an organisation unit and a period by supplying a <emphasis role="italic">ou</emphasis> and <emphasis role="italic">pe</emphasis> query parameter accompanied with an organisation unit  identifier and period string  in the URL. If not provided the Web API will use the top-most organisation unit in the hierarchy and the last  period for the report table content. The organisation unit identifier can be looked up by going to the Web API entrypoint and follow the link to the <emphasis role="italic">organisationUnits</emphasis> resouce. For our example we will use <emphasis role="italic">Bo</emphasis> district whith identifier <emphasis role="italic">O6uvpzGd5pu</emphasis> as the organisation unit: <ulink url="http://apps.dhis2.org/demo/api/reportTables/xIWpSo5jjT1/data?ou=O6uvpzGd5pu"/>. From the HTML representation we can  see that the report now contains data for <emphasis role="italic">Bo</emphasis> district. These URLs can  simply  be used in links embedded in the web page like this:</para>
-    <screen>&lt;a href=&quot;http://apps.dhis2.org/demo/api/reportTables/xIWpSo5jjT1/data.pdf?ou=O6uvpzGd5pu&quot;&gt;Maternal Health Bo District 2012&lt;/a&gt;</screen>
+    <screen>&lt;a href=&quot;http://apps.dhis2.org/demo/api/reportTables/xIWpSo5jjT1/data.pdf?
+ou=O6uvpzGd5pu&quot;&gt;Maternal Health Bo District 2012&lt;/a&gt;</screen>
     <para>There are many ways to authenticate over the Web and each method has its advantages and disadvantages. For this example we will use an  approach where we emulate a  login from the web-based login form. To help us we will use the <emphasis role="italic">jQuery</emphasis>  javascript library. This javascript code should be embedded in the <emphasis role="italic">head</emphasis> section of the Web page:</para>
     <screen>jQuery(document).ready(function() {
   $.post( &quot;http://apps.dhis2.org/demo/dhis-web-commons-security/login.action&quot;, {
@@ -305,8 +318,12 @@ Content-Type: application/xml
     <title>Example: Embedding charts with the Visualizer Plugin</title>
     <para>In this example we will see how we can embed good-looking Ext JS charts (<ulink url="http://www.sencha.com/products/extjs"/>) with data served from a DHIS back-end into a Web page. To accomplish this we will use the DHIS Visualizer plugin. The plugin is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/plugin.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
     <para>We start by including three required Javascript files in the header section of the HTML document. The first file is the  Ext JS Javascript library (we use  the Google content delivery network in this case). The third file is the Visualizer plugin. Make sure the path is pointing to your DHIS server installation.</para>
-    <screen>&lt;script type=&quot;text/javascript&quot; src=&quot;http://extjs-public.googlecode.com/svn/tags/extjs-4.0.7/release/ext-all.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;http://apps.dhis2.org/demo/dhis-web-visualizer/app/plugin/plugin.js&quot;&gt;&lt;/script&gt;</screen>
+    <screen>&lt;script type=&quot;text/javascript&quot;
+  src=&quot;http://extjs-public.googlecode.com/svn/tags/extjs-4.0.7/release/ext-all.js&quot;&gt;
+&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;
+  src=&quot;http://apps.dhis2.org/demo/dhis-web-visualizer/app/plugin/plugin.js&quot;&gt;
+&lt;/script&gt;</screen>
     <para>To authenticate with the DHIS server we use the same approach as in the previous section. In the header of the HTML document we include the following Javascript inside a script element. The <emphasis role="italic">setLinks</emphasis> method will be implemented later. Make sure the <emphasis role="italic">base</emphasis> variabel is pointing to your DHIS installation.</para>
     <screen>var base = &apos;http://apps.dhis2.org/demo/&apos;;
 
@@ -400,8 +417,106 @@ Ext.onReady( function() {
             <entry>filter</entry>
             <entry>string</entry>
             <entry>No</entry>
-            <entry>data | period | organiastionunit</entry>
+            <entry>data | period | organisationunit</entry>
             <entry>Dimension to use as chart filter</entry>
+          </row>
+          <row>
+            <entry>orgUnitIsParent</entry>
+            <entry>boolean</entry>
+            <entry>No</entry>
+            <entry>false | true</entry>
+            <entry>Whether the chart should display the children of the selected org units</entry>
+          </row>
+          <row>
+            <entry>skipAnimation</entry>
+            <entry>boolean</entry>
+            <entry>No</entry>
+            <entry>false | true</entry>
+            <entry>Whether the initial chart animation should be displayed</entry>
+          </row>
+          <row>
+            <entry>showData</entry>
+            <entry>boolean</entry>
+            <entry>No</entry>
+            <entry>false | true</entry>
+            <entry>Whether to display data on the chart</entry>
+          </row>
+          <row>
+            <entry>trendLine</entry>
+            <entry>boolean</entry>
+            <entry>No</entry>
+            <entry>false | true</entry>
+            <entry>Whether to display trend line(s) on the chart</entry>
+          </row>
+          <row>
+            <entry>hideLegend</entry>
+            <entry>boolean</entry>
+            <entry>No</entry>
+            <entry>false | true</entry>
+            <entry>Whether to hide the chart legend</entry>
+          </row>
+          <row>
+            <entry>hideSubtitle</entry>
+            <entry>boolean</entry>
+            <entry>No</entry>
+            <entry>false | true</entry>
+            <entry>Whether to hide the chart title</entry>
+          </row>
+          <row>
+            <entry>userOrganisationUnit</entry>
+            <entry>boolean</entry>
+            <entry>No</entry>
+            <entry>false | true</entry>
+            <entry>Whether the user of the current user should be included in the chart</entry>
+          </row>
+          <row>
+            <entry>userOrganisationUnitChildren</entry>
+            <entry>boolean</entry>
+            <entry>No</entry>
+            <entry>false | true</entry>
+            <entry>Whether the child org units of the current user should be included in the chart</entry>
+          </row>
+          <row>
+            <entry>targetLineValue</entry>
+            <entry>double</entry>
+            <entry>No</entry>
+            <entry/>
+            <entry>Value of target line to display on the chart</entry>
+          </row>
+          <row>
+            <entry>targetLineLabel</entry>
+            <entry>string</entry>
+            <entry>No</entry>
+            <entry/>
+            <entry>Label for target line</entry>
+          </row>
+          <row>
+            <entry>baseLineValue</entry>
+            <entry>double</entry>
+            <entry>No</entry>
+            <entry/>
+            <entry>Value of baseline to display on the chart</entry>
+          </row>
+          <row>
+            <entry>baseLineLabel</entry>
+            <entry>string</entry>
+            <entry>No</entry>
+            <entry/>
+            <entry>Label for baseline</entry>
+          </row>
+          <row>
+            <entry>domainAxisLabel</entry>
+            <entry>string</entry>
+            <entry>No</entry>
+            <entry/>
+            <entry>Label for the domain axis</entry>
+          </row>
+          <row>
+            <entry>rangeAxisLabel</entry>
+            <entry>string</entry>
+            <entry>No</entry>
+            <entry/>
+            <entry>Label for the range axis</entry>
           </row>
           <row>
             <entry>el</entry>
