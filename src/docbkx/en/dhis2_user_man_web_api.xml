@@ -86,6 +86,24 @@
             <entry>2004</entry>
             <entry>2004</entry>
           </row>
+          <row>
+            <entry>Financial Year April</entry>
+            <entry>yyyyApril</entry>
+            <entry>2004April</entry>
+            <entry>Apr 2004-Mar 2005</entry>
+          </row>
+          <row>
+            <entry>Financial Year July</entry>
+            <entry>yyyyJuly</entry>
+            <entry>2004July</entry>
+            <entry>July 2004-June 2005</entry>
+          </row>
+          <row>
+            <entry>Financial Year Oct</entry>
+            <entry>yyyyOct</entry>
+            <entry>2004Oct</entry>
+            <entry>Oct 2004-Sep 2005</entry>
+          </row>
         </tbody>
       </tgroup>
     </table>
@@ -232,6 +250,10 @@ Content-Type: application/xml
   categoryOptionCombo=&quot;bRowv6yZOF2&quot; value=&quot;10001&quot;/&gt;
 &lt;/dataValueSet&gt;</screen>
     <para>The header tells us that the request was processed successfully and that we are receiving a response in XML format. The XML message looks familiar - it is the data values we sent in the previous section.</para>
+  </section>
+  <section>
+    <title>Example: Reading aggregated data values</title>
+    <para>In order to read aggregated data values you can utilize the reportTables resource. This resouce lets you retrieve data from predefined report tables as well as custom data responses for any number of indicators, data elements, data sets, periods and organisatio units.</para>
   </section>
   <section>
     <title>Example: Writing and reading messages</title>
