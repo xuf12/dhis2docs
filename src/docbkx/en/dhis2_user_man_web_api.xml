@@ -405,14 +405,15 @@ Ext.onReady( function() {
           </row>
           <row>
             <entry>indicators</entry>
-            <entry>[integer]</entry>
+            <entry>[string]</entry>
+            <entry/>
             <entry>Yes*</entry>
             <entry/>
             <entry>Identifiers of indicators to include in chart</entry>
           </row>
           <row>
             <entry>dataelements</entry>
-            <entry>[integer]</entry>
+            <entry>[string]</entry>
             <entry>Yes*</entry>
             <entry/>
             <entry>Identifiers of data elements to include in chart</entry>
@@ -426,7 +427,7 @@ Ext.onReady( function() {
           </row>
           <row>
             <entry>organisationunits</entry>
-            <entry>[integer]</entry>
+            <entry>[string]</entry>
             <entry>Yes*</entry>
             <entry/>
             <entry>Identifiers of organisation units to include in chart</entry>
