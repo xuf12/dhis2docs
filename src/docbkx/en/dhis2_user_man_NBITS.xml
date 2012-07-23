@@ -456,17 +456,17 @@ The case update in the  application is designed in the same manner so that servi
           <para><emphasis role="italic">Beneficiary Aggregation Query Builder</emphasis> is a tool for defining formula, expression, rules for aggregation data from name-based to aggregation system.</para>
         </listitem>
         <listitem>
-          <para><emphasis role="italic">Beneficiary Aggregation</emphasis> to used for generating routine data values from patient-data by month (or other interval if desired) and organization unit.</para>
+          <para><emphasis role="italic">Beneficiary Aggregation</emphasis> to used for generating routine data values from name-based-data by month (or other interval if desired) and organization unit.</para>
         </listitem>
       </itemizedlist>
       <section>
-        <title>Beneficiary Aggregation Query Builder</title>
-        <para>To access <emphasis role="italic">Beneficiaries Aggregation Query Builder</emphasis> module, from the <emphasis role="italic">Maintenance</emphasis> menu, go to the <emphasis role="italic">Beneficiaries and Programs</emphasis> option. Select <emphasis role="italic">Beneficiary Aggregation Query Builder</emphasis> option on left menu to proceed.</para>
+        <title>Aggregation Query Builder</title>
+        <para>To access <emphasis role="italic">Aggregation Query Builder</emphasis> module, from the <emphasis role="italic">Maintenance</emphasis> menu, go to the <emphasis role="italic">Persons and Programs</emphasis> option. Select <emphasis role="italic">Aggregation Query Builder</emphasis> option on left menu to proceed.</para>
         <screenshot>
           <screeninfo>Figure 2.5.4.2</screeninfo>
           <mediaobject>
             <imageobject>
-              <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.5.4.2.png" format="PNG"/>
+              <imagedata fileref="resources/images/patients_programs/Fig. 2.5.4.2.png" format="PNG" width="70%"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -475,73 +475,97 @@ The case update in the  application is designed in the same manner so that servi
           <screeninfo>Figure 2.5.4.3</screeninfo>
           <mediaobject>
             <imageobject>
-              <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.5.4.3.png" format="PNG"/>
+              <imagedata width="70%" fileref="resources/images/patients_programs/create_new_person_aggregate_query_builder.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
         <para><emphasis role="bold">
-            <emphasis role="underline">Area labelled 1:</emphasis>
-          </emphasis> Provide the basic information for a query: description, aggregation data element from data element group.</para>
-        <para>See the example (Fig. 2.5.4.3): description as <emphasis role="italic">Number of children - BCG</emphasis>,  and the result with be stored with data element as <emphasis role="italic">Number of Children - BCG</emphasis>  in data element group <emphasis role="italic">BCG Program</emphasis>.</para>
+            <emphasis role="underline">Name:</emphasis>
+          </emphasis> Provide name of query,  this name is usually same with the name of aggregate data element. For example Number of mothers got VAT, Number of children got BCG vaccine,...</para>
         <para><emphasis role="bold">
             <emphasis role="underline">
-              <emphasis role="underline">Area labelled 2:</emphasis>
+              <emphasis role="underline">Dataset:</emphasis>
             </emphasis>
-          </emphasis> </para>
-        <para>Select the equivalent data element for the beneficiaries to link to the data element selected above. The information include: program, program stage and data element by the selected program stage.</para>
-        <para>Double click on the data element the equivalent code of it will be showed in the condition box (labelled 4). An example of Fig. 2.5.4.3, if double click on the data element named <emphasis role="italic">BCG dose given date ((default))</emphasis> the code appear as <emphasis role="italic">[DE:8.75.1]</emphasis>.</para>
-        <para>To make the condition valid, as default click on button “<emphasis role="italic">!=NULL</emphasis>”. Then there will be the text “<emphasis role="italic">[DE:8.75.1] is not null</emphasis>” in the Condition box.</para>
+          </emphasis> Select dataset contains data elements which will be used to link with persons&apos; data.</para>
         <para><emphasis role="bold">
-            <emphasis role="underline">Area labelled 3:</emphasis>
-          </emphasis></para>
-        <para>For adding and advanced condition for the query. So, it is required more knowledge about the health services of the programs specifically.</para>
-        <para>All properties and options listed in this area are flexible and depend on the health program. And users can modify them.</para>
+            <emphasis role="underline">Data element: </emphasis>
+          </emphasis>Select data element which will be used to link with persons&apos; data</para>
+        <para><emphasis role="bold">Operator:</emphasis> Select Number of patients if aggregate based on persons, or Number of visits if aggregate data based on persons&apos; times receiving services</para>
+        <para><emphasis role="bold">Program : </emphasis>Select program which person enrolled to aggregate</para>
+        <para><emphasis role="bold">Program Stage : </emphasis>Select program stage from selected program above.</para>
+        <para>Next section included 3 tabs : Data elements, Person attributes, and Program. Depend on the requirement of data aggregation, data element, person attributes, and number of programs are selected. </para>
         <para><emphasis role="bold">
-            <emphasis role="underline">
-              <emphasis role="underline">Area labelled 4:</emphasis>
-            </emphasis>
-          </emphasis></para>
-        <para>Includes the buttons of operands and a text box showing the conditions for the query.</para>
-        <para>After finishing the area above (1, 2, 3 and 4), click on the <emphasis role="italic">Add</emphasis> button.</para>
+            <emphasis role="underline">Data elements tab</emphasis>
+          </emphasis> list all the person based data elements available from selected program stage.  Select data element according to  aggregate condition</para>
+        <para><emphasis role="bold">
+            <emphasis role="underline">Person attribute tab: </emphasis>
+          </emphasis> list all the person attributes such as Total of patient registration, Gender, Date of birth type, Age, .. Select attribute according to  aggregate condition. However, the programs with anonymous type don&apos;t have person attributes.</para>
+        <para><emphasis role="bold">
+            <emphasis role="underline">Program tab:</emphasis>
+          </emphasis> list all program properties like Program enrollment, (Date of enrollment - Date of incident) and program stage properties like visit_program_stage, (Report date - Due date), (Report date-Birthdate). Select properties according to aggregate condition.</para>
+        <para><emphasis role="bold">
+            <emphasis role="underline">Condition : </emphasis>
+          </emphasis>This section contains comparing operations (&lt;, &lt;=, &gt;, &gt;=, =, != ), calculation operation (+), priority operation ( ( ) ), boolean operation (Yes, No), status operations (=NULL, != NULL), relation operations (AND, OR). These operations are used for supporting in setting condition for query. </para>
+        <para><emphasis role="bold">
+            <emphasis role="underline">Description :</emphasis>
+          </emphasis> This section show the form of query after above elements were selected and combind with operations in above condition. </para>
+        <para>For example: to get number of girls got Vitamin A dose 6 enrolled Child Health program on January 2012. Then query is created as in the figure below. Note that January 2012 is period parameter which user will select when generate report. It is not set in the query.</para>
+        <screenshot>
+          <screeninfo>Fig. example_query</screeninfo>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="70%" format="PNG" fileref="resources/images/patients_programs/example_query.png"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
       </section>
+      <section/>
       <section>
-        <title>Beneficiary Aggregation</title>
-        <para>To access <emphasis role="italic">Beneficiaries Aggregation</emphasis> module, from the <emphasis role="italic">Services</emphasis> menu, go to the <emphasis role="italic">Name-Based Data Records</emphasis> option. Select <emphasis role="italic">Beneficiary Aggregation</emphasis> option on left menu to proceed. Here are the main screen shots:</para>
+        <title>Person Aggregation</title>
+        <para>After created query, user can use  <emphasis role="italic">Person Aggregation</emphasis> module to aggregate persons data and import into aggregated data element. To open <emphasis>Person Aggregation</emphasis> module, from the <emphasis role="italic">Services</emphasis> menu, go to the <emphasis role="italic">Name-Based Data Records</emphasis> option. Select <emphasis role="italic">Person Aggregation</emphasis> option on left menu.  <emphasis>Person Aggregation form</emphasis> is opened as below</para>
         <screenshot>
           <screeninfo>Figure 2.5.4.4</screeninfo>
           <mediaobject>
             <imageobject>
-              <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.5.4.4.png" format="PNG"/>
+              <imagedata width="70%" fileref="resources/images/patients_programs/person_aggregation_form.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
-        <screenshot>
-          <screeninfo>Figure 2.5.4.5</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.5.4.5.png" format="PNG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
+        <para>In the <emphasis>Person aggregation form</emphasis> above</para>
         <para><itemizedlist>
             <listitem>
-              <para>Area in the ORANGE frame: the facility hierarchy tree. </para>
+              <para>Select dataset from Dataset List to get aggregate values. Note that only datasets which were assigned to atleast 1 organisation unit will be shown in this list.</para>
             </listitem>
             <listitem>
-              <para>Area in the BLUE frame: for choosing the data set, the start and end date of the aggregated period.</para>
+              <para>Depend on frequency of selected dataset, select period to get aggregate data. For example, if frequency of dataset is quarterly, then select begin quarter and end quarter. To select 1 particular quarter, then begin quarter and end quarter is the same particular quarter name.</para>
+            </listitem>
+            <listitem>
+              <para>Select organisation unit level where person data will be select to aggregate. There are 3 options: Children only :  person data from the children of  the selected organisation unit will be aggregated, Selected: person data from selected organisation unit will be aggregated, and All will get data from both selected and children organisation unit to aggregate.</para>
+            </listitem>
+            <listitem>
+              <para>Click on the 
+<emphasis role="italic">Aggregate</emphasis> button to execute aggregate function. The <emphasis>Person aggregation result</emphasis>page is opened as below figure</para>
             </listitem>
           </itemizedlist></para>
-        <para>Click on the 
-<emphasis role="italic">Aggregate</emphasis> button to execute aggregate function.
-</para>
         <screenshot>
-          <screeninfo>Figure 2.5.4.6 - Shows the result from the example</screeninfo>
+          <screeninfo>Figure - Person aggregation result</screeninfo>
           <mediaobject>
             <imageobject>
-              <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.5.4.6.png" format="PNG"/>
+              <imagedata width="70%" fileref="resources/images/patients_programs/person_aggregation_result.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
+        <para>In <emphasis>Person aggregation result</emphasis> page<itemizedlist>
+            <listitem>
+              <para>Click Save all values button to save aggregated values, or select only neccessary data elements and their values values and click Save selected values to save them.</para>
+            </listitem>
+            <listitem>
+              <para>Click yellow arrow next to period name for showing list of data elements and their aggregated data values</para>
+            </listitem>
+            <listitem>
+              <para>Click <emphasis>Show details</emphasis> button to view detail person information which aggregated.</para>
+            </listitem>
+          </itemizedlist> </para>
       </section>
       <section>
         <title>A Sample for Beneficiary Aggregation</title>
