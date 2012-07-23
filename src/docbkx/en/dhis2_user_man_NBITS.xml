@@ -6,102 +6,83 @@
     <title>Introduction</title>
     <section>
       <title>Quick Background</title>
-      <para>The DHIS Community Module ( also known as DHIS patient module or NBITS) is an integrated module in DHIS2, built to support community health systems and facilitate a smooth integration between the community health data and aggregated data management ( e.g. HMIS ).</para>
-      <para>The module deals with person-level data as opposed to aggregated data which is the main focus of the core DHIS2 modules. The module supports management of community health programs such as: child immunization, maternal health and e.g. allows for tracking of individuals enrolled in various programs and activity planning for community health workers.</para>
+      <para>Conventionally, Public Health Systems have been recording and reporting aggregated data of the services provided across various health programmes. Though this is crucial in monitoring &quot;<emphasis role="italic">reach</emphasis>&quot; and &quot;<emphasis role="italic">availability</emphasis>&quot; of public health services, but it lacks tracing the persons being provided these services and quality of these ones. </para>
+      <para>For example, the aggregate report will show that 300 pregnant women registered  for ANC and 120 women given IFA tablets or 90 women given TT injection. In an aggregate system, it is not possible to ascertain that if a particular pregnant woman registered for ANC, has also been given IFA and TT, as data only shows aggregate numbers. To understand the quality of services given to each pregnant woman registered for ANC, immunization cycle of each child or treatment of each leprosy person, etc. it is important that treatment information of each person is maintained as an individual case.</para>
+      <para>The DHIS name-based information tracking module ( also known as  DHIS Community Module  ) is an integrated module in DHIS2, built to support community health systems and facilitate a smooth integration between the community health data and aggregated data management.</para>
+      <para>The module supports management of community health programs, such as child immunization, maternal health and e.g. allows tracking of individuals enrolled in various programs and activity planning for community health workers.</para>
       <para>The following are the major things:</para>
       <orderedlist>
         <listitem>
-          <para>Administrating a beneficiary - registering a new beneficiary, setting relationships,  enrolling a beneficiary into a program.</para>
+          <para>Administrating meta data -  includes person attributes, person attribute groups, identifier types; relationship types, health programs,  program stages corresponding to the program, validations and formulas  for aggregating data value from individual cases.</para>
         </listitem>
         <listitem>
-          <para>Administrating meta data, includes beneficiary attributes, beneficiary attribute groups, identifier type; program, program attribute, program stage, validations.</para>
+          <para>Administrating person registration - registering a new person, setting relationships,  enrolling a person into a program and management of person location</para>
         </listitem>
         <listitem>
-          <para>Linking data between name-based information tracking system – NBITS  and aggregate management system.</para>
+          <para>Data entry for inputting individual data for treatment  of each person.</para>
         </listitem>
         <listitem>
-          <para>Data Entry for inputting data for treatment stages of an beneficiary.</para>
+          <para>Reports for individual cases.</para>
         </listitem>
         <listitem>
           <para>Activity plans.</para>
         </listitem>
-      </orderedlist>
-    </section>
-    <section>
-      <title>Context and Concept</title>
-      <para>Conventionally, Public Health Systems have been recording and reporting aggregated data of the services provided across various health programmes. Though this is crucial in monitoring &quot;<emphasis role="italic">reach</emphasis>&quot; and &quot;<emphasis role="italic">availability</emphasis>&quot; of public health services, but it lacks tracing the beneficiaries being provided these services and quality of service. </para>
-      <para>For example, the aggregate report will show that 300 pregnant women registered  for ANC and 120 women given IFA tablets or 90 women given TT injection. In an aggregate system, it is not possible to ascertain that if a particular pregnant woman registered for ANC, has also been given IFA and TT, as data only shows aggregate numbers. To understand the quality of services given to each pregnant woman registered for ANC, immunization cycle of each child or treatment of each leprosy beneficiary, etc. it is important that treatment information of each beneficiary is maintained as an individual case.</para>
-    </section>
-    <section>
-      <title>Objectives of Name Based Information Tracking</title>
-      <para><emphasis role="bold">Objectives of Name Based Information Tracking:</emphasis></para>
-      <orderedlist>
         <listitem>
-          <para>Track (follow-up) a beneficiary through the entire treatment period.</para>
-        </listitem>
-        <listitem>
-          <para>Facilitate the service provider (health worker or doctor) in beneficiary&apos;s treatment follow-up; by recording all treatment related information in one place (makes it comprehensive for the service-provider).</para>
-        </listitem>
-        <listitem>
-          <para>Help the beneficiary in recording treatment history in one place, which could be used later in case of referral.</para>
+          <para>Linking data between name-based information tracking system   and aggregate management system.</para>
         </listitem>
       </orderedlist>
-      <para><emphasis role="bold">Advantages of Name Based Information Tracking :</emphasis></para>
+      <para><emphasis role="bold">Advantages of Name Based Information Tracking:</emphasis></para>
       <orderedlist>
         <listitem>
-          <para>Facilitate in recording entire treatment information of each beneficiary.</para>
+          <para>Facilitate the health service provider  in person&apos;s treatment follow-up by recording all treatment related information in one place and in effective monitoring of different health services and drill down to individual person information.</para>
         </listitem>
         <listitem>
-          <para>Facilitate health-workers in organizing out-reach.</para>
+          <para>Help the person in recording treatment history in one place, which could be used later in case of referral.</para>
         </listitem>
         <listitem>
-          <para>Facilitate service-provider in treatment follow-up.</para>
-        </listitem>
-        <listitem>
-          <para>Facilitate in effective monitoring of different health services and drill down to individual beneficiary information.</para>
+          <para>Facilitate in recording entire treatment information of each person.</para>
         </listitem>
         <listitem>
           <para>Help strengthen the quality and fidelity of data.</para>
         </listitem>
       </orderedlist>
-      <para>Though at sub-center level, the data in primary registers is recorded and maintained by individuals (name based), but is sent up-wards as aggregate reports. Now with HMIS reforms implemented and district on-wards data available on-line, the thrust has been on ensuring data quality implemented completeness. To-wards this one important initiative has been starting name based reporting - from sub-center to national level.</para>
+      <para>The data in primary registers at sub-center level is recorded and maintained by name based individuals or treatment cases, and  sent up-wards as aggregate reports.</para>
     </section>
     <section>
       <title>Working of Name Based Information Tracking</title>
-      <para>NBITS registers cases and tracks these cases over time through different forms that are filled for the treatment of a beneficiary.</para>
+      <para>The module supports health providers for registering treatment cases and tracks these cases over time through different forms that are filled for the treatment of each person.</para>
       <orderedlist>
         <listitem>
-          <para>Registration and Identification for a beneficiary</para>
+          <para>Registration a person.</para>
         </listitem>
         <listitem>
-          <para>Programme enrolment</para>
+          <para>Program enrollment</para>
         </listitem>
         <listitem>
-          <para>Treatment plan</para>
+          <para>Activity plans</para>
         </listitem>
         <listitem>
-          <para>Case encounters</para>
+          <para>Treatment cases for a person</para>
         </listitem>
       </orderedlist>
       <section>
-        <title>Registration and Identification for a beneficiary</title>
-        <para>The system has a function to manage facilities which allow to registry new beneficiaries or not. To start creating a patient, we need to select a facility which allows to registry a new beneficiary.</para>
-        <para>The process of creating a new beneficiary in the system is through the registration process. The beneficiary is first registered in the system (or checked if beneficiary already exists in system). Searching a beneficiary can be done through identifiers, name, location or beneficiary&apos;s attributes (address, phone number, e.g.). If the beneficiary already exists in the system, the encounter details can be opened and filled and the programme process can continue. If the beneficiary does not exist in the system, then new registration takes place. </para>
-        <para>When a beneficiary is registered in the system, multiple identifiers can be associated with the registration, such as Passport number, PAN, driving license, health identifier, UID. Internally, a location unique identifier is used to track the beneficiary.</para>
-        <para>The process of identification is location independent, this implies that irrespective of location where beneficiary registered for service the service/medical record can be searched and pulled-up in any other facility provided the same is in the database. For facilities, which are not in the database, for e.g. a private facility, it will just be noted that &quot;<emphasis role="italic">Service is provided at other facility</emphasis>&quot;. In such case, the beneficiary should be encouraged, to provide these details of services taken from other facility to the ANM. The health worker is first identified through any of the identifiers or username in the system and the beneficiary is identified through identifiers for receiving a health service. After identification, the beneficiary&apos;s case history can be viewed or case can be updated with the new care that they have received.</para>
+        <title>Registration a person</title>
+        <para>The process of  creating a new person in the system is through the registration process. The person is first registered in the system (or checked if the person already exists in system). Searching a person can be done through name, identifiers,  location or user-defined person&apos;s attributes (address, phone number, e.g.). If the person already exists in the system, the program enrollment process can continue. If the person is not available,  new registration takes place. </para>
+        <para>The system supports for creating identifier type for the registration, such as Passport number, PAN, driving license, health identifier, UID. However, a system unique identifier is created automatically after registration and used to track the person.</para>
+        <para>For identification a person, the health worker is first identified through any of the identifiers or name of patient  in the system and the person is identified through identifiers for receiving a health service. After identification, the individual case history can be viewed or a treatment case can be updated for  the new visit that they have received.</para>
       </section>
       <section>
-        <title>Programme Enrollment and Treatment Plan</title>
-        <para>When a beneficiary is enrolled into any health programme, a record of treatment is created for the beneficiary. Various services provided to the beneficiary through the treatment are recorded for the beneficiary. This recording  results in creation of a treatment plan for the beneficiary.</para>
+        <title>Program Enrollment and Activity Plan</title>
+        <para>When a person is enrolled into any health programme, the person is  provided various services through the treatment are recorded. Based on the services of the program by the time, the system creates an activity plan for person.</para>
       </section>
       <section>
-        <title>Case Encounters</title>
-        <para>Each interaction with the beneficiary related to the case is considered to be an encounter and these encounters are recorded into the beneficiary case. Beneficiary case is updated with the identification of both the health worker and the beneficiary who is receiving the service.</para>
+        <title>Treatment case</title>
+        <para>Each interaction with the person related to the case is considered to be an treatment case and these cases are recorded into the individual case. Individual case is updated with the identification of both the health worker and the person who is receiving the service.</para>
       </section>
     </section>
   </section>
   <section>
-    <title>NBITS Application User Guide</title>
+    <title>Individual Person user guide</title>
     <section>
       <title>Starting the application</title>
       <para>To use the online NBITS application, in client computer which is connected to Internet, launch web browser ( use of <emphasis role="italic">Mozilla Firefox</emphasis> browser is recommended ).</para>
