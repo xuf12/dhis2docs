@@ -49,7 +49,7 @@
       <para>The data in primary registers at sub-center level is recorded and maintained by name based individuals or treatment cases, and  sent up-wards as aggregate reports.</para>
     </section>
     <section>
-      <title>Working of Name Based Information Tracking</title>
+      <title>Processes in the system</title>
       <para>The module supports health providers for registering treatment cases and tracks these cases over time through different forms that are filled for the treatment of each person.</para>
       <orderedlist>
         <listitem>
@@ -82,74 +82,48 @@
     </section>
   </section>
   <section>
-    <title>Individual Person user guide</title>
-    <section>
-      <title>Starting the application</title>
-      <para>To use the online NBITS application, in client computer which is connected to Internet, launch web browser ( use of <emphasis role="italic">Mozilla Firefox</emphasis> browser is recommended ).</para>
-      <para><graphic fileref="resources/images/patients_programs/Firefox-icon.png" align="center"/></para>
-      <para>Once you have started NBITS online, the displayed screen will prompt you to enter your registered &quot;<emphasis role="italic">Username</emphasis>&quot; and &quot;<emphasis role="italic">Password</emphasis>&quot;. After entering the required information, click <emphasis role="italic">Login</emphasis> button to log into the application.</para>
-      <screenshot>
-        <screeninfo>Figure 2.1.1</screeninfo>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.1.1.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>After clicking  the <emphasis role="italic">Login</emphasis> button, you will be directed to the <emphasis role="italic">Welcome</emphasis> screen of the NBITS:</para>
-      <screenshot>
-        <screeninfo>Figure 2.1.2</screeninfo>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.1.2.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-    </section>
+    <title>User guide</title>
+    <para>The module has two basic modules as follows - </para>
+    <orderedlist>
+      <listitem>
+        <para>Maintenance  module</para>
+      </listitem>
+      <listitem>
+        <para>Services module</para>
+      </listitem>
+    </orderedlist>
     <section>
       <title>Modules in NBITS</title>
-      <para>The NBITS application is an online application and developed as open source application. The application is platform independent and can be easily linked with other open source application. The application is developed on the similar DHIS framework and it has three basic modules as follows - </para>
-      <orderedlist>
-        <listitem>
-          <para>Maintenance  module</para>
-        </listitem>
-        <listitem>
-          <para>Services module</para>
-        </listitem>
-        <listitem>
-          <para>Help module</para>
-        </listitem>
-      </orderedlist>
-      <para>There are some additions in the NBITS in both maintenance and services module. <emphasis role="italic">Maintenance</emphasis> module has one additional sub module for the beneficiary registration and <emphasis role="italic">Services</emphasis> module  has one additional sub-module for name-based data entry and recording.</para>
+      <para>There are two additions in the module in both maintenance and services module. <emphasis role="italic">Maintenance</emphasis> module has one additional sub module for defining meta data and  <emphasis role="italic">Services</emphasis> module  has one additional sub-module for name-based data entry and reports.</para>
       <para>The modules provide three main functionalities -</para>
       <orderedlist>
         <listitem>
-          <para>Processes of case tracking in NBITS.</para>
+          <para>Defination  meta data, include person attributes, person attribute groups, identifier types, relationships, program and program-stages, validation for program and formula to generate aggregate data value.</para>
         </listitem>
         <listitem>
-          <para>Reports.</para>
+          <para>Registration person and Tracking information.</para>
         </listitem>
         <listitem>
-          <para>Beneficiary Aggregation Query Builder.</para>
+          <para>Individual reports</para>
         </listitem>
       </orderedlist>
     </section>
     <section>
-      <title>Processes of case tracking in NBITS</title>
-      <para>The NBITS application is developed with the objective of tracking cases of any disease or condition by using this application. The process of tracking starts with the registration of cases in the application. Application can provide information for only those cases which are available in the database, so the first process is the registration of beneficiary in the NBITS application. Once the beneficiary is registered, she/he can be enrolled in the program for which registered. The application will guide the health provider for the services required by the beneficiary through activity plan and the services received by the beneficiary from time to time can be updated into his/her profile.  The working process of the application can be understood in steps depicted in picture below - </para>
+      <title>Processes of Name based information tracking in system</title>
+      <para>The process  starts with the person registration. Then she/he can be enrolled in the program for which registered. The application will guide the health provider  the services required for her/him through activity plan and the services  from time to time can be updated into his/her profile.  The working process is described in steps depicted in picture below - </para>
       <para><screenshot>
           <screeninfo>Figure 2.3.1</screeninfo>
           <mediaobject>
             <imageobject>
-              <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.3.1.png" format="PNG"/>
+              <imagedata width="70%" fileref="resources/images/patients_programs/Name based information tracking process.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot></para>
       <section>
-        <title>STEP 1: Beneficiary registration</title>
-        <para>The First step in the tracking is the registration of beneficiary/case in the NBITS application. In the registration process, the details - which are related to the personal information, identification, contact and location details &amp; health provider details, are entered in the application. In the registration itself, beneficiary is provided with the unique identification number. This number will be unique and will not match with the identification number of any person in the state jurisdiction. The issue of identification number will be the responsibility of facility where the beneficiary is registered first time.</para>
+        <title>Step 1 - Person registration</title>
+        <para>In the registration process, the details - which are related to the personal information, identification, contact and location details &amp; health provider details, are entered in the system. In the registration itself, the registered person is provided with the unique system identification number automatically. This  number will be unique and will not match with the identification number of any person in the available facilities in the system.</para>
         <warning>
-          <para>Any case irrespective of the program will be registered first and then will be enrolled in any of the program. E.g. every pregnant women and the child need to be registered first as a beneficiary, than the beneficiaries will be enrolled in Mother Care program or Child Health program.</para>
+          <para> Any case irrespective of the program will be registered first and then will be enrolled in any of the program. E.g. every pregnant women and the child need to be registered first as a person, than the persons will be enrolled in Mother Care program or Child Health program.</para>
         </warning>
         <para><emphasis role="bold">
             <emphasis role="underline">
@@ -466,7 +440,7 @@ The case update in the  application is designed in the same manner so that servi
           <screeninfo>Figure 2.5.4.2</screeninfo>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="resources/images/patients_programs/Fig. 2.5.4.2.png" format="PNG" width="70%"/>
+              <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.5.4.2.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -514,7 +488,7 @@ The case update in the  application is designed in the same manner so that servi
           <screeninfo>Fig. example_query</screeninfo>
           <mediaobject>
             <imageobject>
-              <imagedata width="70%" format="PNG" fileref="resources/images/patients_programs/example_query.png"/>
+              <imagedata width="70%" fileref="resources/images/patients_programs/example_query.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
