@@ -302,10 +302,24 @@ The case update  is designed in the same manner so that services which are recei
     </section>
     <section>
       <title>Report Generation</title>
-      <para>This module provides two main functions, include NBITS Activity Plan report and NBITS Summary report.</para>
+      <para>This module provides two main functions : Program summary and Tabular report</para>
       <orderedlist>
         <listitem>
-          <para>NBITS Activity Plan report - This report is a feedback report to the facilities to help them in planning activities. This is also called as activity plan or visit plan. Basically, view the visit plan to get an overview of outstanding, pending, and completed visits. </para>
+          <para><emphasis role="bold">Program summary</emphasis> - This function help user generate summary list of persons&apos; information with  color shown on program stages to identify status of receiving services in each stage. </para>
+          <para>Navigating to Program summary report by go Service menu, select Name-based Data Records. &gt; Select Program summary under Reports section from the left menu to open Program Summary page &gt; Select organisation unit which provides services on the left menu &gt; On the main page, select Program &gt; Select Start date and End date to get period &gt; Click Generate button. </para>
+          <para>List of all persons who enrolled in selected program, organisation unit, period will be listed as the figure below</para>
+          <para> </para>
+          <para><screenshot>
+              <mediaobject>
+                <imageobject>
+                  <imagedata width="70%" fileref="resources/images/patients_programs/program_summary_report.png" format="PNG"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot> </para>
+        </listitem>
+        <listitem>
+          <para>Activities plan</para>
+          <para>Feedback report to the facilities to help them in planning activities. This is also called as activity plan or visit plan. Basically, view the visit plan to get an overview of outstanding, pending, and completed visits</para>
           <para>See the illustration for Immunization program for Children under 1yr old.</para>
           <screenshot>
             <screeninfo>Figure 2.3.17</screeninfo>
