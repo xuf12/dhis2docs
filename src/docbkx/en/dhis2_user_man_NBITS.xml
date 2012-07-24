@@ -66,6 +66,18 @@
         </listitem>
       </orderedlist>
       <section>
+        <title>Name based information tracking process</title>
+        <para>The process  starts with the person registration. Then she/he can be enrolled in the program for which registered. The application will guide the health provider  the services required for her/him through activity plan and the services  from time to time can be updated into his/her profile.  The working process is described in steps depicted in picture below - </para>
+        <para><screenshot>
+            <screeninfo>Figure 2.3.1</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="70%" fileref="resources/images/patients_programs/Name based information tracking process.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+      </section>
+      <section>
         <title>Registration a person</title>
         <para>The process of  creating a new person in the system is through the registration process. The person is first registered in the system (or checked if the person already exists in system). Searching a person can be done through name, identifiers,  location or user-defined person&apos;s attributes (address, phone number, e.g.). If the person already exists in the system, the program enrollment process can continue. If the person is not available,  new registration takes place. </para>
         <para>The system supports for creating identifier type for the registration, such as Passport number, PAN, driving license, health identifier, UID. However, a system unique identifier is created automatically after registration and used to track the person.</para>
@@ -93,12 +105,12 @@
       </listitem>
     </orderedlist>
     <section>
-      <title>Modules in NBITS</title>
+      <title>Functionalities</title>
       <para>There are two additions in the module in both maintenance and services module. <emphasis role="italic">Maintenance</emphasis> module has one additional sub module for defining meta data and  <emphasis role="italic">Services</emphasis> module  has one additional sub-module for name-based data entry and reports.</para>
       <para>The modules provide three main functionalities -</para>
       <orderedlist>
         <listitem>
-          <para>Defination  meta data, include person attributes, person attribute groups, identifier types, relationships, program and program-stages, validation for program and formula to generate aggregate data value.</para>
+          <para>Definition  meta data, include person attributes, person attribute groups, identifier types, relationships, program and program-stages, validation for program and formula to generate aggregate data value.</para>
         </listitem>
         <listitem>
           <para>Registration person and Tracking information.</para>
@@ -109,20 +121,20 @@
       </orderedlist>
     </section>
     <section>
-      <title>STEP 1: Person registration</title>
+      <title>Person registration</title>
       <para>The first step in the tracking is the registration of person/case in the application. In the registration process, the details - which are related to the personal information, identification, contract and location details &amp; health provider details, are entered in the application. In the registration itself, person is provided with the unique identification number. This number will be unique and will not match with the identification number of any person in the state jurisdiction. The issue of identification number will be the responsibility of facility where person is registered first time.</para>
       <warning>
-        <para>Any case irrespective of the program will be registered first and then will be enrolled in any of the program. E.g. every pregnant women and the child need to be registered first as a person, then they will be enrolled in Mother Care program or Child Health program.</para>
+        <para>No matter what program persons need  to enroll, they must register into the system first. Then health providers will enroll the persons into relevant  programs. E.g. every pregnant women and the child need to be registered first as a person, then they will be enrolled in Mother Care program or Child Health program.</para>
       </warning>
       <para><emphasis role="underline">
           <emphasis role="italic">
-            <emphasis role="bold">Description of Person registration process in application.</emphasis>
+            <emphasis role="bold">Person registration process</emphasis>
           </emphasis>
         </emphasis></para>
       <para>For the registration process, the details - which are related to the personal information, identification, contact and location details, and health provider details, are entered.</para>
-      <orderedlist inheritnum="inherit" continuation="resources/images/patients_programs/goto name-based data records.PNG" arch="">
+      <orderedlist inheritnum="inherit" continuation="restarts" arch="">
         <listitem>
-          <para>To register a person in the application, go to the <emphasis role="italic">Services</emphasis> menu, select option <emphasis role="italic">Name-Based Data Records</emphasis>.</para>
+          <para>To register a person, go to the <emphasis role="italic">Services</emphasis> menu, select option <emphasis role="italic">Name-Based Data Records</emphasis>.</para>
           <para><graphic fileref="resources/images/patients_programs/goto name-based data records.PNG" width="100%" contentwidth="65%" align="center"/></para>
           <para><graphic fileref="resources/images/patients_programs/name-based main page.PNG" contentwidth="70%" align="center"/></para>
         </listitem>
@@ -131,203 +143,50 @@
           <para><graphic fileref="resources/images/patients_programs/Person Registration Window.PNG" align="center"/></para>
         </listitem>
         <listitem>
-          <para>Click  the concerned facility from the facilities hierarchy displayed on the left side of the data entry screen. Then click the <emphasis role="italic">Add new</emphasis> button on the right side.</para>
+          <para>Select  a  facility from the facilities hierarchy displayed on the left side of the screen. Then click the <emphasis role="italic">Add new</emphasis> button on the right side.</para>
           <para><graphic fileref="resources/images/patients_programs/Add new Person.PNG" align="center"/></para>
         </listitem>
         <listitem>
-          <para>Start process of registration by providing name, location details, identification details, contact details and other details like child contact name and child contact type.  The  click the <emphasis role="italic">Add</emphasis> button  to complete to process of registration or click the <emphasis>Back to registration</emphasis>  to navigate to previous page.</para>
+          <para>Start process of registration by providing name, location details, identification details, contact details and other details like <emphasis role="italic">child contact name</emphasis> and <emphasis role="italic">child contact type</emphasis>.  The  click the <emphasis role="italic">Add</emphasis> button  to complete to process of registration or click the <emphasis>Back to registration</emphasis>  to navigate to previous page.</para>
           <para><graphic fileref="resources/images/patients_programs/Person Management Page.PNG" align="center"/></para>
-          <para>To check the duplicates or to avoid double registration, after providing name and demographic details, click the Check duplicate button. Checking process bases on full name, gender and birthday of the registering person to look for the available persons with the similar information in the database. If the system finds out the same persons , the result list will be displayed. Now user can cancel the registration process and update the existing person or continue the process of registration.</para>
+          <para>To check the duplicates or to avoid double registration, after providing name and demographic details, click the <emphasis role="italic">Check duplicate</emphasis> button. Checking process bases on full name, gender and birthday of the registering person to look for the available persons with the similar information in the database. The result list will be displayed if the system finds out the same persons. Now health providers can cancel the registration process and update the existing person or continue the process of registration.</para>
         </listitem>
       </orderedlist>
       <section>
         <title>Person Enrollment</title>
-        <para>After the beneficiary registration, beneficiary needs to be enrolled in any available program  in the application and for which she/he has been registered. To enroll:</para>
+        <para>After the  registration, the person needs to be enrolled in any available program. To enroll:</para>
         <orderedlist>
           <listitem>
-            <para>Click  the <emphasis role="italic">Program management </emphasis>icon, the first icon under Operations, corresponding to the person you would like to modify.</para>
+            <para>Click  the <emphasis role="italic">Program management </emphasis>icon, the first icon under Operations, corresponding to the person you would like to enroll.</para>
             <para><graphic fileref="resources/images/patients_programs/Click to modify.PNG" contentwidth="70%" align="center"/></para>
           </listitem>
           <listitem>
             <para>Select a program from the list  ( i.e., Death,  Child Health Program... )</para>
             <para><graphic fileref="resources/images/patients_programs/Select Program for person.PNG" align="center"/><warning>
-                <para>This task can be executed after register successfully, a  form like the form above is  showed up for enrollment.
+                <para>This task can be executed after registration successfully, a  form like the form above is  showed up for enrollment.
 </para>
               </warning></para>
           </listitem>
           <listitem>
             <para>After the selection of program, you need to provide two dates:</para>
-            <para>1) Date of 1st visit : The date of registration of the beneficiary with a facility.</para>
-            <para>2) Date of Birth: The date when the beneficiary got the disease or he/she has just been committed to an equivalent program for being followed-up.</para>
+            <para>1) Date of enrollment : The date when person enrolls into the selected program.</para>
+            <para>2) Date of incident: The date when the person got the disease or he/she has just been committed to an equivalent program for being followed-up.</para>
             <para><graphic fileref="resources/images/patients_programs/Provide two days.PNG" align="center"/></para>
             <warning>
-              <para>The date of 1st visit and the date of birth are very important to generate the activity plan for  each person. Health provider  needs to ensure  recording and reporting date of incidence with each case.</para>
+              <para>The date of incident are very important to generate the activity plan for  each person. Health provider  needs to ensure  recording and reporting date of incidence with each case of multi events with registration. However,  we ignore the date with single event programs.</para>
             </warning>
           </listitem>
           <listitem>
             <para>Click  the <emphasis role="italic">Enroll</emphasis> button to complete the enrollment process.</para>
             <para><graphic fileref="resources/images/patients_programs/Enroll to complete.PNG" align="center"/></para>
-            <para>The application will automatically calculate  due-date for each the program stage  and will show same below enrollment. In the health programs, a person registered and enrolled into the system, needs to be checked from time to time by service providers.
-The case update in the  application is designed in the same manner so that services which are received by the persons can be updated from time to time  when they visit the facility  or  whenever they are visits by the health providers.</para>
-            <para><graphic fileref="resources/images/patients_programs/Complete.PNG" align="center" contentwidth="70%"/></para>
-          </listitem>
-        </orderedlist>
-      </section>
-    </section>
-    <section>
-      <title>Processes of Name based information tracking in system</title>
-      <para>The process  starts with the person registration. Then she/he can be enrolled in the program for which registered. The application will guide the health provider  the services required for her/him through activity plan and the services  from time to time can be updated into his/her profile.  The working process is described in steps depicted in picture below - </para>
-      <para><screenshot>
-          <screeninfo>Figure 2.3.1</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="70%" fileref="resources/images/patients_programs/Name based information tracking process.png" format="PNG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot></para>
-      <section>
-        <title>Step 1 - Person registration</title>
-        <para>In the registration process, the details - which are related to the personal information, identification, contact and location details &amp; health provider details, are entered in the system. In the registration itself, the registered person is provided with the unique system identification number automatically. This  number will be unique and will not match with the identification number of any person in the available facilities in the system.</para>
-        <warning>
-          <para> Any case irrespective of the program will be registered first and then will be enrolled in any of the program. E.g. every pregnant women and the child need to be registered first as a person, than the persons will be enrolled in Mother Care program or Child Health program.</para>
-        </warning>
-        <para><emphasis role="bold">
-            <emphasis role="underline">
-              <emphasis role="italic">Description</emphasis>
-            </emphasis>
-          </emphasis><emphasis role="italic">
-            <emphasis role="bold">
-              <emphasis role="underline"> of Beneficiary registration Process in application</emphasis>
-            </emphasis>
-          </emphasis> - </para>
-        <para>For the registration process, the details - which are related to the personal information, identification, contact and location details, and health provider details, are entered.</para>
-        <orderedlist>
-          <listitem>
-            <para>To register a beneficiary in the application, go to the <emphasis role="italic">Maintenance</emphasis> menu, select option <emphasis role="italic">Beneficiaries and Programs</emphasis>.</para>
-            <screenshot>
-              <screeninfo>Figure 2.3.2</screeninfo>
-              <mediaobject>
-                <imageobject>
-                  <imagedata width="100%" fileref="resources/images/patients_programs/Fig. 2.3.2.png" format="CGM-CLEAR"/>
-                </imageobject>
-              </mediaobject>
-            </screenshot>
-            <screenshot>
-              <screeninfo>Figure 2.3.3</screeninfo>
-              <mediaobject>
-                <imageobject>
-                  <imagedata width="100%" fileref="resources/images/patients_programs/Fig. 2.3.3.png" format="PNG"/>
-                </imageobject>
-              </mediaobject>
-            </screenshot>
-          </listitem>
-          <listitem>
-            <para>Now click the <emphasis role="italic">Beneficiary</emphasis> option to go to <emphasis role="italic">Beneficiary Registration</emphasis> window.</para>
-            <screenshot>
-              <screeninfo>Figure 2.3.4</screeninfo>
-              <mediaobject>
-                <imageobject>
-                  <imagedata width="100%" fileref="resources/images/patients_programs/Fig. 2.3.4.png" format="PNG"/>
-                </imageobject>
-              </mediaobject>
-            </screenshot>
-          </listitem>
-          <listitem>
-            <para>Click  the concerned facility from the facilities hierarchy displayed on the left side of the data entry screen. Then click the <emphasis role="italic">Add new</emphasis> button on the right side.</para>
-            <screenshot>
-              <screeninfo>Figure 2.3.5</screeninfo>
-              <mediaobject>
-                <imageobject>
-                  <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.3.5.png" format="PNG"/>
-                </imageobject>
-              </mediaobject>
-            </screenshot>
-          </listitem>
-          <listitem>
-            <para>Start process of registration by providing name, location details, identification details, contact details and health provider details.  The  click the <emphasis role="italic">Add</emphasis> button (arrow in RED color, fig. 2.3.6,  given at the end of beneficiary registration ) to complete to process of registration.</para>
-            <screenshot>
-              <screeninfo>Figure 2.3.6</screeninfo>
-              <mediaobject>
-                <imageobject>
-                  <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.3.6.png" format="PNG"/>
-                </imageobject>
-              </mediaobject>
-            </screenshot>
-            <para>To check the duplicates or to avoid double registration, after providing name and demographic details, click  the <emphasis role="italic">Check duplicate</emphasis> button ( arrow in BLUE color, fig. 2.3.6 ).   Checking process bases on full name, gender and birthday of   the registering beneficiary to look for  the  available beneficiaries  with the similar information  in the database. If    the system finds out the same  beneficiaries ,  the   result list will be displayed. Now user can cancel the registration process and update the existing beneficiary or  continue the process of registration.</para>
+            <para>The system will automatically calculate  due-date for each the program stage  and will show same the below enrollment. In  health programme, a person  registered and enrolled, needs to be checked from time to time by health providers.
+The case update  is designed in the same manner so that services which are received by the persons can be updated from time to time  when they visit the facility  or  whenever the health providers need to track.</para>
+            <para><graphic fileref="resources/images/patients_programs/Complete.PNG" contentwidth="70%" align="center"/></para>
           </listitem>
         </orderedlist>
       </section>
       <section>
-        <title>STEP 2 - Beneficiary Enrolment</title>
-        <para>After the beneficiary registration, beneficiary needs to be enrolled in any available program  in the application and for which she/he has been registered. To enrol -</para>
-        <orderedlist>
-          <listitem>
-            <para>Click  the <emphasis role="italic">Manage Program Enrollment </emphasis>icon, the first icon under Operations, corresponding to the beneficiary you would like to modify.</para>
-            <screenshot>
-              <screeninfo>Figure 2.3.7</screeninfo>
-              <mediaobject>
-                <imageobject>
-                  <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.3.7.png" format="PNG"/>
-                </imageobject>
-              </mediaobject>
-            </screenshot>
-          </listitem>
-          <listitem>
-            <para>Select a program from the list  ( i.e., Mother Care Program, Child Health Program... )</para>
-            <screenshot>
-              <screeninfo>Figure 2.3.8</screeninfo>
-              <mediaobject>
-                <imageobject>
-                  <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.3.8.png" format="PNG"/>
-                </imageobject>
-              </mediaobject>
-            </screenshot>
-            <warning>
-              <para>This task can be executed after register successfully, a  form like Fig. 2.3.8. is  showed up for enrollment.
-</para>
-            </warning>
-          </listitem>
-          <listitem>
-            <para>After the selection of program, you need to provide two dates -</para>
-            <para>1) Date of Enrollment: The date of registration of the beneficiary with a facility.</para>
-            <para>2) Date of Incidence:  The date when the beneficiary got the disease or he/she has just been committed to an equivalent program for being followed-up.</para>
-            <screenshot>
-              <screeninfo>Figure 2.3.9</screeninfo>
-              <mediaobject>
-                <imageobject>
-                  <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.3.9.png" format="PNG"/>
-                </imageobject>
-              </mediaobject>
-            </screenshot>
-            <warning>
-              <para>The date of incidence and date of enrollment are very important to generate the activity plan for  each beneficiary. Health provider  needs to ensure  recording and reporting date of incidence with each case.</para>
-            </warning>
-          </listitem>
-          <listitem>
-            <para>Click  the <emphasis role="italic">Enroll</emphasis> button to complete the enrollment process.</para>
-            <screenshot>
-              <screeninfo>Figure 2.3.10</screeninfo>
-              <mediaobject>
-                <imageobject>
-                  <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.3.10.png" format="PNG"/>
-                </imageobject>
-              </mediaobject>
-            </screenshot>
-            <para>The application will automatically calculate  due-date for each the program stage  and will show same below enrollment. In the health programs, an beneficiary registered and enrolled into the system, needs to be checked from time to time by service providers.
-The case update in the  application is designed in the same manner so that services which are received by the beneficiaries can be updated from time to time  when they visit the facility  or  whenever they are visits by the health providers. </para>
-            <screenshot>
-              <screeninfo>Figure 2.3.11</screeninfo>
-              <mediaobject>
-                <imageobject>
-                  <imagedata width="70%" fileref="resources/images/patients_programs/Fig. 2.3.11.png" format="PNG"/>
-                </imageobject>
-              </mediaobject>
-            </screenshot>
-          </listitem>
-        </orderedlist>
-      </section>
-      <section>
-        <title>STEP 3 – Inputting data in treatment stages for each beneficiary</title>
+        <title> Inputting data in treatment stages for each beneficiary</title>
         <para>We have two functionalities which support to  input data in  treatment stages for each beneficiary.</para>
         <orderedlist>
           <listitem>
@@ -489,14 +348,14 @@ The case update in the  application is designed in the same manner so that servi
     </section>
     <section>
       <title>Beneficiary Aggregation Query Builder</title>
-      <para>This is the core functionality for linking data between name-based information tracking system – NBITS ( beneficiaries, programs, etc ) and aggregate management system ( dataset, report, charts, etc.) by defining the linking/aggregating rules.</para>
+      <para>This is the core functionality for linking data between name-based information tracking system  and aggregate management system  by defining the linking/aggregating rules.</para>
       <para>This provides two functions - </para>
       <itemizedlist>
         <listitem>
-          <para><emphasis role="italic">Beneficiary Aggregation Query Builder</emphasis> is a tool for defining formula, expression, rules for aggregation data from name-based to aggregation system.</para>
+          <para><emphasis role="italic">Person Aggregation Query Builder</emphasis> is a tool for defining formulas, expressions, rules for aggregation data from name-based to aggregation system.</para>
         </listitem>
         <listitem>
-          <para><emphasis role="italic">Beneficiary Aggregation</emphasis> to used for generating routine data values from name-based-data by month (or other interval if desired) and organization unit.</para>
+          <para><emphasis role="italic">Person Aggregation</emphasis> is  used for generating routine data values from name-based-data by period and organization unit.</para>
         </listitem>
       </itemizedlist>
       <section>
@@ -526,30 +385,44 @@ The case update in the  application is designed in the same manner so that servi
             <emphasis role="underline">
               <emphasis role="underline">Dataset:</emphasis>
             </emphasis>
-          </emphasis> Select dataset contains data elements which will be used to link with persons&apos; data.</para>
+          </emphasis> Select dataset contains data elements which will be used to link with individual data.</para>
         <para><emphasis role="bold">
             <emphasis role="underline">Data element: </emphasis>
-          </emphasis>Select data element which will be used to link with persons&apos; data</para>
-        <para><emphasis role="bold">Operator:</emphasis> Select Number of patients if aggregate based on persons, or Number of visits if aggregate data based on persons&apos; times receiving services</para>
-        <para><emphasis role="bold">Program : </emphasis>Select program which person enrolled to aggregate</para>
-        <para><emphasis role="bold">Program Stage : </emphasis>Select program stage from selected program above.</para>
+          </emphasis>Select data element which will be used to link with individual data</para>
+        <para><emphasis role="bold"><emphasis role="underline">Operator</emphasis>:</emphasis> Select Number of persons if aggregate based on persons, or Number of visits if aggregate data based on  times that persons received services.</para>
+        <para><emphasis role="bold"><emphasis role="underline">Program</emphasis>: </emphasis>Select program which person enrolled to aggregate</para>
+        <para><emphasis role="bold"><emphasis role="underline">Program Stage</emphasis>: </emphasis>Select program stage from selected program above.</para>
         <para>Next section included 3 tabs : Data elements, Person attributes, and Program. Depend on the requirement of data aggregation, data element, person attributes, and number of programs are selected. </para>
         <para><emphasis role="bold">
-            <emphasis role="underline">Data elements tab</emphasis>
-          </emphasis> list all the person based data elements available from selected program stage.  Select data element according to  aggregate condition</para>
+            <emphasis role="underline">Data elements tab:</emphasis>
+          </emphasis> List all available data elements  from selected program stage.  Select data element according to  aggregate condition.</para>
         <para><emphasis role="bold">
             <emphasis role="underline">Person attribute tab: </emphasis>
-          </emphasis> list all the person attributes such as Total of patient registration, Gender, Date of birth type, Age, .. Select attribute according to  aggregate condition. However, the programs with anonymous type don&apos;t have person attributes.</para>
+          </emphasis>List all the person attributes such as Gender, Date of birth type, Age, .. and provide a formula for calculating number of persons who registered in system. Select option  according to  aggregate condition. However, if the programs without registration is selected,  person attributes aren&apos;t shown.</para>
         <para><emphasis role="bold">
             <emphasis role="underline">Program tab:</emphasis>
-          </emphasis> list all program properties like Program enrollment, (Date of enrollment - Date of incident) and program stage properties like visit_program_stage, (Report date - Due date), (Report date-Birthdate). Select properties according to aggregate condition.</para>
+          </emphasis> Provide formulas for calculating data value related to the selected program and program stage - </para>
+        <para><itemizedlist>
+            <listitem>
+              <para>The number of persons who enrolled the selected program.</para>
+            </listitem>
+            <listitem>
+              <para>The number of persons / times that ( Date of enrollment - Date of incident ) is greater then a certain number.</para>
+            </listitem>
+            <listitem>
+              <para>The number of persons who visited the selected program stage OR the number of visits what are registered in the system.</para>
+            </listitem>
+            <listitem>
+              <para>The number of persons  by age at the report-time.</para>
+            </listitem>
+          </itemizedlist></para>
         <para><emphasis role="bold">
-            <emphasis role="underline">Condition : </emphasis>
+            <emphasis role="underline">Condition: </emphasis>
           </emphasis>This section contains comparing operations (&lt;, &lt;=, &gt;, &gt;=, =, != ), calculation operation (+), priority operation ( ( ) ), boolean operation (Yes, No), status operations (=NULL, != NULL), relation operations (AND, OR). These operations are used for supporting in setting condition for query. </para>
         <para><emphasis role="bold">
             <emphasis role="underline">Description :</emphasis>
-          </emphasis> This section show the form of query after above elements were selected and combind with operations in above condition. </para>
-        <para>For example: to get number of girls got Vitamin A dose 6 enrolled Child Health program on January 2012. Then query is created as in the figure below. Note that January 2012 is period parameter which user will select when generate report. It is not set in the query.</para>
+          </emphasis> Show description for the condition above. </para>
+        <para>E.g To get number of girls who got Vitamin A dose 6 enrolled Child Health program on January 2012. Then query is created as in the figure below. Note that January 2012 is period parameter which user will select when generate report. It is not set in the query.</para>
         <screenshot>
           <screeninfo>Fig. example_query</screeninfo>
           <mediaobject>
