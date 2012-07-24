@@ -109,6 +109,72 @@
       </orderedlist>
     </section>
     <section>
+      <title>STEP 1: Person registration</title>
+      <para>The first step in the tracking is the registration of person/case in the application. In the registration process, the details - which are related to the personal information, identification, contract and location details &amp; health provider details, are entered in the application. In the registration itself, person is provided with the unique identification number. This number will be unique and will not match with the identification number of any person in the state jurisdiction. The issue of identification number will be the responsibility of facility where person is registered first time.</para>
+      <warning>
+        <para>Any case irrespective of the program will be registered first and then will be enrolled in any of the program. E.g. every pregnant women and the child need to be registered first as a person, then they will be enrolled in Mother Care program or Child Health program.</para>
+      </warning>
+      <para><emphasis role="underline">
+          <emphasis role="italic">
+            <emphasis role="bold">Description of Person registration process in application.</emphasis>
+          </emphasis>
+        </emphasis></para>
+      <para>For the registration process, the details - which are related to the personal information, identification, contact and location details, and health provider details, are entered.</para>
+      <orderedlist inheritnum="inherit" continuation="resources/images/patients_programs/goto name-based data records.PNG" arch="">
+        <listitem>
+          <para>To register a person in the application, go to the <emphasis role="italic">Services</emphasis> menu, select option <emphasis role="italic">Name-Based Data Records</emphasis>.</para>
+          <para><graphic fileref="resources/images/patients_programs/goto name-based data records.PNG" width="100%" contentwidth="65%" align="center"/></para>
+          <para><graphic fileref="resources/images/patients_programs/name-based main page.PNG" contentwidth="70%" align="center"/></para>
+        </listitem>
+        <listitem>
+          <para>Now click the <emphasis>Person</emphasis> option to go to <emphasis>Person Registration</emphasis> window.</para>
+          <para><graphic fileref="resources/images/patients_programs/Person Registration Window.PNG" align="center"/></para>
+        </listitem>
+        <listitem>
+          <para>Click  the concerned facility from the facilities hierarchy displayed on the left side of the data entry screen. Then click the <emphasis role="italic">Add new</emphasis> button on the right side.</para>
+          <para><graphic fileref="resources/images/patients_programs/Add new Person.PNG" align="center"/></para>
+        </listitem>
+        <listitem>
+          <para>Start process of registration by providing name, location details, identification details, contact details and other details like child contact name and child contact type.  The  click the <emphasis role="italic">Add</emphasis> button  to complete to process of registration or click the <emphasis>Back to registration</emphasis>  to navigate to previous page.</para>
+          <para><graphic fileref="resources/images/patients_programs/Person Management Page.PNG" align="center"/></para>
+          <para>To check the duplicates or to avoid double registration, after providing name and demographic details, click the Check duplicate button. Checking process bases on full name, gender and birthday of the registering person to look for the available persons with the similar information in the database. If the system finds out the same persons , the result list will be displayed. Now user can cancel the registration process and update the existing person or continue the process of registration.</para>
+        </listitem>
+      </orderedlist>
+      <section>
+        <title>Person Enrollment</title>
+        <para>After the beneficiary registration, beneficiary needs to be enrolled in any available program  in the application and for which she/he has been registered. To enroll:</para>
+        <orderedlist>
+          <listitem>
+            <para>Click  the <emphasis role="italic">Program management </emphasis>icon, the first icon under Operations, corresponding to the person you would like to modify.</para>
+            <para><graphic fileref="resources/images/patients_programs/Click to modify.PNG" contentwidth="70%" align="center"/></para>
+          </listitem>
+          <listitem>
+            <para>Select a program from the list  ( i.e., Death,  Child Health Program... )</para>
+            <para><graphic fileref="resources/images/patients_programs/Select Program for person.PNG" align="center"/><warning>
+                <para>This task can be executed after register successfully, a  form like the form above is  showed up for enrollment.
+</para>
+              </warning></para>
+          </listitem>
+          <listitem>
+            <para>After the selection of program, you need to provide two dates:</para>
+            <para>1) Date of 1st visit : The date of registration of the beneficiary with a facility.</para>
+            <para>2) Date of Birth: The date when the beneficiary got the disease or he/she has just been committed to an equivalent program for being followed-up.</para>
+            <para><graphic fileref="resources/images/patients_programs/Provide two days.PNG" align="center"/></para>
+            <warning>
+              <para>The date of 1st visit and the date of birth are very important to generate the activity plan for  each person. Health provider  needs to ensure  recording and reporting date of incidence with each case.</para>
+            </warning>
+          </listitem>
+          <listitem>
+            <para>Click  the <emphasis role="italic">Enroll</emphasis> button to complete the enrollment process.</para>
+            <para><graphic fileref="resources/images/patients_programs/Enroll to complete.PNG" align="center"/></para>
+            <para>The application will automatically calculate  due-date for each the program stage  and will show same below enrollment. In the health programs, a person registered and enrolled into the system, needs to be checked from time to time by service providers.
+The case update in the  application is designed in the same manner so that services which are received by the persons can be updated from time to time  when they visit the facility  or  whenever they are visits by the health providers.</para>
+            <para><graphic fileref="resources/images/patients_programs/Complete.PNG" align="center" contentwidth="70%"/></para>
+          </listitem>
+        </orderedlist>
+      </section>
+    </section>
+    <section>
       <title>Processes of Name based information tracking in system</title>
       <para>The process  starts with the person registration. Then she/he can be enrolled in the program for which registered. The application will guide the health provider  the services required for her/him through activity plan and the services  from time to time can be updated into his/her profile.  The working process is described in steps depicted in picture below - </para>
       <para><screenshot>
@@ -217,13 +283,13 @@
               </mediaobject>
             </screenshot>
             <warning>
-              <para>This task can be executed after register successfully, a  form like Fig. 2.3.8. is  showed up for enrolment.
+              <para>This task can be executed after register successfully, a  form like Fig. 2.3.8. is  showed up for enrollment.
 </para>
             </warning>
           </listitem>
           <listitem>
             <para>After the selection of program, you need to provide two dates -</para>
-            <para>1) Date of Enrolment: The date of registration of the beneficiary with a facility.</para>
+            <para>1) Date of Enrollment: The date of registration of the beneficiary with a facility.</para>
             <para>2) Date of Incidence:  The date when the beneficiary got the disease or he/she has just been committed to an equivalent program for being followed-up.</para>
             <screenshot>
               <screeninfo>Figure 2.3.9</screeninfo>
