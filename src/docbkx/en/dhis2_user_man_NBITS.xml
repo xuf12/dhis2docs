@@ -690,6 +690,63 @@ The case update  is designed in the same manner so that services which are recei
           <para>This is  an interactive reporting tool for tracker-data using tabular presentation with dynamic filters for each person attribute/data element.</para>
           <para>To access the tabular report function, from the <emphasis role="italic">Services</emphasis> menu, go to the <emphasis role="italic">Individual Records</emphasis> option and click on it. Select <emphasis role="italic">Tabular report</emphasis> option below Reports header on left menu to proceed. </para>
           <para>To start, the first step is to select a program in the list. Follow these steps:</para>
+          <orderedlist>
+            <listitem>
+              <para>Select a program from list in the left panel. The system will be load person attributes and identifiers which belongs to the selected program and not belong to any program.</para>
+            </listitem>
+            <listitem>
+              <para>Choose start-date and end-date. The event list is loaded with report-date between the two dates.</para>
+            </listitem>
+            <listitem>
+              <para>Select one or many <emphasis role="italic">organisation units</emphasis>.</para>
+            </listitem>
+            <listitem>
+              <para>In <emphasis role="italic">Identifiers and Attribute</emphasis>s tab, select options  to show it into the result.</para>
+            </listitem>
+            <listitem>
+              <para>In <emphasis role="italic">Data element </emphasis>tab, Select a <emphasis role="italic">program stage</emphasis>. Double-click data elements which you need to show into the result to move it from <emphasis role="italic">Available</emphasis>field to the <emphasis role="italic">Selected</emphasis> field</para>
+              <note>
+                <para>If the selected program has only one stage, this field is hidden and data element list of the stage is shown in the <emphasis role="italic">Available</emphasis> field.</para>
+              </note>
+            </listitem>
+            <listitem>
+              <para>In the Options tab, there are two options - </para>
+            </listitem>
+          </orderedlist>
+          <itemizedlist>
+            <listitem>
+              <para><emphasis role="italic">Use data from level(s)</emphasis>: Specify the level which you need to get events -</para>
+              <para>1)<emphasis role="italic"> Children only</emphasis>: Individual data from the children of the selected organisation unit will be aggregated.</para>
+              <para>2) <emphasis role="italic">Selected</emphasis>: Individual data from the selected organisation unit will be aggregated. </para>
+              <para>3) <emphasis role="italic">All</emphasis>: Individual data from both selected organisation unit and its children will be aggregated.</para>
+            </listitem>
+            <listitem>
+              <para><emphasis role="italic">Show hierachy from level:</emphasis> The level of  organisation units which you want to show. E.g. If an event  belongs to an organisation unit  in district level and this option is selected as province level, the result is shown with the name of province.</para>
+            </listitem>
+          </itemizedlist>
+          <orderedlist continuation="continues">
+            <listitem>
+              <para>Click <emphasis role="italic">Update</emphasis> button on toolbar. The result is shown on the main page.</para>
+              <screenshot>
+                <mediaobject>
+                  <imageobject>
+                    <imagedata fileref="resources/images/patients_programs/tabular_report_result.png" format="PNG" width="60%"/>
+                  </imageobject>
+                </mediaobject>
+              </screenshot>
+            </listitem>
+          </orderedlist>
+          <para>To filter data by person attributes, identifiers or data elements, click on the DOWN button on the column corresponding to field which you want to filter. Click <emphasis role="italic">Filter</emphasis> button and enter value in the field shown.</para>
+          <screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/patients_programs/tabular_report_filter.png" format="PNG" width="70%"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+          <para>To clear filter values, click <emphasis role="italic">Clear fillter</emphasis> button on toolbar.</para>
+          <para>To save parameters on the left panel, click <emphasis role="italic">Favorites</emphasis> button on toolbar. The select <emphasis role="italic">Manage favorites</emphasis> option. A form is shown to enter name for favorite and click <emphasis role="italic">Save</emphasis> button.</para>
+          <para>To export the result to excel file, click <emphasis role="italic">Download</emphasis> button, select  XLS option.</para>
         </section>
       </section>
       <section id="run_case_aggregation">
