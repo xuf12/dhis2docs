@@ -124,36 +124,37 @@
     <section>
       <title>Persons and Programs maintenance</title>
       <para>The content in this part is for the expert users or administrative users who are capable and responsible for development and change.</para>
-      <para>Each of the options for the maintenance will be described in the following section<itemizedlist>
-          <listitem>
-            <para>Person Attribute</para>
-            <para>Create, modify and view Person attributes. An attribute can be used to register extra information for a Person.</para>
-          </listitem>
-          <listitem>
-            <para>Person Attribute Group</para>
-            <para>Create, modify and view Person attribute groups. Groups makes it more convenient to add attributes to a Person.</para>
-          </listitem>
-          <listitem>
-            <para>Person Identifier Type</para>
-            <para>Create, modify and view Person identifier types. Any type and multiple identifiers can be registered.</para>
-          </listitem>
-          <listitem>
-            <para>Relationship Type</para>
-            <para>Create, modify and view relationship types. A relationship is typically wife and husband or mother and child.</para>
-          </listitem>
-          <listitem>
-            <para>Program</para>
-            <para>Create, modify and view programs. A program has program stages and defines which actions should be taken at each stage.</para>
-          </listitem>
-          <listitem>
-            <para>Person Aggregation Query Builder</para>
-            <para>Define formulas, expressions, rules for aggregation data from tracker to aggregation module</para>
-          </listitem>
-          <listitem>
-            <para>Validation Criteria</para>
-            <para>Create, modify and view validation criteria. A criteria is used for validation of Person data. </para>
-          </listitem>
-        </itemizedlist>he options for the maintenance will be described in the following section - </para>
+      <para>Each of the options for the maintenance will be described in the following sectionThe options for the maintenance will be described in the following section - </para>
+      <itemizedlist>
+        <listitem>
+          <para>Person Attribute</para>
+          <para>Create, modify and view Person attributes. An attribute can be used to register extra information for a Person.</para>
+        </listitem>
+        <listitem>
+          <para>Person Attribute Group</para>
+          <para>Create, modify and view Person attribute groups. Groups makes it more convenient to add attributes to a Person.</para>
+        </listitem>
+        <listitem>
+          <para>Person Identifier Type</para>
+          <para>Create, modify and view Person identifier types. Any type and multiple identifiers can be registered.</para>
+        </listitem>
+        <listitem>
+          <para>Relationship Type</para>
+          <para>Create, modify and view relationship types. A relationship is typically wife and husband or mother and child.</para>
+        </listitem>
+        <listitem>
+          <para>Program</para>
+          <para>Create, modify and view programs. A program has program stages and defines which actions should be taken at each stage.</para>
+        </listitem>
+        <listitem>
+          <para>Person Aggregation Query Builder</para>
+          <para>Define formulas, expressions, rules for aggregation data from tracker to aggregation module</para>
+        </listitem>
+        <listitem>
+          <para>Validation Criteria</para>
+          <para>Create, modify and view validation criteria. A criteria is used for validation of Person data. </para>
+        </listitem>
+      </itemizedlist>
       <section id="patient_attribute">
         <title>Person attribute</title>
         <para>Create, modify and view person attributes. An attribute can be used to register extra information for a person.</para>
@@ -221,23 +222,7 @@
         <title>Relationship type</title>
         <para>Relationship type section provides a mechanism for defining any relationship types and link persons through these relationship types by creating specific relationships.</para>
         <para>To access the relationship type maintenance module, from <emphasis role="italic">Maintenance</emphasis> menu, go to <emphasis role="italic">Persons and Programs</emphasis> option and click on it. Select <emphasis role="italic">Relationship Type</emphasis> option to create a new relationship type.</para>
-        <screenshot>
-          <screeninfo>Fig. 2.7.3a</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="80%" fileref="resources/images/patients_programs/Fig. 2.7.3a.png" format="PNG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
         <para>To define a new relationship type, click <emphasis role="italic">Add</emphasis> button into <emphasis role="italic">Relationship Type Management </emphasis>window to go to <emphasis role="italic">Add new Relationship Type</emphasis> window.</para>
-        <screenshot>
-          <screeninfo>Fig 2.7.3b</screeninfo>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="80%" fileref="resources/images/patients_programs/Fig. 2.7.3b.png" format="PNG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
       </section>
       <section id="program">
         <title>Program and Program stage</title>
@@ -344,17 +329,17 @@ For example: the date in which a person enrolls to the system.</para>
           <para><emphasis role="bold">
               <emphasis role="underline"><emphasis role="italic">Data elements tab</emphasis>:</emphasis>
             </emphasis> List all available data elements  from selected program stage. To create a formula related to each data element, double click on the   data element. The formula of the data element is filled on the condition field,  like [DE:1.2.3], in with: </para>
-          <para><itemizedlist>
-              <listitem>
-                <para>1 - id of  the selected program.</para>
-              </listitem>
-              <listitem>
-                <para>2 - id of the selected program stage.</para>
-              </listitem>
-              <listitem>
-                <para>3 - id of the selected data element.</para>
-              </listitem>
-            </itemizedlist></para>
+          <itemizedlist>
+            <listitem>
+              <para>1 - id of  the selected program.</para>
+            </listitem>
+            <listitem>
+              <para>2 - id of the selected program stage.</para>
+            </listitem>
+            <listitem>
+              <para>3 - id of the selected data element.</para>
+            </listitem>
+          </itemizedlist>
           <note>
             <para>The formula can be create without any program stage, like [DE:1.*.3]</para>
           </note>
@@ -364,20 +349,20 @@ For example: the date in which a person enrolls to the system.</para>
           <para><emphasis role="bold">
               <emphasis role="underline"><emphasis role="italic">Program tab</emphasis>:</emphasis>
             </emphasis> Provide formulas for calculating data value related to the selected program and program stage - </para>
-          <para><itemizedlist>
-              <listitem>
-                <para>The number of persons who enrolled the selected program.</para>
-              </listitem>
-              <listitem>
-                <para>The number of persons / times that ( Date of enrollment - Date of incident ) is greater then a certain number.</para>
-              </listitem>
-              <listitem>
-                <para>The number of persons who visited the selected program stage OR the number of visits what are registered in the system.</para>
-              </listitem>
-              <listitem>
-                <para>The number of persons  by age at the report-time.</para>
-              </listitem>
-            </itemizedlist></para>
+          <itemizedlist>
+            <listitem>
+              <para>The number of persons who enrolled the selected program.</para>
+            </listitem>
+            <listitem>
+              <para>The number of persons / times that ( Date of enrollment - Date of incident ) is greater then a certain number.</para>
+            </listitem>
+            <listitem>
+              <para>The number of persons who visited the selected program stage OR the number of visits what are registered in the system.</para>
+            </listitem>
+            <listitem>
+              <para>The number of persons  by age at the report-time.</para>
+            </listitem>
+          </itemizedlist>
           <para><emphasis role="bold">
               <emphasis role="underline">Condition: </emphasis>
             </emphasis>This section contains comparing operations (&lt;, &lt;=, &gt;, &gt;=, =, != ), calculation operation (+), priority operation ( ( ) ), boolean values (Yes, No), status operations (=NULL, != NULL), relation operations (AND, OR). These operations are used for supporting in setting condition for query. </para>
@@ -396,75 +381,62 @@ For example: the date in which a person enrolls to the system.</para>
         </section>
         <section>
           <title>Sample of person aggregation</title>
-          <para>E.g.  Find the number of the children vaccinated BCG by defining a linking rule between the data elements of aggregate dataset named <emphasis role="italic">Number of children - BCG</emphasis>  and the data element of a program stage named <emphasis role="italic">BCG dose given</emphasis>.<orderedlist>
-              <listitem>
-                <para>From <emphasis role="italic">Maintenance</emphasis> menu, go to <emphasis role="italic">Data Element and Indicators</emphasis> option and click on it. Select <emphasis role="italic">Data Element</emphasis> option to define two new data elements -</para>
-                <para><itemizedlist>
-                    <listitem>
-                      <para>Define a new data element named <emphasis role="italic">Number of children - BCG</emphasis> with  <emphasis role="italic">Aggregate</emphasis> option for Domain Type.</para>
-                    </listitem>
-                    <listitem>
-                      <para>Define a new data element named <emphasis role="italic">BCG dose give date</emphasis> with  <emphasis role="italic">Patient</emphasis> option for Domain Type.</para>
-                    </listitem>
-                  </itemizedlist></para>
-              </listitem>
-              <listitem>
-                <para>From <emphasis role="italic">Maintenance</emphasis> menu, go to <emphasis role="italic">Datasets</emphasis> option and click on it. Select <emphasis role="italic">Dataset</emphasis> option to create a new dataset named <emphasis role="italic">BCG Report</emphasis> and add <emphasis role="italic">Number of children - BCG</emphasis> data element into the dataset.</para>
-              </listitem>
-              <listitem>
-                <para>From <emphasis role="italic">Maintenance</emphasis> menu, go to <emphasis role="italic">Persons and Programs</emphasis> option   and click on it. Select <emphasis role="italic">Program</emphasis> option to create a program named <emphasis role="italic">Child Health Program</emphasis> with a stage named <emphasis role="italic">Birth Details</emphasis> and add the <emphasis role="italic">BCG dose given</emphasis> data element into this stage.</para>
-              </listitem>
-              <listitem>
-                <para>Create a new person aggregation query builder named <emphasis role="italic">Number of children - BCG Builder </emphasis>to linking between the data elements.</para>
-                <screenshot>
-                  <mediaobject>
-                    <imageobject>
-                      <imagedata width="70%" fileref="resources/images/patients_programs/example agg query builder.png" format="PNG"/>
-                    </imageobject>
-                  </mediaobject>
-                </screenshot>
-              </listitem>
-              <listitem>
-                <para>From <emphasis role="italic">Services</emphasis> menu, go to <emphasis role="italic">Individual Records </emphasis>option and click on it. Select <emphasis role="italic">Person</emphasis> option below <emphasis role="italic">Registration</emphasis> header in the left menu to register three persons named <emphasis role="italic">Micheal</emphasis>, <emphasis role="italic">Alice</emphasis> and <emphasis role="italic">Tom</emphasis> in <emphasis role="italic">Ngelehun CHC</emphasis> and enroll them into <emphasis role="italic">Child Health Program</emphasis>.</para>
-                <itemizedlist>
-                  <listitem>
-                    <para>For  <emphasis role="italic">Micheal</emphasis>, open the <emphasis role="italic">Birth Details</emphasis> stage into <emphasis role="italic">Child Health Program</emphasis>. Enter value for <emphasis role="italic">BCG dose give date</emphasis> data element as &quot;<emphasis role="italic">2012-01-18</emphasis>&quot;</para>
-                  </listitem>
-                  <listitem>
-                    <para>For  <emphasis role="italic">Alice</emphasis>, open the <emphasis role="italic">Birth Details</emphasis> stage into Child Health Program. Enter Enter value for <emphasis role="italic">BCG dose give date</emphasis> data element as &quot;<emphasis role="italic">2012-01-18</emphasis>&quot;</para>
-                  </listitem>
-                  <listitem>
-                    <para>For    <emphasis role="italic">Tom</emphasis>,  no enter any data value for <emphasis role="italic">Birth Details</emphasis> stage.</para>
-                    <warning>
-                      <para>Before entering data value for the stage, choose <emphasis role="italic">Report Date</emphasis> as &quot;<emphasis role="italic">2012-01-18</emphasis>&quot;</para>
-                    </warning>
-                  </listitem>
-                </itemizedlist>
-              </listitem>
-              <listitem>
-                <para>From <emphasis role="italic">Services</emphasis> menu, go to <emphasis role="italic">Individual Records</emphasis> option and click on it. Select <emphasis role="italic">Person aggregation</emphasis> option to run<emphasis role="italic"> Number of children - BCG Builder</emphasis> to get data value  and save it into database.</para>
-                <screenshot>
-                  <mediaobject>
-                    <imageobject>
-                      <imagedata width="70%" fileref="resources/images/patients_programs/example person aggregation.png" format="PNG"/>
-                    </imageobject>
-                  </mediaobject>
-                </screenshot>
-                <screenshot>
-                  <screeninfo>- Result after running the query builder</screeninfo>
-                  <mediaobject>
-                    <imageobject>
-                      <imagedata width="70%" fileref="resources/images/patients_programs/example_person_aggregation_result.png" format="PNG"/>
-                    </imageobject>
-                  </mediaobject>
-                </screenshot>
-              </listitem>
-            </orderedlist></para>
+          <para>E.g.  Find the number of the children vaccinated BCG by defining a linking rule between the data elements of aggregate dataset named <emphasis role="italic">Number of children - BCG</emphasis>  and the data element of a program stage named <emphasis role="italic">BCG dose given</emphasis>.</para>
+          <orderedlist>
+            <listitem>
+              <para>From <emphasis role="italic">Maintenance</emphasis> menu, go to <emphasis role="italic">Data Element and Indicators</emphasis> option and click on it. Select <emphasis role="italic">Data Element</emphasis> option to define two new data elements -</para>
+            </listitem>
+            <listitem>
+              <para>From <emphasis role="italic">Maintenance</emphasis> menu, go to <emphasis role="italic">Datasets</emphasis> option and click on it. Select <emphasis role="italic">Dataset</emphasis> option to create a new dataset named <emphasis role="italic">BCG Report</emphasis> and add <emphasis role="italic">Number of children - BCG</emphasis> data element into the dataset.</para>
+            </listitem>
+            <listitem>
+              <para>From <emphasis role="italic">Maintenance</emphasis> menu, go to <emphasis role="italic">Persons and Programs</emphasis> option   and click on it. Select <emphasis role="italic">Program</emphasis> option to create a program named <emphasis role="italic">Child Health Program</emphasis> with a stage named <emphasis role="italic">Birth Details</emphasis> and add the <emphasis role="italic">BCG dose given</emphasis> data element into this stage.</para>
+            </listitem>
+            <listitem>
+              <para>Create a new person aggregation query builder named <emphasis role="italic">Number of children - BCG Builder </emphasis>to linking between the data elements.</para>
+              <screenshot>
+                <mediaobject>
+                  <imageobject>
+                    <imagedata width="70%" fileref="resources/images/patients_programs/example agg query builder.png" format="PNG"/>
+                  </imageobject>
+                </mediaobject>
+              </screenshot>
+            </listitem>
+            <listitem>
+              <para>From <emphasis role="italic">Services</emphasis> menu, go to <emphasis role="italic">Individual Records </emphasis>option and click on it. Select <emphasis role="italic">Person</emphasis> option below <emphasis role="italic">Registration</emphasis> header in the left menu to register three persons named <emphasis role="italic">Micheal</emphasis>, <emphasis role="italic">Alice</emphasis> and <emphasis role="italic">Tom</emphasis> in <emphasis role="italic">Ngelehun CHC</emphasis> and enroll them into <emphasis role="italic">Child Health Program</emphasis>.</para>
+              <para>1) For  <emphasis role="italic">Micheal</emphasis>, open the <emphasis role="italic">Birth Details</emphasis> stage into <emphasis role="italic">Child Health Program</emphasis>. Enter value for <emphasis role="italic">BCG dose give date</emphasis> data element as &quot;<emphasis role="italic">2012-01-18</emphasis>&quot;</para>
+              <para>2) For  <emphasis role="italic">Alice</emphasis>, open the <emphasis role="italic">Birth Details</emphasis> stage into Child Health Program. Enter Enter value for <emphasis role="italic">BCG dose give date</emphasis> data element as &quot;<emphasis role="italic">2012-01-18</emphasis>&quot;</para>
+              <para>3) For    <emphasis role="italic">Tom</emphasis>,  no enter any data value for <emphasis role="italic">Birth Details</emphasis> stage.</para>
+              <warning>
+                <para>Before entering data value for the stage, choose <emphasis role="italic">Report Date</emphasis> as &quot;<emphasis role="italic">2012-01-18</emphasis>&quot;</para>
+              </warning>
+            </listitem>
+            <listitem>
+              <para>From <emphasis role="italic">Services</emphasis> menu, go to <emphasis role="italic">Individual Records</emphasis> option and click on it. Select <emphasis role="italic">Person aggregation</emphasis> option to run<emphasis role="italic"> Number of children - BCG Builder</emphasis> to get data value  and save it into database.</para>
+              <screenshot>
+                <mediaobject>
+                  <imageobject>
+                    <imagedata width="70%" fileref="resources/images/patients_programs/example person aggregation.png" format="PNG"/>
+                  </imageobject>
+                </mediaobject>
+              </screenshot>
+              <screenshot>
+                <screeninfo>- Result after running the query builder</screeninfo>
+                <mediaobject>
+                  <imageobject>
+                    <imagedata width="70%" fileref="resources/images/patients_programs/example_person_aggregation_result.png" format="PNG"/>
+                  </imageobject>
+                </mediaobject>
+              </screenshot>
+              <para>1) Define a new data element named <emphasis role="italic">Number of children - BCG</emphasis> with  <emphasis role="italic">Aggregate</emphasis> option for Domain Type.</para>
+              <para>2) Define a new data element named <emphasis role="italic">BCG dose give date</emphasis> with  <emphasis role="italic">Patient</emphasis> option for Domain Type.</para>
+            </listitem>
+          </orderedlist>
         </section>
       </section>
       <section id="validation_criteria">
         <title>Validation criteria</title>
-        <para>Validation criteria section provide a mechanism for defining criteria for persons when enrolling a program.</para>
+        <para>Validation criteria section provides a mechanism for defining criteria for persons when enrolling a program.</para>
         <para>To access the validation criteria maintenance module, from <emphasis role="italic">Maintenance</emphasis> menu, go to <emphasis role="italic">Persons and Programs</emphasis> option and click on it. Select <emphasis role="italic">Validation Criteria</emphasis> option to create a new program</para>
         <para>To create a new validation criterion, click the <emphasis role="italic">Add new</emphasis> button. Fill all fields with read asterisk, and click <emphasis role="italic">Add</emphasis> button.</para>
         <para>You can assign facilities to a validation criterion in the <emphasis role="italic">Validation Criteria Management </emphasis>(list of available validation criteria are shown) by clicking the blue folder icon, the first icon under Operations, corresponding to the validation criterion you would like to assign. Click the <emphasis role="italic">Move selected</emphasis> button to add the selected programs to the validation criterion. Click the <emphasis role="italic">Remove selected</emphasis> button to remove programs from the group that have been selected in the right panel. Finally, click the <emphasis role="italic">Save</emphasis> button to save changes, or the <emphasis role="italic">Cancel</emphasis> button to discard any changes.</para>
@@ -472,8 +444,7 @@ For example: the date in which a person enrolls to the system.</para>
     </section>
     <section>
       <title>Individual records module</title>
-      <para>The content in this part is for the expert users or administrative users who are capable and responsible for development and change.</para>
-      <para>Each of the options for the maintenance will be described in the following section.</para>
+      <para>Each of the options for the services will be described in the following section -</para>
       <itemizedlist>
         <listitem>
           <para>Person</para>
@@ -487,8 +458,11 @@ For example: the date in which a person enrolls to the system.</para>
         </listitem>
         <listitem>
           <para>Single event with registration </para>
-          <para>Register Single events without registration. The data to register is defined by a single event without registration program.
-       </para>
+          <para>The data to register is defined by a single event with registration program.</para>
+        </listitem>
+        <listitem>
+          <para>Single event without registration</para>
+          <para>Register Single events without registration. The data to register is defined by a single event without registration program.</para>
         </listitem>
         <listitem>
           <para>Program summary</para>
@@ -682,7 +656,7 @@ The case update  is designed in the same manner so that services which are recei
               <para>Tabular report  - an interactive reporting tool for tracker-data using tabular presentation with dynamic filters for each person attribute and data element. </para>
             </listitem>
           </itemizedlist></para>
-        <section>
+        <section id="program_summary_report">
           <title>Program summary</title>
           <para><emphasis role="bold">Program summary</emphasis> provides a tool for   generating summary list of individual information with  color shown on program stages to identify status of receiving services in each stage.</para>
           <para>To access the program summary report, choose  <emphasis role="italic">Services</emphasis> -&gt; <emphasis role="italic">Name-based Data Records</emphasis> &gt;  <emphasis role="italic">Program summary</emphasis>.</para>
@@ -713,6 +687,9 @@ The case update  is designed in the same manner so that services which are recei
         </section>
         <section>
           <title>Tabular report</title>
+          <para>This is  an interactive reporting tool for tracker-data using tabular presentation with dynamic filters for each person attribute/data element.</para>
+          <para>To access the tabular report function, from the <emphasis role="italic">Services</emphasis> menu, go to the <emphasis role="italic">Individual Records</emphasis> option and click on it. Select <emphasis role="italic">Tabular report</emphasis> option below Reports header on left menu to proceed. </para>
+          <para>To start, the first step is to select a program in the list. Follow these steps:</para>
         </section>
       </section>
       <section id="run_case_aggregation">
