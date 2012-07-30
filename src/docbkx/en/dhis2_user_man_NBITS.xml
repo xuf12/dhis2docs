@@ -69,7 +69,7 @@
             <screeninfo>Figure 2.3.1</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata width="70%" fileref="resources/images/patients_programs/Name based information tracking process.png" format="PNG"/>
+                <imagedata width="70%" fileref="resources/images/patients_programs/name_based_information_tracking_process.png" format="PNG"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -172,7 +172,7 @@
             <para><emphasis role="italic">Mandatory</emphasis>: Entering value for this attribute is required or not.</para>
           </listitem>
           <listitem>
-            <para><emphasis role="italic">Inheritable</emphasis></para>
+            <para><emphasis role="italic">Inheritable</emphasis>: </para>
           </listitem>
           <listitem>
             <para><emphasis role="italic">Value Type</emphasis>: Data type of value inputed.</para>
@@ -214,7 +214,7 @@
             <para><emphasis role="italic">Type</emphasis>: Data type of value inputted.</para>
           </listitem>
           <listitem>
-            <para><emphasis role="italic">Program</emphasis>: specify a program which the identyfier type belongs to.</para>
+            <para><emphasis role="italic">Program</emphasis>: specify a program which the identifier type belongs to.</para>
           </listitem>
         </itemizedlist>
       </section>
@@ -293,17 +293,9 @@ For example: the date in which a person enrolls to the system.</para>
           </listitem>
         </itemizedlist>
         <section>
-          <title>Person Aggregation Query Builder</title>
+          <title>Aggregation Query Builder</title>
           <para>To access <emphasis role="italic">Aggregation Query Builder</emphasis> module, from the <emphasis role="italic">Maintenance</emphasis> menu, go to the <emphasis role="italic">Persons and Programs</emphasis> option. Select <emphasis role="italic">Aggregation Query Builder</emphasis> option on left menu to proceed.</para>
-          <para>After click the <emphasis role="italic">Add new</emphasis> button, the following will appear:</para>
-          <screenshot>
-            <screeninfo>Figure 2.5.4.3</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="70%" fileref="resources/images/patients_programs/create_new_person_aggregate_query_builder.png" format="PNG"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
+          <para>To create a formula, click <emphasis role="italic">Add</emphasis> button.</para>
           <para>Basic information -</para>
           <itemizedlist>
             <listitem>
@@ -397,7 +389,7 @@ For example: the date in which a person enrolls to the system.</para>
               <screenshot>
                 <mediaobject>
                   <imageobject>
-                    <imagedata width="70%" fileref="resources/images/patients_programs/example agg query builder.png" format="PNG"/>
+                    <imagedata width="70%" fileref="resources/images/patients_programs/example_agg_query_builder.png" format="PNG"/>
                   </imageobject>
                 </mediaobject>
               </screenshot>
@@ -416,7 +408,7 @@ For example: the date in which a person enrolls to the system.</para>
               <screenshot>
                 <mediaobject>
                   <imageobject>
-                    <imagedata width="70%" fileref="resources/images/patients_programs/example person aggregation.png" format="PNG"/>
+                    <imagedata width="70%" fileref="resources/images/patients_programs/example_person_aggregation.png" format="PNG"/>
                   </imageobject>
                 </mediaobject>
               </screenshot>
@@ -501,11 +493,16 @@ For example: the date in which a person enrolls to the system.</para>
           </listitem>
           <listitem>
             <para>Select  a  facility from the facilities hierarchy displayed on the left side of the screen. Then click the <emphasis role="italic">Add new</emphasis> button on the right side.</para>
-            <para><graphic fileref="resources/images/patients_programs/Add new Person.PNG" align="center"/></para>
           </listitem>
           <listitem>
             <para>Start process of registration by providing name, location details, identification details, contact details and other details like <emphasis role="italic">child contact name</emphasis> and <emphasis role="italic">child contact type</emphasis>.  The  click the <emphasis role="italic">Add</emphasis> button  to complete to process of registration or click the <emphasis>Back to registration</emphasis>  to navigate to previous page.</para>
-            <para><graphic fileref="resources/images/patients_programs/Person Management Page.PNG" align="center"/></para>
+            <screenshot>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="resources/images/patients_programs/register_person_page.PNG" format="PNG" width="70%"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot>
             <para>To check the duplicates or to avoid double registration, after providing name and demographic details, click the <emphasis role="italic">Check duplicate</emphasis> button. Checking process bases on full name, gender and birthday of the registering person to look for the available persons with the similar information in the database. The result list will be displayed if the system finds out the same persons. Now health providers can cancel the registration process and update the existing person or continue the process of registration.</para>
           </listitem>
         </orderedlist>
@@ -521,7 +518,7 @@ For example: the date in which a person enrolls to the system.</para>
               <screenshot>
                 <mediaobject>
                   <imageobject>
-                    <imagedata width="70%" fileref="resources/images/patients_programs/Select Program for person.PNG" format="PNG"/>
+                    <imagedata width="70%" fileref="resources/images/patients_programs/select_program_for_person.PNG" format="PNG"/>
                   </imageobject>
                 </mediaobject>
               </screenshot>
@@ -547,7 +544,7 @@ The case update  is designed in the same manner so that services which are recei
               <screenshot>
                 <mediaobject>
                   <imageobject>
-                    <imagedata width="70%" fileref="resources/images/patients_programs/Complete.PNG" format="PNG"/>
+                    <imagedata width="70%" fileref="resources/images/patients_programs/program_management.PNG" format="PNG"/>
                   </imageobject>
                 </mediaobject>
               </screenshot>
@@ -567,12 +564,12 @@ The case update  is designed in the same manner so that services which are recei
           </orderedlist>
         </section>
         <section>
-          <title>Adding relationship</title>
+          <title>Relationship management</title>
           <para>Now you can add relationship for person. To do that, you have to click on the <emphasis>Relationship management</emphasis> icon under <emphasis>Operations</emphasis>. Then, the management page appears...</para>
           <screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata width="70" fileref="resources/images/patients_programs/management page.PNG" format="PNG"/>
+                <imagedata width="70" fileref="resources/images/patients_programs/relationship_management.PNG" format="PNG"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -582,11 +579,11 @@ The case update  is designed in the same manner so that services which are recei
         <section>
           <title>Change person location and View person details and history</title>
           <para>You can change person location by clicking the <emphasis>Change person location</emphasis> icon under <emphasis>Operations</emphasis>. In addition, you can view all person details and history by click on <emphasis>Person details and history</emphasis>  icon under <emphasis>Operations</emphasis>.</para>
-          <para>Furthermore, you can download all person details and history in the format of <emphasis role="italic"> XLS</emphasis> or <emphasis role="italic">PDF</emphasis> by clicking <emphasis>Download as Excel</emphasis> or <emphasis>Download as PDF </emphasis> button.</para>
+          <para>Furthermore, you can download all person details and history in the format of <emphasis role="italic">XLS</emphasis> or <emphasis role="italic">PDF</emphasis> by clicking <emphasis>Download as Excel</emphasis> or <emphasis>Download as PDF </emphasis> button.</para>
           <screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata width="70" fileref="resources/images/patients_programs/Change person location and view details.PNG" format="PNG"/>
+                <imagedata width="70" fileref="resources/images/patients_programs/change_person_location_and_view_details.PNG" format="PNG"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -730,7 +727,7 @@ The case update  is designed in the same manner so that services which are recei
               <screenshot>
                 <mediaobject>
                   <imageobject>
-                    <imagedata fileref="resources/images/patients_programs/tabular_report_result.png" format="PNG" width="60%"/>
+                    <imagedata width="60%" fileref="resources/images/patients_programs/tabular_report_result.png" format="PNG"/>
                   </imageobject>
                 </mediaobject>
               </screenshot>
@@ -740,7 +737,7 @@ The case update  is designed in the same manner so that services which are recei
           <screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/patients_programs/tabular_report_filter.png" format="PNG" width="70%"/>
+                <imagedata width="70%" fileref="resources/images/patients_programs/tabular_report_filter.png" format="PNG"/>
               </imageobject>
             </mediaobject>
           </screenshot>
