@@ -205,7 +205,7 @@
             <para><emphasis role="italic">Mandatory</emphasis>: Entering value for the identifier is required or not.</para>
           </listitem>
           <listitem>
-            <para><emphasis role="italic">Related</emphasis></para>
+            <para><emphasis role="italic">Related</emphasis>: Representative re-uses the  identifier of  person.</para>
           </listitem>
           <listitem>
             <para><emphasis role="italic">Number of characters</emphasis>: Maximum number of characters for value inputed. </para>
@@ -505,6 +505,13 @@ For example: the date in which a person enrolls to the system.</para>
           </listitem>
           <listitem>
             <para>Start process of registration by providing name, location details, identification details, contact details and other details like <emphasis role="italic">child contact name</emphasis> and <emphasis role="italic">child contact type</emphasis>.  The  click the <emphasis role="italic">Add</emphasis> button  to complete to process of registration or click the <emphasis>Back to registration</emphasis>  to navigate to previous page.</para>
+            <screenshot>
+              <mediaobject>
+                <imageobject>
+                  <imagedata width="70%" fileref="resources/images/patients_programs/register_person_page.PNG" format="PNG"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot>
             <para><graphic fileref="resources/images/patients_programs/Person Management Page.PNG" align="center"/></para>
             <para>To check the duplicates or to avoid double registration, after providing name and demographic details, click the <emphasis role="italic">Check duplicate</emphasis> button. Checking process bases on full name, gender and birthday of the registering person to look for the available persons with the similar information in the database. The result list will be displayed if the system finds out the same persons. Now health providers can cancel the registration process and update the existing person or continue the process of registration.</para>
           </listitem>
@@ -592,36 +599,32 @@ The case update  is designed in the same manner so that services which are recei
           </screenshot>
         </section>
         <section>
-          <title>Advanced Search in Patient Management</title>
-          <para>For convenience to users, the program has the <emphasis>Advanced Search</emphasis> function for searching person in the program. To use this function, from the <emphasis>Services</emphasis> menu, go the the <emphasis>Individual Records </emphasis> option and click on it. Select <emphasis>Person</emphasis> option on the left menu to proceed. Then, after selecting organisation unit, please click on the <emphasis>Advanced Search</emphasis> button on the right side.</para>
+          <title>Advanced search</title>
+          <para>The <emphasis>Advanced Search</emphasis> function is used for searching persons based on  full-name, identifiers and person attributes.</para>
+          <para>To access <emphasis role="italic">Advanced Search</emphasis> function, from the <emphasis>Services</emphasis> menu, go the the <emphasis>Individual Records </emphasis> option and click on it. Select <emphasis>Person</emphasis> option on the left menu to proceed. Then, after selecting organisation unit,  click on the <emphasis>Advanced Search</emphasis> button on the right side.</para>
           <para><mediaobject>
               <imageobject>
                 <imagedata width="70" fileref="resources/images/patients_programs/start Advanced Search.PNG" format="PNG"/>
               </imageobject>
             </mediaobject></para>
-          <para>When user clicks on <emphasis>Advanced search</emphasis> button, the search function is appeared with some requirements that the user has to select or input into the function.</para>
+          <para>When user clicks on <emphasis>Advanced search</emphasis> button, a search form is appeared. User  has to select  criteria and input values into the function.</para>
           <para><mediaobject>
               <imageobject>
                 <imagedata width="70" fileref="resources/images/patients_programs/search guide.PNG" format="PNG"/>
               </imageobject>
             </mediaobject></para>
-          <para>After selecting search type, entering keyword and clicking on Search button. The search result will display on the screen, and then user can interact with that person.</para>
-          <para><mediaobject>
-              <imageobject>
-                <imagedata width="70" fileref="resources/images/patients_programs/search result.PNG" format="PNG"/>
-              </imageobject>
-            </mediaobject></para>
+          <para>After selecting search type, entering keyword and clicking on <emphasis role="italic">Search</emphasis> button. The search result will display on the screen, and then user can interact with that person.</para>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="70" fileref="resources/images/patients_programs/search result.PNG" format="PNG"/>
+            </imageobject>
+          </mediaobject>
         </section>
         <section>
-          <title>Data Entry tab in Patient Enrollment</title>
-          <para>When a person is registered, that person is needed to be enrolled to a program. From the persons list, user has to click on <emphasis>Program management</emphasis> icon under <emphasis>Operations</emphasis> of person whom the user want to enroll</para>
-          <para><mediaobject>
-              <imageobject>
-                <imagedata width="70" fileref="resources/images/patients_programs/person enroll.PNG" format="PNG"/>
-              </imageobject>
-            </mediaobject></para>
-          <para>The next step that user has to click on the event text box in Data Entry screen tab. User also can click on <emphasis>What do colors mean?</emphasis> hyper link to get the description process.</para>
-          <para>When user clicks on an event, then user has to fill in a report date and  an other form is showed which user has to complete. After filling and selecting data for the entry, user has to click on <emphasis>Run validation</emphasis>  button before click on <emphasis>Complete</emphasis> button. User can only successfully complete if all validation is valid. By default, the <emphasis>incomplete</emphasis> button is disable, it will be enabled when user click on <emphasis>Complete</emphasis> button successfully.</para>
+          <title>Data Entry tab in patient enrollment</title>
+          <para>The data entry function is where data is manually registered for each person. To open the data entry,  click on the <emphasis role="italic">Program management</emphasis> icon. Then select a program. If the patient enrolled the program, data entry  screen is shown below.</para>
+          <para>Click on a event box in <emphasis role="italic">Data Entry screen</emphasis> tab. Then   fill  a report date to open data entry form of the selected event. </para>
+          <para>After entering data values into the data entry form, user should click on <emphasis>Run validation</emphasis>  button before clicking on <emphasis>Complete</emphasis> button to check reality of data. The event is  only  completed successfully if all validation is valid.</para>
           <para><mediaobject>
               <imageobject>
                 <imagedata width="70" fileref="resources/images/patients_programs/data entry.PNG" format="PNG"/>
