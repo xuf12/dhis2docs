@@ -172,9 +172,6 @@
             <para><emphasis role="italic">Mandatory</emphasis>: Entering value for this attribute is required or not.</para>
           </listitem>
           <listitem>
-            <para><emphasis role="italic">Inheritable</emphasis></para>
-          </listitem>
-          <listitem>
             <para><emphasis role="italic">Value Type</emphasis>: Data type of value inputed.</para>
           </listitem>
           <listitem>
@@ -220,17 +217,18 @@
       </section>
       <section id="relationship_type">
         <title>Relationship type</title>
-        <para>Relationship type section provides a mechanism for defining any relationship types and link persons through these relationship types by creating specific relationships.</para>
+        <para>Relationship type section provides a mechanism for defining  relationship types and link persons through these relationship types by creating specific relationships.</para>
         <para>To access the relationship type maintenance module, from <emphasis role="italic">Maintenance</emphasis> menu, go to <emphasis role="italic">Persons and Programs</emphasis> option and click on it. Select <emphasis role="italic">Relationship Type</emphasis> option to create a new relationship type.</para>
         <para>To define a new relationship type, click <emphasis role="italic">Add</emphasis> button into <emphasis role="italic">Relationship Type Management </emphasis>window to go to <emphasis role="italic">Add new Relationship Type</emphasis> window.</para>
       </section>
       <section id="program">
         <title>Program and Program stage</title>
+        <para>The section provides a mechanism for defining programs and  program stages corresponding. </para>
         <section>
           <title>Program</title>
           <para>Program section provides a mechanism for defining a health programme.</para>
           <para>To access the program maintenance module, from <emphasis role="italic">Maintenance</emphasis> menu, go to <emphasis role="italic">Persons and Programs</emphasis> option and click on it. Select <emphasis role="italic">Program</emphasis> option.</para>
-          <para>To define a new program, click the <emphasis role="italic">Add new</emphasis> button on the main page. Fill all fields with read asterisk, and then click the &quot;Add&quot; button.</para>
+          <para>To define a new program, click the <emphasis role="italic">Add new</emphasis> button on the main page. Fill all fields with read asterisk, and then click the <emphasis role="italic">Add</emphasis> button.</para>
           <para>Basic information -</para>
           <itemizedlist>
             <listitem>
@@ -256,10 +254,88 @@ For example: the date in which a person enrolls to the system.</para>
               <para><emphasis role="italic">Duration in days</emphasis>: System gets the days to calculate the activity plan of each person in mobile project ( refer mobile chapter ).</para>
             </listitem>
           </itemizedlist>
+          <para>To assign a program for organisation units, click<emphasis role="italic"> Assign program to organisation units</emphasis> icon and select organisation units where provide the program.</para>
+          <para>To create validation for programs, click <emphasis role="italic">Program validation management</emphasis> icon. There are two type of  validation -  </para>
+          <itemizedlist>
+            <listitem>
+              <para><emphasis role="italic">Single validation</emphasis> is used for defining validation for only one condition. E.g Weight must be greater then zero, or the date of admission is before the date of  discharge. To define a validation, click <emphasis role="italic">Create new single validation</emphasis> button and enter values for the fields in form.</para>
+              <orderedlist>
+                <listitem>
+                  <para>Enter <emphasis role="italic">Descriptions</emphasis> for program validation. </para>
+                </listitem>
+                <listitem>
+                  <para>In <emphasis role="italic">Validation</emphasis> part, select a <emphasis role="italic">program-stage</emphasis> of the selected   program. The data elements which belong to the selected stage are shown into the field below. </para>
+                </listitem>
+                <listitem>
+                  <para>To create a formula with data elements in the list, double-click on a data element, a formula text of this data element is shown into the condition area. </para>
+                </listitem>
+                <listitem>
+                  <para>Click the comparing operations  (+, &lt;, &lt;=, &gt;, &gt;=, =, != ) below to set operation for the formula. Then continue to double-click on the data element if you want to compare two data value of these data elements or type the value into the condition area directly. </para>
+                </listitem>
+                <listitem>
+                  <para>Click <emphasis role="italic">Add</emphasis> button.</para>
+                </listitem>
+              </orderedlist>
+              <screenshot>
+                <mediaobject>
+                  <imageobject>
+                    <imagedata width="50%" fileref="resources/images/patients_programs/single_program_validation.png" format="PNG"/>
+                  </imageobject>
+                </mediaobject>
+              </screenshot>
+            </listitem>
+            <listitem>
+              <para>Multiple validation is used for defining validation for two conditions. E.g in PMTCT program, if the blood test result of a pregnant is HIV positive, the pregnant must test WHO Stage/CD4. To define a validation, click <emphasis role="italic">Create new multi validation</emphasis> button. The form is have two part - left side and right side. Fill values for the fields in each part is the same <emphasis role="italic">Single validation</emphasis> function.</para>
+              <screenshot>
+                <mediaobject>
+                  <imageobject>
+                    <imagedata width="70%" fileref="resources/images/patients_programs/multi_program_validation.png" format="PNG"/>
+                  </imageobject>
+                </mediaobject>
+              </screenshot>
+            </listitem>
+          </itemizedlist>
+          <para>Besides, validation for DATE date elements is created for a program automatically. It&apos;s used for defining formulas related the DATE data elements of each program stage. To define this validation, click Edit icon of Validation for date date elements. Select a program stage, the DATE data elements will be shown with corresponding conditions as follows -</para>
+          <itemizedlist>
+            <listitem>
+              <para>Before current date</para>
+            </listitem>
+            <listitem>
+              <para>After current date</para>
+            </listitem>
+            <listitem>
+              <para>Before or equals to current date</para>
+            </listitem>
+            <listitem>
+              <para>After or equals to current date</para>
+            </listitem>
+            <listitem>
+              <para>Before due-date</para>
+            </listitem>
+            <listitem>
+              <para>After due-date</para>
+            </listitem>
+            <listitem>
+              <para>Before or equals to due-date</para>
+            </listitem>
+            <listitem>
+              <para>After or equals to due-date</para>
+            </listitem>
+            <listitem>
+              <para>In range due date</para>
+            </listitem>
+          </itemizedlist>
+          <screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="70%" fileref="resources/images/patients_programs/program_validation_for_date.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
         </section>
         <section>
           <title>Program stage</title>
-          <para>To define a program stage, click the <emphasis role="italic">Program Stage Management</emphasis> icon  and then <emphasis role="italic">Add new</emphasis> button. Fill in the Name and Description fields and then select the data elements that should belong to the group from the left panel. Click the Move selected button to add the selected data elements to the right panel. Click the Remove selected button to remove data elements that have been selected in the right panel. Finally, click the Add button to save changes, or the Cancel button to discard any changes.</para>
+          <para>To define a program stage, click the <emphasis role="italic">Program Stage Management</emphasis> icon  and then <emphasis role="italic">Add new</emphasis> button. Fill in the <emphasis role="italic">Name</emphasis> and <emphasis role="italic">Description</emphasis> fields and then select the data elements that should belong to the group from the left panel. Click the <emphasis role="italic">Move</emphasis> selected button to add the selected data elements to the right panel. Click the Remove selected button to remove data elements that have been selected in the right panel. Finally, click the <emphasis role="italic">Add</emphasis> button to save changes, or the <emphasis role="italic">Cancel</emphasis> button to discard any changes.</para>
           <para>Basic information -</para>
           <itemizedlist>
             <listitem>
@@ -295,12 +371,12 @@ For example: the date in which a person enrolls to the system.</para>
         <section>
           <title>Person Aggregation Query Builder</title>
           <para>To access <emphasis role="italic">Aggregation Query Builder</emphasis> module, from the <emphasis role="italic">Maintenance</emphasis> menu, go to the <emphasis role="italic">Persons and Programs</emphasis> option. Select <emphasis role="italic">Aggregation Query Builder</emphasis> option on left menu to proceed.</para>
-          <para>After click the <emphasis role="italic">Add new</emphasis> button, the following will appear:</para>
+          <para>To define a formula, click the <emphasis role="italic">Add new</emphasis> button.</para>
           <screenshot>
-            <screeninfo>Figure 2.5.4.3</screeninfo>
+            <screeninfo>Fig. example_query</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata width="70%" fileref="resources/images/patients_programs/create_new_person_aggregate_query_builder.png" format="PNG"/>
+                <imagedata width="70%" fileref="resources/images/patients_programs/example_query.png" format="PNG"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -370,14 +446,6 @@ For example: the date in which a person enrolls to the system.</para>
               <emphasis role="underline">Description :</emphasis>
             </emphasis> Show description for the condition above. </para>
           <para>E.g To get number of <emphasis role="italic">girls</emphasis> who got <emphasis role="italic">Vitamin A dose 6</emphasis> enrolled <emphasis role="italic">Child Health program</emphasis> on <emphasis role="italic">January 2012</emphasis>. Then query is created as in the figure below. Note that January 2012 is period parameter which user will select when generate report. It is not set in the query.</para>
-          <screenshot>
-            <screeninfo>Fig. example_query</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="70%" fileref="resources/images/patients_programs/example_query.png" format="PNG"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot>
         </section>
         <section>
           <title>Sample of person aggregation</title>
@@ -397,7 +465,7 @@ For example: the date in which a person enrolls to the system.</para>
               <screenshot>
                 <mediaobject>
                   <imageobject>
-                    <imagedata width="70%" fileref="resources/images/patients_programs/example agg query builder.png" format="PNG"/>
+                    <imagedata width="70%" fileref="resources/images/patients_programs/example_agg_query_builder.png" format="PNG"/>
                   </imageobject>
                 </mediaobject>
               </screenshot>
@@ -416,7 +484,7 @@ For example: the date in which a person enrolls to the system.</para>
               <screenshot>
                 <mediaobject>
                   <imageobject>
-                    <imagedata width="70%" fileref="resources/images/patients_programs/example person aggregation.png" format="PNG"/>
+                    <imagedata width="70%" fileref="resources/images/patients_programs/example_person_aggregation.png" format="PNG"/>
                   </imageobject>
                 </mediaobject>
               </screenshot>
@@ -501,7 +569,6 @@ For example: the date in which a person enrolls to the system.</para>
           </listitem>
           <listitem>
             <para>Select  a  facility from the facilities hierarchy displayed on the left side of the screen. Then click the <emphasis role="italic">Add new</emphasis> button on the right side.</para>
-            <para><graphic fileref="resources/images/patients_programs/Add new Person.PNG" align="center"/></para>
           </listitem>
           <listitem>
             <para>Start process of registration by providing name, location details, identification details, contact details and other details like <emphasis role="italic">child contact name</emphasis> and <emphasis role="italic">child contact type</emphasis>.  The  click the <emphasis role="italic">Add</emphasis> button  to complete to process of registration or click the <emphasis>Back to registration</emphasis>  to navigate to previous page.</para>
@@ -512,7 +579,6 @@ For example: the date in which a person enrolls to the system.</para>
                 </imageobject>
               </mediaobject>
             </screenshot>
-            <para><graphic fileref="resources/images/patients_programs/Person Management Page.PNG" align="center"/></para>
             <para>To check the duplicates or to avoid double registration, after providing name and demographic details, click the <emphasis role="italic">Check duplicate</emphasis> button. Checking process bases on full name, gender and birthday of the registering person to look for the available persons with the similar information in the database. The result list will be displayed if the system finds out the same persons. Now health providers can cancel the registration process and update the existing person or continue the process of registration.</para>
           </listitem>
         </orderedlist>
@@ -528,7 +594,7 @@ For example: the date in which a person enrolls to the system.</para>
               <screenshot>
                 <mediaobject>
                   <imageobject>
-                    <imagedata width="70%" fileref="resources/images/patients_programs/Select Program for person.PNG" format="PNG"/>
+                    <imagedata width="70%" fileref="resources/images/patients_programs/select_program_for_person.PNG" format="PNG"/>
                   </imageobject>
                 </mediaobject>
               </screenshot>
