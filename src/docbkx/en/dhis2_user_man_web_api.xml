@@ -347,8 +347,8 @@ ou=O6uvpzGd5pu&quot;&gt;Maternal Health Bo District 2012&lt;/a&gt;</screen>
     </itemizedlist>
   </section>
   <section>
-    <title>Example: Embedding charts with the Visualizer Plugin</title>
-    <para>In this example we will see how we can embed good-looking Ext JS charts (<ulink url="http://www.sencha.com/products/extjs"/>) with data served from a DHIS back-end into a Web page. To accomplish this we will use the DHIS Visualizer plugin. The plugin is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/plugin.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
+    <title>Example: Embedding charts with the Visualizer chart plugin</title>
+    <para>In this example we will see how we can embed good-looking Ext JS charts (<ulink url="http://www.sencha.com/products/extjs"/>) with data served from a DHIS back-end into a Web page. To accomplish this we will use the DHIS Visualizer plugin. The plugin is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/chart.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
     <para>We start by including three required Javascript files in the header section of the HTML document. The first file is the  Ext JS Javascript library (we use  the Google content delivery network in this case). The third file is the Visualizer plugin. Make sure the path is pointing to your DHIS server installation.</para>
     <screen>&lt;script type=&quot;text/javascript&quot;
   src=&quot;http://extjs-public.googlecode.com/svn/tags/extjs-4.0.7/release/ext-all.js&quot;&gt;
@@ -356,7 +356,7 @@ ou=O6uvpzGd5pu&quot;&gt;Maternal Health Bo District 2012&lt;/a&gt;</screen>
 &lt;script type=&quot;text/javascript&quot;
   src=&quot;http://apps.dhis2.org/demo/dhis-web-visualizer/app/plugin/plugin.js&quot;&gt;
 &lt;/script&gt;</screen>
-    <para>To authenticate with the DHIS server we use the same approach as in the previous section. In the header of the HTML document we include the following Javascript inside a script element. The <emphasis role="italic">setLinks</emphasis> method will be implemented later. Make sure the <emphasis role="italic">base</emphasis> variabel is pointing to your DHIS installation.</para>
+    <para>To authenticate with the DHIS server we use the same approach as in the previous section. In the header of the HTML document we include the following Javascript inside a script element. The <emphasis role="italic">setLinks</emphasis> method will be implemented later. Make sure the <emphasis role="italic">base</emphasis> variable is pointing to your DHIS installation.</para>
     <screen>var base = &apos;http://apps.dhis2.org/demo/&apos;;
 
 Ext.onReady( function() {
@@ -369,7 +369,7 @@ Ext.onReady( function() {
 });</screen>
     <para>Now let us have a look at the various options for the Visualizer plugin. If you want to refer to pre-defined charts already made inside DHIS you should use the <emphasis role="italic">uid</emphasis> parameter. If you want create dynamic charts you shoud include the indicators and/or dataelements parameter and omit the uid parameter. Asterisk (*) indicates that a parameter is required only when the uid  parameter is not used.</para>
     <table>
-      <title>Visualizer plugin configuration</title>
+      <title>Visualizer chart plugin configuration</title>
       <tgroup cols="5">
         <tbody>
           <row>
@@ -618,6 +618,136 @@ Ext.onReady( function() {
 
 &lt;div id=&quot;chartB1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
 &lt;div id=&quot;chartB2&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;</screen>
-    <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/plugin.html"/>.</para>
+    <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/chart.html"/>.</para>
+  </section>
+  <section>
+    <title>Example: Embedding report tables with the table plugin</title>
+    <para>In this example we will see how we can embed dynamic data tables in a Web page with data provided from a DHIS back-end server using the table plugin. The table plugin resides inside the same file as the chart plugin so please refer to the above section on how to include the required javascript and CSS files and how to do authentication. The available table options are listed in the table below.</para>
+    <table>
+      <title>Table plugin configuration</title>
+      <tgroup cols="5">
+        <tbody>
+          <row>
+            <entry>Param</entry>
+            <entry>Type</entry>
+            <entry>Required</entry>
+            <entry>Options (default first)</entry>
+            <entry>Description</entry>
+          </row>
+          <row>
+            <entry>indicators</entry>
+            <entry>[string]</entry>
+            <entry>Yes*</entry>
+            <entry/>
+            <entry>Identifiers of indicators to include in table</entry>
+          </row>
+          <row>
+            <entry>dataelements</entry>
+            <entry>[string]</entry>
+            <entry>Yes*</entry>
+            <entry/>
+            <entry>Identifiers of data elements to include in table</entry>
+          </row>
+          <row>
+            <entry>datasets</entry>
+            <entry>[string]</entry>
+            <entry>Yes*</entry>
+            <entry/>
+            <entry>Identifiers of data sets to include in table</entry>
+          </row>
+          <row>
+            <entry>periods</entry>
+            <entry>[string]</entry>
+            <entry>No</entry>
+            <entry>last12Months | lastMonth | lastQuarter | last4Quarters | lastSixMonth | last2SixMonths | thisYear | last5Years</entry>
+            <entry>Names of relative periods to include in table</entry>
+          </row>
+          <row>
+            <entry>organisationunits</entry>
+            <entry>[string]</entry>
+            <entry>Yes</entry>
+            <entry/>
+            <entry>Identifiers of organisation units to include in table</entry>
+          </row>
+          <row>
+            <entry>orgUnitIsParent</entry>
+            <entry>boolean</entry>
+            <entry>No</entry>
+            <entry>false | true</entry>
+            <entry>Whether the table should display the children of the selected org units</entry>
+          </row>
+          <row>
+            <entry>crosstab</entry>
+            <entry>string[]</entry>
+            <entry>No</entry>
+            <entry>data | periods | orgunit</entry>
+            <entry>Which data dimension should be crosstabulated and used as columns </entry>
+          </row>
+          <row>
+            <entry>hiddenCols</entry>
+            <entry>int[]</entry>
+            <entry>No</entry>
+            <entry/>
+            <entry>Zero-based index of the columns in the table which should be hidden</entry>
+          </row>
+          <row>
+            <entry>useExtGrid</entry>
+            <entry>boolean</entry>
+            <entry>No</entry>
+            <entry>false | true</entry>
+            <entry>Whether the table should be rendered as plain HTML or as an Ext JS Grid</entry>
+          </row>
+          <row>
+            <entry>format</entry>
+            <entry>string</entry>
+            <entry>No</entry>
+            <entry>html | xls | csv | pdf | json | xml</entry>
+            <entry>The representation format of the table, can be HTML, Excel, CSV, PDF, JSON and XML</entry>
+          </row>
+          <row>
+            <entry>el</entry>
+            <entry>string</entry>
+            <entry>Yes</entry>
+            <entry/>
+            <entry>Identifier of HTML element to render the table in</entry>
+          </row>
+          <row>
+            <entry>url</entry>
+            <entry>string</entry>
+            <entry>Yes</entry>
+            <entry/>
+            <entry>Base URL of the DHIS server</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>In the following are examples on how the table plugin can be used.</para>
+    <screen>DHIS.getTable({
+    indicators: [&apos;Uvn6LCg7dVU&apos;],
+    periods: [&apos;last12Months&apos;],
+    orgunits: [&apos;ImspTQPwCqd&apos;],
+    crosstab: [&apos;periods&apos;],
+    orgUnitIsParent: true,
+    useExtGrid: false,
+    callbackName: &apos;table1&apos;,
+    hiddenCols: [0],
+    el: &apos;table1&apos;,
+    url: base
+  });
+
+DHIS.getTable({
+    dataelements: [&apos;s46m5MS0hxu&apos;, &apos;YtbsuPPo010&apos;, &apos;xc8gmAKfO95&apos;, &apos;UOlfIjgN8X6&apos;],
+    periods: [&apos;last4Quarters&apos;],
+    orgunits: [&apos;ImspTQPwCqd&apos;],
+    crosstab: [&apos;data&apos;],
+    useExtGrid: false,
+    callbackName: &apos;table2&apos;,
+    el: &apos;table2&apos;,
+    url: base
+  });</screen>
+    <para>Finally we insert in the Web page the div elements which are referred to in the table configuration and used to render the tables.</para>
+    <screen>&lt;div id=&quot;table1&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;table2&quot;&gt;&lt;/div&gt;</screen>
+    <para>To view a complete working example please visit <ulink url="http://apps.dhis2.org/portal/table.html"/>.</para>
   </section>
 </chapter>
