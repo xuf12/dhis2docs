@@ -65,14 +65,13 @@
       <section>
         <title>Information tracking process</title>
         <para>The process  starts with the person registration. Then she/he can be enrolled in the program for which registered. The application will guide the health provider  the services required for her/him through activity plan and the services  from time to time can be updated into his/her profile.  The working process is described in steps depicted in picture below - </para>
-        <para><screenshot>
-            <screeninfo>Figure 2.3.1</screeninfo>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="70%" fileref="resources/images/patients_programs/Name based information tracking process.png" format="PNG"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot></para>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="70%" fileref="resources/images/patients_programs/name_based_information_tracking_process.png" format="PNG"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
       </section>
       <section>
         <title>Person registration</title>
@@ -211,7 +210,7 @@
             <para><emphasis role="italic">Type</emphasis>: Data type of value inputted.</para>
           </listitem>
           <listitem>
-            <para><emphasis role="italic">Program</emphasis>: specify a program which the identyfier type belongs to.</para>
+            <para><emphasis role="italic">Program</emphasis>: specify a program which the identifier type belongs to.</para>
           </listitem>
         </itemizedlist>
       </section>
@@ -373,7 +372,6 @@ For example: the date in which a person enrolls to the system.</para>
           <para>To access <emphasis role="italic">Aggregation Query Builder</emphasis> module, from the <emphasis role="italic">Maintenance</emphasis> menu, go to the <emphasis role="italic">Persons and Programs</emphasis> option. Select <emphasis role="italic">Aggregation Query Builder</emphasis> option on left menu to proceed.</para>
           <para>To define a formula, click the <emphasis role="italic">Add new</emphasis> button.</para>
           <screenshot>
-            <screeninfo>Fig. example_query</screeninfo>
             <mediaobject>
               <imageobject>
                 <imagedata width="70%" fileref="resources/images/patients_programs/example_query.png" format="PNG"/>
@@ -580,6 +578,22 @@ For example: the date in which a person enrolls to the system.</para>
               </mediaobject>
             </screenshot>
             <para>To check the duplicates or to avoid double registration, after providing name and demographic details, click the <emphasis role="italic">Check duplicate</emphasis> button. Checking process bases on full name, gender and birthday of the registering person to look for the available persons with the similar information in the database. The result list will be displayed if the system finds out the same persons. Now health providers can cancel the registration process and update the existing person or continue the process of registration.</para>
+            <para>To register representative for the registering person, check on the <emphasis role="italic">Has guardian</emphasis> checkbox in <emphasis role="italic">Register new person</emphasis> form. The sub-function has two tab -</para>
+            <itemizedlist>
+              <listitem>
+                <para><emphasis role="italic">Search existing person</emphasis> tab is used for searching  available persons and users can select one person in the result list to set relationship. The criteria to search is based on  identifier, attribute and name of persons.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Add new person</emphasis> tab is used for  registering a new person for relationship. The  form shown is the similar register form. When adding a person in this form, you need to select one user-defined relationship type in the list. Finally, click <emphasis role="italic">Add</emphasis> button.</para>
+              </listitem>
+            </itemizedlist>
+            <screenshot>
+              <mediaobject>
+                <imageobject>
+                  <imagedata width="70%" fileref="resources/images/patients_programs/representative.png" format="PNG"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot>
           </listitem>
         </orderedlist>
         <section>
@@ -620,7 +634,7 @@ The case update  is designed in the same manner so that services which are recei
               <screenshot>
                 <mediaobject>
                   <imageobject>
-                    <imagedata width="70%" fileref="resources/images/patients_programs/Complete.PNG" format="PNG"/>
+                    <imagedata width="70%" fileref="resources/images/patients_programs/program_management.PNG" format="PNG"/>
                   </imageobject>
                 </mediaobject>
               </screenshot>
@@ -645,7 +659,7 @@ The case update  is designed in the same manner so that services which are recei
           <screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata width="70" fileref="resources/images/patients_programs/management page.PNG" format="PNG"/>
+                <imagedata width="70" fileref="resources/images/patients_programs/management_page.PNG" format="PNG"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -655,7 +669,7 @@ The case update  is designed in the same manner so that services which are recei
         <section>
           <title>Change person location and View person details and history</title>
           <para>You can change person location by clicking the <emphasis>Change person location</emphasis> icon under <emphasis>Operations</emphasis>. In addition, you can view all person details and history by click on <emphasis>Person details and history</emphasis>  icon under <emphasis>Operations</emphasis>.</para>
-          <para>Furthermore, you can download all person details and history in the format of <emphasis role="italic"> XLS</emphasis> or <emphasis role="italic">PDF</emphasis> by clicking <emphasis>Download as Excel</emphasis> or <emphasis>Download as PDF </emphasis> button.</para>
+          <para>Furthermore, you can download all person details and history in the format of <emphasis role="italic"> XLS</emphasis> or <emphasis role="italic">PDF</emphasis> by clicking <emphasis>Download as Excel</emphasis> or <emphasis>Download as PDF </emphasis>button.</para>
           <screenshot>
             <mediaobject>
               <imageobject>
@@ -668,34 +682,42 @@ The case update  is designed in the same manner so that services which are recei
           <title>Advanced search</title>
           <para>The <emphasis>Advanced Search</emphasis> function is used for searching persons based on  full-name, identifiers and person attributes.</para>
           <para>To access <emphasis role="italic">Advanced Search</emphasis> function, from the <emphasis>Services</emphasis> menu, go the the <emphasis>Individual Records </emphasis> option and click on it. Select <emphasis>Person</emphasis> option on the left menu to proceed. Then, after selecting organisation unit,  click on the <emphasis>Advanced Search</emphasis> button on the right side.</para>
-          <para><mediaobject>
+          <screenshot>
+            <mediaobject>
               <imageobject>
-                <imagedata width="70" fileref="resources/images/patients_programs/start Advanced Search.PNG" format="PNG"/>
+                <imagedata width="70" fileref="resources/images/patients_programs/start_advanced_search.PNG" format="PNG"/>
               </imageobject>
-            </mediaobject></para>
+            </mediaobject>
+          </screenshot>
           <para>When user clicks on <emphasis>Advanced search</emphasis> button, a search form is appeared. User  has to select  criteria and input values into the function.</para>
-          <para><mediaobject>
+          <screenshot>
+            <mediaobject>
               <imageobject>
-                <imagedata width="70" fileref="resources/images/patients_programs/search guide.PNG" format="PNG"/>
+                <imagedata width="70" fileref="resources/images/patients_programs/search_guide.PNG" format="PNG"/>
               </imageobject>
-            </mediaobject></para>
+            </mediaobject>
+          </screenshot>
           <para>After selecting search type, entering keyword and clicking on <emphasis role="italic">Search</emphasis> button. The search result will display on the screen, and then user can interact with that person.</para>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="70" fileref="resources/images/patients_programs/search result.PNG" format="PNG"/>
-            </imageobject>
-          </mediaobject>
+          <screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="70" fileref="resources/images/patients_programs/search_result.PNG" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
         </section>
         <section>
           <title>Data Entry tab in patient enrollment</title>
           <para>The data entry function is where data is manually registered for each person. To open the data entry,  click on the <emphasis role="italic">Program management</emphasis> icon. Then select a program. If the patient enrolled the program, data entry  screen is shown below.</para>
           <para>Click on a event box in <emphasis role="italic">Data Entry screen</emphasis> tab. Then   fill  a report date to open data entry form of the selected event. </para>
           <para>After entering data values into the data entry form, user should click on <emphasis>Run validation</emphasis>  button before clicking on <emphasis>Complete</emphasis> button to check reality of data. The event is  only  completed successfully if all validation is valid.</para>
-          <para><mediaobject>
+          <screenshot>
+            <mediaobject>
               <imageobject>
-                <imagedata width="70" fileref="resources/images/patients_programs/data entry.PNG" format="PNG"/>
+                <imagedata width="70" fileref="resources/images/patients_programs/data_entry.PNG" format="PNG"/>
               </imageobject>
-            </mediaobject></para>
+            </mediaobject>
+          </screenshot>
         </section>
       </section>
       <section>
@@ -704,11 +726,6 @@ The case update  is designed in the same manner so that services which are recei
           <title>Multiple individual records</title>
           <para>The multiple individual records function is where individual data is manually registered in the DHIS database. A list events for each person who enrolled into the selected program after clicking a multi events with registration.</para>
           <para>To access the multiple individual records function, from the <emphasis role="italic">Services</emphasis> menu, go to the <emphasis role="italic">Individual Records</emphasis> option and click on it. Select <emphasis role="italic">Multiple individual records</emphasis> option on left menu to proceed.</para>
-          <para><mediaobject>
-              <imageobject>
-                <imagedata width="70" fileref="resources/images/patients_programs/go_to_multiple_individual_records.PNG" format="PNG"/>
-              </imageobject>
-            </mediaobject></para>
           <para>To start enter data, the first step is to open a list events of person who enrolled a certain program by clicking a program in the list on the main page. Follow these steps:</para>
           <orderedlist>
             <listitem>
@@ -716,64 +733,65 @@ The case update  is designed in the same manner so that services which are recei
               <para>The system loads multi events with registration which belong to the selected organisation unit.</para>
             </listitem>
             <listitem>
-              <para>Select a program in the list. A list events of persons who enrolled into the selected program is shown.</para>
-              <para><mediaobject>
+              <para>Select a program in the list. An event list  of persons who enrolled into the selected program is shown.</para>
+              <screenshot>
+                <mediaobject>
                   <imageobject>
                     <imagedata width="70" fileref="resources/images/patients_programs/choose_org_unit_and_program.PNG" format="PNG"/>
                   </imageobject>
-                </mediaobject></para>
+                </mediaobject>
+              </screenshot>
             </listitem>
             <listitem>
               <para>Click an event to open data entry form.</para>
-              <para><mediaobject>
+              <screenshot>
+                <mediaobject>
                   <imageobject>
                     <imagedata width="70" fileref="resources/images/patients_programs/open_data_entry_form.PNG" format="PNG"/>
                   </imageobject>
-                </mediaobject></para>
-              <para>After filling and selecting data for a form. You have to click on <emphasis>Run validation</emphasis> button to check whether your inputs are valid. Then, click on <emphasis>Complete</emphasis> button to finish the entry. You can click on <emphasis role="italic">Incomplete</emphasis> button after successfully complete to edit the data.</para>
+                </mediaobject>
+              </screenshot>
+              <para>After filling and selecting data for a form. You have to click on <emphasis>Run validation</emphasis> button to check whether your inputs are valid. Then, click on <emphasis>Complete</emphasis> button to finish the entry.</para>
             </listitem>
           </orderedlist>
         </section>
         <section id="single_event_with_registration">
           <title>Single event with registration</title>
           <para>The data to register is defined by a single event with registration program. The functionality supports health providers to register person information and input data values for a program into one form.</para>
-          <para>In order to register an event, from the <emphasis role="italic">Services</emphasis> option, go to the <emphasis role="italic">Individual Records</emphasis> option and click it. Select <emphasis role="italic">Single event with registration</emphasis> option on left menu to proceed.</para>
-          <para>In order to list all persons in the selected facility, click <emphasis role="italic">List All Persons</emphasis> button.</para>
-          <para><mediaobject>
-              <imageobject>
-                <imagedata width="70" fileref="resources/images/patients_programs/go_to_single_event_with_registration.PNG" format="PNG"/>
-              </imageobject>
-            </mediaobject></para>
-          <para>In order to add new event, select a program in the combo box. And then click <emphasis role="italic">Add new</emphasis> button.</para>
-          <para><mediaobject>
+          <para>In order to register an event, from the <emphasis role="italic">Services</emphasis> option, go to the <emphasis role="italic">Individual Records</emphasis> option and click it. Then select <emphasis role="italic">Single event with registration</emphasis> option on left menu to proceed.</para>
+          <para>To list all persons in the selected facility, click <emphasis role="italic">List All Persons</emphasis> button.</para>
+          <para>To add new event, select a program in the combo box. And then click <emphasis role="italic">Add new</emphasis> button.</para>
+          <screenshot>
+            <mediaobject>
               <imageobject>
                 <imagedata width="70" fileref="resources/images/patients_programs/create_new_person_single_event_with_registration.PNG" format="PNG"/>
               </imageobject>
-            </mediaobject></para>
+            </mediaobject>
+          </screenshot>
           <para>To update event of a registered person:</para>
           <orderedlist>
             <listitem>
               <para>Click <emphasis role="italic">Advanced search</emphasis> button. Then enter criterion for searching available persons. The search result is displayed below. User can read the user guide for <emphasis>Advanced search</emphasis> function in <emphasis>Person registration</emphasis> section.</para>
             </listitem>
             <listitem>
-              <para>Click on the first icon to update value for the event.</para>
+              <para>Click on <emphasis role="italic">Data entry</emphasis> icon - the first icon  under <emphasis>Operations</emphasis>, corresponding to the person you would like to edit, to update data values for the event.</para>
             </listitem>
           </orderedlist>
         </section>
         <section id="single_event_without_registration">
           <title>Single event without registration</title>
           <para>The data to register is defined by a single event without registration program.</para>
-          <para>To register an event, from the <emphasis role="italic">Services</emphasis> option, go to the <emphasis role="italic">Name Based Data Records</emphasis> option and click it. Select <emphasis role="italic">Single event without registration</emphasis> option on left menu to proceed.</para>
+          <para>To register an event, from the <emphasis role="italic">Services</emphasis> option, go to the <emphasis role="italic">Individual Records</emphasis> option and click it. Then select <emphasis role="italic">Single event without registration</emphasis> option on left menu to proceed.</para>
           <para>To list all events in the selected facility, click <emphasis role="italic">List All Events</emphasis> button.</para>
           <para>To remove empty events of the selected program, click <emphasis role="italic">Remove empty events</emphasis> button.</para>
           <para>To add new event, click <emphasis role="italic">Add new</emphasis> button.</para>
-          <para>To update an event:</para>
+          <para>To update an event -</para>
           <orderedlist>
             <listitem>
               <para>Click <emphasis role="italic">Advanced search</emphasis> button. Then enter criterion for searching events. The list events are displayed below.</para>
             </listitem>
             <listitem>
-              <para>Click on the first icon to update value for the event.</para>
+              <para>Click on <emphasis role="italic">Data entry</emphasis> icon - the first icon, to update value for the event.</para>
             </listitem>
           </orderedlist>
         </section>
@@ -853,7 +871,7 @@ The case update  is designed in the same manner so that services which are recei
               <para>3) <emphasis role="italic">All</emphasis>: Individual data from both selected organisation unit and its children will be aggregated.</para>
             </listitem>
             <listitem>
-              <para><emphasis role="italic">Show hierachy from level:</emphasis> The level of  organisation units which you want to show. E.g. If an event  belongs to an organisation unit  in district level and this option is selected as province level, the result is shown with the name of province.</para>
+              <para><emphasis role="italic">Show hierarchy from level:</emphasis> The level of  organisation units which you want to show. E.g. If an event  belongs to an organisation unit  in district level and this option is selected as province level, the result is shown with the name of province.</para>
             </listitem>
           </itemizedlist>
           <orderedlist continuation="continues">
@@ -876,16 +894,15 @@ The case update  is designed in the same manner so that services which are recei
               </imageobject>
             </mediaobject>
           </screenshot>
-          <para>To clear filter values, click <emphasis role="italic">Clear fillter</emphasis> button on toolbar.</para>
+          <para>To clear filter values, click <emphasis role="italic">Clear filter</emphasis> button on toolbar.</para>
           <para>To save parameters on the left panel, click <emphasis role="italic">Favorites</emphasis> button on toolbar. The select <emphasis role="italic">Manage favorites</emphasis> option. A form is shown to enter name for favorite and click <emphasis role="italic">Save</emphasis> button.</para>
           <para>To export the result to excel file, click <emphasis role="italic">Download</emphasis> button, select  XLS option.</para>
         </section>
       </section>
       <section id="run_case_aggregation">
         <title>Person aggregation</title>
-        <para><emphasis role="italic">Person Aggregation</emphasis> module is used for aggregating individual data and import into aggregated data element. To open <emphasis>Person Aggregation</emphasis> module, from the <emphasis role="italic">Services</emphasis> menu, go to the <emphasis role="italic">Individual Records</emphasis> option. Select <emphasis role="italic">Person Aggregation</emphasis> option on left menu.  <emphasis>Person Aggregation form</emphasis> is opened as below -</para>
+        <para>The <emphasis role="italic">Person Aggregation</emphasis> module is used for aggregating individual data and import into aggregated data element. To open <emphasis>Person Aggregation</emphasis> module, from the <emphasis role="italic">Services</emphasis> menu, go to the <emphasis role="italic">Individual Records</emphasis> option. Select <emphasis role="italic">Person Aggregation</emphasis> option on left menu.  <emphasis>Person Aggregation form</emphasis> is opened as below -</para>
         <screenshot>
-          <screeninfo>Figure 2.5.4.4</screeninfo>
           <mediaobject>
             <imageobject>
               <imagedata width="70%" fileref="resources/images/patients_programs/person_aggregation_form.png" format="PNG"/>
@@ -902,13 +919,13 @@ The case update  is designed in the same manner so that services which are recei
           </listitem>
           <listitem>
             <para>Select <emphasis role="italic">organisation unit level</emphasis> where person data will be select to aggregate. There are 3 options - </para>
+            <para>- <emphasis role="italic">All</emphasis>: Individual data from both selected organisation unit and its children will be aggregated.</para>
             <para>- <emphasis role="italic">Children only</emphasis>: Individual data from the children of  the selected organisation unit will be aggregated.</para>
             <para>- <emphasis role="italic"> Selected</emphasis>: Individual  data from the selected organisation unit will be aggregated. </para>
-            <para>- <emphasis role="italic">All</emphasis>: Individual data from both selected organisation unit and its children will be aggregated.</para>
           </listitem>
           <listitem>
             <para>Click on the 
-<emphasis role="italic">Aggregate</emphasis> button to execute aggregate function. The <emphasis>Person aggregation result</emphasis>page is opened as below figure -</para>
+<emphasis role="italic">Aggregate</emphasis> button to execute aggregate function. The <emphasis>Person aggregation result</emphasis>page is shown after running successfully.</para>
           </listitem>
         </orderedlist>
         <screenshot>
