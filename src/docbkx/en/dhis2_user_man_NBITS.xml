@@ -659,7 +659,7 @@ The case update  is designed in the same manner so that services which are recei
           <screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata width="70" fileref="resources/images/patients_programs/Change person location and view details.PNG" format="PNG"/>
+                <imagedata width="70" fileref="resources/images/patients_programs/change_person_location_and_view_details.PNG" format="PNG"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -704,6 +704,11 @@ The case update  is designed in the same manner so that services which are recei
           <title>Multiple individual records</title>
           <para>The multiple individual records function is where individual data is manually registered in the DHIS database. A list events for each person who enrolled into the selected program after clicking a multi events with registration.</para>
           <para>To access the multiple individual records function, from the <emphasis role="italic">Services</emphasis> menu, go to the <emphasis role="italic">Individual Records</emphasis> option and click on it. Select <emphasis role="italic">Multiple individual records</emphasis> option on left menu to proceed.</para>
+          <para><mediaobject>
+              <imageobject>
+                <imagedata width="70" fileref="resources/images/patients_programs/go_to_multiple_individual_records.PNG" format="PNG"/>
+              </imageobject>
+            </mediaobject></para>
           <para>To start enter data, the first step is to open a list events of person who enrolled a certain program by clicking a program in the list on the main page. Follow these steps:</para>
           <orderedlist>
             <listitem>
@@ -712,22 +717,43 @@ The case update  is designed in the same manner so that services which are recei
             </listitem>
             <listitem>
               <para>Select a program in the list. A list events of persons who enrolled into the selected program is shown.</para>
+              <para><mediaobject>
+                  <imageobject>
+                    <imagedata width="70" fileref="resources/images/patients_programs/choose_org_unit_and_program.PNG" format="PNG"/>
+                  </imageobject>
+                </mediaobject></para>
             </listitem>
             <listitem>
               <para>Click an event to open data entry form.</para>
+              <para><mediaobject>
+                  <imageobject>
+                    <imagedata width="70" fileref="resources/images/patients_programs/open_data_entry_form.PNG" format="PNG"/>
+                  </imageobject>
+                </mediaobject></para>
+              <para>After filling and selecting data for a form. You have to click on <emphasis>Run validation</emphasis> button to check whether your inputs are valid. Then, click on <emphasis>Complete</emphasis> button to finish the entry. You can click on <emphasis role="italic">Incomplete</emphasis> button after successfully complete to edit the data.</para>
             </listitem>
           </orderedlist>
         </section>
         <section id="single_event_with_registration">
           <title>Single event with registration</title>
           <para>The data to register is defined by a single event with registration program. The functionality supports health providers to register person information and input data values for a program into one form.</para>
-          <para>In order to register an event, from the <emphasis role="italic">Services</emphasis> option, go to the <emphasis role="italic">Name Based Data Records</emphasis> option and click it. Select <emphasis role="italic">Single event with registration</emphasis> option on left menu to proceed.</para>
+          <para>In order to register an event, from the <emphasis role="italic">Services</emphasis> option, go to the <emphasis role="italic">Individual Records</emphasis> option and click it. Select <emphasis role="italic">Single event with registration</emphasis> option on left menu to proceed.</para>
           <para>In order to list all persons in the selected facility, click <emphasis role="italic">List All Persons</emphasis> button.</para>
+          <para><mediaobject>
+              <imageobject>
+                <imagedata width="70" fileref="resources/images/patients_programs/go_to_single_event_with_registration.PNG" format="PNG"/>
+              </imageobject>
+            </mediaobject></para>
           <para>In order to add new event, select a program in the combo box. And then click <emphasis role="italic">Add new</emphasis> button.</para>
+          <para><mediaobject>
+              <imageobject>
+                <imagedata width="70" fileref="resources/images/patients_programs/create_new_person_single_event_with_registration.PNG" format="PNG"/>
+              </imageobject>
+            </mediaobject></para>
           <para>To update event of a registered person:</para>
           <orderedlist>
             <listitem>
-              <para>Click <emphasis role="italic">Advanced search</emphasis> button. Then enter criterion for searching available persons. The seach result is displayed below.</para>
+              <para>Click <emphasis role="italic">Advanced search</emphasis> button. Then enter criterion for searching available persons. The search result is displayed below. User can read the user guide for <emphasis>Advanced search</emphasis> function in <emphasis>Person registration</emphasis> section.</para>
             </listitem>
             <listitem>
               <para>Click on the first icon to update value for the event.</para>
