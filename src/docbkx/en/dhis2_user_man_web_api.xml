@@ -109,6 +109,102 @@
     </table>
   </section>
   <section>
+    <title>Working with the meta-data API</title>
+    <para>With the release of 2.9, a special entry point for meta-data was added in the API, this
+      can be accessed through <emphasis role="bold">/api/metaData</emphasis>. This section will give
+      a basic introduction to working with this API, for specific synchronization issues, please see
+      INTEGRATION_CHAPTER.</para>
+    <para>By default, talking to <emphasis role="bold">/api/metaData</emphasis> will give you
+      everything, rendered as XML. But just as we can define what we want in the general API, we can
+      also do that with <emphasis role="bold">/api/metaData</emphasis>.</para>
+    <para>
+      <table frame="all">
+        <title>Available Content-Types</title>
+        <tgroup cols="2">
+          <colspec colname="c1" colnum="1" colwidth="1*"/>
+          <colspec colname="c2" colnum="2" colwidth="4.16*"/>
+          <thead>
+            <row>
+              <entry>Content-Type</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry><emphasis role="italic">application/xml</emphasis></entry>
+              <entry>Returns the meta-data in XML representation</entry>
+            </row>
+            <row>
+              <entry><emphasis role="italic">application/json</emphasis></entry>
+              <entry>Returns the meta-data in JSON representation</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </para>
+    <para>
+      <table frame="all">
+        <title>Available Query Filters</title>
+        <tgroup cols="3">
+          <colspec colname="c1" colnum="1" colwidth="1*"/>
+          <colspec colname="c2" colnum="2" colwidth="1.4*"/>
+          <colspec colname="c3" colnum="3" colwidth="2.6*"/>
+          <thead>
+            <row>
+              <entry>Option</entry>
+              <entry>Values</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>assumeTrue</entry>
+              <entry>true/false (default true)</entry>
+              <entry>If you don't want everything that <emphasis role="bold"
+                  >/api/metaData</emphasis> gives you by default, when set to false, this option
+                will not return anything by default. You have to enable the resources you want
+                yourself (see below).</entry>
+            </row>
+            <row>
+              <entry>{resources}</entry>
+              <entry>true/false (default depending on assumeTrue)</entry>
+              <entry>Please see <emphasis role="bold">/api</emphasis> for available resources. This
+                option will allow you to override the default (which is taken from assumeTrue) and
+                further refine what meta-data you want.</entry>
+            </row>
+            <row>
+              <entry>lastUpdated</entry>
+              <entry>Three date formats are supported:<orderedlist>
+                  <listitem>
+                    <para><emphasis role="bold">YEAR</emphasis></para>
+                  </listitem>
+                  <listitem>
+                    <para><emphasis role="bold">MONTH/YEAR</emphasis></para>
+                  </listitem>
+                  <listitem>
+                    <para><emphasis role="bold">DAY/MONTH/YEAR</emphasis>
+                    </para>
+                  </listitem>
+                </orderedlist></entry>
+              <entry>Filters the meta-data based on the lastUpdated field, this allows you to
+                synchronize meta-data as a nightly job, without downloading everything from the
+                server.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </para>
+  </section>
+  <section>
+    <title>Example: Get a filtered set of meta-data</title>
+    <para>As described in the last section, there is a number of options you can apply to <emphasis
+        role="bold">/api/metaData</emphasis> to give you a filtered view. The use-case we will be
+      looking into here, is the case where you want a nightly job that synchronizes organisation
+      units. We will be using <emphasis role="italic">cURL</emphasis> as the HTTP
+      client.<screen>curl -H "Accept: application/xml" -u user:pass
+    {HOST}/api/metaData?assumeTrue=false&amp;organisationUnits=true&amp;lastUpdated=01/08/2012</screen></para>
+  </section>
+  <section>
     <title>Example: Sending data values</title>
     <para>A common use-case for system integration is the need to send a set of data values from a third-party system into DHIS. In this example we will use the DHIS 2 demo on <ulink url="http://apps.dhis2.org/demo"/> as basis and we recommend that you follow the provided links with a web browser while reading (log in with <emphasis role="italic">admin</emphasis><emphasis role="italic">/district</emphasis> as username/password). We assume that we have collected case-based data using a simple software client running on mobile phones for the  <emphasis role="italic">Mortality &lt;5 years</emphasis> data set in the community of <emphasis role="italic">Ngelehun CHC</emphasis> (in <emphasis role="italic">Badjia</emphasis> chiedom, <emphasis role="italic">Bo</emphasis> district) for the month of January 2012. We have now aggregated our data into a statistical report and want to send that data to the national DHIS 2 instance.</para>
     <para>The entry point for the Web API running on the demo instance is <ulink url="http://apps.dhis2.org/demo/api"/>. The entry point provides a convenient HTML page with links to all of the available resources in the Web API. The resource which is most appropriate for our purpose of sending data values is the <emphasis role="italic">dataValueSets</emphasis> resource. A data value set represents a set of data values which have a logical relationship, usually from being captured off  the same data entry form. We follow the link to the HTML representation which will take us to <ulink url="http://apps.dhis2.org/demo/api/dataValueSets"/>. The default representation is a HTML page which provides us with  useful instructions on how to interact with this resources. It tells us that we can use the POST verb to send values using a XML format defined by the <emphasis role="italic">http://dhis2.org/schema/dxf/2.0</emphasis> namespace:</para>
