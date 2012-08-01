@@ -35,7 +35,7 @@
     <table>
       <title>Period format</title>
       <tgroup cols="4">
-        <tbody>
+        <thead>
           <row>
             <entry>
               <emphasis role="italic">Interval</emphasis>
@@ -49,7 +49,9 @@
             <entry>
               <emphasis role="italic">Description</emphasis>
             </entry>
-          </row>
+          </row>          
+        </thead>
+        <tbody>
           <row>
             <entry>Day</entry>
             <entry>yyyyMMdd</entry>
@@ -121,17 +123,19 @@
       <table>
         <title>Available Content-Types</title>
         <tgroup cols="2">
+          <thead>
+            <row>
+              <entry><emphasis role="italic">Content-Type</emphasis></entry>
+              <entry><emphasis role="italic">Description</emphasis></entry>
+            </row>
+          </thead>
           <tbody>
             <row>
-              <entry>Content-Type</entry>
-              <entry>Description</entry>
-            </row>
-            <row>
-              <entry><emphasis role="italic">application/xml</emphasis></entry>
+              <entry>application/xml</entry>
               <entry>Returns the meta-data in XML representation</entry>
             </row>
             <row>
-              <entry><emphasis role="italic">application/json</emphasis></entry>
+              <entry>application/json</entry>
               <entry>Returns the meta-data in JSON representation</entry>
             </row>
           </tbody>
@@ -142,7 +146,7 @@
     <table>
       <title>Available Query Filters</title>
       <tgroup cols="5">
-        <tbody>
+        <thead>
           <row>
             <entry>
               <emphasis role="italic">Param</emphasis>
@@ -159,7 +163,9 @@
             <entry>
               <emphasis role="italic">Description</emphasis>
             </entry>
-          </row>
+          </row>          
+        </thead>
+        <tbody>
           <row>
             <entry>assumeTrue</entry>
             <entry>boolean</entry>
@@ -270,7 +276,7 @@
     <table>
       <title>Import parameters</title>
       <tgroup cols="3">
-        <tbody>
+        <thead>
           <row>
             <entry>
               <emphasis role="italic">Parameter</emphasis>
@@ -281,7 +287,9 @@
             <entry>
               <emphasis role="italic">Description</emphasis>
             </entry>
-          </row>
+          </row>          
+        </thead>
+        <tbody>
           <row>
             <entry>dataElementIdScheme</entry>
             <entry>uid | name | code</entry>
@@ -321,7 +329,7 @@
     <table>
       <title>Data value set query parameters</title>
       <tgroup cols="2">
-        <tbody>
+        <thead>
           <row>
             <entry>
               <emphasis role="italic">Parameter</emphasis>
@@ -329,7 +337,9 @@
             <entry>
               <emphasis role="italic">Description</emphasis>
             </entry>
-          </row>
+          </row>          
+        </thead>
+        <tbody>
           <row>
             <entry>dataSet</entry>
             <entry>Data set identifier</entry>
@@ -483,7 +493,7 @@ Ext.onReady( function() {
     <table>
       <title>Visualizer chart plugin configuration</title>
       <tgroup cols="5">
-        <tbody>
+        <thead>
           <row>
             <entry>
               <emphasis role="italic">Param</emphasis>
@@ -500,7 +510,9 @@ Ext.onReady( function() {
             <entry>
               <emphasis role="italic">Description</emphasis>
             </entry>
-          </row>
+          </row>          
+        </thead>
+        <tbody>
           <row>
             <entry>uid</entry>
             <entry>string</entry>
@@ -738,7 +750,7 @@ Ext.onReady( function() {
     <table>
       <title>Table plugin configuration</title>
       <tgroup cols="5">
-        <tbody>
+        <thead>
           <row>
             <entry>
               <emphasis role="italic">Param</emphasis>
@@ -755,7 +767,9 @@ Ext.onReady( function() {
             <entry>
               <emphasis role="italic">Description</emphasis>
             </entry>
-          </row>
+          </row>          
+        </thead>
+        <tbody>
           <row>
             <entry>indicators</entry>
             <entry>[string]</entry>
@@ -868,7 +882,7 @@ DHIS.getTable({
     <table>
       <title>Link plugin (additional) configuration</title>
       <tgroup cols="5">
-        <tbody>
+        <thead>
           <row>
             <entry>
               <emphasis role="italic">Param</emphasis>
@@ -885,7 +899,9 @@ DHIS.getTable({
             <entry>
               <emphasis role="italic">Description</emphasis>
             </entry>
-          </row>
+          </row>          
+        </thead>
+        <tbody>
           <row>
             <entry>format</entry>
             <entry>string</entry>
