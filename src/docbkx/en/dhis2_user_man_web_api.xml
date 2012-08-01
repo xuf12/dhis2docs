@@ -118,18 +118,14 @@
       everything, rendered as XML. But just as we can define what we want in the general API, we can
       also do that with <emphasis role="bold">/api/metaData</emphasis>.</para>
     <para>
-      <table frame="all">
+      <table>
         <title>Available Content-Types</title>
         <tgroup cols="2">
-          <colspec colname="c1" colnum="1" colwidth="1*"/>
-          <colspec colname="c2" colnum="2" colwidth="4.16*"/>
-          <thead>
+          <tbody>
             <row>
               <entry>Content-Type</entry>
               <entry>Description</entry>
             </row>
-          </thead>
-          <tbody>
             <row>
               <entry><emphasis role="italic">application/xml</emphasis></entry>
               <entry>Returns the meta-data in XML representation</entry>
@@ -143,38 +139,50 @@
       </table>
     </para>
     <para>
-      <table frame="all">
-        <title>Available Query Filters</title>
-        <tgroup cols="3">
-          <colspec colname="c1" colnum="1" colwidth="1*"/>
-          <colspec colname="c2" colnum="2" colwidth="1.4*"/>
-          <colspec colname="c3" colnum="3" colwidth="2.6*"/>
-          <thead>
-            <row>
-              <entry>Option</entry>
-              <entry>Values</entry>
-              <entry>Description</entry>
-            </row>
-          </thead>
-          <tbody>
-            <row>
-              <entry>assumeTrue</entry>
-              <entry>true/false (default true)</entry>
-              <entry>If you don't want everything that <emphasis role="bold"
-                  >/api/metaData</emphasis> gives you by default, when set to false, this option
-                will not return anything by default. You have to enable the resources you want
-                yourself (see below).</entry>
-            </row>
-            <row>
-              <entry>{resources}</entry>
-              <entry>true/false (default depending on assumeTrue)</entry>
-              <entry>Please see <emphasis role="bold">/api</emphasis> for available resources. This
-                option will allow you to override the default (which is taken from assumeTrue) and
-                further refine what meta-data you want.</entry>
-            </row>
-            <row>
-              <entry>lastUpdated</entry>
-              <entry>Three date formats are supported:<orderedlist>
+    <table>
+      <title>Available Query Filters</title>
+      <tgroup cols="5">
+        <tbody>
+          <row>
+            <entry>
+              <emphasis role="italic">Param</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Type</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Required</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Options (default first)</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Description</emphasis>
+            </entry>
+          </row>
+          <row>
+            <entry>assumeTrue</entry>
+            <entry>boolean</entry>
+            <entry>false</entry>
+            <entry>true/false</entry>
+            <entry>If you don't want everything that <emphasis role="bold">/api/metaData</emphasis> gives you by default, when set to false, this option
+                will not return anything by default. You have to enable the resources you want yourself (see below).
+            </entry>
+          </row>
+          <row>
+            <entry>{resources}</entry>
+            <entry>boolean</entry>
+            <entry>false</entry>
+            <entry>true/false (default depends on assumeTrue)</entry>
+            <entry>Please see <emphasis role="bold">/api</emphasis> for available resources. This option will allow you to override the default
+              (which is taken from assumeTrue) and further refine what meta-data you want.
+            </entry>
+          </row>
+          <row>
+            <entry>lastUpdated</entry>
+            <entry>date</entry>
+            <entry>false</entry>
+            <entry>Three date formats are supported:<orderedlist>
                   <listitem>
                     <para><emphasis role="bold">YEAR</emphasis></para>
                   </listitem>
@@ -185,24 +193,32 @@
                     <para><emphasis role="bold">DAY/MONTH/YEAR</emphasis>
                     </para>
                   </listitem>
-                </orderedlist></entry>
-              <entry>Filters the meta-data based on the lastUpdated field, this allows you to
-                synchronize meta-data as a nightly job, without downloading everything from the
-                server.</entry>
-            </row>
-          </tbody>
-        </tgroup>
-      </table>
+                </orderedlist>
+            </entry>
+            <entry>Filters the meta-data based on the lastUpdated field, this allows you to synchronize meta-data as a nightly job,
+              without downloading everything from the server.
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+   </para>
+    <para>
+      <emphasis role="bold">Example: Get a filtered set of meta-data that was updated since August
+        1st 2012</emphasis>
     </para>
-  </section>
-  <section>
-    <title>Example: Get a filtered set of meta-data</title>
     <para>As described in the last section, there is a number of options you can apply to <emphasis
         role="bold">/api/metaData</emphasis> to give you a filtered view. The use-case we will be
       looking into here, is the case where you want a nightly job that synchronizes organisation
       units. We will be using <emphasis role="italic">cURL</emphasis> as the HTTP
       client.<screen>curl -H "Accept: application/xml" -u user:pass
     {HOST}/api/metaData?assumeTrue=false&amp;organisationUnits=true&amp;lastUpdated=01/08/2012</screen></para>
+    <para><emphasis role="bold">Example: Get meta-data that was updated since february
+        2012</emphasis></para>
+    <para>This example will just the default <emphasis role="italic">assumeTrue</emphasis> setting,
+      along with getting the last updates from february 2012. This means that every single type that
+      has been updated will be
+      retrieved.<screen>curl -H "Accept: application/xml" -u user:pass {HOST}/api/metaData?lastUpdated=02/2012</screen></para>
   </section>
   <section>
     <title>Example: Sending data values</title>
