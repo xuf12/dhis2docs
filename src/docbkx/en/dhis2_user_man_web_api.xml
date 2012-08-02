@@ -745,8 +745,40 @@ Ext.onReady( function() {
     <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/chart.html"/>.</para>
   </section>
   <section>
+    <title>Example: Creating a chart carousel with the carousel plugin</title>
+    <para>The chart plugin also makes it possible to create a chart carousel which for instance can be used to create an attractive front page on a Web portal. To use the carousel we need to import a few  files in the head section of our HTML page:</para>
+    <screen>
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/ext/resources/css/ext-plugin-gray.css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/ext-ux/carousel/css/carousel.css&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://extjs-public.googlecode.com/svn/tags/extjs-4.0.7/release/ext-all.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/ext-ux/carousel/Carousel.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/plugin/plugin.js&quot;&gt;&lt;/script&gt;</screen>
+    <para>The first file is the CSS stylesheet for the chart plugin. The second file is the CSS stylesheet for the carousel widget. The third file is the Ext javascript framework which this plugin depends on. The fourth file is the carousel plugin javascript file. The fifth file is the chart plugin javascript file. The paths in this example points at the DHIS 2 demo site, make sure you update them to point to your own DHIS 2 installation.</para>
+    <para>Please refer to the section about the chart plugin on how to do authentication.</para>
+    <para>To create a chart carousel we will first render the charts we want to include in the carousel using the method described in the chart plugin section. Then we create the chart carousel itself. The charts will be rendered into <emphasis role="italic">div</emphasis> elements which all have a CSS class called <emphasis role="italic">chart</emphasis>. In the carousel configuration we can then define a <emphasis role="italic">selector</emphasis> expression which refers to those div elements like this:</para>
+    <screen>DHIS.getChart({ uid: &apos;R0DVGvXDUNP&apos;, el: &apos;chartA1&apos;, url: base });
+DHIS.getChart({ uid: &apos;X0CPnV6uLjR&apos;, el: &apos;chartA2&apos;, url: base });
+DHIS.getChart({ uid: &apos;j1gNXBgwKVm&apos;, el: &apos;chartA3&apos;, url: base });
+DHIS.getChart({ uid: &apos;X7PqaXfevnL&apos;, el: &apos;chartA4&apos;, url: base });
+
+new Ext.ux.carousel.Carousel( &apos;chartCarousel&apos;, {
+  autoPlay: true,
+  itemSelector: &apos;div.chart&apos;,
+  interval: 5,
+  showPlayButton: true
+});</screen>
+    <para>The first argument in the configuration is  the id of the div element in which you want to render the carousel. The <emphasis role="italic">autoPlay</emphasis> configuration option refers to whether we want the carousel to start when the user loads the Web page. The <emphasis role="italic">interval</emphasis> option defines how many seconds each chart should be displayed. The <emphasis role="italic">showPlayButton</emphasis> defines whether we want to render a button for the user to start and stop the carousel. Finally we need to insert the div elements in the body of the HTML document:</para>
+    <screen>&lt;div id=&quot;chartCarousel&quot;&gt;
+
+&lt;div id=&quot;chartA1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;chartA2&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;chartA3&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;chartA4&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;</screen>
+    <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/carousel.html"/>.</para>
+  </section>
+  <section>
     <title>Example: Embedding report tables with the table plugin</title>
-    <para>In this example we will see how we can embed dynamic data tables in a Web page with data provided from a DHIS back-end server using the table plugin. The table plugin resides inside the same file as the chart plugin so please refer to the above section on how to include the required javascript and CSS files and how to do authentication. The available table options are listed in the table below.</para>
+    <para>In this example we will see how we can embed dynamic data tables in a Web page with data provided from a DHIS back-end server using the table plugin. The table plugin resides inside the same file as the chart plugin so please refer to the  section about the chart plugin  above on how to include the required javascript and CSS files and how to do authentication. The available table options are listed in the table below.</para>
     <table>
       <title>Table plugin configuration</title>
       <tgroup cols="5">
