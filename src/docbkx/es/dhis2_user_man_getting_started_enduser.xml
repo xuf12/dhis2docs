@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<chapter>
+  <title>Comenzando con DHIS 2 como usuario</title>
+  <section>
+    <title>Comenzando con DHIS 2</title>
+    <para>Después de leer este capítulo sabremos:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Cómo abrir la aplicación DHIS 2</para>
+      </listitem>
+      <listitem>
+        <para>Cómo entrar y cómo salir de la aplicación de forma segura</para>
+      </listitem>
+      <listitem>
+        <para>Cómo navegar por la aplicación y acceder a sus diferentes funciones</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section>
+    <title>Abrir DHIS 2</title>
+    <para>DHIS 2 es una aplicación web, y por lo tanto, podremos acceder a ella desde un navegador web mientras dispongamos de conexión a Internet en nuestra computadora. Recomendamos utilizar Google Chrome (que puedes descargar en este enlace: http://www.google.com/chrome). </para>
+    <para>Abre el navegador web e introduce la dirección URL de la aplicación DHIS 2 en la barra de direcciones (pregunta a tu equipo de soporte cuál es la dirección que te corresponde).</para>
+    <para>A continuación aparecerá la pantalla de acceso de DHIS 2 donde podrás entrar con tu nombre de usuario y contraseña.</para>
+  </section>
+  <section>
+    <title>Entrar y salir de la aplicación</title>
+    <para>Cuando aparece la pantalla azul de logueo en tu navegador, deberás introducir el nombre de usuario y contraseña que te han proporcionado. Si el logueo no prospera, verás un mensaje de error que indica que el nombre de usuario o la contraseña introducida son incorrectos, y se te pedirá que vuelvas a escribir las credenciales. Una vez te hayas logueado correctamente, aparecerá en la pantalla el DHIS Dashboard (o panel de mandos) donde podrás comenzar inmediatamente a monitorear los datos más recientes en las gráficas preconfiguradas y podrás acceder a tus sitios DHIS favoritos (reportes, mapas, etc).</para>
+    <para>Cuando finalices tu sesión en DHIS 2 recomendamos que salgas de forma segura deslogueándote, antes de cerrar el navegador. Para ello, utiliza el enlace que dice "Salir" en la esquina superior derecha y entonces el navegador volverá a mostrarte la pantalla azul de logueo.</para>
+    <screenshot>
+      <screeninfo>Pantalla de logueo</screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="100%" fileref="resources/images/dhis2UserManual/login_screen.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </section>
+  <section>
+    <title>Explorando la aplicación</title>
+    <para>La aplicación DHIS2 tiene dos menús: una barra de menú superior que enlaza con los diversos módulos, y un menú lateral (en el lado izquierdo) en la mayoría de los módulos qeu permite explorar las diferentes características dentro de cada módulo.</para>
+    <para>El símbolo DHIS 2 que aparece en la esquina superior izquierda es un enlace directo a la página de inicio predefinida por el usuario. Generalmente se configura como página de inicio el módulo de Dashboard (panel de mandos).</para>
+    <para>En la esquina superior derecha, en el extremo del menú superior, encontramos el botón de "Salir" para salir de la aplicación de forma segura.</para>
+    <section>
+      <title>Menú Superior - Acceso a los módulos</title>
+      <para>The DHIS consists of various modules (major components) which each have specific features, such as data entry, reporting, dashboard. You can access these modules from the top menu either under Maintenance or Services. Maintenance is mostly used by system administrators that maintain the application and might not be visible. Services is where you will find the more operational features like data entry, data quality and reporting. Under the top menu item Help you can access the built-in user manual, update your user details, or view information about the running DHIS application.</para>
+      <para>To move to a new module you need to move the mouse pointer to one of the top menu items; Maintenance, Services, or Help. Then a submenu with modules will appear. Click on the module you would like to open.</para>
+    </section>
+    <section>
+      <title>Explorando dentro de los módulos</title>
+      <para>When you open most of the  modules you will see the module main page which lists the major submodules or features in the middle of the screen with a short description. Simply click on the feature you would like to open.</para>
+      <para>When inside a module you will always see the left side menu with links to its features. Use this menu to jump between features.</para>
+      <para>The data entry and dashboard modules do not have a menu system as they only contain one feature, everything is in one page, so no need for a menu there. </para>
+      <screenshot>
+        <screeninfo>Sistema de menús</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="100%" fileref="resources/images/dhis2UserManual/menu_system.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </section>
+  </section>
+</chapter>

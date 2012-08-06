@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
+<chapter>
+  <title id="dashboards">Dashboards</title>
+  <para>Dashboards are intended to provide quick access to individual users to the data which has been stored in DHIS2. Dashboards consist of several sections, some of which provide links to reports or mapview which have already been defined. Other sections of the dashboard allow users to add charts which have been defined and made available through the charting module. </para>
+  <section id="dashboards_setup">
+    <title>Setting up the dashboard</title>
+    <para>The dashboard is divided into two main sections. The right-side pane (denoted as A in the screenshot below) can be used to contain links to reports, documents (static reports), report tables, map views, and an RSS Health feed. The left-side zone (denoted as B in the screen shot)  can be used to contain up to six separate charts which have been previously created in the charting reporting module. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="90%" align="center" fileref="resources/images/dashboard/dashboard_main.png"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>In this screen shot, the dashboard has already been populated with a number of reports and mapviews. Simply clicking on one of the blue links will bring you automatically to the report or map view. Clicking on one of the charts will display a larger chart, which you can save as an image, and include in a report or other document. </para>
+    <para>You can redefine the structure of the dashboard by clearing the each of the windows by clicking the &quot;Clear&quot; link. By clicking &quot;Insert&quot; again, you can then select a new chart to appear in the window. </para>
+    <para>All reports, documents, report tables and charts can be added to the list of available options by clicking on the &quot;Add to dashboard&quot; icon <inlinegraphic fileref="resources/images/dhis2_images/add_to_dashboard.png"/> in each of the respective modules. Please refer to the sections to each of the sections in this manual for more detailed instructions. Once you have added the object to the list of available objects, you can&quot;Insert&quot; it on the dashboard.</para>
+    <note>
+      <para>Dashboard are configured for each individual user. </para>
+    </note>
+  </section>
+  <section>
+    <title id="dashboard_messages">Messages and feedback</title>
+    <para>DHIS2 has certain functions to facilitate communication between different users and user groups. This type of communication is important to facilitate feedback regarding data quality,  timeliness of submissions, or to simply answer a question which a particular user may have. </para>
+    <para>Feedback messages are sent to a particular group of users and can be sent by all users who have access to the dashboard module. In order to enable the receipt of feedback messages sent from the dashboard, you must set the system setting &quot;Feedback recipients&quot; which is available from the Maintenance-&gt;System settings dialog. Be sure to define a user group (e.g &quot;Feedback recipients&quot;) with all of the users who should receive feedback messages. Refer to the section in this manual on &quot;User groups&quot; for more information of how to do this. Once the &quot;Feedback recipients&quot; user group has been defined, each time a feedback message is sent, it will appear as a message in each of the &quot;Feedback recipients&quot; message queue within DHIS2. Note that messages will not be sent to  users email addresses, but will only appear within the DHIS2 application. </para>
+    <para>To send a new feedback message, simply select &quot;Write feedback&quot; from the dashboard. Provide a subject and text in the respective text boxes. The message will appear in all of the specified users message queue. </para>
+    <para>Messages can be sent to specific groups of users who have been assigned to particular organisation units. To write a new message, simply click &quot;Messages&quot; from the dashboard screen and then press the &quot;Write message&quot; button.. Select an organisation unit (or group of organisation units) from the &quot;Recipients&quot; organisational unit tree. Provide a Subject and Text. To send the message, press the &quot;Send&quot; button. You can discard the message by pressing the &quot;Discard&quot; button as seen in the screenshot below.</para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="90%" align="center" fileref="resources/images/dashboard/dashboard_messages.png"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>To read messages which have been sent to you, select &quot;Messages&quot; from the &quot;Dashboard&quot; . You messages will be displayed as a list. Click the desired message to read all of the messages in this particular conversation. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="100%" align="center" fileref="resources/images/dashboard/dashboard_message_queue.png"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </section>
+</chapter>
