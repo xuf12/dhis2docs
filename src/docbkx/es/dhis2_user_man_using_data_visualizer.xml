@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
-  <title>Using Data Visualizer</title>
+  <title>Utilizando el Visualizador de Datos</title>
   <section id="dvIntro">
-    <title>Data Visualizer overview</title>
+    <title>Un vistazo al Visualizador de Datos</title>
     <para>The data visualizer module enables users to easily create dynamic data analysis and visualizations through charts and data tables.  You can freely select content (like indicators, periods and organisation units) for your analysis. This module can be accessed by going to &quot;Services - Data Visualizer&quot; in the main menu. The image below shows the viewport of the module. For a quick start:</para>
     <orderedlist>
       <listitem>
@@ -27,7 +27,7 @@
     </screenshot>
   </section>
   <section id="dvChartTypes">
-    <title>Selecting chart type</title>
+    <title>Seleccionando el tipo de gráfica</title>
     <para>The visualizer module provides seven different chart types, each with different characteristics. You can select the type of your chart by clicking on one of the icons  in  top left bar titled &quot;Chart type&quot;.</para>
     <orderedlist>
       <listitem>
@@ -54,7 +54,7 @@
     </orderedlist>
   </section>
   <section id="dvSeriesCategoryFilter">
-    <title>Selecting series, category and filter</title>
+    <title>Seleccionando series, categorías y filtros</title>
     <para>This section lets you define which dimension of the data you want to appear as series, category and filter. This asks for a closer explanation. Dimension in this regard refers to the elements which describe the data values in the system. We have three main dimensions in the system:</para>
     <orderedlist>
       <listitem>
@@ -90,29 +90,29 @@
     </orderedlist>
   </section>
   <section>
-    <title>Selecting indicators and data elements</title>
+    <title>Seleccionando indicadores y elementos de datos</title>
     <para>The visualizer module can display any number of indicators and data elements in a chart and data table. Both indicators and data elements can be selected and appear together in the same chart. You can select indicators by clicking at the &quot;Indicators&quot; header  and selecting an indicator group from the list of groups below it. This will make the indicators in the selected group appear in the list under &quot;Available indicators&quot; to the left. From that list you can double click on any indicator in order to select it, this will move it to the list under &quot;Selected indicators&quot;. Alternatively you can mark one or more indicators and click the single-arrow button. To select all indicators you simply click on the double-arrow button. To deselect indicators you can do correspondingly in the &quot;Selected indicators&quot; list.</para>
     <para>To select data elements click on the &quot;Data elements&quot; header. The same principle for selecting and deselecting applies as for indicators.</para>
   </section>
   <section>
-    <title>Selecting reporting rates</title>
+    <title>Seleccionando tasas de reporte</title>
     <para>The visualizer can display reporting rates in a chart, by itself or together with indicators and data elements. Reporting rates can be selected by clicking at the &quot;Reporting rates&quot; header. Reporting rates are defined by data sets. It can be selected by double-clicking in the list of available data sets to the left.</para>
   </section>
   <section>
-    <title>Selecting relative periods</title>
+    <title>Seleccionando periodos relativos</title>
     <para>To select relative periods click on the &quot;Relative periods&quot; header. You can select any number of periods from the set of periods listed under the header, such as &quot;Last month&quot;, &quot;Months this year&quot; and &quot;Last 5 years&quot;. The names should be fairly self-descriptive. All periods are relative to the current date, meaning that if the current month is March and you select &quot;Last month&quot;, the month of February will be included in the chart.</para>
   </section>
   <section>
-    <title>Selecting fixed periods</title>
+    <title>Seleccionando periodos permanentes</title>
     <para>To select fixed periods click on the &quot;Fixed periods&quot; header and select a period type from the combo box. You can select any number of fixed periods from any period type. You are free to combine fixed periods and relative periods in the same chart. Overlapping periods will be filtered so that they only appear once.</para>
   </section>
   <section>
-    <title>Selecting organisation units</title>
+    <title>Seleccionando unidades organizativas</title>
     <para>You can select which organisation units to include in the chart by clicking the &quot;Organisation units&quot; header. This section features a tree including all organisatiton units in the system. You can select any of the organisation units by clicking them. If you want to select multiple, arbitrary organisation units you can press the Ctrl button and then click away in the tree. If you want to include all organisation units existing directly under a specific organisation unit (the children of the parent organisation unit in other terms) you can right-click on the organisation unit and select &quot;Select all children&quot;. You can also automatically select all organisation units in a particular organisation unit group. Click the &quot;Group&quot; button on the far right of the toolbar above the tree and select a group in the drop down list.</para>
     <para>This panel also features two checkboxes. Checking &quot;User organisation unit&quot; will disable the organisation unit tree and give you the organisation unit that is related to the current/logged in user instead. This is also useful for administrators as they can create a meaningful &quot;system&quot; favorite with this option checked and all users will find their respective organisation unit when they open it. The the same concept goes for the &quot;User organisation unit children&quot; checkbox.</para>
   </section>
   <section>
-	<title>Selecting organisation unit groups</title>
+	<title>Seleccionando grupos de unidades organizativas</title>
 	<para>You can break down the national level into organisation unit groups by simply selecting a group set in the combo box. The groups in the selected group set will replace any selected organisation units in the organisation unit panel.</para>
   </section>
   <section>
@@ -152,13 +152,13 @@
     </itemizedlist>
   </section>
   <section id="dvDisplayChart">
-    <title>Displaying a chart</title>
+    <title>Mostrando una gráfica</title>
     <para>You can display a chart based on your selections simply by clicking the &quot;Update&quot; button on the top centre menu. This requires that you have selected one or more elements from all of the three dimensions - data (indicators, data elements, reporting rates), periods (relative, fixed) and organisation units (units or groups). Note that &quot;Months this year&quot; from the period dimension and the root organisation unit are selected by default.</para>
     <para>Notice that you can hide and show individual data series in the chart by clicking directly on the series label in the chart - they appear either at the top or to the right of the chart.</para>
     <para>If you want to give the chart more space on your screen you can click on the triple left-arrow button on the top centre menu. This will collapse the left side menu. You can get this menu back by clicking on the same button again.</para>
   </section>
   <section id="dvDisplayDataTable">
-    <title>Displaying a data table</title>
+    <title>Mostrando una tabla de datos</title>
     <para>After you have rendered a chart you can display the data in a table by clicking on the &quot;Data table&quot; button on the top centre menu (next to &quot;Update&quot;). This will show a table with four columns, one for data (meaning data element or indicator), period, organisation unit and data value. This table can be sorted ascending or descending on any of the columns.</para>
     <screenshot>
       <screeninfo>Example chart illustrating the concepts of series, categories and filter.</screeninfo>
@@ -170,11 +170,11 @@
     </screenshot>
   </section>
   <section id="dvSaveChart">
-    <title>Downloading chart as image or PDF</title>
+    <title>Descargando una gráfica como imagen o PDF</title>
     <para>After you have rendered a chart you can save that view as file and download it to your local computer by clicking on &quot;Save as&quot; on the top centre menu. You can select between PNG (image) or PDF. The file will be automatically downloaded to your computer - for instance can you now embed the image file into a text document as part of a report.</para>
   </section>
   <section id="dvFavorites">
-    <title>Saving chart as favorite</title>
+    <title>Guardando una gráfica como favorita</title>
     <para>Once you have rendered a chart you can save it as a favorite. Click on the &quot;Favorites&quot; button on the top menu and then on the &quot;Manage favorites&quot; link. In the name field enter the desired name for your chart. By ticking the &quot;System&quot; checkbox the chart will be visible to all users of the system, if you do not tick it the chart will be visible only to yourself. This requres that your user account has the privilege to create system charts.  You can rename any favorite by selecting it in the list, modifying its name in the name input field and clicking &quot;Rename&quot;. You can delete any favorite by selecting it and then clicking &quot;Delete&quot;.</para>
     <para>These favorite charts can later be included on your personal dashboard. After saving you can navigate to the dashboard module, click on the &quot;Insert&quot; link over the chart areas and select your preferred chart.</para>
     <screenshot>
@@ -187,11 +187,11 @@
     </screenshot>
   </section>
   <section id="dvInterpretations">
-    <title>Sharing interpretations</title>
+    <title>Compartiendo interpretaciones de los datos</title>
     <para>For certain analysis-related resources in DHIS, like charts and report tables, one can share a data interpretation. An interpretation is simply a link to the the relevant resource together with a text expressing some insight about the data. If you want to share a chart interpretation you need to first save the chart you want to share as a favorite. Then, without making any changes to the chart, click the &quot;Share&quot; button the toolbar. A window will open up and this is where you write your interpretation. When you are done, click share button in the bottom right corner of the window. The window will close automatically and if the interpretation was shared successfully you will find a notification on the bottom toolbar.</para>
   </section>
   <section>
-    <title>Exiting the data visualizer module</title>
+    <title>Saliendo del módulo de visualización de datos</title>
     <para>If you want to exit the module and go back to the DHIS start page you can click on the &quot;Exit&quot; button to the right side of the top centre menu.</para>
   </section>
 </chapter>

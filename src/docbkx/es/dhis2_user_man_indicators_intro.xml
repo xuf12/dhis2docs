@@ -1,8 +1,8 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <chapter>
-  <title>Introduction to indicators</title>
-  <para>When the ‘Data Elements and Indicators’ options is chosen from the main Maintenance menu, the following screen appears:</para>
+  <title>Introducción a los indicadores</title>
+  <para>En el menú principal Mantenimiento podemos elegir la opción de 'Elementos de Datos e Indicadores', y aparece la pantalla siguiente:</para>
   <screenshot>
     <mediaobject>
       <imageobject>
@@ -10,12 +10,12 @@
       </imageobject>
     </mediaobject>
   </screenshot>
-  <para>From the left side menu or by scrolling down the central area you can access the various sections on Indicators; </para>
-  <para>Indicator, Indicator Type, Indicator Group, Indicator Group Editor, and Indicator Group Set. </para>
+  <para>Desde el menú lateral izquierdo o bien deslizando hacia abajo la zona central de la pantalla podemos accder a las diversas secciones de Indicadores:</para>
+  <para>Indicador, Tipo de Indicador, Grupo de Indicadores, Editor Grupo de Indicadores, y Set Grupo de Indicadores. </para>
   <section id="indicator">
-    <title>Indicators</title>
-    <para>Indicators are composed of multiple data elements, and typically consist of a numerator and a denominator. Indicators are never entered in DHIS 2, but instead  calculated from the raw data registered in the system, based on the indicator formulas. Indicators are used to calculate i.e. coverage rates, incidence, ratios  and other calculated values which are more useful for data analysis than the raw data described by data elements.  </para>
-    <para>To access the Indicator maintains page, press Maintenance -&gt; Data Element and Indicators -&gt; Indicator from the main DHIS2 menu. You can add, delete, modify and view extra information about the indicators in the system using the icons next to each indicator in the list.</para>
+    <title>Indicadores</title>
+    <para>Los indicadores están formados por múltiples elementos de datos, y típicamente consisten son una fórmula sencilla con un numerador y un denominador. Los indicadores como tales no se introducen en DHIS 2, por el contrario se calcula su valor a partir de los datos en bruto registrados en el sistema y siguiendo la fórmula del indicador. Los indicadores se uzan para calcular por ejemplo tasas de cobertura, incidencia, ratios y otros valores calculables que son más útiles para el análisis de los datos que los propios datos en bruto definidos en los elementos de datos. </para>
+    <para>Para abrir la página principal de Indicadores, iremos desde el menú principal de DHIS 2 al menú Mantenimiento -&gt; Elemento de datos e Indicadores -&gt; Indicador. Aquí podemos añadir, modificar, borrar y ver información adicional sobre los indicadores presentes en le sistema utilizando los iconos que se encuentran junto a cada indicador en el listado.</para>
     <screenshot>
       <mediaobject>
         <imageobject>
@@ -23,22 +23,22 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>Indicators can be filtered by entering the name or a part of the indicator name in the &quot;Filter by name&quot; field. Similar to data elements, indicators can be added by pressing the &quot;Add new&quot; button. Other operations available from this menu are as follows. </para>
+    <para>Podemos filtrar el listado de indicadores introduciendo el nombre de indicador completo o parcialmente en el campo &quot;Filtrar por nombre&quot;. Al igual que los elementos de datos, podemos añadir indicadores presionando el botón &quot;Añadir nuevo&quot;. A continuación se muestran otras operaciones disponibles en este menú.</para>
     <itemizedlist>
       <listitem>
-        <para><inlinegraphic fileref="resources/images/dhis2_images/edit.png"/> Edit an existing indicator. </para>
+        <para><inlinegraphic fileref="resources/images/dhis2_images/edit.png"/> Editar un indicador existente. </para>
       </listitem>
       <listitem>
-        <para><inlinegraphic fileref="resources/images/dhis2_images/i18n.png"/> Translate an existing indicator. </para>
+        <para><inlinegraphic fileref="resources/images/dhis2_images/i18n.png"/> Traducir un indicador existente. </para>
       </listitem>
       <listitem>
-        <para><inlinegraphic fileref="resources/images/dhis2_images/delete.png"/> Delete an existing indicator. </para>
+        <para><inlinegraphic fileref="resources/images/dhis2_images/delete.png"/> Borrar un indicador existente. </para>
       </listitem>
       <listitem>
-        <para><inlinegraphic fileref="resources/images/dhis2_images/information.png"/> Get detailed information about this indicator. </para>
+        <para><inlinegraphic fileref="resources/images/dhis2_images/information.png"/> Obtener información detallada sobre este indicador. </para>
       </listitem>
     </itemizedlist>
-    <para>To add a new indicator, click the &quot;Add new&quot; button. The following screen is displayed. </para>
+    <para>Para añadir un indicador nuevo, podemos pinchar en el botón &quot;Añadir nuevo&quot;. Aparecerá la siguiente pantalla. </para>
     <screenshot>
       <mediaobject>
         <imageobject>
@@ -46,34 +46,34 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>Each of the fields marked with an asterisk are compulsory. A description of each field is provided below. </para>
+    <para>Los campos marcados con un asterisco son obligatorios. A continuación se ha plasmado una descripción de cada uno de los campos. </para>
     <itemizedlist>
       <listitem>
-        <para>Name: The full name of the indicator, such as &quot;Incidence of confirmed malaria cases per 1000 population&quot;</para>
+        <para>Nombre: El nombre completo del indicador, como por ejemplo &quot;Incidencia de casos confirmados de malaria por 1000 habitantes&quot;.</para>
       </listitem>
       <listitem>
-        <para>Short name: An abbreviated name of the indicator such as &quot;Inc conf. malaria per 1000 pop&quot;</para>
+        <para>Nombre corto: Un nombre abreviado para el indicador, como por ejemplo &quot; Inc conf. malaria ca 1000 hab&quot;.</para>
       </listitem>
       <listitem>
-        <para>Alternative name: An additional field for a possible alternative name of the indicator. </para>
+        <para>Nombre alternativo: Es un campo adicional para un posible nombre alternativo del indicador, como por ejemplo &quot;Incidencia de casos confirmados de paludismo ca 1000 habitantes&quot;. </para>
       </listitem>
       <listitem>
-        <para>Code: In many countries, indicator are often assigned a particular code which can be entered here. </para>
+        <para>Código: Generamlmente los indicadores se corresponden con un código específico en cada país. </para>
       </listitem>
       <listitem>
-        <para>Description: A brief, informative description of the indicator and how it is calculated can be entered here. </para>
+        <para>Descripción: Aquí podemos incluir una descripción breve e informativa del indicador y de cómo se calcula. </para>
       </listitem>
       <listitem>
-        <para>Annualized: Determines whether or not an annualization factor is applied during the calculation of the indicator. Typically, annualized indicator numerators are multiplied by a factor of 12, and the denominator is  a yearly population figure. This allows for monthly coverage values to be calculated with yearly population figures.</para>
+        <para>Anualidad: Determina si se aplica un factor de anualidad durante el cálculo del indicador. Normalmente, los numeradores anualizados se multiplican por un factor de 12, y los numeradores son una figura de población anual. Esto permite calcular valores mensuales de cobertura junto a figuras anuales de población.</para>
       </listitem>
       <listitem>
-        <para>Type: This field will determine a factor that will automatically be applied during the calculation of the indicator. Possible choices are determined by the Indicator Types (described below). For instance, a &quot;Percent&quot; indicator will automatically be multiplied by a factor of 100 when aggregated, so that it will display as a percentage. </para>
+        <para>Tipo: Este campo determina un factor que se aplicará automáticamente durante el cálculo del indicador. Las opciones posibles se fijan con los Tipos de Indicador (descritos abajo). Por ejemplo, un indicador de &quot;Porcentual&quot; se multiplicará automáticamente por un factor de 100 al ser agregado, de manera que se muestre un porcentaje. </para>
       </listitem>
       <listitem>
-        <para>URL: Can be used as a link to an indicator registry, where a full metadata description of the indicator can be made available. </para>
+        <para>URL: Podemos utilizar un enlace al registro del indicador, donde podemos incluir una descripción completa del indicador en metadatos. </para>
       </listitem>
     </itemizedlist>
-    <para>To define the numerator and denominator, simply press the respective button, and the following dialogue will be displayed. </para>
+    <para>Para definir el numerador y el denominador, simplemente presionaremos el botón respectivo, y aparecerá el diálogo siguiente.</para>
     <screenshot>
       <mediaobject>
         <imageobject>
@@ -81,30 +81,30 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>Essentially, an indicator is a formula that can be composed of multiple data element, constant factors, and mathematical operators. In order to define a new indicator proceed with the following steps.  </para>
+    <para>En esencia, un indicador es una fórmula que puede estar formada por múltiples elementos de datos, factores constantes, y operadores matemáticos. Para definir un indicador nuevo podemos proceder siguiendo estos pasos. </para>
     <orderedlist>
       <listitem>
-        <para>Provide a description of the numerator  in the &quot;Description field&quot;. </para>
+        <para>Incluir una descripción del numerador en el campo &quot;Descripción&quot;. </para>
       </listitem>
       <listitem>
-        <para>Choose the aggregation operator, either as a SUM or AVERAGE. </para>
+        <para>Elegir el operador de agregado de datos, ya sea SUMA o PROMEDIO. </para>
       </listitem>
       <listitem>
-        <para>Define the formula of the indicator by selecting the data elements that should compose the numerator from the &quot;Data elements&quot; list. Simply double click on a data element and it will appear in the formula. The formula must be mathematically valid, including the proper use of parentheses when necessary. Double click on each of the mathematical operator buttons below the indicator formula definition  to add them to your formula. Once you click outside the formula window the Description field below will be updated. </para>
+        <para>Definir la fórmula del indicador seleccionando los elementos de datos que conformarán el numerador en el listado &quot;Elementos de Datos&quot;. Simplemente haremos doble click en el elemento de datos y aparecerá ya en la fórmula. La fórmula debe ser válida matemáticamente, incluido el uso adecuado de paréntesis si es necesario. Haremos doble click en cada botón de operador matemático bajo la definición de fórmula del indicador para añadirlos a la fórmula. Si pinchamos fuera de la ventana de fórmula se actualizará el campo &quot;Descripción&quot; en la parte inferior.</para>
       </listitem>
       <listitem>
-        <para>Once you can see that the description field below the formula has been updated and you are done with your formula, you can click the Save button to save all changes to the numerator. Click Cancel to discard any changes that you have made. </para>
+        <para>Una vez veamos que el campo Descripción se ha actualizado y ya hayamos terminado con la fórmula, podemos pinchar en el botón de Guardar para almacenar todos los cambios realizados en el numerador. Podemos pinchar en Cancelar para descartar los cambios hechos. </para>
       </listitem>
       <listitem>
-        <para>Follow the same procedure in order to define the denominator. </para>
+        <para>Sigue el mismo procedimiento para definir el denominador. </para>
       </listitem>
     </orderedlist>
   </section>
   <section id="indicatorType">
-    <title>Indicator types</title>
-    <para>Indicator types define a factor (e.g. 100 for percentages)  that will be applied during aggregation, and makes sure the system calculated indicator values are pre-formatted and need to further manipulation by the user to get percentages etc.</para>
-    <para>The indicator type maintenance panel has all of the same functions (Add new, Edit, Translate, Delete, and Information) as the Indicator maintenance section. </para>
-    <para>There are only two fields that need to be filled in to create an indicator type, Name and Factor, as seen below. Name refers to the Indicator type (e.g. Per cent, Per thousand, Per ten thousand, etc). The factor is the numeric factor that will be applied during the calculation of the indicator. </para>
+    <title>Tipos de indicadores</title>
+    <para>Los tipos de indicadores definen un factor (por ejemplo 100 para los porcentajes) que se aplicarán durante el agregado de datos, y asegura que los valores del indicador calculados por el sistema se formatean previamente y que no necesitan ser manipulados posteriormente por el usuario para obtener porcentajes, etc.</para>
+    <para>El panel de mantenimiento de tipos de indicadores tiene las mismas funciones (Añadir nuevo, Editar, Traducir, Borrar e Información) que la sección Mantenimiento Indicador.</para>
+    <para>Existen únicamente dos campos que deberemos rellenar para crear un tipo de indicador, el Nombre y el Factor, tal y como muestra la imagen siguiente. El nombre está referido al tipo de indicador (es decir, Porciento, Por mil, Por diez mil, etc). El factor es el factor numérico de multiplicación que se aplicará para el cálculo del indicador. </para>
     <screenshot>
       <mediaobject>
         <imageobject>

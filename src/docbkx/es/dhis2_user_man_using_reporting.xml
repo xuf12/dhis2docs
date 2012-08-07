@@ -1,23 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
-  <title>Using reporting functionality</title>
+  <title>Utilizando la funcionalidad de Reporte</title>
   <section id="reporting_intro">
-    <title>Reporting functionality in DHIS 2</title>
-    <para>The reporting module in DHIS 2 provides a range of reporting alternatives, and this section will explain how to use them to view and analyse data. Another section explains how to configure and set up the various reporting tools.</para>
-    <para><emphasis role="bold">Standard reports:</emphasis> Standard reports are built on report tables, but are more advanced in its design allowing for more cosmetics and styles. These reports can also combine multiple tables and charts in the same report and be made available as one-click reports that are very easy to use. These reports can be downloaded as PDF  files which makes them ideal for printing as well as sharing offline. </para>
-    <para><emphasis role="bold">Dataset reports:</emphasis> Dataset reports are simply a printer friendly way to look at the data entry forms with either raw or aggregated data (over time or place). The design used in data entry will be used also in the data set reports. This will work only for data sets that has a custom data entry form set up.</para>
-    <para><emphasis role="bold">Dashboard:</emphasis> The fastest way to view your data. The dashboard can display  up to four updated charts as well as shortcuts to your favourite reports, report tables, and map views. Each user can configure a personal dashboard.</para>
-    <para><emphasis role="bold">Data Visualizer:</emphasis> Do flexible visualizations of your data as charts and data tables. Any numbe of indicators and data elements can be included. Several chart types are available, such as column, stacked column, line, area and pie charts. The charts can be saved in order to be easily retrieved later and can also be put on your personal dashboard. Charts can be downloaded as image and PDF files to your local computer. </para>
-    <para><emphasis role="bold">Report tables:</emphasis> These are very configurable table outputs of your data, either showing raw or aggregated data, as well as indicator data. These tables are used as either a data source for more advanced reports, for export to external systems, or as a crude report itself, and are exportable to pdf, excel, csv and jasper design files. These tables represent a  very dynamic, flexible and quick way to look at the data. Report tables can be set up with parameters to make them reusable over time and place.</para>
-    <para><emphasis role="bold">Orgunit distribution reports:</emphasis> These reports are generated off the orgunit group set information and can show what types (and how many of each type) of health facilities that are located in a given area (any level in the hierarchy). These reports are automatically generated and display the information in both tables and charts, and downloads in pdf, excel, and csv are available.</para>
-    <para><emphasis role="bold">Reporting rate summary:</emphasis> These reports provide a nice overview of how many facilities that have submitted their data for a given dataset and period. Here you can get both the counts and the percentages  showing the reporting rate for all or single data sets.</para>
-    <para><emphasis role="bold">Excel pivot tables:</emphasis> Excel pivot tables represents a very powerful way to analyse your data and DHIS 2 links directly to the pivot tables so that all the data will be available and updated in your Excel file. This can be a very useful tool for users that prefer working with the data offline. To update your local pivot tables you need the myDatamart tool which connects to the online server and downloads the latest data. This update will typically take place once a month when new data is available, but do not require a constant internet connection like the other reporting tools (if you are connecting to an online DHIS 2 server).</para>
-    <para><emphasis role="bold">Web-based pivot tables:</emphasis> The built in pivot table tool is a simple web-based tool to display indicator data by orgunit and period in a typical pivot table view and allows for some basic pivoting manipulations of the tables. It is a quick and easy way to look at many indicator values at the same time (by orgunit and/or period), but does not have the same functionality as the offline Excel pivot tables. </para>
-    <para><emphasis role="bold">GIS:</emphasis> Present and analyse your data using thematic maps. You can view both data elements and indicators and given that you have coordinates for all your orgunits you can drill down the hierarchy and view maps for all levels from country polygons to facility points.  See the separate chapter on GIS for more details. All the map information is built into DHIS 2 and all you need to do is to register coordinates for your organisation units and the maps will be available.</para>
+    <title>Funcionalidad de reporte en DHIS 2</title>
+    <para>El módulo de reporte en DHIS 2 ofrece una variedad de alternativas. En esta sección veremos cómo utilizarlas para ver y analizar los datos. En otra sección se verá cómo configurar y poner en marcha las diversas herramientas de reporte.</para>
+    <para><emphasis role="bold">Reportes estándar:</emphasis> Los reportes estándar se construyen con cuadros de reportes, pero su diseño avanzado permite modificar su apariencia y estilo. Estos reportes pueden combinar múltiples cuadros y gráficas en el mismo informe, y se pueden visibilizar como reportes de 'un-click' que son muy fáciles de usar. Podemos descargar estos reportes en formato PDF, por lo que son ideales para imprimir así como para compartir y copiar offline.</para>
+    <para><emphasis role="bold">Reportes de Set de datos:</emphasis> Los reportes de set de datos son simplemente una forma amigable para ver e imprimir los formularios de entrada de datos con datos en bruto o datos agregados (por lugar o tiempo). El diseño utilizado en la entrada de datos es el mismo que se utiliza en estos reportes de set de datos. Aunque esto funcionará solo para los sets de datos que han pre-establecido un formulario de entrada de datos personalizado.</para>
+    <para><emphasis role="bold">Panel de control (Dashboard):</emphasis> Es la manera más rápida de ver tus datos. El panel de control puede mostrar hasta cuatro gráficas actualizadas así como enlaces a tus reportes favoritos, cuadros de reportes, y vistas de mapas. Cada usuario puede configurar su propio panel personal de control.</para>
+    <para><emphasis role="bold">Visualizador de datos:</emphasis> Permite formas flexibles de visualizar tus datos como gráficas y cuadros de datos. Es posible incluir aquí tantos indicadores y elementos de datos como deseemos. También podemos elegir entre muchos tipos de gráficas, tales como gráficos de barras, barras apiladas, lineales y diagramas de tarta. Podremos guardar las gráficas a su vez para cargarlas fácilmente en sesiones posteriores, y también podemos incluirlas en nuestro panel personal de control. Las gráficas se pueden descargar como imágenes o como PDF en nuestro computador local. </para>
+    <para><emphasis role="bold">Tablas de reportes:</emphasis> Son una forma de mostrar los datos en tablas con múliples opciones de configuración, ya sea utilizando datos en bruto, agregados o indicadores. Estas tablas son utilizadas bien como fuente de datos para otros reportes más avanzados, para exportar la información a otros sistemas externos, o como un informe bruto. Se pueden exportar a diversos formatos: PDF, MS Excel, CSV y Jasper. Las tablas representan una manera muy dinámica, flexible y rápida de revisar los datos. Las tablas de reportes pueden configurarse con parámetros específicos para reutilizarlas en otros periodos o lugares.</para>
+    <para><emphasis role="bold">Reportes de distribución de unidades organizativas:</emphasis> Estos reportes se generan a partir del set grupo de unidades organizativas (orgunit) y permiten ver qué tipos (y qué cantidad) de establecimientos de salud están ubicados en un área determinada (en cualquier nivel de la jerarquía). Estos reportes se generan automáticamente y muestran la información tanto en tablas como gráficas, que pueden descargarse en PDF, MS Excel y CSV.</para>
+    <para><emphasis role="bold">Resumen de la tasa de reportes:</emphasis> Estos reportes ofrecen una bonita vista de cuántos establecimientos han registrado sus datos para un periodo y set de datos determinados. Aquí podemos obtener la cuenta y el porcentaje de la tasa de reporte para uno o para todos los sets de datos.</para>
+    <para><emphasis role="bold">Cuadros Excel pivot:</emphasis> Los cuadros Excel pivot son una forma potente de analizar nuestros datos y DHIS 2 enlaza directamente con los cuadros pivot, de manera que todos los datos quedan disponibles y actualizados en el fichero Excel. Esto puede ser una herramienta muy útil a usuarios que prefieren trabajar con los datos offline. Para actualizar los cuadros pivot locales necesitarás la herramienta <emphasis role="italic">myDatamart</emphasis> que conecta con el servidor online y descarga los datos restantes. Esta actualización normalmente se realiza una vez al mes cuando están disponibles los nuevos datos, pero no requiere una conexión permanente a Internet como sucede con otras herramientas de reporte (si estás conectado generalmente a un servidor DHIS 2 online).</para>
+    <para><emphasis role="bold">Cuadros Web pivot:</emphasis> La herramienta incluida en DHIS 2 de cuadro pivot es una herramienta web sencilla para mostrar los datos de indicadores por unidad organizativa y por periodo en una vista típica de cuadro pivot. Permite algunas manipulaciones básicas de pivotaje de las tablas. Es una manera rápida y fácil de mirar muchos valores de indicadores al mismo tiempo (por orgunit y/o periodo), pero que no tiene las mismas funcionalidades que los cuadros Excel pivot offline.</para>
+    <para><emphasis role="bold">Sistema de Información Geográfica (SIG):</emphasis> Permite presentar y analizar tus datos utilizando mapas temáticos. Es posible ver tanto los elementos de datos como los indicadores y, suponiendo que sidponemos de las coordenadas de todas nuestras orgunits, podemos explorar la jerarquía y ver los mapas para todos los niveles desde polígonos de país a puntos de establecimientos de salud. Para más detalles revisa el capítulo específico sobre SIG. Toda la información de mapas está cargada en DHIS 2 y tan solo necesitas registrar las coordenadas de tus unidades organizativas y los mapas estarán disponibles inmediatamente.</para>
   </section>
   <section id="standard_reports">
-    <title>Using standard reports</title>
+    <title>Utilizando reportes estándar</title>
     <para>You access the available reports from the Services drop-down menu, by selecting Reports. In the report menu in the left bar, click Standard Report. A list of all pre-defined reports will appear in the main window. </para>
     <screenshot>
       <screeninfo>Standard reports</screeninfo>
@@ -30,11 +30,11 @@
     <para>You run/view a report by clicking on the white and green arrow next to the report you want. You will then see a report parameter window where you must fill in the values needed for orgunit and/or reporting month, depending on what has been defined in the underlying report table(s). Click on &quot;Get Report&quot; when you are ready. The report will wither apper directly in your browser or be available as a .pdf file for download, depending on your browser settings for handling pdf files. You can save the file and keep it locally on your computer for later use. </para>
   </section>
   <section id="report_tables">
-    <title>Using report tables</title>
+    <title>Utilizando tablas de reportes</title>
     <para>Report tables is a simple-to-use tool for creating tabular analysis. To run a report table first navigate to the list of available report tables in Services-&gt;Reports-&gt;Report Tables and the click on the Green and white  arrow (the first symbol in the operations list) next to the report table you want to view. </para>
     <para><emphasis role="bold">Report parameters:</emphasis> Most report tables have parameters, which means that you can filter which orgunits and/or periods you want in the report. This makes the reports much more reusable. When you run the report table a Report parameter window will open and ask the user to input values for the selected parameters. The possible parameters are Reporting Month and Organisation Unit, and either one of these or both will show in the window.    After selecting the values click on the Get Report button.</para>
     <screenshot>
-      <screeninfo>Report table parameters</screeninfo>
+      <screeninfo>Parámetros de tablas de reporte</screeninfo>
       <mediaobject>
         <imageobject>
           <imagedata width="100%" fileref="resources/images/dhis2UserManual/report_parameters.png" format="PNG"/>
@@ -53,7 +53,7 @@
     <para> </para>
   </section>
   <section id="dataset_reports">
-    <title>Using dataset reports</title>
+    <title>Utilizando reportes de set de datos</title>
     <para>Dataset reports are printer friendly views of the data entry screen filled with either raw or aggregated data. These are only available for data sets that have custom data entry forms and not for default or section forms.</para>
     <para>You can access data set reports from the Report menu under Services.</para>
     <para>A Criteria window will appear where you fill in the details for your report:</para>
@@ -64,19 +64,19 @@
     <para>When you are done filling in the report criteria you click on &quot;Generate&quot;. The report will appear in html view in a printer-friendly format. Use print and save as functions in the browser to print or save (as html) the report.</para>
   </section>
   <section id="resource">
-    <title>Using resources</title>
+    <title>Utilizando la herramienta de Recursos</title>
     <para>The resource tool allows you to upload both files from your local computer to the DHIS server and to add links to other resources on the Internet through URLs. If you want to share the direct link to the DHIS resource you can right clik on the "view resource" button and copy the link address.</para>
     <para>The create a resource click on the &quot;Add new&quot; button. Enter a name for the resource, then choose between uploading a file or external URL. If you chose file upload click &quot;Choose file&quot; and select your file your local computer. If you chose URL enter the link to the resource on the Internet. Then click &quot;Save&quot;.</para>
   </section>
   <section id="data_visualizer">
-    <title>Using data visualizer</title>
+    <title>Utilizando el visualizador de datos</title>
     <para>The data visualizer module can be accessed under &quot;Services&quot; in the top menu. See the chapter called &quot;Using data visualizer&quot; for a thorough explanation of this module.</para>
   </section>
   <section id="reporting_dashboard">
-    <title>Using the dashboard</title>
+    <title>Utilizando el panel de control</title>
     <para>The dashboard is your first view into the data every time you log on to the system. Every user has its own dashboard, and a dashboard consists of 4 chart areas to the right and 3 short cut areas to the left.</para>
     <screenshot>
-      <screeninfo>Dashboard</screeninfo>
+      <screeninfo>Panel de control (Dashboard)</screeninfo>
       <mediaobject>
         <imageobject>
           <imagedata width="100%" fileref="resources/images/dhis2UserManual/dashboard_kenya.png" format="PNG"/>
@@ -88,7 +88,7 @@
     <para>Use the Clear link above the shortcut area to empty an area. The Close link closes the insert menu without inserting a new object type.  </para>
     <para><emphasis role="bold">Customise chart areas:</emphasis> There are four chart areas. To insert a chart simply click on insert and click on one of the charts in the list. Use Close to close the list without adding a new chart, and use Clear to empty a chart area. These charts will be updated every time you open the dashboard,  will automatically show data for the orgunit assigned to the current user, and will update the data when new periods are available. </para>
     <screenshot>
-      <screeninfo>Adding charts to the dashboard</screeninfo>
+      <screeninfo>Añadiendo gráficas al panel de control</screeninfo>
       <mediaobject>
         <imageobject>
           <imagedata width="100%" fileref="resources/images/dhis2UserManual/dashboard_add_chart.png" format="PNG"/>
@@ -97,7 +97,7 @@
     </screenshot>
   </section>
   <section id="reporting_reporting_rate_summary">
-    <title>Using reporting rate summary</title>
+    <title>Utilizando el resumen de tasa de reporte</title>
     <para>Access the reporting rate summary from the Services-&gt;Reports menu. Reporting rate summaries will show how many datasets (forms) that have been submitted by organisation unit and period. You an use one of three different methods to calculate completeness; 1) based on complete button in data entry, 2) based on a set of defined compulsory data elements, or 3) based on the total registered data values for a dataset.  </para>
     <para><emphasis role="bold">To run the report do the following:</emphasis></para>
     <para>Select an orgunit from the tree.</para>
@@ -116,14 +116,14 @@
     </screenshot>
   </section>
   <section id="orgunit_distribution_reports">
-    <title>Using organisation unit distribution reports</title>
+    <title>Utilizando los reportes de distribución de unidades organizativas</title>
     <para>You can access the Orgunit Distribution reports from the left side menu in the Services-&gt;Reports module. </para>
     <para>Orgunit distribution reports are reports that show how the orgunits are distributed on various properties like type and ownership, and by geographical areas.</para>
     <para>The result can be presented in a table-based report or in a chart.</para>
     <para><emphasis role="bold">Running a report:</emphasis></para>
     <para>To run a report first select an orgunit in the upper left side orgunit tree. The report will be based on orgunits located under the selected orgunit. The select the orgunit group set that you want to use, typically these are Type, Ownership, Rural/Urban, but can be any user-defined orgunit group set. The you can click on either Get Report to get the table-based presentation or Get chart to get the same result in a chart.</para>
     <screenshot>
-      <screeninfo>Orgunit distribution report</screeninfo>
+      <screeninfo>Reporte de distribución de orgunit</screeninfo>
       <mediaobject>
         <imageobject>
           <imagedata width="100%" fileref="resources/images/dhis2UserManual/orgunit_report.png" format="PNG"/>
@@ -132,14 +132,14 @@
     </screenshot>
   </section>
   <section id="web_pivot_table">
-    <title>Using web pivot table</title>
+    <title>Utilizando la tabla web pivot</title>
     <para>The web pivot table is a tool for displaying and pivoting indicator and data element data in an easy way. From the open data selection box start by selecting data type which can be data elements or indicators. Select the a group as a filter or leave it on &quot;All&quot;. Select start date, end date and period type to indicate which periods you want to include in the pivot table. Continue by selecting an organisation unit from the selection tree. The childeren at the level below the selected organisationn unit will be included in the pivot table. Then click &quot;Get data&quot;.</para>
     <para>After loading a pivot table you will see that indicators (or data elements) will appear on top as columns, while periods and organiation units are combined as rows. If you want to pivot the table click on the &quot;Pivot&quot; button and select new dimensions. These dimensions will be displayed as columns in the table when clicking &quot;Pivot&quot;.</para>
     <para>In the pivot table you can click on any cell in order to show a menu. From this menu you can choose to visualize the relevant indicator, org unit and period as various chart variants.</para>
     <para>To save the pivot table data to your local computer click the &quot;Download as excel&quot; button. The Excel workbook will show each period as a sheet.</para>
   </section>
   <section id="data_mart">
-    <title>Using data mart management</title>
+    <title>Utilizando la gestión con datamart</title>
     <para>The data mart is a set of tables in the DHIS database which is used by all reporting and analysis tools to retrieve data from. The data mart is populated based on the collected data. This management user interface allows you to controll that process of converting collected data into aggregated data and write to the data mart.</para>
     <para>The data mart management screen allows you to select period types, start date and end date which will control which periods are included in the data mart process. By default all data elements, indicators and organisation units will be included.</para>
     <para>The data mart process might take a long time and heavily utilize the resources of your server so make sure you start such processes at a feasible time in production environments. Data mart processes can be scheduled as regular tasks in the data administration module.</para>
