@@ -254,6 +254,47 @@
     <para>In this example, cURL will authenticate to the server through  Basic authentication using our supplied username and password as credentials through the <emphasis role="italic">-u</emphasis> flag. </para>
     <para>In a real-world scenario, looking up identifiers, constructing and dispatching XML messages would be the task of the client software application. This software would probably interact with the more machine-friendly XML and JSON resource representations and not the human-friendly HTML representations like we  did in this example. Developing creative and robust consumers of the Web API services begins  here.</para>
   </section>
+  
+  <section>
+    <title>Example: Sending data values using SDMX-HD</title>
+    <para>Posting a dataValueSet report formatted using the WHO SDMX-HD standard is very similar to
+      the dxf2 example above. The same api/dataValueSets resource is used, but the client has to
+      specify the Content-Type as <emphasis role="italic">application/sdmx+xml</emphasis>.</para>
+    <para>The example below shows an SDMX-HD dataValueSet:</para>
+    <screen><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<CrossSectionalData xmlns="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message" 
+  xmlns:common="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/common"
+  xmlns:ns="urn:sdmx:org.sdmx.infomodel.keyfamily.KeyFamily=DHIS2:KF_DHIS2_SIMPLE:1.0:cross"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message SDMXMessage.xsd 
+  urn:sdmx:org.sdmx.infomodel.keyfamily.KeyFamily=DHIS2:KF_DHIS2_SIMPLE:1.0:cross file:./KF_HOSP_cross.xsd">
+
+  <Header>
+    <ID>OpenMRS-Export</ID>
+    <Test>false</Test>
+    <Prepared>2012-03-21</Prepared>
+    <Sender id="DDU"/>
+  </Header>
+  
+  <ns:DataSet FREQ="M" TIME_PERIOD="2012-01" FACILITY="DDU" datasetID="KF_HOSP">
+    <ns:Group>
+      <ns:Section>
+        <ns:OBS_VALUE DATAELEMENT="DE001" value="34" />
+        <ns:OBS_VALUE DATAELEMENT="DE002" value="36" />
+        <ns:OBS_VALUE DATAELEMENT="DE003" value="34" />
+        <ns:OBS_VALUE DATAELEMENT="DE004" value="12" />
+        <ns:OBS_VALUE DATAELEMENT="DE005" value="5" />
+      </ns:Section>
+    </ns:Group>
+  
+</ns:DataSet>
+</CrossSectionalData>]]></screen>
+    <para>One thing to note is that the SDMX-HD metadata for dataelements, orgunits and datasets are identified using <emphasis>codes</emphasis> rather than <emphasis>uids</emphasis>.
+    Assuming these coded datasets are present in the DHIS2 server then this can be posted, for example using the curl command below.</para>
+    <para><code>curl -d @sdmxdatavalueset.xml &quot;http://{server base url}/api/dataValueSets&quot;
+        -H &quot;Content-Type:application/sdmx+xml&quot; -u admin:district -v</code></para>
+  </section>
+  
   <section>
     <title>Example: Sending large bulks of data values</title>
     <para>The previous example showed us how to send a set of related data values sharing the same period and organisation unit. This example will show us how to send large bulks of data values which don&apos;t necessarily are logically related.</para>
