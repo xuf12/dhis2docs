@@ -4,12 +4,19 @@
   <title>Installation</title>
   <para>The installation chapter provides information on how to install DHIS 2 in various contexts, including online central server, offline local network, standalone application and self-contained package called DHIS 2 Live.</para>
   <para>DHIS 2 runs on all platforms for which there exists a Java Runtime Environment version 6 or higher, which includes most popular operating systems such as Windows, Linux and Mac. DHIS 2 also runs on many relational database systems such as PostgreSQL, MySQL, H2 and Derby. DHIS 2 is packaged as a standard Java Web Archive (WAR-file) and thus runs on any Servlet containers such as Tomcat and Jetty.</para>
-  <para>The DHIS 2 team recommends Ubuntu 10.04 LTS operating system, PostgreSQL database system and Tomcat Servlet container as the preferred environment for server installations. The mentioned frameworks can be regarded as market leaders within their domain and is heavily field tested over many years.</para>
+  <para>The DHIS 2 team recommends Ubuntu 12.04 LTS operating system, PostgreSQL database system and
+    Tomcat Servlet container as the preferred environment for server installations. The mentioned
+    frameworks can be regarded as market leaders within their domain and is heavily field tested
+    over many years.</para>
   <para>This chapter provides a guide for setting up the above technology stack. It should however be read as a guide for getting up and running and not as an exhaustive documentation for the mentioned environment. We refer to the offical Ubuntu, PostgreSQL and Tomcat documentation for in-depth reading.</para>
   <section>
     <title>Server setup</title>
-    <para>This section describes how to set up a server instance of  DHIS 2 on Ubuntu 10.04 64 bit with PostgreSQL as database system and Tomcat as Servlet container. The term <emphasis role="italic">invoke</emphasis> refers to executing a given command in a terminal. </para>
-    <para>For a national server the recommended configuration is a quad-core 2 Ghz processor or higher and 12 Gb RAM or higher. Note that a 64 bit operating system is required for utilizing more than 4 Gb of RAM, the Ubuntu 10.04 64 bit edition is thus recommended. </para>
+    <para>This section describes how to set up a server instance of DHIS 2 on Ubuntu 12.04 64 bit
+      with PostgreSQL as database system and Tomcat as Servlet container. The term <emphasis
+        role="italic">invoke</emphasis> refers to executing a given command in a terminal. </para>
+    <para>For a national server the recommended configuration is a quad-core 2 Ghz processor or
+      higher and 12 Gb RAM or higher. Note that a 64 bit operating system is required for utilizing
+      more than 4 Gb of RAM, the Ubuntu 12.04 64 bit edition is thus recommended. </para>
     <para>For this guide we assume that 4 Gb RAM is allocated for PostgreSQL and 7 GB RAM is allocated for Tomcat. <emphasis role="italic">If you are running a different configuration please adjust the suggested values accordingly!</emphasis> The steps marked as <emphasis role="italic">optional</emphasis>, like the step for performance tuning, can be done at a later stage.</para>
     <para><emphasis role="bold">Create new user (optional)</emphasis></para>
     <para>You might want to create a dedicated user for running DHIS - it is not recommended to run as the root user. Create a new user called dhis  by invoking <code>useradd -d /home/dhis -m dhis -s /bin/bash</code>     Then make the user able to perform operations temporarily as root user by invoking <code>adduser dhis admin</code> If there is no admin group you must create it first by invoking   <code>groupadd admin</code> Then invoke <code>passwd dhis</code> to set the password for your account. Make sure you set a strong password with at least 15 random characters. You might want to disable remote login for the root account for improved security by invoking<emphasis role="italic"> sudo passwd -l root</emphasis></para>
@@ -28,14 +35,15 @@ sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-7-openjd
 sudo update-alternatives --set java /usr/lib/jvm/java-7-openjdk/bin/java</screen>
     <para>Please check that the path the Java binaries are correct as they might vary from system to system, e.g. on AMD systems you might see <emphasis role="italic">../java-7-openjdk-amd64/..</emphasis> Check that your installation is okay by invoking <code>java -version</code></para>
     <para><emphasis role="bold">Install PostgreSQL</emphasis></para>
-    <para>Install PostgreSQL by invoking <code>sudo apt-get install postgresql-8.4</code></para>
-    <para>First configure client authentication by opening the following file by invoking</para>
-    <para><code>sudo nano /etc/postgresql/8.4/main/pg_hba.conf</code></para>
-    <para>Scroll down towards the end of the file and replace the word <emphasis role="italic">peer</emphasis> with <emphasis role="italic">md5</emphasis> so that it reads</para>
-    <screen>local    all    all    md5</screen>
-    <para>Switch to the postgres user by invoking <code>sudo su postgres</code> Log into psql by invoking <code>psql</code> Create a user called <emphasis role="italic">dhis</emphasis>  by invoking <code>create user dhis with password &apos;&lt;dhis&gt;&apos;;</code> Replace the password <emphasis role="italic">&lt;dhis&gt;</emphasis> with something secure. Create a database by invoking <code>create database dhis2 with owner dhis encoding &apos;utf8&apos;;</code> Exit psql by invoking <code>\q</code> Return to your session by invoking <code>exit</code> You now have a PostgreSQL user called <emphasis role="italic">dhis</emphasis> and a database called <emphasis role="italic">dhis2</emphasis>.</para>
+    <para>Install PostgreSQL by invoking <code>sudo apt-get install postgresql-9.1</code></para>
+    <para>Switch to the postgres user by invoking <code>sudo su postgres</code>.</para>
+    <para>Create a non-priveleged user called <emphasis role="italic">dhis</emphasis> by invoking
+        <code>createuser -SDRP dhis</code>. Enter a secure password at the prompt.  Create a database by invoking
+        <code>createdb -O dhis dhis2</code>.  Return to your session by invoking <code>exit</code> You now have a
+      PostgreSQL user called <emphasis role="italic">dhis</emphasis> and a database called <emphasis
+        role="italic">dhis2</emphasis>.</para>
     <para>Do performance tuning by opening the following  file by invoking </para>
-    <para><code>sudo nano /etc/postgresql/8.4/main/postgresql.conf</code></para>
+    <para><code>sudo nano /etc/postgresql/9.1/main/postgresql.conf</code></para>
     <para>and set the following properties:</para>
     <para><code>shared_buffers = 512MB</code></para>
     <para>Determines how much memory PostgreSQL can use for caching of query data. Is set too low by default since it depends on kernel shared memory which is low on some operating systems.</para>
@@ -58,9 +66,13 @@ sudo update-alternatives --set java /usr/lib/jvm/java-7-openjdk/bin/java</screen
 hibernate.connection.driver_class = org.postgresql.Driver
 hibernate.connection.url = jdbc:postgresql:dhis2
 hibernate.connection.username = dhis
-hibernate.connection.password = dhis
+hibernate.connection.password = xxxx
 hibernate.hbm2ddl.auto = update</screen></para>
-    <para>A common mistake is to have a white-space after the last property value - make sure there is no white-space at the end of any line.</para>
+    <para>A common mistake is to have a white-space after the last property value - make sure there
+      is no white-space at the end of any line.  Also remember that this file contains the clear text
+      password for your dhis2 database so needs to be protected from unauthorized access.  To do this
+    invoke <code>chmod 0600 hibernate.properties</code> which ensures that only the dhis user which owns the
+    file is allowed to read or write to it.</para>
     <para><emphasis role="bold">Install Tomcat</emphasis></para>
     <para>Download the Tomcat binary distribution from  <emphasis role="italic">http://tomcat.apache.org/download-70.cgi</emphasis> A useful tool for downloading files from the web is <emphasis role="italic">wget</emphasis>. Extract to a convenient location. This guide assumes that you have navigated to the root directory of the extracted archive.</para>
     <para>Clear the pre-installed web applications by invoking <code>rm -rf webapps/*</code> Download the latest DHIS 2 WAR file from <emphasis role="italic">http://dhis2.org/download</emphasis>, move it to the <emphasis role="italic">webapps</emphasis> directory and rename it to <emphasis role="italic">ROOT.war</emphasis></para>
