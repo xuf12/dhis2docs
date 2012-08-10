@@ -83,7 +83,43 @@
     DHIS2_HOME directory.  Any XML routes found in that directory will be loaded into the running application.</para>
   </section>
   <section>
-    <title>A Java route</title>
-    <para></para>
+    <title>Transforming data - a Java route</title>
+    <para>This route is used internally in the DHIS2 integration module to perform the transformation from SDMX input data to the DHIS2 DXF2 data format.  The listing below is a 
+    slighlty simplified illustration.</para>
+    <programlisting><![CDATA[
+package org.hisp.dhis.integration.routes;
+
+// imports not shown ....
+
+public class SDMXDataIn 
+  extends RouteBuilder
+{ 
+  @Override
+  public void configure() throws Exception
+  {
+    DescriptionDefinition desc = new DescriptionDefinition();
+    desc.setText("Sdmx data input");
+    
+    RouteDefinition sdmxDataIn = from("direct:sdmxDataIn).
+      convertBodyTo( java.lang.String.class, "UTF-8" ).
+      to("xslt:transform/cross2dxf2.xsl").
+      convertBodyTo( java.io.InputStream.class).
+      inOut("dhis2:data?orgUnitIdScheme=CODE&dataElementIdScheme=CODE&importStrategy=NEW_AND_UPDATES");
+    
+    sdmxDataIn.setDescription( desc );
+    sdmxDataIn.setId( "internal-sdmx-input" );
+  }    
+  }]]></programlisting>
+    <para>Some notes on the above:
+      <itemizedlist>
+        <listitem><para>The DHIS2 integration is configured to automatically scan and load java routes which are in the package <emphasis>org.hisp.dhis.integration.routes</emphasis>.  So any
+        <emphasis>RouteBuilder</emphasis> classes like this, found in the classpath will be automatically loaded.</para></listitem>
+        <listitem><para>This example shows the use of an xslt transform.  The url <emphasis>"xslt:transform/cross2dxf2.xsl"</emphasis> will search for the xsl file amongst the classpath resources.
+        It is also possible to use an absolute file reference.</para></listitem>
+        <listitem><para>The dhis2:data endpoint is a DHIS2 specific
+          component which is available to the author of DHIS2 routes as a destination for
+          importing DXF2 data.</para></listitem>
+      </itemizedlist>
+    </para>
   </section>
 </chapter>
