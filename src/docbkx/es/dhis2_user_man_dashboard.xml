@@ -2,10 +2,10 @@
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <chapter>
   <title id="dashboards">Panel de control (Dashboard)</title>
-  <para>Dashboards are intended to provide quick access to individual users to the data which has been stored in DHIS2. Dashboards consist of several sections, some of which provide links to reports or mapview which have already been defined. Other sections of the dashboard allow users to add charts which have been defined and made available through the charting module. </para>
+  <para>Los paneles de control pretenden ofrecer un acceso rápido a cada usuario a los datos que han sido almacenados en DHIS2. Estos paneles tienen varias secciones, algunas de las cuales contienen enlaces a reportes o vistas de mapas definidas previamente. Otras secciones del panel permiten a los usuarios añadir gráficas que han definido a través del módulo de visualización. </para>
   <section id="dashboards_setup">
-    <title>Ponendo en marcha el panel de control</title>
-    <para>The dashboard is divided into two main sections. The right-side pane (denoted as A in the screenshot below) can be used to contain links to reports, documents (static reports), report tables, map views, and an RSS Health feed. The left-side zone (denoted as B in the screen shot)  can be used to contain up to six separate charts which have been previously created in the charting reporting module. </para>
+    <title>Poniendo en marcha el panel de control</title>
+    <para>El panel de control se divide en dos secciones principales: el panel derecho (A en la captura siguiente) que puede usarse para albergar enlaces a reportes, documentos (informes estáticos), tablas de reportes, vistas de mapas, y noticias RSS de salud; y el panel izquierdo (B en la imagen abajo) que puede usarse para mostrar seis gráficas diferentes que se hayan creado previamente en el módulo de reporte. </para>
     <screenshot>
       <mediaobject>
         <imageobject>
@@ -13,19 +13,19 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>In this screen shot, the dashboard has already been populated with a number of reports and mapviews. Simply clicking on one of the blue links will bring you automatically to the report or map view. Clicking on one of the charts will display a larger chart, which you can save as an image, and include in a report or other document. </para>
-    <para>You can redefine the structure of the dashboard by clearing the each of the windows by clicking the &quot;Clear&quot; link. By clicking &quot;Insert&quot; again, you can then select a new chart to appear in the window. </para>
-    <para>All reports, documents, report tables and charts can be added to the list of available options by clicking on the &quot;Add to dashboard&quot; icon <inlinegraphic fileref="resources/images/dhis2_images/add_to_dashboard.png"/> in each of the respective modules. Please refer to the sections to each of the sections in this manual for more detailed instructions. Once you have added the object to the list of available objects, you can&quot;Insert&quot; it on the dashboard.</para>
+    <para>En esta captura de pantalla, el panel de control ha sido ya publicado con varios reportes y vistas de mapas. Ahora basta pinchar en uno de los enlaces azules para ir directamente a la vista de reporte o de mapa. Pinchando en una de las gráficas se mostrará el diagrama ampliado, que podemos guardar como una imagen, para luego incluirlo en un reporte u otro documento.</para>
+    <para>Podemos redefinir la estructura del panel de control vaciando cada una de las ventanas pinchando en el enlace "Limpiar". Si pinchamos de nuevo el botón "Insertar", podremos seleccionar una nueva gráfica para que aparezca en la ventana.</para>
+    <para>Todos los reportes, documentos, tablas de reportes y gráficas se pueden añadir al listado de opciones disponibles pinchando en el icono "Añadir al panel de control" <inlinegraphic fileref="resources/images/dhis2_images/add_to_dashboard.png"/> que encontraremos en los módulos respectivos. Recomendamos revisar las secciones correspondientes de este manual para más detalle. Una vez hayamos añadido el objeto al listado, podemos "Insertar" el objeto en el panel de control..</para>
     <note>
-      <para>Dashboard are configured for each individual user. </para>
+      <para>El panel de control está configurado particularmente para cada usuario. </para>
     </note>
   </section>
   <section>
-    <title id="dashboard_messages">Mensajes y feedback</title>
-    <para>DHIS2 has certain functions to facilitate communication between different users and user groups. This type of communication is important to facilitate feedback regarding data quality,  timeliness of submissions, or to simply answer a question which a particular user may have. </para>
-    <para>Feedback messages are sent to a particular group of users and can be sent by all users who have access to the dashboard module. In order to enable the receipt of feedback messages sent from the dashboard, you must set the system setting &quot;Feedback recipients&quot; which is available from the Maintenance-&gt;System settings dialog. Be sure to define a user group (e.g &quot;Feedback recipients&quot;) with all of the users who should receive feedback messages. Refer to the section in this manual on &quot;User groups&quot; for more information of how to do this. Once the &quot;Feedback recipients&quot; user group has been defined, each time a feedback message is sent, it will appear as a message in each of the &quot;Feedback recipients&quot; message queue within DHIS2. Note that messages will not be sent to  users email addresses, but will only appear within the DHIS2 application. </para>
-    <para>To send a new feedback message, simply select &quot;Write feedback&quot; from the dashboard. Provide a subject and text in the respective text boxes. The message will appear in all of the specified users message queue. </para>
-    <para>Messages can be sent to specific groups of users who have been assigned to particular organisation units. To write a new message, simply click &quot;Messages&quot; from the dashboard screen and then press the &quot;Write message&quot; button.. Select an organisation unit (or group of organisation units) from the &quot;Recipients&quot; organisational unit tree. Provide a Subject and Text. To send the message, press the &quot;Send&quot; button. You can discard the message by pressing the &quot;Discard&quot; button as seen in the screenshot below.</para>
+    <title id="dashboard_messages">Mensajes y retroalimentación</title>
+    <para>La aplicación DHIS2 contiene determinadas funciones que facilitan la comunicación entre usuarios y grupos de usuarios. Este tipo de comunicación es importante para agilizar la retroalimentación sobre calidad de los datos, puntualidad del registro de datos, o simplemente para dar respuesta a cuestiones o dudas planteadas por algún usuario concreto. </para>
+    <para>Los mensajes de retroalimentación se envían a un grupo particular de usuarios, y pueden ser enviados por todos aquellos usuarios que tengan acceso al módulo de panel de control. Para permitir la recepción de mensajes de retroalimentación enviados desde el panel de control, debemos activar la opción de configuración "Destinatario" de retroalimentación", que se encuentra en el cuadro de diálogo de Mantenimiento -&gt; Opciones de Sistema. Debemos asegurarnos de definir un grupo de usuarios (por ejemplo "Destinatarios de retroalimentación") con todos los usuarios que deberán recibir dichos mensajes. Recomendamos revisar la sección de este manual sobre "Grupos de Usuarios" para más información sobre cómo realizar esto. Una vez se ha definido el grupo de usuarios, cada vez que se envíe un mensaje de retroalimentación, aparecerá como un mensaje en la cola de mensajes de DHIS2 de los destinatarios. Tengamos en cuenta que los mensajes no se enviarán a las direcciones de email de los usuarios, sino que solo aparecerán en la aplicación DHIS2. </para>
+    <para>Para enviar un nuevo mensaje de retroalimentación, sencillamente seleccionamos "Escribir retroalimentación" en el panel de control. Se mostrará un campo para el asunto y para el texto del mensaje, y al enviarse aparecerá en la cola de mensajes de todos los usuarios especificados. </para>
+    <para>Es posible enviar mensajes a grupos específicos de usuarios asociados a unidades organizativas particulares. Para escribir un nuevo mensaje a estos usuarios, pinchamos en "Mensajes" en la pantalla del panel de control y presionamos el botón "Escribir mensaje". Entonces seleccionaremos una unidad organizativa (o un grupo de unidades organizativas) en el árbol de unidades organizativas "Destinatarios". Introduciremos un asunto y texto del mensaje, y pincharemos en el botón "Enviar". Para cancelar el envío, podemos descartar el mensaje pinchando en el botón "Descartar" como se muestra en la captura de pantalla siguiente.</para>
     <screenshot>
       <mediaobject>
         <imageobject>
@@ -33,7 +33,7 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>To read messages which have been sent to you, select &quot;Messages&quot; from the &quot;Dashboard&quot; . You messages will be displayed as a list. Click the desired message to read all of the messages in this particular conversation. </para>
+    <para>Podemos leer los mensajes que nos han enviado pinchando en "Mensajes" en el panel de control. Los mensajes se mostrarán en una lista. Pincharemos en el mensaje deseado para leer todos los mensajes de esa conversación particular. </para>
     <screenshot>
       <mediaobject>
         <imageobject>

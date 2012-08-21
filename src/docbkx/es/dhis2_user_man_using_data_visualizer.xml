@@ -4,21 +4,21 @@
   <title>Utilizando el Visualizador de Datos</title>
   <section id="dvIntro">
     <title>Un vistazo al Visualizador de Datos</title>
-    <para>The data visualizer module enables users to easily create dynamic data analysis and visualizations through charts and data tables.  You can freely select content (like indicators, periods and organisation units) for your analysis. This module can be accessed by going to &quot;Services - Data Visualizer&quot; in the main menu. The image below shows the viewport of the module. For a quick start:</para>
+    <para>El módulo de visualización de datos permite que los usuarios puedan crear fácilmente análisis de datos y visualizaciones dinámicas mediante gráficos o tablas de datos. Para el análisis, podemos seleccionar libremente el contenido (por ejemplo indicadores, periodos y unidades organizativas). Este módulo se accede en el menú principal en "Servicios - Visualizador de Datos. La imagen siguiente nos muestra la vista general del módulo. Para comenzar a usarlo de forma sencilla:</para>
     <orderedlist>
       <listitem>
-        <para> Look under the &quot;Indicator&quot; heading and select an indicator group from the list of groups. </para>
+        <para> Observamos el encabezado de "Indicador" y seleccionamos un grupo de indicadores del listado de grupos.</para>
       </listitem>
       <listitem>
-        <para>Look under &quot;Available indicators&quot; and select a few indicators from the list by double-clicking on them.</para>
+        <para> Observamos los "Indicadores disponibles" y seleccionaremos algunos indicadores del listado pinchando sobre ellos (doble click).</para>
       </listitem>
       <listitem>
-        <para>Click &quot;Update&quot; in the top bar and see the chart unfold.</para>
+        <para>Pinchamos en "Actualizar" en la barra superior y se desdobla un gráfico.</para>
       </listitem>
     </orderedlist>
-    <para>The data visualizer is designed firstly to be easy-to-use - you can simply select the indicators, data elements, periods and organisation units you want to include and click &quot;Update&quot; to get your visualization. Secondly it is designed  to be fast and work well over poor Internet connections - charts are generated in the web browser and very little data is transferred over the Internet.</para>
+    <para>El visualizador de datos está diseñado en primer lugar para ser fácil de usar: podemos seleccionar los indicadores, elementos de datos, periodos y unidades organizativas que queramos incluir y pinchar en "Actualizar" para obtener una visualización. En segundo lugar, ha sido diseñado para ser rápido y lograr un buen funcionamiento incluso con conexiones lentas a Internet: los gráficos se generan en el navegador web y muy pocos datos se envían realmente por la red.</para>
     <screenshot>
-      <screeninfo>Data visualizer module displaying a column chart.</screeninfo>
+      <screeninfo>Módulo de visualización de datos mostrando un diagrama de barras.</screeninfo>
       <mediaobject>
         <imageobject>
           <imagedata width="100%" height="100%" fileref="resources/images/visualizer/column_chart.png" format="PNG"/>
@@ -28,140 +28,140 @@
   </section>
   <section id="dvChartTypes">
     <title>Seleccionando el tipo de gráfica</title>
-    <para>The visualizer module provides seven different chart types, each with different characteristics. You can select the type of your chart by clicking on one of the icons  in  top left bar titled &quot;Chart type&quot;.</para>
+    <para>El módulo de visualización proporciona siete tipos diferentes de gráficos, cada uno de ellos con características distintas. Podemos seleccionar el tipo de gráfico que deseamos pinchando en uno de los iconos en la barra superior derecha llamado "Tipo de gráfico".</para>
     <orderedlist>
       <listitem>
-        <para>Column chart: Chart which displays information as vertical rectangular columns with lengths proportional to the values they represent. Useful eg. for comparing performance of different districts.</para>
+        <para>Diagrama de barras: es un gráfico que muestra la información en forma de columnas rectangulares en vertical cuya longitud es proporcional a los valores que representa. Es útil por ejemplo para comparar los resultados de diferentes distritos.</para>
       </listitem>
       <listitem>
-        <para>Stacked column chart: Chart with vertical rectangular columns where bars representing multiple categories are stacked on top of each other. Useful eg. for displaying trends or sums of related data elements.</para>
+        <para>Diagrama de barras apiladas: es un gráfico con columnas rectangulares en vertical donde las barras representan varias categorías que se muestran apiladas unas sobre otras. Resulta útil por ejemplo para mostrar tendencias o sumas de elementos de datos relacionados entre sí.</para>
       </listitem>
       <listitem>
-        <para>Bar chart: Same as column chart, only with horizontal bars.</para>
+        <para>Diagrama de barras horizontales: es igual que el diagrama de barras, pero las barras se muestran horizontales creciendo de izquierda a derecha.</para>
       </listitem>
       <listitem>
-        <para>Stacked bar chart: Same as stacked column chart, only with horizontal bars.</para>
+        <para>Diagrama de barras horizontales apiladas: es igual que el diagrama de barras apiladas, pero las barras se muestran horizontales.</para>
       </listitem>
       <listitem>
-        <para>Line chart: Graph wich displays information as a series of points connected by straight lines. Also referred to as time series. Useful eg. to visualize trends in indicator data over multiple time periods.</para>
+        <para>Gráfico lineal: es un gráfico que muestra la información en forma de series de puntos conectados mediante lineas rectas. También se conoce con el nombre de series temporales. Es útil por ejemplo para visualizar la tendencia de datos de un indicador a lo lardo de múltiples periodos de tiempo.</para>
       </listitem>
       <listitem>
-        <para>Area chart: Chart which is based on line chart, with the space between the axis and the line filled with colors and the lines stacked on top of each other. Useful for comparing the trends of related indicators.</para>
+        <para>Diagrama de área: es un gráfico basado en el gráfico lineal, donde el espacio entre los ejes y la línea aparece rellenado en color, y las líneas para cada elemento representado se apilan unas sobre otras. Resulta útil para comparar tendencias entre indicadores relacionados.</para>
       </listitem>
       <listitem>
-        <para>Pie chart: Circular chart divided into sectors (or slices). Useful eg. to visualize the proportion of data for individual data elements compared to the total sum of all data elements in the chart.</para>
+        <para>Gráfica circular: es un gráfico con forma de tarta dividida en sectores (o rodajas). Es útil por ejemplo para visualizar la proporción de datos de elementos de datos infividuales en comparación con la suma total de todos los elementos de datos en el gráfico.</para>
       </listitem>
     </orderedlist>
   </section>
   <section id="dvSeriesCategoryFilter">
     <title>Seleccionando series, categorías y filtros</title>
-    <para>This section lets you define which dimension of the data you want to appear as series, category and filter. This asks for a closer explanation. Dimension in this regard refers to the elements which describe the data values in the system. We have three main dimensions in the system:</para>
+    <para>Esta sección nos permite definir qué dimensión de los datos queremos que aparezca como series, categorías o filtros. Acá entendemos por dimensión los elementos que describen los valores de datos en el sistema. En DHIS2 hay tres dimensiones principales:</para>
     <orderedlist>
       <listitem>
-        <para>Data: Includes data elements, indicators and datasets (reporting rates), describing the phenomena or event of the data.</para>
+        <para>Datos: incluye elementos de datos, indicadores y sets de datos (tasas de reporte), que describen fenómenos o eventos de los datos, es decir, qué sucedió.</para>
       </listitem>
       <listitem>
-        <para>Periods: Describes when the event took place.</para>
+        <para>Periodos: que describen cuándo sucecieron los eventos.</para>
       </listitem>
       <listitem>
-        <para>Organisation units: Describes where the event took place.</para>
+        <para>Unidades organizativas: que describen dónde sucedieron los eventos.</para>
       </listitem>
     </orderedlist>
-    <para>The visualization module lets you use these dimensions completely flexible in terms of appearing as series, categories and filter. Understanding these concepts is most easily done by looking at the screenshot from the opening page below: </para>
+    <para>El módulo de visualización nos permite usar estas dimensiones de forma totalmente flexible en el sentido de que aparezcan como series, categorías o filtros. Para comprender mejor su funcionamiento observemos la captura de pantalla siguiente:</para>
     <screenshot>
-      <screeninfo>Example chart illustrating the concepts of series, categories and filter.</screeninfo>
+      <screeninfo>Ejemplo de gráfico que ilustra los conceptos de series, categorías y filtros.</screeninfo>
       <mediaobject>
         <imageobject>
           <imagedata width="70%" fileref="resources/images/visualizer/series_category_filter.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>More formally this can be described as following:</para>
+    <para>Lo anterior se puede resumir formalmente como sigue:</para>
     <orderedlist>
       <listitem>
-        <para>Series: A series is a set of continous, related elements (eg. periods or data elements)   which you want to visualize in order to emphasize trends or relations in its data.</para>
+        <para>Series: una serie es un conjunto de elementos continuos y relacionados (por ejemplo periodos o elementos de datos) que queremos visualizar para resaltar tendencias o relaciones entre estos datos.</para>
       </listitem>
       <listitem>
-        <para>Categories: A category is a set of elements (eg. indicators or organisation units) for which you want to compare its data.</para>
+        <para>Categories: una categoría es un conjunto de elementos (por ejemplo indicadores o unidades organizativas) cuyos datos queremos comparar.</para>
       </listitem>
       <listitem>
-        <para>Filter: Since most charts are two-dimensional, a filter must be used on the third dimension  in order to use only a single element for the chart to become meaningful.</para>
+        <para>Filtros: dado que la mayoría de los gráficos son bidimensionales, utilizamos filtros en la tercera dimensión con el objetivo de simplificar a un único elemento que dé sentido al gráfico.</para>
       </listitem>
     </orderedlist>
   </section>
   <section>
     <title>Seleccionando indicadores y elementos de datos</title>
-    <para>The visualizer module can display any number of indicators and data elements in a chart and data table. Both indicators and data elements can be selected and appear together in the same chart. You can select indicators by clicking at the &quot;Indicators&quot; header  and selecting an indicator group from the list of groups below it. This will make the indicators in the selected group appear in the list under &quot;Available indicators&quot; to the left. From that list you can double click on any indicator in order to select it, this will move it to the list under &quot;Selected indicators&quot;. Alternatively you can mark one or more indicators and click the single-arrow button. To select all indicators you simply click on the double-arrow button. To deselect indicators you can do correspondingly in the &quot;Selected indicators&quot; list.</para>
-    <para>To select data elements click on the &quot;Data elements&quot; header. The same principle for selecting and deselecting applies as for indicators.</para>
+    <para>El módulo de visualización puede mostrar tantos indicadores y elementos de datos en una gráfica y en una tabla de datos como queramos. Tanto los indicadores como los elementos de datos se pueden seleccionar a la vez y apareceran juntos en el gráfico. Podemos seleccionar los indicadores pinchando en el encabezado de "Indicadores" y seleccionando un grupo de indicadores del listado que aparece debajo. Esto hace que los indicadores en el grupo seleccionado se muestren en la lista bajo "Indicadores disponibles" a la izquierda. En esta lista podemos pinchar doble en cualquier indicador para seleccionarlo, y entonces se moverá a la lista de "Indicadores seleccionados". Otra forma de hacerlo es marcar uno o varios indicadores y pinchar a continuación en el botón de flecha simple. Si queremos seleccionar todos los indicadores pincharemos en el botón de flecha doble. Para desmarcar los indicadores podremos hacer esto mismo en el listado de "Indicadores seleccionados"</para>
+    <para>Para seleccionar elementos de datos pincharemos en el encabezado de "Elementos de Datos". Aquí seguiremos el mismo procedimiento explicado arriba para marcar y desmarcar indicadores.</para>
   </section>
   <section>
     <title>Seleccionando tasas de reporte</title>
-    <para>The visualizer can display reporting rates in a chart, by itself or together with indicators and data elements. Reporting rates can be selected by clicking at the &quot;Reporting rates&quot; header. Reporting rates are defined by data sets. It can be selected by double-clicking in the list of available data sets to the left.</para>
+    <para>El visualizador puede mostrar las tasas de reporte en un gráfico, bien solas bien junto con indicadores y elementos de datos. Las tasas de reporte se seleccionan pinchando en el encabezado de "Tasas de reporte". Las tasas de reporte se definen por los sets de datos, de modo que estos pueden marcarse pinchando doble en el listado de sets de datos disponibles en el lado izquierdo.</para>
   </section>
   <section>
     <title>Seleccionando periodos relativos</title>
-    <para>To select relative periods click on the &quot;Relative periods&quot; header. You can select any number of periods from the set of periods listed under the header, such as &quot;Last month&quot;, &quot;Months this year&quot; and &quot;Last 5 years&quot;. The names should be fairly self-descriptive. All periods are relative to the current date, meaning that if the current month is March and you select &quot;Last month&quot;, the month of February will be included in the chart.</para>
+    <para>Para seleccionar periodos relativos pincharemos en el encabezado de "Periodos relativos". Podemos seleccionar tantos periodos como queramos del conjunto de periodos listado bajo el encabezado, como por ejemplo "Último mes", "Meses del año actual" y "Últimos 5 años". Los nombres de los periodos deberán ser autodescriptivos, para agilizar estos procesos. Todos los periodos son relativos a la fecha actual, es decir, si el mes actual es marzo y seleccionamos "Último mes", entonces se incluirá el mes de febrero en el gráfico.</para>
   </section>
   <section>
-    <title>Seleccionando periodos permanentes</title>
-    <para>To select fixed periods click on the &quot;Fixed periods&quot; header and select a period type from the combo box. You can select any number of fixed periods from any period type. You are free to combine fixed periods and relative periods in the same chart. Overlapping periods will be filtered so that they only appear once.</para>
+    <title>Seleccionando periodos absolutos</title>
+    <para>Para seleccionar periodos fijos (no relativos) pinchamos en el encabezado de "Periodos fijos" y seleccionamos un tipo de periodo del cuadro grupal. Podemos seleccionar tantos periodos fijos como queramos de cualquier tipo de periodo. Podemos combinar libremente periodos fijos y relativos en un mismo gráfico. Los periodos que se solapen se filtrarán de modo que aparecerán una sola vez.</para>
   </section>
   <section>
     <title>Seleccionando unidades organizativas</title>
-    <para>You can select which organisation units to include in the chart by clicking the &quot;Organisation units&quot; header. This section features a tree including all organisatiton units in the system. You can select any of the organisation units by clicking them. If you want to select multiple, arbitrary organisation units you can press the Ctrl button and then click away in the tree. If you want to include all organisation units existing directly under a specific organisation unit (the children of the parent organisation unit in other terms) you can right-click on the organisation unit and select &quot;Select all children&quot;. You can also automatically select all organisation units in a particular organisation unit group. Click the &quot;Group&quot; button on the far right of the toolbar above the tree and select a group in the drop down list.</para>
-    <para>This panel also features two checkboxes. Checking &quot;User organisation unit&quot; will disable the organisation unit tree and give you the organisation unit that is related to the current/logged in user instead. This is also useful for administrators as they can create a meaningful &quot;system&quot; favorite with this option checked and all users will find their respective organisation unit when they open it. The the same concept goes for the &quot;User organisation unit children&quot; checkbox.</para>
+    <para>Podemos seleccionar qué unidades organizativas incluir en el gráfico pinchando en el encabezado "Unidades Organizativas". Esta sección publica un árbol que incluye todas las unidades organizativas del sistema. Seleccionaremos algunas unidades organizativas pinchando en ellas. Si queremos seleccionar múltiples unidades organizativas, de forma arbitraria, podemos pulsar el botón Ctrl (en el teclado) y pinchar en el árbol. Si queremos incluir todas las unidades ortanizativas bajo una determinada unidad (es decir, todos los hijos de una unidad organizativa) pincharemos con el botón derecho sobre esa unidad y seleccionaremos "Seleccionar todos los hijos". También podemos seleccionar automáticamente todas las unidades organizativas de un grupo de unidades concreto: pinchamos en el botón "Grupo" en el extremo derecho de la barra de herramientas ubicada sobre el árbol y seleccionamos un grupo de la lista desplegable.</para>
+    <para>Este panel tiene también dos casillas de verificación. Seleccionando la casilla "Unidad Organizativa del usuario" se desactivará el árbol de todas las unidades organizativas y nos mostrará únicamente la unidad organizativa asociada al usuario logueado actualemente en el sistema. Esta funcionalidad es útil para los administradores, ya que pueden crear un "sistema" coherente predeterminado con esta opción activada, de modo que todos los usuarios encontrarán su respectiva unidad organizativa cuando abran esta sección. El funcionamiento es idéntico para la casilla de "Hijos de la Unidad Organizativa del usuario".</para>
   </section>
   <section>
 	<title>Seleccionando grupos de unidades organizativas</title>
-	<para>You can break down the national level into organisation unit groups by simply selecting a group set in the combo box. The groups in the selected group set will replace any selected organisation units in the organisation unit panel.</para>
+	<para>Poedmos dividir desde el nivel nacional en grupos de unidades organizativas seleccionando un conjunto de grupos en el cuadro grupal. Los grupos del conjunto de grupos seleccionado serán sustituidos por cualesquiera unidades organizativas en el panel de unidades organizativas.</para>
   </section>
   <section>
-    <title>Selecting chart options</title>
-    <para>You can set various chart options by clicking on the &quot;Chart options&quot; header in the panel to the  left. </para>
+    <title>Seleccionando opciones de gráficas</title>
+    <para>Tenemos varias opciones disponibles para la graficación en el encabezado "Opciones de gráficas" a la izquierda del panel.</para>
     <itemizedlist>
       <listitem>
-        <para>Show series data: Displays the corresponding value next to columns and bars in the chart.</para>
+        <para>Mostrar datos de series: representa el valor correspondiente junto a las barras del diagrama.</para>
       </listitem>
       <listitem>
-        <para>Show trend line: The trend line will visualize how your data evolves over time - e.g. is performance improving or detoriating. Makes sense when periods are selected as category. </para>
+        <para>Mostrar tendencia: destaca la línea de tendencia que muestra cómo los datos evolucionan en el tiempo, por ejemplo si su rendimiento está mejorando o empeorando. Esot tiene sentido cuando seleccionamos los periodos como categorías.</para>
       </listitem>
       <listitem>
-        <para>Hide chart subtitle: Hides the title and subtitle of your chart.</para>
+        <para>Ocultar subtítulo: oculta el título y subtítulo del gráfico.</para>
       </listitem>
       <listitem>
-        <para>Hide chart legend: Hides the legend and leave more room for the chart itself.</para>
+        <para>Ocultar leyenda: oculta la leyenda y amplia el espacio para el própio gráfico.</para>
       </listitem>
       <listitem>
-        <para>Domain axis label: Displays a label below the domain axis (also referred to as the X axis). Can give context information to the chart, e.g. the type of periods being listed.</para>
+        <para>Etiqueta de eje X: muestra una etiqueta bajo el eje X (el eje horizontal). Puede ayudar a contextualizar la información del gráfico, por ejemplo mostrando el tipo de periodos que se están listando.</para>
       </listitem>
       <listitem>
-        <para>Range axis label: Displays a label next to the range axis (also referred to as the Y axis). Can give context information to the chart, e.g. the unit of measure being used.</para>
+        <para>Etiqueta de eje Y: muestra una etiqueta junto al eje Y (o eje vertical). Puede ayudar a contextualizar la información del gráfico, como por ejemplo mostrando la unidad de medida que está siendo utilizada.</para>
       </listitem>
       <listitem>
-        <para>Target line value: Displays a horizontal line at the given domain value. Useful e.g.  when you want to compare your performance to the current target.</para>
+        <para>Línea objetivo: muestra una línea horizontal para el valor de referencia dado. Esto es útil cuando queremos comparar el resultado obtenido con el objetivo a alcanzar.</para>
       </listitem>
       <listitem>
-        <para>Target line label: Displays a label next to the target line.</para>
+        <para>Etiqueta de línea objetivo: muestra una etiqueta junto a la línea objetivo.</para>
       </listitem>
       <listitem>
-        <para>Base line value: Displays a horizontal line at the given domain value. Useful e.g. when you want to visualize how your performance has evolved since the beginning of a process.</para>
+        <para>Línea base: muestra una línea horizontal para el valor de referencia dado. Es útil por ejemplo cuando queremos visualizar cómo han evolucionado los resultados desde el principio del proceso.</para>
       </listitem>
       <listitem>
-        <para>Base line label: Displays a label next to the baseline.</para>
+        <para>Etiqueta de línea base: muestra una etiqueta junto a la línea base.</para>
       </listitem>
     </itemizedlist>
   </section>
   <section id="dvDisplayChart">
     <title>Mostrando una gráfica</title>
-    <para>You can display a chart based on your selections simply by clicking the &quot;Update&quot; button on the top centre menu. This requires that you have selected one or more elements from all of the three dimensions - data (indicators, data elements, reporting rates), periods (relative, fixed) and organisation units (units or groups). Note that &quot;Months this year&quot; from the period dimension and the root organisation unit are selected by default.</para>
-    <para>Notice that you can hide and show individual data series in the chart by clicking directly on the series label in the chart - they appear either at the top or to the right of the chart.</para>
-    <para>If you want to give the chart more space on your screen you can click on the triple left-arrow button on the top centre menu. This will collapse the left side menu. You can get this menu back by clicking on the same button again.</para>
+    <para>Podemos mostrar un gráfico basado en las selecciones que hemos realizado pinchando en el botón "Actualizar" en el menú superior central. Esto requiere que hayamos seleccionado uno o varios elementos en cada una de las tres dimensiones - datos (indicadores, elementos de datos, tasas de reporte), periodos (relativos, fijos) y unidades organizativas (unidades o grupos). Recordemos que "Meses del año actual" en la dimensión periodo y la unidad organizativa raíz aparecen seleccionadas por defecto.</para>
+    <para>Es importante tener en cuenta que podemos ocultar y mostrar series individuales de datos en el gráfico pinchando directamente en la etiqueta  de series del gráfico - que aparece ya sea arriba o a la derecha del gráfico.</para>
+    <para>Si queremos ampliar el gráfico en nuestra pantalla podemos pinchar en el botón de flecha triple en el menú superior central. Esto hace que se pliegue el menú del lado izquierdo. Podremos volver a desplegarlo pinchando en este mismo botón de nuevo.</para>
   </section>
   <section id="dvDisplayDataTable">
     <title>Mostrando una tabla de datos</title>
-    <para>After you have rendered a chart you can display the data in a table by clicking on the &quot;Data table&quot; button on the top centre menu (next to &quot;Update&quot;). This will show a table with four columns, one for data (meaning data element or indicator), period, organisation unit and data value. This table can be sorted ascending or descending on any of the columns.</para>
+    <para>Después de haber generado un gráfico podemos mostrar también sus datos en una tabla pinchando en el botón "Tabla de datos" en el menú superior central (junto al botón "Actualizar"). Esto mostrará una tabla con cuatro columnas: una para los datos (sean elementos de datos o indicadores), periodos, unidades organizativas y valor de los datos. Podremos ordenar la tabla en orden creciente o decreciente según cualquiera de las columnas.</para>
     <screenshot>
-      <screeninfo>Example chart illustrating the concepts of series, categories and filter.</screeninfo>
+      <screeninfo>Ejemplo de tabla de datos obtenida una gráfica.</screeninfo>
       <mediaobject>
         <imageobject>
           <imagedata width="70%" fileref="resources/images/visualizer/data_table.png" format="PNG"/>
@@ -171,14 +171,14 @@
   </section>
   <section id="dvSaveChart">
     <title>Descargando una gráfica como imagen o PDF</title>
-    <para>After you have rendered a chart you can save that view as file and download it to your local computer by clicking on &quot;Save as&quot; on the top centre menu. You can select between PNG (image) or PDF. The file will be automatically downloaded to your computer - for instance can you now embed the image file into a text document as part of a report.</para>
+    <para>Una vez hemos generado una gráfica, podemos guardar esta vista como un fichero y descargarlo a nuestra computadora local pinchando en el botón de "Guardas como" en el menú superior central. Podemso seleccionar entre formato PNG (imagen) o PDF. El fichero se descargará inmediatamente a la computadora, de modo que posteriormente podemos por ejemplo insertar ese fichero imagen en un documento de texto como parte de un informe.</para>
   </section>
   <section id="dvFavorites">
     <title>Guardando una gráfica como favorita</title>
-    <para>Once you have rendered a chart you can save it as a favorite. Click on the &quot;Favorites&quot; button on the top menu and then on the &quot;Manage favorites&quot; link. In the name field enter the desired name for your chart. By ticking the &quot;System&quot; checkbox the chart will be visible to all users of the system, if you do not tick it the chart will be visible only to yourself. This requres that your user account has the privilege to create system charts.  You can rename any favorite by selecting it in the list, modifying its name in the name input field and clicking &quot;Rename&quot;. You can delete any favorite by selecting it and then clicking &quot;Delete&quot;.</para>
-    <para>These favorite charts can later be included on your personal dashboard. After saving you can navigate to the dashboard module, click on the &quot;Insert&quot; link over the chart areas and select your preferred chart.</para>
+    <para>Tras generar una gráfica podemos también guardarla como favorita. Pincharemos en el botón "Favoritos" en el menú superior y luego en el enlace "Gestionar favoritos". En el campo de nombre introducimos el nombre deseado para la gráfica (es importante elegir nombres autodescriptivos). Seleccionando la casilla "Sistema" el gráfico se hará visible a todos los usuarios del sistema, mientras que si no la chequeamos el gráfico será visible sólo para el usuario logueado. Solo los usuarios con permiso específico para crear gráficos de sistema. Podemos renombrar nuestras gráficas favoritas seleccionándolas en la lista, modificando su nombre en el campo de entrada y pinchando "Renombrar". Podremos también borrar gráficas favoritas seleccionándolas y después pinchando "Borrar".</para>
+    <para>Estas gráficas favoritas se pueden incluir posteriormente en nuestro panel de control personal. Después de guardarlas, navegamos al módulo de panel de control (dashboard) y pinchamos en el enlace "Insertar" sobre las áreas de gráficas y seleccionamos nuestra gráfica preferida.</para>
     <screenshot>
-      <screeninfo>Data visualizer module displaying a column chart.</screeninfo>
+      <screeninfo>Módulo de visualización de datos mostrando un diagrama de barras favorito.</screeninfo>
       <mediaobject>
         <imageobject>
           <imagedata width="100%" fileref="resources/images/visualizer/favorites.png" format="PNG"/>
@@ -188,10 +188,10 @@
   </section>
   <section id="dvInterpretations">
     <title>Compartiendo interpretaciones de los datos</title>
-    <para>For certain analysis-related resources in DHIS, like charts and report tables, one can share a data interpretation. An interpretation is simply a link to the the relevant resource together with a text expressing some insight about the data. If you want to share a chart interpretation you need to first save the chart you want to share as a favorite. Then, without making any changes to the chart, click the &quot;Share&quot; button the toolbar. A window will open up and this is where you write your interpretation. When you are done, click share button in the bottom right corner of the window. The window will close automatically and if the interpretation was shared successfully you will find a notification on the bottom toolbar.</para>
+    <para>En determinados recursos relacionados con el análisis de datos en DHIS2, como son las gráficas y las tablas de reporte, podemos compartir también interpretaciones de los datos. Una interpretación es sencillamente un enlace al recurso relevante junto a un texto explicativo sobre los datos. Si queremos compartir una interpretación de un gráfico primero guardamos el gráfico como favorito. Luego, sin realizar ningún cambio en el gráfico, pinchamos el botón "Compartir" en la barra de herramientas. Se abrirá una ventana donde podremos escribir nuestra interpretación. Cuando hayamos terminado, pinchamos en el botón de "Compartir" en la esquina derecha de la ventana. La ventana se cerrará automáticamente y, si la interpretación se compartió con éxito, encontraremos una notificación en la barra de herramientas inferior.</para>
   </section>
   <section>
     <title>Saliendo del módulo de visualización de datos</title>
-    <para>If you want to exit the module and go back to the DHIS start page you can click on the &quot;Exit&quot; button to the right side of the top centre menu.</para>
+    <para>Para salir del módulo y regresar a la página de inicio de DHIS, pincharemos en el botón "Salir" en el lado derecho del menú superior central.</para>
   </section>
 </chapter>

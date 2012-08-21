@@ -4,140 +4,135 @@
 <glossary id="dhis2_glossary">
   <glossaryinfo>
     <editor>
-      <firstname>Jason</firstname>
-      <surname>Pickering</surname>
+      <firstname>Inés</firstname>
+      <surname>Bebea</surname>
     </editor>
-    <title>DHIS2 Glossary</title>
-    <releaseinfo>2.0.3</releaseinfo>
+    <title>Glosario de DHIS2</title>
+    <releaseinfo>2.0.4</releaseinfo>
   </glossaryinfo>
-  <title>DHIS 2 Glossary</title>
+  <title>Glosario de DHIS 2</title>
   <glossdiv>
     <title>A</title>
     <glossentry>
-      <glossterm>Aggregation</glossterm>
+      <glossterm>Agregar</glossterm>
       <glossdef>
-        <para>In the context of DHIS2, aggregation refers to how data elements are combined within a particular hierarchical relationship. As an example, all the health facilities in a particular district would contribute to the total value for the particular district in question. Different aggregation operators are supported within DHIS2, such as SUM, AVERAGE, and COUNT.</para>
+        <para>En el contexto de DHIS2, agregar se refiere a cómo se reúnen y combinan los elementos de datos en una determinada relación jerárquica. Por ejemplo, todos establecimientos de salud de un determinado distrito contribuyen al valor total de dicho distrito en cuestión. La aplicación DHIS2 permite diferentes tipos de operadores de agregado, tales como SUMA, PROMEDIO y CONTEO.</para>
       </glossdef>
     </glossentry>
     <glossentry>
-      <glossterm baseform="aggregateData">Aggregate data</glossterm>
+      <glossterm baseform="aggregateData">Agregado de datos</glossterm>
       <glossdef>
-        <para>In the context of DHIS2, aggregate data refers to either data elements or indicators that have been derived from other hierarchical data sources. For instance, aggreagte facility data would result from the aggregate totals of all patients that have attended that facility for a particular service. Aggregate district data would result from the aggregate totals of all facilities contained with a particular district.</para>
+        <para>En el contexto de DHIS2, se entiende por datos agregados los elementos de datos o los indicadores generados a través de otras fuentes jerárquicas de datos. Por ejemplo, los datos agregados de un establecimiento de salud son el resultado de los totales agregados de todos los pacientes que fueron atendidos en ese establecimiento para un servicio de atentión determinado. Los datos agregados de un distrito son el resultado de los totales agregados de todos los establecimientos de salud que pertenecen a ese distrito.</para>
       </glossdef>
     </glossentry>
   </glossdiv>
   <glossdiv>
     <title>C</title>
     <glossentry>
-      <glossterm>Category</glossterm>
+      <glossterm>Categoría</glossterm>
       <glossdef>
-        <para>Categories are used to disaggreate data elements. As an example, the data element &quot;Number of confirmed cases of malaria&quot; could be disaggregated into an &quot;Age&quot; category, consisting of category options of &quot;Under 1&quot;, 1-5&quot; and &quot;Over 5&quot;. Category options are used during data entry to simplify the number of data elements that need to be created. During analysis of data, categories function essentially as dimensions. </para>
+        <para>Las categorías se utilizan para desagregar elementos de datos. Como ejemplo, el elemento de datos "Número de casos confirmados de malaria" puede desagregarse en la categoría "Edad", que a su vez alberga las opciones de "Menor de 1 año", "De 1 a 5 años" y "Mayor de 5 años". Las opciones de categoría se utilizan en la entrada de datos para simplificar el número de elementos de datos que es preciso crear. En el análisis de datos, las categorías funcionan básicamente como dimensiones del análisis. </para>
       </glossdef>
     </glossentry>
-    <glossentry>
-      <glossterm>Category option</glossterm>
+<!--    <glossentry>
+      <glossterm>Opciones de categoría</glossterm>
       <glossdef>
-        <para>Category options are atomic elements that are grouped into categories. Category options are used during data entry to disaggregate data elements into atomic pieces of information. </para>
+        <para>Las opciones de categoría son elementos atómicos que se agrupan en categorías. Estas opciones se utilizan en la entrada de datos para desagregar los elementos de datos en piezas atómicas de información.</para>
       </glossdef>
     </glossentry>
+-->
   </glossdiv>
+
   <glossdiv>
     <title>D</title>
     <glossentry>
-      <glossterm>Data dictionary</glossterm>
-      <glossdef>
-        <para>A collection of data elements and indicators, which can be exchanged with other DHIS systems. Typically used to define a set of data elements and indicators when setting up the DHIS system. </para>
-      </glossdef>
-    </glossentry>
-    <glossentry>
-      <glossterm>Data exchange format</glossterm>
-      <glossdef>
-        <para>In the context of DHIS2, the &quot;data exchange format&quot; refers to a XML schema that enables the transportation of data and metadata between disconnected DHIS instances, as well as between different applications that support the DXF schema. </para>
-      </glossdef>
-    </glossentry>
-    <glossentry>
       <glossterm>Datamart</glossterm>
       <glossdef>
-        <para>A set of database tables in DHIS2 that contains processed data elements and indicator values that is generated based on aggregation rules and calculated data element and indicator formular. Datamart tables are used for analysis  and report production. Typically, users should not work directly with unaggregated data values, but rather with values that have resulted from a datamart export for analysis. </para>
+        <para>Es un conjunto de las tablas de bases de datos en DHIS2 que contiene valores procesados de elementos de datos e indicadores, generados en base a reglas de agregado, cálculo de elementos de datos y fórmulas de indicadores. Las tablas datamart se utilizan en el análisis de datos y la generación de reportes. Generalmente, los usuarios no trabajan directamente con valores de datos no agregados, sino con valores que son ya el resultado de una exportación de datamart lista para el análisis. </para>
       </glossdef>
     </glossentry>
     <glossentry>
-      <glossterm>Data element</glossterm>
+      <glossterm>Denominador</glossterm>
       <glossdef>
-        <para>A data element is the fundamental building block of DHIS2. It is an atomic unit of data with well-defined meaning. Essentially it is a data value that has been actually observed or recorded which is further characterized by a number of dimensions. As an example the data element &quot;Number of fully immunized children&quot; would refer to the number of children that received this particular service. Data elements are always linked to a period as as well as an organizational unit. They optionally may be linked to other dimensions. </para>
+        <para>El divisor de un indicador. Puede estar formado por varios elementos de datos combinados en una fórmula (utilizando a su vez operaciones de suma, sustracción, multiplicación y división).</para>
       </glossdef>
     </glossentry>
     <glossentry>
-      <glossterm>Data element group</glossterm>
+      <glossterm>Diccionario de datos</glossterm>
       <glossdef>
-        <para>Data element groups are used to categorize multiple data elements according to a common theme, such as &quot;Immunization&quot; or &quot;ART&quot;. Typically, they are used during reporting and analysis to allow related data elements to be analyzed together. </para>
+        <para>Es un conjunto de elementos de datos e indicadores que pueden intercambiarse con otros sistemas DHIS. Generalmente se utilizan para definir un set de elementos de datos y de indicadores al configurar inicialmente el sistema DHIS.</para>
       </glossdef>
     </glossentry>
     <glossentry>
-      <glossterm>Data element group sets</glossterm>
+      <glossterm>Dimensión</glossterm>
       <glossdef>
-        <para>Data element groups are used to categorize multiple data element groups into a common theme. </para>
-      </glossdef>
-    </glossentry>
-    <glossentry>
-      <glossterm>Dimension</glossterm>
-      <glossdef>
-        <para>A dimension is used to categorize data elements during analysis. Dimensions provide a mechanism to group and filter data based on common characteristics. Typically, related data elements may be aggregated or filtered during analysis with the use of dimensions. Dimensions may be a member of a hierarchy. For instance the &quot;Period&quot; dimension may be broken down into &quot;Day-&gt;Month-&gt;Quarter-&gt;Year&quot;. </para>
+        <para>Las dimensiones son los criterios de clasificación de elementos de datos en el análisis. Las dimensiones proporcionan un mecanismo para agrupar y filtrar datos en base a características comunes. Generalmente podremos agregar o filtrar elementos de datos relacionados entre sí durante el análisis utilizando dimensiones. Las dimensiones pueden ser parte también de una jerarquía. Por ejemplo, la dimensión "Periodo" puede a su vez dividirse en &quot;Día-&gt;Mes-&gt;Trimestre-&gt;Año&quot;.</para>
       </glossdef>
     </glossentry>
     <glossentry>
       <glossterm>DXF</glossterm>
-      <glosssee> Data exchange format</glosssee>
+      <glosssee> Formato de intercambio de datos, por sus siglas en inglés, "Data exchange format"</glosssee>
     </glossentry>
   </glossdiv>
-<!-- <glossdiv>
+<glossdiv>
     <title>E</title>
-  </glossdiv>
-  <glossdiv>
-    <title>F</title>
-  </glossdiv>
-  <glossdiv>
-    <title>G</title>
-  </glossdiv>
-  <glossdiv>
-    <title>E</title>
-  </glossdiv>
-  <glossdiv>
-    <title>F</title>
-  </glossdiv>
-  <glossdiv>
-    <title>G</title>
-  </glossdiv>
-  <glossdiv>
-    <title>H</title>
-  </glossdiv> -->  <glossdiv>
-    <title>H</title>
-    <glossentry>
-      <glossterm>Health management information system</glossterm>
-      <abbrev>HMIS</abbrev>
+        <glossentry>
+      <glossterm>Elemento de datos</glossterm>
       <glossdef>
-        <para>Typically, an electronic database system that is used to record aggregated data on service delivery, disease incidence, human resource data and other information used to evaluate the performance of delivery of health services. Typically, an HMIS does not contain the highly detailed data of electronic medical record systems or individual patient data. </para>
+        <para>El elemento de datos es la piedra angular de DHIS2. Es una unidad atómica de datos con un significado propio y bien definido. Básicamente es un valor de datos que se ha observado o registrado y que se caracteriza por unas dimensiones determinadas. Un ejemplo de elemento de datos sería el "Número de niños inmunizados", que contiene el número de niños y niñas que han recivido este servicio concreto de vacunación. Los elementos de datos están ligados siempre a un periodo y a una unidad organizativa. También pueden estar enlazados a otras dimensiones. </para>
+      </glossdef>
+    </glossentry>
+  </glossdiv>
+<!--   <glossdiv>
+    <title>F</title>
+  </glossdiv>
+  <glossdiv>
+    <title>G</title>
+  </glossdiv>
+  <glossdiv>
+    <title>E</title>
+  </glossdiv>
+-->  <glossdiv>
+    <title>F</title>
+        <glossentry>
+      <glossterm>Formato de intercambio de datos</glossterm>
+      <glossdef>
+        <para>En el contexto de DHIS2, el "Formato de intercambio de datos" se refiere a un esqueleto XML que permite trasladar datos y metadatos entre instancias desconectadas de DHIS, así como entre diferentes aplicaciones que soportan formatos DXF.</para>
       </glossdef>
     </glossentry>
   </glossdiv>
   <glossdiv>
-    <title>I</title>
-    <glossentry>
-      <glossterm>Indicator</glossterm>
+    <title>G</title>
+      <glossentry>
+      <glossterm>Grupo de elementos de datos</glossterm>
       <glossdef>
-        <para>The divisor of an indicator. Can be composed of multiple data elements with the use of an indicator formula.<equation>
+        <para>Los grupos de elementos de datos se utilizan para clasificar los múltiples elementos de datos de acuerdo a un tema común, como por ejemplo "Inmunización" o "TARV". Generalmente, se utilizan para los reportes o análisis con el fin de poder analizar conjuntamente elementos de datos relacionados entre sí.</para>
+      </glossdef>
+    </glossentry>
+  </glossdiv>
+<!--  <glossdiv>
+    <title>H</title>
+  </glossdiv> 
+  <glossdiv>
+    <title>H</title>
+  </glossdiv> --> 
+  <glossdiv>
+    <title>I</title>
+      <glossentry>
+      <glossterm>Indicador</glossterm>
+      <glossdef>
+        <para>Un indicador es un valor obtenido de los datos de salud y calculado mediante una fórmula, generalmente un cociente. Los indicadores se utilizan para el análisis de datos, ya que aportan mayor información que los propios datos en bruto.<equation>
             <mediaobject>
               <imageobject>
                 <imagedata width="40%" align="center" fileref="resources/images/indicator.png"/>
               </imageobject>
             </mediaobject>
           </equation></para>
-        <para>This is obviously a very generalized example. The numerator and indicator themselves can be composed of various data elements, factors, and the four basic operands (addition, multiplication, division and subtraction). </para>
       </glossdef>
     </glossentry>
-  </glossdiv>
-  <glossdiv>
-<!--<title>J</title>
+ </glossdiv>
+<!--  <glossdiv>
+<title>J</title>
   </glossdiv>
   <glossdiv>
     <title>K</title>
@@ -148,37 +143,39 @@
   <glossdiv>
     <title>M</title>
   </glossdiv>
-  <glossdiv> -->    <title>N</title>
+-->
+  <glossdiv>   
+    <title>N</title>
     <glossentry>
-      <glossterm>Numerator</glossterm>
+      <glossterm>Nivel de una unidad organizativa</glossterm>
+      <abbrev>Nivel de Orgunit</abbrev>
       <glossdef>
-        <para>The dividend of a indicator. Can be composed of multiple data elements and factors with the use of indicator formulas.</para>
+        <para>Es el nivel de profundidad en una jerarquía organizativa. Normalmente cada país tiene diferentes niveles administrativos, como 1) Nacional 2) Departamental 3) Distrital 4) Establecimientos de salud. En el contexto de DHIS2, los establecimientos de salud son normalmente los niveles más bajos en la jerarquía. Desde aquí, los datos son agregados hacia arriba desde el nivel más bajo hasta el nivel más alto.</para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Numerador</glossterm>
+      <glossdef>
+        <para>El dividendo de un indicador (recordemos que un indicador es un cociente). Puede estar formado por varios elementos de datos y factores combinados utilizando las fórmulas disponibles para el cálculo de indicadores.</para>
       </glossdef>
     </glossentry>
   </glossdiv>
   <glossdiv>
     <title>O</title>
     <glossentry>
-      <glossterm>Organisational unit</glossterm>
-      <abbrev>orgunit</abbrev>
+      <glossterm>Unidad Organizativa</glossterm>
+      <abbrev>Orgunit</abbrev>
       <glossdef>
-        <para>An organisational unit is usually a geographical unit, which exists within  hierarchy.  As an example, in the United States, &quot;Georgia&quot; would be considered an organisational unit with in the orgunit level of &quot;State&quot;. Organizational units can also be used to specify an administrative unit, such as a ward within a hospital. The organisational unit dimension specifies essentially &quot;where&quot; a particular data value occurs.</para>
-      </glossdef>
-    </glossentry>
-    <glossentry>
-      <glossterm>Organisational unit level</glossterm>
-      <abbrev>Orgunit level</abbrev>
-      <glossdef>
-        <para>Refers to a level within an organizational hierarchy. Typically, countries are administered at different levels, such as 1) Country 2) States 3) Counties 4) Health facilities. In the context of DHIS2, health facilities typically are the lowest orgunit level. Data is aggregated upwards from the lowest orgunit level to the highest. </para>
+        <para>Una unidad organizativa es normalmente también una unidad geográfica, que existe en una determinada jerarquía. Por ejemplo, en Colombia, "Cauca" sería considerada una unidad organizativa a nivel de "Departamento". Las unidades organizativas pueden utilizarse también para especificar una unidad administrativa, como puede ser una sección específica en un hospital. La dimensión de una unidad organizativa especifica esencialmente "dónde" se encuentra un valor de dato determinado.</para>
       </glossdef>
     </glossentry>
   </glossdiv>
   <glossdiv>
     <title>P</title>
     <glossentry>
-      <glossterm>Period</glossterm>
+      <glossterm>Periodo</glossterm>
       <glossdef>
-        <para>A period is a specific time interval which consists of a start date and end date. For instance &quot;January 2011&quot; would refer to the time interval of January 1st 2011-January 31st 2011. </para>
+        <para>Un periodo es un intervalo de tiempo concreto conformado por una fecha de inicio y una fecha de fin. Por ejemplo, "Enero 2012" sería el periodo comprendido entre el 1 de enero de 2012 y el 31 de enero de 2012.</para>
       </glossdef>
     </glossentry>
   </glossdiv>
@@ -191,9 +188,32 @@
       <glossterm>Report table</glossterm>
     </glossentry>
   </glossdiv>
-  <glossdiv>
+-->  
+<glossdiv>
     <title>S</title>
+    <glossentry>
+      <glossterm>Set de grupo de elementos de datos</glossterm>
+      <glossdef>
+        <para>Los grupos de elementos de datos sirven para clasificar múltiples grupos de elementos de datos en torno a un criterio común.</para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Sistema de Información Geográfica</glossterm>
+      <abbrev>SIG</abbrev>
+      <glossdef>
+        <para>Es una aplicación de visualización y edición de mapas que permite introducir, almacenar, manipular y analizar información geográficamente referenciada. Por ejemplo, la aplicación DHIS2 incorpora algunas funcionalidades de SIG que permiten la ubicación de unidades organizativas en mapas y la visualización de indicadores por regiones geográfico-administrativas tales como distritos, provincias, etc.
+          </para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Sistema de Gestión de la Información de Salud</glossterm>
+      <abbrev>SGIS</abbrev>
+      <glossdef>
+        <para>Generalmente es un sistema digital de bases de datos utilizado para registrar datos agregados de provisión de servicios de salud, incidencia de enfermedades, recursos humanos y otra información utilizada para evaluar el funcionamiento de la provisión de servicios de atención de salud. Normalmete un SGIS no contiene datos muy detallados de sistemas de registro de historia clínica electrónica o de datos individuales de paciente. La aplicación DHIS2 es un Sistema de Gesitón de Información de Salud con alguna capacidad extra para incorporar datos de paciente.</para>
+      </glossdef>
+    </glossentry>
   </glossdiv>
+<!--
   <glossdiv>
     <title>T</title>
   </glossdiv>
