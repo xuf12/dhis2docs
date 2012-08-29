@@ -49,7 +49,7 @@
             <entry>
               <emphasis role="italic">Description</emphasis>
             </entry>
-          </row>          
+          </row>
         </thead>
         <tbody>
           <row>
@@ -125,8 +125,12 @@
         <tgroup cols="2">
           <thead>
             <row>
-              <entry><emphasis role="italic">Content-Type</emphasis></entry>
-              <entry><emphasis role="italic">Description</emphasis></entry>
+              <entry>
+                <emphasis role="italic">Content-Type</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="italic">Description</emphasis>
+              </entry>
             </row>
           </thead>
           <tbody>
@@ -144,51 +148,47 @@
     </para>
     <para>
     <table>
-      <title>Available Query Filters</title>
-      <tgroup cols="5">
-        <thead>
-          <row>
-            <entry>
-              <emphasis role="italic">Param</emphasis>
-            </entry>
-            <entry>
-              <emphasis role="italic">Type</emphasis>
-            </entry>
-            <entry>
-              <emphasis role="italic">Required</emphasis>
-            </entry>
-            <entry>
-              <emphasis role="italic">Options (default first)</emphasis>
-            </entry>
-            <entry>
-              <emphasis role="italic">Description</emphasis>
-            </entry>
-          </row>          
-        </thead>
-        <tbody>
-          <row>
-            <entry>assumeTrue</entry>
-            <entry>boolean</entry>
-            <entry>false</entry>
-            <entry>true/false</entry>
-            <entry>If you don't want everything that <emphasis role="bold">/api/metaData</emphasis> gives you by default, when set to false, this option
-                will not return anything by default. You have to enable the resources you want yourself (see below).
-            </entry>
-          </row>
-          <row>
-            <entry>{resources}</entry>
-            <entry>boolean</entry>
-            <entry>false</entry>
-            <entry>true/false (default depends on assumeTrue)</entry>
-            <entry>Please see <emphasis role="bold">/api</emphasis> for available resources. This option will allow you to override the default
-              (which is taken from assumeTrue) and further refine what meta-data you want.
-            </entry>
-          </row>
-          <row>
-            <entry>lastUpdated</entry>
-            <entry>date</entry>
-            <entry>false</entry>
-            <entry>Three date formats are supported:<orderedlist>
+        <title>Available Query Filters</title>
+        <tgroup cols="5">
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="italic">Param</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="italic">Type</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="italic">Required</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="italic">Options (default first)</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="italic">Description</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>assumeTrue</entry>
+              <entry>boolean</entry>
+              <entry>false</entry>
+              <entry>true/false</entry>
+              <entry>If you don&apos;t want everything that <emphasis role="bold">/api/metaData</emphasis> gives you by default, when set to false, this option will not return anything by default. You have to enable the resources you want yourself (see below). </entry>
+            </row>
+            <row>
+              <entry>{resources}</entry>
+              <entry>boolean</entry>
+              <entry>false</entry>
+              <entry>true/false (default depends on assumeTrue)</entry>
+              <entry>Please see <emphasis role="bold">/api</emphasis> for available resources. This option will allow you to override the default (which is taken from assumeTrue) and further refine what meta-data you want. </entry>
+            </row>
+            <row>
+              <entry>lastUpdated</entry>
+              <entry>date</entry>
+              <entry>false</entry>
+              <entry>Three date formats are supported:<orderedlist>
                   <listitem>
                     <para><emphasis role="bold">YEAR</emphasis></para>
                   </listitem>
@@ -199,32 +199,26 @@
                     <para><emphasis role="bold">DAY/MONTH/YEAR</emphasis>
                     </para>
                   </listitem>
-                </orderedlist>
-            </entry>
-            <entry>Filters the meta-data based on the lastUpdated field, this allows you to synchronize meta-data as a nightly job,
-              without downloading everything from the server.
-            </entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </table>
+                </orderedlist></entry>
+              <entry>Filters the meta-data based on the lastUpdated field, this allows you to synchronize meta-data as a nightly job, without downloading everything from the server. </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
    </para>
     <para>
-      <emphasis role="bold">Example: Get a filtered set of meta-data that was updated since August
-        1st 2012</emphasis>
+      <emphasis role="bold">Example: Get a filtered set of meta-data that was updated since August 1st 2012</emphasis>
     </para>
-    <para>As described in the last section, there is a number of options you can apply to <emphasis
-        role="bold">/api/metaData</emphasis> to give you a filtered view. The use-case we will be
+    <para>As described in the last section, there is a number of options you can apply to <emphasis role="bold">/api/metaData</emphasis> to give you a filtered view. The use-case we will be
       looking into here, is the case where you want a nightly job that synchronizes organisation
       units. We will be using <emphasis role="italic">cURL</emphasis> as the HTTP
-      client.<screen>curl -H "Accept: application/xml" -u user:pass
+      client.<screen>curl -H &quot;Accept: application/xml&quot; -u user:pass
     {HOST}/api/metaData?assumeTrue=false&amp;organisationUnits=true&amp;lastUpdated=01/08/2012</screen></para>
-    <para><emphasis role="bold">Example: Get meta-data that was updated since february
-        2012</emphasis></para>
+    <para><emphasis role="bold">Example: Get meta-data that was updated since february 2012</emphasis></para>
     <para>This example will just the default <emphasis role="italic">assumeTrue</emphasis> setting,
       along with getting the last updates from february 2012. This means that every single type that
       has been updated will be
-      retrieved.<screen>curl -H "Accept: application/xml" -u user:pass {HOST}/api/metaData?lastUpdated=02/2012</screen></para>
+      retrieved.<screen>curl -H &quot;Accept: application/xml&quot; -u user:pass {HOST}/api/metaData?lastUpdated=02/2012</screen></para>
   </section>
   <section>
     <title>Example: Sending data values</title>
@@ -254,7 +248,6 @@
     <para>In this example, cURL will authenticate to the server through  Basic authentication using our supplied username and password as credentials through the <emphasis role="italic">-u</emphasis> flag. </para>
     <para>In a real-world scenario, looking up identifiers, constructing and dispatching XML messages would be the task of the client software application. This software would probably interact with the more machine-friendly XML and JSON resource representations and not the human-friendly HTML representations like we  did in this example. Developing creative and robust consumers of the Web API services begins  here.</para>
   </section>
-  
   <section>
     <title>Example: Sending data values using SDMX-HD</title>
     <para>Posting a dataValueSet report formatted using the WHO SDMX-HD standard is very similar to
@@ -291,10 +284,8 @@
 </CrossSectionalData>]]></screen>
     <para>One thing to note is that the SDMX-HD metadata for dataelements, orgunits and datasets are identified using <emphasis>codes</emphasis> rather than <emphasis>uids</emphasis>.
     Assuming these coded datasets are present in the DHIS2 server then this can be posted, for example using the curl command below.</para>
-    <para><code>curl -d @sdmxdatavalueset.xml &quot;http://{server base url}/api/dataValueSets&quot;
-        -H &quot;Content-Type:application/sdmx+xml&quot; -u admin:district -v</code></para>
+    <para><code>curl -d @sdmxdatavalueset.xml &quot;http://{server base url}/api/dataValueSets&quot; -H &quot;Content-Type:application/sdmx+xml&quot; -u admin:district -v</code></para>
   </section>
-  
   <section>
     <title>Example: Sending large bulks of data values</title>
     <para>The previous example showed us how to send a set of related data values sharing the same period and organisation unit. This example will show us how to send large bulks of data values which don&apos;t necessarily are logically related.</para>
@@ -328,7 +319,7 @@
             <entry>
               <emphasis role="italic">Description</emphasis>
             </entry>
-          </row>          
+          </row>
         </thead>
         <tbody>
           <row>
@@ -378,7 +369,7 @@
             <entry>
               <emphasis role="italic">Description</emphasis>
             </entry>
-          </row>          
+          </row>
         </thead>
         <tbody>
           <row>
@@ -551,7 +542,7 @@ Ext.onReady( function() {
             <entry>
               <emphasis role="italic">Description</emphasis>
             </entry>
-          </row>          
+          </row>
         </thead>
         <tbody>
           <row>
@@ -840,7 +831,7 @@ new Ext.ux.carousel.Carousel( &apos;chartCarousel&apos;, {
             <entry>
               <emphasis role="italic">Description</emphasis>
             </entry>
-          </row>          
+          </row>
         </thead>
         <tbody>
           <row>
@@ -972,7 +963,7 @@ DHIS.getTable({
             <entry>
               <emphasis role="italic">Description</emphasis>
             </entry>
-          </row>          
+          </row>
         </thead>
         <tbody>
           <row>
@@ -1000,5 +991,28 @@ Ext.get(&apos;link1&apos;).set({href: url1});</screen>
     <para>The link HTML element can be defined in the body section of the document like below.</para>
     <screen>&lt;a id=&quot;link1&quot;&gt;Download as Excel&lt;/a&gt;</screen>
     <para>To view a complete working example please visit <ulink url="http://apps.dhis2.org/portal/table.html"/>.</para>
+  </section>
+  <section>
+    <title>Example: Working with SQL views</title>
+    <para>Executing SQL Views and returning the results of these views has been made possible in version 2.9 of DHIS2. SQL Views are useful for presenting certain data views externally, which may be more easily constructed with SQL than by combining the multiple objects of the Web API. As an example, lets assume we have been asked to provide a view of all organisation units with their names, parent names, organisation unit level and name, and the coordinates listed in the database. The view might look something like this:  </para>
+    <screen>SELECT ou.name, par.name as parent, ou.coordinates,
+ ous.level,oul.name from organisationunit ou  
+INNER JOIN _orgunitstructure  ous 
+on ou.organisationunitid = ous.organisationunitid
+INNER JOIN organisationunit par on ou.parentid = par.organisationunitid
+INNER JOIN orgunitlevel oul on ous.level = oul.level
+where ou.coordinates IS NOT NULL 
+ORDER BY oul.level,par.name,ou.name</screen>
+    <para>We will use <command>curl</command> to first execute the view on the DHIS2 server. This is essentially a materialization process, and ensures that we have the most recent data available through the SQL View when it is retrieved from the server. </para>
+    <screen>curl &quot;http://apps.dhis2.org/dev/
+dhis-web-maintenance-dataadmin/
+executeSqlViewQuery.action?id=1150154&quot; 
+-u admin:district -v</screen>
+    <para>This <command>curl</command> command simply has the internal ID of the view as a single paramater. </para>
+    <para>The next step in the process is the retreival of the data.The basic structure of the URL is as follows</para>
+    <screen>http(s)://{server}/api/sqlViews/{uid}/data(.csv)</screen>
+    <para>The <parameter>{server}</parameter> parameter should be replaced with your own server. The next part of the URL <parameter>/api/sqlViews/</parameter> should be appended with the specific unique identifier (not the internal ID of the view). Append either <parameter>data</parameter> for XML data or <parameter>data.csv</parameter>      for comma delimited values. As an example, the following URL would retreive XML data for the SQL view defined above.<screen>curl
+&quot;http://apps.dhis2.org/dev/api/sqlViews/w11jeI9gGAr/data&quot;
+ -u admin:district -v</screen></para>
   </section>
 </chapter>
