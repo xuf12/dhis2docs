@@ -303,7 +303,7 @@
   &lt;dataValueCount imported=&quot;2&quot; updated=&quot;1&quot; ignored=&quot;1&quot;/&gt;
   &lt;dataSetComplete&gt;false&lt;/dataSetComplete&gt;
 &lt;/importSummary&gt;</screen>
-    <para>This message tells us that 3 data values were imported, 1 data value was updated while zero data values were ignored. The single update comes as a result of us sending that data value in the previous example. A data value will be ignored if it references a non-existing data element, period, org unit or data set. In our case this single ignored value was caused by the last data vaue having an invalid reference to org unit. The data set complete element will display the date of which the data value set was completed, or false if no data element attribute was supplied.</para>
+    <para>This message tells us that 3 data values were imported, 1 data value was updated while zero data values were ignored. The single update comes as a result of us sending that data value in the previous example. A data value will be ignored if it references a non-existing data element, period, org unit or data set. In our case this single ignored value was caused by the last data value having an invalid reference to org unit. The data set complete element will display the date of which the data value set was completed, or false if no data element attribute was supplied.</para>
     <para>The import process can be customized using a set of import parameters:</para>
     <table>
       <title>Import parameters</title>
@@ -407,7 +407,7 @@ Content-Type: application/xml
   </section>
   <section>
     <title>Example: Reading aggregated data values</title>
-    <para>In order to read aggregated data values you can utilize the reportTables resource. This resouce lets you retrieve data from predefined report tables as well as custom data responses for any number of indicators, data elements, data sets, periods and organisatio units.</para>
+    <para>In order to read aggregated data values you can utilize the reportTables resource. This resource lets you retrieve data from predefined report tables as well as custom data responses for any number of indicators, data elements, data sets, periods and organisation units.</para>
   </section>
   <section>
     <title>Example: Writing and reading messages</title>
@@ -466,7 +466,7 @@ Content-Type: application/xml
     <para>The report table can be parameterized with an organisation unit and a period by supplying a <emphasis role="italic">ou</emphasis> and <emphasis role="italic">pe</emphasis> query parameter accompanied with an organisation unit  identifier and period string  in the URL. If not provided the Web API will use the top-most organisation unit in the hierarchy and the last  period for the report table content. The organisation unit identifier can be looked up by going to the Web API entrypoint and follow the link to the <emphasis role="italic">organisationUnits</emphasis> resouce. For our example we will use <emphasis role="italic">Bo</emphasis> district whith identifier <emphasis role="italic">O6uvpzGd5pu</emphasis> as the organisation unit: <ulink url="http://apps.dhis2.org/demo/api/reportTables/xIWpSo5jjT1/data?ou=O6uvpzGd5pu"/>. From the HTML representation we can  see that the report now contains data for <emphasis role="italic">Bo</emphasis> district. These URLs can  simply  be used in links embedded in the web page like this:</para>
     <screen>&lt;a href=&quot;http://apps.dhis2.org/demo/api/reportTables/xIWpSo5jjT1/data.pdf?
 ou=O6uvpzGd5pu&quot;&gt;Maternal Health Bo District 2012&lt;/a&gt;</screen>
-    <para>There are many ways to authenticate over the Web and each method has its advantages and disadvantages. For this example we will use an  approach where we emulate a  login from the web-based login form. To help us we will use the <emphasis role="italic">jQuery</emphasis>  javascript library. This javascript code should be embedded in the <emphasis role="italic">head</emphasis> section of the Web page:</para>
+    <para>There are many ways to authenticate over the Web and each method has its advantages and disadvantages. For this example we will use an  approach where we emulate a  login from the web-based login form. To help us we will use the <emphasis role="italic">jQuery</emphasis> JavaScript library. This JavaScript code should be embedded in the <emphasis role="italic">head</emphasis> section of the Web page:</para>
     <screen>jQuery(document).ready(function() {
   $.post( &quot;http://apps.dhis2.org/demo/dhis-web-commons-security/login.action&quot;, {
       j_username: &quot;admin&quot;, j_password: &quot;district&quot; 
@@ -501,9 +501,9 @@ ou=O6uvpzGd5pu&quot;&gt;Maternal Health Bo District 2012&lt;/a&gt;</screen>
     </itemizedlist>
   </section>
   <section>
-    <title>Example: Embedding charts with the Visualizer chart plugin</title>
-    <para>In this example we will see how we can embed good-looking Ext JS charts (<ulink url="http://www.sencha.com/products/extjs"/>) with data served from a DHIS back-end into a Web page. To accomplish this we will use the DHIS Visualizer plugin. The plugin is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/chart.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
-    <para>We start by including three required Javascript files in the header section of the HTML document. The first file is the  Ext JS Javascript library (we use  the Google content delivery network in this case). The third file is the Visualizer plugin. Make sure the path is pointing to your DHIS server installation.</para>
+    <title>Example: Embedding charts with the Visualizer chart plug-in</title>
+    <para>In this example we will see how we can embed good-looking Ext JS charts (<ulink url="http://www.sencha.com/products/extjs"/>) with data served from a DHIS back-end into a Web page. To accomplish this we will use the DHIS Visualizer plug-in. The plug-in is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/chart.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
+    <para>We start by including three required Javascript files in the header section of the HTML document. The first file is the  Ext JS Javascript library (we use  the Google content delivery network in this case). The third file is the Visualizer plug-in. Make sure the path is pointing to your DHIS server installation.</para>
     <screen>&lt;script type=&quot;text/javascript&quot;
   src=&quot;http://extjs-public.googlecode.com/svn/tags/extjs-4.0.7/release/ext-all.js&quot;&gt;
 &lt;/script&gt;
@@ -521,9 +521,9 @@ Ext.onReady( function() {
     success: setLinks
   });
 });</screen>
-    <para>Now let us have a look at the various options for the Visualizer plugin. If you want to refer to pre-defined charts already made inside DHIS you should use the <emphasis role="italic">uid</emphasis> parameter. If you want create dynamic charts you shoud include the indicators and/or dataelements parameter and omit the uid parameter. Asterisk (*) indicates that a parameter is required only when the uid  parameter is not used.</para>
+    <para>Now let us have a look at the various options for the Visualizer plug-in. If you want to refer to pre-defined charts already made inside DHIS you should use the <emphasis role="italic">uid</emphasis> parameter. If you want create dynamic charts you shoud include the indicators and/or dataelements parameter and omit the uid parameter. Asterisk (*) indicates that a parameter is required only when the uid  parameter is not used.</para>
     <table>
-      <title>Visualizer chart plugin configuration</title>
+      <title>Visualizer chart plug-in configuration</title>
       <tgroup cols="5">
         <thead>
           <row>
@@ -768,7 +768,7 @@ Ext.onReady( function() {
     filter: &apos;period&apos;
   });
 };</screen>
-    <para>Finally we include some <emphasis role="italic">div</emphasis> elements in the body section of the HTML document with the identifiers referred to in the plugin Javascript.</para>
+    <para>Finally we include some <emphasis role="italic">div</emphasis> elements in the body section of the HTML document with the identifiers referred to in the plug-in Javascript.</para>
     <screen>&lt;div id=&quot;chartA1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
 &lt;div id=&quot;chartA2&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
 
@@ -777,17 +777,17 @@ Ext.onReady( function() {
     <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/chart.html"/>.</para>
   </section>
   <section>
-    <title>Example: Creating a chart carousel with the carousel plugin</title>
-    <para>The chart plugin also makes it possible to create a chart carousel which for instance can be used to create an attractive front page on a Web portal. To use the carousel we need to import a few  files in the head section of our HTML page:</para>
+    <title>Example: Creating a chart carousel with the carousel plug-in</title>
+    <para>The chart plug-in also makes it possible to create a chart carousel which for instance can be used to create an attractive front page on a Web portal. To use the carousel we need to import a few  files in the head section of our HTML page:</para>
     <screen>
 &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/ext/resources/css/ext-plugin-gray.css&quot; /&gt;
 &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/ext-ux/carousel/css/carousel.css&quot; /&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;http://extjs-public.googlecode.com/svn/tags/extjs-4.0.7/release/ext-all.js&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/ext-ux/carousel/Carousel.js&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/plugin/plugin.js&quot;&gt;&lt;/script&gt;</screen>
-    <para>The first file is the CSS stylesheet for the chart plugin. The second file is the CSS stylesheet for the carousel widget. The third file is the Ext javascript framework which this plugin depends on. The fourth file is the carousel plugin javascript file. The fifth file is the chart plugin javascript file. The paths in this example points at the DHIS 2 demo site, make sure you update them to point to your own DHIS 2 installation.</para>
-    <para>Please refer to the section about the chart plugin on how to do authentication.</para>
-    <para>To create a chart carousel we will first render the charts we want to include in the carousel using the method described in the chart plugin section. Then we create the chart carousel itself. The charts will be rendered into <emphasis role="italic">div</emphasis> elements which all have a CSS class called <emphasis role="italic">chart</emphasis>. In the carousel configuration we can then define a <emphasis role="italic">selector</emphasis> expression which refers to those div elements like this:</para>
+    <para>The first file is the CSS stylesheet for the chart plug-in. The second file is the CSS stylesheet for the carousel widget. The third file is the Ext JavaScript framework which this plug-in depends on. The fourth file is the carousel plug-in JavaScript file. The fifth file is the chart plug-in JavaScript file. The paths in this example points at the DHIS 2 demo site, make sure you update them to point to your own DHIS 2 installation.</para>
+    <para>Please refer to the section about the chart plug-in on how to do authentication.</para>
+    <para>To create a chart carousel we will first render the charts we want to include in the carousel using the method described in the chart plug-in section. Then we create the chart carousel itself. The charts will be rendered into <emphasis role="italic">div</emphasis> elements which all have a CSS class called <emphasis role="italic">chart</emphasis>. In the carousel configuration we can then define a <emphasis role="italic">selector</emphasis> expression which refers to those div elements like this:</para>
     <screen>DHIS.getChart({ uid: &apos;R0DVGvXDUNP&apos;, el: &apos;chartA1&apos;, url: base });
 DHIS.getChart({ uid: &apos;X0CPnV6uLjR&apos;, el: &apos;chartA2&apos;, url: base });
 DHIS.getChart({ uid: &apos;j1gNXBgwKVm&apos;, el: &apos;chartA3&apos;, url: base });
@@ -809,10 +809,10 @@ new Ext.ux.carousel.Carousel( &apos;chartCarousel&apos;, {
     <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/carousel.html"/>.</para>
   </section>
   <section>
-    <title>Example: Embedding report tables with the table plugin</title>
-    <para>In this example we will see how we can embed dynamic data tables in a Web page with data provided from a DHIS back-end server using the table plugin. The table plugin resides inside the same file as the chart plugin so please refer to the  section about the chart plugin  above on how to include the required javascript and CSS files and how to do authentication. The available table options are listed in the table below.</para>
+    <title>Example: Embedding report tables with the table plug-in</title>
+    <para>In this example we will see how we can embed dynamic data tables in a Web page with data provided from a DHIS back-end server using the table plug-in. The table plug-in resides inside the same file as the chart plug-in so please refer to the  section about the chart plug-in  above on how to include the required JavaScript and CSS files and how to do authentication. The available table options are listed in the table below.</para>
     <table>
-      <title>Table plugin configuration</title>
+      <title>Table plug-in configuration</title>
       <tgroup cols="5">
         <thead>
           <row>
@@ -914,7 +914,7 @@ new Ext.ux.carousel.Carousel( &apos;chartCarousel&apos;, {
         </tbody>
       </tgroup>
     </table>
-    <para>In the following are examples on how the table plugin can be used.</para>
+    <para>In the following are examples on how the table plug-in can be used.</para>
     <screen>DHIS.getTable({
   indicators: [&apos;Uvn6LCg7dVU&apos;],
   periods: [&apos;last12Months&apos;],
@@ -944,7 +944,7 @@ DHIS.getTable({
     <para>To view a complete working example please visit <ulink url="http://apps.dhis2.org/portal/table.html"/>.</para>
     <para>You can also choose to provide a link to the report table instead of rendering it directly on the web page. The configuration of the link function is very similar to the table function and shares the <emphasis role="italic">indicators</emphasis>, <emphasis role="italic">dataelements</emphasis>, <emphasis role="italic">datasets</emphasis>, <emphasis role="italic">periods</emphasis>, <emphasis role="italic">orgunits</emphasis>, <emphasis role="italic">orgUnitIsParent</emphasis>, <emphasis role="italic">crosstab</emphasis> and <emphasis role="italic">url</emphasis> properties. There is only one additional parameter which is listed in the table below.</para>
     <table>
-      <title>Link plugin (additional) configuration</title>
+      <title>Link plug-in (additional) configuration</title>
       <tgroup cols="5">
         <thead>
           <row>
