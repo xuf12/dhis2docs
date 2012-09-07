@@ -61,7 +61,7 @@
           <xincludeSupported>true</xincludeSupported>
         </configuration>
         <executions>
-          <execution>
+          <!--<execution>
             <id>rtf-docs-en-user</id>
             <phase>package</phase>
             <goals>
@@ -69,7 +69,7 @@
             </goals>
             <configuration>
               <argLine>-Xmx1024m</argLine>
-              <foCustomization>${docbook.source}/en/resources/xsl/fop-cust.xsl</foCustomization>
+              <foCustomization>${docbook.source}/en/resources/xsl/fop-cust_ng.xsl</foCustomization>
               <doubleSided>1</doubleSided>
               <includes>dhis2_user_manual_en.xml</includes>
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
@@ -94,7 +94,7 @@
                 <copy file="target/docbkx/rtf/dhis2_implementation_guide_en.rtf" todir="${docbook.target}/en/implementer" />
               </postProcess>
             </configuration>
-          </execution>		  
+          </execution>	-->	  
 		  <execution>
             <id>rtf-docs-en-end-user</id>
             <phase>package</phase>
@@ -103,7 +103,7 @@
             </goals>
             <configuration>
               <argLine>-Xmx1024m</argLine>
-              <foCustomization>${docbook.source}/en/resources/xsl/fop-cust.xsl</foCustomization>
+              <foCustomization>${docbook.source}/en/resources/xsl/fop-cust_ng.xsl</foCustomization>
               <doubleSided>1</doubleSided>
               <includes>dhis2_end_user_manual.xml</includes>
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>

@@ -1012,7 +1012,7 @@ executeSqlViewQuery.action?id=1150154&quot;
     <para>The next step in the process is the retreival of the data.The basic structure of the URL is as follows</para>
     <screen>http(s)://{server}/api/sqlViews/{uid}/data(.csv)</screen>
     <para>The <parameter>{server}</parameter> parameter should be replaced with your own server. The next part of the URL <parameter>/api/sqlViews/</parameter> should be appended with the specific unique identifier (not the internal ID of the view). Append either <parameter>data</parameter> for XML data or <parameter>data.csv</parameter>      for comma delimited values. As an example, the following URL would retreive XML data for the SQL view defined above.<screen>curl
-&quot;http://apps.dhis2.org/dev/api/sqlViews/w11jeI9gGAr/data&quot;
+&quot;http://apps.dhis2.org/dev/api/sqlViews/w11jeI9gGAr/data.csv&quot;
  -u admin:district -v</screen></para>
   </section>
 </chapter>
