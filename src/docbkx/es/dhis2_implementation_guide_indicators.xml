@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<chapter>
+  <title>Indicators</title>
+  <para>This chapter covers the following topics:</para>
+  <itemizedlist>
+    <listitem>
+      <para>What is an indicator</para>
+    </listitem>
+    <listitem>
+      <para>Purposes of indicators</para>
+    </listitem>
+    <listitem>
+      <para>Indicator-driven data collection</para>
+    </listitem>
+    <listitem>
+      <para>Managing indicators in DHIS 2</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following describes these topics in greater detail.</para>
+  <section>
+    <title>What is an indicator</title>
+    <para>In DHIS 2 the indicator is a core element of data analysis. An indicator represent calculated formula based on data elements, i.e it is not just a figure, but a proportion relating to something. It has a numerator which represents the data elements being measured, and a denominator which the data element(s) is is measured as a proportion of). Indicators are thus made up of formulas of these data elements, in addition to a factor (e.g. 1, 100, 100, 100 000) to set the right measurement. E.g. the indicator &quot;BCG coverage &lt;1 year&quot; is defined a formula with a factor 100 (to get it as a per cent), a numerator (&quot;BCG doses given to children under 1 year&quot;) and a denominator (&quot;Target population under 1 year&quot;). The indicator &quot;DPT1 to DPT3 drop out rate&quot; is a formula of 100 % x (&quot;DPT1 doses given&quot;- &quot;DPT3 doses given&quot;) / (&quot;DPT1 doses given&quot;).</para>
+    <para>Indicator = numerator / denominator x factor</para>
+    <table>
+      <title>Indicator examples</title>
+      <tgroup cols="5">
+        <thead>
+          <row>
+            <entry>
+              <para>Indicator</para>
+            </entry>
+            <entry>
+              <para>Formula</para>
+            </entry>
+            <entry>
+              <para>Numerator</para>
+            </entry>
+            <entry>
+              <para>Denominator</para>
+            </entry>
+            <entry>
+              <para>Factor</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para>Fully immunized &lt;1 year</para>
+            </entry>
+            <entry>
+              <para>Fully immunized/Population &lt; 1 year x 100</para>
+            </entry>
+            <entry>
+              <para>Fully immunized</para>
+            </entry>
+            <entry>
+              <para>Population &lt; 1</para>
+            </entry>
+            <entry>
+              <para>100 (Percentage)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Maternal Mortality Rate</para>
+            </entry>
+            <entry>
+              <para>Maternal deaths/Live births x 100 000</para>
+            </entry>
+            <entry>
+              <para>Maternal deaths</para>
+            </entry>
+            <entry>
+              <para>Live births</para>
+            </entry>
+            <entry>
+              <para>100 000
+(MMR is measured per 100 000)</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+  <section>
+    <title>Purposes of indicators</title>
+    <para>Indicators are a lot more useful for analysis than raw data. Since they are proportions, they are comparable across time and space, which is very important since units of analysis and comparison, such as districts, vary in size and change over time. A district with 100 cases of a disease may have a higher incidence rate than a district of 1000 cases, if the latter district is more than 10 times as populous. An indicator measuring the incidence rate related to a population will be possible for comparison no matter what the population might actually be.</para>
+    <para>Indicators thus allow comparison, and are the prime tool for data analysis. DHIS2 should provide relevant indicators for analysis for all health programs, not just the raw data. Most report modules in DHIS 2 support both data elements and indicators and you can also combine these in custom reports.</para>
+  </section>
+  <section>
+    <title>Indicator-driven data collection</title>
+    <para>Since indicators are more suited for analysis compared to data elements, the calculation of indicators should be the main driving force for collection of data. A usual situation is that much data is collected but never used in any indicator, which significantly reduces the usability of the data. Either the captured data elements should be included in indicators used for management or they should probably not be collected at all.</para>
+    <para>For implementation purposes, a list of indicators used for management should be defined and implemented in DHIS 2. For analysis, training should focus on the use of indicators and why these are better suited than data elements for this purpose.</para>
+  </section>
+  <section>
+    <title>Managing indicators</title>
+    <para>Indicators can be added, deleted, or modified at any time in DHIS2 without affecting the data. Indicators are not stored as values in DHIS2, but as formlas, which are calculated whenever the user needs them. Thus a change in the formulas will only lead to different data elements being called for when using the indicator for analysis, without any changes to the underlying data values taking place. For information how to manage indicators, please refer to the chapter on indicators in the DHIS2 user documentation.</para>
+  </section>
+</chapter>
