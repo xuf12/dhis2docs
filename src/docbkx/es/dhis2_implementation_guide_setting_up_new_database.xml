@@ -2,14 +2,14 @@
 <!-- This document was created with Syntext Serna Free. -->
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
-  <title>Setting Up a New Database</title>
-  <para>The DHIS 2 application comes with a set of tools for data collection, validation, reporting and analysis, but the contents of the database, e.g. what data to collect, where the data comes from, and on what format will depend on the context of use. This meta data need to be populated into the application before it can be used, and this can be done through the user interface and requires no programming. What is required is in-depth knowledge about the local HIS context as well as an understanding of the DHIS 2 design principles (see the chapter “Key conceptual design principles in DHIS 2”). We call this initial process for database design or customisation. This chapter provides an overview of the customisation process and briefly explains the steps involved, in order to give the implementer a feeling of what this process requires. Other chapters in this manual provide a lot more detail into some of the specific steps. </para>
+  <title>Instalación de una nueva base de datos</title>
+  <para>La aplicación DHIS 2 viene con un set de herramientas para la recogida de datos, validación, reporte y análisis, pero los contenidos de la base de datos, como son qué datos registrar, de dónde vienen los datos, y en qué formato, dependen del contexto en que usemos la aplicación. Tendremos que insertar estos metadatos en la aplicación antes de poder usarlos, y esto es posible hacerlo mediante el interfaz de usuario sin necesidad de programación. Lo que sí se necesita es conocer en profundidad el contexto local del SIS así como comprender los principios de diseño de DHIS 2 (véase el capítulo "Principios conceptuales de diseño en DHIS 2"). Esto es lo que llamamos proceso inicial para el diseño y personalización de la base de datos. Este capítulo da una perspectiva general del proceso de personalización y explica brevemente los pasos requeridos, con el objetivo de ofrecer a los implementadores una visión de lo que requiere este proceso. Otros capítulos de este manual entran con mayor detalle en algunos de estos pasos concretos. </para>
   <section>
-    <title>Strategies for getting started</title>
-    <para>The following section describes a list of tips for getting off with a good start when developing a new database.</para>
+    <title>Estrategias para comenzar</title>
+    <para>La sección siguiente describe una lista de consejos para arrancar con buen pie en el desarrollo de una nueva base de datos.</para>
     <orderedlist>
       <listitem>
-        <para>Quickly populate a demo database, incl. examples of reports, charts, dashboard, GIS, data entry forms. Use real data, ideally nation-wide, but not necessarily facility-level data.</para>
+        <para>Insertar rápidamente una base de datos demostrativa, que incluya ejemplos de reportes, gráficas, dashboard, SIG, formularios de entrada de datos. Utilizar datos reales, idealmente a nivel nacional, pero no necesariamente datos a nivel de establecimientos de salud.</para>
       </listitem>
       <listitem>
         <para>Put the demo database online. Server hosting with an external provider server  can be a  solution too speed up the process, even if temporary. This makes a great collaborative platform and dissemination tool to get buy-in from stakeholders.</para>
