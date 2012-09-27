@@ -12,10 +12,10 @@
         <para>Quickly populate a demo database, incl. examples of reports, charts, dashboard, GIS, data entry forms. Use real data, ideally nation-wide, but not necessarily facility-level data.</para>
       </listitem>
       <listitem>
-        <para>Put the demo database online. Server hosting with an external provider server  can be a  solution too speed up the process, even if temporary. This makes a great collaborative platform and dissemination tool to get buy-in from stakeholders.</para>
+        <para>Put the demo database online. Server hosting with an external provider server can be a  solution to speed up the process, even if temporary. This makes a great collaborative platform and dissemination tool to get buy-in from stakeholders.</para>
       </listitem>
       <listitem>
-        <para>The next phase is a more elaborate database design process. Parts of the demo can be reused of viable.</para>
+        <para>The next phase is a more elaborate database design process. Parts of the demo can be reused if viable.</para>
       </listitem>
       <listitem>
         <para>Make sure to have a local team with different skills and background: public health, data administrator, IT and project management.</para>
@@ -42,7 +42,7 @@ The most critical mistake that can be made is to modify the meta data that direc
     <section>
       <title>The organisational hierarchy</title>
       <para>The organisational hierarchy defines the organisation using the DHIS 2, the health facilities, administrative areas and other geographical areas used in data collection and data analysis. This dimension to the data is defined as a hierarchy with one root unit (e.g. Ministry of Health) and any number of levels and nodes below. Each node in this hierarchy is called an organisational unit in DHIS 2. The design of this hierarchy will determine the geographical units of analysis available to the users as data is collected and aggregated in this structure. There can only be one organisational hierarchy at the same time so its structure needs careful consideration. </para>
-      <para>Additional hierarchies (e.g. parallel administrative boundaries to the health care sector) can be modelled using organisational groups and group sets, but the organisational hierarchy is the main vehicle for data aggregation on the geographical dimension. Typically national organisational hierarchies in public health have 4-6 levels, but any number of levels is supported. The hierarchy is built up of parent-child relations, e.g. a Country or MoH unit (the root) might have e.g. 8 parent units (provinces), and each province again ( at level 2) might have 10-15 districts as their children. Normally the health facilities will be located at the lowest level, but they can also be located at higher levels, e.g. national or provincial hospitals, so skewed organisational trees are supported (e.g. a leaf node can be positioned at level 2 while most other leaf nodes are at level 5). </para>
+      <para>Additional hierarchies (e.g. parallel administrative boundaries to the health care sector) can be modelled using organisational groups and group sets, but the organisational hierarchy is the main vehicle for data aggregation on the geographical dimension. Typically national organisational hierarchies in public health have 4-6 levels, but any number of levels is supported. The hierarchy is built up of parent-child relations, e.g. a Country or MoH unit (the root) might have e.g. 8 child units (provinces), and each province again ( at level 2) might have 10-15 districts as their children. Normally the health facilities will be located at the lowest level, but they can also be located at higher levels, e.g. national or provincial hospitals, so skewed organisational trees are supported (e.g. a leaf node can be positioned at level 2 while most other leaf nodes are at level 5). </para>
     </section>
     <section>
       <title>Data Elements</title>

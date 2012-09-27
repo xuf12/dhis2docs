@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
-  <title>Installation</title>
+  <title>Instalación</title>
   <para>The installation chapter provides information on how to install DHIS 2 in various contexts, including online central server, offline local network, standalone application and self-contained package called DHIS 2 Live.</para>
   <para>DHIS 2 runs on all platforms for which there exists a Java Runtime Environment version 6 or higher, which includes most popular operating systems such as Windows, Linux and Mac. DHIS 2 also runs on many relational database systems such as PostgreSQL, MySQL, H2 and Derby. DHIS 2 is packaged as a standard Java Web Archive (WAR-file) and thus runs on any Servlet containers such as Tomcat and Jetty.</para>
   <para>The DHIS 2 team recommends Ubuntu 12.04 LTS operating system, PostgreSQL database system and
@@ -10,7 +10,7 @@
     over many years.</para>
   <para>This chapter provides a guide for setting up the above technology stack. It should however be read as a guide for getting up and running and not as an exhaustive documentation for the mentioned environment. We refer to the official Ubuntu, PostgreSQL and Tomcat documentation for in-depth reading.</para>
   <section>
-    <title>Server setup</title>
+    <title>Montaje del sevidor</title>
     <para>This section describes how to set up a server instance of DHIS 2 on Ubuntu 12.04 64 bit
       with PostgreSQL as database system and Tomcat as Servlet container. The term <emphasis role="italic">invoke</emphasis> refers to executing a given command in a terminal. </para>
     <para>For a national server the recommended configuration is a quad-core 2 Ghz processor or
@@ -98,7 +98,7 @@ export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
       </listitem>
     </itemizedlist>
     <section>
-      <title>Basic setup for nginx</title>
+      <title>Instalación básica de nginx</title>
       <para>We recommend using nginx  (http://wiki.nginx.org) as reverse proxy due to its low memory footprint and ease of use. To get the latest version we recommend installing from source:</para>
       <screen>sudo apt-get install make gcc libpcre3 libpcre3-dev zlibc zlib1g zlib1g-dev libssl-dev openssl</screen>
       <para><screen>wget http://nginx.org/download/nginx-1.0.14.tar.gz
@@ -143,7 +143,7 @@ sudo /usr/local/nginx/sbin/nginx -s stop</screen></para>
       </important>
     </section>
     <section>
-      <title>Enabling SSL on nginx</title>
+      <title>Habilitando SSL en nginx</title>
       <para>In order to improve security it is recommended to configure the server running DHIS to communicate with clients over an encrypted connection and to identify itself to clients using a trusted certificate. This can be achieved through SSL which is an cryptographic communication protocol running on top of TCP/IP.</para>
       <para>To configure nginx to use SSL you will need a proper SSL certificate from an SSL provider. The cost of a certificate varies a lot depending on encryption strength. An affordable certificate from <ulink url="http://www.rapidsslonline.com">Rapid SSL Online</ulink> should serve most purposes. To generate the CSR (certificate signing request) you can invoke the  command below. When you are prompted for the <emphasis role="italic">Common Name</emphasis>, enter the fully qualified domain name for the site you are securing.</para>
       <screen>openssl req -new -newkey rsa:2048 -nodes -keyout server.key -out server.csr</screen>
@@ -189,7 +189,7 @@ server {
 }]]></screen>
     </section>
     <section>
-      <title>Control scripts for nginx</title>
+      <title>Scripts de control para nginx</title>
       <para>In certain situations a server might reboot unexpectedly. It is hence preferable to have Tomcat and nginx start automatically when the server starts. To achieve that the first step is to create init scripts. Create a new file called <code>tomcat</code> and paste the below content into it (adjust the HOME variable to your environment):</para>
       <screen>#!/bin/sh
 #Tomcat init script
@@ -239,7 +239,7 @@ sudo /usr/sbin/update-rc.d -f tomcat defaults 81</screen>
       <para>Tomcat and nginx will now be started at system startup and stopped at system shutdown. If you later need to revert this you can replace <code>defaults</code> with  <code>remove</code> and invoke the above commands again.</para>
     </section>
     <section>
-      <title>Making resources available with nginx</title>
+      <title>Poner recursos disponibles con nginx</title>
       <para><emphasis role="bold">Making resources publicly available</emphasis></para>
       <para>In some scenarios it is desirable to make certain resources publicly available on the Web without requiring authentication. One example is when you want to make data analysis related resources in the Web API available in a Web portal. The following example will allow access to charts, maps, reports, report table and document resources through basic authentication by injecting an <emphasis role="italic">Authorization</emphasis> HTTP  header into the request. It will remove the Cookie header from the request and the Set-Cookie header from the response in order to avoid changing the currently logged in user. It is recommended to create a user for this purpose given only the minimum authorities required. The Authorization value can be constructed by Base64-encoding the username appended with a colon and the password and prefix it &quot;Basic &quot;, more precisely &quot;Basic base64_encode(username:password)&quot;. It will check the HTTP method used for requests and return <emphasis role="italic">405 Method Not Allowed</emphasis> if anything but GET is detected.</para>
       <screen>location ~ ^/api/(charts|maps|reports|reportTables|documents)/ {

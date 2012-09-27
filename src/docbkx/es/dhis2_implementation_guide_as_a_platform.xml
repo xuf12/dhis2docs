@@ -1,7 +1,7 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
-  <title>DHIS as a platform</title>
+  <title>DHIS como plataforma</title>
   <para>DHIS can be perceived as a platform on several levels. First, the application database is designed ground-up with flexibility in mind. Data structures such as data elements, organisation units, forms and user roles can be defined completely freely through the application user interface. This makes it possible for the system to be adapted to a multitude of locale contexts and use-cases. We have seen that DHIS supports most major requirements for routine data capture and analysis emerging in country implementations. It also makes it possible for DHIS to serve as management system for domains such as logistics, labs and finance.</para>
   <para>Second, due to the modular design of DHIS it can be extended with additional software modules. These software modules can live side by side with the core modules of DHIS and can be integrated into the DHIS portal and menu system. This is a powerful feature as it makes it possible to extend the system with extra functionality when needed, typically for country specific requirements as earlier pointed out.</para>
   <para>The downside of the software module extensibility is that it puts several constraints on the development process. The developers creating the extra functionality are limited to the DHIS technology in terms of programming language and software frameworks, in addition to the constraints put on the design of modules by the DHIS portal solution. Also, these modules must be included in the DHIS software when the software is built and deployed on the web server, not dynamically during run-time. </para>
@@ -20,7 +20,7 @@
   <graphic fileref="resources/images/implementation_guide/dhis_platform.png" width="80%" format="PNG" align="center"/>
   <para>There are several scenarios where additional software artifacts may connect to the DHIS Web API.</para>
   <section>
-    <title>Web portals</title>
+    <title>Portales Web</title>
     <para>First, Web portals may be built on top of the Web API. A Web portal in this regard is a web site which functions as a point of access to information from a potential large number of data sources which typically share a common theme. The role of the Web portal is to make such data sources easily accessible in a structured fashion under a common look-and-feel and provide a comprehensive data view for end users.</para>
     <para>Aggregate data repository: A Web portal targeted at the health domain may use the DHIS as the main source for aggregate data. The portal can connect to the Web API and communicate with relevant resources such as maps, charts, reports, tables and static documents. These data views can dynamically visualize aggregate data based on queries on the organisation unit, indicator or period dimension. The portal can add value to the information accessibility in several ways. It can be structured in a user-friendly way and make data accessible to inexperienced users. It can provide various approaches to the data, including:</para>
     <itemizedlist>
@@ -52,11 +52,11 @@
     <para>Forum: The portal can provide a forum for hosting discussions between professional users. The subject can range from help for performing basic operations in the health information system to discussions over data analysis and interpretation topics. Such a forum can act as interactive source for information and evolve naturally into a valuable archive.</para>
   </section>
   <section>
-    <title>Apps</title>
+    <title>Aplicaciones (Apps)</title>
     <para>Second, third-party software clients running on devices such as mobile phones, smart phones and tablets may connect to the DHIS Web API and read and write to relevant resources. For instance, third-party developers may create a client running on the Android operating system on mobile devices targeted at community health workers who needs to keep track of the people to visit, register vital data for each encounter and receive reminders of due dates for patient care while travelling freely in the community. Such a client application might interact with the patient and activity plan resources exposed by the DHIS Web API. The developer will not be dependent on deep insight in the DHIS internal implementation, rather just basic skills within HTTP/Web programming and a bit of knowledge of the DHIS data model. Understanding the DHIS data model is made easier by the navigable nature of the Web API.</para>
   </section>
   <section>
-    <title>Information Systems</title>
+    <title>Sistemas de Información</title>
     <para>Third, information system developers aiming at creating new ways of visualizing and presenting aggregate data can utilize the DHIS Web API as the service layer of their system. The effort needed for developing new information systems and maintaining them over time is often largely under-estimated. Instead of starting from scratch, a new application can be built on top of the Web API. Developer attention can be directed towards making new, innovative and creative data representations and visualizations, in the form of e.g. dashboards, GIS and charting components.</para>
   </section>
 </chapter>

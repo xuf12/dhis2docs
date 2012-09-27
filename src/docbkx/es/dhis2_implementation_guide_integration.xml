@@ -2,7 +2,7 @@
 <!-- This document was created with Syntext Serna Free. -->
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
-  <title>Integration</title>
+  <title>Integración</title>
   <para>This chapter will discuss the following topics:</para>
   <itemizedlist>
     <listitem>
@@ -20,7 +20,7 @@
   </itemizedlist>
   <para>In the following each topic will be discussed in greater detail.</para>
   <section>
-    <title>Integration and interoperability</title>
+    <title>Integración e interoperabilidad</title>
     <para>In a country there will usually be many different, isolated health information systems. The reasons for this are many, both technical and organizational. Here the focus will be on what benefits integration of these systems will bring, and why it should be a priority. First, a couple of clarifications:</para>
     <itemizedlist>
       <listitem>
@@ -33,7 +33,7 @@
     <para>To say that something is integrated, then, means that they share something, and that they are available from one place, while interoperability usually means that they are able to do this sharing electronically. DHIS2 is often used as an integrated data warehouse, since it contains (aggregate) data from various sources, such as Mother and Child health, Malaria program, census data, and data on stocks and human resources. These data sources share the same platform, DHIS2, and are available all from the same place. These subsystems are thus considered integrated into one system. Interoperability will then be a useful way to integrate also those data sources available on also other software applications. For example, if census data is stored in some other database, interoperability between this database and DHIS2 would mean census data would be accessible in both (but only stored one place).</para>
   </section>
   <section>
-    <title>Benefits of integration</title>
+    <title>Beneficios de la integración</title>
     <para>There are several potential benefits related to integration of systems. The most important are:i</para>
     <itemizedlist>
       <listitem>
@@ -48,7 +48,7 @@
     </itemizedlist>
   </section>
   <section>
-    <title>What facilitates integration and interoperability</title>
+    <title>Qué facilita la integración y la interoperabilidad</title>
     <para>There are three levels that need to be addressed in this regard:</para>
     <itemizedlist>
       <listitem>
@@ -66,7 +66,7 @@
     <para>In addition to uniform definitions across the various sub-systems, data exchange standards must be adopted if data is to be shared electronically. The various software applications would need this to be able to understand each other. DHIS2 is supporting several data formats for import and export, but one standard format now supported by WHO is called SDMX-HD (Statistical Data and Metadata Exchange - Health Domain). Other software applications are also supporting this, and it allows the sharing of data definitions and aggregate data between them. For DHIS2, this means it supports import of aggregate data that are supplied by other applications, such as OpenMRS (for patient management), iHRIS (for human resources management)</para>
   </section>
   <section>
-    <title>Architecture of interoperable HIS</title>
+    <title>Arquitectura de SIS interoperables</title>
     <para>Since there are many different use-cases for health information, such as monitoring and evaluation, budgeting, patient management and tracking, logistics management, insurance, human resource management, etc, there will be many different types of software applications functioning within the health sector. Above the issue of interoperability has been addressed, and a plan or overview of the various interoperable software applications and their specific uses, along with what data should be shared between them, is termed an architecture for health information. </para>
     <para>The role of the architecture is to function as a plan to coordinate the development and interoperability of various sub-systems within the larger health information system. It is advisable to develop a plan for the various components even if they are not currently running any software, to be able to adequately see the requirements in terms of data sharing. These requirements should then be part of any specification for the software when such is developed or procured.</para>
     <para>Below is a simple illustration of an architecture, with a focus on the data warehouse for aggregate data. The various boxes represent use cases, such as managing logistics, tracking TB patients, general patient management, etc. All of these will share aggregate data with DHIS2. Note that the arrows are two-way, because there is also a synchronization of meta-data (definitions) involved, to make sure that the right data is shared. Also, an example of the logistics and financial data applications sharing data is also shown, as there are strong links between procuring drugs and handling the budget for this. There will be many such instances of sharing data; the architecture helps us to plan better for this being implemented as the ecosystem of software applications grow.</para>
