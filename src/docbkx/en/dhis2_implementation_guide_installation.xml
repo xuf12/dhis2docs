@@ -45,7 +45,11 @@ sudo update-alternatives --set java /usr/lib/jvm/java-7-openjdk/bin/java</screen
     <para>and set the following properties:</para>
     <para><code>shared_buffers = 512MB</code></para>
     <para>Determines how much memory PostgreSQL can use for caching of query data. Is set too low by default since it depends on kernel shared memory which is low on some operating systems.</para>
-    <para><code>effective_cache_size = 3500MB</code></para>
+    <para><code>work_mem = 12MB</code></para>
+    <para>Determines the amount of memory used for internal sort and hash operations.</para>
+    <para><code>maintenance_work_mem = 128MB</code></para>
+    <para>Determines the amount of memory PostgreSQL can use for maintenance operations such as creating indexes, running vacuum, adding foreign keys. Incresing this value might improve performance of index creation during the data mart process.</para>
+    <para><code>effective_cache_size = 3300MB</code></para>
     <para>An estimate of how much memory is available for  caching (not an allocation) and is used by PostgreSQL to determine whether a query plan will fit into memory or not (setting it too high might result in unpredictable and slow behavior).</para>
     <para><code>checkpoint_segments = 32</code></para>
     <para>PostgreSQL writes new transactions to a log file called WAL segments which are 16MB in size. When a number of segments have been written a checkpoint occurs. Setting this number to a larger value will thus improve performance for write-heavy systems such as DHIS 2.</para>
