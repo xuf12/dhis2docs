@@ -2,89 +2,85 @@
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>Instalación</title>
-  <para>The installation chapter provides information on how to install DHIS 2 in various contexts, including online central server, offline local network, standalone application and self-contained package called DHIS 2 Live.</para>
-  <para>DHIS 2 runs on all platforms for which there exists a Java Runtime Environment version 6 or higher, which includes most popular operating systems such as Windows, Linux and Mac. DHIS 2 also runs on many relational database systems such as PostgreSQL, MySQL, H2 and Derby. DHIS 2 is packaged as a standard Java Web Archive (WAR-file) and thus runs on any Servlet containers such as Tomcat and Jetty.</para>
-  <para>The DHIS 2 team recommends Ubuntu 12.04 LTS operating system, PostgreSQL database system and
-    Tomcat Servlet container as the preferred environment for server installations. The mentioned
-    frameworks can be regarded as market leaders within their domain and is heavily field tested
-    over many years.</para>
-  <para>This chapter provides a guide for setting up the above technology stack. It should however be read as a guide for getting up and running and not as an exhaustive documentation for the mentioned environment. We refer to the official Ubuntu, PostgreSQL and Tomcat documentation for in-depth reading.</para>
+  <para>El capítulo de instalación proporciona información sobre cómo instalar DHIS 2 en diversos contextos, incluidos un servidor central online, una red local offline, una aplicación independiente y un paquete autocontenido denominado DHIS 2 Live.</para>
+  <para>DHIS 2 funciona en toda plataforma para la cual exista una versión 6 o superior del Entorno de Ejecución de Java (Java Runtime Environment), lo que incluye los sistemas operativos más populares como son Windows, Linux y Mac. DHIS 2 funciona con sistemas de bases de datos relacionales como PostgreSQL, MySQL, H2 y Derby. DHIS 2 está empaquetado como un fichero estándar Java Web Archive (fichero WAR) y por tanto se ejecuta en cualquier contenedor Servlet como Tomcat o Jetty.</para>
+  <para>El equipo DHIS 2 recomienda el sistema operativo Ubuntu 12.04 LTS, el sistema de base de datos PostgreSQL y el contenedor Servlet Tomcat como el entorno preferido para las instalaciones en servidor. Los sistemas mencionados pueden considerarse líderes de mercado en sus respectivos dominios y han sido probados intensivamente durante muchos años.</para>
+  <para>Este capítulo ofrece una guía para montar la citada pila de tecnologías (Ubuntu-PostgreSQL-Tomcat). Sin embargo, esta guía debe leerse como un itinerario para montar y poner en marcha DHIS 2, y no como una documentación exhaustiva sobre el entorno mencionado. Para una lectura en profundidad, recomendamos seguir la documentación oficial de Ubuntu, PostgreSQL y Tomcat.</para>
   <section>
-    <title>Montaje del sevidor</title>
-    <para>This section describes how to set up a server instance of DHIS 2 on Ubuntu 12.04 64 bit
-      with PostgreSQL as database system and Tomcat as Servlet container. The term <emphasis role="italic">invoke</emphasis> refers to executing a given command in a terminal. </para>
-    <para>For a national server the recommended configuration is a quad-core 2 Ghz processor or
-      higher and 12 Gb RAM or higher. Note that a 64 bit operating system is required for utilizing
-      more than 4 Gb of RAM, the Ubuntu 12.04 64 bit edition is thus recommended. </para>
-    <para>For this guide we assume that 4 Gb RAM is allocated for PostgreSQL and 7 GB RAM is allocated for Tomcat. <emphasis role="italic">If you are running a different configuration please adjust the suggested values accordingly!</emphasis> The steps marked as <emphasis role="italic">optional</emphasis>, like the step for performance tuning, can be done at a later stage.</para>
-    <para><emphasis role="bold">Create new user (optional)</emphasis></para>
-    <para>You might want to create a dedicated user for running DHIS - it is not recommended to run as the root user. Create a new user called dhis  by invoking <code>useradd -d /home/dhis -m dhis -s /bin/bash</code>     Then make the user able to perform operations temporarily as root user by invoking <code>adduser dhis admin</code> If there is no admin group you must create it first by invoking   <code>groupadd admin</code> Then invoke <code>passwd dhis</code> to set the password for your account. Make sure you set a strong password with at least 15 random characters. You might want to disable remote login for the root account for improved security by invoking<emphasis role="italic"> sudo passwd -l root</emphasis></para>
-    <para><emphasis role="bold">Operating system kernel tuning</emphasis></para>
-    <para>These settings are optional except for the shared memory setting which is required for PostgreSQL memory allocation. Open the kernel configuration file by invoking <code>sudo nano /etc/sysctl.conf</code> At the end of the file add the following lines and save.</para>
+    <title>Montaje del servidor</title>
+    <para>Esta sección describe cómo montar una instancia de servidor de DHIS 2 en Ubuntu 12.04 64 bit con PostgreSQL como sistema de base de datos y con Tomcat como contenedor Servlet. El término <emphasis role="italic">invocar</emphasis> indica la ejecución de un determinado comando en el terminal.</para>
+    <para>Para un servidor nacional los requisitos hardware son un procesador quad-core 2GHz o superior y 12GB de RAM o superior. Nótese que se requiere un sistema operativo de 64 bits para utilizar más de 4 GB de RAM, por lo que se recomienda la edición Ubuntu 12.04 de 64 bits.</para>
+    <para>En esta guía asumiremos que 4 GB se asignan a PostgreSQL y 7GB de RAM se asignan a Tomcat. <emphasis role="italic">¡Si estás utilizando una configuración distinta por favor ajusta los valores sugeridos en consecuencia!</emphasis>. Los pasos que marcaremos como <emphasis role="italic">opcional</emphasis>, como el paso de ajuste de rendimiento, pueden realizarse en un momento posterior.</para>
+    <para><emphasis role="bold">Crear nuevo usuario (opcional)</emphasis></para>
+    <para>Tal vez queramos crear un usuario dedicado para ejecutar DHIS - no es recomendable ejecutarlo como usuario root. Creamos un nuevo usuario llamado dhis invocando <code>useradd -d /home/dhis -m dhis -s /bin/bash</code>   A continuación habilitamos al usuario para realizar operaciones como root temporalmente invocando <code>adduser dhis admin</code>   Si no hay grupo admin en el sistema, crearemos dicho grupo primero invocando <code>groupadd admin</code>   Después invocamos <code>passwd dhis</code> para fijar la contraseña de esta nueva cuenta de usuario. Nos aseguraremos de poner una contraseña fuerte con al menos 15 caracteres aleatorios. Tal vez queramos deshabilitar el login remoto para la cuenta de root, logrando así mayor seguridad, invocando <emphasis role="italic"> sudo passwd -l root</emphasis>.</para>
+    <para><emphasis role="bold">Ajuste del núcleo del sistema operativo</emphasis></para>
+    <para>Estas configuraciones son opcionales excepto para la configuración de la memoria compartida, que es un requisito para la asignación de memoria para PostgreSQL. Abrimos el fichero de configuración del núcleo o kernel invocando <code>sudo nano /etc/sysctl.conf</code>   Al final del fichero añadiremos las líneas siguientes y guardaremos el fichero.</para>
     <screen>kernel.shmmax = 1073741824
 net.core.rmem_max = 8388608
 net.core.wmem_max = 8388608</screen>
-    <para>Make the changes take effect by invoking <code>sudo sysctl -p</code></para>
-    <para><emphasis role="bold">Install Java</emphasis></para>
-    <para>Install Java by invoking the following:</para>
+    <para>Hacemos que los cambios tengan efecto invocando <code>sudo sysctl -p</code></para>
+    <para><emphasis role="bold">Instalar Java</emphasis></para>
+    <para>Instalamos Java invocando lo siguiente:</para>
     <screen>sudo apt-get install openjdk-7-jdk
 
 sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-7-openjdk/bin/java 1
 
 sudo update-alternatives --set java /usr/lib/jvm/java-7-openjdk/bin/java</screen>
-    <para>Please check that the path the Java binaries are correct as they might vary from system to system, e.g. on AMD systems you might see <emphasis role="italic">../java-7-openjdk-amd64/..</emphasis> Check that your installation is okay by invoking <code>java -version</code></para>
-    <para><emphasis role="bold">Install PostgreSQL</emphasis></para>
-    <para>Install PostgreSQL by invoking <code>sudo apt-get install postgresql-9.1</code></para>
-    <para>Switch to the postgres user by invoking <code>sudo su postgres</code>.</para>
-    <para>Create a non-privileged user called <emphasis role="italic">dhis</emphasis> by invoking
-        <code>createuser -SDRP dhis</code>. Enter a secure password at the prompt.  Create a database by invoking
-        <code>createdb -O dhis dhis2</code>.  Return to your session by invoking <code>exit</code> You now have a
-      PostgreSQL user called <emphasis role="italic">dhis</emphasis> and a database called <emphasis role="italic">dhis2</emphasis>.</para>
-    <para>Do performance tuning by opening the following  file by invoking </para>
+    <para>A continuación es importante chequear que la ruta de los binarios de Java es correcta, ya que puede cambiar de un sistema a otro, por ejemplo en sistemas AMD podríamos encontrar algo como <emphasis role="italic">../java-7-openjdk-amd64/..</emphasis>. Chequeamos a continuación que nuestra instalación está bien invocando <code>java -version</code></para>
+    <para><emphasis role="bold">Instalar PostgreSQL</emphasis></para>
+    <para>Instalamos PostgreSQL invocando <code>sudo apt-get install postgresql-9.1</code></para>
+    <para>Cambiamos al usuario de postgres invocando <code>sudo su postgres</code>  </para>
+    <para>Creaamos ahora un usuario sin privilegios llamado <emphasis role="italic">dhis</emphasis> invocando
+        <code>createuser -SDRP dhis</code>   Introducimos una contraseña segura cuando aparece el prompt. Creamos una base de datos invocando <code>createdb -O dhis dhis2</code>   Regresamos a nuestra sesión de usuario invocando <code>exit</code>   </para>
+        <para>Ahora ya tenemos un usuario PostgreSQL llamado <emphasis role="italic">dhis</emphasis> y una base de datos llamada <emphasis role="italic">dhis2</emphasis>.</para>
+    <para>Continuamos ajustando el rendimiento abriendo el fichero siguiente invocando</para>
     <para><code>sudo nano /etc/postgresql/9.1/main/postgresql.conf</code></para>
-    <para>and set the following properties:</para>
+    <para>y fijando las propiedades siguientes:</para>
     <para><code>shared_buffers = 512MB</code></para>
-    <para>Determines how much memory PostgreSQL can use for caching of query data. Is set too low by default since it depends on kernel shared memory which is low on some operating systems.</para>
+    <para>Esto determina cuánta memoria PostgreSQL puede utilizarse para almacenar datos de consultas. Se ajusta muy pequeña por defecto porque depende de la memoria compartida del núcleo, que es reducida en algunos sistemas operativos. </para>
     <para><code>effective_cache_size = 3500MB</code></para>
-    <para>An estimate of how much memory is available for  caching (not an allocation) and is used by PostgreSQL to determine whether a query plan will fit into memory or not (setting it too high might result in unpredictable and slow behavior).</para>
+    <para>Es una estimación de cuánta memoria está disponible para almacenar (no para asignar) y es usada por PostgreSQL para determinar si un plan de consultas se adecuará a la memoria o no (aquí una configuración demasiado grande podría resultar en un comportamiento impredecible y lento).</para>
     <para><code>checkpoint_segments = 32</code></para>
-    <para>PostgreSQL writes new transactions to a log file called WAL segments which are 16MB in size. When a number of segments have been written a checkpoint occurs. Setting this number to a larger value will thus improve performance for write-heavy systems such as DHIS 2.</para>
+    <para>PostgreSQL graba las nuevas transacciones en un fichero de log llamado WAL en segmentos de tamaño 16MB. Cuando se graba una cantidad de segmentos dada sucede un checkpoint. Configurar esta cifra en un valor mayor nos permite por tanto mejorar el rendimiento de sistemas de escritura pesada como DHIS 2.</para>
     <para><code>checkpoint_completion_target = 0.8</code></para>
-    <para>Determines the percentage of segment completion before a checkpoint occurs. Setting this to a high value will thus spread the writes out and lower the average write overhead.</para>
+    <para>Determina el porcentaje de segmentos completos antes de que aparezca un checkpoint. Fijar este número en un valor alto amplía por tanto la transcripción y reduce la sobrecarga de escritura promedio.</para>
     <para><code>wal_buffers = 4MB</code></para>
-    <para>Sets the memory used for buffering during the WAL write process. Increasing this value might improve throughput in write-heavy systems.</para>
+    <para>Fija la memoria utilizada para buffer durante el proceso de escritura WAL. Aumentar este valor puede mejorar el rendimiento en sistemas de escritura pesada.</para>
     <para><code>synchronous_commit = off</code></para>
-    <para>Specifies whether transaction commits will wait for WAL records to be written to the disk before returning to the client or not. Setting this to off will improve performance considerably. It also implies that there is a slight delay between the transaction is reported successful to the client and it actually being safe, but the database state cannot be corrupted and this is a good alternative for performance-intensive and write-heavy systems like DHIS 2.</para>
+    <para>Especifica si las asignaciones de transacción van a esperar a que se escriban los registros WAL en el disco antes de regresar al cliente o no. Fijar esto en off mejora el rendimiento considerablemente. También implica que habrá un pequeño retardo entre la transacción reportada con éxito al cliente y que esté realmente guardada, pero el estado de la base de datos no puede corromperse y es una buena alternativa en sistemas de producción intensiva y escritura pesada como DHIS 2.</para>
     <para><code>wal_writer_delay = 10000ms</code></para>
-    <para>Specifies the delay between WAL write operations. Setting this to a high value will improve performance on write-heavy systems since potentially many write operations can be executed within a single flush to disk.</para>
-    <para>Restart PostgreSQL by invoking <code>sudo /etc/init.d/postgresql restart</code></para>
-    <para><emphasis role="bold">Set the database configuration</emphasis></para>
-    <para>The database connection information is provided to DHIS 2 through a configuration file called <emphasis role="italic">hibernate.properties</emphasis>. Create this file and save it in a convenient location. A  file corresponding to the above setup has these properties: </para>
+    <para>Especifica el retraso entre operaciones de escritura WAL. Fijar esto a un valor grande mejora el rendimiento en sistemas de escritura pesada ya que potencialmente pueden ejecutarse muchas operaciones de escritura en un único envío al disco.</para>
+    <para>Reiniciar PostgreSQL invocando <code>sudo /etc/init.d/postgresql restart</code></para>
+    <para><emphasis role="bold">Fijar la configuración de la base de datos</emphasis></para>
+    <para>La información de conexión de la base de datos llega a DHIS 2 a través de un fichero de configuración llamado <emphasis role="italic">hibernate.properties</emphasis>. Creamos este fichero y lo guardamos en una ubicación adecuada. El fichero correspondiente al montaje anterior tiene las siguientes propiedades:</para>
     <para><screen>hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
 hibernate.connection.driver_class = org.postgresql.Driver
 hibernate.connection.url = jdbc:postgresql:dhis2
 hibernate.connection.username = dhis
 hibernate.connection.password = xxxx
 hibernate.hbm2ddl.auto = update</screen></para>
-    <para>A common mistake is to have a white-space after the last property value - make sure there
-      is no white-space at the end of any line.  Also remember that this file contains the clear text
-      password for your dhis2 database so needs to be protected from unauthorized access.  To do this
-    invoke <code>chmod 0600 hibernate.properties</code> which ensures that only the dhis user which owns the
-    file is allowed to read or write to it.</para>
-    <para><emphasis role="bold">Install Tomcat</emphasis></para>
-    <para>Download the Tomcat binary distribution from  <emphasis role="italic">http://tomcat.apache.org/download-70.cgi</emphasis> A useful tool for downloading files from the web is <emphasis role="italic">wget</emphasis>. Extract to a convenient location. This guide assumes that you have navigated to the root directory of the extracted archive.</para>
-    <para>Clear the pre-installed web applications by invoking <code>rm -rf webapps/*</code> Download the latest DHIS 2 WAR file from <emphasis role="italic">http://dhis2.org/download</emphasis>, move it to the <emphasis role="italic">webapps</emphasis> directory and rename it to <emphasis role="italic">ROOT.war</emphasis></para>
-    <para>Open file <emphasis role="italic">bin/setclasspath.sh</emphasis> and add the lines below. The first will set the location of your Java Runtime Environment, the second will dedicate memory to Tomcat and the third will set the location for where DHIS 2 will search for the <emphasis role="italic">hibernate.properties</emphasis> configuration file. Please check that the path to the JDK location is correct. Note that you should adjust this to your environment:</para>
+    <para>Un error frecuente es dejar un espacio en blanco después del último valor de propiedad - asegúrate de que no hay espacios en blanco al final de ninguna línea en este fichero. También debemos recordar que este fichero contiene la contraseña en claro de nuestra base de datos dhis2 de modo que deberemos protegerlo de accesos no autorizados. Para hacer esto invocamos <code>chmod 0600 hibernate.properties</code> que garantiza que solo el usuario dhis que es propietario del fichero puede leer o escribir en él.</para>
+    <para><emphasis role="bold">Instalar Tomcat</emphasis></para>
+    <para>Descarga la distribución binaria de Tomcat de <emphasis role="italic">http://tomcat.apache.org/download-70.cgi</emphasis>. Una herramienta útil para descargar ficheros desde la web es <emphasis role="italic">wget</emphasis>. Extraemos el fichero en una ubiación adecuada. Esta guía asume que hemos navegado al directorio root del fichero extraido.</para>
+    <para>Limpiamos las aplicaciones web preinstaladas invocando <code>rm -rf webapps/*</code> Descargamos el último fichero WAR de DHIS 2 desde <emphasis role="italic">http://dhis2.org/download</emphasis>, lo movemos al directorio <emphasis role="italic">webapps</emphasis> y lo renombramos como <emphasis role="italic">ROOT.war</emphasis></para>
+    <para>Abrimos el fichero <emphasis role="italic">bin/setclasspath.sh</emphasis> y añadimos las líneas que siguen. Lo primero será fijar la ubicación de nuestro Java Runtime Environment, lo segundo será dedicar memoria a Tomcat y lo tercero será fijar la ubicación en la que DHIS 2 buscará el fichero de configuración <emphasis role="italic">hibernate.properties</emphasis>. Es importante aquí que chequeemos que la ruta a la ubicación del JDK es correcta. Notemos que deberemos ajustar esto a nuestro entorno:</para>
     <para><screen>export JAVA_HOME=&apos;/usr/lib/jvm/java-7-openjdk&apos;
 export JAVA_OPTS=&apos;-Xmx6000m -Xms3000m -XX:MaxPermSize=800m -XX:PermSize=400m&apos;
 export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
-    <para>If you need to change the <emphasis role="italic">port</emphasis> of which Tomcat listens for requests you can open the Tomcat configuration file <emphasis role="italic">/conf/server.xml</emphasis>, locate the <emphasis role="italic">&lt;Connector&gt;</emphasis> element which is not commented out and change the <emphasis role="italic">port</emphasis> attribute value to the desired port number.</para>
-    <para>To monitor the behavior of Tomcat the log is the primary source of information. The log can be easily viewed with the command <code>tail -f logs/catalina.out</code></para>
-    <para><emphasis role="bold">Run DHIS 2</emphasis></para>
-    <para>Make the startup script executable by invoking <code>chmod 755 bin/*</code> DHIS 2 can now be started by invoking <code>bin/startup.sh</code> The log can be monitored by invoking <code>tail -f logs/catalina.out</code> DHIS 2 can be stopped by invoking <code>bin/shutdown.sh</code> Assuming that the WAR file is called ROOT.war, you can now access your DHIS instance at <emphasis role="italic">http://localhost:8080</emphasis></para>
+    <para>Si necesitamos cambiar el <emphasis role="italic">puerto</emphasis> en el que Tomcat escucha las peticiones, podemos abrir el fichero de configuración de Tomcat <emphasis role="italic">/conf/server.xml</emphasis>, encontrar el elemento <emphasis role="italic">&lt;Connector&gt;</emphasis> que no está comentado y cambiar el valor de su atributo <emphasis role="italic">puerto</emphasis> por el número de puerto deseado.</para>
+    <para>El log será nuestra primera fuente de información cuando queramos monitorear el comportamiento de Tomcat. Podemos ver fácilmente el log invocando <code>tail -f logs/catalina.out</code></para>
+    <para><emphasis role="bold">Ejecutar DHIS 2</emphasis></para>
+    <para>Para terminar haremos ejecutable el script de arranque invocando <code>chmod 755 bin/*</code>   Ahora podemos arrancar DHIs 2 invocando <code>bin/startup.sh</code>   Podemos monitorear el log invocando <code>tail -f logs/catalina.out</code>   Podemos detener DHIS 2 invocando <code>bin/shutdown.sh</code>   Finalemente, asumiendo que el fichero WAR se llama ahora ROOT.war, podemos acceder a nuestra instancia DHIS a través del navegador web en <emphasis role="italic">http://localhost:8080</emphasis>.</para>
   </section>
+
+
+
+
+
+
+
   <section>
-    <title>Reverse proxy configuration</title>
+    <title>Configuración reversa proxy</title>
     <para>A reverse proxy is a proxy server that acts on behalf of a server. Using a reverse proxy in combination with a servlet container is optional but has many advantages:</para>
     <itemizedlist>
       <listitem>
@@ -258,7 +254,7 @@ sudo /usr/sbin/update-rc.d -f tomcat defaults 81</screen>
 }</screen>
     </section>
     <section>
-      <title>Basic reverse proxy setup with Apache</title>
+      <title>Configuración básica reversa de proxy con Apache</title>
       <para>The Apache HTTP server is the most common </para>
       <important>
         <para>Using nginx is the preferred option as reverse proxy with DHIS2 and you should not attempt to install both nginx and Apache on the same server. If you have installed nginx please ignore this section. </para>
@@ -285,7 +281,7 @@ ProxyPassReverse /dhis  ajp://localhost:8009/dhis
       <para>You now can restart Tomcat and the Apache HTTPD server and your DHIS 2 instance should be available on http://<emphasis>myserver</emphasis>/dhis where <emphasis>myserver</emphasis> is the hostname of your server. </para>
     </section>
     <section>
-      <title>Basic load-balancing with Apache and Tomcat</title>
+      <title>Balanceo de carga básico con Apache y Tomcat</title>
       <para>Load balancing may be employed to more evenly distribute system load across multiple Tomcat instances in situations where user load is too high to be handled by a single server instance. In this example, we will create a simple load-balanced architecture using &quot;sticky sessions&quot; to distribute users across two instances of Tomcat. </para>
       <para>First, we need at least two instances of Tomcat running DHIS2, which are connected to the same database. There are various architectures, such as running the application servers (Tomcat) on separate (virtual) machines connected to a single database server, or perhaps running multiple Tomcat instances and a database on a single-high capacity machine in situations with I/O is not an issue, but when CPU usage of a single Tomcat instance limits overall system performance. In this scenario, we will configure connect two Tomcat instances running on the same machine to a single database through a load-balanced reverse proxy. Apache will take care of the details of determining which Tomcat instance a particular client is interfaced to with the </para>
       <para>The first step is to configure our  Tomcat instances. The previous sections have detailed how this should be done. Importantly, both Tomcat instances should be configured to use the same database server. Some modifications need to be made to the server.xml file of each Tomcat instance, which will be used to uniquely identify each instance. Two copies of Tomcat should be extracted to a directory of your choice. Modify the server.xml file so that the following lines are unique for each instance. </para>
@@ -319,7 +315,7 @@ ProxyPassReverse /dhis/ balancer://dhiscluster/ stickysession=JSESSIONID|jsessio
       <para>This example demonstrates how to implement a simple load balanced system with sticky sessions using Apache HTTP server.</para>
     </section>
     <section>
-      <title>Basic SSL encryption with Apache</title>
+      <title>Encriptado básico SSL con Apache</title>
       <para>Using Apache and the reverse proxy  setup described in the previous section, we can easily implement encrypted transfer of data between clients and the server over HTTPS. This section will describe how to use self-signed certificates, although  the same procedure could be used if you have fully-signed certificates as well. </para>
       <para>First (as root), generate the necessary private key files and CSR (Certificate Signing Request) </para>
       <screen>mkdir /etc/apache2/ssl
@@ -349,7 +345,7 @@ XXX.XX.XXX.XXX foo.mydomain.org</screen></para>
     </section>
   </section>
   <section>
-    <title>DHIS 2 Live setup</title>
+    <title>Configuración de DHIS 2 Live</title>
     <para>The DHIS 2 Live package is extremely convenient to install and run. It is intended for demonstrations, for users who want to explore the system and for small, offline installations typically at districts or facilities. It only requires a Java Runtime Environment and runs on all browsers except Internet Explorer 7 and lower.</para>
     <para>To install start by downloading DHIS 2 Live from <emphasis role="italic">http://dhis2.org</emphasis> and extract the archive to any location. On Windows click the executable archive. On Linux invoke the startup.sh script. After the startup process is done your default web browser will automtically be pointed to  <emphasis role="italic">http://localhost:8082</emphasis> where the application is accessible. A system tray menu is accessible on most operating systems where you can start and stop the server and start new browser sesssions. Please note that if you have the server running there is no need to start it again, simply open the application from the tray  menu.</para>
     <para>DHIS 2 Live is running on an embedded Jetty servlet container and an embedded H2 database. However it can easily be configured to run on other database systems such as PostgreSQL. Please read the section above about server installations for an explanation of the database configuration. The <emphasis role="italic">hibernate.properties</emphasis> configuration file is located in the <emphasis role="italic">conf</emphasis> folder. Remember to restart the Live package for your changes to take effect. The server port is 8082 by default. This can be changed by modifying the value in the<emphasis role="italic"> jetty.port</emphasis> configuration file located in the <emphasis role="italic">conf</emphasis> directory.</para>
@@ -363,7 +359,7 @@ XXX.XX.XXX.XXX foo.mydomain.org</screen></para>
     <para>The cron job is set up with two files. The first is a <emphasis role="italic">script</emphasis> which performs the actual task of backup up the database. It uses a PostgreSQL program called <emphasis role="italic">pg_dump</emphasis> for creating the database copy. The second is a crontab file which runs the backup script every day at 23:00. Note that this script backs up the database file to the local disk. It is strongly recommended to store a copy of the backup at a location outside the server where the application is hosted. This can be achieved with the <emphasis role="italic">scp</emphasis> tool. Make sure that you have set the system date correctly on your server.</para>
   </section>
   <section>
-    <title> Using Amazon Web services</title>
+    <title>Usando los servicios Web Amazon</title>
     <para>Amazon Web Services (AWS) offers virtual cloud-computing resources which allow developers and implementers to quickly scale an application, both horizontally and vertically, in a cost effective manner. AWS offers multiple operating systems and instance sizes depending on the exact nature of the deployment. This section will describe a basic setup with the AWS Elastic Cloud Compute (EC2) system using the Basic 32 bit Amazon AMI, which is based on the Red Hat Linux distribution. </para>
     <para>Estimating the cost of an AWS instance can be performed using the<ulink url="http://calculator.s3.amazonaws.com/calc5.html"> &quot;Simple Monthly Cal culator&quot;</ulink>. AWS costs are based entirely on usage. As your application usage grows, you can provision new servers. </para>
     <orderedlist>
