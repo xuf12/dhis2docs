@@ -37,8 +37,8 @@
      .</para>
   </section>
   <section>
-    <title>Pasos para desarrollar una base de datos</title>
-    <para>Esta sección describe los pasos concretos para desarrollar una base de datos partiendo de cero.</para>
+    <title>Pasos para elaborar una base de datos</title>
+    <para>Esta sección describe los pasos concretos para elaborar una base de datos desde el principio.</para>
     <section>
       <title>Jerarquía organizativa</title>
       <para>La jerarquía organizativa define la organización en DHIS 2: los establecimientos de salud, las áreas administrativas y otras áreas geográficas utilizadas en la recolección y el análisis de datos. Esta dimensión de los datos se define como una jerarquía con una unidad raíz (ej. Ministerio de Salud) y diversos niveles y nodos debajo. Cada nodo en esta jerarquía es lo que en DHIS 2 llamamos unidad organizativa. El diseño de esta jerarquía determinará las unidades geográficas de análisis disponibles a los usuarios al momento en que los datos son registrados y agregados en esta estructura. Solo puede haber una jerarquía organizativa en el sistema, de modo que deberemos considerar cuidadosamente cómo estructurarla.</para>
@@ -67,15 +67,15 @@
     </section>
     <section>
       <title>Tablas de reporte e informes</title>
-      <para>Standard reports in DHIS 2 is a very flexible way of presenting the data that has been collected. Data can be aggregated by any organisational unit or orgunit level, by data element, by indicators, as well as over time (e.g. monthly, quarterly, yearly). The report tables are custom data sources for the standard reports and can be flexibly defined in the user interface and later accessed in external report designers such as iReport or BIRT. These report designs can then be set up as easily accessible one-click reports with parameters so that the users can run the same reports e.g. every month when new data is entered, and also be relevant to users at all levels as the organisational unit can be selected at the time of running the report.</para>
+      <para>Una manera muy flexible de presentar los datos que se han recopilado son los reportes estándar en DHIS 2. Los datos pueden ser agregados por unidad organizativa o cualquier nivel de orgunit, por elemento de datos, por indicadores, así como a lo largo del tiempo (por ejemplo, mensual, trimestral, anualmente). Las tablas de reportes son fuentes de datos personalizadas para los reportes estándar y se pueden definir de manera flexible en el interfaz de usuario y posteriormente acceder a ellas con diseñadores externos de reportes como iReport o BIRT. Estos diseños de reporte se pueden configurar para ser accesibles fácilmente "one-click" con unos parámetros predefinidos de modo que los usuarios puedan lanzar los mismos reportes, por ejemplo, cada mes cuando se introducen nuevos datos, y también pueden ser relevantes a usuarios a todos los niveles ya que la unidad organizativa puede seleccionarse al momento de lanzar el reporte.</para>
     </section>
     <section>
       <title>SIG (Mapas)</title>
-      <para>In the integrated GIS module you can easily display your data on maps, both on polygons (areas) and as points (health facilities), and either as data elements or indicators. By providing the coordinates of your organisational units to the system you can qucikly get up to speed with this module. See the GIS section for details on how to get started.</para>
+      <para>En el módulo integrado de SIG podemos mostrar fácilmente nuestros datos en mapas, tanto en polígonos (áreas) como en puntos (establecimientos de salud), y tanto los elementos de datos como los indicadores. Si añadimos al sistema las coordenadas de nuestras unidades organizativas, podemos rápidamente comenzar a trabajar con este módulo. Recomendamos ver la sección SIG para más detalles sobre cómo configurar este módulo.</para>
     </section>
     <section>
       <title>Gráficos y dashboard</title>
-      <para>On of the easiest way to display your indicator data is through charts. An easy to use chart dialogue will guide you through the creation of various types of charts with data on indicators, organisational units and periods of your choice. These charts can easily be added to one of the four chart sections on your dashboard and there be made easily available right after log in. Make sure to set the dashboard module as the start module in user settings.</para>
+      <para>Una de las maneras más sencillas de mostrar nuestros datos de indicadores es utilizar gráficas. Una pantalla de diálogo amigable nos guiará a través de la creación de varios tipos de gráficas con data de indicadores, unidades organizativas y periodos a nuestra elección. Estas gráficas pueden añadirse fácilmente a una de las cuatro secciones del dashboard destinadas a gráficas, y así las tendremos disponibles directamente al entrar en nuestra sesión. Para esto deberemos fijar el módulo dashboard como el módulo de inicio en la configuración de usuario.</para>
     </section>
   </section>
 </chapter>
