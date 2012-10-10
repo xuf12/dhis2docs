@@ -2,77 +2,78 @@
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>Calidad de los datos</title>
-  <para>This chapter discusses various aspects related to data quality.</para>
+  <para>Este capítulo discute los diversos aspectos relacionados con la calidad de los datos.</para>
   <section>
     <title>Cómo medir la calidad de los datos</title>
-    <para>Is the data complete? Is it collected on time? Is it correct? These are questions that needs to be asked when analysing data. Poor data quality can take many shapes; not just incorrect figures, but a lack of completeness, or the data being too old (for meaningful use).</para>
+    <para>¿Los datos están completos, es decir, hay integridad? ¿Se han recopilado a tiempo? ¿Son correctos? Estas son cuestiones que es preciso que nos preguntamos a la hora de analizar los datos. Una baja calidad de datos puede tomar muchas formas; no solo figuras incorrectas, sino también falta de integridad, o que los datos sean demasiado antiguos (para tener un uso significativo).</para>
   </section>
   <section>
-    <title>Reasons for poor data quality</title>
-    <para>There are many potential reasons for poor quality data, including:<itemizedlist>
+    <title>Causas de una baja calidad de datos</title>
+    <para>Hay muchas causas posibles de que lleguemos a tener una baja calidad de datos, entre las que se encuentran:<itemizedlist>
         <listitem>
-          <para>Excessive amounts collected; too much data to be collected leads to less time to do it, and “shortcuts” to finish reporting</para>
+          <para>Que se recojan cantidades excesivas de datos: demasiados datos a recopilar nos lleva a tener menos tiempo para hacerlo, y a buscar "atajos" para terminar los reportes.</para>
         </listitem>
         <listitem>
-          <para>Many manual steps; moving figures, summing up, etc. between different paper forms</para>
+          <para>Que haya muchos pasos manuales: mover figuras, sumatorios, etc. entre diferentes formularios en papel</para>
         </listitem>
         <listitem>
-          <para>Unclear definitions; wrong interpretation of the fields to be filled out</para>
+          <para>Que las definiciones no sean claras: interpretando erróneamente los campos a rellenar</para>
         </listitem>
         <listitem>
-          <para>Lack of use of information: no incentive to improve quality</para>
+          <para>Que la información apenas se use: entonces no hay motivación para mejorar la calidad</para>
         </listitem>
         <listitem>
-          <para>Fragmentation of information systems; can lead to duplication of reporting</para>
+          <para>Que los sistemas de información estén fragmentados: produciendo duplicados en los reportes</para>
         </listitem>
       </itemizedlist></para>
   </section>
   <section>
     <title>Cómo mejorar la calidad de los datos</title>
-    <para>Improving data quality is a long-term task, and many of the measures are organizational in nature. However, data quality should be an issue from the start of any implementation process, and there are some things that can be addressed at once, such as checks in DHIS2. Some important data quality improvement measures are:</para>
+    <para>Mejorar la calidad de los datos es una tarea a largo plazo, y muchas de las medidas que podemos tomar son en realidad de naturaleza organizativa. Sin embargo, la calidad de los datos debería considerarse un asunto clave desde el comienzo de cualquier proceso de implementación, y hay algunas cosas que pueden trabajarse a la vez, como sucede en los chequeos en DHIS2. Algunas tácticas de mejora de la calidad de datos son:</para>
     <itemizedlist>
       <listitem>
-        <para>Changes in data collection forms, harmonization of forms</para>
+        <para>Realizar cambios en los formularios de colección de datos, armonizar los formularios</para>
       </listitem>
       <listitem>
-        <para>Promote information use at local level, where data is collected</para>
+        <para>Promover el uso de la información anivel local, en el lugar donde se recogen los datos</para>
       </listitem>
       <listitem>
-        <para>Develop routines on checking data quality</para>
+        <para>Desarrollar rutinas de chequeo de la calidad de los datos</para>
       </listitem>
       <listitem>
-        <para>Include data quality in training</para>
+        <para>Incluir el tema de calidad de datos en las capacitaciones de usuarios</para>
       </listitem>
       <listitem>
-        <para>Implement data quality checks in DHIS 2</para>
+        <para>Implementar chequeos de calidad de datos en DHIS2</para>
       </listitem>
     </itemizedlist>
   </section>
   <section>
     <title>Cómo utilizar DHIS 2 para mejorar la calidad de los datos</title>
-    <para>DHIS to has several features that can help the work of improving data quality; validation during data entry to make sure data is captured on the right format and within a reasonable range, user-defined validation rules based on mathematical relationships between the data being captured (e.g. subtotals vs totals), outlier analysis functions,  as well as reports on data coverage and completeness. More indirectly, several of the DHIS design principles contribute to improving data quality, such as the idea of harmonising data into one integrated data warehouse, supporting local level access to data and analysis tools, and by offering a wide range of tools for data analysis and dissemination. With more structured and harmonised data collection processes and with strengthened information use at all levels, the quality of data will improve. Here is an overview of the functionality more directly targeting data quality:</para>
+    <para>DHIS2 tiene numerosas funcionalidades que pueden ayudar al trabajo de mejorar la calidad de los datos: la validación durante la entrada de datos para asegurarnos de que los datos se registran en el formato adecuado y pertenecen a un rango razonable, reglas de validación definidas por el usuario en base a relaciones matemáticas entre los datos que se capturan (por ejemplo comparando cantidades subtotales con totales), funciones de análisis de outliers (valores atípicos), así como reportes de cobertura e integridad de datos.</para> 
+      <para>De manera más indirecta, muchos de los principios de diseño de DHIS contribuyen a mejorar la calidad de los datos, como por ejemplo la idea de armonizar los datos en un Data Warehouse integrado, permitir el acceso a los datos y a las herramientas de análisis a nivel local, y ofrecer un amplio abanico de herramientas para el análisis y la difusión de los datos. Si contamos con procesos de recolección de datos más estructurados y armonizados y con un uso reforzado de la información a todos los niveles, la calidad de los datos mejorará. A continuación mostramos una panorámica de las funcionalidades que afectan más directamente a las calidad de los datos:</para>
     <section>
       <title>Validación en la introducción de datos</title>
-      <para>The most basic way of data quality check in DHIS 2 is to make sure that the data being captured is on the correct format. The DHIS 2 will give the users a message that the value entered is not on the correct format and will not save the value until it has been changed to an accepted value. E.g. text cannot be inputted in a numeric field. The different types of data values supported in DHIS 2 are explained in the user manual in the chapter on data elements. </para>
+      <para>La manera más básica de chequear la calidad de los datos en DHIS 2 es asegurarnos de que los datos que estamos capturando están en el formato correcto. DHIS 2 mostrará un mensaje a los usuarios indicando si el valor introducido no está en un formato adecuado y no almacenará el valor hasta que se cambie a un valor aceptable. Por ejemplo, no se podrá meter texto en un campo numérico. Los diferentes tipos de valores de datos que se soportan en DHIS 2 vienen explicados en el Manual de Usuario, en el capítulo acerca de elementos de datos.</para>
     </section>
     <section>
       <title>Rangos Máximo y Mínimo</title>
-      <para>To stop typing mistakes during data entry (e.g typing ‘1000’ instead of ‘100’) the DHIS 2 checks that the value being entered is within a reasonable range. This range is based on the previously collected data by the same health facility for the same data element, and consists of a minimum and a maximum value. As soon as a the users enters a value outside the user will be alerted that the value is not accepted. In order to calculate the reasonable ranges the system needs at least six months (periods) of data. </para>
+      <para>Para detener el tipeo de errores en la entrada de datos (por ejemplo, tipear '1000' en lugar de '100'), DHIS 2 chequea que el valor que se introduce esté dentro de un rango razonable. Este rango está basado en los datos recopilados previamente por un mismo establecimiento de salud para un mismo elemento de dato, y consiste en un valor mínimo y máximo. Tan pronto como el usuario introduzca un valor fuera del rango, se le alertará de que el valor no es aceptado. Para poder calcular rangos razonables, el sistema necesita tener registrados datos de al menos seis meses (periodos). </para>
     </section>
     <section>
       <title>Reglas de validación</title>
-      <para>A validation rule is based on an expression which defines a relationship between a number of data elements. The expression has a left side and a right side and an operator which defines whether the former must be less than, equal to or greater than the latter. The expression forms a condition which should assert that certain logical criteria are met. For instance, a validation rule could assert that the total number of vaccines given to infants is less than or equal to the total number of infants.</para>
-      <para>The validation rules can be defined through the user interface and later be run to check the existing data. When running validation rules the user can specify the organisation units and periods to check data for, as running a check on all existing data will take a long time and might not be relevant either. When the checks are completed a report will be presented to the user with validation violations explaining which data values that need to be corrected.</para>
-      <para>The validation rules checks are also built into the data entry process so that when the user has completed a form the rules can be run to check the data in that form only, before closing the form. </para>
+      <para>Una regla de validación está basada en una expresión matemática que define la relación entre ciertos elementos de datos. La expresión tiene una parte izquierda y una derecha, y un operador que determina si la primera debe ser menor que, igual que o mayor que la segunda. La expresión forma una condición que debería confirmar que se cumplen determinados criterios lógicos. Por ejemolo, una regla de validación podría confirmar que el número total de vacunas entregadas a niños y niñas es menor que o igual que el número total de niños y niñas.</para>
+      <para>Las reglas de validación pueden definirse mediante el interfaz de usuario y lanzarse después para chequear los datos existentes en el sistema. Al lanzar reglas de validación, el usuario puede especificar las unidades organizativas y los periodos para los que chequear datos, ya que lanzar un chequeo sobre todos los datos existentes puede llevar mucho tiempo y ni siquiera ser relevante para ese usuario. Cuando los chequeos terminan, se presenta un reporte al usuario con las infracciones de validación explicando qué valores de datos necesitan corregirse.</para>
+      <para>Los chequeos de reglas de validación también están incorporados al proceso de entrada de datos, de modo que cuando el usuario ha completado un formulario es posible lanzar las reglas para chequear los datos de ese único formulario, antes de cerrarlo. </para>
     </section>
     <section>
-      <title>Análisis de outliers</title>
-      <para>The standard deviation based outlier analysis provides a mechanism for revealing values that are numerically distant from the rest of the data. Outliers can occur by chance, but they often indicate a measurement error or a heavy-tailed distribution (leading to very high numbers). In the former case one wishes to discard them while in the latter case one should be cautious in using tools or interpretations that assume a normal distribution. The analysis is based on the standard normal distribution.</para>
+      <title>Análisis de outliers (valores atípicos)</title>
+      <para>El análisis de outliers basado en la desviación típica ofrece un mecanismo para revelar qué valores están numéricamente alejados del resto de los datos. Estos son los outliers o valores atípicos. Los outliers pueden aparecer por casualidad, pero a menudo indican un error de medida o una distribución fuertemente alargada (que deriva en cifras muy elevadas). En el primer caso, uno desea descartar esos datos, mientras en el segundo hay que ser cautos al utilizar herramientas o interpretaciones que asumen una distribución normal de los datos. El análisis está basado en una distribución normal estándar.</para>
     </section>
     <section>
       <title>Reportes de integridad y de puntualidad</title>
-      <para>Completeness reports will show how many data sets (forms) that have been submitted by organisation unit and period. You can use one of three different methods to calculate completeness; 1) based on completeness button in data entry, 2) based on a set of defined compulsory data elements, or 3) based on the total registered data values for a data set.</para>
-      <para>The completeness reports will also show which organisation units in an area that are reporting on time, and the percentage of timely reporting facilities in a given area. The timeliness calculation is based on a system setting called Days after period end to qualify for timely data submission.</para>
+      <para>Los reportes de integridad muestran cuántos sets de datos (formularios) han sido presentados por cada unidad organizativa y periodo. Podemos utilizar uno de los tres métodos disponibles para calcular la integridad: (1) con el botón de integridad en la entrada de datos, (2) con un set definido de elementos de datos obligatorios, o (3) con el total de valores de datos registrados para un set de datos.</para>
+      <para>Los reportes de integridad también muestran qué unidades organizativas en una región (área) están reportando a tiempo y el porcentaje de establecimientos de salud puntuales en un área determinada. El cálculo de puntualidad se basa en un parámetro de sistema llamado "Días tras el fin de periodo" que califica temporalmente el envío de los datos.</para>
     </section>
   </section>
 </chapter>

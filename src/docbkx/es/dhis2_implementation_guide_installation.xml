@@ -77,29 +77,23 @@ export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
     <para>Para terminar haremos ejecutable el script de arranque invocando <code>chmod 755 bin/*</code>   Ahora podemos arrancar DHIs 2 invocando <code>bin/startup.sh</code>   Podemos monitorear el log invocando <code>tail -f logs/catalina.out</code>   Podemos detener DHIS 2 invocando <code>bin/shutdown.sh</code>   Finalemente, asumiendo que el fichero WAR se llama ahora ROOT.war, podemos acceder a nuestra instancia DHIS a través del navegador web en <emphasis role="italic"> http://localhost:8080</emphasis>.</para>
   </section>
 
-
-
-
-
-
-
   <section>
-    <title>Configuración reversa proxy</title>
-    <para>A reverse proxy is a proxy server that acts on behalf of a server. Using a reverse proxy in combination with a servlet container is optional but has many advantages:</para>
+    <title>Configuración de proxy inverso</title>
+    <para>Un proxy inverso es un servidor proxy que funciona en representación de un servidor. Utilizar un proxy inverso combinado con un contenedor Servlet es algo opcional en DHIS, pero tiene numerosas ventajas:</para>
     <itemizedlist>
       <listitem>
-        <para>Requests can be mapped and passed on to multiple servlet containers - this improves flexibility and makes it easier to run multiple instances of DHIS on the same server. It also makes it possible to change the internal server setup without affecting clients.</para>
+        <para>Las peticiones pueden mapearse y ser pasadas a múltiples contenedores Servlet - esto hace el sistema más flexible y facilita la ejecución de múltiples instancias de DHIS en el mismo servidor. También posibilita que cambiemos la configuración interna del servidor sin que ello repercuta a los clientes.</para>
       </listitem>
       <listitem>
-        <para>The DHIS application can be run as a non-root user on a port different than 80 which reduces the consequences of session hijacking.</para>
+        <para>La aplicación DHIS puede funcionar como un usuario no root en un puerto distinto del 80, lo que limita las consecuencias de un ataque de suplantación de sesión.</para>
       </listitem>
       <listitem>
-        <para>The reverse proxy can  act as a single SSL server and be configured to inspect requests for malicious content, log requests and responses and provide non-sensitive error messages which will improve security.</para>
+        <para>El proxy inverso puede funcionar como un solo servidor SSL y podemos configurarlo para inspeccionar las peticiones en busca de contenido malicioso, peticiones y respuestas de log y también proporcionar mensajes de error no sensibles mejorando la seguridad en general.</para>
       </listitem>
     </itemizedlist>
     <section>
       <title>Instalación básica de nginx</title>
-      <para>We recommend using nginx  (http://wiki.nginx.org) as reverse proxy due to its low memory footprint and ease of use. To get the latest version we recommend installing from source:</para>
+      <para>Recomendamos utilizar nginx  (http://wiki.nginx.org) como proxy inverso debido a su reducida huella de memoria y a su facilidad de uso. Para obtener la versión más actualizada recomendamos su instalación desde las fuentes:</para>
       <screen>sudo apt-get install make gcc libpcre3 libpcre3-dev zlibc zlib1g zlib1g-dev libssl-dev openssl</screen>
       <para><screen>wget http://nginx.org/download/nginx-1.0.14.tar.gz
 tar xzvf nginx-1.0.14.tar.gz
@@ -108,12 +102,12 @@ cd nginx-1.0.14
 make
 sudo make install
 </screen></para>
-      <para>nginx can now be started and stopped with the following commands:</para>
+      <para>Ahora podemos iniciar y detener nginx con los comandos siguientes:</para>
       <para><screen>sudo /usr/local/nginx/sbin/nginx
 sudo /usr/local/nginx/sbin/nginx -s stop</screen></para>
-      <para>Now that we have installed nginx we will now continue to configure regular proxying of requests to our Tomcat instance, which we assume runs at <emphasis role="italic">http://localhost:8080</emphasis>. To configure nginx you can open the configuration file by invoking</para>
+      <para>Ahora que hemos instalado nginx continuaremos configurando el proxy regular de peticiones a nuestra instancia Tomcat, que asumimos que se ejecuta en <emphasis role="italic">http://localhost:8080</emphasis>. Para configurar nginx podemos abrir el fichero de configuración invocando:</para>
       <para><code>sudo nano /usr/local/nginx/conf/nginx.conf</code></para>
-      <para>nginx configuration is built around a hierarchy of blocks representing http, server and location, where each block inherit settings from parent blocks. The following snippet will configure nginx to proxy pass (redirect) requests from port 80 (which is the port nginx will listen on by default) to our Tomcat instance. It will also make nginx serve requests for static content such as javascript, stylesheets and images and instruct clients to cache it for 4 days which will reduce the load on Tomcat and improve overall performance. Include the following configuration in nginx.conf:</para>
+      <para>La configuración de nginx se monta en torno a una jerarquía de bloques que incluye http, servidor y ubicación, donde cada bloque hereda los parámetros configurados en los bloques padre. El código siguiente configura nginx para pasar por proxy (redireccionar) las peticiones del puerto 80 (que es el puerto que nginx escucha por defecto) a nuestra instancia Tomcat. Con esto también conseguimos que nginx sirva peticiones de contenido estático como son javascript, hojas de estilo e imágenes, e instruya a los clientes para guardarlas en caché durante 4 días, de modo que se reduce la carga de Tomcat y se mejora el rendimiento en general. Por eso, añadiremos la configuración siguiente en el fichero nginx.conf:</para>
       <para><screen><![CDATA[server {
   listen               80;
   client_max_body_size 10M; # Default 1M, change it!
@@ -136,12 +130,14 @@ sudo /usr/local/nginx/sbin/nginx -s stop</screen></para>
     proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
   }
 }]]></screen></para>
-      <para>You can now access your DHIS instance at <emphasis role="italic">http://localhost</emphasis>. Since  the reverse proxy has been set up we can improve security by making Tomcat only listen for local connections. In <emphasis role="italic">/conf/server.xml</emphasis> you can add an <emphasis role="italic">address</emphasis> attribute with the value <emphasis role="italic">localhost</emphasis> to the Connetor element for HTTP 1.1 like this:</para>
+      <para>Ahora podemos acceder a nuestra instancia DHIS en <emphasis role="italic">http://localhost</emphasis>. Ahora que el proxy inverso ya está funcionando, podemos mejorar la seguridad del sistema haciendo que Tomcat solo escuche conexiones locales. En el fichero <emphasis role="italic">/conf/server.xml</emphasis> podemos añadir un atributo de dirección: <emphasis role="italic">address</emphasis>, con el valor de <emphasis role="italic">localhost</emphasis> al elemento Connector de HTTP 1.1 de la siguiente manera:</para>
       <para><screen>&lt;Connector address=&quot;localhost&quot; protocol=&quot;HTTP/1.1&quot; ... &gt;</screen></para>
       <important>
-        <para>The location block for static content is essential as web browsers will not cache static content by default over SSL. It will only cache such content on the client side if told explicitly by the web server.</para>
+        <para>El bloque de ubicación para contenido estático es esencial, ya que los navegadores web no cachean contenido estático por defecto sobre SSL. Solo cachean este tipo de contenido en el lado del cliente si el servidor web lo indica explícitamente.</para>
       </important>
     </section>
+
+
     <section>
       <title>Habilitando SSL en nginx</title>
       <para>In order to improve security it is recommended to configure the server running DHIS to communicate with clients over an encrypted connection and to identify itself to clients using a trusted certificate. This can be achieved through SSL which is an cryptographic communication protocol running on top of TCP/IP.</para>
@@ -352,7 +348,7 @@ XXX.XX.XXX.XXX foo.mydomain.org</screen></para>
     <title>Instalación de DHIS 2 Live</title>
     <para>El paquete DHIS 2 Live es muy cómodo de instalar y ejecutar. Está pensado para ejemplos demostrativos, para usuarios que quieren explorar el sistema y para instalaciones pequeñas, offline típicamente en distritos o establecimientos de salud. Solo requiere el Entorno de Ejecución de Java (Java Runtime Environment) y funciona en todos los navegadores web excepto Internet Explorer 7 o versiones anteriores.</para>
     <para>Para instalarlo comenzaremos descargando DHIS 2 Live de la página <emphasis role="italic">http://dhis2.org</emphasis> y extrayendo el archivo en alguna ubicación. En Windows pincharemos en el archivo ejecutable. En Linux invocamos el script <code>startup.sh</code> </para>
-    <para>Después del proceso de arranque, nuestro navegador web por defecto estará apuntando automáticamente a <emphasis role="italic">http://localhost:8082</emphasis>, donde se encuentra la aplicación. En la mayoría de sistemas operativos aparecerá un menú de sistema donde podremos arrancar y parar el servidor, así como iniciar nuevas sesiones de navegador. Notemos que si el servidor está funcionando no hay necesidad de arrancarlo de nuevo, sino simplemente abrir la aplicación desde el menú de sistema.</para>
+    <para>Después del proceso de arranque, nuestro navegador web por defecto estará apuntando automáticamente a <emphasis role="italic">http://localhost:8082</emphasis>, donde se encuentra la aplicación. En la mayoría de sistemas operativos aparecerá un menú de sistema donde podremos arrancar y detener el servidor, así como iniciar nuevas sesiones de navegador. Notemos que si el servidor está funcionando no hay necesidad de arrancarlo de nuevo, sino simplemente abrir la aplicación desde el menú de sistema.</para>
     <para>DHIS 2 Live se ejecuta en un contenedor Servlet Jetty embebido y con una base de datos H2 embebida. Sin embargo, podremos configurarlo para funcionar con otros sistemas de bases de datos como PostgreSQL. Encontraremos una explicación detallada sobre la configuración de una base de datos en la sección anterior sobre instalación en servidor. El fichero de configuración <emphasis role="italic">hibernate.properties</emphasis> se encuentra en la carpeta <emphasis role="italic">conf</emphasis>. Es importante acordarnos de reiniciar el paquete Live para que los cambios tengan efecto. El puerto del servidor es 8082 por defecto. Esto también podemos cambiarlo modificando el valor correspondiente en el fichero de configuración<emphasis role="italic"> jetty.port</emphasis> que se encuentra en el directorio <emphasis role="italic">conf</emphasis>.</para>
   </section>
   <section>
