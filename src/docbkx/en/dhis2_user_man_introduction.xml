@@ -2,181 +2,96 @@
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>What is DHIS 2?</title>
-  <section id="mod1_1">
-    <title>Background of The District Health Information Software – Version 2</title>
-    <highlights>
-      <para>After reading this chapter you will be able to understand:</para>
-      <itemizedlist>
-        <listitem>
-          <para>What is DHIS2 and what purpose it serves with respect to
-          health management information systems (HMIS)?</para>
-        </listitem>
-        <listitem>
-          <para>What is the difference between patient based and aggregate data?</para>
-        </listitem>
-        <listitem>
-          <para>What are the different modules in DHIS 2?</para>
-        </listitem>
-        <listitem>
-          <para>What is Free and Open Source Software (FOSS), platform
-          (in)dependency, and its implications for HMIS?</para>
-        </listitem>
-        <listitem>
-          <para>What is FOSS, platform (in)dependency, and their implications
-          for HMIS?</para>
-        </listitem>
-      </itemizedlist>
-    </highlights>
-    <para>Computer based HMIS allows for a transition from a data (and paper)
-    based HMIS to and action led HMIS. Particular strengths of a computer
-    based HMIS enumerated below:</para>
+  <highlights>
+    <para>After reading this chapter you will be able to understand:</para>
     <itemizedlist>
       <listitem>
-        <para>Promotes streamlining and standardisation of data
-        records.</para>
+        <para>What is DHIS 2 and what purpose it serves with respect to
+          health information systems (HIS)?</para>
       </listitem>
       <listitem>
-        <para>Allows creation of an integrated warehouse, which supports
-        combining data from different sources and conducting cross
-        analysis.</para>
+        <para>What are the major technological considerations when it comes to deploying DHIS 2, and what are the options are for extending DHIS 2 with new modules?</para>
       </listitem>
       <listitem>
-        <para>Facilitates Rationalisation of reporting flows</para>
+        <para>What is the difference between patient based and aggregate data?</para>
       </listitem>
       <listitem>
-        <para>Supports customised reporting.</para>
-      </listitem>
-      <listitem>
-        <para>Makes possible various kinds of indicator based analysis</para>
-      </listitem>
-      <listitem>
-        <para>Allows integration of various software applications such as GIS
-        and Excel.</para>
-      </listitem>
-      <listitem>
-        <para>Provides functionality to conduct data quality
-        validation.</para>
-      </listitem>
-      <listitem>
-        <para>Allows immediate on-line transmission of data / reports as and
-        when required by the user</para>
+        <para>What are some of the benefits and challenges with using  Free and Open Source Software (FOSS) for HIS?</para>
       </listitem>
     </itemizedlist>
-    <para>The District Health Information Software – Version 2 (DHIS 2) is
-    Free and Open Source Software (FOSS) HMIS designed and developed under a
-    global research and development initiative (called Health Information
-    Systems Project – HISP) originating from the Department of Informatics,
-    University of Oslo, Norway. The first version of DHIS application (DHIS
-    1.3/1.4) was developed and subsequently upgraded on an ongoing base
-    continuously upgraded in South Africa by HISP South Africa since 1997.
-    This version was developed on Microsoft Office platform, and distributed
-    freely. This application is currently the national standard in South Africa
-    and being used in all the health facilities in the country. DHIS1.4 
-    is  being used in many countries in Africa such as Ethiopia,
-    Nigeria, Botswana, Tanzania, Zambia, and various other countries.</para>
-    <para>In 2005, based on the various comments and feedback from the field
-    level use, the University of Oslo initiated the process of developing
-    the second version of DHIS.  DHIS 1.4 was used primarily as the basis for the functional
-    requirements. Using a modular structure DHIS2, was developed based on data
-    warehousing principles. DHIS2 is built on free and open source (FOSS) Java based frameworks. It is
-    platform independent, can run on both on-line and offline modes, is multi-language enabled and integrated with various other applications such as
-    Geographic Information Systems and Microsoft Excel.</para>
+  </highlights>
+  <section id="mod1_1">
+    <title>DHIS 2 Background</title>
+    <para>The DHIS 2 is a tool for collection, validation, analysis, and presentation of aggregate statistical data, tailored (but not limited) to integrated health information management activities. It is a generic tool rather than a pre-configured database application, with an open meta-data model and a flexible user interface that allows the user to design the contents of a specific information system without the need for programming. DHIS 2 and upwards is a modular web-based software package built with free and open source Java frameworks.</para>
+    <para>DHIS 2 is open source software released under the BSD license and can be used at no cost. It runs on any platform with a JRE 6 (or higher) installed. Simply download (from dhis2.org), unpack and run the executable file and you are good to go.</para>
+    <para>The DHIS 2 is developed by the Health Information Systems Programme (HISP) as an open and globally distributed process with developers currently in India, Vietnam, Tanzania, Ireland, and Norway. The development is coordinated by the University of Oslo with core support from Norad. </para>
+    <para>As of October 2012, the DHIS 2 software is used in more than 30 countries in Africa, Asia, and Latin America, and countries that have adopted DHIS 2 as their nation-wide HIS software include Kenya, Tanzania, Uganda, Rwanda, Ghana, Liberia, and Bangladesh. A rapidly increasing number of countries and organisations are starting up new deployments.</para>
     <para>The documentation provided in herewith, will attempt to provide a comprehensive overview of the application. Given the abstract nature of the application, this manual will not serve as a complete step-by-step guide of how to use the application in each and every circumstance, but rather will seek to provide illustrations and examples of how DHIS2 can be implemented in a variety of situations through generalized examples.</para>
+    <para>Before implementing DHIS 2 in a new setting we highly recommend reading the DHIS 2 Implementation Guide (a separate manual from this one), also available at dhis2.org.</para>
   </section>
   <section>
-    <title>Purpose of DHIS2</title>
-    <para>The purpose of DHIS2 can be summarised as follows:</para>
-    <orderedlist>
+    <title>Key features and purpose of DHIS 2</title>
+    <para>The key features and purpose of DHIS 2 can be summarised as follows:</para>
+    <itemizedlist>
       <listitem>
-        <para>Provide a comprehensive HMIS solution based on data
+        <para>Provide a comprehensive HIS solution based on data
           warehousing principles and a modular structure which can easily be
-          customised to the needs of different health systems - nations,
-          states, districts, and facilities.</para>
+          customised to the different needs of the health systems - and supports the idea of an integrated HIS at all levels of the health hierarchy.</para>
       </listitem>
       <listitem>
-        <para>Provide data entry facilities which can either be in the form
-          of standard (scroll down) lists (of data elements), or can be
-          customised to replicate paper forms – to make easy the process of
-          data entry.</para>
+        <para>Customisation and local adaptation through the user interface. No programming required to start using DHIS 2 in a new setting (country, region, district etc.).</para>
+      </listitem>
+      <listitem>
+        <para>Provide data entry tools which can either be in the form
+          of standard  lists or tables, or can be
+          customised to replicate paper forms.</para>
       </listitem>
       <listitem>
         <para>Provide different kinds of tools for data validation and
           improvement of data quality.</para>
       </listitem>
       <listitem>
-        <para>Provide different tools for reporting – both for automated
-          routine reports and analysis reports, and in addition provide the
-          user with functionality and flexibility to make their user defined
-          reports.</para>
+        <para>Provide easy to use - one-click reports with charts and tables for selected indicators or summary reports using the design of the  data collection tools. Integration with popular external report design tools like iReport and BIRT allows super-users to flexibly add more custom reports accessible to all users.</para>
       </listitem>
       <listitem>
-        <para>A dashboard for monitoring and evaluation of health programs
-          that can allow for the generation and analysis of different
-          indicators, and also carry out data quality analysis.</para>
+        <para>Flexible and dynamic (on-the-fly) data analysis in the Data Visualizer and the GIS modules.</para>
       </listitem>
       <listitem>
-        <para>Systems management functions to carry out various operations
-          to manage hierarchy of organisation units,
-          addition/deletion/modification of data elements etc.</para>
+        <para>A user-specific dashboard for quick access to the relevant monitoring and evaluation tools including indicator charts and links to  favourite reports, maps and other key resources in the system.</para>
       </listitem>
       <listitem>
-        <para>Functionality to design and modify indicators.</para>
+        <para>Easy to use user-interfaces for metadata management e.g. for adding/editing datasets or health facilities. No programming needed to set up the system in a new setting.</para>
       </listitem>
       <listitem>
-        <para>Functionalities of export-import, so that data entered on an
-          offline version can be exported to the district or higher level
-          systems. Export import can also be made in relation to other
-          applications such as Excel and Epi Info.</para>
-      </listitem>
-      <listitem>
-        <para>Integration with other software systems – such as
-          <acronym>RIMS</acronym>.</para>
-      </listitem>
-      <listitem>
-        <para>Provision of Geographic Information Systems (GIS).</para>
+        <para>Functionality to design and modify calculated indicator formulas.</para>
       </listitem>
       <listitem>
         <para>User management 
-              module for passwords, security, and access control.</para>
+              module for passwords, security, and fine-grained access control (user roles).</para>
+      </listitem>
+      <listitem>
+        <para>Messages can be sent to system users for feedback and notifications. Messages can also be delivered to email and SMS.</para>
+      </listitem>
+      <listitem>
+        <para>Users can share and discuss their data in charts and  reports using Interpretations, enabling an active information-driven user community.</para>
+      </listitem>
+      <listitem>
+        <para>Functionalities of export-import of data and metadata, supporting synchronisation of offline installations as well as interoperability with other applications.</para>
+      </listitem>
+      <listitem>
+        <para>Integration with other software systems – using the DHIS 2 Web-API and the  Integration Engine.</para>
       </listitem>
       <listitem>
         <para>Further modules can be
-          developed (such as for human resources
-          management) and integrated as per user needs.</para>
+          developed  and integrated as per user needs, either as part of the DHIS 2 portal user interface or a  more loosely-coupled external application  interacting through the DHIS 2 Web-API.</para>
       </listitem>
-    </orderedlist>
-    <para>In summary, DHIS2 provides a comprehensive HMIS solution for the
-      reporting and analysis needs of health facilities at any level. It is a
-      tried and tested application in various countries, and also adopted by WHO for their HMN implementations in various countries.</para>
+    </itemizedlist>
+    <para>In summary, DHIS2 provides a comprehensive HIS solution for the
+      reporting and analysis needs of health information users at any level.</para>
   </section>
   <section>
-    <title>Difference between Aggregated and Patient data in a HMIS</title>
-    <para>
-   <emphasis>Patient data</emphasis> is data relating to a single patient,
-      such as his/her diagnosis, name, age, earlier medical history etc. This data is typically based on a single patient-health care worker interaction. For instance, when a patient visits a health care clinic, a variety of details may be recored, such as the patient&apos;s temperature, their weight, and various blood tests. Should this patient be diagnosed as having &quot;Vitamin B 12 deficiency anaemia, unspecified&quot; corresponding to ICD-10 code D51.9, this particular interaction might eventually get recorded as an instance of &quot;Anaemia&quot; in an aggregate based system. Patient based data is important when you want to track longitudinally
-      the progress of a patient over time. For example, if we want to track
-      how a patient is adhering to and responding to the process of TB
-      treatment (typically taking place over 6-9 months), we would need
-      patient based data.</para>
-    <para>
-   <emphasis>Aggregated data</emphasis> is the consolidation of data
-      relating to multiple patients, and therefore cannot be traced back to a
-      specific patient. They are merely counts, such as incidences of Malaria,
-      TB, or other diseases. Typically, the routine data that a health
-      facility deals with is this kind of aggregated statistics, and is used
-      for the generation of routine reports and indicators, and most importantly, strategic planning within the health system. Aggregate data cannot provide the type of detailed information which patient level data can, but is crucial for planning and guidance of the performance of health systems. </para>
-    <para>Patient data is highly confidential and therefore must be
-      protected so that no one other than doctors can get it. When in paper,
-      it must be properly stored in a secure place. For computers, patient
-      data needs secure systems with passwords and restrained access.</para>
-    <para>Security concerns for aggregated data are not as crucial as for
-      patient data, as it is usually impossible  to identify a particular person to a aggregate statistic . However,
-      data can still be misused and misinterpreted by others, and should not
-      be distributed without adequate data dissemination policies in place. </para>
-  </section>
-  <section>
-    <title>Use of DHIS2 in HMIS: data collection, processing, interpretation, and analysis.</title>
-    <para>The wider context of HMIS can be comprehensively described through
+    <title>Use of DHIS 2 in HIS: data collection, processing, interpretation, and analysis.</title>
+    <para>The wider context of HIS can be comprehensively described through
       the information cycle presented in Figure 1.1 below. The information
       cycle pictorially depicts the different components, stages and processes
       through which the data is collected, checked for quality, processed,
@@ -189,7 +104,7 @@
         </imageobject>
       </mediaobject>
     </figure>
-    <para>DHIS2 supports the different facets of the information cycle
+    <para>DHIS 2 supports the different facets of the information cycle
       including:<itemizedlist>
         <listitem>
           <para>Collecting data.</para>
@@ -217,102 +132,190 @@
         </listitem>
       </itemizedlist>
   </para>
-    <para>As a first step, DHIS2 serves as a data collection, recording and
+    <para>As a first step, DHIS 2 serves as a data collection, recording and
       compilation tool, and all data (be it in numbers or text form) can be
       entered into it. Data entry can be done in lists of data elements or in
       customised user defined forms which can be developed to mimic paper based forms in order to ease the process of data entry.</para>
-    <para>As a next step, DHIS2 can be used to increase data quality.
+    <para>As a next step, DHIS 2 can be used to increase data quality.
       Firstly, at the point of data entry, a check can be made to see if data
       falls within acceptable range levels of minimum and maximum values for
       any particular data element. Such checking, for example, can help to
       identify typing errors at the time of data entry. Further, user can
-      define various validation rules, and DHIS2 can run the data through the
+      define various validation rules, and DHIS 2 can run the data through the
       validation rules to identify violations.</para>
-    <para>When data has been entered and verified, DHIS2 can help to make
+    <para>When data has been entered and verified, DHIS 2 can help to make
       different kinds of reports. The first kind are the routine reports that
       can be predefined, so that all those reports that need to be routine
-      generated can be done on a click of a button. Further, DHIS2 can help
+      generated can be done on a click of a button. Further, DHIS 2 can help
       in the generation of analytical reports through comparisons of for
       example indicators across facilities or over time. Graphs, maps, reports
-      and health profiles are among the outputs that DHIS2 can produce, and
+      and health profiles are among the outputs that DHIS 2 can produce, and
       these should routinely be produced, analysed, and acted upon by health
       managers.</para>
   </section>
   <section>
-    <title>Overview of DHIS2</title>
+    <title>Technical background</title>
     <section>
-      <title>Overview of DHIS2 modules</title>
-      <para>DHIS2 is based on a modular approach of design. A module can be
-        seen as an independent component of application that is capable of
-        both processing inputs as well as outputs, that is used to communicate
-        with other modules. The modules are flexible enough to allow changes
-        in one module without having any effect on other modules. As long as
-        input and output stays the same, it doesn&apos;t matter what happens inside
-        a module. A module can then be changed without affecting other
-        modules, which will be working as long as the output from the first
-        module comes out as normal. This modular feature allows DHIS2 to be
-        constantly upgraded in terms of functionality, integrated with other
-        applications such as Excel pivot tables and GIS. Thus modularity
-        allows DHIS2 to be flexible, and changes can take place in the
-        different modules without affecting others.</para>
-      <para>Currently, DHIS2 has several modules for functions such as data
-        entry, data quality checks, report generation etc. These modules have
-        been categorised and presented under two core categories namely
-        Maintenance and Services. The Services module supports data record,
-        analysis, report generation etc. And the Maintenance module allows you
-        to set the content and structure of the Services module. Each of these modules will be discussed at greater length in this document. </para>
+      <title>DHIS as a platform</title>
+      <para>DHIS can be perceived as a platform on several levels. First, the application database is designed ground-up with flexibility in mind. Data structures such as data elements, organisation units, forms and user roles can be defined completely freely through the application user interface. This makes it possible for the system to be adapted to a multitude of locale contexts and use-cases. We have seen that DHIS supports most major requirements for routine data capture and analysis emerging in country implementations. It also makes it possible for DHIS to serve as management system for domains such as logistics, labs and finance.</para>
+      <para>Second, due to the modular design of DHIS it can be extended with additional software modules. These software modules can live side by side with the core modules of DHIS and can be integrated into the DHIS portal and menu system. This is a powerful feature as it makes it possible to extend the system with extra functionality when needed, typically for country specific requirements as earlier pointed out.</para>
+      <para>The downside of the software module extensibility is that it puts several constraints on the development process. The developers creating the extra functionality are limited to the DHIS technology in terms of programming language and software frameworks, in addition to the constraints put on the design of modules by the DHIS portal solution. Also, these modules must be included in the DHIS software when the software is built and deployed on the web server, not dynamically during run-time. </para>
+      <para>In order to overcome these limitations and achieve a looser coupling between the DHIS service layer and additional software artifacts, the DHIS development team decided to create a Web API. This Web API complies with the rules of the REST architectural style. This implies that:</para>
+      <itemizedlist>
+        <listitem>
+          <para>The Web API provides a navigable and machine-readable interface to the complete DHIS data model. For instance, one can access the full list of data elements, then navigate using the provided hyperlink to a particular data element of interest, then navigate using the provided hyperlink to the list of forms which this data element is part of. E.g. clients will only do state transitions using the hyperlinks which are dynamically embedded in the responses.</para>
+        </listitem>
+        <listitem>
+          <para>Data is accessed through a uniform interface (URLs) using a well-known protocol. There are no fancy transport formats or protocols involved - just the well-tested, well-understood HTTP protocol which is the main building block of the Web today. This implies that third-party developers can develop software using the DHIS data model and data without knowing the DHIS specific technology or complying with the DHIS design constraints. </para>
+        </listitem>
+        <listitem>
+          <para>All data including meta-data, reports, maps and charts, known as resources in REST terminology, can be retrieved in most of the popular representation formats of the Web of today, such as HTML, XML, JSON, PDF and PNG. These formats are widely supported in applications and programming languages and gives third-party developers a wide range of implementation options.</para>
+        </listitem>
+      </itemizedlist>
+      <graphic fileref="resources/images/implementation_guide/dhis_platform.png" format="PNG" width="80%" align="center"/>
     </section>
     <section>
-      <title>Web-based versus standalone HMIS and their suitability</title>
-      <para>DHIS2 can run both as a web based and offline application. As a
-        web based application, the DHIS2 application can run on a central
-        server and make use of client-server architecture. For example, at the
-        state level, the DHIS2 can run on a server, and the different
-        districts act as clients, drawing upon the server application through
-        the Internet for local use of the application.</para>
-      <para>In a standalone application, the DHIS2 can run as an
-        independent application on individual computers in different sites
-        such as <abbrev>PHC</abbrev>s, <abbrev>CHC</abbrev>s etc. So, if computerisation is taking place at the
-        Block level, then the DHIS 2 will be installed separately on each of
-        the block level computers. The disadvantage of a standalone
-        application is that of platform dependency – where the application
-        needs to be configured to the platform on each of the respective
-        machines. A thick client requires a local run-time environment. For
-        example a Windows Form application will only run on a Windows platform
-        with the .Net framework installed. The major advantage of the offline
-        version is that it can run without any dependency on the Internet.
-        This allows the application to run in remote locations where there is
-        limited or no Internet connectivity.</para>
-      <para>The main advantage of a web based solution is that it is
-        centralised, which enables easy, on-line updating and deployment of the
-        application. The only requirements on the clients’ side are to have
-        web browser installed on the used computer and have an Internet
-        connection. The hardware on the server is often more powerful than the
-        single computer. Another advantage of the web application is that is
-        platform independent, allowing the same software to be accessed
-        through a web browser regardless of the client’s operating
-        system.</para>
-      <para>Where connectivity is available, and there is need for
-        centralised management, a web based application is useful, and a
-        standalone application is preferred when these conditions are not
-        available or required. However, in most cases, a mix of these two
-        approaches would be required, with a server based deployment working
-        for district-state-national level processing, and a standalone
-        deployment at lower levels where connectivity is limited. The
-        advantage of such an approach is that it is flexible, inclusive, and
-        scalable because as facilities get Internet connectivity they can be
-        hooked up to the network.</para>
+      <title>Understanding platform independence</title>
+      <para>All computers have an Operating System (OS) to manage it and the
+        programs running it. The operating system serves as the middle layer between the
+        software application, such as DHIS 2, and the hardware, such as the
+        CPU and RAM.    DHIS 2 runs on the Java Virtual Machine, and can therefore run on any operating system which supports Java. Platform
+        independence implies that the software application can run on ANY OS -
+        Windows, Linux, Macintosh etc. DHIS 2 is platform independent, and is
+        extremely useful in the context of public health, where multiple operating systems may be in use.</para>
+      <para>Furthermore, DHIS 2 is also platform independent when it comes to the Database Management System  (DBMS). DHIS 2 uses the Hibernate database abstraction framework and is compatible with any DBMS supported by Hibernate, such as PostgreSQL, MySQL, H2, MS SQL Server, Oracle and many more. PostgreSQL is the recommended DBMS for DHIS 2.</para>
     </section>
     <section>
-      <title>Free and Open Source Software (FOSS): benefits and challenges</title>
-      <para>Software carries the instructions that tell a computer how to
+      <title>Deployment strategies - online vs offline</title>
+      <para>DHIS 2 is a network enabled application and can be accessed over the Internet, a local intranet and as a locally installed system. The deployment alternatives for DHIS 2 are in this chapter defined as i) offline deployment ii) online deployment and iii) hybrid deployment. The meaning and differences will be discussed in the following sections.</para>
+      <section>
+        <title>Offline Deployment</title>
+        <para>An offline deployment implies that multiple standalone offline instances are installed for end users, typically at the district level. The system is maintained primarily by the end users/district health officers who enters data and generate reports from the system running on their local server. The system will also typically be maintained by a national super-user team who pay regular visits to the district deployments. Data is moved upwards in the hierarchy by the end users producing data exchange files which are sent electronically by email or physically by mail or personal travel. (Note that the brief Internet connectivity required for sending emails does not qualify for being defined as online). This style of deployment has the obvious benefit that it works when appropriate Internet connectivity is not available. On the other side there are significant challenges with this style which are described in the following section.</para>
+        <itemizedlist>
+          <listitem>
+            <para>Hardware: Running stand-alone systems requires advanced hardware in terms of servers and reliable power supply to be installed, usually at district level,  all over the country. This requires appropriate funding for procurement and plan for long-term maintenance.</para>
+          </listitem>
+          <listitem>
+            <para>Software platform: Local installs implies a significant need for maintenance. From experience, the biggest challenge is viruses and other malware which tend to infect local installations in the long-run. The main reason is that end users utilize memory sticks for transporting data exchange files and documents between private computers, other workstations and the system running the application. Keeping anti-virus software and operating system patches up to date in an offline environment are challenging and bad practises in terms of security are often adopted by end users. The preferred way to overcome this issue is to run a dedicated server for the application where no memory sticks are allowed and use an Linux based operating system which is not as prone for virus infections as MS Windows.</para>
+          </listitem>
+          <listitem>
+            <para>Software application: Being able to distribute new functionality and bug-fixes to the health information software to users are essential for maintenance and improvement of the system. Relying on the end users to perform software upgrades requires extensive training and a high level of competence on their side as upgrading software applications might a technically challenging task. Relying on a national super-user team to maintain the software implies a lot of travelling.</para>
+          </listitem>
+          <listitem>
+            <para>Database maintenance: A prerequisite for an efficient system is that all users enter data with a standardized meta-data set (data elements, forms etc). As with the previous point about software upgrades, distribution of changes to the meta-data set to numerous offline installations requires end user competence if the updates are sent electronically or a well-organized super-user team. Failure to keep the meta-data set synchronized will lead to loss of ability to move data from the districts and/or an inconsistent national database since the data entered for instance at the district level will not be compatible with the data at the national level.</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+      <section>
+        <title>Online deployment</title>
+        <para>An online deployment implies that a single instance of the application is set up on a server connected to the Internet. All users (clients) connect to the online central server over the Internet using a web browser. This style of deployment currently benefits from the  huge investments in and expansions of mobile networks in developing countries. This makes it possible to access online servers in even the most rural areas using mobile Internet modems  (also referred to as <emphasis role="italic">dongles</emphasis>).  </para>
+        <para>This online deployment style has huge positive implications for the implementation process and application maintenance compared to the traditional offline standalone style:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Hardware: Hardware requirements on the end-user side are limited to a reasonably modern computer/laptop and Internet connectivity through a fixed line or a mobile modem. There is no need for a specialized server, any Internet enabled computer will be sufficient.</para>
+          </listitem>
+          <listitem>
+            <para>Software platform: The end users only need a web browser to connect to the online server. All popular operating systems today are shipped with a web browser and there is no special requirement on what type or version. This means that if severe problems such as virus infections or software corruption occur one can always resort to re-formatting and installing the computer operating system or obtain a new computer/laptop. The user can continue with data entry where it was left and no data will be lost.</para>
+          </listitem>
+          <listitem>
+            <para>Software application: The central server deployment style means that the application can be upgraded and maintained in a centralized fashion. When new versions of the applications are released with new features and bug-fixes it can be deployed to the single online server. All changes will then be reflected on the client side the next time end users connect over the Internet. This obviously has a huge positive impact for the process of improving the system as new features can be distributed to users immediately, all users will be accessing the same application version, and bugs and issues can be sorted out and deployed on-the-fly.</para>
+          </listitem>
+          <listitem>
+            <para>Database maintenance: Similar to the previous point, changes to the meta-data can be done on the online server in a centralized fashion and will automatically propagate to all clients next time they connect to the server. This effectively removes the vast issues related to maintaining an upgraded and standardized meta-data set related to the traditional offline deployment style. It is extremely convenient for instance during the initial database development phase and during the annual database revision processes as end users will be accessing a consistent and standardized database even when changes occur frequently.</para>
+          </listitem>
+        </itemizedlist>
+        <para>This approach might be problematic in cases where Internet connectivity is volatile or missing in long periods of time. DHIS 2 however has certain features which requires Internet connectivity to be available only only part of the time for the system to work properly, such as the MyDatamart tool presented in a separate chapter in this guide.</para>
+      </section>
+      <section>
+        <title>Hybrid deployment</title>
+        <para>From the discussion so far one realizes that the online deployment style is favourable over the offline style but requires decent Internet connectivity where it will be used. It is important to notice that the mentioned styles can co-exist in a common deployment. It is perfectly feasible to have online as well as offline deployments within a single country. The general rule would be that districts and facilities should access the system online over the Internet where sufficient Internet connectivity exist, and offline systems should be deployed to districts where this is not the case. </para>
+        <para>Defining decent Internet connectivity precisely is hard but as a rule of thumb the download speed should be minimum 10 Kbyte/second and accessibility should be minimum 70% of the time. </para>
+        <para>In this regard mobile Internet modems which can be connected to a computer or laptop and access the mobile network is an extremely capable and feasible solution. Mobile Internet coverage is increasing rapidly all over the world, often provide excellent connectivity at low prices and is a great alternative to to local networks and poorly maintained fixed Internet lines. Getting in contact with national mobile network companies regarding post-paid subscriptions and potential large-order benefits can be a wort-while effort. The network coverage for each network operator in the relevant country should be investigated when deciding which deployment approach to opt for as it might differ and cover different parts of the country.</para>
+      </section>
+      <section>
+        <title>Server hosting</title>
+        <para>The online deployment approach raises the question of where and how to host the server which will run the DHIS 2 application. Typically there are several options:</para>
+        <orderedlist>
+          <listitem>
+            <para>Internal hosting within the Ministry of Health</para>
+          </listitem>
+          <listitem>
+            <para>Hosting within a government data centre</para>
+          </listitem>
+          <listitem>
+            <para>Hosting through an external hosting company</para>
+          </listitem>
+        </orderedlist>
+        <para>The main reason for choosing the first option is often political motivation for having “physical ownership” of the database. This is perceived as important by many in order to “own” and control the data. There is also a wish to build local capacity for server administration related to sustainability of the project. This is often a donor-driven initiatives as it is perceived as a concrete and helpful mission.</para>
+        <para>Regarding the second option, some places a government data centre is constructed with a view to promoting and improving the use and accessibility of public data. Another reason is that a proliferation of internal server environments is very resource demanding and it is more effective to establish centralized infrastructure and capacity.</para>
+        <para>Regarding external hosting there is lately a move towards outsourcing the operation and administration of computer resources to an external provider, where those resources are accessed over the network, popularly referred to as “cloud computing” or “software as a service”. Those resources are typically accessed over the Internet using a web browser. </para>
+        <para>The primary goal for an online server deployment is provide long-term stable and high-performance accessibility to the intended services. When deciding which option to choose for server environment there are many aspects to consider:</para>
+        <orderedlist>
+          <listitem>
+            <para>Human capacity for server administration and operation. There must be human resources with general skills in server administration and in the specific technologies used for the application providing the services. Examples of such technologies are web servers and database management platforms.</para>
+          </listitem>
+          <listitem>
+            <para>Reliable solutions for automated backups, including local off-server and remote backup.</para>
+          </listitem>
+          <listitem>
+            <para>Stable connectivity and high network bandwidth for traffic to and from the server.</para>
+          </listitem>
+          <listitem>
+            <para>Stable power supply including a backup solution.</para>
+          </listitem>
+          <listitem>
+            <para>Secure environment for the physical server regarding issues such as access, theft and fire.</para>
+          </listitem>
+          <listitem>
+            <para>Presence of a disaster recovery plan. This plan must contain a realistic strategy for making sure that the service will be only suffering short down-times in the events of hardware failures, network downtime and more.</para>
+          </listitem>
+          <listitem>
+            <para>Feasible, powerful and robust hardware.</para>
+          </listitem>
+        </orderedlist>
+        <para>All of these aspects must be covered in order to create an appropriate hosting environment. The hardware requirement is deliberately put last since there is a clear tendency to give it too much attention.</para>
+        <para>Looking back at the three main hosting options, experience from implementation missions in developing countries suggests that all of the hosting aspects are rarely present in option one and two at a feasible level. Reaching an acceptable level in all these aspects is challenging in terms of both human resources and money, especially when compared to the cost of option three. It has the benefit that is accommodates the mentioned political aspects and building local capacity for server administration, on the other hand can this be provided for in alternative ways.</para>
+        <para>Option three - external hosting - has the benefit that it supports all of the mentioned hosting aspects at a very affordable price. Several hosting providers - of virtual servers or software as a service - offer reliable services for running most kinds of applications. Example of such providers are Linode and Amazon Web Services. Administration of such servers happens over a network connection, which most often anyway is the case with local server administration. The physical location of the server in this case becomes irrelevant as that such providers offer services in most parts of the world. This solution is increasingly becoming the standard solution for hosting of application services. The aspect of building local capacity for server administration is compatible with this option since a local ICT team can be tasked with maintaining the externally hosted server.</para>
+        <para>An approach for combining the benefits of external hosting with the need for local hosting and physical ownership is to use an external hosting provider for the primary transactional system, while mirroring this server to a locally hosted non-critical server which is used for read-only purposes such as data analysis and accessed over the intranet.</para>
+      </section>
+    </section>
+  </section>
+  <section>
+    <title>Difference between Aggregated and Patient data in a HIS</title>
+    <para>
+   <emphasis>Patient data</emphasis> is data relating to a single patient,
+      such as his/her diagnosis, name, age, earlier medical history etc. This data is typically based on a single patient-health care worker interaction. For instance, when a patient visits a health care clinic, a variety of details may be recored, such as the patient&apos;s temperature, their weight, and various blood tests. Should this patient be diagnosed as having &quot;Vitamin B 12 deficiency anaemia, unspecified&quot; corresponding to ICD-10 code D51.9, this particular interaction might eventually get recorded as an instance of &quot;Anaemia&quot; in an aggregate based system. Patient based data is important when you want to track longitudinally
+      the progress of a patient over time. For example, if we want to track
+      how a patient is adhering to and responding to the process of TB
+      treatment (typically taking place over 6-9 months), we would need
+      patient based data.</para>
+    <para>
+   <emphasis>Aggregated data</emphasis> is the consolidation of data
+      relating to multiple patients, and therefore cannot be traced back to a
+      specific patient. They are merely counts, such as incidences of Malaria,
+      TB, or other diseases. Typically, the routine data that a health
+      facility deals with is this kind of aggregated statistics, and is used
+      for the generation of routine reports and indicators, and most importantly, strategic planning within the health system. Aggregate data cannot provide the type of detailed information which patient level data can, but is crucial for planning and guidance of the performance of health systems. </para>
+    <para>In between the two you have case-based data, or anonymous &quot;patient&quot; data. A lot of details can be collected about a specific health event without necessarily having to identify the patient it involved. Inpatient or outpatient visits, a new case of cholera, a maternal death etc.  are common use-cases where one would like to collect a lot more detail that just adding to the total count of cases, or visits. This data is often collected in line-listing type of forms, or in more detailed audit forms. In is different from aggregate data in the sense that it contains many details about a specific event, whereas the aggregate data would count how many events of a certain type, e.g. how many outpatient visits with principal diagnosis &quot;Malaria&quot;, or how many maternal deaths where the deceased did not attend ANC, or how many cholera outbreaks for children under 5 years. In DHIS 2 this data is collected through programs of the type single event without registration.</para>
+    <para>Patient data is highly confidential and therefore must be
+      protected so that no one other than doctors can get it. When in paper,
+      it must be properly stored in a secure place. For computers, patient
+      data needs secure systems with passwords, restrained access and audit logs.</para>
+    <para>Security concerns for aggregated data are not as crucial as for
+      patient data, as it is usually impossible  to identify a particular person to a aggregate statistic . However,
+      data can still be misused and misinterpreted by others, and should not
+      be distributed without adequate data dissemination policies in place. </para>
+  </section>
+  <section>
+    <title>Free and Open Source Software (FOSS): benefits and challenges</title>
+    <para>Software carries the instructions that tell a computer how to
         operate. The human authored and human readable form of those
         instructions is called source code. Before the computer can actually
         execute the instructions, the source code must be translated into a
         machine readable (binary) format, called the object code. All
         distributed software includes the object code, but <abbrev>FOSS</abbrev> makes the
         source code available as well.</para>
-      <para>Proprietary software owners license their copyrighted object
+    <para>Proprietary software owners license their copyrighted object
         code to a user, which allows the user to run the program. <abbrev>FOSS</abbrev>
         programs, on the other hand, license both the object and the source
         code, permitting the user to run, modify and possibly redistribute the
@@ -323,53 +326,29 @@
         <abbrev>FOSS</abbrev> is also known as free software, where “free” refers, first and
         foremost, to the above freedoms rather than in the monetary sense of
         the word.</para>
-      <para>Within the public health sector, <abbrev>FOSS</abbrev> can potentially have a
+    <para>Within the public health sector, <abbrev>FOSS</abbrev> can potentially have a
         range of benefits, including:</para>
-      <itemizedlist>
-        <listitem>
-          <para>Lower costs as it does not involve paying for prohibitive
+    <itemizedlist>
+      <listitem>
+        <para>Lower costs as it does not involve paying for prohibitive
             license costs.</para>
-        </listitem>
-        <listitem>
-          <para>Given the information needs for the health sector are
+      </listitem>
+      <listitem>
+        <para>Given the information needs for the health sector are
             constantly changing and evolving, there is a need for the user to
             have the freedom to make the changes as per the user requirements.
             This is often limited in proprietary systems.</para>
-        </listitem>
-        <listitem>
-          <para>In the health sector, including in NRHM; a key agenda is
-            that of integration, which involves the technical linking of
-            different pieces of software (for example, DHIS 2 and RIMS). For
-            this, the source code needs to be made available to the developers
-            to create the integration. This availability is often not possible
+      </listitem>
+      <listitem>
+        <para>Access to source code to enable integration and interoperability. In the health sector interoperability between different software applications is becoming increasingly important, meaning enabling two or more systems to communicate metadata and data.    This work is a lot easier, and sometimes dependent on the source code being available to the developers that create the integration. This availability is often not possible
             in the case of proprietary software. And when it is, it comes at a
             high cost and contractual obligations.</para>
-        </listitem>
-        <listitem>
-          <para>FOSS applications like DHIS2 typically are supported by a
+      </listitem>
+      <listitem>
+        <para>FOSS applications like DHIS 2 typically are supported by a
             global network of developers, and thus have access to cutting edge
             research and development knowledge.</para>
-        </listitem>
-      </itemizedlist>
-    </section>
-    <section>
-      <title>Understanding platform independence</title>
-      <para>All computers have an Operating System (OS) to manage it and the
-        programs running it. The operating system serves as the middle layer between the
-        software application, such as DHIS2, and the hardware, such as the
-        CPU and RAM.    DHIS2 runs on the Java Virtual Machine, and can therefore run on any operating system which supports Java. Platform
-        independence implies that the software application can run on ANY OS -
-        Windows, Linux, Macintosh etc. DHIS2 is platform independent, and is
-        extremely useful in the context of public health, where multiple operating systems may be in use. </para>
-    </section>
-    <section>
-      <title>Auxiliary software that can be used with DHIS2</title>
-      <para>A variety of auxiliary software can be run with DHIS2, such as
-        GIS (for mapping), JasperReports (for reporting), Excel (for analysis through
-        pivot table operations), OpenMRS (for patient based management). Being based on Open Standards and an
-        Open Architecture, DHIS2 can build bridges to speak to the other
-        systems. Further, auxiliary modules can be developed and integrated
-        with the core DHIS2 application.</para>
-    </section>
+      </listitem>
+    </itemizedlist>
   </section>
 </chapter>
