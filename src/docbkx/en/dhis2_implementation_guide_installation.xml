@@ -84,6 +84,8 @@ export JAVA_OPTS=&apos;-Xmx6000m -Xms3000m -XX:MaxPermSize=800m -XX:PermSize=400
 export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
     <para>If you need to change the <emphasis role="italic">port</emphasis> of which Tomcat listens for requests you can open the Tomcat configuration file <emphasis role="italic">/conf/server.xml</emphasis>, locate the <emphasis role="italic">&lt;Connector&gt;</emphasis> element which is not commented out and change the <emphasis role="italic">port</emphasis> attribute value to the desired port number.</para>
     <para>To monitor the behavior of Tomcat the log is the primary source of information. The log can be easily viewed with the command <code>tail -f logs/catalina.out</code></para>
+    <para><emphasis role="bold">Set server time</emphasis></para>
+    <para>Remember to set the server date correctly according to the time zone of which the main part of the users of the system are located. This will affect e.g. when scheduled tasks are executed. For instance, to the set time to 22:45, October 17, 2012, invoke <code>sudo date 101722452012</code></para>
     <para><emphasis role="bold">Run DHIS 2</emphasis></para>
     <para>Make the startup script executable by invoking <code>chmod 755 bin/*</code> DHIS 2 can now be started by invoking <code>bin/startup.sh</code> The log can be monitored by invoking <code>tail -f logs/catalina.out</code> DHIS 2 can be stopped by invoking <code>bin/shutdown.sh</code> Assuming that the WAR file is called ROOT.war, you can now access your DHIS instance at <emphasis role="italic">http://localhost:8080</emphasis></para>
   </section>
@@ -244,7 +246,6 @@ sudo /usr/sbin/update-rc.d -f tomcat defaults 81</screen>
     </section>
     <section>
       <title>Making resources available with nginx</title>
-      <para><emphasis role="bold">Making resources publicly available</emphasis></para>
       <para>In some scenarios it is desirable to make certain resources publicly available on the Web without requiring authentication. One example is when you want to make data analysis related resources in the Web API available in a Web portal. The following example will allow access to charts, maps, reports, report table and document resources through basic authentication by injecting an <emphasis role="italic">Authorization</emphasis> HTTP  header into the request. It will remove the Cookie header from the request and the Set-Cookie header from the response in order to avoid changing the currently logged in user. It is recommended to create a user for this purpose given only the minimum authorities required. The Authorization value can be constructed by Base64-encoding the username appended with a colon and the password and prefix it &quot;Basic &quot;, more precisely &quot;Basic base64_encode(username:password)&quot;. It will check the HTTP method used for requests and return <emphasis role="italic">405 Method Not Allowed</emphasis> if anything but GET is detected.</para>
       <screen>location ~ ^/api/(charts|maps|reports|reportTables|documents)/ {
   if ($request_method != GET) {
