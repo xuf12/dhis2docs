@@ -18,7 +18,7 @@
       more than 4 Gb of RAM, the Ubuntu 12.04 64 bit edition is thus recommended. </para>
     <para>For this guide we assume that 4 Gb RAM is allocated for PostgreSQL and 7 GB RAM is allocated for Tomcat. <emphasis role="italic">If you are running a different configuration please adjust the suggested values accordingly!</emphasis> The steps marked as <emphasis role="italic">optional</emphasis>, like the step for performance tuning, can be done at a later stage.</para>
     <para><emphasis role="bold">Create new user (optional)</emphasis></para>
-    <para>You might want to create a dedicated user for running DHIS - it is not recommended to run as the root user. Create a new user called dhis  by invoking <code>useradd -d /home/dhis -m dhis -s /bin/bash</code>     Then make the user able to perform operations temporarily as root user by invoking <code>adduser dhis admin</code> If there is no admin group you must create it first by invoking   <code>groupadd admin</code> Then invoke <code>passwd dhis</code> to set the password for your account. Make sure you set a strong password with at least 15 random characters. You might want to disable remote login for the root account for improved security by invoking<emphasis role="italic"> sudo passwd -l root</emphasis></para>
+    <para>You might want to create a dedicated user for running DHIS - it is not recommended to run as the root user. Create a new user called dhis  by invoking <code>useradd -d /home/dhis -m dhis -s /bin/bash</code>     Then make the user able to perform operations temporarily as root user by invoking <code>usermod -G admin dhis</code> If there is no admin group you must create it first by invoking <code>groupadd admin</code> Then invoke <code>passwd dhis</code> to set the password for your account. Make sure you set a strong password with at least 15 random characters. You might want to disable remote login for the root account for improved security by invoking<emphasis role="italic"> sudo passwd -l root</emphasis></para>
     <para><emphasis role="bold">Operating system kernel tuning</emphasis></para>
     <para>These settings are optional except for the shared memory setting which is required for PostgreSQL memory allocation. Open the kernel configuration file by invoking <code>sudo nano /etc/sysctl.conf</code> At the end of the file add the following lines and save.</para>
     <screen>kernel.shmmax = 1073741824
@@ -107,10 +107,10 @@ export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
       <title>Basic setup for nginx</title>
       <para>We recommend using nginx  (http://wiki.nginx.org) as reverse proxy due to its low memory footprint and ease of use. To get the latest version we recommend installing from source:</para>
       <screen>sudo apt-get install make gcc libpcre3 libpcre3-dev zlibc zlib1g zlib1g-dev libssl-dev openssl</screen>
-      <para><screen>wget http://nginx.org/download/nginx-1.0.14.tar.gz
-tar xzvf nginx-1.0.14.tar.gz
-cd nginx-1.0.14
-/configure --with-http_ssl_module
+      <para><screen>wget http://nginx.org/download/nginx-1.2.4.tar.gz
+tar xzvf nginx-1.2.4.tar.gz
+cd nginx-1.2.4
+./configure --with-http_ssl_module
 make
 sudo make install
 </screen></para>
