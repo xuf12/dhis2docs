@@ -11,7 +11,7 @@
         <para><emphasis>Precisión:</emphasis> Los datos deben encontrarse dentro del rango normal de datos recogidos en ese establecimiento de salud. No deberían existir grandes discrepancias cuando comparamos con datos de elementos de datos relacionados.</para>
       </listitem>
       <listitem>
-        <para><emphasis>Integridad:</emphasis> El total de los datos requeridos debe haberse registrado para todos los elementos de datos de todos los establecimientos de salud.</para>
+        <para><emphasis>Integridad o Completitud:</emphasis> El total de los datos requeridos debe haberse registrado para todos los elementos de datos de todos los establecimientos de salud.</para>
       </listitem>
       <listitem>
         <para><emphasis>Coherencia:</emphasis> Los datos deben ser coherentes con otros datos introducidos en meses o años anteriores al tiempo que permiten cambios en la reorganización, incremento en la carga de trabajo, etc. y coherentes también con aquellos de otros establecimientos de salud similares.</para>
@@ -40,7 +40,7 @@
     </orderedlist>
   </section>
   <section id="validationRuleAnalysis">
-    <title>Lanzando análisis de reglas de validación</title>
+    <title>Lanzando un análisis de reglas de validación</title>
     <para>Podemos acceder al Análisis de Reglas de Validación en el menú Servicios -&gt; Calidad de Datos.</para>
     <para>Las reglas de validación se basan en una expresión que define la relación entre varios elementos de datos. Esta expresión tiene una parte izquierda y una parte derecha, y también un operador en medio que define si la primera debe ser menor que, igual que o mayor que la segunda. La expresión formula una condición que garantiza el cumplimiento de determinados criterios lógicos. Por ejemplo, una regla de validación puede estipular que el número total de vacunas recibidas por niños y niñas debe ser menor o igual al número total de niños y niña.
 </para>
@@ -74,7 +74,7 @@
     </screenshot>
   </section>
   <section id="stddevoutlierAnalysis">
-    <title>Análisis de Outliers Std Dev</title>
+    <title>Análisis de outliers (valores atípicos)</title>
     <para>Podemos acceder al análisis de outliers (de desviación típica) en el menú Servicios -&gt; Calidad de Datos</para>
     <para>El análisis de outliers basado en la desviación típica ofrece un mecanismo para conocer qué valores están numéricamente distantes del resto de los datos. Los outliers pueden aparecer por casualidad, pero a menudo representan un error de medida o una distribución fuertemente prolongada (derivando en números grandes). En el primer caso generalmente descartaremos estos outliers mientras en el segundo caso deberemos ser cautos al utilizar herramientas estadísticas o interpretaciones que asuman una distribución normal. El análisis está basado en una distrubución normal estándar.</para>
     <para><emphasis role="bold">Seleccionando qué datos queremos analizar:</emphasis></para>
@@ -109,7 +109,7 @@
     <para>Pinchando en el icono de estrella, podemos también marcar cada outlier para posterior seguimiento.</para>
   </section>
   <section id="minmaxoutlierAnalysis">
-    <title>Análisis de Outliers Max-Min</title>
+    <title>Análisis de outliers en rangos Max-Min</title>
     <para>El análisis de outliers basado en valores máximo y mínimo ofrece un mecanismo para detectar valores que quedan fuera de límites máximo y mínimo previamente definidos. Estos valores límite pueden ser definidos por el usuario o asignados automáticamente por el sistema en el módulo de administración de datos. Para más detalles revisa la sección sobre Análisis de Outliers Std Dev.</para>
   </section>
   <section id="gapAnalysis">
