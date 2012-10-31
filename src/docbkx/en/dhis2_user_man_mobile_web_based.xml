@@ -16,6 +16,13 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
+            <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-after-login2.png"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot></para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
             <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-after-login.png"/>
           </imageobject>
         </mediaobject>
@@ -23,27 +30,30 @@
     <para><emphasis role="bold">
         <emphasis role="bold">- Data Entry:</emphasis>
       </emphasis> Entries for aggregate data with defined/assigned dataset by organisation-units</para>
-    <para><emphasis role="bold">
-        <emphasis role="bold">- Name-based Data Entry:</emphasis>
-      </emphasis> Entries data for the beneficiaries by organisation-units, beneficiaries and programs/program-stages.</para>
-    <para><emphasis role="bold">
-        <emphasis role="bold">- Beneficiary Registration:</emphasis>
-      </emphasis> Registry a new beneficiary</para>
-    <para><emphasis role="bold">
-        <emphasis role="bold">- Beneficiary Enrollment:</emphasis>
-      </emphasis> Enroll a beneficiary to one or many programs</para>
+    <para>- <emphasis role="bold">Tracking:</emphasis>  <itemizedlist>
+        <listitem>
+          <para>Find Person: find person based on Name or ID, and Organization unit. </para>
+        </listitem>
+        <listitem>
+          <para>Activity Plan: Entries data for the persons by organisation-units, persons and programs/program-stages</para>
+        </listitem>
+        <listitem>
+          <para>Person Registration: Registry a new person</para>
+        </listitem>
+        <listitem>
+          <para>Anonymous: Entries for anonymous person based on programs</para>
+        </listitem>
+      </itemizedlist></para>
     <para><emphasis role="bold">
         <emphasis role="bold">- Messages:</emphasis>
       </emphasis> Manage the messages and discussions from the server. Message reply is available.</para>
     <para><emphasis role="bold">
         <emphasis role="bold">- Reports:</emphasis>
-      </emphasis> The output reports from the server</para>
-    <para><emphasis role="bold">
-        <emphasis role="bold">- Settings:</emphasis>
-      </emphasis> User-information (e.g: First-name, Surname, Phone number, E-mail) and the Interface language.</para>
-    <para><emphasis role="bold">- <emphasis role="bold">Feedback:</emphasis></emphasis> the extra function for creating a new message to send to the server. The new created feedback from this will be listed under &quot;<emphasis role="bold">Messages</emphasis>&quot;</para>
-    <para><emphasis role="bold">- Logout:</emphasis> to log out the application</para>
-    <para><emphasis role="bold">- Desktop version</emphasis>: navigate to the desktop version of DHIS2 for administration. This require a lof of resources from the client mobile, for example: the sufficient memory to load the pages. Not recommended for the nornal GPRS/3G/... phones.</para>
+      </emphasis>  The output reports from the server.</para>
+    <para>- <emphasis role="bold">Settings:</emphasis> User-information (e.g: First-name, Surname, Phone number, E-mail) and the Interface language.</para>
+    <para><emphasis role="bold">- <emphasis role="bold">Feedback:</emphasis></emphasis> the extra function for creating a new message to send to the server. The new created feedback from this will be listed under &quot;<emphasis role="bold">Messages</emphasis>&quot;.</para>
+    <para><emphasis role="bold">- Logout:</emphasis> to log out the application.</para>
+    <para><emphasis role="bold">- Desktop version</emphasis>: navigate to the desktop version of DHIS2 for administration. This require a lot of resources from the client mobile, for example: the sufficient memory to load the pages. Not recommended for the normal GPRS/3G/... phones.</para>
     <para>The list above will be explained in details:</para>
     <orderedlist>
       <listitem>
@@ -53,7 +63,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-data-entry.png"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-data-entry2.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -101,8 +111,278 @@
       </listitem>
       <listitem>
         <para><emphasis role="bold">
-            <emphasis role="bold">Name-based Data Entry:</emphasis>
-          </emphasis> Entries data for the beneficiaries by organisation-units, beneficiaries and programs/program-stages.</para>
+            <emphasis role="bold">Tracking:</emphasis>
+          </emphasis> <emphasis role="bold">Find Person, Activity Plan, Person Registration, Anonymous</emphasis></para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-tracking.png"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>2.1 <emphasis role="italic">
+            <emphasis role="bold">Find Person</emphasis>
+          </emphasis>: find person based on Name or ID, and Organization unit.<itemizedlist>
+            <listitem>
+              <para>Step 1: insert Name or ID and select the Organization Unit, then click Search.</para>
+              <para><screenshot>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-tracking-findPersonStep1.png"/>
+                    </imageobject>
+                  </mediaobject>
+                </screenshot></para>
+            </listitem>
+            <listitem>
+              <para>Step 2: select a person</para>
+              <para><screenshot>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-tracking-findPersonStep2.png"/>
+                    </imageobject>
+                  </mediaobject>
+                </screenshot></para>
+              <para>Then all the information of that person will be displayed</para>
+            </listitem>
+            <listitem>
+              <para>Step 3: choose the next program stage for entering the data</para>
+              <para><screenshot>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-tracking-findPersonStep3.png"/>
+                    </imageobject>
+                  </mediaobject>
+                </screenshot></para>
+              <para>To view all the program stages, click on the name of that program (Child Heath Program as the screen shot)</para>
+              <para><screenshot>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-tracking-findPersonStep3.1.png"/>
+                    </imageobject>
+                  </mediaobject>
+                </screenshot></para>
+            </listitem>
+          </itemizedlist></para>
+        <para>2.2: <emphasis role="italic"><emphasis role="bold">Activity Plan</emphasis>: </emphasis>Choose An Organization Unit<para><screenshot>
+              <mediaobject>
+                <imageobject>
+                  <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-namebased-choose-org.png"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot></para><para><screenshot>
+              <mediaobject>
+                <imageobject>
+                  <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-tracking-activityPlan.png"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot></para><itemizedlist>
+            <listitem>
+              <para>Current Activity Plan: the list of the beneficiaries registered, enrolled, not yet finish/complete a/many program and there is at least a program-stage open for data-entry.</para>
+              <para>+ <emphasis role="italic">Step 1: Choose a Person for entry</emphasis></para>
+              <para><screenshot>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-namebased-choose-BE.png"/>
+                    </imageobject>
+                  </mediaobject>
+                </screenshot></para>
+              <para>+ <emphasis role="italic">Step 2: Choose a current and active program-stage for entering the data</emphasis></para>
+              <para><screenshot>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-namebased-choose-PGS.png"/>
+                    </imageobject>
+                  </mediaobject>
+                </screenshot></para>
+              <para>You can also see the person&apos;s information (ID, gender, Date of Birth, and Blood Group) by clicking on the Details (on top of the list appeared)</para>
+              <para><screenshot>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-namebased-choose-details.png"/>
+                    </imageobject>
+                  </mediaobject>
+                </screenshot></para>
+              <para>The details information of the chosen person:</para>
+              <para><screenshot>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-namebased-details-info.png"/>
+                    </imageobject>
+                  </mediaobject>
+                </screenshot></para>
+            </listitem>
+            <listitem>
+              <para>All Activity Plan: the list of all beneficiaries registered, enrolled, not yet finish/complete a/many program.</para>
+            </listitem>
+            <listitem>
+              <para>Single Event: </para>
+              <para><screenshot>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-tracking-activityPlan-singleEvent.png"/>
+                    </imageobject>
+                  </mediaobject>
+                </screenshot></para>
+            </listitem>
+          </itemizedlist></para>
+        <para>2.3:  <emphasis role="bold">Person Registration:</emphasis> Registry a new Person<itemizedlist>
+            <listitem>Step 1: Entry personal information<para><screenshot>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-tracking-personRegistrationStep1.png"/>
+                    </imageobject>
+                  </mediaobject>
+                </screenshot></para></listitem>
+            <listitem>Step 2: Enroll program for the person just been registered, then click &quot;Enroll&quot;.<para><screenshot>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-tracking-personRegistrationStep2.png"/>
+                    </imageobject>
+                  </mediaobject>
+                </screenshot></para></listitem>
+            <listitem>Step 3: Entry required information for the chosen program, then click &quot;Enroll&quot;<para><screenshot>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-tracking-personRegistrationStep3.png"/>
+                    </imageobject>
+                  </mediaobject>
+                </screenshot></para><para>Here is the result:</para><para><screenshot>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-tracking-personRegistrationStep4.png"/>
+                    </imageobject>
+                  </mediaobject>
+                </screenshot></para></listitem>
+          </itemizedlist></para>
+        <para>2.4: <emphasis role="bold">Anonymous:</emphasis> Entries for anonymous person based on specific programs<para><screenshot>
+              <mediaobject>
+                <imageobject>
+                  <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-tracking-anonymous.png"/>
+                </imageobject>
+              </mediaobject>
+            </screenshot></para> </para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">
+            <emphasis role="bold">Messages:</emphasis>
+          </emphasis> Manage the messages and discussions from the server. Message reply is available.</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-message.png"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>The number showed is the unread messages. Click on that to view the list of the messages (the unread messages are in bold and dark blue color):</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-messages-unread.png"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>Then you can pick up the message/topic for the discussions by leaving the reply message, see this example:</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-messages-reply.png"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">
+            <emphasis role="bold">Reports:</emphasis>
+          </emphasis> The output reports from the server</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-reports.png"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>(will be updated)</para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">
+            <emphasis role="bold">Settings:</emphasis>
+          </emphasis> User-information (e.g: First-name, Surname, Phone number, E-mail) and the Interface language.</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-settings.png"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>Here is the form for setting the user account/access and the interface language. Click on &quot;SAVE&quot; for completing the settings, see the example below:</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-settings-update.png"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">
+            <emphasis role="bold">Feedback:</emphasis>
+          </emphasis> the extra function for creating a new message to send to the server. The new created feedback from this will be listed under &quot;<emphasis role="bold">Messages</emphasis>&quot;</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-feedback.png"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>After clicking on the &quot;Feedback&quot;, there will be a form for editing/sending out  a new message/discussion. See the example below:</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-feedback-new.png"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>After sending out the new feedback, the message (feedback) will be listed under &quot;Messages&quot; for further following up.</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-feedback-listed-in-messages.png"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">Logout:</emphasis> to log out the application</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-logout.png"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para/>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">Desktop version</emphasis>: navigate to the desktop version of DHIS2 for administration.</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-desktop-version.png"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+        <para>Here is the GUI of the desktop version (which require much memory for loading), not recommended for normal mobile. The example with DHIS2 Demo (from <ulink url="dhis2.org">dhis2.org</ulink>)</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-desktop-version-GUI.png"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot></para>
+      </listitem>
+    </orderedlist>
+    <orderedlist>
+      <listitem>
         <para><screenshot>
             <mediaobject>
               <imageobject>
@@ -173,7 +453,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-registration.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-registration.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -181,7 +461,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-registration-choose-OU.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-registration-choose-OU.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -189,7 +469,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-registration-form.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-registration-form.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -199,7 +479,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-registration-form-success.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-registration-form-success.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -211,7 +491,7 @@
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-enrollment.png" align="center" width="40%"/>
+              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-enrollment.png"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -219,7 +499,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-enrollment-searchBF.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-enrollment-searchBF.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -227,7 +507,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-enrollment-foundBF.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-enrollment-foundBF.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -237,7 +517,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-enrollment-4BF.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-enrollment-4BF.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -245,7 +525,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-enrollment-date.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-enrollment-date.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -253,7 +533,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-enrollment-success.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-beneficiary-enrollment-success.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -265,7 +545,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-messages.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-messages.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -273,7 +553,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-messages-unread.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-messages-unread.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -281,7 +561,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-messages-reply.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-messages-reply.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -294,7 +574,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-reports.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-reports.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -307,7 +587,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-settings.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-settings.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -315,7 +595,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-settings-update.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-settings-update.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -327,7 +607,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-feedback.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-feedback.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -335,7 +615,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-feedback-new.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-feedback-new.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -343,7 +623,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-feedback-listed-in-messages.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-feedback-listed-in-messages.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -353,7 +633,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-logout.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-logout.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -364,7 +644,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-desktop-version.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-desktop-version.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -372,7 +652,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2_mobile_web_based/mobile-browser-desktop-version-GUI.png" align="center" width="40%"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-desktop-version-GUI.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
