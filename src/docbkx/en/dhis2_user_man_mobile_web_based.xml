@@ -16,23 +16,16 @@
     <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-after-login2.png"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot></para>
-    <para><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-after-login.png"/>
+            <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-menu.PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot></para>
     <para><emphasis role="bold">
-        <emphasis role="bold">- Data Entry:</emphasis>
+        <emphasis role="bold">- Aggregate Reporting:</emphasis>
       </emphasis> Entries for aggregate data with defined/assigned dataset by organisation-units</para>
     <para>- <emphasis role="bold">Tracking:</emphasis>  <itemizedlist>
         <listitem>
-          <para>Find Person: find person based on Name or ID, and Organization unit. </para>
+          <para>Find Person: find person based on Name, Phone Number or ID, and Organization unit. </para>
         </listitem>
         <listitem>
           <para>Activity Plan: Entries data for the persons by organisation-units, persons and programs/program-stages</para>
@@ -46,28 +39,27 @@
       </itemizedlist></para>
     <para><emphasis role="bold">
         <emphasis role="bold">- Messages:</emphasis>
-      </emphasis> Manage the messages and discussions from the server. Message reply is available.</para>
+      </emphasis> Manage the messages and discussions from the server. Message reply is available. User can send feedback message in Messages.</para>
     <para><emphasis role="bold">
         <emphasis role="bold">- Reports:</emphasis>
       </emphasis>  The output reports from the server.</para>
     <para>- <emphasis role="bold">Settings:</emphasis> User-information (e.g: First-name, Surname, Phone number, E-mail) and the Interface language.</para>
-    <para><emphasis role="bold">- <emphasis role="bold">Feedback:</emphasis></emphasis> the extra function for creating a new message to send to the server. The new created feedback from this will be listed under &quot;<emphasis role="bold">Messages</emphasis>&quot;.</para>
     <para><emphasis role="bold">- Logout:</emphasis> to log out the application.</para>
     <para><emphasis role="bold">- Desktop version</emphasis>: navigate to the desktop version of DHIS2 for administration. This require a lot of resources from the client mobile, for example: the sufficient memory to load the pages. Not recommended for the normal GPRS/3G/... phones.</para>
     <para>The list above will be explained in details:</para>
     <orderedlist>
       <listitem>
         <para><emphasis role="bold">
-            <emphasis role="bold">Data Entry:</emphasis>
+            <emphasis role="bold">Aggregate Reporting:</emphasis>
           </emphasis> Entries for aggregate data with defined/assigned dataset by organisation-units.</para>
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-data-entry2.png"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-aggregate-reporting.PNG"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
-        <para>Click on the &quot;Data Entry&quot;, then choose an Organisation Unit from the list and the list of the datasets will be appeared for entering aggregate data. See the below example:</para>
+        <para>Click on the &quot;Aggregate Reporting&quot;, then choose an Organisation Unit from the list and the list of the datasets will be appeared for entering aggregate data. See the below example:</para>
         <para><emphasis role="bold">Step 1: Select an Organisation Unit from the list</emphasis></para>
         <para><screenshot>
             <mediaobject>
@@ -112,23 +104,23 @@
       <listitem>
         <para><emphasis role="bold">
             <emphasis role="bold">Tracking:</emphasis>
-          </emphasis> <emphasis role="bold">Find Person, Activity Plan, Person Registration, Anonymous</emphasis></para>
+          </emphasis> <emphasis role="bold">Find/Add Person, Visit Schedule, Person Registration, Anonymous</emphasis></para>
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-tracking.png"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-tracking-menu-2.PNG"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
         <para>2.1 <emphasis role="italic">
-            <emphasis role="bold">Find Person</emphasis>
-          </emphasis>: find person based on Name or ID, and Organization unit.<itemizedlist>
+            <emphasis role="bold">Find/Add Person</emphasis>
+          </emphasis>: find person based on Name, Phone Number or ID, and Organization unit.<itemizedlist>
             <listitem>
-              <para>Step 1: insert Name or ID and select the Organization Unit, then click Search.</para>
+              <para>Step 1: insert Name, Phone Number or ID and select the Organization Unit, then click Search.</para>
               <para><screenshot>
                   <mediaobject>
                     <imageobject>
-                      <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-tracking-findPersonStep1.png"/>
+                      <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-tracking-find-person-1.PNG"/>
                     </imageobject>
                   </mediaobject>
                 </screenshot></para>
@@ -163,7 +155,7 @@
                 </screenshot></para>
             </listitem>
           </itemizedlist></para>
-        <para>2.2: <emphasis role="italic"><emphasis role="bold">Activity Plan</emphasis>: </emphasis>Choose An Organization Unit<para><screenshot>
+        <para>2.2: <emphasis role="italic"><emphasis role="bold">Visit Schedule</emphasis>: </emphasis>Choose An Organization Unit<para><screenshot>
               <mediaobject>
                 <imageobject>
                   <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-namebased-choose-org.png"/>
@@ -269,7 +261,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-message.png"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-messages-menu.PNG"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -277,7 +269,7 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-messages-unread.png"/>
+                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-message-conversations.PNG"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -289,6 +281,7 @@
               </imageobject>
             </mediaobject>
           </screenshot></para>
+        <para>User can create and send a feedback to server in messages section. After sending out the new feedback, the message (feedback) will be listed under &quot;Messages&quot; for further following up.</para>
       </listitem>
       <listitem>
         <para><emphasis role="bold">
@@ -319,34 +312,6 @@
             <mediaobject>
               <imageobject>
                 <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-settings-update.png"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot></para>
-      </listitem>
-      <listitem>
-        <para><emphasis role="bold">
-            <emphasis role="bold">Feedback:</emphasis>
-          </emphasis> the extra function for creating a new message to send to the server. The new created feedback from this will be listed under &quot;<emphasis role="bold">Messages</emphasis>&quot;</para>
-        <para><screenshot>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-feedback.png"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot></para>
-        <para>After clicking on the &quot;Feedback&quot;, there will be a form for editing/sending out  a new message/discussion. See the example below:</para>
-        <para><screenshot>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-feedback-new.png"/>
-              </imageobject>
-            </mediaobject>
-          </screenshot></para>
-        <para>After sending out the new feedback, the message (feedback) will be listed under &quot;Messages&quot; for further following up.</para>
-        <para><screenshot>
-            <mediaobject>
-              <imageobject>
-                <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_web_based/mobile-browser-feedback-listed-in-messages.png"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
