@@ -45,7 +45,7 @@ Type &apos;q()&apos; to quit R.
     <title>Using ODBC to retrieve data from DHIS2 into R</title>
     <para>In this example, we will use a system-wide ODBC connector which will be used to retrieve data from the DHIS2 database. There are some disadvantages with this approach, as ODBC is slower than other methods and it does raise some security concerns by providing a system-wide connector to all users. However, it is a convenient method to provide a connection to multiple users. The use of the R package RODBC will be used in this case. Other alternatives would be the use of the <ulink url="http://dirk.eddelbuettel.com/code/rpostgresql.html">RPostgreSQL</ulink> package, which can interface directly through the  Postgresql driver described in <xref linkend="dhis2_r_maps"/></para>
     <para>Assuming you have already installed R from the procedure in the previous section. Invoke the following command to add the required libraries for this example.</para>
-    <para><command>apt-get install r-cran-odbc r-cran-lattice odbc-postgresql</command> </para>
+    <para><command>apt-get install r-cran-rodbc r-cran-lattice odbc-postgresql</command> </para>
     <para>Next, we need to configure the ODBC connection. Edit the file to suit your local situation using the following template as a guide. Lets create and edit a file called odbc.ini</para>
     <para><screen>[dhis2]
 Description         = DHIS2 Database
@@ -71,7 +71,7 @@ Debug = 0</screen>
     <para>From the R prompt, execute the following commands to connect to the DHIS2 database. </para>
     <para><screen>&gt; library(RODBC)
 &gt; channel&lt;-odbcConnect(&quot;dhis2&quot;)#Note that the name must match the ODBC connector name
-&gt; sqlTest&lt;-c(&quot;SELECT dataeleemntid, name FROM dataelement LIMIT 10;&quot;)
+&gt; sqlTest&lt;-c(&quot;SELECT dataelementid, name FROM dataelement LIMIT 10;&quot;)
 &gt; sqlQuery(channel,sqlTest)
                                                                         name
 1   OPD First Attendances Under 5
@@ -86,7 +86,8 @@ Debug = 0</screen>
 10 Deaths of malaria case provided with anti-malarial treatment 1 to 5 Years
 &gt;
 </screen></para>
-    <para>It seems R is able to retrieve data from the DHIS2 database. As an illustrative example, lets say we have been asked to calculate the relative percentage of OPD male and female under 5 attendances for the last twelve months.First, lets create an SQL query which will provide us the basic information which will be required.</para>
+    <para>It seems R is able to retrieve data from the DHIS2 database. </para>
+    <para>As an illustrative example, lets say we have been asked to calculate the relative percentage of OPD male and female under 5 attendances for the last twelve months.First, lets create an SQL query which will provide us the basic information which will be required.</para>
     <para><screen>OPD&lt;-sqlQuery(channel,&quot;SELECT p.startdate, de.name as de, sum(dv.value::double precision)
  FROM datavalue dv
  INNER JOIN period p on dv.periodid = p.periodid
@@ -95,7 +96,7 @@ Debug = 0</screen>
  and p.enddate &lt;= &apos;2011-12-31&apos;
  and de.name ~*(&apos;Attendance OPD&apos;)
  GROUP BY p.startdate, de.name;&quot;)</screen></para>
-    <para>We have stored the result of the SQL query in an R data frame called OPD. Lets take a look at what the data looks like. </para>
+    <para>We have stored the result of the SQL query in an R data frame called &quot;OPD&quot;. Lets take a look at what the data looks like. </para>
     <para><screen>&gt; head(OPD)
    startdate                                 de    sum
 1 2011-12-01   Attendance OPD &lt;12 months female  42557
