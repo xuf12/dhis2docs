@@ -1,21 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <chapter>
-  <title>Localization concepts</title>
-  <para>Localization involves the adaptation of an application to another location.  When implementing DHIS2 in a given country, adequate resources should be allocated to translate the application when required. Translation of the user interface elements, messages, layout, date and time formats, currency and other aspects must be considered.  DHIS2 supports internationalization (i18n) of the user interface through the use of Java property strings. Each element in the user interface has been assigned a specific key, which is linked to a value.</para>
-  <para> As an example, consider the following key/value pairs.</para>
+  <title>Conceptos para la adaptación local</title>
+  <para>La localización implica la adaptación de una aplicación en otro ámbito local. Cuando implementamos DHIS2 en un determinado país, será preciso asignar los recursos adecuados para traducir la apliación cuando sea necesario. Deberemos considerar la traducción de elementos de la interfaz de usuario, mensajes, apariencia, formatos de fecha y hora, moneda y otros aspectos. DHIS2 soporta la internacionalización del interfaz de usuario (i18n) mediante el uso de strings de propiedad de Java. Cada elemento del interfaz de usuario tiene asignado una clave específica, que está enlazada a un valor.</para>
+  <para> Como ejemplo consideraremos las siguientes parejas de clave/valor.</para>
+  <programlisting>org_unit_tree=Árbol de unidades organizativas
+error_occurred=Se produjo un error</programlisting>
+  <para>En inglés la misma pareja de clave/valor sería así:</para>
   <programlisting>org_unit_tree=Organisation Unit Tree
 error_occurred=An error has occurred.</programlisting>
-  <para>In French the same key/value pairs would appear as follows</para>
-  <programlisting>org_unit_tree=Arborescence des unités d&apos;organisation
-error_occurred=Une erreur s&apos;est produite</programlisting>
-  <para>Note that the keys (before the = symbol) are the same in both examples, but the values (after the = ) symbol are in each of the respective languages. Each of these key/value pairs would need to be translated from the original language (English) to the destination language (e.g. French). When the user specifies French for the user interface language, all of the strings would then appear in French instead of the default language (English). Any strings which have not been translated, would appear in English. </para>
-  <para>There are a number of different mechanisms to begin to localize DHIS2, two of which will be discussed in the next sections. The web portal is a quite useful tool for collaborative translations by multiple people, however an on-line connection is required in order to utilize this resource. A special tool, the DHIS i18n Resource Editor, has been developed specifically to facilitate the translation of the application from one language to another and can be used off-line once a copy of the DHIS2 source code has been obtained.</para>
+  <para>Es importante resaltar que las claves (lo que precede al símbolo "=") son iguales en ambos casos, pero los valores (lo que sigue al "=") está en el lenguaje correspondiente. Cada una de estas parejas de clave/valor necesitaría ser traducida del lenguaje original (inglés) al lenguaje local (español). Cuando el usuario selecciona el español como lenguaje para el interfaz de usuario, todos los strings aparecerán en español en lugar de en el idioma por defecto (inglés). Todos los strings que no se hayan traducido aparecerán en inglés.</para>
+  <para>Hay diversos mecanismos para contextualizar o localizar DHIS2, dos de los cuales se explican en las secciones siguientes. El portal Web es una herramienta muy útil para traducciones colaborativas de múltiples personas, aunque se necesita una conexión online para utilizar este recurso. Una herramienta especial es el Editor de Recursos DHIS i18n, que se ha desarrollado específicamente par facilitar la traducción de la aplicación de un lenguaje a otro y puede usarse offline una vez que ya hemos obtenido una copia del código fuente de DHIS2.</para>
   <section>
-    <title>Using the DHIS2 translation server</title>
-    <para>A web-based portal solution has been setup in order to facilitate the translation of DHIS2 into multiple languages. Simply direct your browser to http://translate.dhis2.net/ and register for an account by providing a username, email address and password. The server will send you a confirmation email which you can use to activate your account. Once you have activated your account, simply press the &quot;Log in&quot; link from the main portal page, and provide your username and password. </para>
-    <para>The first time you login, you should select your settings, by clicking &quot;My account-&gt;Settings&quot;. Here you can select your interface language, the projects which you wish to work on,  and the languages which you will translate into. Be sure to press &quot;Save&quot; when have finished making your changes. </para>
-    <para>To start translating, be sure you have logged in, and then press the &quot;Home&quot; link in the upper-right hand corner. Select a project (e.g. DHIS2) and then click on the language which you wish to translate. The number of words which need to be translated will be displayed under the &quot;Summary&quot; field. Click on one of the modules (e.g. dhis-2) and the keep drilling down through the folders to find a module which needs translation, (e.g. dhis-web-&gt;dhis-web-caseentry). Now click on the &quot;Summary&quot; text which will say something like &quot;194 words need attention&quot;. You will be directed to the key/value pair which requires translation. </para>
+    <title>Utilizando el servidor de traducción DHIS2</title>
+    <para>Existe una solución web para facilitar la traducción de DHIS2 en muchos lenguajes distintos. Podemos acceder simplemente navegando a http://translate.dhis2.net y registrándonos con una cuenta con nombre de usuario, email y contraseña. El servidor nos enviará entonces un email de confirmación que podremos usar para activar nuestra cuenta. Cuando la hayamos activado, pulsamos en el enlace &quot;Entrar&quot; en la página principal del sitio, e introducimos el nombre de usuario y contraseña.</para>
+    <para>La primera vez que nos logueamos, deberemos seleccionar nuestra configuración de personal pinchando en &quot;Mi cuenta-&gt;Configuración&quot;. Aquí podemos seleccionar el lenguaje del interfaz, proyectos en los que colaborar, y lenguajes para traducir. Nos aseguraremos de pinchar en &quot;Guardar&quot; después de hacer los cambios. </para>
+    <para>Para empezar a traducir, nos aseguraremos de estar logueados, y vamos al link &quot;Inicio&quot; en la esquina superior derecha. Seleccionamos el proyecto (por ejemplo DHIS2) y hacemos click en el lenguaje que queremos traducir. El número de palabras que necesitan traducción se mostrará bajo el campo &quot;Resumen&quot;. Hacemos click en uno de los módulos (por ejemplo dhis-2) y exploramos las carpetas para encontrar un módulo que necesita traducción (por ejemplo dhis-web-&gt;dhis-web-caseentry). Luego hacemos click en el texto de &quot;Resumen&quot; que pone algo como &quot;194 words need attention&quot;. Nos enlazará con la pareja clave/valor que requiere traducción.</para>
     <screenshot>
       <mediaobject>
         <imageobject>
@@ -23,13 +23,13 @@ error_occurred=Une erreur s&apos;est produite</programlisting>
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>In this case, we need to translate the phrase &quot;Name-based&quot; from English to French. Enter the translation in the window just below the reference phrase.. If you are unsure if the translation is correct or needs review, you can mark it as &quot;Fuzzy&quot;. Once you have completed the translation, just press &quot;Submit&quot;. Your translations will be incorporated into the source code on a regular basis by the development team. </para>
+    <para>En este caso, necesitamos traducir la frase &quot;Por nombre&quot; de inglés a español. Introducimos la traducción enla ventana bajo la frase de referencia. Si no estamos seguros de que la traducción sea correcta o necesita revisión, podemos marcarlo como &quot;Fuzzy&quot;. Una vez que hayamos completado la traducción, presionamos en &quot;Submit&quot;. El equipo de desarrollo de DHIS2 incorporará entonces nuestras traducciones al código fuente de forma regular. </para>
   </section>
   <section>
-    <title>DHIS2 i18n tool</title>
+    <title>Herramienta DHIS2 i18n</title>
     <orderedlist>
       <listitem>
-        <para>Press &quot;Browse&quot; when the application starts and select the path of your local copy of the DHIS2 source code tree followed by OK. </para>
+        <para>Haremos click en &quot;Explorar&quot; cuando arranca la aplicación y seleccionamos la ruta a nuestra copia local del árbol de código fuente de DHIS2 seguido de OK. </para>
         <screenshot>
           <mediaobject>
             <imageobject>
@@ -39,7 +39,7 @@ error_occurred=Une erreur s&apos;est produite</programlisting>
         </screenshot>
       </listitem>
       <listitem>
-        <para>Next, select the destination locale which you will translate strings into.</para>
+        <para>A continuación, seleccionamos la ubicación de destino donde guardaremos los strings traducidos. </para>
         <screenshot>
           <mediaobject>
             <imageobject>
@@ -49,7 +49,7 @@ error_occurred=Une erreur s&apos;est produite</programlisting>
         </screenshot>
       </listitem>
       <listitem>
-        <para>Select one of the modules from the left hand side to translate, e.g. dhis-web-caseentry.</para>
+        <para>Selecccionamos uno de los módulos del lado izquierdo para traducir, por ejemplo dhis-web-caseentry.</para>
         <screenshot>
           <mediaobject>
             <imageobject>
@@ -57,20 +57,20 @@ error_occurred=Une erreur s&apos;est produite</programlisting>
             </imageobject>
           </mediaobject>
         </screenshot>
-        <para>Once you have selected a module, click on a particular key from the left-hand pane. A reference value for the key will be displayed in the lower right-hand pane, and the translation value will be displayed in the upper right-hand pane. If the value does not exist, simply add the translation there. </para>
+        <para>Una vez hemos seleccionado un módulo, haremos click en una clave concreta del panel izquierdo. El valor de referencia de esa clave se mostrará en el panel del lado inferior derecho, y el valor de la traducción se mostrará en el lado superior derecho. Si el valor no existe, simplemente añadiremos la traducción ahí mismo.</para>
       </listitem>
       <listitem>
-        <para>Once you have finished translating, be sure to press the &quot;Save&quot; button. </para>
+        <para>Cuando hemos terminado de traducir, nos aseguramos de pulsar el botón &quot;Guardar&quot;. </para>
       </listitem>
     </orderedlist>
   </section>
   <section>
-    <title>Things to keep in mind.</title>
+    <title>Detalles a tener en mente</title>
     <simplelist>
-      <member>There are a number of strings such as &quot;yyyy-MM-dd&quot; which are used for date/time formatting in the application. In general, these should not be altered, but there can be situations when they need to be localized. Consult this <ulink url="http://docs.oracle.com/javase/tutorial/i18n/format/simpleDateFormat.html">site</ulink> for more information</member>
-      <member>It is not necessary to translate a string from the orginal language (English) if the translated string is the same. You can simply leave it blank. By default, DHIS2 will use English values for all strings which have not been translated. </member>
-      <member>All translated strings must be entered in UTF-8 format. If you are using the translation portal, be sure your browser settings are set to UTF-8 when translating. </member>
-      <member>Some special variables (e.g. {0} ) used curly brackets. This denotes a variable which will be replaced by a number or other value by the application. You must place this variable notation in the correct position. </member>
+      <member>Hay ciertos strings como &quot;yyyy-MM-dd&quot; que se usan para el formato de fecha y hora en la aplicación. En general, no deberían cambiarse, pero hay situaciones en que necesitamos adaptarlos localmente. Consultaremos este <ulink url="http://docs.oracle.com/javase/tutorial/i18n/format/simpleDateFormat.html">enlace</ulink> para más información.</member>
+      <member>No es necesario traducir un string del lenguaje original (inglés) si el string traducido es el mismo. Podemos dejarlo en blanco. Por defecto, DHIS2 utilizará los valores en inglés para todos los strings que no han sido traducidos. </member>
+      <member>Todos los strings traducidos deben introducirse en formato UTF-8. Si estamos utilizando el portal de traducción, nos aseguraremos de que la configuración del navegador están fijadas a UTF-8 al momento de traducir.</member>
+      <member>Algunas variables especiales (por ejemplo {0}) utilizan llaves. Esto significa que la variable se sustituye por un número u otro valor en la aplicación. Deberemos ubicar la notación de esta variable en la posición correcta.</member>
     </simplelist>
   </section>
 </chapter>
