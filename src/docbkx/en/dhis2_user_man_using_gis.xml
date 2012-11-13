@@ -13,24 +13,35 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>On the right hand side there is a panel called &quot;Map layers&quot;. There are three available &quot;base layers&quot;, which means background map, including OpenStreetMap and Google Maps. You may click the text to open a context menu that lets you adjust the opacity/transparency of the background. &quot;Overlays&quot; are described later in this chapter. The final four layers are the vector layers which the user has at his disposal for thematic mapping. You may use this layer tree to show/hide layers by checking/uncheking their checkbox. The next panel called &quot;Cursor position&quot; tells you at what longitude and latitude your mouse cursor is positioned. The &quot;Feature data&quot; panel provides you with quick information on the organisation units you mouse hover in your thematic maps. Finally there is a legend panel for all the thematic layers.</para>
-    <para>The picture below shows the map toolbar:</para>
-    <screenshot>
-      <screeninfo>Map toolbar</screeninfo>
-      <mediaobject>
-        <imageobject>
-          <imagedata width="50%" fileref="resources/images/gis/gis_toolbar.png" format="PNG"/>
-        </imageobject>
-      </mediaobject>
-    </screenshot>
-    <para>The &quot;Map&quot; buttons from the left: &quot;Zoom in&quot;, &quot;Zoom out&quot;, &quot;Zoom to visible extent&quot; (all thematic map data fits inside the viewport).</para>
-    <para>The &quot;Layers&quot; buttons from the left: &quot;Thematic layer 1&quot;, &quot;Thematic layer 2&quot;, &quot;Facility layer&quot;, &quot;Symbol layer&quot;.</para>
-    <para>The &quot;Tools&quot; buttons from the left: &quot;Favorite map views&quot;, &quot;Predefines legend sets&quot;, &quot;Export map to PNG&quot;, &quot;Measure distances on map&quot;.</para>
-    <para>The two final buttons are &quot;Administrator settings&quot; and &quot;Help&quot;.</para>
+    <para>In the top right corner there is a panel called &quot;Layer overview&quot;. If you are online you will see Google Streets and Google Hybrid which can be used as background maps/layers. Switch between the two of them by checking the checkbox. By unchecking the box you can hide the background completely. If you want to see the background, but with reduced opacity, you can set the visibility to something lower than 100% in the numberbox to the right. The final four layers are the vector layers which the user has at his disposal for thematic mapping (explained in the next section). The panels below hold the map legends when you create a thematic map. A legend explains the link between values and colors on your map.</para>
+   
+    <para>Lets take a look at the map toolbar. The four icons from the left represent the mentioned vector layers and this is the starting point of the GIS application. Further to the right we have &quot;Favorites&quot;: Save your maps to easily restore them later. Saving a map as a favorite also gives you the opportunity of sharing it with other users as an interpretation or put it on the dashboard. &quot;Legend&quot;: Create you own legend sets to ensure meaningful maps. &quot;Download&quot;: Export the maps as a PNG image. &quot;Share&quot;: Share your favorites as map interpretations with other users.</para>
+    
+    <para>In the top right corner of the map viewport you find four buttons: &quot;Zoom in&quot;, &quot;zoom out&quot;, &quot;zoom to visible extent&quot; (automatically adjusts the zoom level and map center position to focus on your map) and &quot;measure distances&quot;.</para>
+    
+    <para>The current longitude/latitude position of the mouse cursor is displayed in the bottom right corner of the map viewport.</para>
   </section>
+  
   <section>
     <title>Thematic mapping</title>
-    <para>This section describes the four vector layers which the user has at his disposal for thematic mapping: &quot;Thematic layer 1&quot;, &quot;Thematic layer 2&quot;, &quot;Facility layer&quot; and &quot;Symbol layer&quot;.</para>
+    <para>This section describes the four vector layers which the user has at his disposal for thematic mapping: &quot;Boundary layer&quot;, &quot;Thematic layer 1&quot;, &quot;Thematic layer 2&quot; and &quot;Facility layer&quot;.</para>
+    <section id="gisBoundaryMap">
+      <title>Boundary layer</title>
+      <screenshot>
+        <screeninfo>Boundary layer</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="100%" fileref="resources/images/gis/gis_boundary_layer.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>The purpose of the boundary layer is to display the boundaries/coordinates in the system. No data will be shown. This layer is useful if you are offline and thus have no background map. Click the boundary/globe icon on the toolbar and select "Edit layer". You can select the organisation units you want to show on the map by selecting a level and a parent. That means "show all organisations units at this level that are children of this parent". When there are visible organisation units on the map, you can easily navigate up and down in the hierarchy without using the level/parent user interface. By clicking one of the organisation units a context menu will open, then select &quot;drill down&quot; or &quot;float up&quot;. The drill down option will be disabled if you are already on the lowest level or if there are no coordinates available on the level below. Vice verca goes for floating up.</para>
+      
+      <para>The layer menu also offers to put on labels and to locate an organisation unit in the map.</para>
+      
+      <para>The final option in the layer menu is "Close". This completely resets the layer content, the edit layer form and the legend panel.</para>
+    </section>
+    
     <section id="gisThematicMap">
       <title>Thematic layer 1 and 2</title>
       <screenshot>
@@ -41,55 +52,16 @@
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>The two thematic layer panels let you use your data for thematic mapping. All you need to do is selecting your desired indicator/dataelement-period-map combination, then the organisation unit level and finally the parent to define the boundary. If your database has coordinates for these organisation units they will appear on the map.</para>
-      <para>You may choose between legend types: <guimenuitem>automatic</guimenuitem> and <guimenuitem>predefined</guimenuitem>. Automatic means that the application will create a legend set for you based on your what method, number of classes, low color and high color you select. Method alludes to the size of the legend classes. Set to <guimenuitem>Equal intervals</guimenuitem> they will be “highest map value – lowest map value / number of classes”. Set to <guimenuitem>Equal group count</guimenuitem> the legend creator will try to distribute the organisation units evenly. Choose <guimenuitem>Fixed bounds </guimenuitem>and you may define your own class break values, type e.g. “20,40,60” using a comma to separate each of them. The legend will appear as an even gradation from the start color to the end color. Predefined legend sets are described in  <xref linkend="gisLegendSet"/> .</para>
+      <para>The two thematic layer panels let you use your data for thematic mapping. All you need to do is selecting your desired combination of indicator/dataelement, period and map combination. Then the organisation unit level and parent to define the boundaries. If your database has coordinates and aggregated data values for these organisation units they will appear on the map. Note that the DHIS2 data mart must be run in order to have aggregated values available.</para>
+      
+      <para>You may choose between legend types: <guimenuitem>automatic</guimenuitem> and <guimenuitem>predefined</guimenuitem>. Automatic means that the application will create a legend set for you based on your what method, number of classes, low color and high color you select. Method alludes to the size of the legend classes. Set to <guimenuitem>Equal intervals</guimenuitem> they will be “highest map value – lowest map value / number of classes”. Set to <guimenuitem>Equal group count</guimenuitem> the legend creator will try to distribute the organisation units evenly. The legend will appear as an even gradation from the start color to the end color. Predefined legend sets are described in  <xref linkend="gisLegendSet"/> .</para>
+      
       <para>Low radius and high radius only have effect on points (facilities) and decides the the circle radius for points with the lowest and highest value.</para>
-      <para>The map view combo box lists all map views (favorites) saved by the user. The settings that are stored in the map view is automatically applied to the thematic map panel. Favorite map views are described in<xref linkend="gisFavoriteMapView"/> .</para>
-      <para>All available layer options are now grouped together in the thematic layer menu, see picture below.</para>
-      <screenshot>
-        <screeninfo>Thematic layer options</screeninfo>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="50%" fileref="resources/images/gis/gis_thematic_layer_options.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Edit layer: Opens up the layer configuration window, see the thematic mapping screenshot.</para>
-      <para>Refresh: Refreshes the map boundaries, data and legend. Usually not necessary.</para>
-      <para>Clear: Clears the entire layer, i.e. the configuration window, the map and the legend panel.</para>
-      <para>Filter: Opens up the filter window and lets you filter out organisation units from the map by value. See the picture below.</para>
-      <screenshot>
-        <screeninfo>Filter</screeninfo>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="50%" fileref="resources/images/gis/gis_filter.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Search: Opens up the search window and lets you search for and locate organisation units on the map. See picture below.</para>
-      <screenshot>
-        <screeninfo>Search</screeninfo>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="50%" fileref="resources/images/gis/gis_search.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Labels: Opens up the label window and lets you add labels to the organisation units on the map. See picture below.</para>
-      <screenshot>
-        <screeninfo>Labels</screeninfo>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="100%" fileref="resources/images/gis/gis_labels.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Opacity: Set the layer opacity/transparency to 10, 20, 30, 40, 50, 60, 70, 80, 90 or 100%. Higher values of opacity make the layer more transparent, so that the underlying layer is more visible. An opacity level of zero will provide a fully opaque layer.</para>
-      <para>History: Provides you with a list of your 10 previous maps/selections. They are temporary and thus gone when the application is restarted.</para>
+      
+      <para>Thematic layer 1 and 2 menu have a "Filter" option in addition to the boundary layer menu options. It lets you apply value filters to the organisation units on the map. The filter is removed when you close the filter window.</para>
     </section>
     <section id="gisFacilityMap">
       <title>Facility layer</title>
-      <para>This layer displays icons that represent facilities based on the facility type. Currently, &quot;<guimenuitem>Type</guimenuitem>&quot; is the only supported group set. Polygons will not show up on the map, so make sure to select a facility level. Click an icon on the map to open the context menu with two options. &quot;Show information sheet&quot; provides you with data for several data elements for this organisation unit. The data element group and period type are &quot;system settings&quot; called &quot;Infrastructural data elements&quot; and &quot;Infrastructural period type&quot;. The second option in the context menu is &quot;Relocate&quot; and lets you graphically move the organisation unit to a different location. The new coordinate will be stored permanently.</para>
       <screenshot>
         <screeninfo>Facility layer</screeninfo>
         <mediaobject>
@@ -98,38 +70,48 @@
           </imageobject>
         </mediaobject>
       </screenshot>
-    </section>
-    <section id="gisSymbolMap">
-      <title>Symbol layer</title>
-      <para>This layer displays icons that represent areas/polygons like provinces, districts etc instead of facilities/points. Thus, in this layer you are not supposed to select a facility level, but instead a level of provinces, districts etc. In order to render this layer you need to create a predefined legend set of images, described in <xref linkend="gisLegendSet"/>.</para>
-      <screenshot>
-        <screeninfo>Symbol layer</screeninfo>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="100%" fileref="resources/images/gis/gis_symbol_layer.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
+      <para>This layer displays icons that represent facilities based on the facility type. Polygons will not show up on the map, so make sure to select an organisation unit level that has facilities. Click an icon on the map to open the context menu with two options. &quot;Show information sheet&quot; provides you with data for several data elements for this organisation unit. The data element group and period type are &quot;system settings&quot; called &quot;Infrastructural data elements&quot; and &quot;Infrastructural period type&quot;. The second option in the context menu is &quot;Relocate&quot; and lets you graphically move the organisation unit to a different location. The new coordinate will be stored permanently. Browser cache must be deleted to see the change if you reload the page.</para>
+      
+      <para>In the "Edit layer" window will find "sourrounding areas" in addition to group set, level and parent. This lets you draw a circle around each facility with a desired radius in kilometers.</para>
     </section>
   </section>
   <section>
     <title>Tools</title>
-    <para>This section describes the available GIS tools, which are available on the  &quot;Tools&quot; section of the map toolbar.</para>
+    <para>This section describes the available GIS tools.</para>
     <section id="gisFavoriteMapView">
-      <title>Register favorite map views</title>
-      <para>Click the &quot;Favorite map views&quot; button (star icon) on the toolbar to get the context menu. The first option is &quot;Manage favorites&quot; which opens up a window where you are supposed to type the name of the favorite and select the layer you want to save. If you are an administrator you can check the &quot;System&quot; checkbox to make the favorite available to all users. From the bottom combobox you may delete a favorite or add it to the DHIS 2 dashboard.</para>
+      <title>Favorite maps</title>
+      <screenshot>
+        <screeninfo>Favorite maps</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="100%" fileref="resources/images/gis/gis_favorites.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Click the &quot;Favorites&quot; button on the toolbar to open the "Manage favorites" window. To add a new favorite, click the "Add new" button. A new window opens. Enter a name and click the "Create" button. You will find your new favorite in the list.</para>
+      
+      <para>All favorites have four action buttons on the right hand side. Grey: Edit favorite name. Green: Save current map to this favorite (overwrite). Yellow: Add this favorite to dashboard. Red: Delete this favorite.</para>
+      
+      <para>You can search for favorites in the textfield above the favorites. The list will be filtered on every character that is entered. Click the "next" and "prev" buttons in the bottom right corner to navigate between pages.</para>
     </section>
+    
     <section id="gisLegendSet">
-      <title>Register legend sets</title>
-      <para>Example usage (vaccination coverage): Firstly, create the legends that are going to constitute the legend set. The first one could be &quot;Low bad&quot; (display name), 0 (start value), 30 (end value), red (color). Then create &quot;Medium&quot; / 30 / 70 / yellow and finally &quot;High good&quot; / 70 / 100 / green. Now, open the &quot;legend set&quot; panel, type e.g. &quot;High is good&quot; as display name and select the desired legends below. Multi-select your three legends by pressing and holding the Ctrl/Shift button when selecting. Then click the register button to store the legend set. Assign indicators/data elements to your legend set in one of the two last panels. Select the legend set in the combo box and multi-select items in the list below. Click the assign button to update the legend set. Please see the referred window in section 1.1.</para>
+      <title>Create predefined legend sets</title>
+      <para>Click the "Legend" button on the map toolbar. To create a new set click the "Add new" button. Example usage (vaccination coverage): Firstly, give the legend set a name. Then create the legends you want in your legend set. The first one could be &quot;Low bad&quot; (name), 0 (start value), 50 (end value), red (color). Click "Add legend" and appears in the list below. Then create &quot;Medium&quot; / 50 / 80 / yellow, &quot;High good&quot; / 80 / 100 / green and finally &quot;Too high&quot; / 100 / 10000 / grey. Now, click the "Create" button in the bottom right corner. If your legend set has overlapping legends (e.g. 0-50 and 40-80) you will not be allowed to proceed. If your legend set has a gap between the legends (e.g. 0-50 and 60-80) you will get a warning, but are allowed to proceed.</para>
+      
+      <para>NOTE! Continous legends are supposed to end and start on the same value, e.g. 0-50 and 50-80. This will automatically be taken care of by the application. Do not try to do this yourself by setting legends to e.g. 0-50 and 51-80. This will cause a usually unwanted gap in your legend set.</para>
+      
+      <para>You can assign a legend set to an indicator or a data element in the Indicator/Data element module. This legend set will then be automatically selected when such an indicator/data element is selected in the GIS.</para>
     </section>
+    
     <section id="gisImageExport">
-      <title>Exporting/saving map images</title>
-      <para>Click the image icon on the map toolbar and the  print window will open. Title: Image title, will appear as a headline in the image. Layers: Choose whether polygons, points or both will be printed. Width/Height: The pixel resolution of the image. Choose among the predefined &quot;small&quot; (800x600), &quot;medium&quot; (1190x880), &quot;large&quot; (1920x1200) or type the exact number of pixels yourself (type the number only, avoid text like &quot;px&quot;). If you want to exclude the legend from the image, untick the legend checkbox. Finally click the export button to print the image  (PNG). Please see the referred window in section 1.1.</para>
+      <title>Download map as image</title>
+      <para>Click the &quot;Download&quot; button on the map toolbar. Enter a name in the textfield and click "Download". The browser will download a PNG image. If the toolbar &quot;Download&quot; button is disabled you need to create a map first.</para>
     </section>
-    <section id="gisMeasureDistance">
-      <title>Measure distance</title>
-      <para>Click the two-way arrow icon on the map toolbar to enter measuring mode. Now, click your desired start location on the map and a dotted line will follow the cursor toward your destination. Single click to create a line point, double click to finish the line. To exit measuring mode, click the toolbar icon again or close the window.</para>
+    
+    <section id="gisInterpretation">
+      <title>Share map interpretation</title>
+      <para>Open a favorite or save a new map as a favorite. Then click the &quot;Share&quot; button on the map toolbar. Type in your interpretation and click "Share".</para>
     </section>
   </section>
 </chapter>

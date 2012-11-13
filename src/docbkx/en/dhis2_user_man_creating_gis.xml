@@ -4,7 +4,7 @@
   <title>Setting up GIS</title>
   <section>
     <title>Context</title>
-    <para>Setting up the GIS simply means storing coordinates for the organisation units you want to show on the map in the database. Coordinates are  often distributed in  proprietary formats and will need to be converted to a format which DHIS2 uses. ESRI shapefiles are the most common geospatial vector data format for desktop applications.  You might find shapefiles for your country <ulink url="http://www.diva-gis.org/gdata">here</ulink> or in many other geospatial data repositories on the web. Some amount of work needs to be done in order to use these coordinates in DHIS 2 GIS, namely transforming the data into a suitable format and ensuring the name which are contained in the geospatial data match exactly with the names of the organization units which they should be matched to. </para>
+    <para>Setting up the GIS simply means storing coordinates for the organisation units you want to show on the map in the database. Coordinates are  often distributed in  proprietary formats and will need to be converted to a format which DHIS2 understands. ESRI shapefiles are the most common geospatial vector data format for desktop applications. You might find shapefiles for your country <ulink url="http://www.diva-gis.org/gdata">here</ulink> or in many other geospatial data repositories on the web. Some amount of work needs to be done in order to use these coordinates in DHIS 2 GIS, namely transforming the data into a suitable format and ensuring the name which are contained in the geospatial data match exactly with the names of the organization units which they should be matched to. </para>
     <para>If you go to the organisation unit module and edit one of the units, you can see a text field called Coordinates. Here you may fill in its coordinates directly (geojson format) which is useful if you just want to update a couple of units.</para>
     <para>An example point/facility coordinate:</para>
     <para><programlisting><userinput>[29.341,-11.154]</userinput></programlisting></para>
@@ -47,51 +47,5 @@
     <para>- Name duplicates in the GML file. The name column in the database is unique and does not accept two organisation units with the same name.</para>
     <para>- The &quot;shortname&quot; column in the organisationunit table in your database has a too small varchar definition. Increase it to 100.</para>
     <para>- Special name characters in the GML file. Be sure to convert these to appropirate XML equivalents or escape sequences.</para>
-  </section>
-  <section>
-    <title>Administering the GIS module</title>
-    <section id="gisOverlay">
-      <title>Register overlays</title>
-      <para>Overlays are geographical layers that do not have any direct linkage
-    to data in the database. Examples include roads, rivers, airports, ports,
-    and other geographical information that you may want to display on your
-    map, but that is not necessarily linked to data contained in the DHIS
-    database. The <guimenu>Register Overlay</guimenu> panel will allow you to
-    add new layers and determine how they will be represented visually on the
-    map. </para>
-      <itemizedlist>
-        <listitem>
-          <para><guilabel>Display name: </guilabel>Represents your overlay in
-        the layer tree in the upper right corner.</para>
-        </listitem>
-        <listitem>
-          <para><guilabel>Map source file: </guilabel>The GeoJSON file
-        name.</para>
-        </listitem>
-        <listitem>
-          <para><guilabel>Fill color: </guilabel>Decides the fill color if the
-        layer is a polygon layer. </para>
-        </listitem>
-        <listitem>
-          <para><guilabel>Fill opacity: </guilabel>Select an opacity level
-        between 0 (invisible) and 1 (solid).</para>
-        </listitem>
-        <listitem>
-          <para><guilabel>Stroke color: </guilabel>The stroke color over lines
-        and polygon borders.</para>
-        </listitem>
-        <listitem>
-          <para><guilabel>Stroke width: </guilabel>Select a stroke width between
-        0 and 4.</para>
-        </listitem>
-      </itemizedlist>
-      <section>
-        <title>Copying files to the DHIS application</title>
-        <para>Currently, your GeoJSON files should be placed in the
-      DHIS2_HOME/geojson of your DHIS application to be accessible to the GIS
-      module. If the GeoJSON directory does not exist, you will need to create
-      it manually and copy your GeoJSON files there.</para>
-      </section>
-    </section>
   </section>
 </chapter>
