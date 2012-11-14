@@ -65,7 +65,7 @@
           <xincludeSupported>true</xincludeSupported>
 		    </configuration>
         <executions>
-<!-- Not yet translated. Todavía no se ha traducido          
+<!--Documentación de Usuario completa -->
           <execution>
             <id>chunked-html-docs-es</id>
             <phase>package</phase>
@@ -89,7 +89,6 @@
                   <fileset dir="${docbook.target}/es/user/html/dhis2_user_manual_es" />
                 </copy>
                 <delete dir="${docbook.target}/es/user/html/dhis2_user_manual_es" />
-                <move file="${docbook.target}/es/user/html/dhis2_user_manual_es.html" tofile="${docbook.target}/es/user/html/index.html" />
                 <copy todir="${docbook.target}/es/user/html/resources/images">
                   <fileset dir="src/docbkx/es/resources/images">
                     <include name="**/*.png" />
@@ -107,7 +106,7 @@
               </postProcess>
             </configuration>
           </execution>
--->
+<!--Manual de Usuario breve -->
           <execution>
             <id>chunked-html-docs-end-user-es</id>
             <phase>package</phase>
@@ -148,7 +147,7 @@
             </configuration>
           </execution>
 
-<!-- Ongoing transltation. Esta siendo traducido. -->     
+<!--Guía de Implementación -->
           <execution>
             <id>chunked-html-docs-implementer-es</id>
             <phase>package</phase>
@@ -189,7 +188,6 @@
             </configuration>
           </execution>
 
-<!-- Not yet translated. Todavía no se ha traducido      
           <execution>
             <id>html-docs-es</id>
             <phase>package</phase>
@@ -205,32 +203,32 @@
               <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
               <chunkedOutput>false</chunkedOutput>
               <includes>dhis2_user_manual_es.xml,dhis2_end_user_manual_es.xml,dhis2_implementation_guide_es.xml</includes>
-              <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+              <sourceDirectory>${docbook.source}/es/</sourceDirectory>
               <postProcess>
                 <copy file="target/docbkx/html/dhis2_user_manual_es.html" tofile="${docbook.target}/es/user/html/dhis2_user_manual_es_full.html" />
-                <copy file="target/docbkx/html/dhis2_end_user_manual.html" tofile="${docbook.target}/es/end-user/html/dhis2_user_manual_es_full.html" />
-                <copy file="target/docbkx/html/dhis2_implementation_guide_es.html" tofile="${docbook.target}/es/implementer/html/dhis2_user_manual_es_full.html" />
+                <copy file="target/docbkx/html/dhis2_end_user_manual.html" tofile="${docbook.target}/es/end-user/html/dhis2_end_user_manual_es_full.html" />
+                <copy file="target/docbkx/html/dhis2_implementation_guide_es.html" tofile="${docbook.target}/es/implementer/html/dhis2_implementation_guide_es_full.html" />
               </postProcess>
             </configuration>
           </execution>
--->
-<!--        
+
+<!--  Not used also in English pom     
       <execution>
-            <id>webhelp-docs-en</id>
+            <id>webhelp-docs-es</id>
             <phase>package</phase>
             <goals>
               <goal>generate-webhelp</goal>
             </goals>
             <configuration>
-        <webhelpIndexerLanguage>en</webhelpIndexerLanguage>
+        <webhelpIndexerLanguage>es</webhelpIndexerLanguage>
               <webhelpIncludeSearchTab>1</webhelpIncludeSearchTab>
-              <includes>dhis2_user_manual_en.xml</includes>
-              <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+              <includes>dhis2_user_manual_es.xml</includes>
+              <sourceDirectory>${docbook.source}/es/</sourceDirectory>
             </configuration>
           </execution>
       
        <execution>
-            <id>epub-docs-en</id>
+            <id>epub-docs-es</id>
             <phase>package</phase>
             <goals>
               <goal>generate-epub</goal>
@@ -238,12 +236,12 @@
             <configuration>
          <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
                 <chunkQuietly>true</chunkQuietly>
-              <includes>dhis2_user_manual_en.xml</includes>
-              <sourceDirectory>${docbook.source}/en/</sourceDirectory>
+              <includes>dhis2_user_manual_es.xml</includes>
+              <sourceDirectory>${docbook.source}/es/</sourceDirectory>
             </configuration>
           </execution>
     -->  
-<!-- Not yet translated. Todavía no se ha traducido      
+
           <execution>
             <id>pdf-docs-es-user</id>
             <phase>package</phase>
@@ -262,8 +260,7 @@
               </postProcess>
             </configuration>
           </execution>
--->   
-<!-- Ongoing transltation. Esta siendo traducido. -->  
+
       <execution>
             <id>pdf-docs-es-implementer</id>
             <phase>package</phase>
@@ -302,7 +299,6 @@
             </configuration>
           </execution>
 
-<!-- Not yet translated. Todavía no se ha traducido      
       <execution>
             <id>pdf-documentation-guide-es</id>
             <phase>package</phase>
@@ -321,7 +317,7 @@
               </postProcess>
             </configuration>
           </execution>
--->
+
     </executions>
 
         <dependencies>
