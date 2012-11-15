@@ -2,7 +2,12 @@
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <chapter>
   <title>Settings</title>
-  <para>The settings module provides a set of application configuration options. There are two main groups of settings: the <emphasis role="italic">system settings</emphasis> apply to the whole system and all its users while the <emphasis role="italic">user settings</emphasis> apply to the environment of the currently logged in user.</para>
+  <para>The settings module provides a set of application configuration options. There are two main
+    groups of settings: the <emphasis role="italic">system settings</emphasis> apply to the whole
+    system and all its users while the <emphasis role="italic">user settings</emphasis> apply to the
+    environment of the currently logged in user. The system settings can be accessed from the
+    maintenance menu, settings module. The user settings can be accessed under the profile menu,
+    settings page.</para>
   <section>
     <title>User settings</title>
     <para>The user settings section provides general configuration options and options specifically for email.</para>
@@ -13,27 +18,25 @@
           <para>Interface language: Sets the locale / language of the user interface, such as labels, menus and headers. You can currently select between 18 languages.</para>
         </listitem>
         <listitem>
-          <para>Database language: Sets the locale / language of the database contents in the system, such as the list of data elements and reports.</para>
+          <para>Database language: Sets the locale / language of the database contents in the
+            system, such as the list of data elements and reports.</para>
         </listitem>
         <listitem>
-          <para>Sort order property: Sets the property for which to base the sorting of the element lists in the system, such as the list of data elements and indicators. Available properties are <emphasis role="italic">name</emphasis>, <emphasis role="italic">short name</emphasis>, <emphasis role="italic">alternative name</emphasis> and <emphasis role="italic">code</emphasis>. For instance, if you set the sort order property to short name, all lists will be sorted based on the short name property. You can also do manual sorting of all lists by going to the desired list and click &quot;sort&quot; and  perform the sorting. This sorting can then be enabled by selecting <emphasis role="italic">custom</emphasis> as the sort order property.</para>
+          <para>Style: Sets the style / look-and-feel of the system. You can choose among four
+            different styles while the <emphasis role="italic">light blue</emphasis> style is the
+            default and recommended style. The user setting overrides the corresponding style system
+            setting.</para>
         </listitem>
         <listitem>
-          <para>Display property: Sets the property which will be displayed in the element lists in the system, such as the list of data sets.</para>
+          <para>Enable message email notifications: Decides whether you want to receive email
+            notifications. Currently the system offers email notifications of messages received in
+            the dashboard. This requires that you have entered your email address in your personal
+            account details - you can access it in the "User account" page.</para>
         </listitem>
         <listitem>
-          <para>Style: Sets the style / look-and-feel of the system. You can choose among four different styles while the <emphasis role="italic">light blue</emphasis> style is the default and recommended style. The user setting overrides the corresponding style system setting.</para>
-        </listitem>
-        <listitem>
-          <para>Dashboard charts to display: Sets the numer of charts to display on the front page of the dashboard module. For small screens, four charts are recommended while eight charts are recommended for widescreens.</para>
-        </listitem>
-      </itemizedlist>
-    </section>
-    <section id="userMessageSettings">
-      <title>User message settings</title>
-      <itemizedlist>
-        <listitem>
-          <para>Message email notification: Decides whether you want to receive email notifications. Currently the system offers email notifications of messages received in the dashboard. This requires that you have entered your email address in your personal account details - you can access it under &quot;Help&quot; - &quot;User account&quot;.</para>
+          <para>Enable message SMS notifications: Decides whether you want to receive SMS
+            notifications. Requires that a SMS provider has been configured for your
+            deployment.</para>
         </listitem>
       </itemizedlist>
     </section>
@@ -42,12 +45,16 @@
     <title>System settings</title>
     <para>The system settings section provides general configuration options and options specifically for appearance and email.</para>
     <section id="systemGeneralSettings">
-      <title>System general settings</title>
+      <title>General settings</title>
       <itemizedlist>
         <listitem>
-          <para>Aggregation strategy: This setting defines how the system generates and provides aggregated data to the output tools. There are two options available: <emphasis role="italic">Batch</emphasis> means that all output tools like reports, charts and maps will read aggregate data from pre-built data mart tables in the database.  This strategy provides the best performance and inflicts less load on the application since data retrieval only implies reading from one or a few database tables using a simple query.</para>
-          <para>This strategy requries that those data mart tables are populated with the relevant data before the reports are requested. This can preferrably be done using nightly scheduled jobs or manually through the data mart user interface. A potential downside is that users will have to wait to the next day to view their reports after doing data entry. This approach is the recommended for large online deployments where there are medium to high user concurrency.</para>
-          <para><emphasis role="italic">Real-time</emphasis> means that aggregated data is generated and retrieved on-the-fly every time a report is requested. This implies that there is no delay after doing data entry before the data is accessible in reports. Performance will not scale adequately  and hence this strategy is suitable for small, typically offline, deployments.</para>
+          <para>Cache strategy: Decides for how long reports and responses related to analysis
+            should be cached. If you are using the scheduled, nightly data mart tasks it makes sense
+            to put this on "Cache until 6 AM tomorrow". This is because we know that data in reports
+            change at that time, and you can safely cache data up to the moment when the data mart
+            is updated. If you are loading data continously into the datamart you should set it to
+            "No cache". If you load data very infrequently into data mart you should consider
+            setting it to "Cache for twol weeks".</para>
         </listitem>
         <listitem>
           <para>Infrastructural data elements: This setting defines a data element group where the member data elements should describe data about the infrastructure of  organisation units. Examples of such infrastructural data elements could be population, doctors, beds, internet connectivity and climate. This infrastructural data can currently be viewed in the GIS module in the facility information sheet.</para>
@@ -56,16 +63,18 @@
           <para>Infrastructural period type: Sets the frequency for which the data elements in the infrastructural data elements group are captured. This will typically be yearly. When viewing the infrastructual data you will be able to select the time period of the data source.</para>
         </listitem>
         <listitem>
-          <para>Feedback recipients: This setting defines a user group where the members will recieve all messages being sent through the function for writing feedback in the dashboard module. This will typically be members of the super user team who are ablet to support and answer questions coming from end-users.</para>
+          <para>Feedback recipients: This setting defines a user group where the members will
+            recieve all messages being sent through the function for writing feedback in the
+            dashboard module. This will typically be members of the super user team who are ablet to
+            support and answer questions coming from end-users.</para>
         </listitem>
         <listitem>
-          <para>Completeness notification recipients: This setting defines a user group where the members will receive messages as notifications when a form has been marked as complete. A typical use of this is when the forms are considered to be an order of some commodity and a group of users want to be notified when such orders are placed.</para>
-        </listitem>
-        <listitem>
-          <para>Omit indicator values with zero numerator value in data mart: Defines whether aggregated indicator values with zero as the numerator value should be written to the indicator data mart table. Having such values written is required for instance when connecting Excel pivot tables to the data mart as Excel will need the numerator data to correctly aggregate up in the organisation unit hierarchy. If third-party tools like Excel are not used with the application this will reduce the total number of values written to the data mart (which again will improve performance) and could safely be set to omit.</para>
-        </listitem>
-        <listitem>
-          <para>Disable data entry when data set completed: This setting defines whether the data entry forms should be disabled and prevent from futher entry after they have been marked as complete.</para>
+          <para>Maximum offline organisation unit levels: This setting defines how many levels in
+            the organisation unit hierarchy will be available offline in the organisation unit tree
+            widget. Under normal circumstances you can leaves this on the lowest level, which is
+            default behavior. Setting it to a higher level might be useful in order to reduce
+            initial load time in cases where you have extremely many organisation units, typically
+            more than 30 000.</para>
         </listitem>
         <listitem>
           <para>Data analysis std dev factor: Sets the number of standard deviations for use in the outlier analysis performed on the captured data in the data entry module. The default value is 2; a high value will catch less outlier values than a low value.</para>
@@ -73,13 +82,35 @@
         <listitem>
           <para>Days after period end to qualify for timely data submission: Sets the number of days after the end of a period in which a data entry form must be marked as complete in order to be considered timely. This affects the &quot;reporting rate&quot; tool in the reporting module which lists forms marked as complete as well as marked as complete in time. The default value is 15.</para>
         </listitem>
+        <listitem>
+          <para>Phone number area code: The area code for the area in which your deployment is
+            located. Used for sending and receiving SMS.</para>
+        </listitem>
+        <listitem>
+          <para>Omit indicator values with zero numerator value in data mart: Defines whether
+            aggregated indicator values with zero as the numerator value should be written to the
+            indicator data mart table. Having such values written is required for instance when
+            connecting Excel pivot tables to the data mart as Excel will need the numerator data to
+            correctly aggregate up in the organisation unit hierarchy. If third-party tools like
+            Excel are not used with the application this will reduce the total number of values
+            written to the data mart (which again will improve performance) and could safely be set
+            to omit.</para>
+        </listitem>
       </itemizedlist>
     </section>
     <section id="systemAppearanceSettings">
-      <title>System appearance settings</title>
+      <title>Appearance settings</title>
       <itemizedlist>
         <listitem>
-          <para>Application title: Sets the application title to the left on the top menu.</para>
+          <para>Application title: Sets the application title on the top menu.</para>
+        </listitem>
+        <listitem>
+          <para>Application introduction: Sets an introduction of the system. Will be visible on the
+            login page.</para>
+        </listitem>
+        <listitem>
+          <para>Application notification: Sets a notification which should be displayed to users.
+            Will be visible on the front page.</para>
         </listitem>
         <listitem>
           <para>Style: Sets the style / look-and-feel of the system. The corresponding user style setting overrides this.</para>
@@ -93,7 +124,7 @@
       </itemizedlist>
     </section>
     <section id="systemEmailSettings">
-      <title>System email settings</title>
+      <title>Email settings</title>
       <itemizedlist>
         <listitem>
           <para>Host name: Refers to the host name of the SMTP server. For instance when using Google SMTP services this should be smtp.gmail.com.</para>
@@ -103,6 +134,28 @@
         </listitem>
         <listitem>
           <para>Password: The password of the user account with the SMTP server.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section>
+      <title>Access settings</title>
+      <itemizedlist>
+        <listitem>
+          <para>Self registration account user role: Defines which user role shoul be given to
+            self-registered user accounts. To enable self-registration of users, select any user
+            role from the list. To disable it, select "Do not allow self registration". When
+            enabled, a link to the self-registration form will be displayed on the login
+            page.</para>
+        </listitem>
+        <listitem>
+          <para>Self registration account organisation unit: Defines which organisation unit should
+            be associated with self-registered users. Any organisation unit must be selected in
+            order to enable self registration.</para>
+        </listitem>
+        <listitem>
+          <para>Enable user account recovery: Defines whether users are allowed to restore the
+            password of their account if they forgotten it. When enabled, a link to the account
+            recovery form will be displayed on the front page.</para>
         </listitem>
       </itemizedlist>
     </section>
