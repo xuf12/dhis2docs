@@ -247,19 +247,25 @@ sudo /usr/sbin/update-rc.d -f tomcat defaults 81</screen>
     <section>
       <title>Making resources available with nginx</title>
       <para>In some scenarios it is desirable to make certain resources publicly available on the Web without requiring authentication. One example is when you want to make data analysis related resources in the Web API available in a Web portal. The following example will allow access to charts, maps, reports, report table and document resources through basic authentication by injecting an <emphasis role="italic">Authorization</emphasis> HTTP  header into the request. It will remove the Cookie header from the request and the Set-Cookie header from the response in order to avoid changing the currently logged in user. It is recommended to create a user for this purpose given only the minimum authorities required. The Authorization value can be constructed by Base64-encoding the username appended with a colon and the password and prefix it &quot;Basic &quot;, more precisely &quot;Basic base64_encode(username:password)&quot;. It will check the HTTP method used for requests and return <emphasis role="italic">405 Method Not Allowed</emphasis> if anything but GET is detected.</para>
-      <screen>location ~ ^/api/(charts|maps|reports|reportTables|documents)/ {
-  if ($request_method != GET) {
-    return 405;
-  }
+      <para>It can be favorable to set up a separate domain for such public users when using this approach. This is because we don't want to change the credentials for already logged in users when they access the public resources. For instance, when your server is deployed at somedomain.com, you can set a dedicated subdomain at api.somedomain.com, and point URLs from your portal to this subdomain.</para>
+      <screen>server {
+  listen       80;
+  server_name  api.somedomain.com;
+		  
+  location ~ ^/(api/(charts|chartValues|reports|reportTables|documents|maps|organisationUnits)|dhis-web-commons/javascripts|images|dhis-web-commons-ajax-json|dhis-web-mapping|dhis-web-visualizer) {
+    if ($request_method != GET) {
+      return 405;
+    }
 
-  proxy_pass        http://localhost:8080;
-  proxy_redirect    off;
-  proxy_set_header  Host              $host;
-  proxy_set_header  X-Real-IP         $remote_addr;
-  proxy_set_header  X-Forwarded-For   $proxy_add_x_forwarded_for;
-  proxy_set_header  Authorization     &quot;Basic YWRtaW46ZGlzdHJpY3Q=&quot;;
-  proxy_set_header  Cookie            &quot;&quot;;
-  proxy_hide_header Set-Cookie;
+    proxy_pass        http://localhost:8080;
+    proxy_redirect    off;
+    proxy_set_header  Host              $host;
+    proxy_set_header  X-Real-IP         $remote_addr;
+    proxy_set_header  X-Forwarded-For   $proxy_add_x_forwarded_for;
+    proxy_set_header  Authorization     &quot;Basic YWRtaW46ZGlzdHJpY3Q=&quot;;
+    proxy_set_header  Cookie            &quot;&quot;;
+    proxy_hide_header Set-Cookie;
+  }
 }</screen>
     </section>
     <section>
