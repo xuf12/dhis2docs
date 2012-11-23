@@ -34,7 +34,7 @@ sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-7-openjd
 sudo update-alternatives --set java /usr/lib/jvm/java-7-openjdk/bin/java</screen>
     <para>Please check that the path the Java binaries are correct as they might vary from system to system, e.g. on AMD systems you might see <emphasis role="italic">../java-7-openjdk-amd64/..</emphasis> Check that your installation is okay by invoking <code>java -version</code></para>
     <para><emphasis role="bold">Install PostgreSQL</emphasis></para>
-    <para>To install PostgreSQL version 9.2 we first need to add a Ubuntu package repository our system.</para>
+    <para>To install PostgreSQL version 9.2 we first need to add a Ubuntu package repository to our system.</para>
     <para><code>sudo apt-get install python-software-properties
 sudo add-apt-repository ppa:pitti/postgresql 
 sudo apt-get update
@@ -380,6 +380,18 @@ XXX.XX.XXX.XXX foo.mydomain.org</screen></para>
   </section>
   <section>
 	<title>Working with the PostgreSQL database</title>
+    <para>Common operations when managing a DHIS instance are dumping and restoring databases. To
+      make a dump (copy) of your database, assuming the setup from the installation section, you can
+      invoke the following: </para>
+    <screen>pg_dump dhis2 -U dhis -f dhis2.sql</screen>
+    <para>The first argument (dhis2) refers to the name of the database. The second argument (dhis)
+      refers to the database user. The last argument (dhis2.sql) is the file name of the copy. If
+      you want to compress the file copy immediately you can do:</para>
+    <screen>pg_dump dhis2 -U dhis | gzip > dhis2.sql.gz</screen>
+    <para>To restore this copy on another system, you first need to create an empty database as
+      described in the installation section. You also need to gunzip the copy if you created a
+      compressed version. You can the invoke:</para>
+    <screen>psql -d dhis2 -U dhis -f dhis2.sql</screen>
   </section>
   <section>
     <title>Using Amazon Web services</title>
