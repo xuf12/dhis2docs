@@ -142,9 +142,10 @@ sudo /usr/local/nginx/sbin/nginx -s stop</screen></para>
   location / {
     proxy_pass        http://localhost:8080/;
     proxy_redirect    off;
-    proxy_set_header  Host            $host;
-    proxy_set_header  X-Real-IP       $remote_addr;
-    proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header  Host               $host;
+    proxy_set_header  X-Real-IP          $remote_addr;
+    proxy_set_header  X-Forwarded-For    $proxy_add_x_forwarded_for;
+    proxy_set_header  X-Forwarded-Proto  http;
   }
 }]]></screen></para>
       <para>You can now access your DHIS instance at <emphasis role="italic">http://localhost</emphasis>. Since  the reverse proxy has been set up we can improve security by making Tomcat only listen for local connections. In <emphasis role="italic">/conf/server.xml</emphasis> you can add an <emphasis role="italic">address</emphasis> attribute with the value <emphasis role="italic">localhost</emphasis> to the Connetor element for HTTP 1.1 like this:</para>
@@ -193,9 +194,10 @@ server {
   location / {
     proxy_pass        http://localhost:8080/;
     proxy_redirect    off;
-    proxy_set_header  Host            $host;
-    proxy_set_header  X-Real-IP       $remote_addr;
-    proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header  Host               $host;
+    proxy_set_header  X-Real-IP          $remote_addr;
+    proxy_set_header  X-Forwarded-For    $proxy_add_x_forwarded_for;
+    proxy_set_header  X-Forwarded-Proto  https;
  }
 }]]></screen>
     </section>
@@ -262,14 +264,15 @@ sudo /usr/sbin/update-rc.d -f tomcat defaults 81</screen>
       return 405;
     }
 
-    proxy_pass        http://localhost:8080;
-    proxy_redirect    off;
-    proxy_set_header  Host              $host;
-    proxy_set_header  X-Real-IP         $remote_addr;
-    proxy_set_header  X-Forwarded-For   $proxy_add_x_forwarded_for;
-    proxy_set_header  Authorization     &quot;Basic YWRtaW46ZGlzdHJpY3Q=&quot;;
-    proxy_set_header  Cookie            &quot;&quot;;
-    proxy_hide_header Set-Cookie;
+    proxy_pass         http://localhost:8080;
+    proxy_redirect     off;
+    proxy_set_header   Host               $host;
+    proxy_set_header   X-Real-IP          $remote_addr;
+    proxy_set_header   X-Forwarded-For    $proxy_add_x_forwarded_for;
+    proxy_set_header   X-Forwarded-Proto  http;
+    proxy_set_header   Authorization      &quot;Basic YWRtaW46ZGlzdHJpY3Q=&quot;;
+    proxy_set_header   Cookie             &quot;&quot;;
+    proxy_hide_header  Set-Cookie;
   }
 }</screen>
     </section>
