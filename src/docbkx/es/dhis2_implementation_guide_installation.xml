@@ -362,6 +362,15 @@ XXX.XX.XXX.XXX foo.mydomain.org</screen></para>
     <para>El cron se configura con dos ficheros. El primero es un <emphasis role="italic">script</emphasis> de backup que realiza la tarea misma de hacer la copia de seguridad de la base de datos. Utiliza un programa PostgreSQL llamado <emphasis role="italic">pg_dump</emphasis> para crear la copia de la base de datos. El segundo es un fichero crontab que lanza el script de backup cada día a las 23:00. Notemos que este script hace la copia de seguridad de la base de datos y la guarda en un fichero en el disco local. Es muy recomendable guardar una copia de esto también fuera del servidor donde se aloja la aplicación. Esto podemos conseguirlo con la herramienta <emphasis role="italic">scp</emphasis>. Deberemos asegurarnos de que hemos fijado la fecha y hora del sistema correctamente en nuestro servidor.</para>
   </section>
   <section>
+  <title>Trabajando con la base de datos PostgreSQL</title>
+    <para>Algunas operaciones frecuentes al gestionar una instancia DHIS son las copias y restauraciones de bases de datos. Para realizar una copia (dump) de nuestra base de datos, asumiendo la configuración mencionada en la sección de instalación, podemos invocar lo siguiente: </para>
+    <screen>pg_dump dhis2 -U dhis -f dhis2.sql</screen>
+    <para>El primer argumento (dhis2) se refiere al nombre de la base de datos. El segundo argumento (dhis) se refiere al usuario de la base de datos. El último argumento (dhis2.sql) es el nombre de fichero de la copia. Si queremos comprimir el fichero copiado inmediatemente podemos hacer lo siguiente:</para>
+    <screen>pg_dump dhis2 -U dhis | gzip > dhis2.sql.gz</screen>
+    <para>Para restaurar esta copia en otro sistema, primero necesitamos crear una base de datos vacía como se describe en la sección de instalación. También necesitamos descomprimir la copia si habíamos creado una versión comprimida. Podemos invocar entonces:</para>
+    <screen>psql -d dhis2 -U dhis -f dhis2.sql</screen>
+  </section>
+  <section>
     <title>Usando los Servicios Web Amazon</title>
     <para>Los Servicios Web Amazon (AWS) ofrecen recursos virtuales de cloud-computing que permiten a desarrolladores e implementadores escalar rápidamente una aplicación, tanto horizontal como verticalmente, de forma eficaz en cuanto a costes. AWS ofrece múltiples sistemas operativos y tamaños de instancias dependiendo de la naturaleza concreta del despliegue. Esta sección descrie un montaje sencillo con el sistema AWS Elastic Cloud Compute (EC2) utilizando Amazon AMI Basic 32 bit, que se basa en la distribución Red Hat Linux. </para>
     <para>Podemos estimar el coste de una instancia AWS usando el <ulink url="http://calculator.s3.amazonaws.com/calc5.html"> &quot;Simple Monthly Calculator&quot;</ulink>. Los costes de AWS se basan directamente en su uso. A medida que crece el uso de nuestra aplicación, podemos proveer con nuevos servidores. </para>
