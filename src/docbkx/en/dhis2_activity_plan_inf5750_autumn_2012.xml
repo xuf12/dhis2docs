@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "docbookV4.2/docbookx.dtd" []>
+<article>
+  <title>Activity Plan</title>
+  <articleinfo>
+    <subtitle>INF5750 Open source software development</subtitle>
+    <releaseinfo>Version 0.1</releaseinfo>
+  </articleinfo>
+  <section>
+    <title>Technical Documentation</title>
+    <para><emphasis role="bold">Get it running</emphasis></para>
+    <itemizedlist>
+      <listitem>Download and install, Java SDK 6,Bazaar and Maven.</listitem>
+      <listitem>Get a copy of the source code by invoking <emphasis role="bold">bzr branch lp:~dhis-academy/dhis2-academy/activity-plan in the terminal.</emphasis></listitem>
+      <listitem>Install PostgresSQL: <itemizedlist>
+          <listitem>Create a postgres user called dhis.</listitem>
+          <listitem>Create a postgres database called dhis.</listitem>
+          <listitem>Download database from dhis2.org</listitem>
+          <listitem>Unzip the database demo.</listitem>
+          <listitem>Invoke run psql -Udhis dhis /&quot;path to demo&quot;.</listitem>
+          <listitem>Create &quot;hibernate.properties&quot;-file in the dhis-web directory.</listitem>
+          <listitem>Copy the following into the file: <programlisting>hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect hibernate.connection.driver_class = org.postgresql.Driver hibernate.connection.url = jdbc:postgresql:dhis2 hibernate.connection.username = dhisshibernate.connection.password = dhis hibernate.hbm2ddl.auto = update</programlisting></listitem>
+          <listitem>Set DHIS2_HOME enviroment variable to the path to /dhis-2/dhis-web.</listitem>
+        </itemizedlist></listitem>
+      <listitem>Navigate to the dhis-2 directory in the terminal and invoke &quot;mvn install&quot;. Then navigate to the dhis-2/dhis-web directory and invoke &quot;mvn install&quot; again.</listitem>
+      <listitem>Navigate to the direcory dhis-2/dhis-web/dhis-web-portal and invoke &quot;mvn jetty:run-war&quot; and the application can be accessed at &quot;http://localhost:8080&quot;.</listitem>
+    </itemizedlist>
+    <para><para><emphasis role="bold">The application</emphasis></para>We have developed an expanding application of the DHIS2-project called Activity plan. After you have logged in to DHIS2, you can choose the option activity plan (which is our implementation). Here you will have the possibility to search for patients and follow their program stage by stage. You can do a specific search or an unspecific search as you like. You choose a registering unit (area) and a program. From there you can choose a specific date (todays date is set as standard), and from this date you can search the database for the patients that has been or going to be in this program with multiplies alternatives like 1 day before/after, 1 week before/after to all patients that has been or will be in this program. There is also a possibility to filter out stages for a patient by specifying a stage interval  via FromStage, ToStage fields.</para>
+    <para><emphasis role="bold">Functionality</emphasis>
+    <itemizedlist>
+        <listitem>Specific search for patients in a program (for example Child health program)<itemizedlist>
+            <listitem>from a specific status (like &quot;overdue&quot;, &quot;incomplete&quot;, &quot;complete&quot;)</listitem>
+            <listitem>choose a specific date (current date as default)</listitem>
+            <listitem>how events/patient list from specific timelines (like 1 day, 3 days, 1 week, 2 weeks, 1 month, all before/after the specific date. For example in the timeline 3 days before to 1 month after the specific date)</listitem>
+            <listitem>for patients in specific stages (like &quot;6 weeks after birth&quot; to &quot;10 weeks after birth&quot; and so on.</listitem>
+          </itemizedlist></listitem>
+        <listitem>Tracking patients from stage to stage <itemizedlist>
+            <listitem>As mentioned above for example as a timeline for stages, or all stages for the patient.</listitem>
+            <listitem>The user will get a nice overview of the stages lined up next to the patients name and a option of other program at the end.</listitem>
+          </itemizedlist></listitem>
+        <listitem>Information from the patientlist (pop-up windows) <itemizedlist>
+            <listitem>Information about the patient (can also be downloaded as pdf or excel)</listitem>
+            <listitem>Information for each specific stage </listitem>
+            <listitem>Other programs the patient has been involved in</listitem>
+          </itemizedlist></listitem>
+        <listitem>Edit<itemizedlist>
+            <listitem>stages (for example; if the stage is complete/incomplete, register the weight of the child and so on)</listitem>
+          </itemizedlist></listitem>
+      </itemizedlist>
+</para>
+  </section>
+  <section>
+    <title>User Documentation</title>
+    <para>Using the activity plan is simple, once you have navigated to the activity plan site, you simply enter your desired values. You have to pick a unit from the left tree view of the organizational units and a program from the drop-down box. You can also select status, date, event since and stage. There are two ways of specifying a date interval either using the “Use calendar” check box or “Date” field and “Show events since/up to” drop-down menus. Options are automatically filtered out based on a selection in one of drop-down From/To stage fields. When you press “Show” button the patient list is displayed on the lower part of the screen.</para>
+    <para><inlinegraphic fileref="resources/images/dhis2_activity_plan_inf5750_autumn_2012/main_window.jpg" align="center"/></para>
+    <para>As you can see below the matching selection shows the patient name, his stages and optionally a button to show his other programs. The color scheme makes it easy to know the status of the different stages.</para>
+    <para><inlinegraphic fileref="resources/images/dhis2_activity_plan_inf5750_autumn_2012/patient_list.jpg" align="center"/></para>
+    <para/>
+    <para/>
+    <para>The user can push the name to display additional information. Here, it is also possible to “show detail” witch creates a popup with even more information.</para>
+    <para><inlinegraphic fileref="resources/images/dhis2_activity_plan_inf5750_autumn_2012/patient_info.jpg" align="center"/></para>
+    <para>The enrolled programs panel shows the programs the patient has been enrolled and gives the possibility to show all stages belong to a program.</para>
+    <para><inlinegraphic fileref="resources/images/dhis2_activity_plan_inf5750_autumn_2012/enrolled_programs.jpg" align="center"/></para>
+    <para>The dialog on the right side of the snapshot shows basic stage information. The dialog window appears after the user clicks on a stage.</para>
+    <para><inlinegraphic fileref="resources/images/dhis2_activity_plan_inf5750_autumn_2012/program_stages.jpg" align="center"/></para>
+    <para>The popup for a stage is displayed bellow, here you can also edit information.</para>
+    <para><inlinegraphic fileref="resources/images/dhis2_activity_plan_inf5750_autumn_2012/program_stage_info.jpg" align="center"/></para>
+  </section>
+</article>
