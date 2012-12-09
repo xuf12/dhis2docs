@@ -290,6 +290,23 @@ server {
       proxy_set_header    X-Forwarded-Proto  http;
       proxy_cache         dhis;
     }
+
+    # Proxy pass analysis modules to servlet container, update URL!
+
+    location ~ ^/(api|dhis-web-commons|dhis-web-mapping|dhis-web-visualizer|dhis-web-reporting|dhis-web-dashboard-integration) {
+      proxy_pass          http://localhost:8080;
+      proxy_redirect      off;
+      proxy_set_header    Host               $host;
+      proxy_set_header    X-Real-IP          $remote_addr;
+      proxy_set_header    X-Forwarded-For    $proxy_add_x_forwarded_for;
+      proxy_set_header    X-Forwarded-Proto  http;
+    }
+
+    # Rewrite remaining to HTTPS, update domain!
+
+    location / {
+      rewrite    ^ https://yourdomain.org$request_uri? permanent;
+    }
   }
 }
 
