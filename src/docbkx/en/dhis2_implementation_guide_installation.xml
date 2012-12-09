@@ -127,14 +127,15 @@ sudo /usr/local/nginx/sbin/nginx -s stop</screen></para>
       <para>nginx configuration is built around a hierarchy of blocks representing http, server and location, where each block inherit settings from parent blocks. The following snippet will configure nginx to proxy pass (redirect) requests from port 80 (which is the port nginx will listen on by default) to our Tomcat instance. It will also make nginx serve requests for static content such as javascript, stylesheets and images and instruct clients to cache it for 4 days which will reduce the load on Tomcat and improve overall performance. Include the following configuration in nginx.conf:</para>
       <para><screen><![CDATA[server {
   listen               80;
+  root  /home/dhis/tomcat/webapps/ROOT;
   client_max_body_size 10M; # Default 1M, change it!
 
   # Serve static content
   # Root points to your DHIS webapp location, update it!
 
   location ~ (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
-    root     /home/dhis/tomcat/webapps/ROOT;
-    expires  4d;
+    add_header  Cache-Control  public;
+    expires  7d;
   } 
 
   # Proxy pass to servlet container
@@ -172,13 +173,14 @@ server {
 
 server {
   listen               443;
+  root  /home/dhis/tomcat/webapps/ROOT;
   client_max_body_size 10M;
 
   ssl                  on;
   ssl_certificate      server.crt;
   ssl_certificate_key  server.key;
 
-  ssl_session_timeout  5m;
+  ssl_session_timeout  30m;
 
   ssl_protocols              SSLv2 SSLv3 TLSv1;
   ssl_ciphers                HIGH:!aNULL:!MD5;
@@ -187,8 +189,8 @@ server {
   # Root points to your DHIS webapp location, update it!
 
   location ~ (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
-    root     /home/dhis/tomcat/webapps/ROOT;
-    expires  4d;
+    add_header  Cache-Control  public;
+    expires  7d;
   } 
 
   location / {
@@ -200,6 +202,98 @@ server {
     proxy_set_header  X-Forwarded-Proto  https;
  }
 }]]></screen>
+    </section>
+    <section>
+      <title>Enabling caching and SSL on nginx</title>
+      <para>Requests for reports, charts, maps and other analysis-related resources will often take
+        some time to respond and might utilize a lot of server resources. In order to improve
+        response times, reduce the load on the server and hide potential server downtime we can
+        introduce a cache proxy in our server setup. However, a cache proxy cannot cache content
+        which is served over SSL/HTTPS since the content will be encrypted and the response headers
+        cannot be understood by the server. The following configuration will serve reports, data
+        visualizer, GIS and dashboard modules over HTTP while serving all other modules over
+        SSL/HTTPS. Analysis-related requests will be cached by nginx. The cached content will be
+        stored in directory /var/cache/nginx, and up to 1 GB storage will be allocated. Nginx will
+        create this directory automatically.</para>
+      <screen>http {
+  # ...
+  root              /home/dhis/tomcat/webapps/ROOT; # update path!
+  proxy_cache_path  /var/cache/nginx keys_zone=dhis:1000m;
+
+  # HTTPS server
+
+  server {
+    listen               443 ssl default_server;
+    client_max_body_size 10M;
+
+    ssl_certificate      server.crt;
+    ssl_certificate_key  server.key;
+
+    ssl_session_timeout  30m;
+
+    ssl_protocols              SSLv2 SSLv3 TLSv1;
+    ssl_ciphers                HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers  on;
+
+    # Rewrite analysis modules to HTTP, update domain!
+
+    location ~ ^/(dhis-web-mapping|dhis-web-visualizer|dhis-web-reporting|dhis-web-dashboard-integration) {
+      rewrite    ^ http://yourdomain.org$request_uri? permanent;
+    }
+
+    # Serve static content
+
+    location ~* (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
+      add_header  Cache-Control  public;
+      expires     7d;
+    }
+
+    # Proxy pass to servlet container, update URL!
+
+    location / {
+      proxy_pass          http://localhost:8080;
+      proxy_redirect      off;
+      proxy_set_header    Host               $host;
+      proxy_set_header    X-Real-IP          $remote_addr;
+      proxy_set_header    X-Forwarded-For    $proxy_add_x_forwarded_for;
+      proxy_set_header    X-Forwarded-Proto  https;
+    }
+  }
+
+  # HTTP server
+
+  server {
+    listen               80;
+    client_max_body_size 10M;
+
+    # Rewrite security and about namespace to HTTPS, update domain!
+
+    location ~ ^/(dhis-web-commons/security|dhis-web-commons-security|dhis-web-commons-about) {
+      rewrite    ^ https://yourdomain.org$request_uri? permanent;
+    }
+
+    # Serve static content
+
+    location ~* (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
+      add_header  Cache-Control  public;
+      expires     7d;
+    }
+
+    # Cache and proxy pass analysis to servlet container, update URL!
+
+    location ~ (api/(chart*|map*|reports|reportTables)|generateDataSetReport.action|exportTable.action) {
+      proxy_pass          http://localhost:8080;
+      proxy_redirect      off;
+      proxy_set_header    Host               $host;
+      proxy_set_header    X-Real-IP          $remote_addr;
+      proxy_set_header    X-Forwarded-For    $proxy_add_x_forwarded_for;
+      proxy_set_header    X-Forwarded-Proto  http;
+      proxy_cache         dhis;
+    }
+  }
+}
+
+</screen>
     </section>
     <section>
       <title>Control scripts for nginx</title>
