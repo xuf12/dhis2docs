@@ -213,12 +213,12 @@ server {
         cannot be understood by the server. The following configuration will serve reports, data
         visualizer, GIS and dashboard modules over HTTP while serving all other modules over
         SSL/HTTPS. Analysis-related requests will be cached by nginx. The cached content will be
-        stored in directory /var/cache/nginx, and up to 1 GB storage will be allocated. Nginx will
-        create this directory automatically.</para>
+        stored in directory /var/cache/nginx, and up to 250 MB of storage will be allocated. Nginx
+        will create this directory automatically.</para>
       <screen>http {
   # ...
   root              /home/dhis/tomcat/webapps/ROOT; # update path!
-  proxy_cache_path  /var/cache/nginx  keys_zone=dhis:250m  inactive=1d  levels=1:2;
+  proxy_cache_path  /var/cache/nginx  keys_zone=dhis:250m  inactive=1d;
 
   # HTTPS server
 
