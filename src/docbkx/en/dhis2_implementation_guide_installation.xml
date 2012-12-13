@@ -218,7 +218,7 @@ server {
       <screen>http {
   # ...
   root              /home/dhis/tomcat/webapps/ROOT; # update path!
-  proxy_cache_path  /var/cache/nginx  keys_zone=dhis:250m  inactive=1d;
+  proxy_cache_path  /var/cache/nginx  keys_zone=dhis:250m  inactive=1d  levels=1:2;
 
   # HTTPS server
 
