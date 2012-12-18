@@ -159,7 +159,10 @@ sudo /usr/local/nginx/sbin/nginx -s stop</screen></para>
       <para>In order to improve security it is recommended to configure the server running DHIS to communicate with clients over an encrypted connection and to identify itself to clients using a trusted certificate. This can be achieved through SSL which is an cryptographic communication protocol running on top of TCP/IP.</para>
       <para>To configure nginx to use SSL you will need a proper SSL certificate from an SSL provider. The cost of a certificate varies a lot depending on encryption strength. An affordable certificate from <ulink url="http://www.rapidsslonline.com">Rapid SSL Online</ulink> should serve most purposes. To generate the CSR (certificate signing request) you can invoke the  command below. When you are prompted for the <emphasis role="italic">Common Name</emphasis>, enter the fully qualified domain name for the site you are securing.</para>
       <screen>openssl req -new -newkey rsa:2048 -nodes -keyout server.key -out server.csr</screen>
-      <para>When you have your certificate files (.pem and .key) you will need to place them in a location which is reachable by nginx. A good location for this can be the same directory as where your nginx.conf file is located.</para>
+      <para>When you have received your certificate files (.pem or .crt) you will need to place it
+        together with the generated server.key file in a location which is reachable by nginx. A
+        good location for this can be the same directory as where your nginx.conf file is
+        located.</para>
       <para>Below is an nginx server block where the certificate files are named server.crt and server.key. Since SSL connections usually occur on port 443 (HTTPS) we pass requests on that port (443) on to the DHIS instance running on <emphasis role="italic">http://localhost:8080</emphasis> The first server block will rewrite all requests connecting to port 80 and force the use of HTTPS/SSL. This is also necessary because DHIS is using a lot of redirects internally which must be passed on to use HTTPS. Remember to replace <emphasis role="italic">&lt;server-ip&gt;</emphasis> with the  IP of your server. These blocks should replace the  one from the previous section.</para>
       <screen><![CDATA[# HTTP server - rewrite to force use of SSL
 
@@ -209,10 +212,9 @@ server {
       <para>Requests for reports, charts, maps and other analysis-related resources will often take
         some time to respond and might utilize a lot of server resources. In order to improve
         response times, reduce the load on the server and hide potential server downtime we can
-        introduce a cache proxy in our server setup. This setup will cache analysis related content
-        which typically requries the most server resources to produce. The cached content will be
-        stored in directory /var/cache/nginx, and up to 250 MB of storage will be allocated. Nginx
-        will create this directory automatically.</para>
+        introduce a cache proxy in our server setup. The cached content will be stored in directory
+        /var/cache/nginx, and up to 250 MB of storage will be allocated. Nginx will create this
+        directory automatically.</para>
       <screen>http {
   # ...
   root              /home/dhis/tomcat/webapps/ROOT; # Update path!
