@@ -248,19 +248,7 @@ server {
       expires  7d;
     } 
 
-    # Cache and proxy pass analysis related requests to servlet container
-
-    location ~ (api/(chart*|map*|reports|reportTables)|generateDataSetReport.action|exportTable.action) {
-        proxy_pass          http://localhost:8080;
-        proxy_redirect      off;
-        proxy_set_header    Host               $host;
-        proxy_set_header    X-Real-IP          $remote_addr;
-        proxy_set_header    X-Forwarded-For    $proxy_add_x_forwarded_for;
-        proxy_set_header    X-Forwarded-Proto  https;
-        proxy_cache         dhis;
-    }
-
-    # Proxy pass remaining requests to servlet container
+    # Proxy pass to servlet container and potentially cache response
 
     location / {
       proxy_pass        http://localhost:8080/;
@@ -269,6 +257,7 @@ server {
       proxy_set_header  X-Real-IP          $remote_addr;
       proxy_set_header  X-Forwarded-For    $proxy_add_x_forwarded_for;
       proxy_set_header  X-Forwarded-Proto  https;
+      proxy_cache       dhis;
     }
   }]]>
 }
