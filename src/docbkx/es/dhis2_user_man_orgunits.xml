@@ -2,70 +2,71 @@
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>Unidades organizativas</title>
-  <para>In this section you will learn how to:</para>
+  <para>En esta sección aprenderemos cómo:</para>
   <para><itemizedlist>
       <listitem>
-        <para>Create a new organisation unit and build up the organisation unit hierarchy</para>
+        <para>Crear una nueva unidad organizativa y montar la jerarquía de unidades organizativas</para>
       </listitem>
       <listitem>
-        <para>Create organisation unit groups, group sets, and assigning organisation units to them</para>
+        <para>Crear grupos de unidades organizativas, sets de grupos, y vincularlos con unidades organizativas</para>
       </listitem>
       <listitem>
-        <para>How to make changes to the organisational unit hierarchy</para>
+        <para>Realizar cambios en la jerarquía de unidades organizativas</para>
       </listitem>
     </itemizedlist></para>
   <section id="ou_hierarchy">
     <title>La jerarquía organizativa</title>
-    <para>The organisational hierarchy defines the organisation structure of the DHIS2 instance, such as how  the health facilities, administrative areas and other geographical areas are arranged with respect to each other. It is essentially the &quot;where&quot; dimension of DHIS2, similar to how periods represent the &quot;when&quot; or time dimension. DHIS2 is structured so that the organisational unit hierarchy is a geographical hierarchy, and the GIS module depends on this. Non-geographical hierarchies are discouraged, and would better to be represented through the use of organisational unit groups. This dimension to the data is defined as a hierarchy with one root unit (e.g. Ministry of Health or a country) and any number of levels and nodes below. Each node in this hierarchy is called an organisational unit in DHIS2. </para>
-    <para>The design of this hierarchy will determine the  geographical units of analysis available to the users  as data is collected and aggregated in this structure. There can only be one organisational hierarchy at the same time so its structure needs careful consideration. </para>
-    <para>Additional  hierarchies (e.g. parallel administrative boundaries to the health care sector) can be modeled using organisational groups and group sets, but the organisational hierarchy is the main vehicle for data aggregation on the geographical dimension. Typically national organisational hierarchies in public health have 4-6 levels, but any number of levels is supported. </para>
-    <para>The hierarchy is built up of parent-child relations. For instance a country  might have eight provinces, and each province again  might have a number of districts as their children. Normally the health facilities (from which data is typically collected)  will be located at the lowest level, but they can also be located at higher levels, e.g. national or provincial hospitals, so skewed organisational trees are supported (e.g. a leaf node can be positioned at level 2 while most other leaf nodes are at level 5). </para>
-    <para>Note that it is quite easy to make changes to the upper levels of the hierarchy at a later stage, the only problem is changing organisational units that collect data (the leaf nodes), e.g.  splitting or merging health facilities. Aggregation up the hierarchy is done based on the current hierarchy at any time and will always reflect the most recent changes to the organisational structure. </para>
+    <para>La jerarquía organizativa define la estructura de la instancia DHIS2, indicando cómo se relacionan entre sí establecimientos de salud, áreas administrativas y otras áreas geográficas. Es esencialmente la dimensión 'dónde' en DHIS2, similar a como los periodos representan el 'cuándo' o la dimensión tiempo. DHIS2 se estructura de tal manera que la jerarquía de unidades organizativas es también una jerarquía geográfica, y el módulo SIG depende de ello. Las jerarquías no geográficas son ignoradas, y se prefiere su representación mediante la utilización de grupos de unidades organizativas. Esta dimensión de los datos se define como una jerarquía con un nodo raíz (por ejemplo, el Ministerio de Salud del país) y varios niveles y nodos debajo. Cada nodo en esta jerarquía es lo que llamamos unidad organizativa en DHIS2.</para>
+    <para>El diseño de esta jerarquía determinará las unidades geográficas de análisis disponibles a los usuarios, a medida qeu los datos se registran y agregan siguiendo esta estructura. Solo hay una jerarquía organizativa al mismo tiempo de modo que el diseño de esta estructura requiere una atención cuidadosa. </para>
+    <para>Otras jerarquías (como límites administrativos paralelos al sector salud) pueden modelarse utilizando grupos organizativos o sets de grupos, pero la jerarquía organizativa es el principal vehículo de la agregación de datos en la dimensión geográfica. Generalmente las jerarquías organizativas nacionales en los sistemas públicos de salud tienen entre 4 y 6 niveles, aunque DHIS2 acepta cualquier número de niveles.</para>
+    <para>La jerarquía se construye on relaciones padre-hijo. Por ejemplo un país puede tener 8 provincias, y cada provincia de nuevo tener varios distritos como 'hijos'. Normalmente los establecimientos de salud (donde se registran los datos) se encuentran en el nivel más bajo, pero también pueden estar ubicados en niveles superiores, por ejemplo hospitales nacionales o provinciales, de modo que puede haber árboles organizativos truncados (donde un nodo hoja puede estar ubicado en el nivel 2 mientras todos los demás están en el nivel 5). </para>
+    <para>Notemos que es bastante fácil realizar cambios en los niveles superiores de la jerarquía posteriormente, el único problema es cambiar las unidades organizativas que registran los datos (los nodos hoja), por ejemplo dividiendo o fusionando establecimientos de salud. La agregación hacia arriba en la jerarquía puede hacerse en base a la jerarquía actual en cualquier momento y siempre reflejará los cambios más recientes de la estructura organizativa.</para>
     <important>
-      <para>Because the most recent information which is contained in the organisational unit hierarchy is always used for aggregation, it is important to keep in mind that changes to it (such as the division of districts into two separate districts) will not be respected over time. As an example, District A may be sub-divided into District B and District C. This is a process which often happens for political reasons. Facilities which belong to District A would need to be reassigned to District B and C. However, any historical data, which was entered before the split actually occurred, would still be registered as belonging to District B and C and not the defunct District A. This temporal representation of the organisational hierarchy across time will be lost. </para>
+      <para>Dado que la información más reciente que está contenida en la jerarquía de unidades organizativa es siempre utilizada para agregado, es importante tener en cuenta que los cambios ahí (tales como la división de distritos en subdistritos) no se respetará posteriormente. Por ejemplo, si el Distrito A se subdivide en Distrito B y Distrito C. Este es un proceso que en ocasiones sucede por razones políticas. Los establecimientos que pertenecen al distrito A necesitarán ser reasignados a los distritos B y C según corresponda. Sin embargo, cualquier dato histórico, que se haya introducido antes de que la división ocurra, todavía quedará registrado como perteneciente a los distritos B y C y no al extinto distrito A. Esta representación temporal de la jerarquía organizativa en el tiempo se perderá.</para>
     </important>
   </section>
   <section>
     <title>Mantenimiento de la unidad organizativa</title>
     <section id="orgunit">
       <title>Unidades organizativas</title>
-      <para>This is where you can create organisation units (from now on referred to as orgunits) and build up the orgunit hierarchy. Orgunits are added one by one as either root unit or a child of a selected unit. The left side menu represents the current organisational hierarchy and if you select a unit there you will see its children listed in the main list of orgunits in the middle of the screen. When an orgunit is selected in the left side menu you can also add new child units to it. To locate an orgunit in the hierarchy you can either navigate through the tree by expanding the branches (click on the + symbol), or search for it by opening the search field (click the green symbol above the root of the hierarchy). In search you can either search for the orgunit name or its code, both will only show exact matches (case-insensitive). To add a new orgunit first select its parent and then click on the Add new button in the top right corner of the list of orgunits. To add a new root orgunit make sure no orgunit is selected in the menu and click on &quot;Add new&quot;. The details of adding a new orgunit are explained in <xref linkend="editOrganisationalUnits"/>.</para>
+      <para>
+        This is where you can create organisation units (from now on referred to as orgunits) and build up the orgunit hierarchy. Orgunits are added one by one as either root unit or a child of a selected unit. The left side menu represents the current organisational hierarchy and if you select a unit there you will see its children listed in the main list of orgunits in the middle of the screen. When an orgunit is selected in the left side menu you can also add new child units to it. To locate an orgunit in the hierarchy you can either navigate through the tree by expanding the branches (click on the + symbol), or search for it by opening the search field (click the green symbol above the root of the hierarchy). In search you can either search for the orgunit name or its code, both will only show exact matches (case-insensitive). To add a new orgunit first select its parent and then click on the Add new button in the top right corner of the list of orgunits. To add a new root orgunit make sure no orgunit is selected in the menu and click on &quot;Add new&quot;. The details of adding a new orgunit are explained in <xref linkend="editOrganisationalUnits"/>.</para>
       <section id="ou_edit">
-        <title id="editOrganisationalUnits">Editing organisation units</title>
+        <title id="editOrganisationalUnits">Editando unidades organizativas</title>
         <para>To edit the properties of an existing orgunit first select its parent (if any) in the left side menu, then locate the orgunit in the listed orgunits, and finally click on the &quot;Edit&quot; <inlinegraphic fileref="resources/images/dhis2_images/edit.png" align="center"/> button next to the  name of the orgunit that you want to modify.  The following properties can be defined in the Edit (or Create new) window:</para>
         <itemizedlist>
           <listitem>
-            <para>Name: Define the precise name of the orgunit in this field. Each orgunit must have a unique name. </para>
+            <para>Nombre: Define the precise name of the orgunit in this field. Each orgunit must have a unique name. </para>
           </listitem>
           <listitem>
-            <para>Short name: Typically, an abbreviation of the full name. This attribute is often used in reports to display the name of the orgunit, where there is limited space available. </para>
+            <para>Nombre corto: Typically, an abbreviation of the full name. This attribute is often used in reports to display the name of the orgunit, where there is limited space available. </para>
           </listitem>
           <listitem>
-            <para>Code: In many countries, orgunits are assigned a code. This code can be entered in this field. </para>
+            <para>Código: In many countries, orgunits are assigned a code. This code can be entered in this field. </para>
           </listitem>
           <listitem>
-            <para>Opening date: Used to control which orgunits that where existing  at a point in time, e.g. when analysing historical data. This attribute is required. The default date for opening of organisation units is 1900-01-01, but can be set to any date (even dates which occur in the future).</para>
+            <para>Fecha de apertura: Used to control which orgunits that where existing  at a point in time, e.g. when analysing historical data. This attribute is required. The default date for opening of organisation units is 1900-01-01, but can be set to any date (even dates which occur in the future).</para>
           </listitem>
           <listitem>
-            <para>Registers data: This property is used to identify which orgunits that can register data or not. Sometimes administrative orgunits at higher levels in the hierarchy are not supposed to register any data. This can help control the data entry process as only orgunits with this property set to Yes will be available for data entry.  </para>
+            <para>Registra datos: This property is used to identify which orgunits that can register data or not. Sometimes administrative orgunits at higher levels in the hierarchy are not supposed to register any data. This can help control the data entry process as only orgunits with this property set to Yes will be available for data entry.  </para>
           </listitem>
           <listitem>
-            <para>Comment: Any additional information that you would like to add can be put here. </para>
+            <para>Comentarios: Any additional information that you would like to add can be put here. </para>
           </listitem>
           <listitem>
-            <para>Coordinates: This field is used to create the maps in the GIS module. Paste in the coordinates of the orgunit in this field, either a polygon (for orgunits that represent an administrative boundary) or a point (for health facilities). Without this information the GIS module will not work. It might be more efficient to import these coordinates later as a batch job for all orgunits using the import module. See the GIS chapter for more details.</para>
+            <para>Coordenadas: This field is used to create the maps in the GIS module. Paste in the coordinates of the orgunit in this field, either a polygon (for orgunits that represent an administrative boundary) or a point (for health facilities). Without this information the GIS module will not work. It might be more efficient to import these coordinates later as a batch job for all orgunits using the import module. See the GIS chapter for more details.</para>
           </listitem>
           <listitem>
             <para>URL: You can use this field to insert a URL link to an external web site that has additional information about this specific orgunit.</para>
           </listitem>
           <listitem>
-            <para>Contact information: A contact person, address, email, and phone number can be entered in these fields. This information can be vital for facilitating follow-up.</para>
+            <para>Información de contacto: A contact person, address, email, and phone number can be entered in these fields. This information can be vital for facilitating follow-up.</para>
           </listitem>
           <listitem>
-            <para>Datasets: Datasets can be assigned to organisational units here. See the chapter on &quot;Data sets&quot; for more detailed information on assigning datasets to organisational units. </para>
+            <para>Sets de datos: Datasets can be assigned to organisational units here. See the chapter on &quot;Data sets&quot; for more detailed information on assigning datasets to organisational units. </para>
           </listitem>
           <listitem>
-            <para>Organisation unit groups: Assignments to organisational units group sets can be assigned through the individual drop-down boxes which appear for each group set.</para>
+            <para>Grupos de unidades organizativas: Assignments to organisational units group sets can be assigned through the individual drop-down boxes which appear for each group set.</para>
           </listitem>
         </itemizedlist>
       </section>

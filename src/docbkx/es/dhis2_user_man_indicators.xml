@@ -1,8 +1,8 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <chapter>
-  <title>Indicators</title>
-  <para>When the ‘Data Elements and Indicators’ options is chosen from the main Maintenance menu, the following screen appears:</para>
+  <title>Indicadores</title>
+  <para>Cuando elegimos la opción 'Elementos de datos e Indicadores' del menú de Mantenimiento, aparece la pantalla siguiente:</para>
   <screenshot>
     <mediaobject>
       <imageobject>
@@ -10,13 +10,13 @@
       </imageobject>
     </mediaobject>
   </screenshot>
-  <para>From the left side menu or by scrolling down the central area you can access the various sections on Indicators; </para>
-  <para>Indicator, Indicator Type, Indicator Group, Indicator Group Editor, and Indicator Group Set. </para>
+  <para>En el menú lateral izquierdo o más abajo en la zona central podemos acceder a las diversas secciones de Indicadores;</para>
+  <para>Indicador, Tipo de indicador, Grupo de indicadores, Editor de grupos de indicadores, y Set de grupos de indicadores.</para>
   <section>
-    <title>Indicator maintenance</title>
+    <title>Mantenimiento de indicadores</title>
     <para>Indicator maintenance functions essentially the same as each of the respective sections in the previous section on data elements. The basic operations will be described in this section, but the reader should  refer to the corresponding sections above for detailed instructions. </para>
     <section id="indicator">
-      <title>Indicators</title>
+      <title>Indicadores</title>
       <para>Indicators are composed of multiple data elements, and typically consist of a numerator and denominator. Indicators are never entered in DHIS2, but are derived from combinations of data elements and factors. Indicators are used to calculate coverage rates, incidence and other values are are a result of data element values that have been entered into the system. </para>
       <para>To access the Indicator maintains page, press Maintenance -&gt; Data Element and Indicators -&gt; Indicator from the main DHIS2 menu. Similar to data elements, you can add, delete, modify and view extra information about the indicators in the system. </para>
       <screenshot>
@@ -107,7 +107,7 @@
       </orderedlist>
     </section>
     <section id="indicatorType">
-      <title>Indicator types</title>
+      <title>Tipos de indicadores</title>
       <para>Indicator types simply define a factor that will be applied during aggregation. Indicator values that are calculate during a data mart export or report table generation process will appear properly formatted, and will therefore not require an additional multiplier (e.g. 100 in the case of percents) for the values to appear correctly formatted. </para>
       <para>The indicator type maintenance panel has all of the same functions (Add new, Edit, Translate, Delete, and Information) as the Indicator maintenance section. </para>
       <para>There are only two fields that need to be filled-in to create an indicator type, Name and Factor, as seen below. Name refers to the Indicator type (e.g. Per cent, Per thousand, Per ten thousand, etc). The factor is the numeric factor that will be applied during the calculation of the indicator. </para>
@@ -123,15 +123,15 @@
       </note>
     </section>
     <section id="indicatorGroup">
-      <title>Indicator groups</title>
+      <title>Grupos de indicadores</title>
       <para>Indicator groups function essentially the same as data element groups. Multiple indicators can be assigned to a group for easy filtering and analysis. To assign indicators to groups, simple press Maintenance-&gt;Data elements and indicators-&gt;Indicator groups.  See the section on Data element groups for detailed instructions of how to use this module. </para>
     </section>
     <section id="indicatorGroupEditor">
-      <title>Indicator group editor</title>
+      <title>Editor de grupos de indicadores</title>
       <para>The indicator group editor module functions essentially the same as the data element group editor module, except on indicators. You can easily rearrange the groups that indicators belong to with this module. To access it, choose To assign indicators to groups, simple press Maintenance-&gt;Data elements and indicators-&gt;Indicator group editor from the main menu. See the section on Data element group editor for further instructions. </para>
     </section>
     <section id="indicatorGroupSet">
-      <title>Indicator group sets</title>
+      <title>Sets de grupos de indicadores</title>
       <para>Similar to data element group sets, indicator group sets serve to create combined groups of similar indicators. For instance, you might have a group of indicators called &quot;Malaria&quot; and &quot;Leishmaniasis&quot;. Both of these groups could be combined into a group set called &quot;Vector-borne diseases&quot;. Indicator groups sets are used during analysis of data to combine similar themes of indicators. To access this module choose Maintenance-&gt;Data elements and indicators-&gt;Indicator group sets from the main menu. The following dialogue will appear. </para>
       <screenshot>
         <mediaobject>

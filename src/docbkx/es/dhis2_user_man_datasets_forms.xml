@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.5/docbookx.dtd" []>
 <chapter>
-  <title>Datasets and data entry forms</title>
+  <title>Sets de datos y formularios de entrada de datos</title>
   <section id="datasets">
-    <title>Datasets</title>
+    <title>Sets de datos</title>
     <para>All data entry in DHIS2 is organised through the use of datasets. You can add and edit datasets in Maintenance-&gt;Datasets. A dataset is a collection of data elements grouped together for data collection and data export between instances of DHIS2 (e.g. from a district office local installation to a national server). .</para>
     <para>A dataset also has a frequency which controls the data collection frequency, which can be daily, weekly, monthly, quarterly, six-monthly, or yearly. Both which data elements to include in the dataset and the frequency is set in the Add/Edit Dataset window, together with a name, short name, and code. In order to use a dataset to collect data for a specific orgunit you must assign the orgunit to the dataset, and this mechanism controls which orgunits that can use which datasets. </para>
     <para>Datasets also are assigned to specific organisation units which will be allowed to enter data for all data elements in a given dataset. You can assign orgunits to a dataset in the Dataset Management (list of available datasets are shown) by clicking on the blue folder icon, the first icon under Operations, corresponding to the dataset you would like to modify. Alternatively you can manage orgunit assignments for all datasets together in the Dataset Assignment Editor (available in the right-side menu for Datasets). </para>
     <para>Your dataset will then be ready to be used in Services-&gt;Data Entry for the orgunits that you have assigned and for periods according to your selected frequency (period type).</para>
     <section id="dataSet">
-      <title>Dataset management</title>
+      <title>Gestión de sets de datos</title>
       <para>The dataset management function allows you to create new datasets and manage existing ones. The dialog can be reached by choosing Maintenance-&gt;Datasets-&gt;Dataset. A sample dialog is displayed below.</para>
       <screenshot>
         <mediaobject>
@@ -54,7 +54,7 @@
     </section>
   </section>
   <section>
-    <title>Data Entry Forms</title>
+    <title>Formularios de entrada de datos</title>
     <para>Once you have assigned a dataset to an orgunit that dataset will be made available in Data Entry (under Services) for the orgunits you have assigned it to. A default data entry form will then be shown, which is simply a list of the data elements you belonging to the dataset together with a column for inputting the values. If your dataset contains data elements with a non-default categorycombination, such as age groups or gender then additional columns will be automatically generated in the default form based on the different options/dimensions. </para>
     <para>If you use more than one dataelement category combination you will get multiple columns in the data entry form with different column headings for the options. In addition to the default list-based data entry form there are two more alternatives, the section-based form and the custom form.</para>
     <section>
