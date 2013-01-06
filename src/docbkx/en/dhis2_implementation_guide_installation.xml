@@ -49,7 +49,7 @@ sudo apt-get update</screen>
     <para>and set the following properties:</para>
     <para><code>shared_buffers = 512MB</code></para>
     <para>Determines how much memory PostgreSQL can use for caching of query data. Is set too low by default since it depends on kernel shared memory which is low on some operating systems.</para>
-    <para><code>work_mem = 12MB</code></para>
+    <para><code>work_mem = 10MB</code></para>
     <para>Determines the amount of memory used for internal sort and hash operations.</para>
     <para><code>maintenance_work_mem = 128MB</code></para>
     <para>Determines the amount of memory PostgreSQL can use for maintenance operations such as creating indexes, running vacuum, adding foreign keys. Incresing this value might improve performance of index creation during the data mart process.</para>
@@ -84,7 +84,7 @@ hibernate.hbm2ddl.auto = update</screen></para>
     <para>Clear the pre-installed web applications by invoking <code>rm -rf webapps/*</code> Download the latest DHIS 2 WAR file from <emphasis role="italic">http://dhis2.org/download</emphasis>, move it to the <emphasis role="italic">webapps</emphasis> directory and rename it to <emphasis role="italic">ROOT.war</emphasis></para>
     <para>Create a  file <emphasis role="italic">bin/setenv.sh</emphasis> and add the lines below. The first will set the location of your Java Runtime Environment, the second will dedicate memory to Tomcat and the third will set the location for where DHIS 2 will search for the <emphasis role="italic">hibernate.properties</emphasis> configuration file. Please check that the path to the JDK location is correct. Note that you should adjust this to your environment:</para>
     <para><screen>export JAVA_HOME=&apos;/usr/lib/jvm/java-7-openjdk&apos;
-export JAVA_OPTS=&apos;-Xmx6000m -Xms3000m -XX:MaxPermSize=800m -XX:PermSize=400m&apos;
+export JAVA_OPTS=&apos;-Xmx6000m -Xms3000m -XX:MaxPermSize=500m -XX:PermSize=300m&apos;
 export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
     <para>If you need to change the <emphasis role="italic">port</emphasis> of which Tomcat listens for requests you can open the Tomcat configuration file <emphasis role="italic">/conf/server.xml</emphasis>, locate the <emphasis role="italic">&lt;Connector&gt;</emphasis> element which is not commented out and change the <emphasis role="italic">port</emphasis> attribute value to the desired port number.</para>
     <para>To monitor the behavior of Tomcat the log is the primary source of information. The log can be easily viewed with the command <code>tail -f logs/catalina.out</code></para>
@@ -111,9 +111,9 @@ export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
       <title>Basic setup for nginx</title>
       <para>We recommend using nginx  (http://wiki.nginx.org) as reverse proxy due to its low memory footprint and ease of use. To get the latest version we recommend installing from source:</para>
       <screen>sudo apt-get install make gcc libpcre3 libpcre3-dev zlibc zlib1g zlib1g-dev libssl-dev openssl</screen>
-      <para><screen>wget http://nginx.org/download/nginx-1.2.4.tar.gz
-tar xzvf nginx-1.2.4.tar.gz
-cd nginx-1.2.4
+      <para><screen>wget http://nginx.org/download/nginx-1.2.6.tar.gz
+tar xzvf nginx-1.2.6.tar.gz
+cd nginx-1.2.6
 ./configure --with-http_ssl_module
 make
 sudo make install
