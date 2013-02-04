@@ -111,6 +111,69 @@
     </table>
   </section>
   <section>
+    <title>Browsing the Web API</title>
+    <para>The entry point for browsing the Web API is <emphasis role="italic"
+        >/api/resources</emphasis>. This resource provide links to all available resources. Four
+      resouce representation formats are consistently available for all resources: HTML, XML, JSON
+      and JSONP. Some resources will have other formats available, like MS Excel, PDF, CSV and PNG.
+      To explore the API from a web browser, navigate to the <emphasis role="italic"
+        >/api/resources</emphasis> entry point and follow the links to your desired resource, for
+      instance <emphasis role="italic">/api/resources/dataElements</emphasis>. For all resources
+      which return a list of elements certain query parameters can be used to modify the
+      response:</para>
+    <para>
+      <table frame="all">
+        <title>Query parameters</title>
+        <tgroup cols="4">
+          <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+          <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+          <colspec colname="c3" colnum="3" colwidth="1.0*"/>
+          <colspec colname="c4" colnum="4" colwidth="1.0*"/>
+          <thead>
+            <row>
+              <entry>Param</entry>
+              <entry>Option values</entry>
+              <entry>Default option</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>viewClass</entry>
+              <entry>basic | export | detailed </entry>
+              <entry>basic</entry>
+              <entry>Defines how much information to display for each element.</entry>
+            </row>
+            <row>
+              <entry>links</entry>
+              <entry>true | false</entry>
+              <entry>true</entry>
+              <entry>Indicates whether to include links to relevant elements.</entry>
+            </row>
+            <row>
+              <entry>paging</entry>
+              <entry>true | false</entry>
+              <entry>true</entry>
+              <entry>Indicates whether to return lists of elements in pages.</entry>
+            </row>
+            <row>
+              <entry>page</entry>
+              <entry>number</entry>
+              <entry>1</entry>
+              <entry>Defines which page number to return.</entry>
+            </row>
+            <row>
+              <entry>pageSize</entry>
+              <entry>number</entry>
+              <entry>50</entry>
+              <entry>Defines the number of elements to return for each page.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </para>
+  </section>
+  <section>
     <title>Working with the meta-data API</title>
     <para>With the release of 2.9, a special entry point for meta-data was added in the API, this
       can be accessed through <emphasis role="bold">/api/metaData</emphasis>. This section will give
