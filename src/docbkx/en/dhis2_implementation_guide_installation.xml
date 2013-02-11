@@ -131,7 +131,7 @@ sudo /usr/local/nginx/sbin/nginx -s stop</screen></para>
 
   # Serve static content
 
-  location ~ (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
+  location ~ (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|\.ico$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
     add_header  Cache-Control  public;
     expires  7d;
   } 
@@ -189,7 +189,7 @@ server {
 
   # Serve static content
 
-  location ~ (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
+  location ~ (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|\.ico$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
     add_header  Cache-Control  public;
     expires  7d;
   } 
@@ -244,7 +244,7 @@ server {
 
     # Serve static content
 
-    location ~ (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
+    location ~ (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|\.ico$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
       add_header  Cache-Control  public;
       expires  7d;
     } 
