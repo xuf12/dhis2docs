@@ -892,6 +892,9 @@ The plan (expected visits for the upcoming period) will typically be a mix of re
               <para>After filling and selecting data for a form. You have to click on <emphasis>Run validation</emphasis> button to check whether your inputs are valid. Then, click on <emphasis>Complete</emphasis> button to finish the entry.</para>
             </listitem>
           </orderedlist>
+          <note>
+            <para>You can see/post comments for each event into case entry form.</para>
+          </note>
         </section>
         <section id="single_event_with_registration">
           <title>Single event with registration</title>
@@ -962,30 +965,32 @@ The plan (expected visits for the upcoming period) will typically be a mix of re
           <para>The color highlight the status of the stages -</para>
           <itemizedlist>
             <listitem>
-              <para>PURPLE: Data entered and uncompleted stages.</para>
+              <para>PURPLE - Data entered and uncompleted stages.</para>
             </listitem>
             <listitem>
-              <para>RED: Stages open but no data entered while the date estimated for closing/completing is over.</para>
+              <para>RED - Stages open but no data entered while the date estimated for closing/completing is over.</para>
             </listitem>
             <listitem>
-              <para>YELLOW: Coming stages.</para>
+              <para>YELLOW - Coming stages.</para>
             </listitem>
             <listitem>
-              <para>GREEN: Compete stages.</para>
+              <para>GREEN- Compete stages.</para>
             </listitem>
             <listitem>
-              <para>GREY: Skipped stages.</para>
+              <para>GREY - Skipped stages.</para>
             </listitem>
           </itemizedlist>
         </section>
         <section>
           <title>Tabular report</title>
           <para>This is  an interactive reporting tool for tracker-data using tabular presentation with dynamic filters for each person attribute/data element.</para>
+          <para>There are two types of reports. The first one is case-based report.
+It supports to filter events by each person attributes and data elements. The second one is aggregate report. It allows for aggregation on simple filters annd dynamic updates to report view based on changes to filters.</para>
           <para>To access the tabular report function, from the <emphasis role="italic">Services</emphasis> menu, go to the <emphasis role="italic">Individual Records</emphasis> option and click on it. Select <emphasis role="italic">Tabular report</emphasis> option below Reports header on left menu to proceed. </para>
-          <para>To start, the first step is to select a program in the list. Follow these steps:</para>
+          <para>To start a case-based report, the first step is to select a program in the list. Follow these steps -</para>
           <orderedlist>
             <listitem>
-              <para>Select a program from list in the left panel. The system will be load person attributes and identifiers which belongs to the selected program and not belong to any program.</para>
+              <para>Select a program from list in the left panel. The system will be load data elements which belongs to the selected program.</para>
             </listitem>
             <listitem>
               <para>Choose start-date and end-date. The event list is loaded with report-date between the two dates.</para>
@@ -994,10 +999,7 @@ The plan (expected visits for the upcoming period) will typically be a mix of re
               <para>Select one or many <emphasis role="italic">organisation units</emphasis>.</para>
             </listitem>
             <listitem>
-              <para>In <emphasis role="italic">Identifiers and Attribute</emphasis>s tab, select options  to show it into the result.</para>
-            </listitem>
-            <listitem>
-              <para>In <emphasis role="italic">Data element </emphasis>tab, Select a <emphasis role="italic">program stage</emphasis>. Double-click data elements which you need to show into the result to move it from <emphasis role="italic">Available</emphasis>field to the <emphasis role="italic">Selected</emphasis> field</para>
+              <para>In <emphasis role="italic">Data element </emphasis>tab, Select a <emphasis role="italic">program stage</emphasis>. Double-click data elements which you need to show into the result to move it from <emphasis role="italic">Available</emphasis>field to the <emphasis role="italic">Selected</emphasis> field. Enter filter values for each data elements which you want into the fields below.</para>
               <note>
                 <para>If the selected program has only one stage, this field is hidden and data element list of the stage is shown in the <emphasis role="italic">Available</emphasis> field.</para>
               </note>
@@ -1009,9 +1011,9 @@ The plan (expected visits for the upcoming period) will typically be a mix of re
           <itemizedlist>
             <listitem>
               <para><emphasis role="italic">Use data from level(s)</emphasis>: Specify the level which you need to get events -</para>
-              <para>1)<emphasis role="italic"> Children only</emphasis>: Individual data from the children of the selected organisation unit will be aggregated.</para>
-              <para>2) <emphasis role="italic">Selected</emphasis>: Individual data from the selected organisation unit will be aggregated. </para>
-              <para>3) <emphasis role="italic">All</emphasis>: Individual data from both selected organisation unit and its children will be aggregated.</para>
+              <para>1)<emphasis role="italic"> Children only</emphasis>: Individual data will be aggregated from the children of the selected organisation unit.</para>
+              <para>2) <emphasis role="italic">Selected</emphasis>: Individual data will be aggregated from the selected organisation unit. </para>
+              <para>3) <emphasis role="italic">All</emphasis>: Individual data will be aggregated from both selected organisation unit and its children .</para>
             </listitem>
             <listitem>
               <para><emphasis role="italic">Show hierarchy from level:</emphasis> The level of  organisation units which you want to show. E.g. If an event  belongs to an organisation unit  in district level and this option is selected as province level, the result is shown with the name of province.</para>
@@ -1029,22 +1031,108 @@ The plan (expected visits for the upcoming period) will typically be a mix of re
               </screenshot>
             </listitem>
           </orderedlist>
-          <para>To filter data by person attributes, identifiers or data elements, click on the DOWN button on the column corresponding to field which you want to filter. Click <emphasis role="italic">Filter</emphasis> button and enter value in the field shown.</para>
+          <para>To start a aggregate report, the first step is to select a program in the list. Follow these steps:</para>
+          <orderedlist>
+            <listitem>
+              <para>Select a program from list in the left panel. The system will be load data elements which belongs to the selected program.</para>
+            </listitem>
+            <listitem>
+              <para>Select date period ranges  / relative periods / fixed periods in corresponding tab.</para>
+            </listitem>
+            <listitem>
+              <para>Select one or many <emphasis role="italic">organisation units</emphasis> by clicking on the hierachy organisation tree or check on <emphasis role="italic">User organisation unit</emphasis> / <emphasis role="italic">User organisation unit chilren</emphasis> checkboxes. Besides, you can also select a group in list and system will load all organisation units which belong to the selected one.</para>
+            </listitem>
+            <listitem>
+              <para>In <emphasis role="italic">Data filters </emphasis>tab, Select a <emphasis role="italic">program stage</emphasis>. Double-click data elements which you need to show into the result to move it from <emphasis role="italic">Available</emphasis>field to the <emphasis role="italic">Selected</emphasis> field</para>
+              <note>
+                <para>If the selected program has only one stage, this field is hidden and data element list of the stage is shown in the <emphasis role="italic">Available</emphasis> field.</para>
+              </note>
+            </listitem>
+            <listitem>
+              <para>In the Options tab, there are  options as follows -</para>
+              <para>1) <emphasis role="italic"> Position</emphasis> - Select positions for organisation unit, period and data. The system supports ten positions as follows - </para>
+              <para><itemizedlist>
+                  <listitem>
+                    <para>Organisation unit: Rows; Period: Rows; Data: Filters </para>
+                  </listitem>
+                  <listitem>
+                    <para>Organisation unit: Rows; Period: Columns; Data: Filters </para>
+                  </listitem>
+                  <listitem>
+                    <para>Organisation unit: Rows; Period: Filters; Data: Filters</para>
+                  </listitem>
+                  <listitem>
+                    <para>Organisation unit: Rows; Period: Filters; Data: Columns</para>
+                  </listitem>
+                  <listitem>
+                    <para>Organisation unit: Columns; Period: Rows; Data: Filters</para>
+                  </listitem>
+                  <listitem>
+                    <para>Organisation unit: Columns; Period: Filters; Data: Rows</para>
+                  </listitem>
+                  <listitem>
+                    <para>Organisation unit: Filters; Period: Rows; Data: Filters</para>
+                  </listitem>
+                  <listitem>
+                    <para>Organisation unit: Filters; Period: Rows; Data: Columns</para>
+                  </listitem>
+                  <listitem>
+                    <para>Organisation unit: Filters; Period: Columns; Data: Rows</para>
+                  </listitem>
+                  <listitem>
+                    <para>Organisation unit: Filters; Period: Filters; Data: Rows</para>
+                  </listitem>
+                </itemizedlist></para>
+              <para>2) <emphasis role="italic">Aggregate type</emphasis> - Have three options. The first one is used for calculating number of events which satisfy the fitlers. The others are used for calculating sum/average data values of the select data element in <emphasis role="italic">Sum/Avg of </emphasis>option.</para>
+              <para>3) <emphasis role="italic">Sum/Avg of </emphasis>- Select a number data element in list to calculate sum/avg data values of its if aggregate type option is sum or avg.</para>
+              <para>4) <emphasis role="italic">Use completed events</emphasis> - Check it if you want to get only completed events.</para>
+              <para>5) <emphasis role="italic">Use data from level(s) </emphasis>-  Specify the level which you need to get events. If the option is <emphasis role="italic">Children only</emphasis>, individual data will be aggregated from the children of the selected organisation unit. If the option is <emphasis role="italic">Selected</emphasis>, individual data  will be aggregated from the selected organisation unit. If the option is <emphasis role="italic">All</emphasis>, individual data will be aggregated  from both selected organisation unit and its children.</para>
+              <para>6) <emphasis role="italic">Group by</emphasis> - Group the result by data values of the selected data element.</para>
+              <para>7) <emphasis role="italic">Limit records</emphasis> - Limit number of records in result returned.</para>
+              <screenshot>
+                <mediaobject>
+                  <imageobject>
+                    <imagedata width="80%" align="center" fileref="resources/images/patients_programs/aggregate_tabular_report.png" format="PNG"/>
+                  </imageobject>
+                </mediaobject>
+              </screenshot>
+            </listitem>
+          </orderedlist>
+          <para>To save parameters on the left panel, click <emphasis role="italic">Favorites</emphasis> button on toolbar. The select <emphasis role="italic">Manage favorites</emphasis> option. A form is shown to enter name for favorite and click <emphasis role="italic">Save</emphasis> button.</para>
+          <para>To export the result to excel file, click <emphasis role="italic">Download</emphasis> button, select  XLS option. For the aggregate report, the system supports more two types of file as PDF and CSV.</para>
+        </section>
+        <section>
+          <title>Statistical Program</title>
+          <para>The tool provides a tool for generating a statistical report by program.</para>
+          <para>To access <emphasis role="italic">Statistical Program</emphasis> module, from the <emphasis role="italic">Services</emphasis> menu, go to the <emphasis role="italic">Individual Records </emphasis>option. Select <emphasis role="italic">Statistical Program </emphasis>option on left menu. Statistical program report is opened. </para>
+          <para>To get statistical report for a program, please do as follows -</para>
+          <orderedlist>
+            <listitem>
+              <para>Select a program in list. </para>
+            </listitem>
+            <listitem>
+              <para>Select <emphasis role="italic">start-date</emphasis> and <emphasis role="italic">end-date</emphasis>. The system will aggregate events which have the enrollment dates are between these dates.</para>
+            </listitem>
+            <listitem>
+              <para><emphasis role="italic">Use data from level(s) </emphasis>-  Specify the level which you need to get events. If  the option is <emphasis role="italic">Children only</emphasis>, individual data will be aggregated from the children of the selected organisation unit. If the option is <emphasis role="italic">Selected</emphasis>, individual data  will be aggregated from the selected organisation unit. If the option is <emphasis role="italic">All</emphasis>, individual data will be aggregated  from both selected organisation unit and its children.</para>
+            </listitem>
+            <listitem>
+              <para>Click <emphasis role="italic">Generate</emphasis> button to generate report. The result is displayed below. And click Export XLS button to export the result to excel file.</para>
+            </listitem>
+          </orderedlist>
           <screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata width="70%" fileref="resources/images/patients_programs/tabular_report_filter.png" format="PNG"/>
+                <imagedata width="80%" align="center" fileref="resources/images/patients_programs/statistical_program_summary_report.png" format="PNG"/>
               </imageobject>
             </mediaobject>
           </screenshot>
-          <para>To clear filter values, click <emphasis role="italic">Clear filter</emphasis> button on toolbar.</para>
-          <para>To save parameters on the left panel, click <emphasis role="italic">Favorites</emphasis> button on toolbar. The select <emphasis role="italic">Manage favorites</emphasis> option. A form is shown to enter name for favorite and click <emphasis role="italic">Save</emphasis> button.</para>
-          <para>To export the result to excel file, click <emphasis role="italic">Download</emphasis> button, select  XLS option.</para>
         </section>
       </section>
       <section id="run_case_aggregation">
         <title>Manual person aggregation</title>
-        <para>The <emphasis role="italic">Manual person Aggregation</emphasis> module is used for aggregating individual data and import into aggregated data element. To open <emphasis>Manual person aggregation</emphasis> module, from the <emphasis role="italic">Services</emphasis> menu, go to the <emphasis role="italic">Individual Records</emphasis> option. Select <emphasis role="italic">Manual Person Aggregation</emphasis> option on left menu.  <emphasis>Manual person aggregation form</emphasis> is opened as below -</para>
+        <para>The <emphasis role="italic">Manual person Aggregation</emphasis> module is used for aggregating individual data and import into aggregated data element. </para>
+        <para>To access <emphasis>Manual person aggregation</emphasis> module, from the <emphasis role="italic">Services</emphasis> menu, go to the <emphasis role="italic">Individual Records</emphasis> option. Select <emphasis role="italic">Manual Person Aggregation</emphasis> option on left menu.  <emphasis>Manual person aggregation form</emphasis> is opened as below -</para>
         <screenshot>
           <mediaobject>
             <imageobject>
@@ -1062,9 +1150,9 @@ The plan (expected visits for the upcoming period) will typically be a mix of re
           </listitem>
           <listitem>
             <para>Select <emphasis role="italic">organisation unit level</emphasis> where person data will be select to aggregate. There are 3 options - </para>
-            <para>- <emphasis role="italic">All</emphasis>: Individual data from both selected organisation unit and its children will be aggregated.</para>
-            <para>- <emphasis role="italic">Children only</emphasis>: Individual data from the children of  the selected organisation unit will be aggregated.</para>
-            <para>- <emphasis role="italic"> Selected</emphasis>: Individual  data from the selected organisation unit will be aggregated. </para>
+            <para>- <emphasis role="italic">All</emphasis>: Individual data  will be aggregated from both selected organisation unit and its children.</para>
+            <para>- <emphasis role="italic">Children only</emphasis>: Individual data will be aggregated from the children of  the selected organisation unit .</para>
+            <para>- <emphasis role="italic"> Selected</emphasis>: Individual  data will be aggregated from the selected organisation unit. </para>
           </listitem>
           <listitem>
             <para>Click on the 
