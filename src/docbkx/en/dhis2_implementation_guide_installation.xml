@@ -27,9 +27,7 @@ net.core.wmem_max = 8388608</screen>
     <para>Make the changes take effect by invoking <code>sudo sysctl -p</code></para>
     <para><emphasis role="bold">Install Java</emphasis></para>
     <para>Install Java by invoking the following:</para>
-    <screen>sudo apt-get install openjdk-7-jdk
-
-sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-7-openjdk/bin/java 1</screen>
+    <screen>sudo apt-get install openjdk-7-jdk</screen>
     <para>Please check that the path the Java binaries are correct as they might vary from system to system, e.g. on AMD systems you might see <emphasis role="italic">../java-7-openjdk-amd64/..</emphasis> Check that your installation is okay by invoking <code>java -version</code></para>
     <para><emphasis role="bold">Install PostgreSQL</emphasis></para>
     <para>To install PostgreSQL version 9.2 we first need to add a Ubuntu package repository to our system.</para>

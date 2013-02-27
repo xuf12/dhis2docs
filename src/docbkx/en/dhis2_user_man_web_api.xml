@@ -284,7 +284,7 @@
       retrieved.<screen>curl -H &quot;Accept: application/xml&quot; -u user:pass {HOST}/api/metaData?lastUpdated=02/2012</screen></para>
   </section>
   <section>
-    <title>Example: Sending data values</title>
+    <title>Sending data values</title>
     <para>A common use-case for system integration is the need to send a set of data values from a third-party system into DHIS. In this example we will use the DHIS 2 demo on <ulink url="http://apps.dhis2.org/demo"/> as basis and we recommend that you follow the provided links with a web browser while reading (log in with <emphasis role="italic">admin</emphasis><emphasis role="italic">/district</emphasis> as username/password). We assume that we have collected case-based data using a simple software client running on mobile phones for the  <emphasis role="italic">Mortality &lt;5 years</emphasis> data set in the community of <emphasis role="italic">Ngelehun CHC</emphasis> (in <emphasis role="italic">Badjia</emphasis> chiedom, <emphasis role="italic">Bo</emphasis> district) for the month of January 2012. We have now aggregated our data into a statistical report and want to send that data to the national DHIS 2 instance.</para>
     <para>The entry point for the Web API running on the demo instance is <ulink url="http://apps.dhis2.org/demo/api"/>. The entry point provides a convenient HTML page with links to all of the available resources in the Web API. The resource which is most appropriate for our purpose of sending data values is the <emphasis role="italic">dataValueSets</emphasis> resource. A data value set represents a set of data values which have a logical relationship, usually from being captured off  the same data entry form. We follow the link to the HTML representation which will take us to <ulink url="http://apps.dhis2.org/demo/api/dataValueSets"/>. The default representation is a HTML page which provides us with  useful instructions on how to interact with this resources. It tells us that we can use the POST verb to send values using a XML format defined by the <emphasis role="italic">http://dhis2.org/schema/dxf/2.0</emphasis> namespace:</para>
     <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;dataSetID&quot; 
@@ -312,7 +312,7 @@
     <para>In a real-world scenario, looking up identifiers, constructing and dispatching XML messages would be the task of the client software application. This software would probably interact with the more machine-friendly XML and JSON resource representations and not the human-friendly HTML representations like we  did in this example. Developing creative and robust consumers of the Web API services begins  here.</para>
   </section>
   <section>
-    <title>Example: Sending data values using SDMX-HD</title>
+    <title>Sending data values using SDMX-HD</title>
     <para>Posting a dataValueSet report formatted using the WHO SDMX-HD standard is very similar to
       the dxf2 example above. The same api/dataValueSets resource is used, but the client has to
       specify the Content-Type as <emphasis role="italic">application/sdmx+xml</emphasis>.</para>
@@ -350,7 +350,7 @@
     <para><code>curl -d @sdmxdatavalueset.xml &quot;http://{server base url}/api/dataValueSets&quot; -H &quot;Content-Type:application/sdmx+xml&quot; -u admin:district -v</code></para>
   </section>
   <section>
-    <title>Example: Sending large bulks of data values</title>
+    <title>Sending large bulks of data values</title>
     <para>The previous example showed us how to send a set of related data values sharing the same period and organisation unit. This example will show us how to send large bulks of data values which don&apos;t necessarily are logically related.</para>
     <para>Again we will interact with the with <ulink url="http://apps.dhis2.org/demo/api/dataValueSets"/> resource. This time we will not specify the dataSet and completeDate attributes. Also, we will specify the period and orgUnit attributes on the individual data value elements instead of on the outer data value set element. This will enable us to send data values for various periods and org units:</para>
     <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
@@ -419,7 +419,7 @@
     <para>Regarding the id schemes, by default the  identifiers used in the XML messages refer to the DHIS stable object identifiers. In certain interoperability situations we might experience that the external system  decides the identifiers of the objects. In that case we can use the <emphasis role="italic">code</emphasis> property of the organisation unit and data element objects to set fixed identifiers dictated by the other system. When importing data values we hence need to reference the code property instead of the uid property, and can do so using the dataElementIScheme and orgUnitIdScheme paramaters.</para>
   </section>
   <section>
-    <title>Example: Reading data values</title>
+    <title>Reading data values</title>
     <para>This section explains how to retrieve data values from the Web API by interacting with the dataValueSets resource. Data values can currently be retrieved in XML format. Since we want to read data we will use the <emphasis role="italic">GET</emphasis> HTTP verb. We will also specify that we are interested in the XML resource representation by including an <emphasis role="italic">Accept</emphasis> HTTP header with our request. The following query parameters are required:</para>
     <table>
       <title>Data value set query parameters</title>
@@ -469,11 +469,11 @@ Content-Type: application/xml
     <para>The header tells us that the request was processed successfully and that we are receiving a response in XML format. The XML message looks familiar - it is the data values we sent in the previous section.</para>
   </section>
   <section>
-    <title>Example: Reading aggregated data values</title>
+    <title>Reading aggregated data values</title>
     <para>In order to read aggregated data values you can utilize the reportTables resource. This resource lets you retrieve data from predefined report tables as well as custom data responses for any number of indicators, data elements, data sets, periods and organisation units.</para>
   </section>
   <section>
-    <title>Example: Writing and reading messages</title>
+    <title>Writing and reading messages</title>
     <para>DHIS 2 features a mechanism for sending messages for purposes such as user feedback, notifications and general information to  users. Messages are delivered to the DHIS 2 message inbox but can also be sent to the user&apos;s email addresses and mobile phones as SMS. In this example we will see how we can utilize the Web API to send and read messages. We will pretend to be the <emphasis role="italic">DHIS Administrator</emphasis>   user  and  send a message to the  <emphasis role="italic">Mobile</emphasis> user. We will then pretend to be the  mobile user and read our new message.</para>
     <para>The resource we need to interact with when sending and reading messages is the <emphasis role="italic">messageConversations</emphasis> resource. We start by visiting the Web API entry point at <ulink url="http://apps.dhis2.org/demo/api"/> where we find and follow the link to the <emphasis role="italic">messageConversations</emphasis> resource at <ulink url="http://apps.dhis2.org/demo/api/messageConversations"/>. The description tells us that we can use a POST request to create a new message using the following XML format:</para>
     <para><screen>&lt;message xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
@@ -511,7 +511,7 @@ Content-Type: application/xml
     <para>If all went according to plan you will receive a <emphasis role="italic">200 OK</emphasis> status code.</para>
   </section>
   <section>
-    <title>Example: Writing interpretations</title>
+    <title>Writing interpretations</title>
     <para>For certain analysis-related resources in DHIS, like charts and report tables, one can share a data interpretation. An interpretation is simply a link to the the relevant resource together with a text expressing some insight about the data. Currently an interpretation can be viewed by all users in the system.</para>
     <para>We will start by writing an interpretation for the chart with identifier <emphasis role="italic">EbRN2VIbPdV</emphasis>. To write chart interpretations we will interact with the <ulink url="http://apps.dhis2.org/demo/api/interpretations/chart/{chartId}"/> resource. The interpretation will be the request body. Based on this we can put together the following request using cURL:</para>
     <para><code>curl -d &quot;This chart shows a significant ANC 1-3 dropout&quot; &quot;http://apps.dhis2.org/demo/api/interpretations/chart/EbRN2VIbPdV&quot; -H &quot;Content-Type:text/plain&quot; -u admin:district -v</code></para>
@@ -521,7 +521,7 @@ Content-Type: application/xml
     <para><code>curl -d &quot;This table reveals poor data quality&quot; &quot;http://apps.dhis2.org/demo/api/interpretations/reportTable/xIWpSo5jjT1?ou=O6uvpzGd5pu&quot; -H &quot;Content-Type:text/plain&quot; -u admin:district -v</code></para>
   </section>
   <section>
-    <title>Example: Embedding reports in web pages</title>
+    <title>Embedding reports in web pages</title>
     <para>In this example we will see how we can build a simple web page  where dynamic data such as tabular reports is pulled from the DHIS Web API. A full example on how this can done is available at <ulink url="http://apps.dhis2.org/portal"/>.</para>
     <para>The Web API contains several resources which are useful for data analysis: <emphasis role="italic">report</emphasis>, <emphasis role="italic">reportTable</emphasis>, <emphasis role="italic">chart</emphasis>, <emphasis role="italic">map</emphasis> and <emphasis role="italic">document</emphasis>. Dispatching  GET requests to the mentioned resources will return meta-data information such as name and the date it was last updated. All these resources have an associated <emphasis role="italic">data</emphasis> resource which produces a data view of  related aggregated data - also  known as  reports, charts and maps. You can follow the links or simply append <emphasis role="italic">/data</emphasis> to the URL to arrive at it. This information can be represented in a variety of formats including HTML, PDF, Excel, PNG and Jasper, as we will see in the next section.</para>
     <para>We  start as usual at the Web API entrypoint at <ulink url="http://apps.dhis2.org/demo/api"/>. We look for a relevant  report table by following the <emphasis role="italic">reportTables</emphasis> link to <ulink url="http://apps.dhis2.org/demo/api/reportTables"/>. We assume that we are interested in the &quot;District Maternal Health&quot; report and follow the link to <ulink url="http://apps.dhis2.org/demo/api/reportTables/xIWpSo5jjT1"/>. This resource provides meta-data information about the report table. From here we can follow the link to the default data view of aggregated data, which leads us to  <ulink url="http://apps.dhis2.org/demo/api/reportTables/xIWpSo5jjT1/data"/>. As we can see we are provided with a  report table in HTML format, which is the default representation format for report tables.</para>
@@ -564,7 +564,7 @@ ou=O6uvpzGd5pu&quot;&gt;Maternal Health Bo District 2012&lt;/a&gt;</screen>
     </itemizedlist>
   </section>
   <section>
-    <title>Example: Embedding charts with the Visualizer chart plug-in</title>
+    <title>Embedding charts with the Visualizer chart plug-in</title>
     <para>In this example we will see how we can embed good-looking Ext JS charts (<ulink url="http://www.sencha.com/products/extjs"/>) with data served from a DHIS back-end into a Web page. To accomplish this we will use the DHIS Visualizer plug-in. The plug-in is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/chart.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
     <para>We start by including three required Javascript files in the header section of the HTML document. The first file is the  Ext JS Javascript library (we use  the Google content delivery network in this case). The third file is the Visualizer plug-in. Make sure the path is pointing to your DHIS server installation.</para>
     <screen>&lt;script type=&quot;text/javascript&quot;
@@ -840,7 +840,7 @@ Ext.onReady( function() {
     <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/chart.html"/>.</para>
   </section>
   <section>
-    <title>Example: Creating a chart carousel with the carousel plug-in</title>
+    <title>Creating a chart carousel with the carousel plug-in</title>
     <para>The chart plug-in also makes it possible to create a chart carousel which for instance can be used to create an attractive front page on a Web portal. To use the carousel we need to import a few  files in the head section of our HTML page:</para>
     <screen>
 &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/ext/resources/css/ext-plugin-gray.css&quot; /&gt;
@@ -872,7 +872,7 @@ new Ext.ux.carousel.Carousel( &apos;chartCarousel&apos;, {
     <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/carousel.html"/>.</para>
   </section>
   <section>
-    <title>Example: Embedding report tables with the table plug-in</title>
+    <title>Embedding report tables with the table plug-in</title>
     <para>In this example we will see how we can embed dynamic data tables in a Web page with data provided from a DHIS back-end server using the table plug-in. The table plug-in resides inside the same file as the chart plug-in so please refer to the  section about the chart plug-in  above on how to include the required JavaScript and CSS files and how to do authentication. The available table options are listed in the table below.</para>
     <table>
       <title>Table plug-in configuration</title>
@@ -1056,8 +1056,12 @@ Ext.get(&apos;link1&apos;).set({href: url1});</screen>
     <para>To view a complete working example please visit <ulink url="http://apps.dhis2.org/portal/table.html"/>.</para>
   </section>
   <section>
-    <title>Example: Working with SQL views</title>
-    <para>Executing SQL Views and returning the results of these views has been made possible in version 2.9 of DHIS2. SQL Views are useful for presenting certain data views externally, which may be more easily constructed with SQL than by combining the multiple objects of the Web API. As an example, lets assume we have been asked to provide a view of all organization units with their names, parent names, organization unit level and name, and the coordinates listed in the database. The view might look something like this:  </para>
+    <title>Working with SQL views</title>
+    <para>SQL Views are useful for presenting certain data views externally, which may be more
+      easily constructed with SQL than by combining the multiple objects of the Web API. As an
+      example, lets assume we have been asked to provide a view of all organization units with their
+      names, parent names, organization unit level and name, and the coordinates listed in the
+      database. The view might look something like this: </para>
     <screen>SELECT ou.name, par.name as parent, ou.coordinates,
  ous.level,oul.name from organisationunit ou  
 INNER JOIN _orgunitstructure  ous 
@@ -1067,15 +1071,17 @@ INNER JOIN orgunitlevel oul on ous.level = oul.level
 where ou.coordinates IS NOT NULL 
 ORDER BY oul.level,par.name,ou.name</screen>
     <para>We will use <command>curl</command> to first execute the view on the DHIS2 server. This is essentially a materialization process, and ensures that we have the most recent data available through the SQL View when it is retrieved from the server. </para>
-    <screen>curl &quot;http://apps.dhis2.org/dev/
-dhis-web-maintenance-dataadmin/
-executeSqlViewQuery.action?id=1150154&quot; 
--u admin:district -v</screen>
-    <para>This <command>curl</command> command simply has the internal ID of the view as a single parameter. </para>
+    <screen>curl &quot;http://apps.dhis2.org/demo/api/sqlViews/dI68mLkP1wN/execute&quot; -X POST -u admin:district -v</screen>
+    <para>This <command>curl</command> command simply has the internal identifier of the view as a
+      single parameter. </para>
     <para>The next step in the process is the retrieval of the data.The basic structure of the URL is as follows</para>
-    <screen>http(s)://{server}/api/sqlViews/{uid}/data(.csv)</screen>
-    <para>The <parameter>{server}</parameter> parameter should be replaced with your own server. The next part of the URL <parameter>/api/sqlViews/</parameter> should be appended with the specific unique identifier (not the internal ID of the view). Append either <parameter>data</parameter> for XML data or <parameter>data.csv</parameter>      for comma delimited values. As an example, the following URL would retrieve XML data for the SQL view defined above.<screen>curl
-&quot;http://apps.dhis2.org/dev/api/sqlViews/w11jeI9gGAr/data.csv&quot;
- -u admin:district -v</screen></para>
+    <screen>http://{server}/api/sqlViews/{uid}/data(.csv)</screen>
+    <para>The <parameter>{server}</parameter> parameter should be replaced with your own server. The
+      next part of the URL <parameter>/api/sqlViews/</parameter> should be appended with the
+      specific unique identifier (not the internal ID of the view). Append either
+        <parameter>data</parameter> for XML data or <parameter>data.csv</parameter> for comma
+      delimited values. As an example, the following command would retrieve XML data for the SQL
+      view defined
+      above.<screen>curl &quot;http://apps.dhis2.org/dev/api/sqlViews/dI68mLkP1wN/data.csv&quot; -u admin:district -v</screen></para>
   </section>
 </chapter>
