@@ -1094,13 +1094,18 @@ ORDER BY oul.level,par.name,ou.name</screen>
   </section>
   <section>
     <title>Analytics</title>
-    <para>To access analytical, aggregated data you can work with the <emphasis role="italic"
-        >analytics</emphasis> resource. The analytics resource lets you query and retrieve data
-      aggregated along all available data dimensions. For instance, you can ask the analytics
-      resource to provide the aggregated data values for a set of data elements, periods and
-      organisation units. The table below displays the available data dimensions in DHIS 2. Each
-      data dimension has a corresponding identifier, and each dimension can have a set of <emphasis
-        role="italic">dimension items</emphasis>:</para>
+    <para>To access analytical, aggregated data in DHIS 2 you can work with the <emphasis
+        role="italic">analytics</emphasis> resource. The analytics resource lets you query and
+      retrieve data aggregated along all available data dimensions. For instance, you can ask the
+      analytics resource to provide the aggregated data values for a set of data elements, periods
+      and organisation units. </para>
+    <para>DHIS 2 features a multi-dimensional data model with several fixed and dynamic data
+      dimensions. The fixed dimensions are the data element, period (time) and organisation unit
+      dimension. You can dynamically add dimensions through categories, data element group sets and
+      organisation unit group sets. The table below displays the available data dimensions in DHIS
+      2. Each data dimension has a corresponding <emphasis role="italic">dimension
+        identifier</emphasis>, and each dimension can have a set of <emphasis role="italic"
+        >dimension items</emphasis>:</para>
     <itemizedlist>
       <listitem>
         <table frame="all">
@@ -1152,29 +1157,30 @@ ORDER BY oul.level,par.name,ou.name</screen>
         </table>
       </listitem>
     </itemizedlist>
-    <para>The dx dimension spans data elements, indicator and data sets. For the data element group
-      set and organisation unit group set dimensions, all dimension items will be used in the query
-      if no dimension items are given for the dimension. For the period dimension, the dimension
-      items are ISO period identifiers and/or relative periods: Please refer to the section above
-      called "Date and period format" for the period format and available relative periods. For the
-      organisation unit dimension the dimension items are the organisation units and their
-      sub-hierarchy - data will be aggregated for all organisation units below the given
-      organisation unit in the hierarchy. You cannot specify dimension items for the category
-      dimension, instead the response will contain the categories which are linked to the data. </para>
     <para>The base URL to the analytics resource is <emphasis role="italic"
       >api/analytics</emphasis>. To request specific dimensions and dimension items you can use a
-      query string on the following format, where <emphasis role="italic">query-parameter</emphasis>
-      and <emphasis role="italic">dimension-item</emphasis> should be substituted with real
-      values:</para>
-    <screen>api/analytics?dimension=query-parameter:dimension-item;dimension-item&amp;dimension=query-parameter:dimension-item;dimension-item</screen>
+      query string on the following format, where <emphasis role="italic">dim-id</emphasis> and
+        <emphasis role="italic">dim-item</emphasis> should be substituted with real values:</para>
+    <screen>api/analytics?dimension=dim-id:dim-item;dim-item&amp;dimension=dim-id:dim-item;dim-item</screen>
     <para>As illustrated above, the dimension identifier is followed by a colon while the dimension
-      items are separated by semi-colons. As an example; an analytics query for two data elements,
-      two periods and two organisation units can be done with the following URL:</para>
-    <screen>api/analytics?dimension=de:fbfJHSPpUQD;cYeuwXTCPkU&amp;dimension=pe:2012Q1;2012Q2&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
+      items are separated by semi-colons. As an example, a query for two data elements, two periods
+      and two organisation units can be done with the following URL:</para>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;dimension=pe:2012Q1;2012Q2&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
     <para>To query for organisation unit group sets and data elements you can use the following URL
       - notice how the group set identifier is used as dimension identifier and the groups as
       dimension items:</para>
     <screen>api/analytics?Bpx0589u8y0:oRVt7g429ZO;MAs88nJc9nL&amp;dimension=pe:2012&amp;dimension=ou:ImspTQPwCqd</screen>
+    <para>Data elements, indicator and data sets are part of a common data dimension, identifier as
+      "dx". This means that you can use any of data elements, indicators and data set identifiers
+      together with the "dx" dimension identifier in a query. For the data element group set and
+      organisation unit group set dimensions, all dimension items will be used in the query if no
+      dimension items are given for the dimension. For the period dimension, the dimension items are
+      ISO period identifiers and/or relative periods. Please refer to the section above called "Date
+      and period format" for the period format and available relative periods. For the organisation
+      unit dimension the dimension items are the organisation units and their sub-hierarchy - data
+      will be aggregated for all organisation units below the given organisation unit in the
+      hierarchy. You cannot specify dimension items for the category dimension, instead the response
+      will contain the categories which are linked to the data. </para>
     <section>
       <title>Request query parameters</title>
     <para>The analytics resource lets you specify a range of query parameters:<table frame="all">
@@ -1224,19 +1230,19 @@ ORDER BY oul.level,par.name,ou.name</screen>
       should be included in the analytics query. Any number of dimensions can be specified in a
       query.</para>
     <para>The <emphasis role="italic">filter</emphasis> parameter defines which dimensions should be
-      used as filters for the data retrieved in the analytics query. Any number of filters cab be
-      specified in a query. As an example, to query for certain data elements filtered by the
-      periods and organisation units you can use the following URL:</para>
-    <screen>api/analytics?dimension=de:fbfJHSPpUQD;cYeuwXTCPkU&amp;filter=pe:2012Q1;2012Q2&amp;filter=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
+        used as filters for the data retrieved in the analytics query. Any number of filters can be
+        specified in a query. As an example, to query for certain data elements filtered by the
+        periods and organisation units you can use the following URL:</para>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;filter=pe:2012Q1;2012Q2&amp;filter=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
     <para>The <emphasis role="italic">aggregationType</emphasis> query parameter lets you define
-      which aggregation operator should be used for the query. By default the aggregation operator
-      defined for data elements included in the query will be used. If your query does not contain
-      any data elements, but does include data element groups, the aggregation operator of the first
-      data element in the first group will be used. The order of groups and data elements is
-      undefined. This query parameter allows you to override the default and specify a specific
-      aggregaton operator. As an exmample, you can set the aggregation operator to count with the
-      following URL:</para>
-    <screen>api/analytics?dimension=de:fbfJHSPpUQD&amp;dimension=pe:2012Q1&amp;dimension=ou:O6uvpzGd5pu&amp;aggregationType=COUNT</screen>
+        which aggregation operator should be used for the query. By default the aggregation operator
+        defined for data elements included in the query will be used. If your query does not contain
+        any data elements, but does include data element groups, the aggregation operator of the
+        first data element in the first group will be used. The order of groups and data elements is
+        undefined. This query parameter allows you to override the default and specify a specific
+        aggregaton operator. As an exmample, you can set the aggregation operator to "count" with
+        the following URL:</para>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012Q1&amp;dimension=ou:O6uvpzGd5pu&amp;aggregationType=COUNT</screen>
     <para>The <emphasis role="italic">measureCriteria</emphasis> query parameter lets you filter out
       ranges of data records to return. You can instruct the system to return only records where the
       aggregated data value is equal, greater than, greater or equal, less than or less or equal to
@@ -1246,12 +1252,12 @@ ORDER BY oul.level,par.name,ou.name</screen>
     <screen>api/analytics?measureCriteria=criteria:value;criteria:value</screen>
     <para>As an example, the following query will return only records where the data value is
       greater or equal to 10 and less than 20:</para>
-    <screen>api/analytics?dimension=de:fbfJHSPpUQD&amp;dimension=pe:2012Q1&amp;dimension=ou:O6uvpzGd5pu&amp;measureCriteria=GE:10;LT:20</screen>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012Q1&amp;dimension=ou:O6uvpzGd5pu&amp;measureCriteria=GE:10;LT:20</screen>
     </section>
     <section>
       <title>Response formats</title>
       <para>The analytics response containing aggregate data can be returned in various
-        representation formats. As usual, you can indicate interest in a specific format through
+        representation formats. As usual, you can indicate interest in a specific format by
         appending a file extension to the URL, through the <emphasis role="italic">Accept</emphasis>
         HTTP header or through the <emphasis role="italic">format</emphasis> query parameter. The
         default format is JSON. The available formats are listed below.</para>
@@ -1271,7 +1277,7 @@ ORDER BY oul.level,par.name,ou.name</screen>
       </itemizedlist>
       <para>As an example, to request an analytics response in HTML format you can use the following
         URL:</para>
-      <screen>api/analytics.html?dimension=de:fbfJHSPpUQD&amp;dimension=pe:2012&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
+      <screen>api/analytics.html?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
       <para>The analytics responses must be retrieved using the HTTP <emphasis role="italic"
           >GET</emphasis> method. This allows for direct linking to analytics responses from Web
         pages as well as other HTTP-enabled clients. To do functional testing we can use the cURL
@@ -1361,7 +1367,7 @@ ORDER BY oul.level,par.name,ou.name</screen>
         resource.</para>
       <itemizedlist>
         <listitem>
-          <para>At least one dimension must be specified.</para>
+          <para>At least one dimension must be specified in a query.</para>
         </listitem>
         <listitem>
           <para>Dimensions cannot be specified as dimension and filter simultaneously.</para>
@@ -1370,23 +1376,21 @@ ORDER BY oul.level,par.name,ou.name</screen>
           <para>At least one period must be specified as dimension or filter.</para>
         </listitem>
         <listitem>
-          <para>Indicators cannot be specified as filter.</para>
-        </listitem>
-        <listitem>
-          <para>Categories cannot be specified as filter.</para>
+          <para>Indicators and categories cannot be specified as filters.</para>
         </listitem>
         <listitem>
           <para>Data element group sets cannot be specified together with data sets.</para>
         </listitem>
         <listitem>
-          <para>Table cannot potentially contain more than 5000 cells.</para>
-        </listitem>
-        <listitem>
           <para>A dimension cannot be specified more than once.</para>
         </listitem>
         <listitem>
-          <para>Fixed dimensions (dx, pe, ou) must have at least one option if included in a
+          <para>Fixed dimensions ("dx", "pe", "ou") must have at least one option if included in a
             query.</para>
+        </listitem>
+        <listitem>
+          <para>A table cannot potentially contain more than 5000 cells for performance
+            reasons.</para>
         </listitem>
       </itemizedlist>
     </section>
