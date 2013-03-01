@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>Web API</title>
   <para>The Web API is a component which makes it possible for external systems  to access and manipulate  data stored in an instance of DHIS 2. More precisely, it provides a   programmatic interface to a wide range of exposed data and service methods for applications such as third-party software clients, web portals and  internal DHIS 2 modules.</para>
@@ -109,6 +109,14 @@
         </tbody>
       </tgroup>
     </table>
+    <para>In some parts of the API, like for the analytics resource, you can utilize relative
+      periods in addition to fixed periods (defined above). The relative periods are relative to the
+      current date, and allows e.g. for creating dynamic reports. The available relative period
+      values are:</para>
+    <screen>LAST_MONTH, LAST_BIMONTH, LAST_QUARTER, LAST_SIX_MONTH, MONTHS_THIS_YEAR, QUARTERS_THIS_YEAR, 
+THIS_YEAR, MONTHS_LAST_YEAR, QUARTERS_LAST_YEAR, LAST_YEAR, LAST_5_YEARS, LAST_12_MONTHS, 
+LAST_3_MONTHS, LAST_6_BIMONTHS, LAST_4_QUARTERS, LAST_2_SIXMONTHS, THIS_FINANCIAL_YEAR, 
+LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_4_WEEKS, LAST_12_WEEKS, LAST_52_WEEKS</screen>
   </section>
   <section>
     <title>Browsing the Web API</title>
@@ -1083,5 +1091,304 @@ ORDER BY oul.level,par.name,ou.name</screen>
       delimited values. As an example, the following command would retrieve XML data for the SQL
       view defined
       above.<screen>curl &quot;http://apps.dhis2.org/dev/api/sqlViews/dI68mLkP1wN/data.csv&quot; -u admin:district -v</screen></para>
+  </section>
+  <section>
+    <title>Analytics</title>
+    <para>To access analytical, aggregated data you can work with the <emphasis role="italic"
+        >analytics</emphasis> resource. The analytics resource lets you query and retrieve data
+      aggregated along all available data dimensions. For instance, you can ask the analytics
+      resource to provide the aggregated data values for a set of data elements, periods and
+      organisation units. The table below displays the available data dimensions in DHIS 2. Each
+      data dimension has a corresponding identifier, and each dimension can have a set of <emphasis
+        role="italic">dimension items</emphasis>:</para>
+    <itemizedlist>
+      <listitem>
+        <table frame="all">
+          <title>Dimensions and dimension items</title>
+          <tgroup cols="3">
+            <colspec colname="c1" colnum="1" colwidth="2.9*"/>
+            <colspec colname="c2" colnum="2" colwidth="1*"/>
+            <colspec colname="newCol3" colnum="3" colwidth="3.38*"/>
+            <thead>
+              <row>
+                <entry><emphasis role="italic">Dimension</emphasis></entry>
+                <entry><emphasis role="italic">Dimension id</emphasis></entry>
+                <entry><emphasis role="italic">Dimension items</emphasis></entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>Data elements, indicators and data set reporting rates</entry>
+                <entry>dx</entry>
+                <entry>Data elements, indicators and data set identifiers</entry>
+              </row>
+              <row>
+                <entry>Periods (time)</entry>
+                <entry>pe</entry>
+                <entry>ISO periods and relative periods, see "date and period format"</entry>
+              </row>
+              <row>
+                <entry>Organisation unit hierarchy</entry>
+                <entry>ou</entry>
+                <entry>Organisation unit identifiers</entry>
+              </row>
+              <row>
+                <entry>Categories</entry>
+                <entry>co</entry>
+                <entry>Not possible to define dimension items</entry>
+              </row>
+              <row>
+                <entry>Data element group sets</entry>
+                <entry>&lt;group set id></entry>
+                <entry>Data element group identifiers (omit to get all items)</entry>
+              </row>
+              <row>
+                <entry>Organisation unit group sets</entry>
+                <entry>&lt;group set id></entry>
+                <entry>Organisation unit group identifiers (omit to get all items)</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </listitem>
+    </itemizedlist>
+    <para>The dx dimension spans data elements, indicator and data sets. For the data element group
+      set and organisation unit group set dimensions, all dimension items will be used in the query
+      if no dimension items are given for the dimension. For the period dimension, the dimension
+      items are ISO period identifiers and/or relative periods: Please refer to the section above
+      called "Date and period format" for the period format and available relative periods. For the
+      organisation unit dimension the dimension items are the organisation units and their
+      sub-hierarchy - data will be aggregated for all organisation units below the given
+      organisation unit in the hierarchy. You cannot specify dimension items for the category
+      dimension, instead the response will contain the categories which are linked to the data. </para>
+    <para>The base URL to the analytics resource is <emphasis role="italic"
+      >api/analytics</emphasis>. To request specific dimensions and dimension items you can use a
+      query string on the following format, where <emphasis role="italic">query-parameter</emphasis>
+      and <emphasis role="italic">dimension-item</emphasis> should be substituted with real
+      values:</para>
+    <screen>api/analytics?dimension=query-parameter:dimension-item;dimension-item&amp;dimension=query-parameter:dimension-item;dimension-item</screen>
+    <para>As illustrated above, the dimension identifier is followed by a colon while the dimension
+      items are separated by semi-colons. As an example; an analytics query for two data elements,
+      two periods and two organisation units can be done with the following URL:</para>
+    <screen>api/analytics?dimension=de:fbfJHSPpUQD;cYeuwXTCPkU&amp;dimension=pe:2012Q1;2012Q2&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
+    <para>To query for organisation unit group sets and data elements you can use the following URL
+      - notice how the group set identifier is used as dimension identifier and the groups as
+      dimension items:</para>
+    <screen>api/analytics?Bpx0589u8y0:oRVt7g429ZO;MAs88nJc9nL&amp;dimension=pe:2012&amp;dimension=ou:ImspTQPwCqd</screen>
+    <section>
+      <title>Request query parameters</title>
+    <para>The analytics resource lets you specify a range of query parameters:<table frame="all">
+        <title>Query parameters</title>
+        <tgroup cols="4">
+          <colspec colname="c1" colnum="1" colwidth="2.44*"/>
+          <colspec colname="newCol2" colnum="2" colwidth="1*"/>
+          <colspec colname="c2" colnum="3" colwidth="3.88*"/>
+          <colspec colname="c3" colnum="4" colwidth="2.44*"/>
+          <thead>
+            <row>
+              <entry><emphasis role="italic">Query parameter</emphasis></entry>
+              <entry><emphasis role="italic">Required</emphasis></entry>
+              <entry><emphasis role="italic">Description</emphasis></entry>
+              <entry><emphasis role="italic">Options</emphasis></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>dimension</entry>
+              <entry>Yes</entry>
+              <entry>Dimensions to be retrieved</entry>
+              <entry>Any dimension</entry>
+            </row>
+            <row>
+              <entry>filter</entry>
+              <entry>No</entry>
+              <entry>Filters to apply to the query </entry>
+              <entry>Any dimension</entry>
+            </row>
+            <row>
+              <entry>aggregationType</entry>
+              <entry>No</entry>
+              <entry>Aggregation type to use in the aggregation process</entry>
+              <entry>SUM, AVERAGE_INT, AVERAGE_INT_DISAGGREGATION, AVERAGE_BOOL, COUNT</entry>
+            </row>
+            <row>
+              <entry>measureCriteria</entry>
+              <entry>No</entry>
+              <entry>Filters for the data/measures</entry>
+              <entry>EQ, GT, GE, LT, LE</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table></para>
+    <para>The <emphasis role="italic">dimension</emphasis> query parameter defines which dimensions
+      should be included in the analytics query. Any number of dimensions can be specified in a
+      query.</para>
+    <para>The <emphasis role="italic">filter</emphasis> parameter defines which dimensions should be
+      used as filters for the data retrieved in the analytics query. Any number of filters cab be
+      specified in a query. As an example, to query for certain data elements filtered by the
+      periods and organisation units you can use the following URL:</para>
+    <screen>api/analytics?dimension=de:fbfJHSPpUQD;cYeuwXTCPkU&amp;filter=pe:2012Q1;2012Q2&amp;filter=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
+    <para>The <emphasis role="italic">aggregationType</emphasis> query parameter lets you define
+      which aggregation operator should be used for the query. By default the aggregation operator
+      defined for data elements included in the query will be used. If your query does not contain
+      any data elements, but does include data element groups, the aggregation operator of the first
+      data element in the first group will be used. The order of groups and data elements is
+      undefined. This query parameter allows you to override the default and specify a specific
+      aggregaton operator. As an exmample, you can set the aggregation operator to count with the
+      following URL:</para>
+    <screen>api/analytics?dimension=de:fbfJHSPpUQD&amp;dimension=pe:2012Q1&amp;dimension=ou:O6uvpzGd5pu&amp;aggregationType=COUNT</screen>
+    <para>The <emphasis role="italic">measureCriteria</emphasis> query parameter lets you filter out
+      ranges of data records to return. You can instruct the system to return only records where the
+      aggregated data value is equal, greater than, greater or equal, less than or less or equal to
+      certain values. You can specify any number of criteria on the following format, where
+        <emphasis role="italic">critieria</emphasis> and <emphasis role="italic">value</emphasis>
+      should be substituted with real values:</para>
+    <screen>api/analytics?measureCriteria=criteria:value;criteria:value</screen>
+    <para>As an example, the following query will return only records where the data value is
+      greater or equal to 10 and less than 20:</para>
+    <screen>api/analytics?dimension=de:fbfJHSPpUQD&amp;dimension=pe:2012Q1&amp;dimension=ou:O6uvpzGd5pu&amp;measureCriteria=GE:10;LT:20</screen>
+    </section>
+    <section>
+      <title>Response formats</title>
+      <para>The analytics response containing aggregate data can be returned in various
+        representation formats. As usual, you can indicate interest in a specific format through
+        appending a file extension to the URL, through the <emphasis role="italic">Accept</emphasis>
+        HTTP header or through the <emphasis role="italic">format</emphasis> query parameter. The
+        default format is JSON. The available formats are listed below.</para>
+      <itemizedlist>
+        <listitem>
+          <para>json</para>
+        </listitem>
+        <listitem>
+          <para>xml</para>
+        </listitem>
+        <listitem>
+          <para>csv</para>
+        </listitem>
+        <listitem>
+          <para>html</para>
+        </listitem>
+      </itemizedlist>
+      <para>As an example, to request an analytics response in HTML format you can use the following
+        URL:</para>
+      <screen>api/analytics.html?dimension=de:fbfJHSPpUQD&amp;dimension=pe:2012&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
+      <para>The analytics responses must be retrieved using the HTTP <emphasis role="italic"
+          >GET</emphasis> method. This allows for direct linking to analytics responses from Web
+        pages as well as other HTTP-enabled clients. To do functional testing we can use the cURL
+        library. By executing this command against the demo database you will get an analytics
+        response in JSON format:</para>
+      <screen>curl "apps.dhis2.org/demo/api/analytics??dimension=dx:eTDtyyaSA7f;FbKK4ofIv5R&amp;dimension=pe:2012Q1;2012Q2&amp;filter=ou:ImspTQPwCqd" -u admin:district</screen>
+      <para>The JSON response will look like this:</para>
+      <screen>{
+    "headers": [
+        {
+            "column": "dx", 
+            "meta": true, 
+            "name": "dx", 
+            "type": "java.lang.String"
+        }, 
+        {
+            "column": "pe", 
+            "meta": true, 
+            "name": "pe", 
+            "type": "java.lang.String"
+        }, 
+        {
+            "column": "Value", 
+            "meta": false, 
+            "name": "value", 
+            "type": "java.lang.Double"
+        }
+    ], 
+    "height": 4, 
+    "metaData": {
+        "2012Q1": "Jan to Mar 2012", 
+        "2012Q2": "Apr to Jun 2012", 
+        "FbKK4ofIv5R": "Measles Coverage &lt;1 y", 
+        "ImspTQPwCqd": "Sierra Leone", 
+        "eTDtyyaSA7f": "Fully Immunized Coverage"
+    }, 
+    "rows": [
+        [
+            "eTDtyyaSA7f", 
+            "2012Q2", 
+            "81.1"
+        ], 
+        [
+            "eTDtyyaSA7f", 
+            "2012Q1", 
+            "74.7"
+        ], 
+        [
+            "FbKK4ofIv5R", 
+            "2012Q2", 
+            "88.9"
+        ], 
+        [
+            "FbKK4ofIv5R", 
+            "2012Q1", 
+            "84.0"
+        ]
+    ], 
+    "width": 3
+}
+</screen>
+      <para>The response represents a table of dimensional data. The <emphasis role="italic"
+          >headers</emphasis> array gives an overview of which columns are included in the table and
+        what the columns contain. The <emphasis role="italic">column</emphasis> property shows the
+        column dimension identifier, or if the column contains a measure, the word "Value". The meta
+        property is <emphasis role="italic">true</emphasis> if the column contains dimension items
+        or <emphasis role="italic">false</emphasis> if the column contains a measure (aggregated
+        value). The name property is similar to the column property, except it displays "value" in
+        case the column contains a measure. The <emphasis role="italic">type</emphasis> property
+        indicates the Java class type of the column values.</para>
+      <para>The <emphasis role="italic">height</emphasis> and <emphasis role="italic"
+          >width</emphasis> properties indicate how many data columns and rows are contained in the
+        response, respectively.</para>
+      <para>The <emphasis role="italic">metaData</emphasis> property contains a mapping between the
+        identifiers used in the data response and the names of the objects they represent. It can be
+        used by clients to substitute the identifiers within the data response with names in order
+        to give a more meaningful view of the data table.</para>
+      <para>The <emphasis role="italic">rows</emphasis> array contains the dimensional data table.
+        It contains columns with dimension items (object or period identifiers) and a column with
+        aggregated data values. The example response above has a data/indicator column, a period
+        column and a value column. The first column contains indicator identifiers, the second
+        contains ISO period identifiers and the third contains aggregeted data values.</para>
+    </section>
+    <section>
+      <title>Constraints</title>
+      <para>There are several constraints on the input you can provide to the analytics
+        resource.</para>
+      <itemizedlist>
+        <listitem>
+          <para>At least one dimension must be specified.</para>
+        </listitem>
+        <listitem>
+          <para>Dimensions cannot be specified as dimension and filter simultaneously.</para>
+        </listitem>
+        <listitem>
+          <para>At least one period must be specified as dimension or filter.</para>
+        </listitem>
+        <listitem>
+          <para>Indicators cannot be specified as filter.</para>
+        </listitem>
+        <listitem>
+          <para>Categories cannot be specified as filter.</para>
+        </listitem>
+        <listitem>
+          <para>Data element group sets cannot be specified together with data sets.</para>
+        </listitem>
+        <listitem>
+          <para>Table cannot potentially contain more than 5000 cells.</para>
+        </listitem>
+        <listitem>
+          <para>A dimension cannot be specified more than once.</para>
+        </listitem>
+        <listitem>
+          <para>Fixed dimensions (dx, pe, ou) must have at least one option if included in a
+            query.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
   </section>
 </chapter>
