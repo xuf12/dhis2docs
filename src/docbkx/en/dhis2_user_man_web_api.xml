@@ -1296,6 +1296,9 @@ ORDER BY oul.level,par.name,ou.name</screen>
         <listitem>
           <para>html</para>
         </listitem>
+        <listitem>
+          <para>xls (MS Excel)</para>
+        </listitem>
       </itemizedlist>
       <para>As an example, to request an analytics response in XML format you can use the following
         URL:</para>
@@ -1419,9 +1422,9 @@ ORDER BY oul.level,par.name,ou.name</screen>
     </section>
     <section>
       <title>Generating the analytics tables</title>
-      <para>The analytics resource is utilzing a set of database tables which are optimized for data
-        aggregation. These tables must be updated in order to reflect the latest, captured data.
-        This task is typically one for a system administrator and not consuming clients. These
+      <para>The analytics resource is utilizing a set of database tables which are optimized for
+        data aggregation. These tables must be updated in order to reflect the latest, captured
+        data. This task is typically one for a system administrator and not consuming clients. These
         tables can be generated and scheduled to be refreshed at regular intervals through the user
         interface of DHIS 2. It can also be generated directly from the Web API - to do so you can
         make a request for the following resource using the HTTP PUT
