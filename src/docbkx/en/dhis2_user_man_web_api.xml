@@ -1170,15 +1170,15 @@ ORDER BY oul.level,par.name,ou.name</screen>
     <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;dimension=pe:2012Q1;2012Q2&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
     <para>To query for data broken down by categories instead of data element totals you can include
       the category dimension in the query string, for instance like this:</para>
-    <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;dimension=coc&amp;dimension=pe:201201&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;dimension=co&amp;dimension=pe:201201&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
     <para>To query for organisation unit group sets and data elements you can use the following URL
       - notice how the group set identifier is used as dimension identifier and the groups as
       dimension items:</para>
-    <screen>api/analytics?Bpx0589u8y0:oRVt7g429ZO;MAs88nJc9nL&amp;dimension=pe:2012&amp;dimension=ou:ImspTQPwCqd</screen>
+    <screen>api/analytics?dimension=Bpx0589u8y0:oRVt7g429ZO;MAs88nJc9nL&amp;dimension=pe:2012&amp;dimension=ou:ImspTQPwCqd</screen>
     <para>A few things to be aware of when using the analytics resource are listed below.</para>
     <itemizedlist>
       <listitem>
-        <para>Data elements, indicator and data sets are part of a common data dimension, identifier
+        <para>Data elements, indicator and data sets are part of a common data dimension, identified
           as "dx". This means that you can use any of data elements, indicators and data set
           identifiers together with the "dx" dimension identifier in a query.</para>
       </listitem>
