@@ -272,6 +272,9 @@
               <para><emphasis role="italic">Ignore to generate overdue events</emphasis> - When a person enrolls into the program, the  events corresponding to the program-stages are created. If this field is checked, the system will ignore to generate overdue events. </para>
             </listitem>
             <listitem>
+              <para><emphasis role="italic">Only enroll one </emphasis>- Check on it if a person only can enroll the program one time. For example, Child Vaccination Program, Post-mortem examination, PSI&apos;s IPC process. This will avoid a person enrolling more than one into a program when it doesn&apos;t make sense.</para>
+            </listitem>
+            <listitem>
               <para><emphasis role="italic">Show incident date</emphasis> - Set show/hide incident date field when a person enroll in this program.</para>
             </listitem>
             <listitem>
@@ -604,11 +607,8 @@ For example: the date in which a person enrolls to the system.</para>
         <warning>
           <para>No matter what program persons need  to enroll, they must register into the system first. Then health providers will enroll the persons into relevant  programs. E.g. every pregnant women and the child need to be registered first as a person, then they will be enrolled in Mother Care program or Child Health program.</para>
         </warning>
-        <para><emphasis role="underline">
-            <emphasis role="italic">
-              <emphasis role="bold">Person registration process</emphasis>
-            </emphasis>
-          </emphasis></para>
+        <para>To access <emphasis role="italic">Person management </emphasis>function, from the <emphasis>Services</emphasis> menu, go the the <emphasis>Individual Records </emphasis>option and click on it. Select <emphasis>Find/Add Person</emphasis> option on the left menu to proceed. Then, after to select organisation unit.</para>
+        <para>Click the<emphasis role="italic"> List All Persons</emphasis> button to list all persons in the selected organisation unit. If a program in list on the right side is selected, the system will load persons who enolled into the program.</para>
         <para>For the registration process, the details - which are related to the personal information, identification, contact and location details, and health provider details, are entered.</para>
         <orderedlist inheritnum="inherit" continuation="restarts" arch="">
           <listitem>
@@ -624,7 +624,7 @@ For example: the date in which a person enrolls to the system.</para>
           <listitem>
             <para>Select  a  facility from the facilities hierarchy displayed on the left side of the screen. Then click the <emphasis role="italic">Add new</emphasis> button on the right side.</para>
             <note>
-              <para>To register new person and enroll him/her into a certain program, please select a program in list and click <emphasis role="italic">Add new</emphasis> button.</para>
+              <para>To register new person and enroll him/her into a certain program, please select a program in list on main page and click <emphasis role="italic">Add new</emphasis> button. The person attributes and person identifier types which belong to the selected program will be displayed on the registration form.</para>
             </note>
           </listitem>
           <listitem>
@@ -723,7 +723,7 @@ For example: the date in which a person enrolls to the system.</para>
         </section>
         <section>
           <title>Person enrollment</title>
-          <para>After the  registration, the person needs to be enrolled in any available program. To enroll :</para>
+          <para>After the  registration, the person needs to be enrolled in any available program. To enroll -</para>
           <orderedlist>
             <listitem>
               <para>Click on <emphasis role="italic">Enroll</emphasis> link from Dashboard of the person to open the Enrollment form.</para>
@@ -740,12 +740,12 @@ For example: the date in which a person enrolls to the system.</para>
             </listitem>
             <listitem>
               <para>After the selection of program, you need to provide two dates:</para>
-              <para>1) <emphasis role="italic">Date of enrollment ( the second field )</emphasis> - The date when person enrolls into the selected program.</para>
-              <para>2) <emphasis role="italic">Date of incident ( the third field )</emphasis> - The date when the person got the disease or he/she has just been committed to an equivalent program for being followed-up.</para>
+              <para>1) <emphasis role="italic">Date of enrollment ( the first field )</emphasis> - The date when person enrolls into the selected program.</para>
+              <para>2) <emphasis role="italic">Date of incident ( the second field )</emphasis> - The date when the person got the disease or he/she has just been committed to an equivalent program for being followed-up.</para>
               <warning>
-                <para>If the selected program has any identifier-types and person-attributes, they are displayed below. Users can enter  values for them at this time.</para>
+                <para>If the selected program has any identifier types or  person attributes, they are displayed below. Users can enter  values for them at this time.</para>
                 <para>The <emphasis role="italic">date of incident</emphasis> are  important to generate the activity plan for  each person. Health provider  needs to ensure  recording and reporting date of incidence with each case of multi events with registration. However, when to define a program, if it can be set <emphasis role="italic">Generated by enrollment date</emphasis> property as true, the activity plan is generated based on the enrollment date, not incident date. </para>
-                <para>However,  the <emphasis role="italic">date if incident </emphasis>is ignored with single event programs. </para>
+                <para>However,  the <emphasis role="italic">date of incident </emphasis>is ignored with single event programs. </para>
               </warning>
             </listitem>
             <listitem>
@@ -759,13 +759,13 @@ The case update  is designed in the same manner so that services which are recei
         </section>
         <section>
           <title>Editing person profile</title>
-          <para>After enrolling a person to a certain program, you can edit profile for that person.</para>
+          <para>After registering a person to a certain program, you can edit profile for that person.</para>
           <orderedlist>
             <listitem>
               <para>Click the second icon under <emphasis>Operations</emphasis>, corresponding to the person you would like to edit. Or click the <emphasis>Edit profile</emphasis> link in Dashboard of person.</para>
             </listitem>
             <listitem>
-              <para>Then a dialog box may appear to require you verify the date of birth if it is not verified. You just simply click <emphasis>OK</emphasis> to go to the edit page.</para>
+              <para>Then a dialog box may appear to require you verify the date of birth if it is not verified. Click <emphasis>OK</emphasis> to go to the edit page.</para>
             </listitem>
             <listitem>
               <para>Click <emphasis role="italic">Update</emphasis> button to update data and go to his/her dashboard.</para>
@@ -774,7 +774,7 @@ The case update  is designed in the same manner so that services which are recei
         </section>
         <section>
           <title>Adding relationship</title>
-          <para>Now you can add relationships for person. To do that, you have to click on the <emphasis>Relationship management</emphasis> icon under <emphasis>Operations</emphasis> or click on the <emphasis role="italic">Management</emphasis> link on <emphasis role="italic">Relationships</emphasis> section in Dashboard. Then, the management page appears...</para>
+          <para>To open <emphasis role="italic">relationship management</emphasis> for a person, click on the <emphasis>Relationship management</emphasis> icon under <emphasis>Operations</emphasis> or click on the <emphasis role="italic">Management</emphasis> link on <emphasis role="italic">Relationships</emphasis> section in Dashboard. The management page appears...</para>
           <screenshot>
             <mediaobject>
               <imageobject>
@@ -784,6 +784,7 @@ The case update  is designed in the same manner so that services which are recei
           </screenshot>
           <para>To add relationship for a person, you have to click on <emphasis>Search available person</emphasis> link to navigate to <emphasis>search page.</emphasis></para>
           <para>To register a new person and create relationship with the selected person, click <emphasis role="italic">Register new person</emphasis> link.</para>
+          <para>To set a relative person as representative, click on the Set as representative icon, the first icon under <emphasis>Operations</emphasis> according to the person you would like.</para>
         </section>
         <section>
           <title>Change person location and View person details and history</title>
@@ -799,9 +800,9 @@ The case update  is designed in the same manner so that services which are recei
           </screenshot>
         </section>
         <section>
-          <title>Search persons</title>
-          <para>The <emphasis>Search</emphasis> function is used for searching persons based on  full-name, identifiers and person attributes.</para>
-          <para>To access <emphasis role="italic">Search</emphasis> function, from the <emphasis>Services</emphasis> menu, go the the <emphasis>Individual Records </emphasis>option and click on it. Select <emphasis>Find/Add Person</emphasis> option on the left menu to proceed. Then, after selecting organisation unit,  click on the <emphasis>Search</emphasis> button on the right side.</para>
+          <title>Advanced search persons</title>
+          <para>The <emphasis>Advanced search</emphasis> function is used for searching available persons based on  full-name, identifiers and person attribute values.</para>
+          <para>To access <emphasis role="italic">Advanced search</emphasis> function, from the <emphasis>Services</emphasis> menu, go the the <emphasis>Individual Records </emphasis>option and click on it. Select <emphasis>Find/Add Person</emphasis> option on the left menu to proceed. Then, after selecting organisation unit,  click on the <emphasis>Search</emphasis> button on the right side.</para>
           <para> A search form is appeared after clicking. User  has to select  criteria and input values into the function.</para>
           <screenshot>
             <mediaobject>
@@ -810,7 +811,7 @@ The case update  is designed in the same manner so that services which are recei
               </imageobject>
             </mediaobject>
           </screenshot>
-          <para>After selecting search type, entering keyword and clicking on <emphasis role="italic">Search</emphasis> button, the search result will display on the screen, and then user can interact with these persons.</para>
+          <para>After selecting a type for searching, entering keyword and clicking on <emphasis role="italic">Search</emphasis> button, the search result will display on the screen, and then user can interact with these persons.</para>
           <screenshot>
             <mediaobject>
               <imageobject>
@@ -828,12 +829,9 @@ The case update  is designed in the same manner so that services which are recei
         <para>This function supports the work practices around tracking persons within a health program that have not shown up for a scheduled visit (stage), e.g. that are lost to follow-up. </para>
         <section id="visit_schedule">
           <title>Visit Schedule</title>
-          <para>This will be used to provide the user at a facility or in an area with a list of upcoming visits to better plan for daily/weekly activities. This can also be used as quick navigation to the data entry screen when using the system as a live/real-time data entry system.
-</para>
-          <para>Clicking on an event to open the data entry screen, and plan is updated when closing data entry form.
-
-The plan (expected visits for the upcoming period) will typically be a mix of recently overdue stages and stages that are non-completed and scheduled for the coming days/week.</para>
-          <para>After selecting organisation unit on the left panel, select a program in list. Then status which you would like. Select show events since ( if any) and Show events up to ( if any ). Finally, click Show Event List button to get events which are satisfied with searching criteria.</para>
+          <para>This will be used to provide the user at a facility or in an area with a list of upcoming visits to better plan for daily/weekly activities. This can also be used as quick navigation to the data entry screen when using the system as a live/real-time data entry system.</para>
+          <para>Clicking on an event to open the data entry screen, </para>
+          <para>After selecting organisation unit on the left panel, select a program in list. Then status which you would like. Select show events since ( if any) and Show events up to ( if any ). Finally, click <emphasis role="italic">Show Event List</emphasis> button to get events which are satisfied with searching criteria.</para>
           <para>Click <emphasis role="italic">Export XLS</emphasis> button to export the result to excel file.</para>
           <screenshot>
             <mediaobject>
@@ -845,16 +843,17 @@ The plan (expected visits for the upcoming period) will typically be a mix of re
         </section>
         <section id="program_tracking">
           <title>Program Tracking</title>
-          <para>This function supports the work practices around tracking persons within a health program that have not shown up for a scheduled visit (stage), e.g. that are lost to follow-up.</para>
-          <para>After selecting organisation unit on the left panel,  select a program in list. And click on List All Person button to load all over-due events of persons.</para>
-          <para>Click on <emphasis role="italic">person&apos;s name</emphasis> to open his/her dashboard.</para>
-          <para>Click on an <emphasis role="italic">event box</emphasis> to re-schedule and set status for the selected event or see all tracking history for this event.<screenshot>
-              <mediaobject>
-                <imageobject>
-                  <imagedata width="70%" depth="" fileref="resources/images/patients_programs/tracking_program.png" format="PNG"/>
-                </imageobject>
-              </mediaobject>
-            </screenshot></para>
+          <para>This function supports the work practices around tracking persons within a health program that have not shown up for a scheduled visit, e.g. that are lost to follow-up.</para>
+          <para>After selecting organisation unit on the left panel,  select a program in list. And click on <emphasis role="italic">List All Person</emphasis> button to load all over-due events of persons.</para>
+          <para>Click on <emphasis role="italic">person&apos;s name</emphasis> or <emphasis role="italic">Edit profile</emphasis> icon, the first icon under <emphasis role="italic">Operations</emphasis> to open his/her dashboard.</para>
+          <para>Click on an <emphasis role="italic">event <emphasis role="italic">or</emphasis> the Reschedule and set status<emphasis role="italic"> icon</emphasis>, <emphasis role="italic">the second icon <emphasis role="italic">under</emphasis></emphasis> Operations</emphasis> to re-schedule and set status for the selected event or see all tracking history for this event.</para>
+          <screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="70%" depth="" fileref="resources/images/patients_programs/tracking_program.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
           <para>To search events by status and  some criteria such as name, identifiers or attributes, click on <emphasis role="italic">Search</emphasis> button next to <emphasis role="italic">List All Persons</emphasis>. A advanced search criteria is shown. After to fill search key values, click on <emphasis role="italic">Search</emphasis> button on this form to display result or click on <emphasis role="italic">Send message</emphasis> button to send a reminder message for person in result.</para>
           <screenshot>
             <mediaobject>
@@ -869,9 +868,9 @@ The plan (expected visits for the upcoming period) will typically be a mix of re
         <title>Data entry</title>
         <section id="multiple_individual_records">
           <title>Multiple individual records</title>
-          <para>The multiple individual records function is where individual data is manually registered in the DHIS database. A list events for each person who enrolled into the selected program after clicking a multi events with registration.</para>
+          <para>The multiple individual records function is where individual data is manually registered in the DHIS database. A list events with visited date as current date for each person who enrolled into the selected program are displayed after clicking a multi events with registration.</para>
           <para>To access the multiple individual records function, from the <emphasis role="italic">Services</emphasis> menu, go to the <emphasis role="italic">Individual Records</emphasis> option and click on it. Select <emphasis role="italic">Multiple individual records</emphasis> option on left menu to proceed.</para>
-          <para>To start enter data, the first step is to open a list events of person who enrolled a certain program by selecting a program in the list on the main page. Follow these steps:</para>
+          <para>To start enter data values, the first step is to open a list events of person who enrolled a certain program by selecting a program in the list on the main page. Follow these steps:</para>
           <orderedlist>
             <listitem>
               <para>Locate the organisation unit you want to register data for in the tree menu to the left. Expand and close branches by clicking on the +/- symbols. A quick way to find an organisation unit is to use the search box just above the tree (the green symbol), but you need to write in the full name to get a match.</para>
@@ -888,7 +887,7 @@ The plan (expected visits for the upcoming period) will typically be a mix of re
               </screenshot>
             </listitem>
             <listitem>
-              <para>Click an event to open data entry form.</para>
+              <para>Click an event or click on <emphasis role="italic">Data entry</emphasis> icon, the second icon under <emphasis role="italic">Operations</emphasis> to open data entry form.</para>
               <para>After filling and selecting data for a form. You have to click on <emphasis>Run validation</emphasis> button to check whether your inputs are valid. Then, click on <emphasis>Complete</emphasis> button to finish the entry.</para>
             </listitem>
           </orderedlist>
@@ -923,7 +922,7 @@ The plan (expected visits for the upcoming period) will typically be a mix of re
           <title>Single event without registration</title>
           <para>The data to register is defined by a single event without registration program.</para>
           <para>To register an event, from the <emphasis role="italic">Services</emphasis> option, go to the <emphasis role="italic">Individual Records</emphasis> option and click it. Then select <emphasis role="italic">Single event without registration</emphasis> option on left menu to proceed.</para>
-          <para>To list all events in the selected facility, click <emphasis role="italic">List All Events</emphasis> button.</para>
+          <para>To list all events by program in the selected facility, select a program in list.</para>
           <para>To remove empty events of the selected program, click <emphasis role="italic">Remove empty events</emphasis> button.</para>
           <para>To add new event, click <emphasis role="italic">Add new</emphasis> button.</para>
           <para>To update an event -</para>
@@ -945,6 +944,9 @@ The plan (expected visits for the upcoming period) will typically be a mix of re
             </listitem>
             <listitem>
               <para><emphasis role="italic">Tabular report</emphasis>  - An interactive reporting tool for tracker-data using tabular presentation with dynamic filters for each person attribute and data element. </para>
+            </listitem>
+            <listitem>
+              <para><emphasis role="italic">Statistical Program</emphasis> - Statistical reports on program performance, e.g. drop-out rates, how many completed every month/year - counts/percentages etc.</para>
             </listitem>
           </itemizedlist></para>
         <section id="program_summary_report">
@@ -1037,7 +1039,7 @@ It supports to filter events by each person attributes and data elements. The se
               <para>Select a program from list in the left panel. The system will be load data elements which belongs to the selected program.</para>
             </listitem>
             <listitem>
-              <para>Select date period ranges  / relative periods / fixed periods in corresponding tab.</para>
+              <para>Select <emphasis role="italic">date</emphasis> period ranges  / relative periods / fixed periods in corresponding tab.</para>
             </listitem>
             <listitem>
               <para>Select one or many <emphasis role="italic">organisation units</emphasis> by clicking on the hierachy organisation tree or check on <emphasis role="italic">User organisation unit</emphasis> / <emphasis role="italic">User organisation unit chilren</emphasis> checkboxes. Besides, you can also select a group in list and system will load all organisation units which belong to the selected one.</para>
