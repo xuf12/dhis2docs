@@ -1145,12 +1145,12 @@ ORDER BY oul.level,par.name,ou.name</screen>
                 <entry>Not possible to define dimension items for categories</entry>
               </row>
               <row>
-                <entry>Data element group sets</entry>
+                <entry>Data element group sets (compulsory only)</entry>
                 <entry>&lt;group set id></entry>
                 <entry>Data element group identifiers (omit to get all items)</entry>
               </row>
               <row>
-                <entry>Organisation unit group sets</entry>
+                <entry>Organisation unit group sets (compulsory only)</entry>
                 <entry>&lt;group set id></entry>
                 <entry>Organisation unit group identifiers (omit to get all items)</entry>
               </row>
@@ -1196,6 +1196,10 @@ ORDER BY oul.level,par.name,ou.name</screen>
         <para>For the organisation unit dimension the dimension items are the organisation units and
           their sub-hierarchy - data will be aggregated for all organisation units below the given
           organisation unit in the hierarchy.</para>
+      </listitem>
+      <listitem>
+        <para>Only compulsory data element and organisation unit group sets are available. Make sure
+          you set the group sets you want to use for analysis to be compulsory.</para>
       </listitem>
       <listitem>
         <para>You cannot specify dimension items for the category dimension. Instead the response
