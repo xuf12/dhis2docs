@@ -1439,4 +1439,22 @@ ORDER BY oul.level,par.name,ou.name</screen>
         method:<screen>http://&lt;server-url>/api/resourceTables/analytics</screen></para>
     </section>
   </section>
+  <section>
+    <title>Generating resource, analytics and data mart tables</title>
+    <para>DHIS 2 features a set of generated database tables which are used as basis for various
+      system functionality. These tables can be executed immediately or scheduled to be executed at
+      regular intervals through the user interface. They can also be generated through the Web API
+      as explained in this section.</para>
+    <para>The resource tables are used internally by the DHIS 2 application for various analysis
+      functions. These tables are also valuable for users writing advanced SQL reports. They can be
+      generated with a PUT request to the following URL:</para>
+    <screen>http://&lt;server-url>/api/resourceTables</screen>
+    <para>The analytics tables are optimized for data aggregation and used currently in DHIS 2 for
+      the pivot table module. The analytics tables can be generated with a PUT request to:</para>
+    <screen>http://&lt;server-url>/api/resourceTables/analytics</screen>
+    <para>The data mart is tables containing pre-calculated aggregated data which are used by DHIS 2
+      analysis modules and can be used directly by SQL reports. The data mart tables can be
+      generated with a PUT request to:</para>
+    <screen>http://&lt;server-url>/api/resourceTables/dataMart</screen>
+  </section>
 </chapter>
