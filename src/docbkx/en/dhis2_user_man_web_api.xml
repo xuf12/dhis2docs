@@ -1065,23 +1065,22 @@ Ext.get(&apos;link1&apos;).set({href: url1});</screen>
   </section>
   <section>
     <title>Working with SQL views</title>
-    <para>SQL Views are useful for presenting certain data views externally, which may be more
+    <para>SQL views are useful for presenting certain data views externally, which may be more
       easily constructed with SQL than by combining the multiple objects of the Web API. As an
       example, lets assume we have been asked to provide a view of all organization units with their
       names, parent names, organization unit level and name, and the coordinates listed in the
       database. The view might look something like this: </para>
-    <screen>SELECT ou.name, par.name as parent, ou.coordinates,
- ous.level,oul.name from organisationunit ou  
-INNER JOIN _orgunitstructure  ous 
-on ou.organisationunitid = ous.organisationunitid
-INNER JOIN organisationunit par on ou.parentid = par.organisationunitid
-INNER JOIN orgunitlevel oul on ous.level = oul.level
-where ou.coordinates IS NOT NULL 
-ORDER BY oul.level,par.name,ou.name</screen>
-    <para>We will use <command>curl</command> to first execute the view on the DHIS2 server. This is essentially a materialization process, and ensures that we have the most recent data available through the SQL View when it is retrieved from the server. </para>
+    <screen>SELECT ou.name as orgunit, par.name as parent, ou.coordinates, ous.level, oul.name from organisationunit ou  
+INNER JOIN _orgunitstructure ous ON ou.organisationunitid = ous.organisationunitid
+INNER JOIN organisationunit par ON ou.parentid = par.organisationunitid
+INNER JOIN orgunitlevel oul ON ous.level = oul.level
+WHERE ou.coordinates is not null 
+ORDER BY oul.level, par.name, ou.name</screen>
+    <para>We will use <command>curl</command> to first execute the view on the DHIS 2 server. This
+      is essentially a materialization process, and ensures that we have the most recent data
+      available through the SQL view when it is retrieved from the server. You can first look up the
+      SQL view from the api/sqlViews resource, then POST using the following command:</para>
     <screen>curl &quot;http://apps.dhis2.org/demo/api/sqlViews/dI68mLkP1wN/execute&quot; -X POST -u admin:district -v</screen>
-    <para>This <command>curl</command> command simply has the internal identifier of the view as a
-      single parameter. </para>
     <para>The next step in the process is the retrieval of the data.The basic structure of the URL is as follows</para>
     <screen>http://{server}/api/sqlViews/{uid}/data(.csv)</screen>
     <para>The <parameter>{server}</parameter> parameter should be replaced with your own server. The
@@ -1091,6 +1090,13 @@ ORDER BY oul.level,par.name,ou.name</screen>
       delimited values. As an example, the following command would retrieve XML data for the SQL
       view defined
       above.<screen>curl &quot;http://apps.dhis2.org/dev/api/sqlViews/dI68mLkP1wN/data.csv&quot; -u admin:district -v</screen></para>
+    <para>You can do simple filtering on the columns in the result set by appending <emphasis
+        role="italic">criteria</emphasis> query parameters to the URL, and the column names and
+      filter values separated with columns as parameter values on the following format:</para>
+    <screen>/data?criteria=col1:value1&amp;criteria=col2:value2</screen>
+    <para>As an example, to filter the SQL view result set above to only return organisation units
+      at level 4 you can use the following URL:</para>
+    <screen>http://apps.dhis2.org/dev/api/sqlViews/dI68mLkP1wN/data.csv?level:4</screen>
   </section>
   <section>
     <title>Analytics</title>
@@ -1296,6 +1302,9 @@ ORDER BY oul.level,par.name,ou.name</screen>
           <para>json (application/json)</para>
         </listitem>
         <listitem>
+          <para>jsonp (application/javascript)</para>
+        </listitem>
+        <listitem>
           <para>xml (application/xml)</para>
         </listitem>
         <listitem>
@@ -1459,5 +1468,6 @@ ORDER BY oul.level,par.name,ou.name</screen>
       analysis modules and can be used directly by SQL reports. The data mart tables can be
       generated with a PUT request to:</para>
     <screen>http://&lt;server-url>/api/resourceTables/dataMart</screen>
+    <para>These requests will return immediately and initiate a server-side process.</para>
   </section>
 </chapter>
