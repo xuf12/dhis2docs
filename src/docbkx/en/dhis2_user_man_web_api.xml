@@ -1290,22 +1290,22 @@ ORDER BY oul.level,par.name,ou.name</screen>
         representation formats. As usual, you can indicate interest in a specific format by
         appending a file extension to the URL, through the <emphasis role="italic">Accept</emphasis>
         HTTP header or through the <emphasis role="italic">format</emphasis> query parameter. The
-        default format is JSON. The available formats are listed below.</para>
+        default format is JSON. The available formats and content-types are listed below.</para>
       <itemizedlist>
         <listitem>
-          <para>json</para>
+          <para>json (application/json)</para>
         </listitem>
         <listitem>
-          <para>xml</para>
+          <para>xml (application/xml)</para>
         </listitem>
         <listitem>
-          <para>csv</para>
+          <para>csv (application/csv)</para>
         </listitem>
         <listitem>
-          <para>html</para>
+          <para>html (text/html)</para>
         </listitem>
         <listitem>
-          <para>xls (MS Excel)</para>
+          <para>xls (application/vnd.ms-excel)</para>
         </listitem>
       </itemizedlist>
       <para>As an example, to request an analytics response in XML format you can use the following
@@ -1427,6 +1427,9 @@ ORDER BY oul.level,par.name,ou.name</screen>
             reasons.</para>
         </listitem>
       </itemizedlist>
+      <para>When a query request violates any of these constraints the server will return a response
+        with status code 409 and content-type "text/plain" together with a textual description of
+        the problem.</para>
     </section>
     <section>
       <title>Generating the analytics tables</title>
