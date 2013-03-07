@@ -1,12 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
-  <title>DHIS Mobile</title>
+  <title>Mobile</title>
   <section>
     <title>Introduction</title>
     <para>DHIS2 provides a range of options to allow data entry from mobile devices, including a dedicated GPRS/3G J2ME client, a SMS based client, and a version of DHIS2 which has been optimized specifically for mobile browsers. Each of these solutions will be described in detail in the following sections.</para>
     <para>Collection of data in the field can be technically challenging and expensive. Mobile phone solutions has the potential to significantly reduce the complexity of deploying a distributed data collection system. Using a simple Java client installed on a mobile phone or a web browser which works on the mobile phone, field workers can report directly to the DHIS2 database through their mobile device.</para>
-    <para>While mobile phone solutions have a great potential, it is also an area that can be difficult to &quot;get right&quot;. Phones lack processing power and have a small display, need to be charged and often makes the most sense in areas where mobile network coverage is weak and patchy.</para>
+    <para>While mobile phone solutions have a great potential it is also an area that can be
+      difficult to &quot;get right&quot;. Phones lack processing power and have a small display,
+      need to be charged and often makes the most sense in areas where mobile network coverage is
+      weak and patchy.</para>
     <para>There are currently three main mobile solutions for DHIS2, and we continue to evolve these as well as look at other possible solutions:</para>
     <itemizedlist>
       <listitem>
