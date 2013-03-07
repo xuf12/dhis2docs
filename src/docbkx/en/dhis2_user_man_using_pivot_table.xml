@@ -50,35 +50,34 @@
       elements and select any number of data elements from the available list. You can select an
       item by marking it and clicking on the arrow in the section header or simply double-clicking
       on the item. Before you can use a data dimension in your pivot table you must at least select
-      on dimension item.</para>
-    <para>For the <emphasis role="italic">indicator</emphasis> and <emphasis role="italic">data
-        element</emphasis> dimensions you must first select one or all groups from the group list.
-      You can then select data elements from the list of available items.</para>
-    <para>For the <emphasis role="italic">period</emphasis> dimension you can choose between fixed
-      and relative periods. An example of a fixed period is "January 2012". To select fixed periods
-      start by selecting a period type from the period type list. You can then select periods from
-      the list of available periods. Relative periods are periods relative to the current date.
-      Examples of relative periods are "Last month" and "Last 5 years". Relative periods can be
-      selected by ticking the checkboxes next to each relative period. The main advantage of using
-      relative periods is that when you save a pivot table favorite, it will stay updated with the
-      latest data as time goes by without the need for constantly updating it. The "Rewind one
-      period" option will make the relative periods relative to the current date subtracted by one
-      period. This is useful to manage situations where there is a gap between the end of the
-      reporting period and the time when data is entered into the system.</para>
-    <para>For the <emphasis role="italic">organisation unit</emphasis> dimension you can select any
-      number of organisation units in the hierarchy. To select all organisation units below a
-      specific organisation unit, right click and click "Select all children". To manually select
-      multiple organisation units, click and hold the <emphasis role="italic">Ctrl</emphasis> button
-      while clicking on organisation units. You can tick "User organisation unit" or "User
-      organisation unit children" in order to dynamically insert the organisation unit or units
-      associated with your user account. This is useful when you save a pivot table favorite and
-      want to share it with other users, as the organisation units linked with the other user's
-      account will be used when viewing the favorite.</para>
+      one dimension item. If you arrange a dimension as columns or rows but do not select any
+      dimension items, the dimension will be ignored.</para>
+    <para>For the indicator and data element dimensions you must first select one or all groups from
+      the group list. You can then select data elements from the available items list.</para>
+    <para>For the period dimension you can choose between using fixed periods or relative periods.
+      An example of a fixed period is "January 2012". To select fixed periods start by selecting a
+      period type from the period type list. You can then select periods from the list of available
+      periods. Relative periods are periods relative to the current date. Examples of relative
+      periods are "Last month", "Last 12 months", "Last 5 years". Relative periods can be selected
+      by ticking the checkboxes next to each period. The main advantage of using relative periods is
+      that when you save a pivot table favorite, it will stay updated with the latest data as time
+      goes by without the need for constantly updating it. The "Rewind one period" will make the
+      relative periods relative to the current date subtracted by one period. This is useful to
+      manage situations where there is a gap between the end of the reporting period and the time
+      when data is entered into the system.</para>
+    <para>For the organisation unit dimension you can select any number of organisation units from
+      the hierarchy. To select all organisation units below a specific parent organisation unit,
+      right click and click "Select all children". To manually select multiple organisation units,
+      click and hold the Ctrl button while clicking on organisation units. You can tick "User
+      organisation unit" or "User organisation unit children" in order to dynamically insert the
+      organisation unit or units associated with your user account. This is useful when you save a
+      pivot table favorite and want to share it with other users, as the organisation units linked
+      with the other user's account will be used when viewing the favorite.</para>
     <screenshot>
       <screeninfo>Selection of fixed and relative periods.</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata width="35%" fileref="resources/images/pivot_table/period_dimension.png" format="PNG"/>
+          <imagedata width="25%" fileref="resources/images/pivot_table/period_dimension.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -90,19 +89,23 @@
       as table columns, rows or filters by clicking and dragging the dimensions from the dimensions
       list to the respective column, row and filter lists. You can set any number of dimensions in
       any of the lists. For instance, you can click on "Organisation units" and drag it to the row
-      list in order to position the organisation unit dimension as table rows. </para>
+      list in order to position the organisation unit dimension as table rows.  Note that
+      indicators, data elements and data set reporting rates are part of the common "Data" dimension
+      and will be displayed together in the pivot table. For instance, after selecting indicators
+      and data elements in the left menu, you can drag "Data" from the available dimensions list to
+      the row dimension list in order to arrange them as rows in the pivot table.</para>
       <screenshot>
       <screeninfo>The table layout screen.</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata width="40%" fileref="resources/images/pivot_table/table_layout.png" format="PNG"/>
+          <imagedata width="30%" fileref="resources/images/pivot_table/table_layout.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>After you have set up your pivot table you can click "Update" to render it, or click
-      "Hide" to hide the layout screen without any changes taking effect. Since we in our example
-      have selected both the period and organisation unit dimensions as rows, the pivot table will
-      generate all combinations of the items in these dimensions and produce a table like
+    <para>After you have set up your pivot table you can click "Update" to render your pivot table,
+      or click "Hide" to hide the layout screen without any changes taking effect. Since we in our
+      example have selected both the period and organisation unit dimension as rows, the pivot table
+      will generate all combinations of the items in these dimensions and produce a table like
       this:</para>
     <screenshot>
       <screeninfo>Pivot table where organisation units and periods are repeated on rows.</screeninfo>
@@ -119,14 +122,14 @@
       screen by clicking on "Options" in the top menu. The following options are available:</para>
     <itemizedlist>
       <listitem>
-        <para>Show sub-totals: Display sub-totals in the table for each dimension. In the screenshot
-          in the previous section, notice how subtotals are generated for each of the periods in the
-          period dimension.</para>
+        <para>Show sub-totals: Display subtotals in the table for each dimension. In the screenshot
+          above, notice how subtotals are generated for each of the periods in the period
+          dimension.</para>
       </listitem>
       <listitem>
-        <para>Hide empty rows: Hides empty rows from the table. This is useful when looking at large
-          tables where a big part of the dimension items do not have data in order to keep the table
-          more readable.</para>
+        <para>Hide empty rows: Hides empty rows from the table, which is useful when looking at
+          large tables where a big part of the dimension items do not have data in order to keep the
+          table more readable.</para>
       </listitem>
       <listitem>
         <para>Display density: Controls the size of the cells in the table. Can be set to
@@ -142,10 +145,30 @@
   <section>
     <title>Downloading data</title>
     <para>You can download the data in the current pivot table by clicking on "Download" in the top
-      menu. The data can be downloaded in Microsoft Excel and CSV format. The downloaded data table
-      will have one column per dimension. You can easily create a pivot table in Microsoft Excel
-      from the the downloaded Excel file by clicking on "pivot table" in the top panel, then
-      clicking on "create pivot table", marking the data range in the spreadsheet before clicking
-      "OK".</para>
+      menu. The data can be downloaded in MS Ecel and CSV format. The data table will have one
+      column per dimension. You can easily create a pivot table in Microsoft Excel from the the
+      downloaded Excel file by clicking on "pivot table" in the top panel, then clicking on "create
+      pivot table", then marking the data range in the spreadsheet before clicking "OK".</para>
+  </section>
+  <section>
+    <title>Constraints</title>
+    <para>When selecting and arranging dimensions there are a few constraints that apply. All of
+      these constraints are validated and the pivot table module will provide feedback if any
+      constraint is violated.</para>
+    <itemizedlist>
+      <listitem>
+        <para>At least one dimension must be selected on columns or rows.</para>
+      </listitem>
+      <listitem>
+        <para>At least one period must be included in the pivot table.</para>
+      </listitem>
+      <listitem>
+        <para>Data element group sets and reporting rates cannot appear in the same pivot
+          table.</para>
+      </listitem>
+      <listitem>
+        <para>A table cannot contain more than 5000 cells for performance reasons.</para>
+      </listitem>
+    </itemizedlist>
   </section>
 </chapter>
