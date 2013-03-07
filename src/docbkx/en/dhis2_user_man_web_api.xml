@@ -1284,8 +1284,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
       should be substituted with real values:</para>
     <screen>api/analytics?measureCriteria=criteria:value;criteria:value</screen>
     <para>As an example, the following query will return only records where the data value is
-      greater or equal to 10 and less than 20:</para>
-    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012Q1&amp;dimension=ou:O6uvpzGd5pu&amp;measureCriteria=GE:10;LT:20</screen>
+        greater or equal to 6500 and less than 33000:</para>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;dimension=pe:2012&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw&amp;measureCriteria=GE:6500;LT:33000</screen>
     </section>
     <section>
       <title>Response formats</title>
@@ -1437,23 +1437,14 @@ ORDER BY oul.level, par.name, ou.name</screen>
         with status code 409 and content-type "text/plain" together with a textual description of
         the problem.</para>
     </section>
-    <section>
-      <title>Generating the analytics tables</title>
-      <para>The analytics resource is utilizing a set of database tables which are optimized for
-        data aggregation. These tables must be updated in order to reflect the latest, captured
-        data. This task is typically one for a system administrator and not consuming clients. These
-        tables can be generated and scheduled to be refreshed at regular intervals through the user
-        interface of DHIS 2. It can also be generated directly from the Web API - to do so you can
-        make a request for the following resource using the HTTP PUT
-        method:<screen>http://&lt;server-url>/api/resourceTables/analytics</screen></para>
-    </section>
   </section>
   <section>
     <title>Generating resource, analytics and data mart tables</title>
     <para>DHIS 2 features a set of generated database tables which are used as basis for various
       system functionality. These tables can be executed immediately or scheduled to be executed at
       regular intervals through the user interface. They can also be generated through the Web API
-      as explained in this section.</para>
+      as explained in this section. This task is typically one for a system administrator and not
+      consuming clients. </para>
     <para>The resource tables are used internally by the DHIS 2 application for various analysis
       functions. These tables are also valuable for users writing advanced SQL reports. They can be
       generated with a PUT request to the following URL:</para>
