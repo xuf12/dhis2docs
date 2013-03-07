@@ -1091,8 +1091,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
       view defined
       above.<screen>curl &quot;http://apps.dhis2.org/dev/api/sqlViews/dI68mLkP1wN/data.csv&quot; -u admin:district -v</screen></para>
     <para>You can do simple filtering on the columns in the result set by appending <emphasis
-        role="italic">criteria</emphasis> query parameters to the URL, and the column names and
-      filter values separated with columns as parameter values on the following format:</para>
+        role="italic">criteria</emphasis> query parameters to the URL, using the column names and
+      filter values separated by columns as parameter values, on the following format:</para>
     <screen>/data?criteria=col1:value1&amp;criteria=col2:value2</screen>
     <para>As an example, to filter the SQL view result set above to only return organisation units
       at level 4 you can use the following URL:</para>
@@ -1151,12 +1151,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
                 <entry>Not possible to define dimension items for categories</entry>
               </row>
               <row>
-                <entry>Data element group sets (compulsory only)</entry>
+                <entry>Data element group sets</entry>
                 <entry>&lt;group set id></entry>
                 <entry>Data element group identifiers (omit to get all items)</entry>
               </row>
               <row>
-                <entry>Organisation unit group sets (compulsory only)</entry>
+                <entry>Organisation unit group sets</entry>
                 <entry>&lt;group set id></entry>
                 <entry>Organisation unit group identifiers (omit to get all items)</entry>
               </row>
@@ -1202,10 +1202,6 @@ ORDER BY oul.level, par.name, ou.name</screen>
         <para>For the organisation unit dimension the dimension items are the organisation units and
           their sub-hierarchy - data will be aggregated for all organisation units below the given
           organisation unit in the hierarchy.</para>
-      </listitem>
-      <listitem>
-        <para>Only compulsory data element and organisation unit group sets are available. Make sure
-          you set the group sets you want to use for analysis to be compulsory.</para>
       </listitem>
       <listitem>
         <para>You cannot specify dimension items for the category dimension. Instead the response
@@ -1258,17 +1254,18 @@ ORDER BY oul.level, par.name, ou.name</screen>
           </tgroup>
         </table>The <emphasis role="italic">dimension</emphasis> query parameter defines which
         dimensions should be included in the analytics query. Any number of dimensions can be
-        specified in a query. The dimension parameter should be repeated for each dimension to
-        include in the query. The query response can potentially contain aggregated values for all
+        specified. The dimension parameter should be repeated for each dimension to include in the
+        query response. The query response can potentially contain aggregated values for all
         combinations of the specified dimension items.</para>
     <para>The <emphasis role="italic">filter</emphasis> parameter defines which dimensions should be
         used as filters for the data retrieved in the analytics query. Any number of filters can be
-        specified in a query. The filter parameter should be repeated for each filter to use in the
-        query. The difference between a regular dimension and a filter dimension is that the filter
-        dimensions will not be part of the query response content, and that the aggregated values in
-        the response will be collapsed on the filter dimensions. As an example, to query for certain
-        data elements filtered by the periods and organisation units you can use the following
-        URL:</para>
+        specified. The filter parameter should be repeated for each filter to use in the query. A
+        filter differs from a dimension in that the filter dimensions will not be part of the query
+        response content, and that the aggregated values in the response will be collapsed on the
+        filter dimensions. In other words, the data in the response will be aggregated on the filter
+        dimensions, but the filters will not be included as dimensions in the actual response. As an
+        example, to query for certain data elements filtered by the periods and organisation units
+        you can use the following URL:</para>
     <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;filter=pe:2012Q1;2012Q2&amp;filter=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
     <para>The <emphasis role="italic">aggregationType</emphasis> query parameter lets you define
         which aggregation operator should be used for the query. By default the aggregation operator
