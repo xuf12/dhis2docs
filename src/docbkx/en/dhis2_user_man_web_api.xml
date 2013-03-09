@@ -1119,9 +1119,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
         <table frame="all">
           <title>Dimensions and dimension items</title>
           <tgroup cols="3">
-            <colspec colname="c1" colnum="1" colwidth="2.9*"/>
+            <colspec colname="c1" colnum="1" colwidth="3.17*"/>
             <colspec colname="c2" colnum="2" colwidth="1*"/>
-            <colspec colname="newCol3" colnum="3" colwidth="3.38*"/>
+            <colspec colname="newCol3" colnum="3" colwidth="4.03*"/>
             <thead>
               <row>
                 <entry><emphasis role="italic">Dimension</emphasis></entry>
@@ -1143,7 +1143,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
               <row>
                 <entry>Organisation unit hierarchy</entry>
                 <entry>ou</entry>
-                <entry>Organisation unit identifiers</entry>
+                <entry>Organisation unit identifiers and USER_ORGUNIT |
+                  USER_ORGUNIT_CHILDREN</entry>
               </row>
               <row>
                 <entry>Categories</entry>
@@ -1181,6 +1182,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
       - notice how the group set identifier is used as dimension identifier and the groups as
       dimension items:</para>
     <screen>api/analytics?dimension=Bpx0589u8y0:oRVt7g429ZO;MAs88nJc9nL&amp;dimension=pe:2012&amp;dimension=ou:ImspTQPwCqd</screen>
+    <para>To query using relative periods and organiastion units associated with the current user
+      you can use a URL like this:</para>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;dimension=pe:LAST_12_MONTHS&amp;dimension=ou:USER_ORGUNIT</screen>
     <para>A few things to be aware of when using the analytics resource are listed below.</para>
     <itemizedlist>
       <listitem>
@@ -1197,6 +1201,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
         <para>For the period dimension, the dimension items are ISO period identifiers and/or
           relative periods. Please refer to the section above called "Date and period format" for
           the period format and available relative periods.</para>
+      </listitem>
+      <listitem>
+        <para>The organisation unit dimension you can specify the items to be the organisation unit
+          or hierarchy children of the organisation unit associated with the user authenticated for
+          the request using they keys USER_ORGUNIT or USER_ORGUNIT_CHILDREN as items, respectively.
+          You can also specify organisation unit identifiers, or a combination of both.</para>
       </listitem>
       <listitem>
         <para>For the organisation unit dimension the dimension items are the organisation units and
@@ -1242,13 +1252,14 @@ ORDER BY oul.level, par.name, ou.name</screen>
                 <entry>aggregationType</entry>
                 <entry>No</entry>
                 <entry>Aggregation type to use in the aggregation process</entry>
-                <entry>SUM, AVERAGE_INT, AVERAGE_INT_DISAGGREGATION, AVERAGE_BOOL, COUNT</entry>
+                <entry>SUM | AVERAGE_INT |  AVERAGE_INT_DISAGGREGATION |  AVERAGE_BOOL |
+                  COUNT</entry>
               </row>
               <row>
                 <entry>measureCriteria</entry>
                 <entry>No</entry>
                 <entry>Filters for the data/measures</entry>
-                <entry>EQ, GT, GE, LT, LE</entry>
+                <entry>EQ | GT | GE | LT | LE</entry>
               </row>
             </tbody>
           </tgroup>
