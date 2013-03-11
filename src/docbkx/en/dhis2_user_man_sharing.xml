@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<chapter>
+  <title>Sharing</title>
+  <para>This chapter discusses the sharing of entities feature in DHIS 2.</para>
+  <section>
+    <title>Sharing of objects</title>
+    <para>A large part of the objects in DHIS 2, like reports, charts and indicators, can be shared.
+      Sharing means making an object, like a report, available for reading or modification to a
+      group of users or to everyone.</para>
+    <para>For instance for reports, the sharing dialog can be opened by clicking on the "share"
+      button next to each report in the list. The sharing dialog is where sharing is
+      controlled.</para>
+    <screenshot>
+      <screeninfo>The sharing dialog.</screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="30%" fileref="resources/images/sharing/sharing-dialog.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </section>
+  <section>
+    <title>Supported objects</title>
+    <para>Currently the objects which support sharing are: Indicator, indicator group, indicator
+      group set, data dictionary, data set, program, user group, standard report, resource, report
+      table, chart and map. </para>
+  </section>
+</chapter>
