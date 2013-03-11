@@ -534,6 +534,9 @@ For example: the date in which a person enrolls to the system.</para>
                   </imageobject>
                 </mediaobject>
               </screenshot>
+              <note>
+                <para>You can click  <emphasis role="italic">Aggregate and Save</emphasis> button to save data values aggregated into the database directly.</para>
+              </note>
             </listitem>
           </orderedlist>
         </section>
@@ -1179,7 +1182,7 @@ It supports to filter events by each person attributes and data elements. The se
           </listitem>
           <listitem>
             <para>Click on the 
-<emphasis role="italic">Aggregate</emphasis> button to execute aggregate function. The <emphasis>Person aggregation result</emphasis>page is shown after running successfully.</para>
+<emphasis role="italic">Aggregate and Save</emphasis> button to execute aggregate function and save data values into database directly. Besides, click Preview button to preview data values and you can check/select any data values you want to input them into database. The <emphasis>Person aggregation result </emphasis>page is shown after running successfully.</para>
           </listitem>
         </orderedlist>
         <screenshot>
@@ -1190,7 +1193,7 @@ It supports to filter events by each person attributes and data elements. The se
             </imageobject>
           </mediaobject>
         </screenshot>
-        <para>In <emphasis>Manual person aggregation result</emphasis> page -</para>
+        <para>In <emphasis>Manual person aggregation result</emphasis><emphasis role="italic"> preview</emphasis> page -</para>
         <itemizedlist>
           <listitem>
             <para>Click <emphasis role="italic">Save all values</emphasis> button to save all aggregated data values .</para>
