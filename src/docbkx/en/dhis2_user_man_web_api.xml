@@ -1470,35 +1470,30 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>These requests will return immediately and initiate a server-side process.</para>
   </section>
   <section>
-    <title>FRED API v1.0</title>
-    <para>In addition to our own web-api, DHIS 2 (from 2.11) includes support for the current draft
-      of FRED API v1.0. The project defines itself as <quote>open standard for sharing and updating
-        health facility data.</quote>, and the specification can be found at <ulink
+    <title>FRED API</title>
+    <para>DHIS 2 from version 2.11 implements support for the current draft
+      of the FRED API version 1.0. The project defines itself as <quote>open standard for sharing and updating
+        health facility data</quote>. The full specification, including representation format and basic usage, can be found at <ulink
         url="http://facilityregistry.org/">http://facilityregistry.org/</ulink>.</para>
-    <para>Since v1.0 is not finalized, there are parts of the current specification that has not
-      been implemented (parts we found to not be in a stable enough state). Most notable we do not
-      currently support sorting (we do however sort on name by default), and filtering facilities, </para>
-    <para>The entry point for the implementation can be found at http://&lt;server-url>/api-fred,
-      and the current version is located at http://&lt;server-url>/api-fred/v1, the UI should be
-      considered <emphasis role="bold">beta</emphasis> quality at this point, and will be polished
-      in 2.12.</para>
-    <section>
-      <title>Example usage</title>
-      <para>This section will give some simple examples of using the API.</para>
-      <para>
-        <emphasis>Get all facilities:</emphasis>
+    <para>Since version 1.0 is not finalized there are parts of the current specification that has not
+      been implemented as we found it not to be in a stable enough state. Most notably we do not
+      currently support sorting (we do however sort on name by default) and filtering of facilities.</para>
+    <para>The entry point for the implementation can be found at http://&lt;server-url>/api-fred
+      and the current version is located at http://&lt;server-url>/api-fred/v1.</para>
+    <para>This section will give some simple examples of using the API.</para>
+        <para>Get all facilities:</para>
         <screen>curl -u username:password -X GET http://&lt;server-url>/api-fred/v1/facilities.json</screen>
-        <emphasis>Get a specific facility based on either UID or UUID:</emphasis><screen>curl -u username:password -X GET http://&lt;server-url>/api-fred/v1/facilities/UID.json
+        <para>Get a specific facility based on either UID or UUID:</para>
+        <screen>curl -u username:password -X GET http://&lt;server-url>/api-fred/v1/facilities/UID.json
 curl -u username:password -X GET http://&lt;server-url>/api-fred/v1/facilities/UUID.json</screen>
-        <emphasis>Create a new facility:</emphasis><screen>curl -u username:password -X POST -d @new_facility.json
+        <para>Create a new facility:</para>
+        <screen>curl -u username:password -X POST -d @new_facility.json
   -H "Content-Type: application/json" http://&lt;server-url>/api-fred/v1/facilities.json</screen>
-        <emphasis>Update a
-        facility:</emphasis><screen>curl -u username:password -X POST -d @updated_facility.json
-  -H "Content-Type: application/json" http://&lt;server-url>/api-fred/v1/facilities/UID.json
-
+        <para>Update a facility:</para>
+        <screen>curl -u username:password -X POST -d @updated_facility.json
+  -H "Content-Type: application/json" http://&lt;server-url>/api-fred/v1/facilities/UID.json</screen>
+<screen>
 curl -u username:password -X POST -d @updated_facility.json
   -H "Content-Type: application/json" http://&lt;server-url>/api-fred/v1/facilities/UUID.json</screen>
-      </para>
-    </section>
   </section>
 </chapter>
