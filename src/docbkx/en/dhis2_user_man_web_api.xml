@@ -1338,21 +1338,21 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <screen>{
     "headers": [
         {
-            "column": "dx", 
-            "meta": true, 
             "name": "dx", 
-            "type": "java.lang.String"
-        }, 
-        {
-            "column": "pe", 
+            "column": "Data", 
             "meta": true, 
-            "name": "pe", 
             "type": "java.lang.String"
         }, 
         {
+            "name": "pe", 
+            "column": "Period", 
+            "meta": true, 
+            "type": "java.lang.String"
+        }, 
+        {
+            "name": "value", 
             "column": "Value", 
             "meta": false, 
-            "name": "value", 
             "type": "java.lang.Double"
         }
     ], 
