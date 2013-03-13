@@ -59,4 +59,35 @@
       granted the report will be private to yourself. After you have created an object, you can
       navigate to the sharing settings dialog and set your desired access options.</para>
   </section>
+  <section>
+    <title>Sharing applied</title>
+    <para>The sharing functionality is useful in several scenarios. One use-case is setting up a
+      DHIS instance for a global organisation with operations in multiple countries. Typically the
+      organisation has a set global indicators and reports which should apply to all countries,
+      while all countries will have the need for country-specific indicators and reports. In this
+      scenario the following approach could work:  </para>
+    <itemizedlist>
+      <listitem>
+        <para>Set up one user group for global personell.</para>
+      </listitem>
+      <listitem>
+        <para>Set up a user group for personell in each country.</para>
+      </listitem>
+      <listitem>
+        <para>Create global indicators and reports, make them viewable for everyone and editable for
+          the global user group only.</para>
+      </listitem>
+      <listitem>
+        <para>Create country-specific indicators and reports, make them viewable and editable for
+          the country user group and the global user group.</para>
+      </listitem>
+    </itemizedlist>
+    <para>This way, the global indicators and reports could be viewed and analysed by everyone, but
+      maintained by the global user group only. The country-specific indicators and reports could be
+      viewed and maintained by the country and global personell, without being visible or impacting
+      the system for other countries in the organisation.</para>
+    <para>A similar approach could work for a scenario with a donor, multiple funding agencies and
+      implemeting partners in a country, where user groups could be set up for each of those
+      entities.</para>
+  </section>
 </chapter>
