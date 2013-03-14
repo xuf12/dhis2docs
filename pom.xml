@@ -199,7 +199,7 @@
               <includes>dhis2_user_manual_en.xml,dhis2_end_user_manual.xml,dhis2_implementation_guide_en.xml</includes>
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <postProcess>
-                <copy file="target/docbkx/html/dhis2_user_manual_en.html" tofile="${docbook.target}/en/user/html/dhis2_user_manual_en_full.html" />
+                <copy file="target/docbkx/html/dhis2_user_manual_en.html" tofile="${docbook.target}/en/user/dhis2_user_manual_en_full.html" />
                 <copy file="target/docbkx/html/dhis2_end_user_manual.html" tofile="${docbook.target}/en/end-user/dhis2_end_user_manual_full.html" />
                 <copy file="target/docbkx/html/dhis2_implementation_guide_en.html" tofile="${docbook.target}/en/implementer/dhis2_implementation_guide_en_full.html" />
               </postProcess>
