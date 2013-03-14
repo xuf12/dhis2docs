@@ -123,8 +123,9 @@
     <itemizedlist>
       <listitem>
         <para>Show sub-totals: Display subtotals in the table for each dimension. In the screenshot
-          above, notice how subtotals are generated for each of the periods in the period
-          dimension.</para>
+          above, notice how subtotals are generated for each of the periods in the period dimension.
+          Note that subtotals will be hidden for columns or rows if there is only one selected
+          dimension, as the values in that case are equal to the subtotals.</para>
       </listitem>
       <listitem>
         <para>Hide empty rows: Hides empty rows from the table, which is useful when looking at
