@@ -1177,8 +1177,8 @@ Above the table there are six buttons; five download buttons and one Back button
     </section>
     <section>
       <title>Designing SQL based standard reports</title>
-      <para>A standard report might also be based on SQL queries. This is useful when you need to
-        access multiple tables in the DHIS database and do custom selects and joins. </para>
+      <para>A standard report might be based on SQL queries. This is useful when you need to access
+        multiple tables in the DHIS database and do custom selects and joins. </para>
       <para>- This step is optional, but handy when you need to debug your reports and when you have
         direct access to the database you want to use. Click on the "report datasources" button,
         "New", "Database JDBC connection" and click "next". In this window you can give you
@@ -1253,6 +1253,70 @@ order by district.name, chiefdom.name, ou.name;
         under relative periods and both "reporting month" and "organisation unit" under report
         parameters. Click save. This will redirect you to the list of reports, where you can click
         the green "create" icon next to your report to render it.</para>
+    </section>
+    <section>
+      <title>Designing HTML based standard reports</title>
+      <para>A standard report can be designed using purely HTML and Javascript. This requires a
+        little bit of development experience in the mentioned subjects. The benefit of HTML based
+        standard reports is that it allows for maximum flexibility. Using HTML you can design
+        exactly the report you want, positioning tables, logos and values on the page acccording to
+        your design needs. You can write and save your standard report design in a regular text
+        file. To upload your HTML based standard report to DHIS 2 do the following:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Navigate to standard reports and click "Add new".</para>
+        </listitem>
+        <listitem>
+          <para>Give the report a name.</para>
+        </listitem>
+        <listitem>
+          <para>Select "HTML report" as type.</para>
+        </listitem>
+        <listitem>
+          <para>If you want to you can download a report template by clicking on "Get HTML report
+            template".</para>
+        </listitem>
+        <listitem>
+          <para>Select desired relative periods - these will be available in Javascript in your
+            report.</para>
+        </listitem>
+        <listitem>
+          <para>Select report parameters - these will be available in Javascript in your
+            report.</para>
+        </listitem>
+      </itemizedlist>
+      <para>The report template, which you can download after selecting report type, is a useful
+        starting point for developing HTML based standar reports. It gives you the basic structure
+        and suggests how you can use Javascript and CSS in the report. Javascript and CSS can easily
+        be included using standard script and style tags.</para>
+      <para>If you selected relative periods when creating the standard report you can access these
+        in Javascript like this:</para>
+      <screen>var periods = dhis2.report.periods; // An array with period identifiers
+var period = periods[0];</screen>
+      <para>If you selected the organisation unit report parameter when creating the standard report
+        you can access the selected organisation unit in Javascript like this:</para>
+      <screen>var orgUnit = dhis2.report.organisationUnit; // An object
+var id = orgUnit.id; 
+var name = orgUnit.name;
+var code = orgUnit.code;</screen>
+      <para>When designing these reports you can utilize the analytics Web API resource in order to
+        retrieve aggregated data in Javascript. Have a look in the Web API chapter in this guide for
+        a closer description. As an example you can retrieve analytics data after the report has
+        been loaded and use that data to set the inner text of an HTML element like this:</para>
+      <screen>&lt;script type="text/javascript">
+$( document ).ready( function() {
+    $.get( "../api/analytics?dimension=dx:FnYCr2EAzWS;eTDtyyaSA7f&amp;dimension=pe:THIS_YEAR&amp;filter=ou:ImspTQPwCqd", function( json ) {
+        $( "#bcg" ).html( json.rows[0][2] );
+        $( "#fic" ).html( json.rows[1][2] );
+    } );    
+} );
+&lt;/script></screen>
+      <para>A few other tips: To include graphics you can convert an image to SVG and embed that SVG
+        content directly in the report - DHIS 2 is based on HTML 5 where SVG tags are valid markup.
+        To include charts and maps in your report you can use the charts and maps resources in the
+        Web API. You can use the full capability of the Web API from Javascript in your report - it
+        may be useful to read through the Web API chapter to get an overview of all available
+        resources.</para>
     </section>
   </section>
 </chapter>
