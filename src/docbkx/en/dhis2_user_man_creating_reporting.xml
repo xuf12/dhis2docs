@@ -1286,7 +1286,7 @@ order by district.name, chiefdom.name, ou.name;
         </listitem>
       </itemizedlist>
       <para>The report template, which you can download after selecting report type, is a useful
-        starting point for developing HTML based standar reports. It gives you the basic structure
+        starting point for developing HTML based standard reports. It gives you the basic structure
         and suggests how you can use Javascript and CSS in the report. Javascript and CSS can easily
         be included using standard script and style tags.</para>
       <para>If you selected relative periods when creating the standard report you can access these
@@ -1301,8 +1301,9 @@ var name = orgUnit.name;
 var code = orgUnit.code;</screen>
       <para>When designing these reports you can utilize the analytics Web API resource in order to
         retrieve aggregated data in Javascript. Have a look in the Web API chapter in this guide for
-        a closer description. As an example you can retrieve analytics data after the report has
-        been loaded and use that data to set the inner text of an HTML element like this:</para>
+        a closer description. As a complete, minimal example you can retrieve analytics data after
+        the report has been loaded and use that data to set the inner text of an HTML element like
+        this:</para>
       <screen>&lt;script type="text/javascript">
 $( document ).ready( function() {
     $.get( "../api/analytics?dimension=dx:FnYCr2EAzWS;eTDtyyaSA7f&amp;dimension=pe:THIS_YEAR&amp;filter=ou:ImspTQPwCqd", function( json ) {
@@ -1310,7 +1311,10 @@ $( document ).ready( function() {
         $( "#fic" ).html( json.rows[1][2] );
     } );    
 } );
-&lt;/script></screen>
+&lt;/script>
+
+&lt;div>BGG coverage: &lt;span id="bcg">&lt;/span>&lt;/div>
+&lt;div>FIC coverage: &lt;span id="fic">&lt;/span>&lt;/div></screen>
       <para>A few other tips: To include graphics you can convert an image to SVG and embed that SVG
         content directly in the report - DHIS 2 is based on HTML 5 where SVG tags are valid markup.
         To include charts and maps in your report you can use the charts and maps resources in the
