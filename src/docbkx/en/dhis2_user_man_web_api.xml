@@ -183,13 +183,13 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
   </section>
   <section>
     <title>Working with the meta-data API</title>
-    <para>With the release of 2.9, a special entry point for meta-data was added in the API, this
-      can be accessed through <emphasis role="bold">/api/metaData</emphasis>. This section will give
-      a basic introduction to working with this API, for specific synchronization issues, please see
-      INTEGRATION_CHAPTER.</para>
-    <para>By default, talking to <emphasis role="bold">/api/metaData</emphasis> will give you
-      everything, rendered as XML. But just as we can define what we want in the general API, we can
-      also do that with <emphasis role="bold">/api/metaData</emphasis>.</para>
+    <para>The meta-data resource can be accessed at <emphasis role="bold">/api/metaData</emphasis>.
+      This resource lets you read and write the full set of meta-data. This section will give a
+      basic introduction to working with this API. For specific synchronization issues, please see
+      the integration chapter.</para>
+    <para>By default, interacting with <emphasis role="bold">/api/metaData</emphasis> using the GET
+      HTTP method will give you all meta-data rendered as XML. You can also be more specific about
+      the meta-data elements you are interested in.</para>
     <para>
       <table>
         <title>Available Content-Types</title>
@@ -259,18 +259,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
               <entry>lastUpdated</entry>
               <entry>date</entry>
               <entry>false</entry>
-              <entry>Three date formats are supported:<orderedlist>
-                  <listitem>
-                    <para><emphasis role="bold">YEAR</emphasis></para>
-                  </listitem>
-                  <listitem>
-                    <para><emphasis role="bold">MONTH/YEAR</emphasis></para>
-                  </listitem>
-                  <listitem>
-                    <para><emphasis role="bold">DAY/MONTH/YEAR</emphasis>
-                    </para>
-                  </listitem>
-                </orderedlist></entry>
+              <entry>Three date formats are supported: YEAR | MONTH/YEAR | DAY/MONTH/YEAR</entry>
               <entry>Filters the meta-data based on the lastUpdated field, this allows you to synchronize meta-data as a nightly job, without downloading everything from the server. </entry>
             </row>
           </tbody>
@@ -278,18 +267,27 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       </table>
    </para>
     <para>
-      <emphasis role="bold">Example: Get a filtered set of meta-data that was updated since August 1st 2012</emphasis>
+      <emphasis role="bold">Example: Get a filtered set of meta-data that was updated since August 1
+        2012</emphasis>
     </para>
     <para>As described in the last section, there is a number of options you can apply to <emphasis role="bold">/api/metaData</emphasis> to give you a filtered view. The use-case we will be
       looking into here, is the case where you want a nightly job that synchronizes organisation
       units. We will be using <emphasis role="italic">cURL</emphasis> as the HTTP
       client.<screen>curl -H &quot;Accept: application/xml&quot; -u user:pass
     {HOST}/api/metaData?assumeTrue=false&amp;organisationUnits=true&amp;lastUpdated=01/08/2012</screen></para>
-    <para><emphasis role="bold">Example: Get meta-data that was updated since february 2012</emphasis></para>
+    <para><emphasis role="bold">Example: Get meta-data that was updated since February
+        2012</emphasis></para>
     <para>This example will just the default <emphasis role="italic">assumeTrue</emphasis> setting,
-      along with getting the last updates from february 2012. This means that every single type that
+      along with getting the last updates from February 2012. This means that every single type that
       has been updated will be
       retrieved.<screen>curl -H &quot;Accept: application/xml&quot; -u user:pass {HOST}/api/metaData?lastUpdated=02/2012</screen></para>
+    <para>The meta-data resource can also be used to write or update meta-data by using the POST
+      HTTP method. The meta-data content can be both XML and JSON, using "application/xml" and
+      "application/json" content type respectively. The request payload content will be accepted in
+      several formats, including plain text, zipped and gzipped. POSTing a meta-data payload can be
+      done for example like this, where metaData.xml is a file in the same directory with the
+      meta-data content:</para>
+    <screen>curl -H "Content-Type: application/xml" -u user:pass -d @metaData.xml {HOST}/api/metaData -X POST</screen>
   </section>
   <section>
     <title>Sending data values</title>
