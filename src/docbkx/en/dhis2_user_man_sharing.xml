@@ -58,6 +58,10 @@
       editable for users with the "Update report" authority. If you do not have that authority
       granted the report will be private to yourself. After you have created an object, you can
       navigate to the "Sharing settings" dialog and set your desired access options.</para>
+    <para>If you need a user account which is able to view absolutely all objects you can create a
+      user role with the "ALL" authority and assign a user to that role. If you need to switch
+      between a "complete" view of objects and a "personal" view of objects it is recommended to
+      create two user accounts, one assigned with the "ALL" authority and one without.</para>
   </section>
   <section>
     <title>Sharing applied</title>
