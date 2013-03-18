@@ -121,6 +121,10 @@
     <para>Several table options are available when working with a pivot table. Open the options
       screen by clicking on "Options" in the top menu. The following options are available:</para>
     <itemizedlist>
+	  <listitem>
+	    <para>Show totals: Display total values in the table for each row and column, as well as a 
+	      grand total for all values in the table.</para>
+	  </listitem>
       <listitem>
         <para>Show sub-totals: Display subtotals in the table for each dimension. In the screenshot
           above, notice how subtotals are generated for each of the periods in the period dimension.
@@ -141,15 +145,44 @@
         <para>Font size: Controls the size of the table text font. Can be set to "large", "normal"
           and "small".</para>
       </listitem>
+      <listitem>
+        <para>Digit group separator: Controls which character to separate groups of digits or "thousands". Can
+          be set to "comma", "space" and "none".</para>
+      </listitem>
     </itemizedlist>
+  </section>
+  <section>
+    <title>Creating a favorite</title>
+    <para>When you have set up a pivot table it is convenient to save it as a favorite. To do so, click
+      "Favorites" on the top menu, click "Add new", give the favorite a descriptive name and click "Create".
+      You can search for favorites through the search input field at the top. To load an existing favorite,
+      simply click the name of the favorite in the list.</para>
+    <para>To rename a favorite, click the grey "Rename" icon next to the favorite in the list, change the name
+      and click "Update". To overwrite an existing favorite with the current pivot table, click the green
+      "Overwrite" icon. To share a favorite with everyone or a user group, click the blue "Share" icon. To
+      delete a favorite, click the red "Delete" icon.</para>
+    <screenshot>
+      <screeninfo>The favorite screen.</screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="45%" fileref="resources/images/pivot_table/pivot_favorites.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
   </section>
   <section>
     <title>Downloading data</title>
     <para>You can download the data in the current pivot table by clicking on "Download" in the top
-      menu. The data can be downloaded in MS Ecel and CSV format. The data table will have one
-      column per dimension. You can easily create a pivot table in Microsoft Excel from the the
-      downloaded Excel file by clicking on "pivot table" in the top panel, then clicking on "create
-      pivot table", then marking the data range in the spreadsheet before clicking "OK".</para>
+      menu. The data can be downloaded in MS Excel and CSV format. The data table will have one
+      column per dimension and contain names of the dimension items. You can easily create a pivot 
+      table in Microsoft Excel from the the downloaded Excel file by clicking on "pivot table" in 
+      the top panel, then clicking on "create pivot table", then marking the data range in the 
+      spreadsheet before clicking "OK".</para>
+    <para>Data can also be downloaded in JSON and XML format. The data format is specified in the
+      Web API chapter under the "Analytics" section. The data document will use identifiers of the
+      dimension items and will be opened in a new browser window in order to reveal the URL of the
+      request to the Web API in the address bar. This will be useful for developers of apps and 
+      other client modules based on the DHIS 2 Web API.</para>
   </section>
   <section>
     <title>Constraints</title>
