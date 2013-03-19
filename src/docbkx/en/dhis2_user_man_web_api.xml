@@ -1356,11 +1356,17 @@ ORDER BY oul.level, par.name, ou.name</screen>
     ], 
     "height": 4, 
     "metaData": {
-        "2012Q1": "Jan to Mar 2012", 
-        "2012Q2": "Apr to Jun 2012", 
-        "FbKK4ofIv5R": "Measles Coverage &lt;1 y", 
-        "ImspTQPwCqd": "Sierra Leone", 
-        "eTDtyyaSA7f": "Fully Immunized Coverage"
+        "periods": [
+            "2012Q1",
+            "2012Q2"
+        ],
+        "names": {
+            "2012Q1": "Jan to Mar 2012",
+            "2012Q2": "Apr to Jun 2012",
+            "FbKK4ofIv5R": "Measles Coverage &lt;1 y",
+            "ImspTQPwCqd": "Sierra Leone",
+            "eTDtyyaSA7f": "Fully Immunized Coverage"
+        }
     }, 
     "rows": [
         [
