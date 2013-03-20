@@ -27,20 +27,28 @@
     <para>The data entry module is where data is manually registered in the DHIS 2 database. Data is registered for an organisation unit, a period, and a set of data elements (data set) at a time. A data set often corresponds to a paper-based data collection tool. </para>
     <section>
       <title>Selecting the data entry form</title>
-      <para>To start entering data the first step is to open the correct form. Follow these steps:</para>
+      <para>To start entering data the first step is to open the correct form by following these
+        steps:</para>
       <orderedlist>
         <listitem>
-          <para> Locate the orgunit you want to register data for in the tree menu to the left. Expand and close branches by clicking on the +/- symbols.  A quick way to find an orgunit is to use the search box just above the tree (the green symbol), but you need to write in the full name to get a match.</para>
+          <para>Locate the orgunit you want to register data for in the tree menu to the left.
+            Expand and close branches by clicking on the +/- symbols. A quick way to find an orgunit
+            is to use the search box just above the tree (the green symbol), but you need to write
+            in the full name to get a match.</para>
         </listitem>
         <listitem>
           <para>Select a data set from the dropdown list of data sets available to your selected orgunit.  </para>
         </listitem>
         <listitem>
-          <para>Select a period to register data for. The available periods are controlled by the dataset&apos;s period type (reporting frequency). You can jump a year back or forward by using the arrows above the period.</para>
+          <para>Select a period to register data for. The available periods are controlled by the
+            period type of the data set (reporting frequency). You can jump a year back or forward
+            by using the arrows above the period.</para>
         </listitem>
       </orderedlist>
-      <para>By now you should see the data entry form. </para>
-      <para>Depending on how the data entry form has been implemented, you will see three different types of foms: Default forms, section forms, or custom forms. If a custom form exists, it will be displayed, followed in order of precedence by a section form, and finally a default form.</para>
+      <para>By now you should see the data entry form. From a form design perspective, there are
+        three types for forms: default forms, section forms and custom forms. If a custom form
+        exists, it will be displayed, followed in order of precedence by a section form, and finally
+        a default form.</para>
       <screenshot>
         <screeninfo>Main data entry screen</screeninfo>
         <mediaobject>
@@ -52,9 +60,21 @@
     </section>
     <section>
       <title>Entering data</title>
-      <para>Simply start entering data by clicking inside the first field and type in the value. Move to the next field using the Tab button. Shift+Tab will take you back one step. The values are saved immediately and do not require any save/finished button click. A green field indicates that the value has been saved in the system (on the server). On a slow connection it might take some time before the values are saved. </para>
-      <para><emphasis role="bold">Input validation:</emphasis> If you type in an invalid value, e.g. a character in a field that only accepts numeric values you will get a pop-up that explains the problem and the field will be coloured yellow (not saved) until you have corrected the value. If you have defined a min/max range for the field (data element+organisation unit combination) a pop-up message will notify you when the value is out of range, and the value will remain unsaved until you have changed the value (or updated the  range and then re-entered the value). </para>
-      <para><emphasis role="bold">Disabled fields:</emphasis> If a field is disabled (grey) it means that the field should not be filled. The cursor will automatically jump to the next open field. </para>
+      <para>Start entering data by clicking inside the first field and type in the value. Move to
+        the next field using the Tab button. Shift+Tab will take you back one step. You can also use
+        the "up" and "down" arrow keys to navigate between the form cells. The values are saved
+        immediately and do not require to be saved at a later stage. A green field indicates that
+        the value has been saved in the system (on the server).</para>
+      <para><emphasis role="bold">Input validation:</emphasis> If you type in an invalid value, e.g.
+        a character in a field that only accepts numeric values you will get a pop-up that explains
+        the problem and the field will be coloured yellow (not saved) until you have corrected the
+        value. If you have defined a min/max range for the field (data element+organisation unit
+        combination) a pop-up message will notify you when the value is out of range, and the value
+        will remain unsaved until you have changed the value (or updated the range and then
+        re-entered the value). </para>
+      <para><emphasis role="bold">Disabled fields:</emphasis> If a field is disabled (grey) it means
+        that the field can and should not be filled. The cursor will automatically jump to the next
+        open field. </para>
       <para><emphasis role="bold">Data history:</emphasis> By double-clicking on any input field in the form a data history window opens showing the last 12 values registered for the current field (organisation unit+data element+categoryoptioncombo) in a bar chart. This window also shows the min and max range and allows for adjusting the range for the specific organisation unit and data element combination. </para>
       <screenshot>
         <screeninfo>Data entry section form with history pop-up</screeninfo>
@@ -81,12 +101,16 @@
     </section>
     <section>
       <title>Offline data entry</title>
-      <para> The data entry module will function even if during data entry the Internet connectivity is not stable. In order to utilize this functionality, you must login to the server while the Internet is functional, but if during data entry, the Internet link between your computer and the server becomes unstable, data can still be entered into the data entry form, saved to your local computer, and then pushed to the server once the Internet connectivity has been restored. Data can be entered
-and stored locally while being offline and uploaded to the central
-server when on-line. This means that the on-line deployment strategy
-will be more viable in areas with unstable Internet connectivity. The
-total bandwidth usage is greatly reduced since forms no longer are
-retrieved from the server for each rendering.</para>
+      <para>The data entry module will function even if during data entry the Internet connectivity
+        is not stable. In order to utilize this functionality, you must login to the server while
+        the Internet is functional, but if during data entry, the Internet link between your
+        computer and the server becomes unstable, data can still be entered into the data entry
+        form, saved to your local computer, and then pushed to the server once the Internet
+        connectivity has been restored. Data can be entered and stored locally while being offline
+        and uploaded to the central server when on-line. This means that the on-line deployment
+        strategy will be more viable in areas with unstable Internet connectivity. The total
+        bandwidth usage is greatly reduced since forms no longer are retrieved from the server for
+        each rendering.</para>
       <para>When the server is able to be reached through the Internet connection, a message is displayed  at the top of the data entry screen  below. </para>
       <screenshot>
         <mediaobject>
@@ -119,6 +143,17 @@ retrieved from the server for each rendering.</para>
           </imageobject>
         </mediaobject>
       </screenshot>
+    </section>
+    <section>
+      <title>Multi-organisation unit data entry</title>
+      <para>In some scenarios it is beneficial to enter data for multiple organisation units in the
+        same data entry form, for instance if there are few data elements in the form and a huge
+        number of organisation units in the hierarchy. In that case you can enable
+        multi-organisation unit data entry by going to "System settings" and tick the "Enable multi
+        organisation unit forms" setting. Then, in data entry, select the organisation unit
+        immediately above the organisation unit you want to enter for in the hierarchy. Note that
+        this only work for the "section" based forms. You should now see the data elements appearing
+        as columns and the organisation units appearing as rows in the form.</para>
     </section>
   </section>
 </chapter>
