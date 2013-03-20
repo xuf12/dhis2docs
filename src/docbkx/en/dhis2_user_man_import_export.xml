@@ -108,34 +108,34 @@ If there are no datasets defined for an organisation unit, it indicates that no 
       <para>There are three separate options for importing data. </para>
       <itemizedlist>
         <listitem>
-          <para>Import: This option will import the contents of the import file  directly into the database.</para>
+          <para>Dry run: This is similar to the old preview option, this will do a dry run import,
+            and give you information about any errors.</para>
         </listitem>
         <listitem>
-          <para>Preview: This option will enable a preview of the contents of the import file. In the preview one can get an overwiev of the data to be imported, discard unwanted elements and match import elements to existing ones.</para>
+          <para>Strategy: There are three options here, "New and Updates", "New only", and "Update
+            only". New and updates tells the importer to expect both new metadata, and updates to
+            existing ones. New only will only accept fresh metadata, usually you would use this on a
+            empty database. Updates only will only allow the metadata to match metadata that is
+            already there (same identifiers, new name etc).</para>
         </listitem>
         <listitem>
-          <para>Analysis: This option will enable an analysis of the contents of the import file. The analysis will search for and examine anomalies in the data, like violations of unique names constraints and invalid indicator formulas. This is useful when importing from external applications where data constraints might be less rigid than in DHIS 2.</para>
-        </listitem>
-        <listitem>
-          <para><emphasis role="bold">NOTE: We highly recommend always using the Preview option</emphasis> when importing data to make sure you keep control over any changes to your metdata and databases being out of synch on data elements or orgunit names.</para>
+          <para><emphasis role="bold">NOTE: We highly recommend always using the Dry run
+              option</emphasis> when importing data to make sure you keep control over any changes
+            to your metdata and databases being out of synch on data elements or orgunit
+            names.</para>
         </listitem>
       </itemizedlist>
       <section>
-        <title>Preview before importing</title>
-        <para>Before doing the import into your database it is highly recommended to preview the data to make sure no changes to the metdata (data element and/or orgunit names) have taken place at the source DHIS 2 installation. Select Preview in the Type field in the Import window. In the preview window it is<emphasis role="bold"/><emphasis role="bold"><emphasis role="bold">IMPORTANT</emphasis> to look for New and Updates in metadata.</emphasis> DO NOT just click the Import all button without carefully reviewing the information in the preview window. Importing new data elements or orgunits without checking properly whether they are really new or just old names can cause a corrupted database with duplicate or incomplete data, so be careful! 
-
-</para>
-        <para>Procedure for handling New or Updates in the preview:
-
-</para>
-        <para><emphasis role="bold">If new:</emphasis>
-</para>
-        <para>If there are new data elements, indicators, or orgunits, first make sure whether they really are new or not. Data elements are rarely new, most of the time they are the old name of something that has been changed in the destination database (e.g. a master db at the national level). If you have changed some data elements names at the national level and these have not yet been updated in the district database, the old names that are in the district export files will appear as new data elements in your import preview. It is very important that you tell the DHIS that these are only just old names of a data element that already exists in your database, if not you will have two data elements meaning the same thing and both with an incomplete set of data. Use the ‘match new to existing’ button to link the new data elements (that really are old) to the updated names in your national database, and make sure that the source database updates its metdata before the next data export.  
-
-</para>
-        <para><emphasis role="bold">If updates: </emphasis></para>
-        <para>Only the newer updates are shown in the preview. This means the record has been updated more recently  in the district/hospital than in the zonal/national database you are importing into. If you are not sure whether you want to import the update or not, you can select the record and click on the compare to existing button to see exactly which changes that have been made in the updated object.
-</para>
+        <title>Dry run before importing</title>
+        <para>Before doing the import into your database it is highly recommended to dry run the
+          data to make sure no changes to the metadata (data element, organisation units, etc
+          identifiers) have taken place at the source DHIS 2 installation. Set dry run to true in
+          the Import window. In the dry run window it is<emphasis role="bold"/><emphasis role="bold"
+              ><emphasis role="bold">IMPORTANT</emphasis> to look for New and Updates in
+            metadata.</emphasis> DO NOT just click the Import all button without carefully reviewing
+          the information in the preview window. Importing new data elements or orgunits without
+          checking properly whether they are really new or just old names can cause a corrupted
+          database with duplicate or incomplete data, so be careful! </para>
       </section>
     </section>
     <section>
