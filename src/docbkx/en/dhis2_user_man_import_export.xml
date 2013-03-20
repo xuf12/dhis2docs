@@ -58,22 +58,18 @@ If there are no datasets defined for an organisation unit, it indicates that no 
       <para/>
       <section>
         <title>Metadata export</title>
-        <para>Metadata is &quot;data about data&quot;. In the context of DHIS 2, metadata consists of definitions of data elements, indicators, the structure and names contained in the organizational hierarchy, and other options. Click on the &quot;Metadata export&quot; link from the main &quot;Data export&quot; screen in order to access this. Just select the feature that you wish to export and click &quot;Export&quot;. This metadata file can then be transmitted just like  a data file, except it will contain information on the definitions of the various features, as opposed to the values of the data themselves. </para>
+        <para>Metadata is &quot;data about data&quot;. In the context of DHIS 2, metadata consists
+          of definitions of data elements, indicators, the structure and names contained in the
+          organizational hierarchy, and other options. Click on the &quot;Metadata export&quot; link
+          from the main &quot;Data export&quot; screen in order to access this. Just select the
+          features, format, and the compression that you want and click &quot;Export&quot;. This
+          metadata file can then be transmitted just like a data file, except it will contain
+          information on the definitions of the various features, as opposed to the values of the
+          data themselves. </para>
         <screenshot>
           <mediaobject>
             <imageobject>
               <imagedata width="100%" fileref="resources/images/import_export/metadata_export.png" format="PNG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-      </section>
-      <section>
-        <title>Detailed metadata export</title>
-        <para>The &quot;Detailed metadata&quot; function will allow you to export specific data element and indicator definitions. Just click &quot;Detailed Metadata Export&quot; and select the data elements and indicators that you wish to export. Click &quot;Export&quot; and save the file to a desired location. This file can then be transmitted via email or USB key to other DHIS 2 installations. </para>
-        <screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="100%" fileref="resources/images/import_export/metadata_detail.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
