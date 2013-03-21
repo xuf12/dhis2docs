@@ -127,15 +127,27 @@ If there are no datasets defined for an organisation unit, it indicates that no 
       </itemizedlist>
       <section>
         <title>Dry run before importing</title>
-        <para>Before doing the import into your database it is highly recommended to dry run the
-          data to make sure no changes to the metadata (data element, organisation units, etc
-          identifiers) have taken place at the source DHIS 2 installation. Set dry run to true in
-          the Import window. In the dry run window it is<emphasis role="bold"/><emphasis role="bold"
-              ><emphasis role="bold">IMPORTANT</emphasis> to look for New and Updates in
-            metadata.</emphasis> DO NOT just click the Import all button without carefully reviewing
-          the information in the preview window. Importing new data elements or orgunits without
-          checking properly whether they are really new or just old names can cause a corrupted
-          database with duplicate or incomplete data, so be careful! </para>
+        <para>Before doing the import into your database, it is highly recommended that you run the
+          import with the dry run option set to true first. This will enabled you to have a look at
+          how many new, updates, and ignored metadata there will be. After you have selected your
+          file, set dry run to true, you can now click the import button. After doing this, you will
+          be greeted by this window.</para>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="100%" fileref="resources/images/import_export/display_import_summary.png"/>
+          </imageobject>
+        </mediaobject>
+        <para>Here you can see a short summary of what was contained in your import file. To see
+          further details, please click on the "display import summary" link.</para>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="100%" fileref="resources/images/import_export/import_summary.png"/>
+          </imageobject>
+        </mediaobject>
+        <para>Here you can see that the import dry run was successful and the import contained
+            <emphasis role="bold">1</emphasis> new organisation unit, <emphasis role="bold"
+            >1332</emphasis> updated, and <emphasis role="bold">4</emphasis> organisation unit
+          levels.</para>
       </section>
     </section>
     <section>
