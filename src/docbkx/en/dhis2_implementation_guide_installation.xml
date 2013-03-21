@@ -28,7 +28,7 @@ net.core.wmem_max = 8388608</screen>
     <para><emphasis role="bold">Install Java</emphasis></para>
     <para>Install Java by invoking the following:</para>
     <screen>sudo apt-get install openjdk-7-jdk</screen>
-    <para>Please check that the path the Java binaries are correct as they might vary from system to system, e.g. on AMD systems you might see <emphasis role="italic">../java-7-openjdk-amd64/..</emphasis> Check that your installation is okay by invoking <code>java -version</code></para>
+    <para>Check that your installation is okay by invoking <code>java -version</code></para>
     <para><emphasis role="bold">Install PostgreSQL</emphasis></para>
     <para>To install PostgreSQL version 9.2 we first need to add a Ubuntu package repository to our system.</para>
     <screen>sudo apt-get install python-software-properties
@@ -80,7 +80,13 @@ hibernate.hbm2ddl.auto = update</screen></para>
     <para><emphasis role="bold">Install Tomcat</emphasis></para>
     <para>Download the Tomcat binary distribution from  <emphasis role="italic">http://tomcat.apache.org/download-70.cgi</emphasis> A useful tool for downloading files from the web is <emphasis role="italic">wget</emphasis>. Extract to a convenient location. This guide assumes that you have navigated to the root directory of the extracted archive.</para>
     <para>Clear the pre-installed web applications by invoking <code>rm -rf webapps/*</code> Download the latest DHIS 2 WAR file from <emphasis role="italic">http://dhis2.org/download</emphasis>, move it to the <emphasis role="italic">webapps</emphasis> directory and rename it to <emphasis role="italic">ROOT.war</emphasis></para>
-    <para>Create a  file <emphasis role="italic">bin/setenv.sh</emphasis> and add the lines below. The first will set the location of your Java Runtime Environment, the second will dedicate memory to Tomcat and the third will set the location for where DHIS 2 will search for the <emphasis role="italic">hibernate.properties</emphasis> configuration file. Please check that the path to the JDK location is correct. Note that you should adjust this to your environment:</para>
+    <para>Create a file <emphasis role="italic">bin/setenv.sh</emphasis> and add the lines below.
+      The first will set the location of your Java Runtime Environment, the second will dedicate
+      memory to Tomcat and the third will set the location for where DHIS 2 will search for the
+        <emphasis role="italic">hibernate.properties</emphasis> configuration file. Please check
+      that the path the Java binaries are correct as they might vary from system to system, e.g. on
+      AMD systems you might see <emphasis role="italic">/java-7-openjdk-amd64</emphasis> Note that
+      you should adjust this to your environment:</para>
     <para><screen>export JAVA_HOME=&apos;/usr/lib/jvm/java-7-openjdk&apos;
 export JAVA_OPTS=&apos;-Xmx6000m -Xms3000m -XX:MaxPermSize=500m -XX:PermSize=300m&apos;
 export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
@@ -145,7 +151,12 @@ sudo /usr/local/nginx/sbin/nginx -s stop</screen></para>
     proxy_set_header  X-Forwarded-Proto  http;
   }
 }]]></screen></para>
-      <para>You can now access your DHIS instance at <emphasis role="italic">http://localhost</emphasis>. Since  the reverse proxy has been set up we can improve security by making Tomcat only listen for local connections. In <emphasis role="italic">/conf/server.xml</emphasis> you can add an <emphasis role="italic">address</emphasis> attribute with the value <emphasis role="italic">localhost</emphasis> to the Connetor element for HTTP 1.1 like this:</para>
+      <para>You can now access your DHIS instance at <emphasis role="italic"
+          >http://localhost</emphasis>. Since the reverse proxy has been set up we can improve
+        security by making Tomcat only listen for local connections. In <emphasis role="italic"
+          >/conf/server.xml</emphasis> you can add an <emphasis role="italic">address</emphasis>
+        attribute with the value <emphasis role="italic">localhost</emphasis> to the Connector
+        element for HTTP 1.1 like this:</para>
       <para><screen>&lt;Connector address=&quot;localhost&quot; protocol=&quot;HTTP/1.1&quot; ... &gt;</screen></para>
       <important>
         <para>The location block for static content is essential as web browsers will not cache static content by default over SSL. It will only cache such content on the client side if told explicitly by the web server.</para>
