@@ -16,12 +16,19 @@
     <para>For a national server the recommended configuration is a quad-core 2 Ghz processor or
       higher and 12 Gb RAM or higher. Note that a 64 bit operating system is required for utilizing
       more than 4 Gb of RAM, the Ubuntu 12.04 64 bit edition is thus recommended. </para>
-    <para>For this guide we assume that 4 Gb RAM is allocated for PostgreSQL and 7 GB RAM is allocated for Tomcat. <emphasis role="italic">If you are running a different configuration please adjust the suggested values accordingly!</emphasis> The steps marked as <emphasis role="italic">optional</emphasis>, like the step for performance tuning, can be done at a later stage.</para>
+    <para>For this guide we assume that 7 Gb RAM is allocated for PostgreSQL and 7 GB RAM is
+      allocated for Tomcat/JVM, and that a 64-bit operating system is used. <emphasis role="italic"
+        >If you are running a different configuration please adjust the suggested values
+        accordingly!</emphasis> We recommend that the available memory is split roughly equally
+      between the database and the JVM. Remember to leave some of the physical memory to the
+      operating system for it to perform its tasks. The steps marked as <emphasis role="italic"
+        >optional</emphasis>, like the step for performance tuning, can be done at a later
+      stage.</para>
     <para><emphasis role="bold">Create new user (optional)</emphasis></para>
     <para>You might want to create a dedicated user for running DHIS - it is not recommended to run as the root user. Create a new user called dhis  by invoking <code>useradd -d /home/dhis -m dhis -s /bin/bash</code>     Then make the user able to perform operations temporarily as root user by invoking <code>usermod -G admin dhis</code> If there is no admin group you must create it first by invoking <code>groupadd admin</code> Then invoke <code>passwd dhis</code> to set the password for your account. Make sure you set a strong password with at least 15 random characters. You might want to disable remote login for the root account for improved security by invoking <code>sudo passwd -l root</code></para>
     <para><emphasis role="bold">Operating system kernel tuning</emphasis></para>
     <para>These settings are optional except for the shared memory setting which is required for PostgreSQL memory allocation. Open the kernel configuration file by invoking <code>sudo nano /etc/sysctl.conf</code> At the end of the file add the following lines and save.</para>
-    <screen>kernel.shmmax = 1073741824
+    <screen>kernel.shmmax = 1610612736
 net.core.rmem_max = 8388608
 net.core.wmem_max = 8388608</screen>
     <para>Make the changes take effect by invoking <code>sudo sysctl -p</code></para>
@@ -45,19 +52,28 @@ sudo apt-get update</screen>
     <para>Do performance tuning by opening the following  file by invoking </para>
     <para><code>sudo nano /etc/postgresql/9.2/main/postgresql.conf</code></para>
     <para>and set the following properties:</para>
-    <para><code>shared_buffers = 512MB</code></para>
-    <para>Determines how much memory PostgreSQL can use for caching of query data. Is set too low by default since it depends on kernel shared memory which is low on some operating systems.</para>
-    <para><code>work_mem = 10MB</code></para>
-    <para>Determines the amount of memory used for internal sort and hash operations.</para>
-    <para><code>maintenance_work_mem = 128MB</code></para>
-    <para>Determines the amount of memory PostgreSQL can use for maintenance operations such as creating indexes, running vacuum, adding foreign keys. Incresing this value might improve performance of index creation during the data mart process.</para>
-    <para><code>effective_cache_size = 3300MB</code></para>
-    <para>An estimate of how much memory is available for  caching (not an allocation) and is used by PostgreSQL to determine whether a query plan will fit into memory or not (setting it too high might result in unpredictable and slow behavior).</para>
+    <para><code>shared_buffers = 768MB</code></para>
+    <para>Determines how much memory PostgreSQL can use for caching of data. Is set too low by
+      default since it depends on kernel shared memory which is low on some operating systems.
+      Raising it to more than 1GB usually does not help performance so always keep it in this
+      range.</para>
+    <para><code>work_mem = 5MB</code></para>
+    <para>Determines the amount of memory used for internal sort and hash operations. This setting
+      is per connection per query so a lot of memory may be consumed if raising this too
+      high.</para>
+    <para><code>maintenance_work_mem = 256MB</code></para>
+    <para>Determines the amount of memory PostgreSQL can use for maintenance operations such as
+      creating indexes, running vacuum, adding foreign keys. Incresing this value might improve
+      performance of index creation during the analytics and data mart generation processes.</para>
+    <para><code>effective_cache_size = 7000MB</code></para>
+    <para>An estimate of how much memory is available for caching (not an allocation) and is used by
+      PostgreSQL to determine whether a query plan will fit into the memory cache or not. Setting it
+      to a higher value than what is really available will result in poor performance.</para>
     <para><code>checkpoint_segments = 32</code></para>
     <para>PostgreSQL writes new transactions to a log file called WAL segments which are 16MB in size. When a number of segments have been written a checkpoint occurs. Setting this number to a larger value will thus improve performance for write-heavy systems such as DHIS 2.</para>
     <para><code>checkpoint_completion_target = 0.8</code></para>
     <para>Determines the percentage of segment completion before a checkpoint occurs. Setting this to a high value will thus spread the writes out and lower the average write overhead.</para>
-    <para><code>wal_buffers = 4MB</code></para>
+    <para><code>wal_buffers = 12MB</code></para>
     <para>Sets the memory used for buffering during the WAL write process. Increasing this value might improve throughput in write-heavy systems.</para>
     <para><code>synchronous_commit = off</code></para>
     <para>Specifies whether transaction commits will wait for WAL records to be written to the disk before returning to the client or not. Setting this to off will improve performance considerably. It also implies that there is a slight delay between the transaction is reported successful to the client and it actually being safe, but the database state cannot be corrupted and this is a good alternative for performance-intensive and write-heavy systems like DHIS 2.</para>
