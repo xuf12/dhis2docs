@@ -59,9 +59,10 @@ sudo apt-get update</screen>
     <para>Do performance tuning by opening the following  file by invoking </para>
     <para><code>sudo nano /etc/postgresql/9.2/main/postgresql.conf</code></para>
     <para>and set the following properties:</para>
-    <para><code>shared_buffers = 2000MB</code></para>
+    <para><code>shared_buffers = 2400MB</code></para>
     <para>Determines how much memory PostgreSQL can use for caching of data. This setting controls
-      how the size of the kernel shared memory which should be reserved for PostgreSQL.</para>
+      how the size of the kernel shared memory which should be reserved for PostgreSQL. Should be
+      set to around 30% of total memory designated for PostgreSQL.</para>
     <para><code>work_mem = 20MB</code></para>
     <para>Determines the amount of memory used for internal sort and hash operations. This setting
       is per connection, per query so a lot of memory may be consumed if raising this too
@@ -72,8 +73,8 @@ sudo apt-get update</screen>
       performance of index creation during the analytics and data mart generation processes.</para>
     <para><code>effective_cache_size = 8000MB</code></para>
     <para>An estimate of how much memory is available for disk caching by the operating system (not
-      an allocation) and is used by PostgreSQL to determine whether a query plan will fit into the
-      cache or not. Setting it to a higher value than what is really available will result in poor
+      an allocation) and is used by PostgreSQL to determine whether a query plan will fit into
+      memory or not. Setting it to a higher value than what is really available will result in poor
       performance. This value should be inclusive of the shared_buffers setting. PostgreSQL has two
       layers of caching: The first layer uses the kernel shared memory and is controlled by the
       shared_buffers setting. PostgreSQL delegates the second layer to the operating system disk
