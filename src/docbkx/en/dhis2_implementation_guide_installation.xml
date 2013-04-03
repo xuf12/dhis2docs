@@ -62,7 +62,7 @@ sudo apt-get update</screen>
     <para><code>shared_buffers = 2000MB</code></para>
     <para>Determines how much memory PostgreSQL can use for caching of data. This setting controls
       how the size of the kernel shared memory which should be reserved for PostgreSQL.</para>
-    <para><code>work_mem = 5MB</code></para>
+    <para><code>work_mem = 20MB</code></para>
     <para>Determines the amount of memory used for internal sort and hash operations. This setting
       is per connection, per query so a lot of memory may be consumed if raising this too
       high.</para>
@@ -83,7 +83,7 @@ sudo apt-get update</screen>
     <para>PostgreSQL writes new transactions to a log file called WAL segments which are 16MB in size. When a number of segments have been written a checkpoint occurs. Setting this number to a larger value will thus improve performance for write-heavy systems such as DHIS 2.</para>
     <para><code>checkpoint_completion_target = 0.8</code></para>
     <para>Determines the percentage of segment completion before a checkpoint occurs. Setting this to a high value will thus spread the writes out and lower the average write overhead.</para>
-    <para><code>wal_buffers = 12MB</code></para>
+    <para><code>wal_buffers = 16MB</code></para>
     <para>Sets the memory used for buffering during the WAL write process. Increasing this value might improve throughput in write-heavy systems.</para>
     <para><code>synchronous_commit = off</code></para>
     <para>Specifies whether transaction commits will wait for WAL records to be written to the disk before returning to the client or not. Setting this to off will improve performance considerably. It also implies that there is a slight delay between the transaction is reported successful to the client and it actually being safe, but the database state cannot be corrupted and this is a good alternative for performance-intensive and write-heavy systems like DHIS 2.</para>
