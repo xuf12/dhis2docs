@@ -105,8 +105,17 @@ hibernate.hbm2ddl.auto = update</screen></para>
     invoke <code>chmod 0600 hibernate.properties</code> which ensures that only the dhis user which owns the
     file is allowed to read or write to it.</para>
     <para><emphasis role="bold">Install Tomcat</emphasis></para>
-    <para>Download the Tomcat binary distribution from  <emphasis role="italic">http://tomcat.apache.org/download-70.cgi</emphasis> A useful tool for downloading files from the web is <emphasis role="italic">wget</emphasis>. Extract to a convenient location. This guide assumes that you have navigated to the root directory of the extracted archive.</para>
-    <para>Clear the pre-installed web applications by invoking <code>rm -rf webapps/*</code> Download the latest DHIS 2 WAR file from <emphasis role="italic">http://dhis2.org/download</emphasis>, move it to the <emphasis role="italic">webapps</emphasis> directory and rename it to <emphasis role="italic">ROOT.war</emphasis></para>
+    <para>Download the Tomcat binary distribution from <emphasis role="italic"
+        >http://tomcat.apache.org/download-70.cgi</emphasis> A useful tool for downloading files
+      from the web is <emphasis role="italic">wget</emphasis>. Extract to a convenient location.
+      This guide assumes that you have navigated to the root directory of the extracted archive.
+      Download the latest stable DHIS WAR file by invoking:</para>
+    <para>
+      <screen>wget stable.dhis2.org</screen>
+    </para>
+    <para>Clear the pre-installed web applications by invoking <code>rm -rf webapps/*</code> Move
+      the DHIS WAR file to the <emphasis role="italic">webapps</emphasis> directory and rename it to
+        <emphasis role="italic">ROOT.war</emphasis>. </para>
     <para>Create a file <emphasis role="italic">bin/setenv.sh</emphasis> and add the lines below.
       The first will set the location of your Java Runtime Environment, the second will dedicate
       memory to Tomcat and the third will set the location for where DHIS 2 will search for the
