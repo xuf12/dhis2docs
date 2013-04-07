@@ -1282,8 +1282,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
         any data elements, but does include data element groups, the aggregation operator of the
         first data element in the first group will be used. The order of groups and data elements is
         undefined. This query parameter allows you to override the default and specify a specific
-        aggregaton operator. As an exmample, you can set the aggregation operator to "count" with
-        the following URL:</para>
+        aggregaton operator. As an example you can set the aggregation operator to "count" with the
+        following URL:</para>
     <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012Q1&amp;dimension=ou:O6uvpzGd5pu&amp;aggregationType=COUNT</screen>
     <para>The <emphasis role="italic">measureCriteria</emphasis> query parameter lets you filter out
       ranges of data records to return. You can instruct the system to return only records where the
@@ -1406,10 +1406,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <para>The <emphasis role="italic">height</emphasis> and <emphasis role="italic"
           >width</emphasis> properties indicate how many data columns and rows are contained in the
         response, respectively.</para>
-      <para>The <emphasis role="italic">metaData</emphasis> property contains a mapping between the
-        identifiers used in the data response and the names of the objects they represent. It can be
-        used by clients to substitute the identifiers within the data response with names in order
-        to give a more meaningful view of the data table.</para>
+      <para>The <emphasis role="italic">metaData periods</emphasis> property contains a unique,
+        ordered list of the periods included in the response. The <emphasis role="italic">metaData
+          names</emphasis> property contains a mapping between the identifiers used in the data
+        response and the names of the objects they represent. It can be used by clients to
+        substitute the identifiers within the data response with names in order to give a more
+        meaningful view of the data table.</para>
       <para>The <emphasis role="italic">rows</emphasis> array contains the dimensional data table.
         It contains columns with dimension items (object or period identifiers) and a column with
         aggregated data values. The example response above has a data/indicator column, a period
