@@ -110,8 +110,12 @@ BODY HR {
   
 BODY IMG.NAVHEADER {  
 	margin: 0 0 0 0;  
-}  
-  
+}
+
+.NAVHEADER TABLE, .NAVFOOTER TABLE {
+	border: 0;
+}
+
 OL {  
 	margin: 0 0 0 5%;  
 	line-height: 1.2;  
