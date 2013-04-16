@@ -18,4 +18,51 @@
     <para>If you want to suggest new functionality to be implemented in DHIS 2 you can air your views on the developer mailing list and eventually write a specification, which is referred to as <emphasis role="italic">blueprints</emphasis> in Launchpad. The bueprint will be considered by the core development team and if accepted be assigned a developer, approver and release version. Blueprints can be browsed and added at <emphasis role="italic">http://blueprints.launchpad.net/dhis2</emphasis></para>
     <para>If you find a bug in DHIS 2 you can report it at Launchpad by navigating to <emphasis role="italic">http://bugs.launchpad.net/dhis2</emphasis> Your bug report will be investigated by the developer team and be given a status. If valid it will also be assigned to a developer and approver and eventually be fixed. Note that bugfixes are incorporated into the trunk and latest release branch - so more testing and feedback to the developer teams leads to higher quality of your software.</para>
   </section>
+  <section>
+    <title>Reporting a problem</title>
+    <para>If you encounter a problem with the DHIS 2 software you can ask for assistance on the
+      developer's mailing list at <ulink url="https://launchpad.net/~dhis2-devs"
+        >https://launchpad.net/~dhis2-devs</ulink>. Before reporting, make sure that you
+      have:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Cleared the web browser cache (also called history or browsing data) completely
+          (select all options before clearing).</para>
+      </listitem>
+      <listitem>
+        <para>Cleared the DHIS 2 application cache: Go to Data administration -> Cache statistics
+          and click Clear cache.</para>
+      </listitem>
+    </itemizedlist>
+    <para>For the developers to be able to help you need to provide as much useful information as
+      possible: </para>
+    <itemizedlist>
+      <listitem>
+        <para>DHIS 2 version: Look in the Help -> About page inside DHIS 2 and provide the version
+          and build revision.</para>
+      </listitem>
+      <listitem>
+        <para>Web browser including version.</para>
+      </listitem>
+      <listitem>
+        <para>Operating system including version.</para>
+      </listitem>
+      <listitem>
+        <para>Servlet container / Tomcat log: Provide any output in the Tomcat log (typically
+          catalina.out) related to your problem.</para>
+      </listitem>
+      <listitem>
+        <para>Web browser console: In the Chrome web browser, click F12, then "Console", and look
+          for exceptions related to your problem.</para>
+      </listitem>
+      <listitem>
+        <para>Actions leading to the problem: Describe as clearly as possible which steps you take
+          leading to the problem or exception.</para>
+      </listitem>
+      <listitem>
+        <para>Problem description: Describe the problem clearly, why you think it is a problem and
+          which behavior you would expect from the system.</para>
+      </listitem>
+    </itemizedlist>
+  </section>
 </chapter>
