@@ -25,6 +25,16 @@
   <section>
     <title>Authentication</title>
     <para>In order to interoperate with the Web API you will have to authenticate using <emphasis role="italic">Basic authentication</emphasis>. Basic authentication is a technique for clients to send login credentials over HTTP to a web server. Technically speaking, the username is appended with a colon and the password, Base64-encoded, prefixed Basic  and   supplied as the value of the <emphasis role="italic">Authorization</emphasis> HTTP header. More formally that is<code> Authorization: Basic base64encode(username:password)</code> An important note is that this authentication scheme provides no security since the username and password is sent in plain text and can be easily decoded. Using it is  recommended only if the server is using SSL/TLS (HTTPS) to encrypt communication between itself and the client. Most DHIS 2 deployments typically use SSL today - consider it a hard requirement to provide secure interactions with the Web API.</para>
+    <para>If you are building a form-based web application and want to authenticate using a web form
+      you can have the form send a POST request to the login endpoint in DHIS which is <emphasis
+        role="italic">/dhis-web-commons-security/login.action</emphasis> . Two request parameters,
+        <emphasis role="italic">j_username</emphasis> and <emphasis role="italic"
+        >j_password</emphasis>, containing the username and password in clear-text respectively, are
+      expected. The browser will then receive a cookie which will be used for authentication for
+      subsequent request.</para>
+    <para>After authenticating you can verify and get information about the currently autenticated
+      user by making a GET request to the following URL:</para>
+    <screen>/api/currentUser</screen>
   </section>
   <section>
     <title>Date and period format</title>
