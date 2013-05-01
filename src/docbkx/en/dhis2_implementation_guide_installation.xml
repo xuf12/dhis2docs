@@ -10,6 +10,28 @@
     over many years.</para>
   <para>This chapter provides a guide for setting up the above technology stack. It should however be read as a guide for getting up and running and not as an exhaustive documentation for the mentioned environment. We refer to the official Ubuntu, PostgreSQL and Tomcat documentation for in-depth reading.</para>
   <section>
+    <title>Server specifications</title>
+    <para>DHIS 2 is a database intensive application and requires that your server has an
+      appropriate amount of RAM, number of CPU cores and a fast disk. These recommendations should
+      be considered as rules-of-thumb and not exact measures. DHIS 2 scales linearly on the amount
+      of RAM and number of CPU cores so the more you can afford, the better the application will
+      perform.</para>
+    <itemizedlist>
+      <listitem>
+        <para>RAM: At least 1 GB memory per 1 million captured data records per month or per 1000
+          concurrent users. At least 4 GB for a small instance, 12 GB for a medium instance.</para>
+      </listitem>
+      <listitem>
+        <para>CPU cores: 4 CPU cores for a small instance, 8 CPU cores for a medium or large
+          instance.</para>
+      </listitem>
+      <listitem>
+        <para>Disk: Ideally use an SSD. Otherwise use a 7200 rpm disk. Minimum read speed is 150
+          Mb/s, 200 Mb/s is good, 350 Mb/s or better is ideal. </para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section>
     <title>Server setup</title>
     <para>This section describes how to set up a server instance of DHIS 2 on Ubuntu 12.04 64 bit
       with PostgreSQL as database system and Tomcat as Servlet container. The term <emphasis role="italic">invoke</emphasis> refers to executing a given command in a terminal. </para>

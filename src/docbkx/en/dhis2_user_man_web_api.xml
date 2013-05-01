@@ -31,9 +31,9 @@
         <emphasis role="italic">j_username</emphasis> and <emphasis role="italic"
         >j_password</emphasis>, containing the username and password in clear-text respectively, are
       expected. The browser will then receive a cookie which will be used for authentication for
-      subsequent request.</para>
-    <para>After authenticating you can verify and get information about the currently autenticated
-      user by making a GET request to the following URL:</para>
+      subsequent requests.</para>
+    <para>You can verify and get information about the currently autenticated user by making a GET
+      request to the following URL:</para>
     <screen>/api/currentUser</screen>
   </section>
   <section>
