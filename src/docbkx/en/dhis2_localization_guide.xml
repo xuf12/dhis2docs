@@ -65,12 +65,22 @@ error_occurred=Une erreur s&apos;est produite</programlisting>
     </orderedlist>
   </section>
   <section>
-    <title>Things to keep in mind.</title>
-    <simplelist>
-      <member>There are a number of strings such as &quot;yyyy-MM-dd&quot; which are used for date/time formatting in the application. In general, these should not be altered, but there can be situations when they need to be localized. Consult this <ulink url="http://docs.oracle.com/javase/tutorial/i18n/format/simpleDateFormat.html">site</ulink> for more information</member>
-      <member>It is not necessary to translate a string from the orginal language (English) if the translated string is the same. You can simply leave it blank. By default, DHIS2 will use English values for all strings which have not been translated. </member>
-      <member>All translated strings must be entered in UTF-8 format. If you are using the translation portal, be sure your browser settings are set to UTF-8 when translating. </member>
-      <member>Some special variables (e.g. {0} ) used curly brackets. This denotes a variable which will be replaced by a number or other value by the application. You must place this variable notation in the correct position. </member>
-    </simplelist>
+    <title>Important localization concepts</title>
+    <important>
+      <itemizedlist>
+        <listitem>
+          <para>There are a number of key/value pairs such as &quot;format.FinancialApril.startDate=dd MMM yyyy &apos;to &apos;&quot; which are used for date/time formatting in the application. Part of the value should not be translated because it is actually a Java date formatting template. It this example it is  &quot;dd MMM yyyy&quot;. Consult this <ulink url="http://docs.oracle.com/javase/tutorial/i18n/format/simpleDateFormat.html">site</ulink> for more information on the Java date formatting syntax. The part of the value which can be translated would be &quot;to&quot;, for instance to &quot;a&quot; in Spanish. If these data format template strings are translated, it may result in errors in the application. </para>
+        </listitem>
+        <listitem>
+          <para>It is not necessary to translate a string from the original language (English) if the translated string is the same. You can simply leave it blank. By default, DHIS2 will use English values for all strings which have not been translated. </para>
+        </listitem>
+        <listitem>
+          <para>All translated strings must be stored in escaped UTF-8 format. If you are using the translation portal, be sure your browser settings are set to UTF-8 when translating. If you are using a text editor or other tool such as an IDE, you may need to convert the UTF-8 characters to escaped syntax, using the Java &quot;native2ascii&quot; utility. </para>
+        </listitem>
+        <listitem>
+          <para>Some special variables (e.g. {0} ) used curly brackets. This denotes a variable which will be replaced by a number or other value by the application. You must place this variable notation in the correct position. </para>
+        </listitem>
+      </itemizedlist>
+    </important>
   </section>
 </chapter>
