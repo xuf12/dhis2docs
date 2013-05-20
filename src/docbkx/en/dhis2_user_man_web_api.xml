@@ -496,10 +496,6 @@ Content-Type: application/xml
     <para>The header tells us that the request was processed successfully and that we are receiving a response in XML format. The XML message looks familiar - it is the data values we sent in the previous section.</para>
   </section>
   <section>
-    <title>Reading aggregated data values</title>
-    <para>In order to read aggregated data values you can utilize the reportTables resource. This resource lets you retrieve data from predefined report tables as well as custom data responses for any number of indicators, data elements, data sets, periods and organisation units.</para>
-  </section>
-  <section>
     <title>Writing and reading messages</title>
     <para>DHIS 2 features a mechanism for sending messages for purposes such as user feedback, notifications and general information to  users. Messages are delivered to the DHIS 2 message inbox but can also be sent to the user&apos;s email addresses and mobile phones as SMS. In this example we will see how we can utilize the Web API to send and read messages. We will pretend to be the <emphasis role="italic">DHIS Administrator</emphasis>   user  and  send a message to the  <emphasis role="italic">Mobile</emphasis> user. We will then pretend to be the  mobile user and read our new message.</para>
     <para>The resource we need to interact with when sending and reading messages is the <emphasis role="italic">messageConversations</emphasis> resource. We start by visiting the Web API entry point at <ulink url="http://apps.dhis2.org/demo/api"/> where we find and follow the link to the <emphasis role="italic">messageConversations</emphasis> resource at <ulink url="http://apps.dhis2.org/demo/api/messageConversations"/>. The description tells us that we can use a POST request to create a new message using the following XML format:</para>
