@@ -478,7 +478,9 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       </tgroup>
     </table>
     <para>It is assumed that we have posted data values to DHIS according to the previous section called &quot;Sending data values&quot;. We can now put together our request and send it using cURL:</para>
-    <para><code>curl &quot;http://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX</code><code>&amp;period=201201&amp;orgUnit=DiszpKrYNg8&quot; -H &quot;Accept:application/xml&quot; -u admin:district -v </code></para>
+    <para><code>curl
+        &quot;http://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX</code><code>&amp;period=201201&amp;orgUnit=DiszpKrYNg8&quot;
+        -H &quot;Accept:application/xml&quot; -u admin:district -v</code></para>
     <para>The  response will look something like this:</para>
     <screen>HTTP/1.1 200 OK
 Content-Type: application/xml
@@ -494,6 +496,53 @@ Content-Type: application/xml
   categoryOptionCombo=&quot;bRowv6yZOF2&quot; value=&quot;10001&quot;/&gt;
 &lt;/dataValueSet&gt;</screen>
     <para>The header tells us that the request was processed successfully and that we are receiving a response in XML format. The XML message looks familiar - it is the data values we sent in the previous section.</para>
+  </section>
+  <section>
+    <title>Reading large bulks of data values</title>
+    <para>This section explains how to retrieve large bulks of data values which not necessarily
+      belong in a single data value set. We will, like in the previous section, interact with the
+      dataValueSets resource. The query parameters to use are these:</para>
+    <table frame="all">
+      <title>Data value set query parameters</title>
+      <tgroup cols="2">
+        <colspec colname="c1" colnum="1" colwidth="195pt"/>
+        <colspec colname="c2" colnum="2" colwidth="605.25pt"/>
+        <thead>
+          <row>
+            <entry><emphasis role="italic">Parameter</emphasis></entry>
+            <entry><emphasis role="italic">Description</emphasis></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>dataSet</entry>
+            <entry>Data set identifier, can be specified multiple times</entry>
+          </row>
+          <row>
+            <entry>startDate</entry>
+            <entry>Start date for the time span of the values to export</entry>
+          </row>
+          <row>
+            <entry>endDate</entry>
+            <entry>End date for the time span of the values to export</entry>
+          </row>
+          <row>
+            <entry>orgUnit</entry>
+            <entry>Organisation unit identifier, can be specified multiple times</entry>
+          </row>
+          <row>
+            <entry>children</entry>
+            <entry>Whether to include the children in the hierarchy of the organisation
+              units</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>The dataSet and orgUnit parameters can be repeated in order to include multiple data sets
+      and organisation units. An example request looks like this:</para>
+    <para><code>curl
+        "http://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;dataSet=BfMAe6Itzgt&amp;startDate=2013-01-01&amp;endDate=2013-01-31&amp;orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true"
+        -H "Accept:application/xml" -u admin:district -v</code></para>
   </section>
   <section>
     <title>Writing and reading messages</title>
