@@ -204,13 +204,13 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
   </section>
   <section>
     <title>Working with the meta-data API</title>
-    <para>The meta-data resource can be accessed at <emphasis role="bold">/api/metaData</emphasis>.
-      This resource lets you read and write the full set of meta-data. This section will give a
-      basic introduction to working with this API. For specific synchronization issues, please see
-      the integration chapter.</para>
-    <para>By default, interacting with <emphasis role="bold">/api/metaData</emphasis> using the GET
-      HTTP method will give you all meta-data rendered as XML. You can also be more specific about
-      the meta-data elements you are interested in.</para>
+    <para>The meta-data resource can be accessed at <emphasis role="italic"
+      >/api/metaData</emphasis>. This resource lets you read and write the full set of meta-data.
+      This section will give a basic introduction to working with this API. For specific
+      synchronization issues, please see the integration chapter.</para>
+    <para>By default, interacting with<emphasis role="italic"> /api/metaData</emphasis> using the
+      GET HTTP method will give you all meta-data rendered as XML. You can also be more specific
+      about the meta-data elements you are interested in.</para>
     <para>
       <table>
         <title>Available Content-Types</title>
@@ -267,14 +267,19 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
               <entry>boolean</entry>
               <entry>false</entry>
               <entry>true/false</entry>
-              <entry>If you don&apos;t want everything that <emphasis role="bold">/api/metaData</emphasis> gives you by default, when set to false, this option will not return anything by default. You have to enable the resources you want yourself (see below). </entry>
+              <entry>If you don&apos;t want everything that <emphasis role="italic"
+                  >/api/metaData</emphasis> gives you by default, when set to false, this option
+                will not return anything by default. You have to enable the resources you want
+                yourself (see below). </entry>
             </row>
             <row>
               <entry>{resources}</entry>
               <entry>boolean</entry>
               <entry>false</entry>
               <entry>true/false (default depends on assumeTrue)</entry>
-              <entry>Please see <emphasis role="bold">/api</emphasis> for available resources. This option will allow you to override the default (which is taken from assumeTrue) and further refine what meta-data you want. </entry>
+              <entry>Please see <emphasis role="italic">/api</emphasis> for available resources.
+                This option will allow you to override the default (which is taken from assumeTrue)
+                and further refine what meta-data you want. </entry>
             </row>
             <row>
               <entry>lastUpdated</entry>
