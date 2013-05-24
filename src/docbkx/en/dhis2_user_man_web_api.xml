@@ -1217,8 +1217,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
               <row>
                 <entry>Organisation unit hierarchy</entry>
                 <entry>ou</entry>
-                <entry>Organisation unit identifiers and USER_ORGUNIT |
-                  USER_ORGUNIT_CHILDREN</entry>
+                <entry>Organisation unit identifiers, USER_ORGUNIT | USER_ORGUNIT_CHILDREN and
+                  LEVEL-&lt;level>-&lt;boundary-id></entry>
               </row>
               <row>
                 <entry>Category option combinations</entry>
@@ -1287,10 +1287,17 @@ ORDER BY oul.level, par.name, ou.name</screen>
           the period format and available relative periods.</para>
       </listitem>
       <listitem>
-        <para>The organisation unit dimension you can specify the items to be the organisation unit
-          or hierarchy children of the organisation unit associated with the user authenticated for
-          the request using they keys USER_ORGUNIT or USER_ORGUNIT_CHILDREN as items, respectively.
-          You can also specify organisation unit identifiers, or a combination of both.</para>
+        <para>For the organisation unit dimension you can specify the items to be the organisation
+          unit or sub-units of the organisation unit associated with the user currently
+          authenticated for the request using they keys USER_ORGUNIT or USER_ORGUNIT_CHILDREN as
+          items, respectively. You can also specify organisation unit identifiers directly, or a
+          combination of both.</para>
+      </listitem>
+      <listitem>
+        <para>For the organisation unit dimension you can specify the organisation hierarchy level
+          and the boundary unit to use for the request on the format
+          LEVEL-&lt;level>-&lt;boundary-id>; as an example LEVEL-3-ImspTQPwCqd implies all
+          organisation units below the given boundary unit at level 3 in the hierarchy.</para>
       </listitem>
       <listitem>
         <para>For the organisation unit dimension the dimension items are the organisation units and
