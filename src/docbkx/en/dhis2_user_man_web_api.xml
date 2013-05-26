@@ -344,6 +344,170 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para>In a real-world scenario, looking up identifiers, constructing and dispatching XML messages would be the task of the client software application. This software would probably interact with the more machine-friendly XML and JSON resource representations and not the human-friendly HTML representations like we  did in this example. Developing creative and robust consumers of the Web API services begins  here.</para>
   </section>
   <section>
+    <title>Sending single event no registration data values</title>
+    <para>DHIS 2 supports 3 kinds of events, single events with no registration (previously called
+      anonymous), single event with registration, and multiple events with registration. Currently
+      only single event with no registration is supported in DXF2, support for additional event
+      types will come later.</para>
+    <para>The approach to sending events is very similar to sending aggregate data values, you will
+      need a <emphasis role="italic">programId</emphasis>, <emphasis role="italic"
+        >organisationUnitId</emphasis>, and a list of valid data element IDs. An example payload can
+      be seen below (in XML and
+      JSON):<screen>&lt;?xml version='1.0' encoding='utf-8'?>
+&lt;event programId="nGREQllB95g" organisationUnitId="yFZVWkkk1QL" eventDate="2013-05-17"
+    completed="true" storedBy="admin">
+  &lt;coordinate latitude="59.8" longitude="10.9" />
+  &lt;dataValues>
+    &lt;dataValue dataElementId="WFhjqschUjD" value="2013-05-17" />
+    &lt;dataValue dataElementId="QGfmQy0pxFU" value="-100" />
+  &lt;/dataValues>
+&lt;/event></screen><screen>{
+	"programId": "nGREQllB95g",
+	"organisationUnitId": "yFZVWkkk1QL",
+	"eventDate": "2013-05-17",
+	"completed": true,
+	"storedBy": "admin",
+	"coordinate": {
+		"latitude": "59.8",
+		"longitude": "10.9"
+	},
+	"dataValues": [
+		{ "dataElementId": "WFhjqschUjD", "value": "2013-05-17" },
+		{ "dataElementId": "QGfmQy0pxFU", "value": "-100" }
+	]
+}</screen></para>
+    <para>We also support sending multiple events at the same time (be warned that this format might
+      change for our next
+      release):<screen>&lt;?xml version='1.0' encoding='utf-8'?>
+&lt;events>
+	&lt;eventList>
+		&lt;event programId="nGREQllB95g" organisationUnitId="yFZVWkkk1QL" eventDate="2013-05-17"
+            completed="true" storedBy="admin">
+		  &lt;coordinate latitude="59.8" longitude="10.9" />
+		  &lt;dataValues>
+			&lt;dataValue dataElementId="WFhjqschUjD" value="2013-05-17" />
+			&lt;dataValue dataElementId="QGfmQy0pxFU" value="-100" />
+		  &lt;/dataValues>
+		&lt;/event>
+
+		&lt;event programId="nGREQllB95g" organisationUnitId="yFZVWkkk1QL" eventDate="2013-05-17"
+            completed="true" storedBy="admin">
+		  &lt;coordinate latitude="59.8" longitude="10.9" />
+		  &lt;dataValues>
+			&lt;dataValue dataElementId="WFhjqschUjD" value="2013-05-17" />
+			&lt;dataValue dataElementId="QGfmQy0pxFU" value="-100" />
+		  &lt;/dataValues>
+		&lt;/event>
+	&lt;/eventList>
+&lt;/events></screen><screen>{
+	"eventList": [
+		{
+			"programId": "nGREQllB95g",
+			"organisationUnitId": "yFZVWkkk1QL",
+			"eventDate": "2013-05-17",
+			"completed": true,
+			"storedBy": "admin",
+			"coordinate": {
+				"latitude": "59.8",
+				"longitude": "10.9"
+			},
+			"dataValues": [
+				{ "dataElementId": "WFhjqschUjD", "value": "2013-05-17" },
+				{ "dataElementId": "QGfmQy0pxFU", "value": "-100" }
+			]
+		},
+		{
+			"programId": "nGREQllB95g",
+			"organisationUnitId": "yFZVWkkk1QL",
+			"eventDate": "2013-05-17",
+			"completed": true,
+			"storedBy": "admin",
+			"coordinate": {
+				"latitude": "59.8",
+				"longitude": "10.9"
+			},
+			"dataValues": [
+				{ "dataElementId": "WFhjqschUjD", "value": "2013-05-17" },
+				{ "dataElementId": "QGfmQy0pxFU", "value": "-100" }
+			]
+		}
+	]
+}</screen></para>
+    <para>Most of the elements here should be easy to understand already, but a table can be seen
+      below that will explain what they all mean.</para>
+    <para>
+      <table>
+        <title>XML/JSON element/key description</title>
+        <tgroup cols="5">
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="italic">Key</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="italic">Type</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="italic">Required</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="italic">Options (default first)</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="italic">Description</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>programId</entry>
+              <entry>string</entry>
+              <entry>true</entry>
+              <entry/>
+              <entry>UID pointing to the single event no registration program</entry>
+            </row>
+            <row>
+              <entry>organisationUnitId</entry>
+              <entry>string</entry>
+              <entry>true</entry>
+              <entry/>
+              <entry>UID pointing to the organisation unit.</entry>
+            </row>
+            <row>
+              <entry>eventDate</entry>
+              <entry>date</entry>
+              <entry>true</entry>
+              <entry/>
+              <entry>The date this event occured.</entry>
+            </row>
+            <row>
+              <entry>completed</entry>
+              <entry>boolean</entry>
+              <entry>false</entry>
+              <entry>Defaults to true.</entry>
+              <entry>Is this event complete or not.</entry>
+            </row>
+            <row>
+              <entry>storedBy</entry>
+              <entry>string</entry>
+              <entry>false</entry>
+              <entry>Defaults to current user.</entry>
+              <entry>Who stored this event (can be username, system-name etc)</entry>
+            </row>
+            <row>
+              <entry>coordinate</entry>
+              <entry>object</entry>
+              <entry>false</entry>
+              <entry>GPS coordinate where this event occured.</entry>
+              <entry>For XML this is an element called coordinate with two attributes (latitude and longitude),
+                for JSON this is an object with two keys (latitude and longitude)</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </para>
+  </section>
+  <section>
     <title>Sending data values using SDMX-HD</title>
     <para>Posting a dataValueSet report formatted using the WHO SDMX-HD standard is very similar to
       the dxf2 example above. The same api/dataValueSets resource is used, but the client has to
