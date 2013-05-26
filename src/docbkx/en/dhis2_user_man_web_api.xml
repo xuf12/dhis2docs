@@ -496,11 +496,25 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
             </row>
             <row>
               <entry>coordinate</entry>
-              <entry>object</entry>
+              <entry>double</entry>
               <entry>false</entry>
               <entry>GPS coordinate where this event occured.</entry>
               <entry>For XML this is an element called coordinate with two attributes (latitude and longitude),
                 for JSON this is an object with two keys (latitude and longitude)</entry>
+            </row>
+            <row>
+              <entry>dataValue / dataElementId</entry>
+              <entry>string</entry>
+              <entry>true</entry>
+              <entry></entry>
+              <entry>UID of data element.</entry>
+            </row>
+            <row>
+              <entry>dataValue / value</entry>
+              <entry>string</entry>
+              <entry>true</entry>
+              <entry></entry>
+              <entry>Value of captured data element.</entry>
             </row>
           </tbody>
         </tgroup>
