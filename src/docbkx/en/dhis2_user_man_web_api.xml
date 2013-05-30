@@ -361,12 +361,12 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       mortality" program for the "Ngelehun CHC" facility in the demo database can be seen
       below:</para>
     <screen>&lt;?xml version='1.0' encoding='utf-8'?>
-&lt;event programId="eBAyeGv0exc" organisationUnitId="DiszpKrYNg8" eventDate="2013-05-17" completed="true" storedBy="admin">
+&lt;event program="eBAyeGv0exc" orgUnit="DiszpKrYNg8" eventDate="2013-05-17" completed="true" storedBy="admin">
   &lt;coordinate latitude="59.8" longitude="10.9" />
   &lt;dataValues>
-    &lt;dataValue dataElementId="qrur9Dvnyt5" value="22" />
-    &lt;dataValue dataElementId="oZg33kd9taw" value="Male" />
-    &lt;dataValue dataElementId="msodh3rEMJa" value="2013-05-18" />
+    &lt;dataValue dataElement="qrur9Dvnyt5" value="22" />
+    &lt;dataValue dataElement="oZg33kd9taw" value="Male" />
+    &lt;dataValue dataElement="msodh3rEMJa" value="2013-05-18" />
   &lt;/dataValues>
 &lt;/event></screen>
     <para>To perform some testing we can save the XML payload as a file called<emphasis
@@ -375,8 +375,8 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <screen>curl -d @events.xml "localhost:8080/api/events" -H "Content-Type:application/xml" -u admin:district -v</screen>
     <para>The same payload in JSON format looks like this:</para>
     <screen>{
-  "programId": "eBAyeGv0exc",
-  "organisationUnitId": "DiszpKrYNg8",
+  "program": "eBAyeGv0exc",
+  "orgUnit": "DiszpKrYNg8",
   "eventDate": "2013-05-17",
   "completed": true,
   "storedBy": "admin",
@@ -385,9 +385,9 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     "longitude": "10.9"
   },
   "dataValues": [
-    { "dataElementId": "qrur9Dvnyt5", "value": "22" },
-    { "dataElementId": "oZg33kd9taw", "value": "Male" },
-    { "dataElementId": "msodh3rEMJa", "value": "2013-05-18" }
+    { "dataElement": "qrur9Dvnyt5", "value": "22" },
+    { "dataElement": "oZg33kd9taw", "value": "Male" },
+    { "dataElement": "msodh3rEMJa", "value": "2013-05-18" }
   ]
 }</screen>
     <para>To send this you can save it to a file called <emphasis role="italic"
@@ -398,18 +398,18 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <screen>&lt;?xml version='1.0' encoding='utf-8'?>
 &lt;events>
   &lt;eventList>
-    &lt;event programId="eBAyeGv0exc" organisationUnitId="DiszpKrYNg8" eventDate="2013-05-17" completed="true" storedBy="admin">
+    &lt;event program="eBAyeGv0exc" orgUnit="DiszpKrYNg8" eventDate="2013-05-17" completed="true" storedBy="admin">
       &lt;coordinate latitude="59.8" longitude="10.9" />
       &lt;dataValues>
-        &lt;dataValue dataElementId="qrur9Dvnyt5" value="22" />
-        &lt;dataValue dataElementId="oZg33kd9taw" value="Male" />
+        &lt;dataValue dataElement="qrur9Dvnyt5" value="22" />
+        &lt;dataValue dataElement="oZg33kd9taw" value="Male" />
       &lt;/dataValues>
     &lt;/event>
-    &lt;event programId="eBAyeGv0exc" organisationUnitId="DiszpKrYNg8" eventDate="2013-05-17" completed="true" storedBy="admin">
+    &lt;event program="eBAyeGv0exc" orgUnit="DiszpKrYNg8" eventDate="2013-05-17" completed="true" storedBy="admin">
       &lt;coordinate latitude="59.8" longitude="10.9" />
       &lt;dataValues>
-        &lt;dataValue dataElementId="qrur9Dvnyt5" value="26" />
-        &lt;dataValue dataElementId="oZg33kd9taw" value="Female" />
+        &lt;dataValue dataElement="qrur9Dvnyt5" value="26" />
+        &lt;dataValue dataElement="oZg33kd9taw" value="Female" />
       &lt;/dataValues>
     &lt;/event>
   &lt;/eventList>
@@ -420,8 +420,8 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <screen>{
   "eventList": [
   {
-    "programId": "eBAyeGv0exc",
-    "organisationUnitId": "DiszpKrYNg8",
+    "program": "eBAyeGv0exc",
+    "orgUnit": "DiszpKrYNg8",
     "eventDate": "2013-05-17",
     "completed": true,
     "storedBy": "admin",
@@ -430,12 +430,12 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       "longitude": "10.9"
     },
     "dataValues": [
-      { "dataElementId": "qrur9Dvnyt5", "value": "22" },
-      { "dataElementId": "oZg33kd9taw", "value": "Male" }
+      { "dataElement": "qrur9Dvnyt5", "value": "22" },
+      { "dataElement": "oZg33kd9taw", "value": "Male" }
     ] },
   {
-    "programId": "eBAyeGv0exc",
-    "organisationUnitId": "DiszpKrYNg8",
+    "program": "eBAyeGv0exc",
+    "orgUnit": "DiszpKrYNg8",
     "eventDate": "2013-05-17",
     "completed": true,
     "storedBy": "admin",
@@ -444,12 +444,12 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       "longitude": "10.9"
     },
     "dataValues": [
-      { "dataElementId": "qrur9Dvnyt5", "value": "26" },
-      { "dataElementId": "oZg33kd9taw", "value": "Female" }
+      { "dataElement": "qrur9Dvnyt5", "value": "26" },
+      { "dataElement": "oZg33kd9taw", "value": "Female" }
 	] }
   ]
 }</screen>
-    <para>The table below describes the meaning of each element. Most elements should be reasonably
+    <para>The table below describes the meaning of each element. Most elements should be fairly
       self-explanatory.</para>
     <para>
       <table>
