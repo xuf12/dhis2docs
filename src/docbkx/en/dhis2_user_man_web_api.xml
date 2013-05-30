@@ -344,97 +344,113 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para>In a real-world scenario, looking up identifiers, constructing and dispatching XML messages would be the task of the client software application. This software would probably interact with the more machine-friendly XML and JSON resource representations and not the human-friendly HTML representations like we  did in this example. Developing creative and robust consumers of the Web API services begins  here.</para>
   </section>
   <section>
-    <title>Sending single event no registration data values</title>
-    <para>DHIS 2 supports 3 kinds of events, single events with no registration (previously called
-      anonymous), single event with registration, and multiple events with registration. Currently
-      only single event with no registration is supported in DXF2, support for additional event
-      types will come later.</para>
-    <para>The approach to sending events is very similar to sending aggregate data values, you will
-      need a <emphasis role="italic">programId</emphasis>, <emphasis role="italic"
-        >organisationUnitId</emphasis>, and a list of valid data element IDs. An example payload can
-      be seen below (in XML and
-      JSON):<screen>&lt;?xml version='1.0' encoding='utf-8'?>
-&lt;event programId="nGREQllB95g" organisationUnitId="yFZVWkkk1QL" eventDate="2013-05-17"
-    completed="true" storedBy="admin">
+    <title>Sending single event with no registration data values</title>
+    <para>DHIS 2 supports three kinds of events: single events with no registration (also referred
+      to as anonymous events), single event with registration and multiple events with registration.
+      Registration implies that the data is linked to a person which is identified using some sort
+      of identifier. Currently only single event with no registration is supported in DXF 2
+      currently.</para>
+    <para>To send events to DHIS 2 you must interact with the <emphasis role="italic"
+        >events</emphasis> resource. The approach to sending events is similar to sending aggregate
+      data values. You will need a <emphasis role="italic">programId</emphasis> which can be looked
+      up using the <emphasis role="italic">programs</emphasis> resource, an <emphasis role="italic"
+        >organisationUnitId</emphasis> which can be looked up using the <emphasis role="italic"
+        >organisationUnits</emphasis> resource, and a list of valid data element identfiers which
+      can be looked up using the <emphasis role="italic">dataElements</emphasis> resource. </para>
+    <para>An example payload in XML format where we send events from the "Inpatient morbidity and
+      mortality" program for the "Ngelehun CHC" facility in the demo database can be seen
+      below:</para>
+    <screen>&lt;?xml version='1.0' encoding='utf-8'?>
+&lt;event programId="eBAyeGv0exc" organisationUnitId="DiszpKrYNg8" eventDate="2013-05-17" completed="true" storedBy="admin">
   &lt;coordinate latitude="59.8" longitude="10.9" />
   &lt;dataValues>
-    &lt;dataValue dataElementId="WFhjqschUjD" value="2013-05-17" />
-    &lt;dataValue dataElementId="QGfmQy0pxFU" value="-100" />
+    &lt;dataValue dataElementId="qrur9Dvnyt5" value="22" />
+    &lt;dataValue dataElementId="oZg33kd9taw" value="Male" />
+    &lt;dataValue dataElementId="msodh3rEMJa" value="2013-05-18" />
   &lt;/dataValues>
-&lt;/event></screen><screen>{
-	"programId": "nGREQllB95g",
-	"organisationUnitId": "yFZVWkkk1QL",
-	"eventDate": "2013-05-17",
-	"completed": true,
-	"storedBy": "admin",
-	"coordinate": {
-		"latitude": "59.8",
-		"longitude": "10.9"
-	},
-	"dataValues": [
-		{ "dataElementId": "WFhjqschUjD", "value": "2013-05-17" },
-		{ "dataElementId": "QGfmQy0pxFU", "value": "-100" }
-	]
-}</screen></para>
-    <para>We also support sending multiple events at the same time (be warned that this format might
-      change for our next
-      release):<screen>&lt;?xml version='1.0' encoding='utf-8'?>
+&lt;/event></screen>
+    <para>To perform some testing we can save the XML payload as a file called<emphasis
+        role="italic"> events.xml</emphasis> and send it as a POST request to the events resource in
+      the API using curl with the following command:</para>
+    <screen>curl -d @events.xml "localhost:8080/api/events" -H "Content-Type:application/xml" -u admin:district -v</screen>
+    <para>The same payload in JSON format looks like this:</para>
+    <screen>{
+  "programId": "eBAyeGv0exc",
+  "organisationUnitId": "DiszpKrYNg8",
+  "eventDate": "2013-05-17",
+  "completed": true,
+  "storedBy": "admin",
+  "coordinate": {
+    "latitude": "59.8",
+    "longitude": "10.9"
+  },
+  "dataValues": [
+    { "dataElementId": "qrur9Dvnyt5", "value": "22" },
+    { "dataElementId": "oZg33kd9taw", "value": "Male" },
+    { "dataElementId": "msodh3rEMJa", "value": "2013-05-18" }
+  ]
+}</screen>
+    <para>To send this you can save it to a file called <emphasis role="italic"
+        >events.json</emphasis> and use curl like this:</para>
+    <screen>curl -d @events.xml "localhost:8080/api/events" -H "Content-Type:application/json" -u admin:district -v</screen>
+    <para>We also support sending multiple events at the same time. A payload in XML format might
+      look like this: (Caution: this format might change slightly in version 2.13)</para>
+    <screen>&lt;?xml version='1.0' encoding='utf-8'?>
 &lt;events>
-	&lt;eventList>
-		&lt;event programId="nGREQllB95g" organisationUnitId="yFZVWkkk1QL" eventDate="2013-05-17"
-            completed="true" storedBy="admin">
-		  &lt;coordinate latitude="59.8" longitude="10.9" />
-		  &lt;dataValues>
-			&lt;dataValue dataElementId="WFhjqschUjD" value="2013-05-17" />
-			&lt;dataValue dataElementId="QGfmQy0pxFU" value="-100" />
-		  &lt;/dataValues>
-		&lt;/event>
-
-		&lt;event programId="nGREQllB95g" organisationUnitId="yFZVWkkk1QL" eventDate="2013-05-17"
-            completed="true" storedBy="admin">
-		  &lt;coordinate latitude="59.8" longitude="10.9" />
-		  &lt;dataValues>
-			&lt;dataValue dataElementId="WFhjqschUjD" value="2013-05-17" />
-			&lt;dataValue dataElementId="QGfmQy0pxFU" value="-100" />
-		  &lt;/dataValues>
-		&lt;/event>
-	&lt;/eventList>
-&lt;/events></screen><screen>{
-	"eventList": [
-		{
-			"programId": "nGREQllB95g",
-			"organisationUnitId": "yFZVWkkk1QL",
-			"eventDate": "2013-05-17",
-			"completed": true,
-			"storedBy": "admin",
-			"coordinate": {
-				"latitude": "59.8",
-				"longitude": "10.9"
-			},
-			"dataValues": [
-				{ "dataElementId": "WFhjqschUjD", "value": "2013-05-17" },
-				{ "dataElementId": "QGfmQy0pxFU", "value": "-100" }
-			]
-		},
-		{
-			"programId": "nGREQllB95g",
-			"organisationUnitId": "yFZVWkkk1QL",
-			"eventDate": "2013-05-17",
-			"completed": true,
-			"storedBy": "admin",
-			"coordinate": {
-				"latitude": "59.8",
-				"longitude": "10.9"
-			},
-			"dataValues": [
-				{ "dataElementId": "WFhjqschUjD", "value": "2013-05-17" },
-				{ "dataElementId": "QGfmQy0pxFU", "value": "-100" }
-			]
-		}
-	]
-}</screen></para>
-    <para>Most of the elements here should be easy to understand already, but a table can be seen
-      below that will explain what they all mean.</para>
+  &lt;eventList>
+    &lt;event programId="eBAyeGv0exc" organisationUnitId="DiszpKrYNg8" eventDate="2013-05-17" completed="true" storedBy="admin">
+      &lt;coordinate latitude="59.8" longitude="10.9" />
+      &lt;dataValues>
+        &lt;dataValue dataElementId="qrur9Dvnyt5" value="22" />
+        &lt;dataValue dataElementId="oZg33kd9taw" value="Male" />
+      &lt;/dataValues>
+    &lt;/event>
+    &lt;event programId="eBAyeGv0exc" organisationUnitId="DiszpKrYNg8" eventDate="2013-05-17" completed="true" storedBy="admin">
+      &lt;coordinate latitude="59.8" longitude="10.9" />
+      &lt;dataValues>
+        &lt;dataValue dataElementId="qrur9Dvnyt5" value="26" />
+        &lt;dataValue dataElementId="oZg33kd9taw" value="Female" />
+      &lt;/dataValues>
+    &lt;/event>
+  &lt;/eventList>
+&lt;/events></screen>
+    <para>You will receive an import summary with the response which can be inspected in order to
+      get information about the outcome of the request, like how many values were imported
+      successfully. The payload in JSON format looks like this:</para>
+    <screen>{
+  "eventList": [
+  {
+    "programId": "eBAyeGv0exc",
+    "organisationUnitId": "DiszpKrYNg8",
+    "eventDate": "2013-05-17",
+    "completed": true,
+    "storedBy": "admin",
+    "coordinate": {
+      "latitude": "59.8",
+      "longitude": "10.9"
+    },
+    "dataValues": [
+      { "dataElementId": "qrur9Dvnyt5", "value": "22" },
+      { "dataElementId": "oZg33kd9taw", "value": "Male" }
+    ] },
+  {
+    "programId": "eBAyeGv0exc",
+    "organisationUnitId": "DiszpKrYNg8",
+    "eventDate": "2013-05-17",
+    "completed": true,
+    "storedBy": "admin",
+    "coordinate": {
+      "latitude": "59.8",
+      "longitude": "10.9"
+    },
+    "dataValues": [
+      { "dataElementId": "qrur9Dvnyt5", "value": "26" },
+      { "dataElementId": "oZg33kd9taw", "value": "Female" }
+	] }
+  ]
+}</screen>
+    <para>The table below describes the meaning of each element. Most elements should be reasonably
+      self-explanatory.</para>
     <para>
       <table>
         <title>XML/JSON element/key description</title>
@@ -464,57 +480,57 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
               <entry>string</entry>
               <entry>true</entry>
               <entry/>
-              <entry>UID pointing to the single event no registration program</entry>
+              <entry>UID of the single event with no registration program</entry>
             </row>
             <row>
               <entry>organisationUnitId</entry>
               <entry>string</entry>
               <entry>true</entry>
               <entry/>
-              <entry>UID pointing to the organisation unit.</entry>
+              <entry>UID of the organisation unit where the event took place</entry>
             </row>
             <row>
               <entry>eventDate</entry>
               <entry>date</entry>
               <entry>true</entry>
               <entry/>
-              <entry>The date this event occured.</entry>
+              <entry>The date of when the event occured</entry>
             </row>
             <row>
               <entry>completed</entry>
               <entry>boolean</entry>
               <entry>false</entry>
-              <entry>Defaults to true.</entry>
-              <entry>Is this event complete or not.</entry>
+              <entry>true | false</entry>
+              <entry>Whether the event is complete or not</entry>
             </row>
             <row>
               <entry>storedBy</entry>
               <entry>string</entry>
               <entry>false</entry>
-              <entry>Defaults to current user.</entry>
+              <entry>Defaults to current user</entry>
               <entry>Who stored this event (can be username, system-name etc)</entry>
             </row>
             <row>
               <entry>coordinate</entry>
               <entry>double</entry>
               <entry>false</entry>
-              <entry>GPS coordinate where this event occured.</entry>
-              <entry>For XML this is an element called coordinate with two attributes (latitude and longitude),
-                for JSON this is an object with two keys (latitude and longitude)</entry>
+              <entry/>
+              <entry>Refers to wher the event took place geographically (latitude and
+                longitude)</entry>
             </row>
             <row>
-              <entry>dataValue / dataElementId</entry>
+              <entry>dataElementId</entry>
               <entry>string</entry>
               <entry>true</entry>
               <entry></entry>
-              <entry>UID of data element.</entry>
+              <entry>UID of data element</entry>
             </row>
             <row>
-              <entry>dataValue / value</entry>
+              <entry>value</entry>
               <entry>string</entry>
               <entry>true</entry>
               <entry></entry>
-              <entry>Value of captured data element.</entry>
+              <entry>Data value or measure for this event</entry>
             </row>
           </tbody>
         </tgroup>
