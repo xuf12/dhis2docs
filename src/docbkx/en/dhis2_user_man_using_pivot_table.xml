@@ -14,7 +14,7 @@
     <para>A pivot table can arrange data dimensions on <emphasis role="italic">columns</emphasis>,
         <emphasis role="italic">rows</emphasis>, and as <emphasis role="italic">filters</emphasis>.
       When you place a data dimension on columns, the pivot table will display one column per
-      dimension item. If you place multiple data dimensions on colums, the pivot table will display
+      dimension item. If you place multiple data dimensions on columns, the pivot table will display
       one column for all combinations of the items in the selected dimensions. When you place a data
       dimension on rows, the pivot table will display one row per dimension item in a similar
       fashion. The dimensions you select as filters will not be included in the pivot table, but
@@ -174,9 +174,9 @@
     <title>Downloading data</title>
     <para>You can download the data in the current pivot table by clicking on "Download" in the top
       menu. The data can be downloaded in MS Excel and CSV format. The data table will have one
-      column per dimension and contain names of the dimension items. You can easily create a pivot 
-      table in Microsoft Excel from the the downloaded Excel file by clicking on "pivot table" in 
-      the top panel, then clicking on "create pivot table", then marking the data range in the 
+      column per dimension and contain names of the dimension items. You can easily create a pivot
+      table in Microsoft Excel from the downloaded Excel file by clicking on "pivot table" in the
+      top panel, then clicking on "create pivot table", then marking the data range in the
       spreadsheet before clicking "OK".</para>
     <para>Data can also be downloaded in JSON and XML format. The data format is specified in the
       Web API chapter under the "Analytics" section. The data document will use identifiers of the

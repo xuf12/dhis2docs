@@ -31,10 +31,14 @@
     <para>The visualizer module provides seven different chart types, each with different characteristics. You can select the type of your chart by clicking on one of the icons  in  top left bar titled &quot;Chart type&quot;.</para>
     <orderedlist>
       <listitem>
-        <para>Column chart: Chart which displays information as vertical rectangular columns with lengths proportional to the values they represent. Useful eg. for comparing performance of different districts.</para>
+        <para>Column chart: Chart which displays information as vertical rectangular columns with
+          lengths proportional to the values they represent. Useful e.g. for comparing performance
+          of different districts.</para>
       </listitem>
       <listitem>
-        <para>Stacked column chart: Chart with vertical rectangular columns where bars representing multiple categories are stacked on top of each other. Useful eg. for displaying trends or sums of related data elements.</para>
+        <para>Stacked column chart: Chart with vertical rectangular columns where bars representing
+          multiple categories are stacked on top of each other. Useful e.g. for displaying trends or
+          sums of related data elements.</para>
       </listitem>
       <listitem>
         <para>Bar chart: Same as column chart, only with horizontal bars.</para>
@@ -43,13 +47,17 @@
         <para>Stacked bar chart: Same as stacked column chart, only with horizontal bars.</para>
       </listitem>
       <listitem>
-        <para>Line chart: Graph wich displays information as a series of points connected by straight lines. Also referred to as time series. Useful eg. to visualize trends in indicator data over multiple time periods.</para>
+        <para>Line chart: Graph which displays information as a series of points connected by
+          straight lines. Also referred to as time series. Useful e.g. to visualize trends in
+          indicator data over multiple time periods.</para>
       </listitem>
       <listitem>
         <para>Area chart: Chart which is based on line chart, with the space between the axis and the line filled with colors and the lines stacked on top of each other. Useful for comparing the trends of related indicators.</para>
       </listitem>
       <listitem>
-        <para>Pie chart: Circular chart divided into sectors (or slices). Useful eg. to visualize the proportion of data for individual data elements compared to the total sum of all data elements in the chart.</para>
+        <para>Pie chart: Circular chart divided into sectors (or slices). Useful e.g. to visualize
+          the proportion of data for individual data elements compared to the total sum of all data
+          elements in the chart.</para>
       </listitem>
     </orderedlist>
   </section>
@@ -79,10 +87,13 @@
     <para>More formally this can be described as following:</para>
     <orderedlist>
       <listitem>
-        <para>Series: A series is a set of continous, related elements (eg. periods or data elements)   which you want to visualize in order to emphasize trends or relations in its data.</para>
+        <para>Series: A series is a set of continuous, related elements (e.g. periods or data
+          elements) which you want to visualize in order to emphasize trends or relations in its
+          data.</para>
       </listitem>
       <listitem>
-        <para>Categories: A category is a set of elements (eg. indicators or organisation units) for which you want to compare its data.</para>
+        <para>Categories: A category is a set of elements (e.g. indicators or organisation units)
+          for which you want to compare its data.</para>
       </listitem>
       <listitem>
         <para>Filter: Since most charts are two-dimensional, a filter must be used on the third dimension  in order to use only a single element for the chart to become meaningful.</para>
@@ -108,7 +119,16 @@
   </section>
   <section>
     <title>Selecting organisation units</title>
-    <para>You can select which organisation units to include in the chart by clicking the &quot;Organisation units&quot; header. This section features a tree including all organisatiton units in the system. You can select any of the organisation units by clicking them. If you want to select multiple, arbitrary organisation units you can press the Ctrl button and then click away in the tree. If you want to include all organisation units existing directly under a specific organisation unit (the children of the parent organisation unit in other terms) you can right-click on the organisation unit and select &quot;Select all children&quot;. You can also automatically select all organisation units in a particular organisation unit group. Click the &quot;Group&quot; button on the far right of the toolbar above the tree and select a group in the drop down list.</para>
+    <para>You can select which organisation units to include in the chart by clicking the
+      &quot;Organisation units&quot; header. This section features a tree including all organisation
+      units in the system. You can select any of the organisation units by clicking them. If you
+      want to select multiple, arbitrary organisation units you can press the Ctrl button and then
+      click away in the tree. If you want to include all organisation units existing directly under
+      a specific organisation unit (the children of the parent organisation unit in other terms) you
+      can right-click on the organisation unit and select &quot;Select all children&quot;. You can
+      also automatically select all organisation units in a particular organisation unit group.
+      Click the &quot;Group&quot; button on the far right of the toolbar above the tree and select a
+      group in the drop down list.</para>
     <para>This panel also features two checkboxes. Checking &quot;User organisation unit&quot; will disable the organisation unit tree and give you the organisation unit that is related to the current/logged in user instead. This is also useful for administrators as they can create a meaningful &quot;system&quot; favorite with this option checked and all users will find their respective organisation unit when they open it. The the same concept goes for the &quot;User organisation unit children&quot; checkbox.</para>
   </section>
   <section>
@@ -123,7 +143,9 @@
         <para>Show series data: Displays the corresponding value next to columns and bars in the chart.</para>
       </listitem>
       <listitem>
-        <para>Show trend line: The trend line will visualize how your data evolves over time - e.g. is performance improving or detoriating. Makes sense when periods are selected as category. </para>
+        <para>Show trend line: The trend line will visualize how your data evolves over time - e.g.
+          is performance improving or deteriorating. Makes sense when periods are selected as
+          category. </para>
       </listitem>
       <listitem>
         <para>Hide chart subtitle: Hides the title and subtitle of your chart.</para>
@@ -175,7 +197,14 @@
   </section>
   <section id="dvFavorites">
     <title>Saving chart as favorite</title>
-    <para>Once you have rendered a chart you can save it as a favorite. Click on the &quot;Favorites&quot; button on the top menu and then on the &quot;Manage favorites&quot; link. In the name field enter the desired name for your chart. By ticking the &quot;System&quot; checkbox the chart will be visible to all users of the system, if you do not tick it the chart will be visible only to yourself. This requres that your user account has the privilege to create system charts.  You can rename any favorite by selecting it in the list, modifying its name in the name input field and clicking &quot;Rename&quot;. You can delete any favorite by selecting it and then clicking &quot;Delete&quot;.</para>
+    <para>Once you have rendered a chart you can save it as a favorite. Click on the
+      &quot;Favorites&quot; button on the top menu and then on the &quot;Manage favorites&quot;
+      link. In the name field enter the desired name for your chart. By ticking the
+      &quot;System&quot; checkbox the chart will be visible to all users of the system, if you do
+      not tick it the chart will be visible only to yourself. This requires that your user account
+      has the privilege to create system charts. You can rename any favorite by selecting it in the
+      list, modifying its name in the name input field and clicking &quot;Rename&quot;. You can
+      delete any favorite by selecting it and then clicking &quot;Delete&quot;.</para>
     <para>These favorite charts can later be included on your personal dashboard. After saving you can navigate to the dashboard module, click on the &quot;Insert&quot; link over the chart areas and select your preferred chart.</para>
     <screenshot>
       <screeninfo>Data visualizer module displaying a column chart.</screeninfo>
@@ -188,7 +217,15 @@
   </section>
   <section id="dvInterpretations">
     <title>Sharing interpretations</title>
-    <para>For certain analysis-related resources in DHIS, like charts and report tables, one can share a data interpretation. An interpretation is simply a link to the the relevant resource together with a text expressing some insight about the data. If you want to share a chart interpretation you need to first save the chart you want to share as a favorite. Then, without making any changes to the chart, click the &quot;Share&quot; button the toolbar. A window will open up and this is where you write your interpretation. When you are done, click share button in the bottom right corner of the window. The window will close automatically and if the interpretation was shared successfully you will find a notification on the bottom toolbar.</para>
+    <para>For certain analysis-related resources in DHIS, like charts and report tables, one can
+      share a data interpretation. An interpretation is simply a link to the relevant resource
+      together with a text expressing some insight about the data. If you want to share a chart
+      interpretation you need to first save the chart you want to share as a favorite. Then, without
+      making any changes to the chart, click the &quot;Share&quot; button the toolbar. A window will
+      open up and this is where you write your interpretation. When you are done, click share button
+      in the bottom right corner of the window. The window will close automatically and if the
+      interpretation was shared successfully you will find a notification on the bottom
+      toolbar.</para>
   </section>
   <section>
     <title>Exiting the data visualizer module</title>

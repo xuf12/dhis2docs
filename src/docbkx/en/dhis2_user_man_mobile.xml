@@ -34,7 +34,11 @@
 </para>
         <para>When connecting directly to the operator, for receiving SMS, one has to connect to all the operators whose subscribers should be able to send us messages. The typical scenario is that the operator assigns a short number (4 or 5 digits) to our service, and forward the messages sent to this number to our/your server. The best is to have all operators assign the same number, but this isn&apos;t necessarily automatic.</para>
         <para>If connecting via an SMS gateway company, they connect to all operators for us and typically put some additional charge on the message price. Since there is a cost per number and per operator, this may sometimes still be price efficient. SMS gateway providers typically connect via HTTP or SMPP.</para>
-        <para>The simplest and cheapest would be if you already have some SMS connection greement that we could leverage. I would be useful to get this interface up and running as soon as possible, as this really might be the most complex integration point (though in principle it really is quite simple to do when everything runs smoothly). If you do not yet have such an agreement, we can help you in the process.</para>
+        <para>The simplest and cheapest would be if you already have some SMS connection agreement
+          that we could leverage. I would be useful to get this interface up and running as soon as
+          possible, as this really might be the most complex integration point (though in principle
+          it really is quite simple to do when everything runs smoothly). If you do not yet have
+          such an agreement, we can help you in the process.</para>
         <para>Note that some operators offer long numbers as a service in addition to short numbers. Then you get what looks like a real mobile number, and it can be accessed by all other operators&apos; customers also. This is often a very simple way of offering SMS as you do not need to connect to all operators. But not many operators offer this.</para>
         <para>It is quite relevant for the deployment if the users have subscriptions from a single operator or if many operators are used. One operator is simpler. </para>
       </listitem>

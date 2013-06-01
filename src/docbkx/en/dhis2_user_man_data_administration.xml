@@ -263,8 +263,8 @@
     <para>The SQL views are dropped in reverse alphabetical order based on their names in DHIS 2,
       and created in regular alphabetical order. This allows you to have dependencies between SQL
       views, given that views only depend on other views which come earlier in the alphabetical
-      order. For instace, "ViewB" can safely depend on "ViewA". Otherwise, having views depending on
-      other view result in an integrity violation error.</para>
+      order. For instance, "ViewB" can safely depend on "ViewA". Otherwise, having views depending
+      on other view result in an integrity violation error.</para>
     <para/>
     <section>
       <title>Creating a new SQL view</title>
@@ -285,9 +285,15 @@
   </section>
   <section id="organisationUnitMerge">
     <title>Organisation unit merge</title>
-    <para>This function is useful when two organisation units need to be merged, eg. it is decided that one facility will be shut down and its services will be provided by a nearby facility.</para>
+    <para>This function is useful when two organisation units need to be merged, e.g. it is decided
+      that one facility will be shut down and its services will be provided by a nearby
+      facility.</para>
     <para>Start by selecting the organisation unit to eliminate from the tree and click <emphasis role="italic">confirm</emphasis>.  Then select the organisation unit to keep and click <emphasis role="italic">confirm</emphasis> again. Finally, verify the selection and click <emphasis role="italic">merge</emphasis>.  </para>
-    <para>In the sitation where data exist  for the organisation unit to eliminate and not for the one to keep, the data will be moved to the one to keep. When data exists for both organisation units, the data will be summarized and moved to the one to keep. When data exists only for the one to keep, no action is taken. The organisation unit to eliminate will eventually be deleted.</para>
+    <para>In the situation where data exist for the organisation unit to eliminate and not for the
+      one to keep, the data will be moved to the one to keep. When data exists for both organisation
+      units, the data will be summarized and moved to the one to keep. When data exists only for the
+      one to keep, no action is taken. The organisation unit to eliminate will eventually be
+      deleted.</para>
   </section>
   <section id="duplicateDataElimination">
     <title>Duplicate data elimination</title>
@@ -365,7 +371,13 @@ as drop-down lists with auto-completion support.
   </section>
   <section id="attribute">
     <title>Dynamic attributes</title>
-    <para>Dynamic attributes can be used to add additional information to certain objects (namely data elements, indicators, organisation units and users). In addition to the standard attributes each of these objects have, it may be required in certain installations to have additional attributes, such as a fax number which is associated with an organisation unit. To add a new dynamic attribute to an object, select &quot;Maintenance-&gt;Data administration&quot; from the main menue, then &quot;Attribute&quot; from the left side panel, and press the &quot;Add new&quot; button.</para>
+    <para>Dynamic attributes can be used to add additional information to certain objects (namely
+      data elements, indicators, organisation units and users). In addition to the standard
+      attributes each of these objects have, it may be required in certain installations to have
+      additional attributes, such as a fax number which is associated with an organisation unit. To
+      add a new dynamic attribute to an object, select &quot;Maintenance-&gt;Data
+      administration&quot; from the main menu, then &quot;Attribute&quot; from the left side panel,
+      and press the &quot;Add new&quot; button.</para>
     <screenshot>
       <mediaobject>
         <imageobject>

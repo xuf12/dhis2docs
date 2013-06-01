@@ -17,7 +17,10 @@
     <para>Indicator maintenance functions essentially the same as each of the respective sections in the previous section on data elements. The basic operations will be described in this section, but the reader should  refer to the corresponding sections above for detailed instructions. </para>
     <section id="indicator">
       <title>Indicators</title>
-      <para>Indicators are composed of multiple data elements, and typically consist of a numerator and denominator. Indicators are never entered in DHIS2, but are derived from combinations of data elements and factors. Indicators are used to calculate coverage rates, incidence and other values are are a result of data element values that have been entered into the system. </para>
+      <para>Indicators are composed of multiple data elements, and typically consist of a numerator
+        and denominator. Indicators are never entered in DHIS2, but are derived from combinations of
+        data elements and factors. Indicators are used to calculate coverage rates, incidence and
+        other values are a result of data element values that have been entered into the system. </para>
       <para>To access the Indicator maintains page, press Maintenance -&gt; Data Element and Indicators -&gt; Indicator from the main DHIS2 menu. Similar to data elements, you can add, delete, modify and view extra information about the indicators in the system. </para>
       <screenshot>
         <mediaobject>

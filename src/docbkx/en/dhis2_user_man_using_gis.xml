@@ -35,7 +35,17 @@
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>The purpose of the boundary layer is to display the boundaries/coordinates in the system. No data will be shown. This layer is useful if you are offline and thus have no background map. Click the boundary/globe icon on the toolbar and select "Edit layer". You can select the organisation units you want to show on the map by selecting a level and a parent. That means "show all organisations units at this level that are children of this parent". When there are visible organisation units on the map, you can easily navigate up and down in the hierarchy without using the level/parent user interface. By clicking one of the organisation units a context menu will open, then select &quot;drill down&quot; or &quot;float up&quot;. The drill down option will be disabled if you are already on the lowest level or if there are no coordinates available on the level below. Vice verca goes for floating up.</para>
+      <para>The purpose of the boundary layer is to display the boundaries/coordinates in the
+        system. No data will be shown. This layer is useful if you are offline and thus have no
+        background map. Click the boundary/globe icon on the toolbar and select "Edit layer". You
+        can select the organisation units you want to show on the map by selecting a level and a
+        parent. That means "show all organisations units at this level that are children of this
+        parent". When there are visible organisation units on the map, you can easily navigate up
+        and down in the hierarchy without using the level/parent user interface. By clicking one of
+        the organisation units a context menu will open, then select &quot;drill down&quot; or
+        &quot;float up&quot;. The drill down option will be disabled if you are already on the
+        lowest level or if there are no coordinates available on the level below. Vice versa goes
+        for floating up.</para>
       
       <para>The layer menu also offers to put on labels and to locate an organisation unit in the map.</para>
       
@@ -56,7 +66,8 @@
       
       <para>You may choose between legend types: <guimenuitem>automatic</guimenuitem> and <guimenuitem>predefined</guimenuitem>. Automatic means that the application will create a legend set for you based on your what method, number of classes, low color and high color you select. Method alludes to the size of the legend classes. Set to <guimenuitem>Equal intervals</guimenuitem> they will be “highest map value – lowest map value / number of classes”. Set to <guimenuitem>Equal group count</guimenuitem> the legend creator will try to distribute the organisation units evenly. The legend will appear as an even gradation from the start color to the end color. Predefined legend sets are described in  <xref linkend="gisLegendSet"/> .</para>
       
-      <para>Low radius and high radius only have effect on points (facilities) and decides the the circle radius for points with the lowest and highest value.</para>
+      <para>Low radius and high radius only have effect on points (facilities) and decides the
+        circle radius for points with the lowest and highest value.</para>
       
       <para>Thematic layer 1 and 2 menu have a "Filter" option in addition to the boundary layer menu options. It lets you apply value filters to the organisation units on the map. The filter is removed when you close the filter window.</para>
     </section>
@@ -72,7 +83,9 @@
       </screenshot>
       <para>This layer displays icons that represent facilities based on the facility type. Polygons will not show up on the map, so make sure to select an organisation unit level that has facilities. Click an icon on the map to open the context menu with two options. &quot;Show information sheet&quot; provides you with data for several data elements for this organisation unit. The data element group and period type are &quot;system settings&quot; called &quot;Infrastructural data elements&quot; and &quot;Infrastructural period type&quot;. The second option in the context menu is &quot;Relocate&quot; and lets you graphically move the organisation unit to a different location. The new coordinate will be stored permanently. Browser cache must be deleted to see the change if you reload the page.</para>
       
-      <para>In the "Edit layer" window will find "sourrounding areas" in addition to group set, level and parent. This lets you draw a circle around each facility with a desired radius in kilometers.</para>
+      <para>In the "Edit layer" window will find "surrounding areas" in addition to group set, level
+        and parent. This lets you draw a circle around each facility with a desired radius in
+        kilometers.</para>
     </section>
   </section>
   <section>
@@ -99,7 +112,10 @@
       <title>Create predefined legend sets</title>
       <para>Click the "Legend" button on the map toolbar. To create a new set click the "Add new" button. Example usage (vaccination coverage): Firstly, give the legend set a name. Then create the legends you want in your legend set. The first one could be &quot;Low bad&quot; (name), 0 (start value), 50 (end value), red (color). Click "Add legend" and appears in the list below. Then create &quot;Medium&quot; / 50 / 80 / yellow, &quot;High good&quot; / 80 / 100 / green and finally &quot;Too high&quot; / 100 / 10000 / grey. Now, click the "Create" button in the bottom right corner. If your legend set has overlapping legends (e.g. 0-50 and 40-80) you will not be allowed to proceed. If your legend set has a gap between the legends (e.g. 0-50 and 60-80) you will get a warning, but are allowed to proceed.</para>
       
-      <para>NOTE! Continous legends are supposed to end and start on the same value, e.g. 0-50 and 50-80. This will automatically be taken care of by the application. Do not try to do this yourself by setting legends to e.g. 0-50 and 51-80. This will cause a usually unwanted gap in your legend set.</para>
+      <para>NOTE! Continuous legends are supposed to end and start on the same value, e.g. 0-50 and
+        50-80. This will automatically be taken care of by the application. Do not try to do this
+        yourself by setting legends to e.g. 0-50 and 51-80. This will cause a usually unwanted gap
+        in your legend set.</para>
       
       <para>You can assign a legend set to an indicator or a data element in the Indicator/Data element module. This legend set will then be automatically selected when such an indicator/data element is selected in the GIS.</para>
     </section>

@@ -2,34 +2,15 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>Apps</title>
-  <para>A Packaged App is an <ulink
-      url="https://developer.mozilla.org/en-US/docs/Open_Web_apps_and_Web_standards">Open Web
-      App</ulink> that has all of its resources (HTML, CSS, JavaScript, app manifest, and so on)
-    contained in a zip file, that can be uploaded to a DHIS 2 installation on runtime. A Packaged
-    App is simply a zip file with the <ulink url="http://www.w3.org/2008/webapps/manifest/">app
-      manifest</ulink> in its root directory. The manifest must be named manifest.webapp. Since DHIS
-    2.12, an implementer can install Packaged Apps into DHIS 2 and extend the web interface of
-    DHIS2.</para>
+  <para>A Packaged App is an <ulink url="https://developer.mozilla.org/en-US/docs/Open_Web_apps_and_Web_standards">Open Web App</ulink> that has all of its resources (HTML, CSS, JavaScript, app manifest, and so on) contained in a zip file, that can be uploaded to a DHIS 2 installation on runtime. A Packaged App is simply a zip file with the <ulink url="http://www.w3.org/2008/webapps/manifest/">app manifest</ulink> in its root directory. The manifest must be named manifest.webapp. Since DHIS 2.12, an implementer can install Packaged Apps into DHIS 2 and extend the web interface of DHIS2.</para>
   <section>
     <title>Purpose of Packaged Apps</title>
-    <para>The purpose of Packaged Apps is to extend the web interface of DHIS 2. As Health
-      Management Information Systems implementers and developers, we understand that each health
-      system has different and unique requirements. By using Apps, the flexibility of DHIS 2 can be
-      exposed through a custom user-interface that is suited to the context of
-      implementation.</para>
-    <para>Apps are lightweight extensions to underlying DHIS 2 functionality through a different web
-      interface. Packaged Apps do not have permissions to interact directly with DHIS 2 Java API.
-      Instead, Apps are supposed to use functionality by calling the Web API and other parts of the
-      DHIS2 web layer.</para>
+    <para>The purpose of Packaged Apps is to extend the web interface of DHIS 2. As Health Management Information Systems implementers and developers, we understand that each health system has different and unique requirements. By using Apps, the flexibility of DHIS 2 can be exposed through a custom user-interface that is suited to the context of implementation.</para>
+    <para>Apps are lightweight extensions to underlying DHIS 2 functionality through a different web interface. Packaged Apps do not have permissions to interact directly with DHIS 2 Java API. Instead, Apps are supposed to use functionality by calling the Web API and other parts of the DHIS2 web layer.</para>
   </section>
   <section>
     <title>Creating Apps</title>
-    <para>Creating in Apps is a very simple. One needs to create HTML, JavaScript, CSS files similar
-      to how they would do on any web application. Then, one needs to create a file called <emphasis
-        role="italic">manifest.webapp</emphasis>. This file has the format as specified by the
-        <ulink url="http://www.w3.org/2008/webapps/manifest/">W3C Manifest for Web
-        Applications</ulink>. A simple basic example of the <emphasis role="italic"
-        >manifest.webapp</emphasis> is shown below:</para>
+    <para>Creating Apps is very simple. One needs to create HTML, JavaScript, CSS files similar to how they would do on any web application. Then, one needs to create a file called <emphasis role="italic">manifest.webapp</emphasis>. This file has the format as specified by the <ulink url="http://www.w3.org/2008/webapps/manifest/">W3C Manifest for Web Applications</ulink>. A simple basic example of the <emphasis role="italic">manifest.webapp</emphasis> is shown below:</para>
     <para>
       <screen>{
     "version": "0.1",
@@ -53,56 +34,31 @@
     }
 }</screen>
     </para>
-    <para>The <emphasis role="italic">manifest.webapp</emphasis> file must be located at the root of
-      the project. Among the properties, the <emphasis role="italic">activities</emphasis> property
-      is an extension meant to differentiate between standard Open Web App and App that can be
-      installed into DHIS 2. The <emphasis role="italic">*</emphasis> value for <emphasis
-        role="italic">href</emphasis> is converted to the appropriate URL when the App is installed
-      into DHIS 2. This value can then be used by the application's JavaScript and HTML files to
-      make Web API calls to DHIS 2 and identify the correct location of DHIS 2 server on which the
-      App has been installed. The <emphasis role="italic">icons&#x2192;48</emphasis> property is
-      used for the icon that is displayed on the list of Apps that are installed on a DHIS 2
-      instance.</para>
+    <para>The <emphasis role="italic">manifest.webapp</emphasis> file must be located at the root of the project. Among the properties, the <emphasis role="italic">activities</emphasis> property is an extension meant to differentiate between standard Open Web App and App that can be installed into DHIS 2. The <emphasis role="italic">*</emphasis> value for <emphasis role="italic">href</emphasis> is converted to the appropriate URL when the App is installed into DHIS 2. This value can then be used by the application's JavaScript and HTML files to make Web API calls to DHIS 2 and identify the correct location of DHIS 2 server on which the App has been installed. The <emphasis role="italic">icons&#x2192;48</emphasis> property is used for the icon that is displayed on the list of Apps that are installed on a DHIS 2 instance.</para>
     <para><inlinegraphic fileref="resources/images/apps/appList.png"/></para>
-    <para>All the files in the project should then be compressed into a standard zip package. This
-      zip package can then be installed into DHIS 2 as you will see in the next section</para>
+    <para>All the files in the project should then be compressed into a standard zip package. This zip package can then be installed into DHIS 2 as you will see in the next section</para>
   </section>
   <section>
     <title>Configuring DHIS 2 for Apps Installation</title>
-    <para>The App manager is found under Services &#x2192; Apps. If your logged in user has
-      permissions to view and edit settings, in the left menu you'll see the Settings link.</para>
+    <para>The App manager is found under Services &#x2192; Apps. If your logged in user has permissions to view and edit settings, in the left menu you'll see the Settings link.</para>
     <para><inlinegraphic fileref="resources/images/apps/appSettings.png"/></para>
     <para>The following are the settings that can be configured:</para>
     <orderedlist>
       <listitem>
-        <para>App Installation Folder - The folder on the file system where apps are unpacked. By
-          default this is under the expanded DHIS folder. If you'd like to install the Apps in
-          another location, say www folder of Apache 2, the apps will be unpacked at that
-          location.</para>
+        <para>App Installation Folder - The folder on the file system where apps are unpacked. By default this is under the expanded DHIS folder. If you'd like to install the Apps in another location, say www folder of Apache 2, the apps will be unpacked at that location.</para>
       </listitem>
       <listitem>
-        <para>App Base URL - The URL through which the apps can be located. By default this is the
-          same as your DHIS2 url. If you are installing apps through a different web server, one
-          needs to provide the URL for that web server</para>
+        <para>App Base URL - The URL through which the apps can be located. By default this is the same as your DHIS2 URL. If you are installing apps through a different web server, one needs to provide the URL for that web server</para>
       </listitem>
       <listitem>
-        <para>AppStore URL - The app respository through which new apps can be downloaded and
-          installed. Each country/implementation can host their own approved set of Apps that can be
-          installed into DHIS 2. We plan to host the global DHIS 2 AppStore at - <ulink
-            url="https://appstore.dhis2.org">https://appstore.dhis2.org</ulink>
-        </para>
+        <para>AppStore URL - The app repository through which new apps can be downloaded and installed. Each country/implementation can host their own approved set of Apps that can be installed into DHIS 2. We plan to host the global DHIS 2 AppStore at - <ulink url="https://appstore.dhis2.org">https://appstore.dhis2.org</ulink></para>
       </listitem>
     </orderedlist>
   </section>
   <section>
     <title>Installing Apps into DHIS 2</title>
-    <para>Apps can be installed by uploading zip file into the App manager. In, Services &#x2192;
-      Apps, click on the <emphasis role="italic">Get New Apps</emphasis> menu item.</para>
+    <para>Apps can be installed by uploading zip file into the App manager. In, Services &#x2192; Apps, click on the <emphasis role="italic">Get New Apps</emphasis> menu item.</para>
     <para><inlinegraphic fileref="resources/images/apps/appStore.png"/></para>
-    <para>The App package can be uploaded by pressing the Browse button and after selecting the zip
-      package, the file is uploaded automatically and installed on DHIS 2. You can also browse
-      through Apps on the app store and download apps from there. The App Store allows for
-      searching, reviewing, commenting, requesting features, rating etc. on the Apps by the
-      community.</para>
+    <para>The App package can be uploaded by pressing the Browse button and after selecting the zip package, the file is uploaded automatically and installed on DHIS 2. You can also browse through Apps on the app store and download apps from there. The App Store allows for searching, reviewing, commenting, requesting features, rating etc. on the Apps by the community.</para>
   </section>
 </chapter>

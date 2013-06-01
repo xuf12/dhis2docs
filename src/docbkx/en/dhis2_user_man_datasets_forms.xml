@@ -58,8 +58,8 @@
           data element (i.e. all category option combinations).</para>
       </listitem>
       <listitem>
-        <para>Complete allowed only if validation passes: Controles whether it should be possible to
-          mark a data entry form as complete only if the validation of that form is sucessful.
+        <para>Complete allowed only if validation passes: Controls whether it should be possible to
+          mark a data entry form as complete only if the validation of that form is successful.
           Default behavior is yes. If set to no, then a user cannot mark the form complete if
           validation fails.</para>
       </listitem>
@@ -127,7 +127,7 @@
             Completely removes a data set from the system. </para>
           <warning>
             <para>Any data set which is deleted from the system is irrevocably lost. All data entry
-              forms, and sectrion forms which may have been developed will also be removed. Ensure
+              forms, and section forms which may have been developed will also be removed. Ensure
               that you have made a backup of your database before deleting any data set in case you
               need to restore it at some point in time.</para>
           </warning>

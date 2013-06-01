@@ -277,10 +277,16 @@
     <section>
       <title>Best practice on the use of group sets and groups</title>
       <para>Groups that are not members of group sets are more or less useless for analysis (should we allow this at all?). With all the groups you get by e.g. including all different diagnoses as groups the full list of groups does not makes sense in any pivot table, and you easily get duplicates in your pivot tables since data elements or indicators are members of multiple groups. This can be controlled by the use of group sets. So the recommodation is to assign all your groups to a group set, and then you pull the group sets you need into your reports and analysis. </para>
-      <para>It is also recommended to have one group set that is used for the major organising of all data in e.g. a pivot table, e.g use health programs or other larger themes for data elements or indiactors that together cover all the data. That will provide a nicely organised overview of all your raw data or indicator data.</para>
+      <para>It is also recommended to have one group set that is used for the major organising of
+        all data in e.g. a pivot table, e.g. use health programs or other larger themes for data
+        elements or indicators that together cover all the data. That will provide a nicely
+        organised overview of all your raw data or indicator data.</para>
       <para>The resource table gives all groupsets as columns with groups as rows, and 1 DE per row.
-This means that all groupsets are joined in when e.g. creating a view to a pivot table. Resource tables have to be generated from the Mainteance-&gt;Data Administration-&gt;Resource Table window, and more information on this is available in a later chapter called Data Administration in DHIS2 or from the inline help text in that window. 
-</para>
+        This means that all groupsets are joined in when e.g. creating a view to a pivot table.
+        Resource tables have to be generated from the Maintenance-&gt;Data
+        Administration-&gt;Resource Table window, and more information on this is available in a
+        later chapter called Data Administration in DHIS2 or from the inline help text in that
+        window. </para>
     </section>
   </section>
   <section>
@@ -292,11 +298,24 @@ This means that all groupsets are joined in when e.g. creating a view to a pivot
 
 </para>
       <para>As a rule of thumb all organisation units should collect the same data using the same frequency or periodicity, so first of all the periods play an important role in standardising data collection across the country. A data entry form therefore needs to know its period type to make sure data is always collected according to the correct and same periodicity across the country. </para>
-      <para>It is possible however to collect the same data elements using different period types by assigning the same data elements to multiple data sets with different period types, however then it becomes crucial to make sure no orgunit is collecting data using both data sets/period types as that would create overlap and duplication of data values. If set up correctly the aggregation service in DHIS2 (through datamart and report tables) will aggregate the data together, e.g. the monthly data from one part of the country woth quarterly data from another part of the country into a national quarterly report. For simplicicty and to avoid data duplication we stronly advice to use the same period type for all orgunits for the same data elements when possible. </para>
+      <para>It is possible however to collect the same data elements using different period types by
+        assigning the same data elements to multiple data sets with different period types, however
+        then it becomes crucial to make sure no orgunit is collecting data using both data
+        sets/period types as that would create overlap and duplication of data values. If set up
+        correctly the aggregation service in DHIS2 (through datamart and report tables) will
+        aggregate the data together, e.g. the monthly data from one part of the country with
+        quarterly data from another part of the country into a national quarterly report. For
+        simplicity and to avoid data duplication we strongly advice to use the same period type for
+        all orgunits for the same data elements when possible. </para>
     </section>
     <section>
       <title>Relative periods</title>
-      <para>When creating reports within the DHIS (report tables, standard reports, charts) it is possible to make use of the relative periods functionality. The simplest scenario is when you want to design a monthly report that can be reused every month without having to make changes to the report template to accomodate for the changes in period. The relative period called reporting_month allows for this, and the user can at the time of report gemeration  through  a report parameter select the month to use in the report.  </para>
+      <para>When creating reports within the DHIS (report tables, standard reports, charts) it is
+        possible to make use of the relative periods functionality. The simplest scenario is when
+        you want to design a monthly report that can be reused every month without having to make
+        changes to the report template to accommodate for the changes in period. The relative period
+        called reporting_month allows for this, and the user can at the time of report generation
+        through a report parameter select the month to use in the report. </para>
       <para>A slightly more advanced use case is  when you want to make a monthly summary report for immunisation and want to look at the data from the current (reporting) month together with a cumulative value for the year so far. The relative period called &quot;So far this year&quot; provides such a cumulative value relative to the reporting month selecting when running the report. Other relative periods are the last 3,6, 9 or 12 months periods which are cumulative values calculated back from the selected reporting month. If you want to create a report with data aggregated by quarters (the ones that have passed so far in the year) you can select &quot;Individual quarters this year&quot;. Other relative periods are described under the reporting table section of the manual. Common for all the relative periods is that they are relative to a selected reporting month. Even quarterly or annual reports need to know their reporting month to derive the year, the quarter and so on. The reporting month then becomes one of the report parameters the users have to select when running a report based on relative periods.</para>
       <para><table frame="all">
           <title/>
@@ -348,11 +367,26 @@ This means that all groupsets are joined in when e.g. creating a view to a pivot
         <para>Other types of data that are more permanently valid over time like &quot;Number of staff in the PHU&quot; or an annual population estimate of &quot;Population under 1 year&quot; need to be aggregated differently. These values are static for all months as long as there are valid data. E.g. the estimated population under 1 calculated from the census data is the same for all months in a year, or the number of nurses working in a PHU is the same for every month in the 6 months period the number is reported for. 
 
 </para>
-        <para>This difference e.g. becomes important when calculating an annual value for the indicator morbidity service burden for a PHU. The monthly headcounts are summed up for the 12 months to get the annual headcount while the number of staff for the PHU is calculated as the average of the two 6-monthly values reported through the 6-monthly staff report. So in this example the data element &quot;OPD heahcount&quot; would have the aggregation operator &quot;sum&quot; and the data element &quot;Number of staff&quot; would have it set to &quot;average&quot;.
-
-</para>
-        <para>Another important feature of average data elements is the validity period concept. Average data values are standing values for any period type within the borders of the period they are registered for. E.g. an annual population estimate following the calendar year will have the same value for any period that falls within that year no matter what the period type. E.g. if the population under 1 for a Tugbebu CHP is 250 for the year of 2009 that means that the value will be 250 for Jan-09, for Q3-09, for Week 12 of 2009 and for any period within 2009. This has implications for how e.g coverage indicators are calculated as the full annual population will be used as denominator value even when doing monthly reports. If you want to look at an estimated annual coverage value for a given month then you will have the option of setting the indicator to &quot;Annualised&quot; which means that a monthly coverage value will be multiplied by 12, a quarterly value by 4 etc. The annualised indicator feature can therefore be used to mimic the use of monthly population estimates.
-</para>
+        <para>This difference e.g. becomes important when calculating an annual value for the
+          indicator morbidity service burden for a PHU. The monthly headcounts are summed up for the
+          12 months to get the annual headcount while the number of staff for the PHU is calculated
+          as the average of the two 6-monthly values reported through the 6-monthly staff report. So
+          in this example the data element &quot;OPD headcount&quot; would have the aggregation
+          operator &quot;sum&quot; and the data element &quot;Number of staff&quot; would have it
+          set to &quot;average&quot;. </para>
+        <para>Another important feature of average data elements is the validity period concept.
+          Average data values are standing values for any period type within the borders of the
+          period they are registered for. E.g. an annual population estimate following the calendar
+          year will have the same value for any period that falls within that year no matter what
+          the period type. E.g. if the population under 1 for a Tugbebu CHP is 250 for the year of
+          2009 that means that the value will be 250 for Jan-09, for Q3-09, for Week 12 of 2009 and
+          for any period within 2009. This has implications for how e.g. coverage indicators are
+          calculated as the full annual population will be used as denominator value even when doing
+          monthly reports. If you want to look at an estimated annual coverage value for a given
+          month then you will have the option of setting the indicator to &quot;Annualised&quot;
+          which means that a monthly coverage value will be multiplied by 12, a quarterly value by 4
+          etc. The annualised indicator feature can therefore be used to mimic the use of monthly
+          population estimates. </para>
       </section>
     </section>
   </section>
@@ -379,7 +413,10 @@ This means that all groupsets are joined in when e.g. creating a view to a pivot
   </section>
   <section>
     <title>Some more examples</title>
-    <para>The table below combines data element the two group sets Diagnosis (all the diseases) and Morbidity/Mortality (New cases, Follow-ups, Refrerrals, Deaths) with the data element category PHU/Community. Deaths are captured in a separate form with other dimensions (e.g. the PHU/Community) than morbidity.</para>
+    <para>The table below combines data element the two group sets Diagnosis (all the diseases) and
+      Morbidity/Mortality (New cases, Follow-ups, Referrals, Deaths) with the data element category
+      PHU/Community. Deaths are captured in a separate form with other dimensions (e.g. the
+      PHU/Community) than morbidity.</para>
     <para>
 <screenshot>
         <mediaobject>
@@ -440,7 +477,8 @@ This means that all groupsets are joined in when e.g. creating a view to a pivot
         </mediaobject>
       </screenshot>
 </para>
-    <para>They both show the same data (some of teh rows have been cut in the screenshot due to image size), albeit in a different way. </para>
+    <para>They both show the same data (some of the rows have been cut in the screenshot due to
+      image size), albeit in a different way. </para>
     <itemizedlist>
       <listitem>
         <para>The &quot;dataelement&quot; field, used in the bottom figure, displays each diagnosis as three elements; one follow-up, one new, and one referrals. This is the way the data elements have been defined in DHIS, as this makes sense for aggregation. You would not like to aggregate follow-ups and new, thus these have not been made as categories, the whole point of is to ease aggregation and disaggregation.</para>
@@ -482,7 +520,14 @@ This means that all groupsets are joined in when e.g. creating a view to a pivot
         <para>All the intersections where the data element does not link with the groups in morbiditymortality are left blank. Thus in this case we would get a nice table if we excluded the dataelement from the table, and just had diagnosis and the group set morbiditymortality, as in the figure shown earlier</para>
       </listitem>
     </itemizedlist>
-    <para>Now lets see how the data element categories can be used. In the data entry form for Morbidity the new cases and follow-ups use one age category, the referral data another,, and the mortality data a third age breakup, so these are available as three individual age group fields in the pivot tables called morbidity_age, referrals_age and mortality_age. It doesn&amp;apos;t make sense to use these while looking at these data together (as in the examples above), but e.g. if we only want to look at the only the  new cases we can put the MobidityMortalityGroups field back up as a page field and there select the New cases group as a filter. Then we can drag the Morbidity_age field down to the column area and we get the following view:</para>
+    <para>Now lets see how the data element categories can be used. In the data entry form for
+      Morbidity the new cases and follow-ups use one age category, the referral data another,, and
+      the mortality data a third age breakup, so these are available as three individual age group
+      fields in the pivot tables called morbidity_age, referrals_age and mortality_age. It doesn't
+      make sense to use these while looking at these data together (as in the examples above), but
+      e.g. if we only want to look at the only the new cases we can put the MobidityMortalityGroups
+      field back up as a page field and there select the New cases group as a filter. Then we can
+      drag the Morbidity_age field down to the column area and we get the following view:</para>
     <para><screenshot>
         <mediaobject>
           <imageobject>
@@ -490,7 +535,13 @@ This means that all groupsets are joined in when e.g. creating a view to a pivot
           </imageobject>
         </mediaobject>
       </screenshot></para>
-    <para>The following table illustrates the benefits of reusing data element categories across datasets and catecorycombinations. The VCCT, ART and PMTCT data are collected in three different datasets, the first two with both gender and age breakdown, and the PMTCT only age (gender is given). All three share the same age groups and therefore it is possible to viev data elements from all these three datasets in the same table and use the age dimension. In the previous example with morbidity and mortality data this was not possible since new cases, referrals and deaths all have different age groups.</para>
+    <para>The following table illustrates the benefits of reusing data element categories across
+      datasets and categorycombinations. The VCCT, ART and PMTCT data are collected in three
+      different datasets, the first two with both gender and age breakdown, and the PMTCT only age
+      (gender is given). All three share the same age groups and therefore it is possible to view
+      data elements from all these three datasets in the same table and use the age dimension. In
+      the previous example with morbidity and mortality data this was not possible since new cases,
+      referrals and deaths all have different age groups.</para>
     <para><screenshot>
         <mediaobject>
           <imageobject>
@@ -550,10 +601,86 @@ This means that all groupsets are joined in when e.g. creating a view to a pivot
         </screenshot> </para>
       <para>This form has many tables and each of them potentially represent a data element category combination (from now on referred to as a catcombo). As such there is no restriction on a dataset to only have one set of dimensions or catcombo, it can have m For any and as we see above this is necessary as the dimensions are very different from table to table. We will walk through this table by table and discuss how to represent it in the DHIS.</para>
       <para><emphasis role="bold">ANC table</emphasis>. This table in the top left corner is one the simpler ones in this form. It has two dimensions, the first column with the ANC activity or service (1st visit, IPT 2nd dose etc) and the 2nd and 3rd column which represent the place where the service was given with the two options fixed and outreach. Since the ANC service is the key phenomena to analyse here and often there is a need for looking at e.g. total of ANC 1st visits no matter where (fixed+outreach) it makes a lot of sense to use this dimension as the data element dimension. So all items on the first column from 1st ANC visit to 2nd IPT dose given by TBA are represented as individual data elements. The place dimension is represented as a data element category (from now on referred to as category) with the name &quot;fixed/outreach&quot; with the two data element category options (from now on catoptions) &quot;fixed&quot; and &quot;outreach&quot;. There is no other dimension here so we add a new catcombo with the name &quot;Fixed/Outreach&quot; with one category &quot;Fixed/Outreach&quot;. Strictly speaking there is another dimension in this table, and that is the at PHU or by TBA dimension which is repeated for the two doses of IPT, but since none of the other ANC services listed have this dimension it does not seem like a good idea to separate out two data elements from this table and give them another catcombo with both fixed/outreach and at PHU/by TBA. reusing the same catcombo for all the ANC services makes more sense since it will be easier to look at these together in reports etc. and also the fact that there is not much to loose by repeating the at PHU or by TBA information as part of the data element name when it is only for four data elements in a table of totally 11 data elements.</para>
-      <para><emphasis role="bold">DELIVERY table.</emphasis> This table is more tricky as it has a lot of information and you can see that not all the rows have the same columns (some columns are merged and a one field is grayed out/disabled.). If we start by looking at the first column &quot;Deliveries assisted by&quot; that seems to be one dimension, but only down to the &quot;Untrained TBA&quot; row, as the remaining three rows are not related to who assisted the delivery at all. Another dimension is the place of delivery, either In PHU or in Community as stated on the top column headings. These deliveries are further split into the outcome of the delivery, whether it is a live or still birth, which seems to be another dimension. So if we disregard the three bottom rows for a moment there seems to be 3 dimensions here, 1) assisted by, 2) place of delivery, and 3) delivery outcome. The key decision to make is what to use as the data element, the main dimension, the total that you will most often use and want easily available in reports and data analysis. We ended up using the outcome dimension as total live births is a very commonly used value in many indicators (maternal mortality ratio, births attended by skilled health personnel etc.). In this case the Assisted By dimension could also have been used without any problem, but the added value of easily getting the total live births information was the decisive point for us. This means that from this table (or subtable of row 1 to 6) there are only two data elements;  &quot;Live births&quot; and &quot;Still births&quot;. Then there are two more dimensions, the &quot;PHU/Community&quot; with its two options and a &quot;Births attended by&quot; with options (&quot;MCH Aides&quot;, &quot;SECHN&quot;, &quot;Midwives&quot;, &quot;CHO&quot;, &quot;Trained TBA&quot;, &quot;Untrained TBA&quot;). These two categories make up the catcombo &quot;Births&quot; which is assigned to the two data elements &quot;Live births&quot; and &quot;Still births&quot;.  Considering the final three rows of the delivery table we can see that &quot;Complicated Deliveries&quot; does not have the assisted by dimension, but has the place and the outcome. &quot;Low birth weight&quot; also does not have the assisted by dimension and not the outcome either. The LLITN given after delivery does not have any additional dimension at all.                      Since not any of the three rows can share catcombo with any other row  we decided to represent these fields as so called flat data elements, meaning data elements with no categories at all, and simply adding the additional information from the column headings to the data element name, and therefore ended up with the following data elements with the default (same as none) catcombo; &quot;Complicated deliveries in PHU live birth&quot;, &quot;Complicated deliveries in PHU still births&quot;, &quot;Complicated deliveries in community live birth&quot;, &quot;Complicated deliveries in community still births&quot;, &quot;Low birth weight in PHU&quot;, &quot;Low birth weight in community&quot;, and &quot;LLITN given after delivery&quot;.</para>
+      <para><emphasis role="bold">DELIVERY table.</emphasis> This table is more tricky as it has a
+        lot of information and you can see that not all the rows have the same columns (some columns
+        are merged and a one field is grayed out/disabled.). If we start by looking at the first
+        column &quot;Deliveries assisted by&quot; that seems to be one dimension, but only down to
+        the &quot;Untrained TBA&quot; row, as the remaining three rows are not related to who
+        assisted the delivery at all. Another dimension is the place of delivery, either In PHU or
+        in Community as stated on the top column headings. These deliveries are further split into
+        the outcome of the delivery, whether it is a live or still birth, which seems to be another
+        dimension. So if we disregard the three bottom rows for a moment there seems to be 3
+        dimensions here, 1) assisted by, 2) place of delivery, and 3) delivery outcome. The key
+        decision to make is what to use as the data element, the main dimension, the total that you
+        will most often use and want easily available in reports and data analysis. We ended up
+        using the outcome dimension as total live births is a very commonly used value in many
+        indicators (maternal mortality ratio, births attended by skilled health personnel etc.). In
+        this case the Assisted By dimension could also have been used without any problem, but the
+        added value of easily getting the total live births information was the decisive point for
+        us. This means that from this table (or sub-table of row 1 to 6) there are only two data
+        elements; &quot;Live births&quot; and &quot;Still births&quot;. Then there are two more
+        dimensions, the &quot;PHU/Community&quot; with its two options and a &quot;Births attended
+        by&quot; with options (&quot;MCH Aides&quot;, &quot;SECHN&quot;, &quot;Midwives&quot;,
+        &quot;CHO&quot;, &quot;Trained TBA&quot;, &quot;Untrained TBA&quot;). These two categories
+        make up the catcombo &quot;Births&quot; which is assigned to the two data elements
+        &quot;Live births&quot; and &quot;Still births&quot;. Considering the final three rows of
+        the delivery table we can see that &quot;Complicated Deliveries&quot; does not have the
+        assisted by dimension, but has the place and the outcome. &quot;Low birth weight&quot; also
+        does not have the assisted by dimension and not the outcome either. The LLITN given after
+        delivery does not have any additional dimension at all. Since not any of the three rows can
+        share catcombo with any other row we decided to represent these fields as so called flat
+        data elements, meaning data elements with no categories at all, and simply adding the
+        additional information from the column headings to the data element name, and therefore
+        ended up with the following data elements with the default (same as none) catcombo;
+        &quot;Complicated deliveries in PHU live birth&quot;, &quot;Complicated deliveries in PHU
+        still births&quot;, &quot;Complicated deliveries in community live birth&quot;,
+        &quot;Complicated deliveries in community still births&quot;, &quot;Low birth weight in
+        PHU&quot;, &quot;Low birth weight in community&quot;, and &quot;LLITN given after
+        delivery&quot;.</para>
       <para><emphasis role="bold">POST-NATAL CARE table</emphasis> This table is simple and we used the same approach as for the ANC table. 3 data elements listed in the first column and then link these to the catcombo called &quot;fixed/outreach&quot;. Reusing the same category fixed/outreach for these data elements enables analysis on fixed/outreach together with ANC data and other data using the same category.</para>
-      <para><emphasis role="bold">TT table</emphasis> This is a bit more tricky. We decided to use &quot;TT1&quot;, &quot;TT2&quot; ... &quot;TT5&quot; as data elements which makes it easy to get the total of each one of these. There is fixed/outreach dimensio here, but there is also the In school place that is only applied to the Non-Pregnant, or more correctly to any of the two as the school immunisation is done whether the girls are pregnant or not. We consulted the program people behind the form and found out that it would be ok to register all school TT immunisations as non-pregnant, which simplifies the model a bit since we can reuse the &quot;TT1&quot; to &quot;TT5&quot; data elements. So we ended up with a new category called &quot;TT place&quot; with the three options (Fixed, Outreach, In School), and another category called &quot;Pregnant/Non-pregnant&quot; with two options. The new catcombo &quot;TT&quot; is then a combination of these two and applied to the 5 TT data elements. Since we agreed to put all In Schools immunisations under Non-pregnant in means that the combination of options (Pregnant+In School) will never be used in any data entry form, and hence become a passibe optioncombo, which is ok. As long as the form is custom designed then you can choose which combinations of options to use or not, and therefore it is not a problem to have such passive or unused catoptions. Having school as one option in the TT place category simplifies the model and therefore we thought it was worth it. The alternative would be to create 5 more data elements for &quot;TT1 in school&quot; ... &quot;TT5 in school&quot;, but then it would be a bit confusing to add these together with the &quot;TT1&quot; ...&quot;TT5&quot; plus TT catcombo. Having school as a place in the TT place category makes it a lot easier to get the total of TT1.. TT5 vaccines given, which are the most important numbers and most often used values for data analysis.</para>
-      <para><emphasis role="bold">Complications of early and late pregnancy and labour tables</emphasis> We treat these two tables as one, and will explain why. These two tables are a bit confusing and not the best deisgn. The major data coming out of these tables are the pregnancy complications and the maternal deaths. These are the major things for data analysis. And then there is further detail on the cause of the complication or death (the first column in both tables), as well as a place of death (in PHU or community), and a outcome of the complication (when its not a death) that can be either Managed at PHU or Referred. We decided to create two data elements for these two tables; &quot;Pregnancy complications&quot;, and &quot;Maternal Deaths&quot;, and two category combinations, one for each of the data elements. For the Pregnancy Complications data element there are two additional dimensions, the cause of the complication (the combined list of  the first column in the two tables) and the outcome (managed at PHU or Referred), so these are the categories and options that make up that category combination. For the &quot;Maternal deaths&quot; data element the same category with the different causes are used and then another category for the place of death (in PHU or In community). This way the two data elements can share one category and it will be easy to derive the total number of pregnancy complications and maternal deaths. While the list of complications on the paper form is divided into two (early and late/labour) you can see that e.g. the malaria in 2nd and 3rd trimester are listed under early, but in fact are for a later phase of the pregnancy. There is no clear divide between early and late complications in the form, and therefore we gave up trying to make this distinction in the database. </para>
+      <para><emphasis role="bold">TT table</emphasis> This is a bit more tricky. We decided to use
+        &quot;TT1&quot;, &quot;TT2&quot; ... &quot;TT5&quot; as data elements which makes it easy to
+        get the total of each one of these. There is fixed/outreach dimension here, but there is
+        also the In school place that is only applied to the Non-Pregnant, or more correctly to any
+        of the two as the school immunisation is done whether the girls are pregnant or not. We
+        consulted the program people behind the form and found out that it would be OK to register
+        all school TT immunisations as non-pregnant, which simplifies the model a bit since we can
+        reuse the &quot;TT1&quot; to &quot;TT5&quot; data elements. So we ended up with a new
+        category called &quot;TT place&quot; with the three options (Fixed, Outreach, In School),
+        and another category called &quot;Pregnant/Non-pregnant&quot; with two options. The new
+        catcombo &quot;TT&quot; is then a combination of these two and applied to the 5 TT data
+        elements. Since we agreed to put all In Schools immunisations under Non-pregnant in means
+        that the combination of options (Pregnant+In School) will never be used in any data entry
+        form, and hence become a possible optioncombo, which is OK. As long as the form is custom
+        designed then you can choose which combinations of options to use or not, and therefore it
+        is not a problem to have such passive or unused catoptions. Having school as one option in
+        the TT place category simplifies the model and therefore we thought it was worth it. The
+        alternative would be to create 5 more data elements for &quot;TT1 in school&quot; ...
+        &quot;TT5 in school&quot;, but then it would be a bit confusing to add these together with
+        the &quot;TT1&quot; ...&quot;TT5&quot; plus TT catcombo. Having school as a place in the TT
+        place category makes it a lot easier to get the total of TT1.. TT5 vaccines given, which are
+        the most important numbers and most often used values for data analysis.</para>
+      <para><emphasis role="bold">Complications of early and late pregnancy and labour
+          tables</emphasis> We treat these two tables as one, and will explain why. These two tables
+        are a bit confusing and not the best design. The major data coming out of these tables are
+        the pregnancy complications and the maternal deaths. These are the major things for data
+        analysis. And then there is further detail on the cause of the complication or death (the
+        first column in both tables), as well as a place of death (in PHU or community), and a
+        outcome of the complication (when its not a death) that can be either Managed at PHU or
+        Referred. We decided to create two data elements for these two tables; &quot;Pregnancy
+        complications&quot;, and &quot;Maternal Deaths&quot;, and two category combinations, one for
+        each of the data elements. For the Pregnancy Complications data element there are two
+        additional dimensions, the cause of the complication (the combined list of the first column
+        in the two tables) and the outcome (managed at PHU or Referred), so these are the categories
+        and options that make up that category combination. For the &quot;Maternal deaths&quot; data
+        element the same category with the different causes are used and then another category for
+        the place of death (in PHU or In community). This way the two data elements can share one
+        category and it will be easy to derive the total number of pregnancy complications and
+        maternal deaths. While the list of complications on the paper form is divided into two
+        (early and late/labour) you can see that e.g. the malaria in 2nd and 3rd trimester are
+        listed under early, but in fact are for a later phase of the pregnancy. There is no clear
+        divide between early and late complications in the form, and therefore we gave up trying to
+        make this distinction in the database. </para>
       <para><emphasis role="bold">Family Planning Services table</emphasis> This table has 2 dimensions, the family planning method (contraceptive) and whether the client is new or continuing. We ended up with one data element only &quot;Family planning clients&quot; and then added two categories &quot;FP method&quot; with all the contraceptives as options, and another category &quot;FP client type&quot; with new or continuing as options. This way it will be easy to get the total number of family planning clients which is the major value to look at in data analysis, and from there you can easily get the details on method or how many new clients there are.</para>
     </section>
   </section>

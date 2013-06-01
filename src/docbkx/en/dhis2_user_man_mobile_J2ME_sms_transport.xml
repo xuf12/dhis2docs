@@ -237,91 +237,158 @@
   <section>
     <title>Using the system</title>
     <para>Navigate to the Mobile module via Services -&gt; Mobiles</para>
-    <section><title>Start the SMS Service</title><para>From the start-page DHIS2, go to Maintenance &gt;&gt; Mobile Configuration:</para><para><screenshot>
+    <section><title>Start the SMS Service</title><para>From the start-page DHIS2, go to Maintenance
+        &gt;&gt; Mobile Configuration:</para><para>
+        <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-startup-link.png"/>
+              <imagedata width="40%" align="center"
+                fileref="resources/images/dhis2_mobile_sms/mobile-sms-startup-link.png"/>
             </imageobject>
           </mediaobject>
-        </screenshot></para><para>Then choosing the &quot;SMS Service Configuration&quot;:</para><para><screenshot>
+        </screenshot>
+      </para><para>Then choosing the &quot;SMS Service Configuration&quot;:</para><para>
+        <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-startup-link-server-config.png"/>
+              <imagedata width="40%" align="center"
+                fileref="resources/images/dhis2_mobile_sms/mobile-sms-startup-link-server-config.png"
+              />
             </imageobject>
           </mediaobject>
-        </screenshot></para><para>The SMS Service Configuration main-page with descriptions:</para><para><screenshot>
+        </screenshot>
+      </para><para>The SMS Service Configuration main-page with descriptions:</para><para>
+        <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-form.png"/>
+              <imagedata width="40%" align="center"
+                fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-form.png"/>
             </imageobject>
           </mediaobject>
-        </screenshot></para><para>(The above screen-shot example with no gateway in the Gateways list)</para><para>If having no gateway registered, clicking on the &quot;Reload Configuration&quot; or &quot;Start SMS Service&quot; will have no use and a warning message appeared, see this screen-shot example:</para><para><screenshot>
+        </screenshot>
+      </para><para>(The above screen-shot example with no gateway in the Gateways
+        list)</para><para>If having no gateway registered, clicking on the &quot;Reload
+        Configuration&quot; or &quot;Start SMS Service&quot; will have no use and a warning message
+        appeared, see this screen-shot example:</para><para>
+        <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-nogateway.png"/>
+              <imagedata width="40%" align="center"
+                fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-nogateway.png"/>
             </imageobject>
           </mediaobject>
-        </screenshot></para><para>Add or Update Gateway:</para><para><screenshot>
+        </screenshot>
+      </para><para>Add or Update Gateway:</para><para>
+        <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-addgateway.png"/>
+              <imagedata width="40%" align="center"
+                fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-addgateway.png"
+              />
             </imageobject>
           </mediaobject>
-        </screenshot></para><para>Currently, there are 5 gateway types:</para><para><screenshot>
+        </screenshot>
+      </para><para>Currently, there are 5 gateway types:</para><para>
+        <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-gatewaytypes.png"/>
+              <imagedata width="40%" align="center"
+                fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-gatewaytypes.png"
+              />
             </imageobject>
           </mediaobject>
-        </screenshot></para>Here is how to configurate those gateway:<para><emphasis role="bold">Bulk SMS Gateway:</emphasis></para><para><screenshot>
+        </screenshot>
+      </para>Here is how to configure those gateway:<para><emphasis role="bold">Bulk SMS
+          Gateway:</emphasis></para><para>
+        <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-fillinggateway-bulk.png"/>
+              <imagedata width="40%" align="center"
+                fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-fillinggateway-bulk.png"
+              />
             </imageobject>
           </mediaobject>
-        </screenshot></para><para>(The information for the gateway is from the Gateway providers)</para><para><emphasis role="bold">Clickatell SMS Gateway:</emphasis></para><para><screenshot>
+        </screenshot>
+      </para><para>(The information for the gateway is from the Gateway
+          providers)</para><para><emphasis role="bold">Clickatell SMS Gateway:</emphasis></para><para>
+        <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-fillinggateway-clickatell.png"/>
+              <imagedata width="40%" align="center"
+                fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-fillinggateway-clickatell.png"
+              />
             </imageobject>
           </mediaobject>
-        </screenshot></para><para>How to get API ID? Access www.clickatell.com -&gt; Login -&gt; Manage my Products -&gt; HTTP API -&gt; Save Changes</para><para><emphasis role="bold">Generic HTTP SMS gateway:</emphasis></para><para><screenshot>
+        </screenshot>
+      </para><para>How to get API ID? Access www.clickatell.com -&gt; Login -&gt; Manage my Products
+        -&gt; HTTP API -&gt; Save Changes</para><para><emphasis role="bold">Generic HTTP SMS
+          gateway:</emphasis></para><para>
+        <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-fillinggateway-genericHTTP.png"/>
+              <imagedata width="40%" align="center"
+                fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-fillinggateway-genericHTTP.png"
+              />
             </imageobject>
           </mediaobject>
-        </screenshot></para><para>The URL above is for Bulk SMS provider, you can also use other provider such as Clickatell. The URL format may different from different providers. Please contact you SMS gateway provider to have the correct format. </para><para><emphasis role="bold">GSM Modem gateway:</emphasis></para><para>Please refer 4.2 where &quot;Install the GSM modem&quot; guide is. Below is more details by screen shots:</para><para><screenshot>
+        </screenshot>
+      </para><para>The URL above is for Bulk SMS provider, you can also use other provider such as
+        Clickatell. The URL format may different from different providers. Please contact you SMS
+        gateway provider to have the correct format. </para><para><emphasis role="bold">GSM Modem
+          gateway:</emphasis></para><para>Please refer 4.2 where &quot;Install the GSM modem&quot;
+        guide is. Below is more details by screen shots:</para><para>
+        <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-fillinggateway-modem-1.png"/>
+              <imagedata width="40%" align="center"
+                fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-fillinggateway-modem-1.png"
+              />
             </imageobject>
           </mediaobject>
-        </screenshot></para><para><screenshot>
+        </screenshot>
+      </para><para>
+        <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-fillinggateway-modem-2.png"/>
+              <imagedata width="40%" align="center"
+                fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-fillinggateway-modem-2.png"
+              />
             </imageobject>
           </mediaobject>
-        </screenshot></para><para><screenshot>
+        </screenshot>
+      </para><para>
+        <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-fillinggateway-modem-3.png"/>
+              <imagedata width="40%" align="center"
+                fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-fillinggateway-modem-3.png"
+              />
             </imageobject>
           </mediaobject>
-        </screenshot></para><para>After adding successfully the gateway, the service will automatically started.</para><para><screenshot>
+        </screenshot>
+      </para><para>After adding successfully the gateway, the service will automatically
+        started.</para><para>
+        <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-gatewaystarted.png"/>
+              <imagedata width="40%" align="center"
+                fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-gatewaystarted.png"
+              />
             </imageobject>
           </mediaobject>
-        </screenshot></para><para>If system have more than one gateway configuration, please choose one of them as the default gateway, then system will use that desired gateway to send SMS later on.</para><para><screenshot>
+        </screenshot>
+      </para><para>If system have more than one gateway configuration, please choose one of them as
+        the default gateway, then system will use that desired gateway to send SMS later on.</para><para>
+        <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="40%" align="center" fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-gatewaydefault.png"/>
+              <imagedata width="40%" align="center"
+                fileref="resources/images/dhis2_mobile_sms/mobile-sms-configuration-gatewaydefault.png"
+              />
             </imageobject>
           </mediaobject>
-        </screenshot></para></section>
+        </screenshot>
+      </para></section>
     <section>
       <title>Sending SMS</title>
       <para>From the start-page DHIS2, go to Maintenance &gt;&gt; Mobile Configuration. Then navigate to &quot;Show send SMS form&quot;:</para>
@@ -334,7 +401,8 @@
         </screenshot></para>
       <para>At this moment (DHIS version 2.1), this is the one-way sending out the SMS messages from the servers to the recipients (with mobile phone numbers).</para>
       <para>See the below example form to send out the messages to the recipients&apos; numbers individuals or mobile number of registered Organisation Unit or by mobile number of the users assigned with Organisation Unit.</para>
-      <para>Below is an example screen-shot with listing of phone numbers (using &quot;;&quot; to seperate numbers):</para>
+      <para>Below is an example screen-shot with listing of phone numbers (using &quot;;&quot; to
+        separate numbers):</para>
       <para><screenshot>
           <mediaobject>
             <imageobject>
@@ -355,18 +423,11 @@
       </section>
       <section>
         <title>Import pending messages</title>
-        <para>
-            If SMSs are sent from the phones to the SIM card in the GSM modem
-            while the SMS Service
-            is inactive, the messages will be stored as xml
-            files in the folder
-            <code>DHIS2_HOME\mi\pending</code>
-            short time after
-            the service is started. On the Receive Data and Import page it will say
-            how many SMSs are pending. These can be imported by pressing the &quot;Import
-            All
-            Pending&quot; button.
-          </para>
+        <para> If SMSs are sent from the phones to the SIM card in the GSM modem while the SMS
+          Service is inactive, the messages will be stored as XML files in the folder
+            <code>DHIS2_HOME\mi\pending</code> short time after the service is started. On the
+          Receive Data and Import page it will say how many SMSs are pending. These can be imported
+          by pressing the &quot;Import All Pending&quot; button. </para>
       </section>
     </section>
   </section>

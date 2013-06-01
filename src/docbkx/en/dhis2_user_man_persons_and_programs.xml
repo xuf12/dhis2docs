@@ -80,7 +80,7 @@
       <section>
         <title>Program enrollment</title>
         <para>When a person is enrolled into any health programme, he/she is being provided with an
-          identifier number (e.g PARA, parish) and declared some attributes which belong to the
+          identifier number (e.g. PARA, parish) and declared some attributes which belong to the
           program. Later, the person is provided with various services through the treatment which
           are being recorded. Based on the services of the program by the time, the system creates
           an activity plan for the person.</para>
@@ -189,7 +189,18 @@
  </para>
           </listitem>
           <listitem>
-            <para><emphasis role="italic">Value Type</emphasis> - Data type of value inputed. In addition to supporting basic data such as <emphasis role="italic">Number</emphasis>, <emphasis role="italic">Text</emphasis>, <emphasis role="italic">Yes/No</emphasis>, <emphasis role="italic">Date</emphasis>, the system supports a value type as <emphasis role="italic">Predefined value</emphasis> for defining attribute values. Users only can select on value in the defined list for each person registered. E.g code values which record the information on access to HIV prevention services can be pre-defined, include <emphasis role="italic">T</emphasis>, <emphasis role="italic">TR</emphasis>, <emphasis role="italic">TRR</emphasis>, <emphasis role="italic">TRRD</emphasis>, <emphasis role="italic">TRRDm</emphasis>, <emphasis role="italic">TRRDmDb</emphasis> as <emphasis role="italic">PMTCT Code</emphasis> attribute.</para>
+            <para><emphasis role="italic">Value Type</emphasis> - Data type of value to be entered.
+              In addition to supporting basic data such as <emphasis role="italic"
+              >Number</emphasis>, <emphasis role="italic">Text</emphasis>, <emphasis role="italic"
+                >Yes/No</emphasis>, <emphasis role="italic">Date</emphasis>, the system supports a
+              value type as <emphasis role="italic">Predefined value</emphasis> for defining
+              attribute values. Users only can select on value in the defined list for each person
+              registered. E.g. code values which record the information on access to HIV prevention
+              services can be pre-defined, include <emphasis role="italic">T</emphasis>, <emphasis
+                role="italic">TR</emphasis>, <emphasis role="italic">TRR</emphasis>, <emphasis
+                role="italic">TRRD</emphasis>, <emphasis role="italic">TRRDm</emphasis>, <emphasis
+                role="italic">TRRDmDb</emphasis> as <emphasis role="italic">PMTCT Code</emphasis>
+              attribute.</para>
             <para>The system also supports a value type as <emphasis role="italic">Calculated</emphasis> for calculating a number based on other attribute values, e,g. caculate gestational age, EDD, ... in Mother care program.</para>
           </listitem>
         </itemizedlist>
@@ -199,7 +210,10 @@
         <para>To access the person attribute group maintenance module, from <emphasis role="italic">Maintenance</emphasis> menu, go to <emphasis role="italic">Persons and Programs</emphasis> option and click on it and select <emphasis role="italic">Person Attribute Group</emphasis> option.</para>
         <para>To create a new attribute group, click the <emphasis role="italic">Add</emphasis> button into <emphasis role="italic">Person Attribute Group</emphasis> window to go to <emphasis role="italic">Add New Person Attribute Group</emphasis> window , click the <emphasis role="italic">Add new</emphasis> button. Fill in the <emphasis role="italic">Name</emphasis> and <emphasis role="italic">Description</emphasis> fields and then select attributes that should belong to the group from the left panel. </para>
         <para>Click the <emphasis role="italic">Move selected items</emphasis> button to add the selected attributes to the attribute group. Click the <emphasis role="italic">Remove selected items</emphasis> button to remove attributes from the group that have been selected in the right panel. </para>
-        <para>Finally, click the <emphasis role="italic">Add</emphasis> button to save changes, or the <emphasis role="italic">Cancel</emphasis> button to discard any changes.The created attribute members will be displayed by the attribute groups into person registration form.</para>
+        <para>Finally, click the <emphasis role="italic">Add</emphasis> button to save changes, or
+          the <emphasis role="italic">Cancel</emphasis> button to discard any changes. The created
+          attribute members will be displayed by the attribute groups into person registration
+          form.</para>
         <para>To sort order of attribute groups for displaying  in person registration form, click <emphasis role="italic">Move up</emphasis> and <emphasis role="italic">Move down </emphasis>button next to <emphasis role="italic">Selected attributes</emphasis> section.</para>
       </section>
       <section id="patient_identifier_type">
@@ -221,7 +235,8 @@
             <para><emphasis role="italic">Related</emphasis> - Representative re-uses the  identifier of  person.</para>
           </listitem>
           <listitem>
-            <para><emphasis role="italic">Number of characters</emphasis> -  Maximum number of characters for value inputed. </para>
+            <para><emphasis role="italic">Number of characters</emphasis> - Maximum number of
+              characters for value to be entered. </para>
           </listitem>
           <listitem>
             <para><emphasis role="italic">Type</emphasis> - Data type of value inputted, includes <emphasis role="italic">Text</emphasis>, <emphasis role="italic">Number</emphasis> and <emphasis role="italic">Letter Only</emphasis>.</para>
@@ -296,7 +311,13 @@ For example: the date in which a person enrolls to the system.</para>
             </listitem>
           </itemizedlist>
           <para>To assign a program for organisation units, click<emphasis role="italic"> Assign program to organisation units</emphasis> icon, the first icon under Operations, corresponding to the program you would like and select organisation units where provide the program.</para>
-          <para>To assign a program for user roles, click <emphasis role="italic">Assign program to userroles</emphasis> icon, the second icon under Operations, corresponding to the program you would like. Please select user role which you want in <emphasis role="italic">Available</emphasis> section and click <emphasis role="italic">Move selected items</emphasis> button or double click on the user role to move to <emphasis role="italic">Selected</emphasis> section. Finally, click <emphasis role="italic">Ok</emphasis> to finish.</para>
+          <para>To assign a program for user roles, click <emphasis role="italic">Assign program to
+              userroles</emphasis> icon, the second icon under Operations, corresponding to the
+            program you would like. Please select user role which you want in <emphasis
+              role="italic">Available</emphasis> section and click <emphasis role="italic">Move
+              selected items</emphasis> button or double click on the user role to move to <emphasis
+              role="italic">Selected</emphasis> section. Finally, click <emphasis role="italic"
+              >OK</emphasis> to finish.</para>
           <para>To create validation rules for programs, click <emphasis role="italic">Program validation rule management</emphasis> icon, the fifth icon under Operations, corresponding to the program you would like. Then click <emphasis role="italic">Add</emphasis> button and enter values for the fields in form to create a new one. A validation rule is based on an expression which defines a relationship between data element values. The expression has a left side and a right side and an operator  which defines whether the former must be less than, equal to or greater than the latter. The expression forms a condition which should assert that certain logical criteria are met. For instance, a validation rule could  assert that an  admitted date  given is before the discharged date. </para>
           <para>To set authority for sharing the program, click Sharing Settings icon, the sixth icon under Operations, corresponding to the program you would like. You can see a default authority and <emphasis role="italic">Public Access</emphasis> in the form with three authorities as follows -</para>
           <itemizedlist>
@@ -329,7 +350,9 @@ For example: the date in which a person enrolls to the system.</para>
               <para><emphasis role="italic">Scheduled days from start</emphasis> - The minimum number of days to wait for starting the program stage.</para>
             </listitem>
             <listitem>
-              <para><emphasis role="italic">Auto-generate event</emphasis> - Un-check this to prevent for creating an event of this program stage  automatically when a person enroll into the program.</para>
+              <para><emphasis role="italic">Auto-generate event</emphasis> - Uncheck this to prevent
+                for creating an event of this program stage automatically when a person enroll into
+                the program.</para>
             </listitem>
           </itemizedlist>
           <para><emphasis role="italic">Repeatable program stage details</emphasis> section - </para>
@@ -338,7 +361,11 @@ For example: the date in which a person enrolls to the system.</para>
               <para><emphasis role="italic">Repeatable</emphasis> - specify the program stage as repeatable or not.</para>
             </listitem>
             <listitem>
-              <para><emphasis role="italic">Display generate event box after completed</emphasis> - Un-check on it if you don&apos;t want to display <emphasis role="italic">Create new event box </emphasis>to create new event for a repeatable stage after clicking <emphasis role="italic">Complete</emphasis> button for an event of the stage  in data entry form. This field is checked as default.</para>
+              <para><emphasis role="italic">Display generate event box after completed</emphasis> -
+                Uncheck on it if you don&apos;t want to display <emphasis role="italic">Create new
+                  event box </emphasis>to create new event for a repeatable stage after clicking
+                  <emphasis role="italic">Complete</emphasis> button for an event of the stage in
+                data entry form. This field is checked as default.</para>
             </listitem>
             <listitem>
               <para><emphasis role="italic">Standard interval days</emphasis> - Specify the number of days to repeat the repeatable program stage.</para>
@@ -363,7 +390,8 @@ For example: the date in which a person enrolls to the system.</para>
           <para><emphasis role="italic">1) Days before/after due date</emphasis> -  Enter a positive number of days if  sending process happens after due-date of events which are generated from this program stage. Enter a negative number of days if  sending process happens before due-date of events.</para>
           <para><emphasis role="italic">2) Parameters</emphasis> - Provide parameters  which are used for generating a message for each person. The parameters include person&apos;s first name, program&apos;s name, program stage&apos;s name, due date of event, interval between current date and due date and organisation unit&apos;s name. </para>
           <para>Double-click on an option to insert it into template message field below.</para>
-          <para><emphasis role="italic">3) Message</emphasis> - Content of template message. E.g Dear {patient-name}, please come to your appointment at {due-date}.</para>
+          <para><emphasis role="italic">3) Message</emphasis> - Content of template message. E.g.
+            Dear {patient-name}, please come to your appointment at {due-date}.</para>
           <note>
             <para>Click <emphasis role="italic">Add more... </emphasis>button to add more template reminder messages.</para>
           </note>
@@ -491,7 +519,11 @@ For example: the date in which a person enrolls to the system.</para>
                 <emphasis role="underline">Description section</emphasis>
               </emphasis>
             </emphasis> - Show description for the condition above. </para>
-          <para>E.g To get number of <emphasis role="italic">girls</emphasis> who got <emphasis role="italic">Vitamin A dose 6</emphasis> enrolled <emphasis role="italic">Child Health program</emphasis> on <emphasis role="italic">January 2012</emphasis>. Then query is created as in the figure below. Note that January 2012 is period parameter which user will select when generate report. It is not set in the query.</para>
+          <para>E.g. To get number of <emphasis role="italic">girls</emphasis> who got <emphasis
+              role="italic">Vitamin A dose 6</emphasis> enrolled <emphasis role="italic">Child
+              Health program</emphasis> on <emphasis role="italic">January 2012</emphasis>. Then
+            query is created as in the figure below. Note that January 2012 is period parameter
+            which user will select when generate report. It is not set in the query.</para>
         </section>
         <section>
           <title>Sample of person aggregation</title>
@@ -514,7 +546,10 @@ For example: the date in which a person enrolls to the system.</para>
             <listitem>
               <para>From <emphasis role="italic">Services</emphasis> menu, go to <emphasis role="italic">Individual Records </emphasis>option and click on it. Select <emphasis role="italic">Person</emphasis> option below <emphasis role="italic">Registration</emphasis> header in the left menu to register three persons named <emphasis role="italic">Micheal</emphasis>, <emphasis role="italic">Alice</emphasis> and <emphasis role="italic">Tom</emphasis> in <emphasis role="italic">Ngelehun CHC</emphasis> and enroll them into <emphasis role="italic">Child Health Program</emphasis>.</para>
               <para>1) For  <emphasis role="italic">Micheal</emphasis>, open the <emphasis role="italic">Birth Details</emphasis> stage into <emphasis role="italic">Child Health Program</emphasis>. Enter value for <emphasis role="italic">BCG dose give date</emphasis> data element as &quot;<emphasis role="italic">2012-01-18</emphasis>&quot;.</para>
-              <para>2) For  <emphasis role="italic">Alice</emphasis>, open the <emphasis role="italic">Birth Details</emphasis> stage into Child Health Program. Enter Enter value for <emphasis role="italic">BCG dose give date</emphasis> data element as &quot;<emphasis role="italic">2012-01-18</emphasis>&quot;.</para>
+              <para>2) For <emphasis role="italic">Alice</emphasis>, open the <emphasis
+                  role="italic">Birth Details</emphasis> stage into Child Health Program. Enter
+                value for <emphasis role="italic">BCG dose give date</emphasis> data element as
+                  &quot;<emphasis role="italic">2012-01-18</emphasis>&quot;.</para>
               <para>3) For    <emphasis role="italic">Tom</emphasis>,  no enter any data value for <emphasis role="italic">Birth Details</emphasis> stage.</para>
               <warning>
                 <para>Before entering data value for the stage, choose <emphasis role="italic">Report Date</emphasis> as &quot;<emphasis role="italic">2012-01-18</emphasis>&quot;.</para>
@@ -560,9 +595,20 @@ For example: the date in which a person enrolls to the system.</para>
       </section>
       <section id="scheduling_aggregation_query_builder">
         <title>Schedule automated aggregation</title>
-        <para>The aggregation query builder jobs can be automatically scheduled to run on regular intervals. At midnight, this job runs and get all datasets which have data elements  defined into Aggregate Query Builder formulas. Based on the period types of datasets, the system runs formulas at the end of end-date of current period. E.g if today is on 1A.M. in 2013-02-01, the system gets a monthly dataset and other period-type datasets with aggregate formulas, then system will only run aggregate formulas of the monthly  dataset with period as Jan 2013.</para>
+        <para>The aggregation query builder jobs can be automatically scheduled to run on regular
+          intervals. At midnight, this job runs and get all datasets which have data elements
+          defined into Aggregate Query Builder formulas. Based on the period types of datasets, the
+          system runs formulas at the end of end-date of current period. E.g. if today is on 1A.M.
+          in 2013-02-01, the system gets a monthly dataset and other period-type datasets with
+          aggregate formulas, then system will only run aggregate formulas of the monthly dataset
+          with period as Jan 2013.</para>
         <para>Select an option in <emphasis role="italic">Task strategy </emphasis>to set way to get period list for aggregating. There four options - </para>
-        <para>1) <emphasis role="italic">Last month</emphasis> - Get period list by period-types of data sets from last month to current date.  E.g for daily datasets, if current date is <emphasis role="italic">2013-03-09</emphasis>, period list is get from <emphasis role="italic"> 2013-02-09</emphasis> to <emphasis role="italic"> 2013-03-09</emphasis>. For month datasets, periods list is <emphasis role="italic">Feb 2013</emphasis> and <emphasis role="italic">Mar 2013.</emphasis></para>
+        <para>1) <emphasis role="italic">Last month</emphasis> - Get period list by period-types of
+          data sets from last month to current date. E.g. for daily datasets, if current date is
+            <emphasis role="italic">2013-03-09</emphasis>, period list is get from <emphasis
+            role="italic"> 2013-02-09</emphasis> to <emphasis role="italic"> 2013-03-09</emphasis>.
+          For month datasets, periods list is <emphasis role="italic">Feb 2013</emphasis> and
+            <emphasis role="italic">Mar 2013.</emphasis></para>
         <para>2) <emphasis role="italic">Last 3 month</emphasis> - Get periods by from last 3 month to current date.</para>
         <para>3) <emphasis role="italic">Last 6 month</emphasis> - Get periods by from last 6 month to current date</para>
         <para>4) <emphasis role="italic">Last 12 month</emphasis> - Get periods by from last 12 month to current date</para>
@@ -625,8 +671,13 @@ For example: the date in which a person enrolls to the system.</para>
         <warning>
           <para>No matter what program persons need  to enroll, they must register into the system first. Then health providers will enroll the persons into relevant  programs. E.g. every pregnant women and the child need to be registered first as a person, then they will be enrolled in Mother Care program or Child Health program.</para>
         </warning>
-        <para>To access <emphasis role="italic">Person management </emphasis>function, from the <emphasis>Services</emphasis> menu, go the the <emphasis>Individual Records </emphasis>option and click on it. Select <emphasis>Find/Add Person</emphasis> option on the left menu to proceed. Then, after to select organisation unit.</para>
-        <para>Click the<emphasis role="italic"> List All Persons</emphasis> button to list all persons in the selected organisation unit. If a program in list on the right side is selected, the system will load persons who enolled into the program.</para>
+        <para>To access <emphasis role="italic">Person management </emphasis>function, from the
+            <emphasis>Services</emphasis> menu, go the <emphasis>Individual Records
+          </emphasis>option and click on it. Select <emphasis>Find/Add Person</emphasis> option on
+          the left menu to proceed. Then, after to select organisation unit.</para>
+        <para>Click the<emphasis role="italic"> List All Persons</emphasis> button to list all
+          persons in the selected organisation unit. If a program in list on the right side is
+          selected, the system will load persons who enrolled into the program.</para>
         <para>For the registration process, the details - which are related to the personal information, identification, contact and location details, and health provider details, are entered.</para>
         <orderedlist inheritnum="inherit" continuation="restarts" arch="">
           <listitem>
@@ -824,7 +875,11 @@ The case update  is designed in the same manner so that services which are recei
         <section>
           <title>Advanced search persons</title>
           <para>The <emphasis>Advanced search</emphasis> function is used for searching available persons based on  full-name, identifiers and person attribute values.</para>
-          <para>To access <emphasis role="italic">Advanced search</emphasis> function, from the <emphasis>Services</emphasis> menu, go the the <emphasis>Individual Records </emphasis>option and click on it. Select <emphasis>Find/Add Person</emphasis> option on the left menu to proceed. Then, after selecting organisation unit,  click on the <emphasis>Search</emphasis> button on the right side.</para>
+          <para>To access <emphasis role="italic">Advanced search</emphasis> function, from the
+              <emphasis>Services</emphasis> menu, go the <emphasis>Individual Records
+            </emphasis>option and click on it. Select <emphasis>Find/Add Person</emphasis> option on
+            the left menu to proceed. Then, after selecting organisation unit, click on the
+              <emphasis>Search</emphasis> button on the right side.</para>
           <para> A search form is appeared after clicking. User  has to select  criteria and input values into the function.</para>
           <screenshot>
             <mediaobject>
@@ -842,7 +897,8 @@ The case update  is designed in the same manner so that services which are recei
             </mediaobject>
           </screenshot>
           <note>
-            <para>Please check <emphasis role="italic">Seach in all facilities</emphasis> checkbox for searching whole organisation hierachy tree.</para>
+            <para>Please check <emphasis role="italic">Search in all facilities</emphasis> checkbox
+              for searching whole organisation hierarchy tree.</para>
           </note>
         </section>
       </section>
@@ -1045,8 +1101,10 @@ The case update  is designed in the same manner so that services which are recei
         <section>
           <title>Tabular report</title>
           <para>This is  an interactive reporting tool for tracker-data using tabular presentation with dynamic filters for each person attribute/data element.</para>
-          <para>There are two types of reports. The first one is case-based report.
-It supports to filter events by each person attributes and data elements. The second one is aggregate report. It allows for aggregation on simple filters annd dynamic updates to report view based on changes to filters.</para>
+          <para>There are two types of reports. The first one is case-based report. It supports to
+            filter events by each person attributes and data elements. The second one is aggregate
+            report. It allows for aggregation on simple filters and dynamic updates to report view
+            based on changes to filters.</para>
           <para>To access the tabular report function, from the <emphasis role="italic">Services</emphasis> menu, go to the <emphasis role="italic">Individual Records</emphasis> option and click on it. Select <emphasis role="italic">Tabular report</emphasis> option below Reports header on left menu to proceed. </para>
           <para>To start a case-based report, the first step is to select a program in the list. Follow these steps -</para>
           <orderedlist>
@@ -1101,7 +1159,11 @@ It supports to filter events by each person attributes and data elements. The se
               <para>Select <emphasis role="italic">date</emphasis> period ranges  / relative periods / fixed periods in corresponding tab.</para>
             </listitem>
             <listitem>
-              <para>Select one or many <emphasis role="italic">organisation units</emphasis> by clicking on the hierachy organisation tree or check on <emphasis role="italic">User organisation unit</emphasis> / <emphasis role="italic">User organisation unit chilren</emphasis> checkboxes. Besides, you can also select a group in list and system will load all organisation units which belong to the selected one.</para>
+              <para>Select one or many <emphasis role="italic">organisation units</emphasis> by
+                clicking on the hierarchy organisation tree or check on <emphasis role="italic">User
+                  organisation unit</emphasis> / <emphasis role="italic">User organisation unit
+                  children</emphasis> checkboxes. Besides, you can also select a group in list and
+                system will load all organisation units which belong to the selected one.</para>
             </listitem>
             <listitem>
               <para>In <emphasis role="italic">Data filters </emphasis>tab, Select a <emphasis role="italic">program stage</emphasis>. Double-click data elements which you need to show into the result to move it from <emphasis role="italic">Available</emphasis>field to the <emphasis role="italic">Selected</emphasis> field</para>
@@ -1144,7 +1206,10 @@ It supports to filter events by each person attributes and data elements. The se
                     <para>Organisation unit: Filters; Period: Filters; Data: Rows</para>
                   </listitem>
                 </itemizedlist></para>
-              <para>2) <emphasis role="italic">Aggregate type</emphasis> - Have three options. The first one is used for calculating number of events which satisfy the fitlers. The others are used for calculating sum/average data values of the select data element in <emphasis role="italic">Sum/Avg of </emphasis>option.</para>
+              <para>2) <emphasis role="italic">Aggregate type</emphasis> - Have three options. The
+                first one is used for calculating number of events which satisfy the filters. The
+                others are used for calculating sum/average data values of the select data element
+                in <emphasis role="italic">Sum/Avg of </emphasis>option.</para>
               <para>3) <emphasis role="italic">Sum/Avg of </emphasis>- Select a number data element in list to calculate sum/avg data values of its if aggregate type option is sum or avg.</para>
               <para>4) <emphasis role="italic">Use completed events</emphasis> - Check it if you want to get only completed events.</para>
               <para>5) <emphasis role="italic">Use data from level(s) </emphasis>-  Specify the level which you need to get events. If the option is <emphasis role="italic">Children only</emphasis>, individual data will be aggregated from the children of the selected organisation unit. If the option is <emphasis role="italic">Selected</emphasis>, individual data  will be aggregated from the selected organisation unit. If the option is <emphasis role="italic">All</emphasis>, individual data will be aggregated  from both selected organisation unit and its children.</para>

@@ -208,7 +208,7 @@ dev.off()</screen>
     </mediaobject>
   </section>
   <section id="dhis2_r_maps">
-    <title>Mapping with R and Postgresql</title>
+    <title>Mapping with R and PostgreSQL</title>
     <para>A somewhat more extended example, will use the RPostgreSQL library and several other libraries to produce a map from the coordinates stored in the database. We will define a few helper functions to provide a layer of abstraction, which will make the R code more reusable. </para>
     <programlisting>#load some dependent libraries
  library(maps)
@@ -395,7 +395,7 @@ plot(M)</screen>
   </section>
   <section id="dhis2_r_plr">
     <title>Using PL/R with DHIS2</title>
-    <para>The procedural language for R is an extension to the core of Postgresql which allows data to be passed from the database to R, where calculations in R can be performed. The data can then be passed back to the database for further processing.. In this example, we will create a function to calculate some summary statistics which do not exist by default in SQL by  using R. We will then create an SQL View in DHIS2 to display the results. The advantage of utilizing R in this context is that we do not need to write any significant amount of code to return these summary statistics, but simply utilize the built-in functions of R to do the work for us. </para>
+    <para>The procedural language for R is an extension to the core of PostgreSQL which allows data to be passed from the database to R, where calculations in R can be performed. The data can then be passed back to the database for further processing.. In this example, we will create a function to calculate some summary statistics which do not exist by default in SQL by using R. We will then create an SQL View in DHIS2 to display the results. The advantage of utilizing R in this context is that we do not need to write any significant amount of code to return these summary statistics, but simply utilize the built-in functions of R to do the work for us. </para>
     <para> First, you will need to install <ulink url="http://www.joeconway.com/plr/">PL/R</ulink>, which is described in detail <ulink url="http://www.joeconway.com/plr/doc/plr-install.html">here.</ulink>. Following the example from the PL/R site, we will create some custom aggregate functions as detailed <ulink url="http://www.joeconway.com/plr/doc/plr-aggregate-funcs.html">here.</ulink>  We will create two functions, to return the median and the skewness of a range of values.</para>
     <para><screen>CREATE OR REPLACE FUNCTION r_median(_float8) returns float as &apos;
   median(arg1)
@@ -442,7 +442,7 @@ GROUP BY ou.shortname;</screen></para>
   </section>
   <section id="dhis2_r_web_api">
     <title>Using this DHIS2 Web API with R</title>
-    <para>DHIS2 has a powerful Web API which can be used to integrate applications together.  In this section, we will illustrate a few trivial examples of the use of the Web API, and how we can retrieve data and metada for use in R. The Web API uses basic HTTP authentication (as described in the Web API section of this document). Using two R packages &quot;RCurl&quot; and &quot;XML&quot;, we will be able to work with the output of the API in R. In the first example, we will get some metadata from the database. </para>
+    <para>DHIS2 has a powerful Web API which can be used to integrate applications together. In this section, we will illustrate a few trivial examples of the use of the Web API, and how we can retrieve data and metadata for use in R. The Web API uses basic HTTP authentication (as described in the Web API section of this document). Using two R packages &quot;RCurl&quot; and &quot;XML&quot;, we will be able to work with the output of the API in R. In the first example, we will get some metadata from the database. </para>
     <screen>#We are going to need these two libraries
 require(RCurl)
 require(XML)

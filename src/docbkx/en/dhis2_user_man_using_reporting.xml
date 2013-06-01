@@ -8,9 +8,22 @@
     <para><emphasis role="bold">Standard reports:</emphasis> Standard reports are built on report tables, but are more advanced in its design allowing for more cosmetics and styles. These reports can also combine multiple tables and charts in the same report and be made available as one-click reports that are very easy to use. These reports can be downloaded as PDF  files which makes them ideal for printing as well as sharing offline. </para>
     <para><emphasis role="bold">Dataset reports:</emphasis> Dataset reports are simply a printer friendly way to look at the data entry forms with either raw or aggregated data (over time or place). The design used in data entry will be used also in the data set reports. This will work only for data sets that has a custom data entry form set up.</para>
     <para><emphasis role="bold">Dashboard:</emphasis> The fastest way to view your data. The dashboard can display  up to four updated charts as well as shortcuts to your favourite reports, report tables, and map views. Each user can configure a personal dashboard.</para>
-    <para><emphasis role="bold">Data Visualizer:</emphasis> Do flexible visualizations of your data as charts and data tables. Any numbe of indicators and data elements can be included. Several chart types are available, such as column, stacked column, line, area and pie charts. The charts can be saved in order to be easily retrieved later and can also be put on your personal dashboard. Charts can be downloaded as image and PDF files to your local computer. </para>
-    <para><emphasis role="bold">Report tables:</emphasis> These are very configurable table outputs of your data, either showing raw or aggregated data, as well as indicator data. These tables are used as either a data source for more advanced reports, for export to external systems, or as a crude report itself, and are exportable to pdf, excel, csv and jasper design files. These tables represent a  very dynamic, flexible and quick way to look at the data. Report tables can be set up with parameters to make them reusable over time and place.</para>
-    <para><emphasis role="bold">Orgunit distribution reports:</emphasis> These reports are generated off the orgunit group set information and can show what types (and how many of each type) of health facilities that are located in a given area (any level in the hierarchy). These reports are automatically generated and display the information in both tables and charts, and downloads in pdf, excel, and csv are available.</para>
+    <para><emphasis role="bold">Data Visualizer:</emphasis> Do flexible visualizations of your data
+      as charts and data tables. Any number of indicators and data elements can be included. Several
+      chart types are available, such as column, stacked column, line, area and pie charts. The
+      charts can be saved in order to be easily retrieved later and can also be put on your personal
+      dashboard. Charts can be downloaded as image and PDF files to your local computer. </para>
+    <para><emphasis role="bold">Report tables:</emphasis> These are very configurable table outputs
+      of your data, either showing raw or aggregated data, as well as indicator data. These tables
+      are used as either a data source for more advanced reports, for export to external systems, or
+      as a crude report itself, and are exportable to PDF, excel, CSV and jasper design files. These
+      tables represent a very dynamic, flexible and quick way to look at the data. Report tables can
+      be set up with parameters to make them reusable over time and place.</para>
+    <para><emphasis role="bold">Orgunit distribution reports:</emphasis> These reports are generated
+      off the orgunit group set information and can show what types (and how many of each type) of
+      health facilities that are located in a given area (any level in the hierarchy). These reports
+      are automatically generated and display the information in both tables and charts, and
+      downloads in PDF, excel, and CSV are available.</para>
     <para><emphasis role="bold">Reporting rate summary:</emphasis> These reports provide a nice overview of how many facilities that have submitted their data for a given dataset and period. Here you can get both the counts and the percentages  showing the reporting rate for all or single data sets.</para>
     <para><emphasis role="bold">Excel pivot tables:</emphasis> Excel pivot tables represents a very powerful way to analyse your data and DHIS 2 links directly to the pivot tables so that all the data will be available and updated in your Excel file. This can be a very useful tool for users that prefer working with the data offline. To update your local pivot tables you need the myDatamart tool which connects to the online server and downloads the latest data. This update will typically take place once a month when new data is available, but do not require a constant internet connection like the other reporting tools (if you are connecting to an online DHIS 2 server).</para>
     <para><emphasis role="bold">Web-based pivot tables:</emphasis> The built in pivot table tool is a simple web-based tool to display indicator data by orgunit and period in a typical pivot table view and allows for some basic pivoting manipulations of the tables. It is a quick and easy way to look at many indicator values at the same time (by orgunit and/or period), but does not have the same functionality as the offline Excel pivot tables. </para>
@@ -27,7 +40,13 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>You run/view a report by clicking on the white and green arrow next to the report you want. You will then see a report parameter window where you must fill in the values needed for orgunit and/or reporting month, depending on what has been defined in the underlying report table(s). Click on &quot;Get Report&quot; when you are ready. The report will wither apper directly in your browser or be available as a .pdf file for download, depending on your browser settings for handling pdf files. You can save the file and keep it locally on your computer for later use. </para>
+    <para>You run/view a report by clicking on the white and green arrow next to the report you
+      want. You will then see a report parameter window where you must fill in the values needed for
+      orgunit and/or reporting month, depending on what has been defined in the underlying report
+      table(s). Click on &quot;Get Report&quot; when you are ready. The report will either appear
+      directly in your browser or be available as a .pdf file for download, depending on your
+      browser settings for handling PDF files. You can save the file and keep it locally on your
+      computer for later use. </para>
   </section>
   <section id="report_tables">
     <title>Using report tables</title>
@@ -41,7 +60,12 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para><emphasis role="bold">Export/view options:</emphasis> When the report table is ready it will be displayed in a html view. The report table can be exported to pdf (for better printing and easier saving), excel, csv, and also to a standard report format (Jasper) with a nicer table and a chart shown in pdf, or as  a jasper design file for further improvements and changes to the report design before uploading it as a standard report (see the Creating standard reports section).</para>
+    <para><emphasis role="bold">Export/view options:</emphasis> When the report table is ready it
+      will be displayed in a html view. The report table can be exported to PDF (for better printing
+      and easier saving), excel, CSV, and also to a standard report format (Jasper) with a nicer
+      table and a chart shown in PDF, or as a jasper design file for further improvements and
+      changes to the report design before uploading it as a standard report (see the Creating
+      standard reports section).</para>
     <screenshot>
       <screeninfo>Report table view</screeninfo>
       <mediaobject>
@@ -65,7 +89,10 @@
   </section>
   <section id="resource">
     <title>Using resources</title>
-    <para>The resource tool allows you to upload both files from your local computer to the DHIS server and to add links to other resources on the Internet through URLs. If you want to share the direct link to the DHIS resource you can right clik on the "view resource" button and copy the link address.</para>
+    <para>The resource tool allows you to upload both files from your local computer to the DHIS
+      server and to add links to other resources on the Internet through URLs. If you want to share
+      the direct link to the DHIS resource you can right click on the "view resource" button and
+      copy the link address.</para>
     <para>The create a resource click on the &quot;Add new&quot; button. Enter a name for the resource, then choose between uploading a file or external URL. If you chose file upload click &quot;Choose file&quot; and select your file your local computer. If you chose URL enter the link to the resource on the Internet. Then click &quot;Save&quot;.</para>
   </section>
   <section id="data_visualizer">
@@ -102,7 +129,9 @@
     <para><emphasis role="bold">To run the report do the following:</emphasis></para>
     <para>Select an orgunit from the tree.</para>
     <para>Select one of the completeness methods.</para>
-    <para>Select all or one dataset (All will give you a report with all datasets for the seelcted orgunit. One dataset will give you a report with completeness for all the children of the selected orgunit.</para>
+    <para>Select all or one dataset (All will give you a report with all datasets for the selected
+      orgunit. One dataset will give you a report with completeness for all the children of the
+      selected orgunit.</para>
     <para>Select a period type and a period from the list of available periods for that period type. Move back/forward one year by using the Prev/Next buttons.</para>
     <para>Then the report will be shown automatically.</para>
     <para>Change any of the parameters above and the report will be updated automatically.</para>
@@ -133,14 +162,26 @@
   </section>
   <section id="web_pivot_table">
     <title>Using web pivot table</title>
-    <para>The web pivot table is a tool for displaying and pivoting indicator and data element data in an easy way. From the open data selection box start by selecting data type which can be data elements or indicators. Select the a group as a filter or leave it on &quot;All&quot;. Select start date, end date and period type to indicate which periods you want to include in the pivot table. Continue by selecting an organisation unit from the selection tree. The childeren at the level below the selected organisationn unit will be included in the pivot table. Then click &quot;Get data&quot;.</para>
-    <para>After loading a pivot table you will see that indicators (or data elements) will appear on top as columns, while periods and organiation units are combined as rows. If you want to pivot the table click on the &quot;Pivot&quot; button and select new dimensions. These dimensions will be displayed as columns in the table when clicking &quot;Pivot&quot;.</para>
+    <para>The web pivot table is a tool for displaying and pivoting indicator and data element data
+      in an easy way. From the open data selection box start by selecting data type which can be
+      data elements or indicators. Select the a group as a filter or leave it on &quot;All&quot;.
+      Select start date, end date and period type to indicate which periods you want to include in
+      the pivot table. Continue by selecting an organisation unit from the selection tree. The
+      children at the level below the selected organisation unit will be included in the pivot
+      table. Then click &quot;Get data&quot;.</para>
+    <para>After loading a pivot table you will see that indicators (or data elements) will appear on
+      top as columns, while periods and organisation units are combined as rows. If you want to
+      pivot the table click on the &quot;Pivot&quot; button and select new dimensions. These
+      dimensions will be displayed as columns in the table when clicking &quot;Pivot&quot;.</para>
     <para>In the pivot table you can click on any cell in order to show a menu. From this menu you can choose to visualize the relevant indicator, org unit and period as various chart variants.</para>
     <para>To save the pivot table data to your local computer click the &quot;Download as excel&quot; button. The Excel workbook will show each period as a sheet.</para>
   </section>
   <section id="data_mart">
     <title>Using data mart management</title>
-    <para>The data mart is a set of tables in the DHIS database which is used by all reporting and analysis tools to retrieve data from. The data mart is populated based on the collected data. This management user interface allows you to controll that process of converting collected data into aggregated data and write to the data mart.</para>
+    <para>The data mart is a set of tables in the DHIS database which is used by all reporting and
+      analysis tools to retrieve data from. The data mart is populated based on the collected data.
+      This management user interface allows you to control that process of converting collected data
+      into aggregated data and write to the data mart.</para>
     <para>The data mart management screen allows you to select period types, start date and end date which will control which periods are included in the data mart process. By default all data elements, indicators and organisation units will be included.</para>
     <para>The data mart process might take a long time and heavily utilize the resources of your server so make sure you start such processes at a feasible time in production environments. Data mart processes can be scheduled as regular tasks in the data administration module.</para>
   </section>

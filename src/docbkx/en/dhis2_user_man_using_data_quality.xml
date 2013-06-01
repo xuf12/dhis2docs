@@ -32,7 +32,7 @@
         <para>Defining various validation rules, which can be run once the user has finished data entry. The user can also check the entered data for a particular period and Organization Unit(s) against the validation rules, and display the violations for these validation rules. </para>
       </listitem>
       <listitem>
-        <para>Analysis of data sets, ie. examining gaps in data.</para>
+        <para>Analysis of data sets, i.e. examining gaps in data.</para>
       </listitem>
       <listitem>
         <para>Data triangulation which is comparing the same data or indicator from different sources.</para>
@@ -43,7 +43,9 @@
     <title>Running Validation Rule Analysis</title>
     <para>You can access Validation Rule Analysis from the Services-&gt;Data Quality menu.</para>
     <para>A validation rule is based on an expression which defines a relationship between a number of data elements. The expression has a left side and a right side and an operator  which defines whether the former must be less than, equal to or greater than the latter. The expression forms a condition which should assert that certain logical criteria are met. For instance, a validation rule could  assert that the total number of vaccines given to infants is less than or equal to the total number of infants.</para>
-    <para>The validation rule analysis function will test validation rules against the data registered in the system. Validation violations will be reported in cases where the condition defined through the validation rule expression is not met, ie. the condition is false.</para>
+    <para>The validation rule analysis function will test validation rules against the data
+      registered in the system. Validation violations will be reported in cases where the condition
+      defined through the validation rule expression is not met, i.e. the condition is false.</para>
     <para><emphasis role="bold">Selecting what data to validate:</emphasis> </para>
     <para>First, enter a start date and an end date for which data should be included in the analysis. The date picker widget may be used to select dates. </para>
     <para>Second, choose between including all validation rules or all validation rules from a single group. </para>
@@ -73,13 +75,20 @@
   <section id="stddevoutlierAnalysis">
     <title>Std Dev Outlier Analysis</title>
     <para>You can access Outlier analysis from the Services-&gt;Data Quality menu.</para>
-    <para>The standard deviation based outlier analysis provides a mechanism for revealing values that are numerically distant from the rest of the data. Outliers can occur by chance, but they often indicate a measurement error or a heavy-tailed distribution (leading to very high numbers). In the former case one wishes to discard them while in the latter case one should be cautios in using tools or interpretations that assume a normal distribution. The analysis is based on the standard normal distribution.</para>
+    <para>The standard deviation based outlier analysis provides a mechanism for revealing values
+      that are numerically distant from the rest of the data. Outliers can occur by chance, but they
+      often indicate a measurement error or a heavy-tailed distribution (leading to very high
+      numbers). In the former case one wishes to discard them while in the latter case one should be
+      cautious in using tools or interpretations that assume a normal distribution. The analysis is
+      based on the standard normal distribution.</para>
     <para><emphasis role="bold">Select what data to analyse:</emphasis></para>
     <para>First, select the from and to date for the data to include in the analysis. </para>
     <para>Second, select the data set from which to pick data elements from. </para>
     <para>Third, select all or some of the data elements in the data set by double-clicking or marking them and clicking the add/remove buttons. </para>
     <para>Fourth, select the parent organisation unit to use. All children of the organisation unit will be included. </para>
-    <para>Fifth, select the number of standard deviations. This refers to the number of standard devations the data is allowed to deviate from the mean before it is classified as an outlier.</para>
+    <para>Fifth, select the number of standard deviations. This refers to the number of standard
+      deviations the data is allowed to deviate from the mean before it is classified as an
+      outlier.</para>
     <screenshot>
       <screeninfo>Outlier analysis rule selection</screeninfo>
       <mediaobject>
@@ -103,6 +112,8 @@
   </section>
   <section id="followupAnalysis">
     <title>Follow-Up Analysis</title>
-    <para>The follow-up analysis function will list all data values which are marked for follup-up. A data value can be marked for follow-up in the data entry module and in the other validation analysis variants in this module.</para>
+    <para>The follow-up analysis function will list all data values which are marked for follow-up.
+      A data value can be marked for follow-up in the data entry module and in the other validation
+      analysis variants in this module.</para>
   </section>
 </chapter>

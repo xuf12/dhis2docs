@@ -23,7 +23,16 @@
   <section>
     <title id="dashboard_messages">Messages and feedback</title>
     <para>DHIS2 has certain functions to facilitate communication between different users and user groups. This type of communication is important to facilitate feedback regarding data quality,  timeliness of submissions, or to simply answer a question which a particular user may have. </para>
-    <para>Feedback messages are sent to a particular group of users and can be sent by all users who have access to the dashboard module. In order to enable the receipt of feedback messages sent from the dashboard, you must set the system setting &quot;Feedback recipients&quot; which is available from the Maintenance-&gt;System settings dialog. Be sure to define a user group (e.g &quot;Feedback recipients&quot;) with all of the users who should receive feedback messages. Refer to the section in this manual on &quot;User groups&quot; for more information of how to do this. Once the &quot;Feedback recipients&quot; user group has been defined, each time a feedback message is sent, it will appear as a message in each of the &quot;Feedback recipients&quot; message queue within DHIS2. Note that messages will not be sent to  users email addresses, but will only appear within the DHIS2 application. </para>
+    <para>Feedback messages are sent to a particular group of users and can be sent by all users who
+      have access to the dashboard module. In order to enable the receipt of feedback messages sent
+      from the dashboard, you must set the system setting &quot;Feedback recipients&quot; which is
+      available from the Maintenance-&gt;System settings dialog. Be sure to define a user group
+      (e.g. &quot;Feedback recipients&quot;) with all of the users who should receive feedback
+      messages. Refer to the section in this manual on &quot;User groups&quot; for more information
+      of how to do this. Once the &quot;Feedback recipients&quot; user group has been defined, each
+      time a feedback message is sent, it will appear as a message in each of the &quot;Feedback
+      recipients&quot; message queue within DHIS2. Note that messages will not be sent to users
+      email addresses, but will only appear within the DHIS2 application. </para>
     <para>To send a new feedback message, simply select &quot;Write feedback&quot; from the dashboard. Provide a subject and text in the respective text boxes. The message will appear in all of the specified users message queue. </para>
     <para>Messages can be sent to specific groups of users who have been assigned to particular organisation units. To write a new message, simply click &quot;Messages&quot; from the dashboard screen and then press the &quot;Write message&quot; button.. Select an organisation unit (or group of organisation units) from the &quot;Recipients&quot; organisational unit tree. Provide a Subject and Text. To send the message, press the &quot;Send&quot; button. You can discard the message by pressing the &quot;Discard&quot; button as seen in the screenshot below.</para>
     <screenshot>

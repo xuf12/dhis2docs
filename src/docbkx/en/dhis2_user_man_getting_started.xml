@@ -53,12 +53,11 @@ locate the string &apos;jdbc:h2:./database/dhis2&apos; and replace the &apos;dhi
     </section>
     <section>
       <title>Working directly with the H2 database</title>
-      <para>
-        DHIS 2 Live uses an embedded <ulink url="www.h2database.com/">H2</ulink> database. This has several advantages - there is no need 
-        to install a separate database engine such as PostgresSql or MySql, and backup can be made by just copying the file. The whole database 
-        exists in memory, which means high performance. The disadvantage is need for RAM. It is also not suitable for muliti-user server 
-        installations. 
-      </para>
+      <para> DHIS 2 Live uses an embedded <ulink url="www.h2database.com/">H2</ulink> database. This
+        has several advantages - there is no need to install a separate database engine such as
+        PostgreSQL or MySQL, and backup can be made by just copying the file. The whole database
+        exists in memory, which means high performance. The disadvantage is need for RAM. It is also
+        not suitable for multi-user server installations. </para>
       <para>
       In general, it is recommended to work with the database through the DHIS2 user interface, but in some situations one may need to 
       manipulate the data directly. If one downloads H2 separately, it comes with a web interface. It can also be manipulated using 
@@ -261,7 +260,20 @@ locate the string &apos;jdbc:h2:./database/dhis2&apos; and replace the &apos;dhi
         <para>Once you have assigned a dataset to an orgunit that dataset will be made available in Data Entry (under Services) for the orgunits you have assigned it to and for the valid periods according to the dataset&apos;s period type. A default data entry form will then be shown, which is simply a list of the data elements belonging to the dataset together with a column for inputting the values. If your dataset contains data elements with categories such as age groups or gender, then additional columns will be automatically generated in the default form based on the categories. In addition to the default list-based data entry form there are two more alternatives, the section-based form and the custom form.</para>
         <section>
           <title>Section forms</title>
-          <para>Section forms allow for a bit more flexibility when it comes to using tabular forms and are quick and simple to design.    Often your data entry form will need multiple tables with subheadings, and sometimes you need to disable (grey out) a few fields in the table (e.g. some categpories do not apply to all data elements), both of these functions are supported in section forms. After defining a dataset you can define it&apos;s sections with subsets of dataelements, a heading and possible grey fields i the section&apos;s table. The order of sections in a datsaset can also be defined.     In Data Entry you can now start using the Section form (should appear automatically when sections are available for the selected dataset). You can switch between default and section forms in the top right corner of the data entry screen. Most tabular data entry forms should be possible to do with sections forms, and the more you can utilise the section forms (or default forms) the easier it is for you. If these two types of forms are not meeting your requirements then the third option is the completely flexible, although more time-consuming, custom data entry forms.</para>
+          <para>Section forms allow for a bit more flexibility when it comes to using tabular forms
+            and are quick and simple to design. Often your data entry form will need multiple tables
+            with subheadings, and sometimes you need to disable (grey out) a few fields in the table
+            (e.g. some categories do not apply to all data elements), both of these functions are
+            supported in section forms. After defining a dataset you can define it&apos;s sections
+            with subsets of dataelements, a heading and possible grey fields i the section&apos;s
+            table. The order of sections in a dataset can also be defined. In Data Entry you can now
+            start using the Section form (should appear automatically when sections are available
+            for the selected dataset). You can switch between default and section forms in the top
+            right corner of the data entry screen. Most tabular data entry forms should be possible
+            to do with sections forms, and the more you can utilise the section forms (or default
+            forms) the easier it is for you. If these two types of forms are not meeting your
+            requirements then the third option is the completely flexible, although more
+            time-consuming, custom data entry forms.</para>
         </section>
         <section>
           <title>Custom Forms</title>
@@ -271,7 +283,21 @@ locate the string &apos;jdbc:h2:./database/dhis2&apos; and replace the &apos;dhi
     </section>
     <section>
       <title>Validation rules</title>
-      <para>Once you have set up the data entry part of the system and started to collect data then there is time to define data quality checks that help to improve the quality of the data being collected. You can add as many validation rules as you like and these are composed of left and right side expressions that again are composed of data elements, with an operator between the two sides. Typical rules are comparing subtotals to totals of something. E.g. if you have two data elements &quot;HIV tests taken&quot; and &quot;HIV test result positive&quot; then you know that in the same form (for the same period and organisational unit) the total number of tests must always be equal or higher than the number of positive tests. These rules should be absolute rules meaning that they are mathematically correct and not just assumptions or &quot;most of the time correct&quot;. The rules can be run in data entry, after filling each form, or as a more batch like process on multiple forms at the same time, e.g. for all facilities for the previous reporting month. The results of the tests will list all violations and the detailed values for each side of the expression where the violation ocurred to make it easy to go back to data entry and correct the values.</para>
+      <para>Once you have set up the data entry part of the system and started to collect data then
+        there is time to define data quality checks that help to improve the quality of the data
+        being collected. You can add as many validation rules as you like and these are composed of
+        left and right side expressions that again are composed of data elements, with an operator
+        between the two sides. Typical rules are comparing subtotals to totals of something. E.g. if
+        you have two data elements &quot;HIV tests taken&quot; and &quot;HIV test result
+        positive&quot; then you know that in the same form (for the same period and organisational
+        unit) the total number of tests must always be equal or higher than the number of positive
+        tests. These rules should be absolute rules meaning that they are mathematically correct and
+        not just assumptions or &quot;most of the time correct&quot;. The rules can be run in data
+        entry, after filling each form, or as a more batch like process on multiple forms at the
+        same time, e.g. for all facilities for the previous reporting month. The results of the
+        tests will list all violations and the detailed values for each side of the expression where
+        the violation occurred to make it easy to go back to data entry and correct the
+        values.</para>
     </section>
     <section>
       <title>Indicators</title>
@@ -285,7 +311,10 @@ locate the string &apos;jdbc:h2:./database/dhis2&apos; and replace the &apos;dhi
     </section>
     <section>
       <title>GIS</title>
-      <para>In the integrated GIS module you can easily display your data on maps, both on polygons (areas) and as points (health facilities), and either as data elements or indicators. By providing the coordinates of your organisational units to the system you can qucikly get up to speed with this module. See the GIS section for details on how to get started. </para>
+      <para>In the integrated GIS module you can easily display your data on maps, both on polygons
+        (areas) and as points (health facilities), and either as data elements or indicators. By
+        providing the coordinates of your organisational units to the system you can quickly get up
+        to speed with this module. See the GIS section for details on how to get started. </para>
     </section>
     <section>
       <title>Charts and dashboard</title>

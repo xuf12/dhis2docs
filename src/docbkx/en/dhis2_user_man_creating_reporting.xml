@@ -24,8 +24,12 @@
           </listitem>
           <listitem>
             <para>
-    <emphasis>Period and Period type</emphasis> are used to specify the time dimension of the raw or aggregated values, and data can be aggregated from one period type to another, e.g from monthly to quarterly, or daily to monthly. Each data value has one period and that period has one period type. E.g data values for the periods Jan, Feb, and Mar 2009, all of the monthly period type can be aggregated together to an aggregated data value with the period Q1 2009 and period type Quarterly.
-   </para>
+              <emphasis>Period and Period type</emphasis> are used to specify the time dimension of
+              the raw or aggregated values, and data can be aggregated from one period type to
+              another, e.g. from monthly to quarterly, or daily to monthly. Each data value has one
+              period and that period has one period type. E.g. data values for the periods Jan, Feb,
+              and Mar 2009, all of the monthly period type can be aggregated together to an
+              aggregated data value with the period Q1 2009 and period type Quarterly. </para>
           </listitem>
         </itemizedlist>
       </section>
@@ -33,7 +37,14 @@
         <title>Basic rules of aggregation</title>
         <section>
           <title>What is added together</title>
-          <para>Data (raw) can be registered at any organisational level, e.g. at at national hospital at level 2, a health facility at level 5, or at a bigger PHC at level 4. This varies form country to country, but DHIS is flexible in allowing data entry or data import to take place at any level. This means that orgunits that themselves have children can register data, sometimes the same data elements as their children units. The basic rule of aggregation in DHIS 2 is that <emphasis>all raw data is aggregated together</emphasis>, meaning data registered at a facility on level 5 is added to the data registered for a PHC at level 4.</para>
+          <para>Data (raw) can be registered at any organisational level, e.g. at national hospital
+            at level 2, a health facility at level 5, or at a bigger PHC at level 4. This varies
+            form country to country, but DHIS is flexible in allowing data entry or data import to
+            take place at any level. This means that orgunits that themselves have children can
+            register data, sometimes the same data elements as their children units. The basic rule
+            of aggregation in DHIS 2 is that <emphasis>all raw data is aggregated
+              together</emphasis>, meaning data registered at a facility on level 5 is added to the
+            data registered for a PHC at level 4.</para>
           <para>
 It is up to the user/system administrator/designer to make sure that no duplication of data entry is taking place and that e.g. data entered at level 4 are not about the same services/visits that are reported by orgunit children at level 5. NOTE that in some cases you want to have duplication of data in the system, but in a controlled manner. E.g. when you have two different sources of data for population estimates, both level 5 catchment population data and another population data source for level 4 based on census data (because sum of level 5 catchments is not always the same as level 4 census data). Then you can specify using advanced aggregation settings (see further down) that the system should e.g. not add level 5 population data to the level 4 population data, and that level 3,2,1 population data aggregates are only based on level 4 data and does not include level 5 data.</para>
         </section>
@@ -70,7 +81,14 @@ Along the time dimension there are several possibilities, the two most common wa
         <section>
           <title>Average</title>
           <para>When the average aggregation operator is selected, the unweighted average of all data values within a given aggregation matrix are calculated. </para>
-          <para>It is important to understand how DHIS 2 treats null values in the context of the average operator. It is fairly common for some organisational units not to submit data for certain data elements. In the context of the average operator, the average results from the number of data elemements that are actually present (therefore NOT NULL) within a given aggregation matrix. If there are 12 districts within a given province, but only 10 of these have submitted data, the average aggreate will result from these ten values that are actually present in the database, and will not take into account the missing values.  </para>
+          <para>It is important to understand how DHIS 2 treats null values in the context of the
+            average operator. It is fairly common for some organisational units not to submit data
+            for certain data elements. In the context of the average operator, the average results
+            from the number of data elements that are actually present (therefore NOT NULL) within a
+            given aggregation matrix. If there are 12 districts within a given province, but only 10
+            of these have submitted data, the average aggregate will result from these ten values
+            that are actually present in the database, and will not take into account the missing
+            values. </para>
         </section>
       </section>
       <section>
@@ -341,11 +359,15 @@ Above the table there are six buttons; five download buttons and one Back button
       </listitem>
       <listitem>
         <para><emphasis role="italic">Download as PDF:</emphasis></para>
-        <para>Downloads a generated pdf file. The data will be presented in a similar layout as the generated table you are already viewing in DHIS 2.</para>
+        <para>Downloads a generated PDF file. The data will be presented in a similar layout as the
+          generated table you are already viewing in DHIS 2.</para>
       </listitem>
       <listitem>
         <para><emphasis role="italic">Download as Report:</emphasis></para>
-        <para>Downloads a &quot;styled&quot; pdf file. In addition to present the data in a table layout, this file also presents a chart, showing the aggregated data from all the chosen periods and the parent organisation unit chosen for the report table. The report is generated using the Jasper report engine.</para>
+        <para>Downloads a &quot;styled&quot; PDF file. In addition to present the data in a table
+          layout, this file also presents a chart, showing the aggregated data from all the chosen
+          periods and the parent organisation unit chosen for the report table. The report is
+          generated using the Jasper report engine.</para>
       </listitem>
       <listitem>
         <para><emphasis role="italic">Download as JRXML:</emphasis></para>
@@ -431,12 +453,12 @@ Above the table there are six buttons; five download buttons and one Back button
             <para>Summary - elements in this area will be placed at the end of the report</para>
           </listitem>
         </itemizedlist>
-        <para>By default you will see that only the Title, Column Header and the Detail 1 bands have data.
-        For most reports this is OK. The Title band is suitable for a title and e.g. a chart. 
-        Data fields entered into the Detail 1 area will be iterated over to create a table. 
-        For example, if a field called &quot;datalementname&quot; is placed in the Detail 1 band,
-        all data elements in the report table will be listed here. 
-        We&apos;ll come back to data fields management just a little below.</para>
+        <para>By default you will see that only the Title, Column Header and the Detail 1 bands have
+          data. For most reports this is OK. The Title band is suitable for a title and e.g. a
+          chart. Data fields entered into the Detail 1 area will be iterated over to create a table.
+          For example, if a field called &quot;dataelementname&quot; is placed in the Detail 1 band,
+          all data elements in the report table will be listed here. We&apos;ll come back to data
+          fields management just a little below.</para>
         <para>The unused bands in the report are shrinked to add more space for your report data. You can
         however increase/decrease the band height as you like. There are two ways to do that. The first way is simply to drag the blue band-line as shown below.</para>
         <screenshot>
@@ -537,7 +559,13 @@ Above the table there are six buttons; five download buttons and one Back button
               </imageobject>
             </mediaobject>
           </screenshot>
-          <para>Text fields can represent either numbers or text, so that they can be used both for showing for example names of district or for numeric values. It is therefore important the the Expression class, seen in the Text field properties matches the Text field expression. For the default text fields in the .jrxml file downloaded from DHIS 2 this is not a problem, but it is important when making new text fields. The two most important Expression classes are java.lang.Double for numbers and java.lang.String for text.</para>
+          <para>Text fields can represent either numbers or text, so that they can be used both for
+            showing for example names of district or for numeric values. It is therefore important
+            the Expression class, seen in the Text field properties matches the Text field
+            expression. For the default text fields in the .jrxml file downloaded from DHIS 2 this
+            is not a problem, but it is important when making new text fields. The two most
+            important Expression classes are java.lang.Double for numbers and java.lang.String for
+            text.</para>
           <para/>
           <section>
             <title>Example</title>
@@ -575,7 +603,10 @@ Above the table there are six buttons; five download buttons and one Back button
         <para>In the default table exported from DHIS 2, there are some rows that it might be better to leave out of the table, and some that it would be preferable to have at the end. For example, when making a table based on a report table with the «parent organisation unit» parameter, the default table might have a row with the national level somewhere in between all the regions. In iReport, this can be changed so that the «parent organisation unit» appears at the bottom of the table. This involves two steps that will be explained below. Note that this will not work where there is only one organisation units, and it is therefore most useful when using the «parent organisation unit» or «grand parent organisation unit» parameters in the report table.</para>
         <section>
           <title>Hiding the «parameter organisation unit» from the table</title>
-          <para>We exclude the &quot;paramter organisation unit&quot; from the table by using a property in the Details band called &quot;Print when expression&quot;. To set a Print when expression, start by selecting the Detail band in the Report inspector, then edit the Print when expression in the properties panel.</para>
+          <para>We exclude the &quot;parameter organisation unit&quot; from the table by using a
+            property in the Details band called &quot;Print when expression&quot;. To set a Print
+            when expression, start by selecting the Detail band in the Report inspector, then edit
+            the Print when expression in the properties panel.</para>
           <screenshot>
             <screeninfo>Select Detail 1 in the Report Inspector</screeninfo>
             <mediaobject>
@@ -763,7 +794,8 @@ Above the table there are six buttons; five download buttons and one Back button
             </imageobject>
           </mediaobject>
         </screenshot>
-        <para>Next, we create out Report group. Go to the report insepctor, right click on the report name (dpt is the default) and choose Add Report Group. </para>
+        <para>Next, we create out Report group. Go to the report inspector, right click on the
+          report name (dpt is the default) and choose Add Report Group. </para>
         <screenshot>
           <screeninfo>Add Report Group</screeninfo>
           <mediaobject>
@@ -842,7 +874,10 @@ Above the table there are six buttons; five download buttons and one Back button
       </section>
       <section>
         <title>Charts</title>
-        <para>By default, a 3D bar chart is included in the .jrxml file that is downloaded from DHIS 2. This is set up so that only data from the «parameter orgnisation unit» (often the parent or grand parent) is used. Usually, this is a good solution. Since it is the default, we will start by looking at bar charts, before looking at line charts.</para>
+        <para>By default, a 3D bar chart is included in the .jrxml file that is downloaded from DHIS
+          2. This is set up so that only data from the «parameter organisation unit» (often the
+          parent or grand parent) is used. Usually, this is a good solution. Since it is the
+          default, we will start by looking at bar charts, before looking at line charts.</para>
         <section>
           <title>Bar charts</title>
           <screenshot>
@@ -853,7 +888,10 @@ Above the table there are six buttons; five download buttons and one Back button
               </imageobject>
             </mediaobject>
           </screenshot>
-          <para>Bar charts are the default chart type in DHIS 2. In this section, we will look at how to make a bar charts like the one above, comparing the value of one inidcator in several districts. To edit the default chart in iReport, right click on it and choose Chart data.</para>
+          <para>Bar charts are the default chart type in DHIS 2. In this section, we will look at
+            how to make a bar charts like the one above, comparing the value of one indicator in
+            several districts. To edit the default chart in iReport, right click on it and choose
+            Chart data.</para>
           <screenshot>
             <screeninfo>Choose Edit Chart Data</screeninfo>
             <mediaobject>
@@ -1017,7 +1055,12 @@ Above the table there are six buttons; five download buttons and one Back button
               </imageobject>
             </mediaobject>
           </screenshot>
-          <para>Next, adjust the size and position of the chart in your report. Then, we will add one data series for each of our three indicators. Right-click on the chart and choose Chart data. If you are making a chart with one indicator and several organisation units, you probably want to make a filter expression so that only data from the paramter/parent organisation unit is used in the chart. To do this, add this line to the Filter expression area:</para>
+          <para>Next, adjust the size and position of the chart in your report. Then, we will add
+            one data series for each of our three indicators. Right-click on the chart and choose
+            Chart data. If you are making a chart with one indicator and several organisation units,
+            you probably want to make a filter expression so that only data from the
+            parameter/parent organisation unit is used in the chart. To do this, add this line to
+            the Filter expression area:</para>
           <para><command>$F{organisation_unit_is_parent}.equals(&quot;Yes&quot;)</command></para>
           <para>In our example, we only have on organisation unit, so this is not necessary. Next, click the details tab to see a list of the series in the chart. For now, this list is empty, but we will add one series for each of our three indicators. To add a series, click the Add button.</para>
           <screenshot>
@@ -1183,13 +1226,13 @@ Above the table there are six buttons; five download buttons and one Back button
         direct access to the database you want to use. Click on the "report datasources" button,
         "New", "Database JDBC connection" and click "next". In this window you can give you
         connection a name and select the JDBC driver. PostgreSQL and MySQL should come included in
-        your iReport.  Then enter the JDBC connection URL, username and password. The last three
-        referes to your database and can be retrieved from your DHIS configuration file
+        your iReport. Then enter the JDBC connection URL, username and password. The last three
+        refers to your database and can be retrieved from your DHIS configuration file
         (hibernate.properties). Click "save". You have now connected iReport to your
         database.</para>
       <para>- Go to standard reports and click "add new", then "get report template". Open this
         template in iReport. This template contains a series of report parameters which can be used
-        to create dynamic SQL statements. These parameters will be subsituted based on the report
+        to create dynamic SQL statements. These parameters will be substituted based on the report
         parameters which we will later select and include in the standard report. The parameters
         are:</para>
       <itemizedlist>
@@ -1197,7 +1240,7 @@ Above the table there are six buttons; five download buttons and one Back button
           <para>periods - string of comma-separated identifiers of the relative periods</para>
         </listitem>
         <listitem>
-          <para>period_name - name of the reporting reporting period</para>
+          <para>period_name - name of the reporting period</para>
         </listitem>
         <listitem>
           <para>organisationunits - identifier of the selected organisation units</para>
@@ -1256,10 +1299,10 @@ order by district.name, chiefdom.name, ou.name;
     </section>
     <section>
       <title>Designing HTML based standard reports</title>
-      <para>A standard report can be designed using purely HTML and Javascript. This requires a
+      <para>A standard report can be designed using purely HTML and JavaScript. This requires a
         little bit of development experience in the mentioned subjects. The benefit of HTML based
         standard reports is that it allows for maximum flexibility. Using HTML you can design
-        exactly the report you want, positioning tables, logos and values on the page acccording to
+        exactly the report you want, positioning tables, logos and values on the page according to
         your design needs. You can write and save your standard report design in a regular text
         file. To upload your HTML based standard report to DHIS 2 do the following:</para>
       <itemizedlist>
@@ -1277,30 +1320,30 @@ order by district.name, chiefdom.name, ou.name;
             template".</para>
         </listitem>
         <listitem>
-          <para>Select desired relative periods - these will be available in Javascript in your
+          <para>Select desired relative periods - these will be available in JavaScript in your
             report.</para>
         </listitem>
         <listitem>
-          <para>Select report parameters - these will be available in Javascript in your
+          <para>Select report parameters - these will be available in JavaScript in your
             report.</para>
         </listitem>
       </itemizedlist>
       <para>The report template, which you can download after selecting report type, is a useful
         starting point for developing HTML based standard reports. It gives you the basic structure
-        and suggests how you can use Javascript and CSS in the report. Javascript and CSS can easily
+        and suggests how you can use JavaScript and CSS in the report. JavaScript and CSS can easily
         be included using standard script and style tags.</para>
       <para>If you selected relative periods when creating the standard report you can access these
-        in Javascript like this:</para>
+        in JavaScript like this:</para>
       <screen>var periods = dhis2.report.periods; // An array with period identifiers
 var period = periods[0];</screen>
       <para>If you selected the organisation unit report parameter when creating the standard report
-        you can access the selected organisation unit in Javascript like this:</para>
+        you can access the selected organisation unit in JavaScript like this:</para>
       <screen>var orgUnit = dhis2.report.organisationUnit; // An object
 var id = orgUnit.id; 
 var name = orgUnit.name;
 var code = orgUnit.code;</screen>
       <para>When designing these reports you can utilize the analytics Web API resource in order to
-        retrieve aggregated data in Javascript. Have a look in the Web API chapter in this guide for
+        retrieve aggregated data in JavaScript. Have a look in the Web API chapter in this guide for
         a closer description. As a complete, minimal example you can retrieve analytics data after
         the report has been loaded and use that data to set the inner text of an HTML element like
         this:</para>
@@ -1318,7 +1361,7 @@ $( document ).ready( function() {
       <para>A few other tips: To include graphics you can convert an image to SVG and embed that SVG
         content directly in the report - DHIS 2 is based on HTML 5 where SVG tags are valid markup.
         To include charts and maps in your report you can use the charts and maps resources in the
-        Web API. You can use the full capability of the Web API from Javascript in your report - it
+        Web API. You can use the full capability of the Web API from JavaScript in your report - it
         may be useful to read through the Web API chapter to get an overview of all available
         resources.</para>
     </section>

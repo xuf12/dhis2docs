@@ -73,7 +73,14 @@
     <section id="ou_groupsets">
       <title id="orgunitGroupSets">Organisation unit group sets</title>
       <para>Group sets can be understood as a flexible tool to add more categorisation to orgunits. Any number of group sets can be added, but as a default start all databases will have the two group sets &quot;Type&quot; and &quot;Ownership&quot;. Using these  group sets will simplify how reporting is done, and facilitate analysis through the use of tools such as Excel PivotTables.</para>
-      <para>While a group set like &quot;Type&quot; describes a measure dimension,  the actual categories are represented by the groups, and the categorisation of an orgunit through the orgunit&apos;s group memberships. This can be understood as a parallel hierarchy of orgunits with the group set as the root (&quot;Type&quot;), the groups at level 2 (e..g &quot;Clinic&quot;, &quot;Hospital&quot;, &quot;Dispensary&quot;), and the actual orgunits at level 3. The group set can as such provide additional information and dimensionality to the data analysis as data is easily filtered, organised, or aggregated by groups within a group set. </para>
+      <para>While a group set like &quot;Type&quot; describes a measure dimension, the actual
+        categories are represented by the groups, and the categorisation of an orgunit through the
+        orgunit&apos;s group memberships. This can be understood as a parallel hierarchy of orgunits
+        with the group set as the root (&quot;Type&quot;), the groups at level 2 (e.g.
+        &quot;Clinic&quot;, &quot;Hospital&quot;, &quot;Dispensary&quot;), and the actual orgunits
+        at level 3. The group set can as such provide additional information and dimensionality to
+        the data analysis as data is easily filtered, organised, or aggregated by groups within a
+        group set. </para>
       <para>For this aggregation to work without any duplication in the data some rules are necessary. A group set is always exclusive, which means that an orgunit cannot be member of more than one group in a group set. Therefore, when creating a new organisational unit, you will only be allowed to select a single organisational group membership for each group set. Furthermore it is possible to define whether a group set is compulsory or not, which will affect the completeness of the data when analysing data using group sets. Compulsory means that ALL orgunits must be member of a group in that group set. </para>
       <para>We recommend that you approach the orgunit grouping in the following sequence (and one group set at a time):</para>
       <orderedlist>
@@ -87,7 +94,10 @@
           <para>Go back to each group, one by one, go to edit mode and assign the orgunits that should be member of the group. Should you follow this route, you can place multiple organisation units at a time in a group. However, you must be careful not to place the same organisational units in two groups which itself is a member of an organisation unit group set. This will result in a data integrity violation. If you have organisation unit groups which are not exclusive, they should not be members of a group. </para>
         </listitem>
         <listitem>
-          <para>A better way to ensure that you do not mistakedly assign an organisation unit to multiple members of a group set is  you can use the edit feature of each organisational unit to assign memberships to each group set.You will only be able to assign a single organisation unit at a time however.</para>
+          <para>A better way to ensure that you do not mistakenly assign an organisation unit to
+            multiple members of a group set is you can use the edit feature of each organisational
+            unit to assign memberships to each group set. You will only be able to assign a single
+            organisation unit at a time however.</para>
         </listitem>
       </orderedlist>
       <para>It is important to keep in mind when using the &quot;Organisational unit group&quot; set function, that unless great care is taken, organisational units can be assigned to multiple groups of a group set. This can be checked through the &quot;Data Integrity&quot; module, which will report which organisational units are not members of a compulsory organisational unit group set, and which organisational units have been assigned to more than one member of a group set. </para>
@@ -136,7 +146,9 @@
       <para>1. Select the orgunit you want to move (in the hierarchy in the left side menu) and click &quot;Confirm&quot; under the &quot;Select an organisation unit to move&quot; label.</para>
       <para>2. Select the new parent orgunit (again by using the hierarchy in the left side menu). If no parent is selected then the orgunit will be moved up to root level (top of the hierarchy). Click on the &quot;Confirm&quot; button under the &quot;Select the new parent organisation unit for the one to move&quot; label.</para>
       <para>3. Click on the &quot;Move&quot; button to apply your changes to the hierarchy.</para>
-      <para>Your changes will be immediately reflected in the left side menu hierarchy. At any time in the process (before hitting the Move button) you can click on the &quot;Reset&quot; button to unselect orgunit to move and the new parent.</para>
+      <para>Your changes will be immediately reflected in the left side menu hierarchy. At any time
+        in the process (before hitting the Move button) you can click on the &quot;Reset&quot;
+        button to deselect orgunit to move and the new parent.</para>
     </section>
   </section>
 </chapter>

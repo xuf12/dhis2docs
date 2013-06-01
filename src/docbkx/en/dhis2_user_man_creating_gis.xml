@@ -11,13 +11,22 @@
     <para>An example polygon/area coordinates string:</para>
     <para><programlisting><userinput>[[[[29.343,-11.154],[28.329,-11.342],[28.481,-10.239],[29.833,-10.412]]]]</userinput></programlisting></para>
     <para>However, if you are going to e.g. add coordinates for all units at a certain level you don&apos;t want to do that manually. This is where the automatic GML import comes into play and the following section explains the preferred way of using it.<important>
-        <para>The only co-ordinate reference system supported by DHIS2 is EPSG:4326, also known as geographic longitude/latitude. Coordinates must be stored with the longitude (east/west position) proceeding the latitude (north/south position). If your vector data is in a different CRS than EPSG 4326, you will need to reproject the data first before importing into DHIS2. </para>
+        <para>The only co-ordinate reference system supported by DHIS2 is EPSG:4326, also known as
+          geographic longitude/latitude. Coordinates must be stored with the longitude (east/west
+          position) proceeding the latitude (north/south position). If your vector data is in a
+          different CRS than EPSG 4326, you will need to re-project the data first before importing
+          into DHIS2. </para>
       </important></para>
   </section>
   <section id="gisSetup">
     <title>Importing coordinates</title>
     <para>Step 1 - Simplify/generalize your geographical data</para>
-    <para>The boundaries in geographical data files are usually very accurate, too much so for the needs of a web-based GIS. This usually does not affect the performance when using GIS files on a a local system, but it is usually necessary to optimize the geographical data for the web-based GIS system of DHIS2. All geographical data needs to be downloaded from the server and rendered in a browser, so if the data is overly complex, the performance of the DHIS2 GIS will be negatively impacted. This optimization process can be described as follows:</para>
+    <para>The boundaries in geographical data files are usually very accurate, too much so for the
+      needs of a web-based GIS. This usually does not affect the performance when using GIS files on
+      a local system, but it is usually necessary to optimize the geographical data for the
+      web-based GIS system of DHIS2. All geographical data needs to be downloaded from the server
+      and rendered in a browser, so if the data is overly complex, the performance of the DHIS2 GIS
+      will be negatively impacted. This optimization process can be described as follows:</para>
     <para><simplelist>
         <member>Coordinates: The number of significant decimal digits (e.g. 23.02937874993774) should be shortened to fewer digits (e.g. 23.03). Although this will result in some inaccuracies on the map, given the usual scale at which maps in DHIS2 are produced (&gt; 1:50,000), the loss of precision should not be noticeable. Normally, no more than four significant digits after the decimal point should be necessary.</member>
         <member>Polygons: In addition to shortening the number of significant digits, the actual number of points should also be reduced to an optimal level. Finding this optimal level may take a bit of experimentation. Decreasing the precision of the points as well as the number of points through generalization, will lead to degradation of the polygon. However, after a bit of experimentation, an optimal level of generalization can be found, where the accuracy of the polygon is visually acceptable, and the performance of the GIS is optimal. </member>
@@ -46,6 +55,7 @@
     </para>
     <para>- Name duplicates in the GML file. The name column in the database is unique and does not accept two organisation units with the same name.</para>
     <para>- The &quot;shortname&quot; column in the organisationunit table in your database has a too small varchar definition. Increase it to 100.</para>
-    <para>- Special name characters in the GML file. Be sure to convert these to appropirate XML equivalents or escape sequences.</para>
+    <para>- Special name characters in the GML file. Be sure to convert these to appropriate XML
+      equivalents or escape sequences.</para>
   </section>
 </chapter>

@@ -23,12 +23,12 @@
     <title>Data connection availability</title>
     <para>Data connection availability can be a problem in many of the contexts where DHIS2 mobile
       reporting would otherwise be a good solution for getting data directly into DHIS2. If that is
-      the case for you, you might want to consider trying the SMS based solution described in a separate document.
-      Keep in mind that even though a data connection is currently required for communication between
-      the server and the mobile phone, it is only required when initializing or updating the mobile
-      application and when sending reports to the server. The phone stores all entered data locally,
-      so it it can work fine with only temporary access to a data connection on a regular basis.
-    </para>
+      the case for you, you might want to consider trying the SMS based solution described in a
+      separate document. Keep in mind that even though a data connection is currently required for
+      communication between the server and the mobile phone, it is only required when initializing
+      or updating the mobile application and when sending reports to the server. The phone stores
+      all entered data locally, so it can work fine with only temporary access to a data connection
+      on a regular basis. </para>
   </section>
   <section id="mobile_j2me_gprs_3g_facility_reporting">
     <title>J2ME GPRS 3G facility reporting client</title>
@@ -63,10 +63,10 @@
     <para>Though the previous steps is all that should be needed for testing the solution more detail configuration of the datasets may be required and are described in the following sections. </para>
     <section>
       <title>The mapping of data sets to form layout on the phone</title>
-      <para>By default, a data set is mapped to a single  form on the phone.
-        If the data set is divided into sections, each section is displayed as a seperate page on the phone.
-        If a data element has more than one category option combo it will be displayed as a heading with the category combination options
-        following.</para>
+      <para>By default, a data set is mapped to a single form on the phone. If the data set is
+        divided into sections, each section is displayed as a separate page on the phone. If a data
+        element has more than one category option combo it will be displayed as a heading with the
+        category combination options following.</para>
       <table frame="all">
         <title/>
         <tgroup cols="3">
@@ -88,7 +88,7 @@
             <row>
               <entry>Form title</entry>
               <entry>Data set</entry>
-              <entry>Short Name if it exists, otherwise Namw</entry>
+              <entry>Short Name if it exists, otherwise Name</entry>
             </row>
             <row>
               <entry>Page tile</entry>
@@ -171,10 +171,12 @@
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata width="260px" align="center" fileref="resources/images/dhis_mobile/mobile_login_screen.png"/>
+                <imagedata width="260px" align="center"
+                  fileref="resources/images/dhis_mobile/mobile_login_screen.png"/>
               </imageobject>
             </mediaobject>
-          </screenshot>Once the client has been installed ot the phone, an initialization process must occur by providing a user name, password and server URL. </para>
+          </screenshot>Once the client has been installed on the phone, an initialization process
+          must occur by providing a user name, password and server URL. </para>
         <orderedlist>
           <listitem>
             <para>Logging into the server for the first time.  </para>
@@ -188,7 +190,9 @@
                   <para>Invalid User Name Or Password: the username or password is incorrect</para>
                 </listitem>
                 <listitem>
-                  <para>Application not authorized to access restricted APIe :  The server can be contacted, but the user does not have the necessary permissions to access the mobile reporting module</para>
+                  <para>Application not authorized to access restricted APIs : The server can be
+                    contacted, but the user does not have the necessary permissions to access the
+                    mobile reporting module</para>
                 </listitem>
               </itemizedlist> </para>
           </listitem>
@@ -205,7 +209,9 @@
           </listitem>
           <listitem>
             <para>Download all forms: After the PIN has been specified, all forms will be downloaded from the server and stored locally on the phone..</para>
-            <para>If the user has been configued to report on aggregate datasets, a list of appropriate datasets will be displayed. If the user is responsible for community based reporting, the list of assigned activities is displayed.</para>
+            <para>If the user has been configured to report on aggregate datasets, a list of
+              appropriate datasets will be displayed. If the user is responsible for community based
+              reporting, the list of assigned activities is displayed.</para>
             <para><emphasis role="underline">Notes</emphasis>: If the Health Worker is responsible for both Facility Reporting and Community Reporting, DHIS server will send all forms of both Facility Reporting and Community Reporting to mobile and on mobile, there will be a screen to choose whether displaying Facility Reporting or Community Reporting.</para>
             <para><emphasis role="underline">Errors</emphasis>:</para>
           </listitem>
@@ -259,14 +265,14 @@
               <listitem>
                 <para>Form with sections </para>
                 <para>Each form section is displayed in a single screen with the name of the section in the title window.</para>
-                <para>To navgate from screen to screen, push &quot;Next&quot;.</para>
+                <para>To navigate from screen to screen, push &quot;Next&quot;.</para>
               </listitem>
               <listitem>
                 <para>Forms without section (Datasets without sections)</para>
                 <para>All fields are displayed on one screen with the title that is the name of DataSet</para>
               </listitem>
             </itemizedlist>
-            <para>The user simply fills in each data element with the appopriate value.  </para>
+            <para>The user simply fills in each data element with the appropriate value. </para>
             <screenshot>
               <mediaobject>
                 <imageobject>
@@ -285,7 +291,9 @@
                 </imageobject>
               </mediaobject>
             </screenshot>
-            <para>If the user saves the data form, they can edit the form at a later point in time if they need to.When selecting a period once again, the period will be marked as &quot;Saved&apos; as seen in the next screen shot.</para>
+            <para>If the user saves the data form, they can edit the form at a later point in time
+              if they need to. When selecting a period once again, the period will be marked as
+              &quot;Saved&apos; as seen in the next screen shot.</para>
             <screenshot>
               <mediaobject>
                 <imageobject>
@@ -293,7 +301,10 @@
                 </imageobject>
               </mediaobject>
             </screenshot>
-            <para>If the user selects &quot;Complete&quot;, and the data entry form is not complete, the user will be asked if they are certain they wish to submit the form as incomplete. Once the form has been submitted, a message should be displayed informing the user that the transmisison was successful. </para>
+            <para>If the user selects &quot;Complete&quot;, and the data entry form is not complete,
+              the user will be asked if they are certain they wish to submit the form as incomplete.
+              Once the form has been submitted, a message should be displayed informing the user
+              that the transmission was successful. </para>
             <screenshot>
               <mediaobject>
                 <imageobject>
@@ -321,8 +332,8 @@
           </listitem>
           <listitem>
             <para>Storing values duration</para>
-            <para>The number of saved forms on mobile are limited only by the effective amount of storage of the moble device.
-</para>
+            <para>The number of saved forms on mobile are limited only by the effective amount of
+              storage of the mobile device. </para>
             <para>Forms are saved for limited period only, depending on the frequency of collection of the particular dataset. </para>
             <itemizedlist>
               <listitem>

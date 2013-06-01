@@ -32,7 +32,7 @@
         >j_password</emphasis>, containing the username and password in clear-text respectively, are
       expected. The browser will then receive a cookie which will be used for authentication for
       subsequent requests.</para>
-    <para>You can verify and get information about the currently autenticated user by making a GET
+    <para>You can verify and get information about the currently authenticated user by making a GET
       request to the following URL:</para>
     <screen>/api/currentUser</screen>
   </section>
@@ -132,7 +132,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <title>Browsing the Web API</title>
     <para>The entry point for browsing the Web API is <emphasis role="italic"
         >/api/resources</emphasis>. This resource provide links to all available resources. Four
-      resouce representation formats are consistently available for all resources: HTML, XML, JSON
+      resource representation formats are consistently available for all resources: HTML, XML, JSON
       and JSONP. Some resources will have other formats available, like MS Excel, PDF, CSV and PNG.
       To explore the API from a web browser, navigate to the <emphasis role="italic"
         >/api/resources</emphasis> entry point and follow the links to your desired resource, for
@@ -296,7 +296,8 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       <emphasis role="bold">Example: Get a filtered set of meta-data that was updated since August 1
         2012</emphasis>
     </para>
-    <para>As described in the last section, there is a number of options you can apply to <emphasis role="bold">/api/metaData</emphasis> to give you a filtered view. The use-case we will be
+    <para>As described in the last section, there is a number of options you can apply to <emphasis
+        role="bold">/api/metaData</emphasis> to give you a filtered view. The use-case we will be
       looking into here, is the case where you want a nightly job that synchronizes organisation
       units. We will be using <emphasis role="italic">cURL</emphasis> as the HTTP
       client.<screen>curl -H &quot;Accept: application/xml&quot; -u user:pass
@@ -317,7 +318,17 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
   </section>
   <section>
     <title>Sending data values</title>
-    <para>A common use-case for system integration is the need to send a set of data values from a third-party system into DHIS. In this example we will use the DHIS 2 demo on <ulink url="http://apps.dhis2.org/demo"/> as basis and we recommend that you follow the provided links with a web browser while reading (log in with <emphasis role="italic">admin</emphasis><emphasis role="italic">/district</emphasis> as username/password). We assume that we have collected case-based data using a simple software client running on mobile phones for the  <emphasis role="italic">Mortality &lt;5 years</emphasis> data set in the community of <emphasis role="italic">Ngelehun CHC</emphasis> (in <emphasis role="italic">Badjia</emphasis> chiedom, <emphasis role="italic">Bo</emphasis> district) for the month of January 2012. We have now aggregated our data into a statistical report and want to send that data to the national DHIS 2 instance.</para>
+    <para>A common use-case for system integration is the need to send a set of data values from a
+      third-party system into DHIS. In this example we will use the DHIS 2 demo on <ulink
+        url="http://apps.dhis2.org/demo"/> as basis and we recommend that you follow the provided
+      links with a web browser while reading (log in with <emphasis role="italic"
+        >admin</emphasis><emphasis role="italic">/district</emphasis> as username/password). We
+      assume that we have collected case-based data using a simple software client running on mobile
+      phones for the <emphasis role="italic">Mortality &lt;5 years</emphasis> data set in the
+      community of <emphasis role="italic">Ngelehun CHC</emphasis> (in <emphasis role="italic"
+        >Badjia</emphasis> chiefdom, <emphasis role="italic">Bo</emphasis> district) for the month
+      of January 2012. We have now aggregated our data into a statistical report and want to send
+      that data to the national DHIS 2 instance.</para>
     <para>The entry point for the Web API running on the demo instance is <ulink url="http://apps.dhis2.org/demo/api"/>. The entry point provides a convenient HTML page with links to all of the available resources in the Web API. The resource which is most appropriate for our purpose of sending data values is the <emphasis role="italic">dataValueSets</emphasis> resource. A data value set represents a set of data values which have a logical relationship, usually from being captured off  the same data entry form. We follow the link to the HTML representation which will take us to <ulink url="http://apps.dhis2.org/demo/api/dataValueSets"/>. The default representation is a HTML page which provides us with  useful instructions on how to interact with this resources. It tells us that we can use the POST verb to send values using a XML format defined by the <emphasis role="italic">http://dhis2.org/schema/dxf/2.0</emphasis> namespace:</para>
     <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;dataSetID&quot; 
   completeDate=&quot;date&quot; period=&quot;period&quot; orgUnit=&quot;orgUnitID&quot;&gt;
@@ -327,7 +338,21 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
 &lt;/dataValueSet&gt;</screen>
     <para><emphasis role="italic">Note:</emphasis> We have omitted the <emphasis role="italic">categoryOptionCombo</emphasis> attribute as it is optional and not needed for this example. Please refer to the date and period section above for time formats.</para>
     <para>From the example we can see that we need to identify the period,  the data set, the org unit (facility) and the data elements for which to report. The <emphasis role="italic">dataValueSets</emphasis> resource description tells us that the identifier for monthly periods should be on the format <emphasis role="italic">yyyyMM</emphasis> which means that we will use <emphasis role="italic">201201</emphasis> for January 2012.</para>
-    <para>To obtain the identifier for the data set we return to the the entry point at <ulink url="http://apps.dhis2.org/demo/api"/> and follow the embedded link pointing at the <emphasis role="italic">dataSets</emphasis> resource located at <ulink url="http://apps.dhis2.org/demo/api/dataSets"/>. From there we find and follow the link to the <emphasis role="italic">Mortality &lt; 5 years</emphasis> data set which leads us to <ulink url="http://apps.dhis2.org/demo/api/dataSets/pBOMPrpg1QX"/>. What we did was effectively to retrieve the HTML representation of our data set of interest, and from it we can easily see the identifier, which is <emphasis role="italic">pBOMPrpg1QX</emphasis>. The resource representation for the <emphasis role="italic">Mortality &lt; 5 years</emphasis> data set conveniently advertises links to the  data elements which are members of it. From here we can follow these links and obtain the identifiers of the data elements. For brevity we will only report on three data  elements: <emphasis role="italic">Measles</emphasis> with id <emphasis role="italic">f7n9E0hX8qk</emphasis>, <emphasis role="italic">Dysentery</emphasis> with id <emphasis role="italic">Ix2HsbDMLea</emphasis> and <emphasis role="italic">Cholera</emphasis> with id <emphasis role="italic">eY5ehpbEsB7</emphasis>.</para>
+    <para>To obtain the identifier for the data set we return to the entry point at <ulink
+        url="http://apps.dhis2.org/demo/api"/> and follow the embedded link pointing at the
+        <emphasis role="italic">dataSets</emphasis> resource located at <ulink
+        url="http://apps.dhis2.org/demo/api/dataSets"/>. From there we find and follow the link to
+      the <emphasis role="italic">Mortality &lt; 5 years</emphasis> data set which leads us to
+        <ulink url="http://apps.dhis2.org/demo/api/dataSets/pBOMPrpg1QX"/>. What we did was
+      effectively to retrieve the HTML representation of our data set of interest, and from it we
+      can easily see the identifier, which is <emphasis role="italic">pBOMPrpg1QX</emphasis>. The
+      resource representation for the <emphasis role="italic">Mortality &lt; 5 years</emphasis> data
+      set conveniently advertises links to the data elements which are members of it. From here we
+      can follow these links and obtain the identifiers of the data elements. For brevity we will
+      only report on three data elements: <emphasis role="italic">Measles</emphasis> with id
+        <emphasis role="italic">f7n9E0hX8qk</emphasis>, <emphasis role="italic">Dysentery</emphasis>
+      with id <emphasis role="italic">Ix2HsbDMLea</emphasis> and <emphasis role="italic"
+        >Cholera</emphasis> with id <emphasis role="italic">eY5ehpbEsB7</emphasis>.</para>
     <para>What remains is to get hold of the identifier of the facility (org unit). Again the <emphasis role="italic">dataSet</emphasis> representation conveniently provides link to org units which report on it so we search for<emphasis role="italic"> Ngelehun CHC</emphasis> and follow the link to the HTML representation at <ulink url="http://apps.dhis2.org/demo/api/organisationUnits/DiszpKrYNg8"/>, which tells us that the identifier of this org unit is <emphasis role="italic">DiszpKrYNg8</emphasis>.</para>
     <para>From our case-based data we assume that we have 12 cases of measles, 14 cases of dysentery and 16 cases of cholera. We have now gathered enough information to be able to put together the XML data value set message:</para>
     <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;pBOMPrpg1QX&quot; 
@@ -336,7 +361,10 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
   &lt;dataValue dataElement=&quot;Ix2HsbDMLea&quot; value=&quot;14&quot;/&gt;
   &lt;dataValue dataElement=&quot;eY5ehpbEsB7&quot; value=&quot;16&quot;/&gt;
 &lt;/dataValueSet&gt;</screen>
-    <para>To perform  functional testing we will use the cURL tool (<ulink url="http://curl.haxx.se"/>) which provides an easy way of transferring data using HTTP. First we save the data value set XML content in a file called <emphasis role="italic">datavalueset.xml</emphasis> . From the directory where this file resides we invoke the following from the command line:</para>
+    <para>To perform functional testing we will use the cURL tool (<ulink url="http://curl.haxx.se"
+      />) which provides an easy way of transferring data using HTTP. First we save the data value
+      set XML content in a file called <emphasis role="italic">datavalueset.xml</emphasis> . From
+      the directory where this file resides we invoke the following from the command line:</para>
     <para><code>curl -d @datavalueset.xml &quot;http://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</code></para>
     <para>The command will dispatch a request to the demo Web API,  set <emphasis role="italic">application/xml</emphasis> as the content-type and  authenticate using admin/district as username/password.   If all goes well this will return a <emphasis role="italic">200 OK</emphasis> HTTP status code. You can verify that the data has been received by opening the data entry module in DHIS 2 and select the org unit, data set and period used in this example.</para>
     <para>The API follows normal semantics for error handling and HTTP status codes. If you supply an invalid username or password, <emphasis role="italic">401 Unauthorized</emphasis> is returned. If you supply a content-type other than application/xml, <emphasis role="italic">415 Unsupported Media Type</emphasis> is returned. If the XML content is invalid according to the DXF namespace, <emphasis role="italic">400 Bad Request</emphasis> is returned. If you provide an invalid identifier in the XML content, <emphasis role="italic">409 Conflict</emphasis> is returned together with a descriptive message.</para>
@@ -355,7 +383,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       data values. You will need a <emphasis role="italic">programId</emphasis> which can be looked
       up using the <emphasis role="italic">programs</emphasis> resource, an <emphasis role="italic"
         >organisationUnitId</emphasis> which can be looked up using the <emphasis role="italic"
-        >organisationUnits</emphasis> resource, and a list of valid data element identfiers which
+        >organisationUnits</emphasis> resource, and a list of valid data element identifiers which
       can be looked up using the <emphasis role="italic">dataElements</emphasis> resource. </para>
     <para>An example payload in XML format where we send events from the "Inpatient morbidity and
       mortality" program for the "Ngelehun CHC" facility in the demo database can be seen
@@ -1593,7 +1621,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
         any data elements, but does include data element groups, the aggregation operator of the
         first data element in the first group will be used. The order of groups and data elements is
         undefined. This query parameter allows you to override the default and specify a specific
-        aggregaton operator. As an example you can set the aggregation operator to "count" with the
+        aggregation operator. As an example you can set the aggregation operator to "count" with the
         following URL:</para>
     <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012Q1&amp;dimension=ou:O6uvpzGd5pu&amp;aggregationType=COUNT</screen>
     <para>The <emphasis role="italic">measureCriteria</emphasis> query parameter lets you filter out
