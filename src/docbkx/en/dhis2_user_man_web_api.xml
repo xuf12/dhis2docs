@@ -1468,6 +1468,10 @@ ORDER BY oul.level, par.name, ou.name</screen>
         </table>
       </listitem>
     </itemizedlist>
+    <para>It is not necessary to be aware of which objects are used for the various dynamic
+      dimensions when designing analytics queries. You can get a complete list of dynamic dimensions
+      by visiting this URL in the Web API:</para>
+    <screen>api/dimensions</screen>
     <para>The base URL to the analytics resource is <emphasis role="italic"
       >api/analytics</emphasis>. To request specific dimensions and dimension items you can use a
       query string on the following format, where <emphasis role="italic">dim-id</emphasis> and
