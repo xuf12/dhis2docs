@@ -3,7 +3,11 @@
 <chapter>
   <title>Installation</title>
   <para>The installation chapter provides information on how to install DHIS 2 in various contexts, including online central server, offline local network, standalone application and self-contained package called DHIS 2 Live.</para>
-  <para>DHIS 2 runs on all platforms for which there exists a Java Runtime Environment version 6 or higher, which includes most popular operating systems such as Windows, Linux and Mac. DHIS 2 also runs on many relational database systems such as PostgreSQL, MySQL, H2 and Derby. DHIS 2 is packaged as a standard Java Web Archive (WAR-file) and thus runs on any Servlet containers such as Tomcat and Jetty.</para>
+  <para>DHIS 2 runs on all platforms for which there exists a Java Runtime Environment (version 6 or
+    higher, 7 is recommended), which includes most popular operating systems such as Windows, Linux
+    and Mac. DHIS 2 also runs on many relational database systems such as PostgreSQL (version 9.0 or
+    higher, 9.2 is recommended), MySQL, H2 and Derby. DHIS 2 is packaged as a standard Java Web
+    Archive (WAR-file) and thus runs on any Servlet containers such as Tomcat and Jetty.</para>
   <para>The DHIS 2 team recommends Ubuntu 12.04 LTS operating system, PostgreSQL database system and
     Tomcat Servlet container as the preferred environment for server installations. The mentioned
     frameworks can be regarded as market leaders within their domain and is heavily field tested
