@@ -85,14 +85,14 @@ sudo apt-get update</screen>
     <para>Do performance tuning by opening the following  file by invoking </para>
     <para><code>sudo nano /etc/postgresql/9.2/main/postgresql.conf</code></para>
     <para>and set the following properties:</para>
-    <para><code>shared_buffers = 2400MB</code></para>
-    <para>Determines how much memory PostgreSQL can use for caching of data. This setting controls
-      how the size of the kernel shared memory which should be reserved for PostgreSQL. Should be
-      set to around 30% of total memory designated for PostgreSQL.</para>
+    <para><code>shared_buffers = 3200MB</code></para>
+    <para>Determines how much memory should be allocated exclusively for PostgreSQL caching. This
+      setting controls the size of the kernel shared memory which should be reserved for PostgreSQL.
+      Should be set to around 40% of total memory dedicated for PostgreSQL.</para>
     <para><code>work_mem = 20MB</code></para>
     <para>Determines the amount of memory used for internal sort and hash operations. This setting
-      is per connection, per query so a lot of memory may be consumed if raising this too
-      high.</para>
+      is per connection, per query so a lot of memory may be consumed if raising this too high.
+      Setting this value correctly is essential for DHIS 2 aggregation performance.</para>
     <para><code>maintenance_work_mem = 256MB</code></para>
     <para>Determines the amount of memory PostgreSQL can use for maintenance operations such as
       creating indexes, running vacuum, adding foreign keys. Incresing this value might improve
@@ -278,17 +278,19 @@ server {
 }]]></screen>
     </section>
     <section>
-      <title>Enabling caching and SSL on nginx</title>
+      <title>Enabling caching, compression and SSL on nginx</title>
       <para>Requests for reports, charts, maps and other analysis-related resources will often take
         some time to respond and might utilize a lot of server resources. In order to improve
         response times, reduce the load on the server and hide potential server downtime we can
         introduce a cache proxy in our server setup. The cached content will be stored in directory
         /var/cache/nginx, and up to 250 MB of storage will be allocated. Nginx will create this
-        directory automatically.</para>
+        directory automatically. It is also useful to enable compression of data which is returned
+        by nginx in order to reduce the size of data that has to be transferred over the network. </para>
       <screen>http {
   # ...
   root              /home/dhis/tomcat/webapps/ROOT; # Update path!
   proxy_cache_path  /var/cache/nginx  keys_zone=dhis:250m  inactive=1d;
+  gzip              on;
 
   <![CDATA[# HTTP server - rewrite to force use of HTTPS
 
