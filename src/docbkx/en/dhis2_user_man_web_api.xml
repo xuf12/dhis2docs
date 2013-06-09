@@ -297,20 +297,20 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
         role="italic">/api/metaData</emphasis> to give you a filtered view. The use-case we will be
       looking into here is where you want a nightly job that synchronizes organisation units. We
       will be using <emphasis role="italic">cURL</emphasis> as the HTTP
-      client.<screen>curl -H &quot;Accept: application/xml&quot; -u user:pass "http://apps.dhis2.org/demo/api/metaData?assumeTrue=false&amp;organisationUnits=true&amp;lastUpdated=01/08/2012"</screen></para>
+      client.<screen>curl -H &quot;Accept: application/xml&quot; -u admin:district "http://apps.dhis2.org/demo/api/metaData?assumeTrue=false&amp;organisationUnits=true&amp;lastUpdated=01/08/2012"</screen></para>
     <para><emphasis role="bold">Example: Get meta-data that was updated since February
         2012</emphasis></para>
     <para>This example will just the default <emphasis role="italic">assumeTrue</emphasis> setting,
       along with getting the last updates from February 2012. This means that every single type that
       has been updated will be
-      retrieved.<screen>curl -H &quot;Accept: application/xml&quot; -u user:pass "http://apps.dhis2.org/demo/api/metaData?lastUpdated=02/2012"</screen></para>
+      retrieved.<screen>curl -H &quot;Accept: application/xml&quot; -u admin:district "http://apps.dhis2.org/demo/api/metaData?lastUpdated=02/2012"</screen></para>
     <para>The meta-data resource can also be used to write or update meta-data by using the POST
       HTTP method. The meta-data content can be both XML and JSON, using "application/xml" and
       "application/json" content type respectively. The request payload content will be accepted in
       several formats, including plain text, zipped and gzipped. POSTing a meta-data payload can be
       done for example like this, where metaData.xml is a file in the same directory with the
       meta-data content:</para>
-    <screen>curl -H "Content-Type: application/xml" -u user:pass -d @metaData.xml "http://apps.dhis2.org/demo/api/metaData" -X POST</screen>
+    <screen>curl -H "Content-Type: application/xml" -u admin:district -d @metaData.xml "http://apps.dhis2.org/demo/api/metaData" -X POST</screen>
   </section>
   <section>
     <title>Sending data values</title>
@@ -372,8 +372,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para>DHIS 2 supports three kinds of events: single events with no registration (also referred
       to as anonymous events), single event with registration and multiple events with registration.
       Registration implies that the data is linked to a person which is identified using some sort
-      of identifier. Currently only single event with no registration is supported in DXF 2
-      currently.</para>
+      of identifier. Only single event with no registration is supported in DXF 2 currently.</para>
     <para>To send events to DHIS 2 you must interact with the <emphasis role="italic"
         >events</emphasis> resource. The approach to sending events is similar to sending aggregate
       data values. You will need a <emphasis role="italic">programId</emphasis> which can be looked
@@ -384,7 +383,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para>An example payload in XML format where we send events from the "Inpatient morbidity and
       mortality" program for the "Ngelehun CHC" facility in the demo database can be seen
       below:</para>
-    <screen>&lt;?xml version='1.0' encoding='utf-8'?>
+    <screen>&lt;?xml version="1.0" encoding="utf-8"?>
 &lt;event program="eBAyeGv0exc" orgUnit="DiszpKrYNg8" eventDate="2013-05-17" completed="true" storedBy="admin">
   &lt;coordinate latitude="59.8" longitude="10.9" />
   &lt;dataValues>
@@ -396,7 +395,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para>To perform some testing we can save the XML payload as a file called<emphasis
         role="italic"> events.xml</emphasis> and send it as a POST request to the events resource in
       the API using curl with the following command:</para>
-    <screen>curl -d @events.xml "localhost:8080/api/events" -H "Content-Type:application/xml" -u admin:district -v</screen>
+    <screen>curl -d @events.xml "http://apps.dhis2.org/demo/api/events" -H "Content-Type:application/xml" -u admin:district -v</screen>
     <para>The same payload in JSON format looks like this:</para>
     <screen>{
   "program": "eBAyeGv0exc",
@@ -419,7 +418,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <screen>curl -d @events.xml "localhost:8080/api/events" -H "Content-Type:application/json" -u admin:district -v</screen>
     <para>We also support sending multiple events at the same time. A payload in XML format might
       look like this: (Caution: this format might change slightly in version 2.13)</para>
-    <screen>&lt;?xml version='1.0' encoding='utf-8'?>
+    <screen>&lt;?xml version="1.0" encoding="utf-8"?>
 &lt;events>
   &lt;eventList>
     &lt;event program="eBAyeGv0exc" orgUnit="DiszpKrYNg8" eventDate="2013-05-17" completed="true" storedBy="admin">
