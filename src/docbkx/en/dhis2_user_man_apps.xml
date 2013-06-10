@@ -21,12 +21,12 @@
   </section>
   <section>
     <title>Creating Apps</title>
-    <para>Creating apps is simple: One needs to create HTML, JavaScript, CSS files similar to how
-      any web application. Then, one needs to create a file called <emphasis role="italic"
-        >manifest.webapp</emphasis>. This file should be in the format specified by the <ulink
-        url="http://www.w3.org/2008/webapps/manifest/">W3C Manifest for Web Applications</ulink>. A
-      simple basic example of the <emphasis role="italic">manifest.webapp</emphasis> is shown
-      below:</para>
+    <para>Creating apps is simple: You can create HTML, JavaScript and CSS files similar to any
+      other web application. Then one needs to create a file called <emphasis role="italic"
+        >manifest.webapp</emphasis> which describes the contents of the app. This file should be in
+      the format specified by the <ulink url="http://www.w3.org/2008/webapps/manifest/">W3C Manifest
+        for Web Applications</ulink>. A basic example of the <emphasis role="italic"
+        >manifest.webapp</emphasis> is shown below:</para>
     <para>
       <screen>{
     "version": "0.1",
@@ -44,9 +44,9 @@
     },
     "default_locale": "en",
     "activities": {
-      "dhis": {
-        "href": "*"
-      }
+        "dhis": {
+            "href": "*"
+        }
     }
 }</screen>
     </para>
@@ -80,14 +80,15 @@ appname/js/                #javascripts</screen>
     <orderedlist>
       <listitem>
         <para>App Installation Folder: The folder on the file system where apps are unpacked. By
-          default this is under the expanded DHIS folder. If you like to install your apps in
-          another location, say www folder of Apache 2, you can specify the absolute path to that
-          directory on the server, making your apps to be unpacked at that location.</para>
+          default this is under the expanded DHIS folder suffixed by /apps. If you like to install
+          your apps in another location, say www folder of Apache 2, you can specify the absolute
+          path to that directory on the server, making your apps to be unpacked at that
+          location.</para>
       </listitem>
       <listitem>
-        <para>App Base URL: The URL through which the apps can be located. By default this is the
-          same as your DHIS 2 URL. If you are installing apps through a different web server, one
-          needs to provide the URL for that web server.</para>
+        <para>App Base URL: The URL through which the apps can be found on the Web. By default this
+          is the same as your DHIS 2 URL suffixed by /apps. If you are installing apps through a
+          different web server you need to provide the full URL for that web server.</para>
       </listitem>
       <listitem>
         <para>App store URL: The app repository through which new apps can be downloaded and
@@ -106,5 +107,10 @@ appname/js/                #javascripts</screen>
       the file is uploaded automatically and installed in DHIS 2. You can also browse through apps
       in the app store and download apps from there. The app store allows for app searching,
       reviewing, commenting, requesting features, rating on the apps by the community.</para>
+  </section>
+  <section>
+    <title>Launching Apps</title>
+    <para>After installation your apps can be accessed from the home page of the apps module. Click
+      on an app in the list in order to launch it.</para>
   </section>
 </chapter>
