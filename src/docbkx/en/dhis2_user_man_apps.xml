@@ -62,11 +62,11 @@
       DHIS 2 instance.</para>
     <para>The App can contain HTML, Javascript, CSS and image files. The file structure looks like
       this:</para>
-    <screen>appname/                   #html files
-appname/manifest.webapp    #manifest file
-appname/css/               #css stylesheets
-appname/img/               #images
-appname/js/                #javascripts</screen>
+    <screen>/                   #html files
+/manifest.webapp    #manifest file
+/css/               #css stylesheets
+/img/               #images
+/js/                #javascripts</screen>
     <para><inlinegraphic fileref="resources/images/apps/appList.png"/></para>
     <para>All the files in the project should then be compressed into a standard zip package. This
       zip package can then be installed into DHIS 2 as you will see in the next section.</para>
