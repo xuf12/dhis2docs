@@ -117,7 +117,9 @@
             you to translate the name of a data set to a different language.</para>
         </listitem>
         <listitem>
-          <para><inlinegraphic fileref="resources/images/dhis2_images/edit_layout.png"/> Create or edit a custom data entry form. Refer to <xref linkend="customDataEntryForms"/> for detailed information of how to use this function. </para>
+          <para><inlinegraphic fileref="resources/images/dhis2_images/edit_layout.png"/> Create or
+            edit a custom data entry form. Refer to the section on custom data entry forms for
+            detailed information of how to use this function. </para>
         </listitem>
         <listitem>
           <para><inlinegraphic fileref="resources/images/dhis2_images/edit_compulsory_data_elements.png"/> Edit compulsory data elements: This dialog will allow you to add or remove data elements which will be marked as compulsory during data entry. </para>
@@ -244,6 +246,39 @@
       </screenshot>
       <para>You can to intermediary saving by clicking on the Save button, and this will not close the window. It is recommended to save often to ensure you do not loose your work. </para>
       <para>When you are done or want to test your form in data entry click on &lt;Save and close&gt;.</para>
+    </section>
+    <section>
+      <title>Scripting in custom forms</title>
+      <para>With custom data entry forms it is possible to use Javascript to create dynamic behavior
+        of the form. There are two methods which can be used to hook into events in the data entry
+        module. To have your code invoked when a data entry form has been loaded you can add a
+        Javascript tag in your custom form like this:</para>
+      <screen>&lt;script type="text/javascript">
+
+onFormLoad( function() {
+  // Do your javascript stuff here
+} );
+
+&lt;/script></screen>
+      <para>To have your code invoked when any data value is successfully saved in the form you can
+        add a Javascript tag like the example below. Note that you can access all properties for the
+        data value being saved through your callback function; the first parameter is the event
+        object while the second argument is the data value object being saved:</para>
+      <screen>&lt;script type="text/javascript">
+
+onValueSave( function( event, dataValue ) {
+  var de = dataValue.dataElementId;
+  var co = dataValue.optionComboId;
+  var ou = dataValue.organisationUnitId;
+  var va = dataValue.value;
+
+  // Do stuff like modifying the form based on the data element and value being saved
+} );
+
+&lt;/script></screen>
+      <para>The identifiers of the input fields in the data entry form is on the format
+        &lt;dataelementuid>-&lt;optioncombouid> , this can be used to select input fields in your
+        script and perform actions on them.</para>
     </section>
     <section id="dataSetAssignmentEditor">
       <title>Data set assignment editor</title>
