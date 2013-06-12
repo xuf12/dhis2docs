@@ -276,9 +276,9 @@ onValueSave( function( event, dataValue ) {
 } );
 
 &lt;/script></screen>
-      <para>The identifiers of the input fields in the data entry form is on the format
-        &lt;dataelementuid>-&lt;optioncombouid> , this can be used to select input fields in your
-        script and perform actions on them.</para>
+      <para>The identifiers of the input fields in the data entry form is on the format described
+        below. This format can be used to select the input fields in your script and perform actions
+        on them:<screen>&lt;dataelementid>-&lt;optioncomboid>-val</screen></para>
     </section>
     <section id="dataSetAssignmentEditor">
       <title>Data set assignment editor</title>
