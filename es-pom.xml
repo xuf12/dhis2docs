@@ -212,36 +212,6 @@
             </configuration>
           </execution>
 
-<!--  Not used also in English pom     
-      <execution>
-            <id>webhelp-docs-es</id>
-            <phase>package</phase>
-            <goals>
-              <goal>generate-webhelp</goal>
-            </goals>
-            <configuration>
-        <webhelpIndexerLanguage>es</webhelpIndexerLanguage>
-              <webhelpIncludeSearchTab>1</webhelpIncludeSearchTab>
-              <includes>dhis2_user_manual_es.xml</includes>
-              <sourceDirectory>${docbook.source}/es/</sourceDirectory>
-            </configuration>
-          </execution>
-      
-       <execution>
-            <id>epub-docs-es</id>
-            <phase>package</phase>
-            <goals>
-              <goal>generate-epub</goal>
-            </goals>
-            <configuration>
-         <htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
-                <chunkQuietly>true</chunkQuietly>
-              <includes>dhis2_user_manual_es.xml</includes>
-              <sourceDirectory>${docbook.source}/es/</sourceDirectory>
-            </configuration>
-          </execution>
-    -->  
-
           <execution>
             <id>pdf-docs-es-user</id>
             <phase>package</phase>
