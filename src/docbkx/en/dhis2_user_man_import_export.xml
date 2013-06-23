@@ -2,41 +2,70 @@
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <chapter>
   <title>Import and export</title>
-  <highlights>
-    <para><emphasis>Learning objectives:</emphasis></para>
-    <para>
-After reading this module you will be able to understand:</para>
-    <itemizedlist>
-      <listitem>
-        <para>
-Why do we need functions of export and import data.</para>
-      </listitem>
-      <listitem>
-        <para>How to export data from DHIS2</para>
-      </listitem>
-      <listitem>
-        <para>
-How to import data into DHIS2</para>
-      </listitem>
-    </itemizedlist>
-  </highlights>
-  <section>
-    <title>What is import and export?</title>
-    <para>In a primary health system, the HMIS typically involves a distributed application, where the same application is running in different geographical locations (PHCs,CHCs, hospitals, districts, and state). Most of these physical locations do not have Internet connectivity, and hence they work offline. At some point (normally at the district level), the data needs to be synchronised in order to have a consolidated database for the a particular geographical region. For this, it is important to be able to export data from one location (which is working offline, say at the health facility  level) to another one say at the district level where the data would need to be imported. This feature of exporting and importing is thus a crucial function of a HMIS. This feature also helps us overcome the dependency on Internet to some degree, as data updates can be transferred via USB key where there is no connectivity, or through email where there is limited Internet connectivity. DHIS 2 provides robust export-import functionality to fulfil these needs.
-</para>
-  </section>
+  <para>In a primary health system, the HMIS typically involves a distributed application, where the
+    same application is running in different geographical locations (PHCs,CHCs, hospitals,
+    districts, and state). Most of these physical locations do not have Internet connectivity, and
+    hence they work offline. At some point (normally at the district level), the data needs to be
+    synchronised in order to have a consolidated database for the a particular geographical region.
+    For this, it is important to be able to export data from one location (which is working offline,
+    say at the health facility level) to another one say at the district level where the data would
+    need to be imported. This feature of exporting and importing is thus a crucial function of a
+    HMIS. This feature also helps us overcome the dependency on Internet to some degree, as data
+    updates can be transferred via USB key where there is no connectivity, or through email where
+    there is limited Internet connectivity. DHIS 2 provides robust export-import functionality to
+    fulfil these needs. </para>
   <section id="export">
     <title>Exporting data</title>
-    <para>In the case on on-line data entry, all data is saved into one database only. In an offline deployment, each deployment will have a separate database in their local system. So the data will be stored in their local database. In an offline deployment, after the data entry is finished, it will need to be manually sent to the next level of where the application is running. In an on-line application, however, that is not required, as all data is stored at a central location using the Internet.
-</para>
+    <para>DHIS 2 makes it possible to export various types of data in multiple data formats. You can
+      export your data, also referred to as measures or facts; and your meta-data, which refers to
+      the information describing your data. Data can be exported both in raw, non-aggregated format
+      and in aggregated format. It is also possible to export a combination of data and meta-data in
+      case you have special requirements. This chapter covers mainly how to export data and
+      meta-data through the user interface of the import-export DHIS 2 module. Data can also be
+      exported programmatically through the DHIS 2 Web API, and it is useful to be aware of the
+      various options available:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Export raw, nonaggregatd data through the user interface: Covered in this
+          chapter.</para>
+      </listitem>
+      <listitem>
+        <para>Export aggregated data programmatically through the Web API: Please refer to the Web
+          API chapter, section on Analytics.</para>
+      </listitem>
+      <listitem>
+        <para>Export a combination of data and meta-data: Please refer to the SQL view sections in
+          the Data administration chapter and Web API chapter.</para>
+      </listitem>
+      <listitem>
+        <para>Export meta-data through the user interface: Covered in this chapter.</para>
+      </listitem>
+      <listitem>
+        <para>Export meta-data programmatically through the Web API: Please refer to the Web API
+          chapter, section on meta data.</para>
+      </listitem>
+      <listitem>
+        <para>Export and periodically synchronize systems: Please refer to the Integration engine
+          chapter.</para>
+      </listitem>
+    </itemizedlist>
+    <para>Data can be exported on various formats, including DXF 2 (the DHIS 2 meta-data and data
+      exchange format based on XML), CSV, PDF, MS Excel and the DHIS 1.4 XML format. </para>
+    <para>Another aspect of data export is the type of DHIS 2 deployment. In the case of online
+      deployment, all data is saved into a single database only. In an offline deployment, each
+      instance will store data in a separate database in their local system. In an offline
+      deployment, after the data entry is finished, data will have to be manually sent to the next
+      level in the organizational hierarchy. In an on-line application this is not required, as all
+      data is captured over an Internet connection and stored in a central location.</para>
     <section>
       <title>Exporting from DHIS 2</title>
       <para>The export option can be made use of by selecting it as follows. 
 The import or export is available only when the selected organisation (source/destination) has defined datasets. This is because datasets help to define which data is to be or is being exported. Further, which specific data elements get exported is determined by the composition of the dataset being exported.
 If there are no datasets defined for an organisation unit, it indicates that no data values are registered for this level of organisation or lower.
 To access the main Import-Export module, choose <guimenu>Services-&gt;Import-Export</guimenu></para>
-      <para>The exported data values are stored in an ‘xml file’. The file name is defined by the name of the source organisation unit and the period to allow the receiving organisation unit to identify the source and the period of the export file. The XML is placed in your home directory (On Windows this is normally <filename>C:\Documents and Settings\</filename> under the sub-directories <filename>/dhis / import-export</filename>.
-</para>
+      <para>The exported data values are stored in an XML file. The file name is defined by the name
+        of the source organisation unit and the period to allow the receiving organisation unit to
+        identify the source and the period of the export file.</para>
     </section>
     <section>
       <title>Exporting data to other DHIS 2 systems</title>
@@ -55,7 +84,6 @@ If there are no datasets defined for an organisation unit, it indicates that no 
     </section>
     <section>
       <title>Exporting metadata to other DHIS 2 systems</title>
-      <para/>
       <section>
         <title>Metadata export</title>
         <para>Metadata is &quot;data about data&quot;. In the context of DHIS 2, metadata consists
