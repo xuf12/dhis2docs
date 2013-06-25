@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <chapter>
   <title>Import and export</title>
@@ -354,14 +354,4 @@ If there are no datasets defined for an organisation unit, it indicates that no 
       and potential conflicts.</para>
     <para>If you need to manually produce such XML files please refer to the Web API chapter where you can find detailed documentation of the DXF format.</para>
   </section>
-    <section>
-    <title id="importPDFdata">Importing PDF data</title>
-    <para>DHIS 2 supports import of data in the PDF format. This can be used to import data produced by offline PDF data entry form.</para>
-    <para>To import a PDF data  file, navigate to the <emphasis role="italic">PDF Data Import </emphasis>item in the left-side menu. Upload the file and click <emphasis role="italic">Import</emphasis>.</para>
-    <para>After the import
-      process is finished you can follow the link to the import summary, which will inform you about
-      the outcome of the import process in terms of number of records imported, updated and ignored
-      and potential conflicts.</para>
-  </section>
 </chapter>
-
