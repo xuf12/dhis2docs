@@ -762,7 +762,13 @@ Content-Type: application/xml
   <section>
     <title>Writing and reading messages</title>
     <para>DHIS 2 features a mechanism for sending messages for purposes such as user feedback, notifications and general information to  users. Messages are delivered to the DHIS 2 message inbox but can also be sent to the user&apos;s email addresses and mobile phones as SMS. In this example we will see how we can utilize the Web API to send and read messages. We will pretend to be the <emphasis role="italic">DHIS Administrator</emphasis>   user  and  send a message to the  <emphasis role="italic">Mobile</emphasis> user. We will then pretend to be the  mobile user and read our new message.</para>
-    <para>The resource we need to interact with when sending and reading messages is the <emphasis role="italic">messageConversations</emphasis> resource. We start by visiting the Web API entry point at <ulink url="http://apps.dhis2.org/demo/api"/> where we find and follow the link to the <emphasis role="italic">messageConversations</emphasis> resource at <ulink url="http://apps.dhis2.org/demo/api/messageConversations"/>. The description tells us that we can use a POST request to create a new message using the following XML format:</para>
+    <para>The resource we need to interact with when sending and reading messages is the <emphasis
+        role="italic">messageConversations</emphasis> resource. We start by visiting the Web API
+      entry point at <ulink url="http://apps.dhis2.org/demo/api"/> where we find and follow the link
+      to the <emphasis role="italic">messageConversations</emphasis> resource at <ulink
+        url="http://apps.dhis2.org/demo/api/messageConversations"/>. The description tells us that
+      we can use a POST request to create a new message using the following XML format for sending
+      to multiple users:</para>
     <para><screen>&lt;message xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
   &lt;subject&gt;This is the subject&lt;/subject&gt;
   &lt;text&gt;This is the text&lt;/text&gt;
@@ -770,6 +776,26 @@ Content-Type: application/xml
     &lt;user id=&quot;user1ID&quot; /&gt;
     &lt;user id=&quot;user2ID&quot; /&gt;
     &lt;user id=&quot;user3ID&quot; /&gt;
+  &lt;/users&gt;
+&lt;/message&gt;</screen></para>
+    <para>For sending to all users contained in one or more user groups, we can use:</para>
+    <para><screen>&lt;message xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
+  &lt;subject&gt;This is the subject&lt;/subject&gt;
+  &lt;text&gt;This is the text&lt;/text&gt;
+  &lt;userGroups&gt;
+    &lt;userGroup id=&quot;userGroup1ID&quot; /&gt;
+    &lt;userGroup id=&quot;userGroup2ID&quot; /&gt;
+    &lt;userGroup id=&quot;userGroup3ID&quot; /&gt;
+  &lt;/users&gt;
+&lt;/message&gt;</screen></para>
+    <para>For sending to all users connected to one or more organisation units, we can use:</para>
+    <para><screen>&lt;message xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
+  &lt;subject&gt;This is the subject&lt;/subject&gt;
+  &lt;text&gt;This is the text&lt;/text&gt;
+  &lt;organisationUnits&gt;
+    &lt;organisationUnit id=&quot;ou1ID&quot; /&gt;
+    &lt;organisationUnit id=&quot;ou2ID&quot; /&gt;
+    &lt;organisationUnit id=&quot;ou3ID&quot; /&gt;
   &lt;/users&gt;
 &lt;/message&gt;</screen></para>
     <para>Since we want to send a message to our friend the mobile user we need to look up her identifier. We do so by going to the  Web API entry point and follow the link to the <emphasis role="italic">users</emphasis> resource at <ulink url="http://apps.dhis2.org/demo/api/users"/>. We continue by following link to the mobile user at <ulink url="http://apps.dhis2.org/demo/api/users/PhzytPW3g2J"/> where we learn that her identifier is <emphasis role="italic">PhzytPW3g2J</emphasis>. We are now ready to put our XML message together to form a message where we want to ask the mobile user whether she has reported data for January 2012:</para>
