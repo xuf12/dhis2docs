@@ -297,13 +297,17 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       along with getting the last updates from February 2012. This means that every single type that
       has been updated will be
       retrieved.<screen>curl -H &quot;Accept: application/xml&quot; -u admin:district "http://apps.dhis2.org/demo/api/metaData?lastUpdated=02/2012"</screen></para>
-    <para>The meta-data resource can also be used to write or update meta-data by using the POST
+    <para><emphasis role="bold">Example: Create meta-data</emphasis></para>
+    <para>The meta-data resource can also be used to create or update meta-data by using the POST
       HTTP method. The meta-data content can be both XML and JSON, using "application/xml" and
       "application/json" content type respectively. The request payload content will be accepted in
       several formats, including plain text, zipped and gzipped. POSTing a meta-data payload can be
       done for example like this, where metaData.xml is a file in the same directory with the
       meta-data content:</para>
-    <screen>curl -H "Content-Type: application/xml" -u admin:district -d @metaData.xml "http://apps.dhis2.org/demo/api/metaData" -X POST</screen>
+    <screen>curl -H "Content-Type: application/xml" -u admin:district -d @metaData.xml "http://apps.dhis2.org/demo/api/metaData" -X POST -v</screen>
+    <para>The import will happen in a asyncronous process which implies that the response will
+      return as soon as the process is started. The response status code to be expected is 204 No
+      Content.</para>
   </section>
   <section>
     <title>Sending data values</title>
