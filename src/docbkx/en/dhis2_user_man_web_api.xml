@@ -276,7 +276,8 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
               <entry>lastUpdated</entry>
               <entry>date</entry>
               <entry>false</entry>
-              <entry>Three date formats are supported: YEAR | MONTH/YEAR | DAY/MONTH/YEAR</entry>
+              <entry>Several formats are available: yyyy, yyyy-MM, yyyy-MM-dd, yyyyMM,
+                yyyyMMdd</entry>
               <entry>Filters the meta-data based on the lastUpdated field.</entry>
             </row>
           </tbody>
@@ -287,16 +288,17 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       <emphasis role="bold">Example: Get a filtered set of meta-data that was updated since August 1
         2012</emphasis>
     </para>
-    <para>As described in the last section, there is a number of options you can apply to <emphasis role="italic">/api/metaData</emphasis> to give you a filtered view. The use-case we will be
+    <para>As described in the last section, there is a number of options you can apply to <emphasis
+        role="italic">/api/metaData</emphasis> to give you a filtered view. The use-case we will be
       looking into here is where you want a nightly job that synchronizes organisation units. We
       will be using <emphasis role="italic">cURL</emphasis> as the HTTP
-      client.<screen>curl -H &quot;Accept: application/xml&quot; -u admin:district "http://apps.dhis2.org/demo/api/metaData?assumeTrue=false&amp;organisationUnits=true&amp;lastUpdated=01/08/2012"</screen></para>
+      client.<screen>curl -H &quot;Accept: application/xml&quot; -u admin:district "http://apps.dhis2.org/demo/api/metaData?assumeTrue=false&amp;organisationUnits=true&amp;lastUpdated=2012-08-01"</screen></para>
     <para><emphasis role="bold">Example: Get meta-data that was updated since February
         2012</emphasis></para>
     <para>This example will just the default <emphasis role="italic">assumeTrue</emphasis> setting,
       along with getting the last updates from February 2012. This means that every single type that
       has been updated will be
-      retrieved.<screen>curl -H &quot;Accept: application/xml&quot; -u admin:district "http://apps.dhis2.org/demo/api/metaData?lastUpdated=02/2012"</screen></para>
+      retrieved.<screen>curl -H &quot;Accept: application/xml&quot; -u admin:district "http://apps.dhis2.org/demo/api/metaData?lastUpdated=2012-02"</screen></para>
     <para><emphasis role="bold">Example: Create meta-data</emphasis></para>
     <para>The meta-data resource can also be used to create or update meta-data by using the POST
       HTTP method. The meta-data content can be both XML and JSON, using "application/xml" and
