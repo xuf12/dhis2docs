@@ -459,7 +459,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
 	] }
   ]
 }</screen>
-    <para>(from 2.13) as part of the import summary you will also get the UID reference to the event
+    <para>(From 2.13) As part of the import summary you will also get the UID reference to the event
       you just sent, together with a href element which points to the server location of this event. </para>
     <para><emphasis role="bold">Update</emphasis>: To update an existing event, the format of the
       payload is the same, but the URL you are posting to must add the UID reference to the end of
@@ -468,6 +468,9 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para><emphasis role="bold">Delete</emphasis>: To delete an existing event, all you need is to
       send a DELETE request with a UID reference to the server you are
       using.<screen>curl -X DELETE "localhost:8080/api/events/Abcas12322" -u admin:district -v</screen></para>
+    <para><emphasis role="bold">Get</emphasis>: To get an existing event you can issue a GET request
+      including the UID reference like
+      this:<screen>curl "localhost:8080/api/events/Abcas12322" -H "Content-Type:application/xml" -u admin:district -v</screen></para>
     <para>The table below describes the meaning of each element. Most elements should be fairly
       self-explanatory.</para>
     <para>
