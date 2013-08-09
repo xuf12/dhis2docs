@@ -1455,7 +1455,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
                 <entry>Organisation unit hierarchy</entry>
                 <entry>ou</entry>
                 <entry>Organisation unit identifiers, USER_ORGUNIT | USER_ORGUNIT_CHILDREN and
-                  LEVEL-&lt;level>-&lt;boundary-id></entry>
+                  LEVEL-&lt;level>-&lt;boundary-id> and OU_GROUP-&lt;group-id></entry>
               </row>
               <row>
                 <entry>Category option combinations</entry>
@@ -1509,6 +1509,15 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>To query using relative periods and organisation units associated with the current user
       you can use a URL like this:</para>
     <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;dimension=pe:LAST_12_MONTHS&amp;dimension=ou:USER_ORGUNIT</screen>
+    <para>When selecting organisation units for a dimension you can select an entire level below a
+      boundary organisation unit with the LEVEL-&lt;level>-&lt;boundary-id> syntax. Boundary refers
+      to a top node in a sub-hierarchy, meaning that all organisation units at the given level below
+      the given boundary organisation unit in the hierarchy will be included in the response:</para>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012&amp;dimension=ou:LEVEL-3-O6uvpzGd5pu</screen>
+    <para>When selecting organisation units you can also select all organisation units in an
+      organisation unit group to be included as dimension items using the OU_GROUP-&lt;uid> syntax.
+      Both the level and the group items can be repeated any number of times:</para>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012&amp;dimension=ou:OU_GROUP-w0gFTTmsUcF</screen>
     <para>A few things to be aware of when using the analytics resource are listed below.</para>
     <itemizedlist>
       <listitem>
