@@ -1847,6 +1847,27 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>These requests will return immediately and initiate a server-side process.</para>
   </section>
   <section>
+    <title>System resource</title>
+    <para>The system resource provides you with convenient information and functions. The system
+      resource can be found at <emphasis role="italic">/api/system</emphasis>. </para>
+    <para>To genereate valid, random UIDs you can do a GET request to this resource:</para>
+    <screen>http://&lt;server-url>/api/system/uid?n=3</screen>
+    <para>The <emphasis role="italic">n</emphasis> query parameter is optional and indicates how
+      many UIDs you want to be returned with the response. The response will contain a JSON array
+      similar to this:</para>
+    <screen>[
+    "Y0moqFplrX4",
+    "WI0VHXuWQuV",
+    "BRJNBBpu4ki"
+]</screen>
+    <para>To get information about the current system you can do a GET request to this URL:</para>
+    <screen>http://yourdomain.com/api/system/info</screen>
+    <para>The system info response currently includes the following:</para>
+    <screen>{
+    contextPath: "http://yourdomain.com"
+}</screen>
+  </section>
+  <section>
     <title>FRED API</title>
     <para>DHIS 2 from version 2.11 implements support for the current draft
       of the FRED API version 1.0. The project defines itself as <quote>open standard for sharing and updating
