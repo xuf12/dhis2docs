@@ -1454,8 +1454,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
               <row>
                 <entry>Organisation unit hierarchy</entry>
                 <entry>ou</entry>
-                <entry>Organisation unit identifiers, USER_ORGUNIT | USER_ORGUNIT_CHILDREN and
-                  LEVEL-&lt;level>-&lt;boundary-id> and OU_GROUP-&lt;group-id></entry>
+                <entry>Organisation unit identifiers, and keywords USER_ORGUNIT,
+                  USER_ORGUNIT_CHILDREN, LEVEL-&lt;level> and OU_GROUP-&lt;group-id></entry>
               </row>
               <row>
                 <entry>Category option combinations</entry>
@@ -1509,15 +1509,20 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>To query using relative periods and organisation units associated with the current user
       you can use a URL like this:</para>
     <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;dimension=pe:LAST_12_MONTHS&amp;dimension=ou:USER_ORGUNIT</screen>
-    <para>When selecting organisation units for a dimension you can select an entire level below a
-      boundary organisation unit with the LEVEL-&lt;level>-&lt;boundary-id> syntax. Boundary refers
-      to a top node in a sub-hierarchy, meaning that all organisation units at the given level below
-      the given boundary organisation unit in the hierarchy will be included in the response:</para>
-    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012&amp;dimension=ou:LEVEL-3-O6uvpzGd5pu</screen>
+    <para>When selecting organisation units for a dimension you can select an entire level
+      optionally constrained by any number of boundary organisation units with the LEVEL-&lt;level>
+      syntax. Boundary refers to a top node in a sub-hierarchy, meaning that all organisation units
+      at the given level below the given boundary organisation unit in the hierarchy will be
+      included in the response, and is provided as regular organisation unit dimension items:</para>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012&amp;dimension=ou:LEVEL-3</screen>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012&amp;dimension=ou:LEVEL-3;LEVEL-4;O6uvpzGd5pu;lc3eMKXaEf</screen>
     <para>When selecting organisation units you can also select all organisation units in an
       organisation unit group to be included as dimension items using the OU_GROUP-&lt;uid> syntax.
-      Both the level and the group items can be repeated any number of times:</para>
-    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012&amp;dimension=ou:OU_GROUP-w0gFTTmsUcF</screen>
+      The organisation units in the groups can optionally be constrained by any number of boundary
+      organisation units. Both the level and the group items can be repeated any number of
+      times:</para>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012&amp;dimension=ou:OU_GROUP-w0gFTTmsUcF;O6uvpzGd5pu</screen>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012&amp;dimension=ou:OU_GROUP-w0gFTTmsUcF;OU_GROUP-EYbopBOJWsW;O6uvpzGd5pu;lc3eMKXaEf</screen>
     <para>A few things to be aware of when using the analytics resource are listed below.</para>
     <itemizedlist>
       <listitem>
@@ -1853,8 +1858,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>To genereate valid, random UIDs you can do a GET request to this resource:</para>
     <screen>http://&lt;server-url>/api/system/uid?n=3</screen>
     <para>The <emphasis role="italic">n</emphasis> query parameter is optional and indicates how
-      many UIDs you want to be returned with the response. The response will contain a JSON array
-      similar to this:</para>
+      many UIDs you want to be returned with the response. The default is to return one UID. The
+      response will contain a JSON array similar to this:</para>
     <screen>[
     "Y0moqFplrX4",
     "WI0VHXuWQuV",
