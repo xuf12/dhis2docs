@@ -1455,7 +1455,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
                 <entry>Organisation unit hierarchy</entry>
                 <entry>ou</entry>
                 <entry>Organisation unit identifiers, and keywords USER_ORGUNIT,
-                  USER_ORGUNIT_CHILDREN, LEVEL-&lt;level> and OU_GROUP-&lt;group-id></entry>
+                  USER_ORGUNIT_CHILDREN, USER_ORGUNIT_GRANDCHILDREN, LEVEL-&lt;level> and
+                  OU_GROUP-&lt;group-id></entry>
               </row>
               <row>
                 <entry>Category option combinations</entry>
@@ -1610,6 +1611,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
                 <entry>skipMeta</entry>
                 <entry>No</entry>
                 <entry>Exclude the meta data part of response (improves performance)</entry>
+                <entry>false | true</entry>
+              </row>
+              <row>
+                <entry>ignoreLimit</entry>
+                <entry>No</entry>
+                <entry>Ignore max number of values in response - use with care</entry>
                 <entry>false | true</entry>
               </row>
               <row>
