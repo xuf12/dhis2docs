@@ -1904,6 +1904,32 @@ ORDER BY oul.level, par.name, ou.name</screen>
               case-insensitive.</entry>
             <entry>Operators can be EQ | GT | GE | LT | LE | NE | LIKE | IN</entry>
           </row>
+            <row>
+              <entry>asc</entry>
+              <entry>No</entry>
+              <entry>Items to be sorted ascending, can reference executiondate or any items.</entry>
+              <entry>executiondate | item identifier</entry>
+            </row>
+            <row>
+              <entry>desc</entry>
+              <entry>No</entry>
+              <entry>Items to be sorted descending, can reference executiondate or any
+                items.</entry>
+              <entry>executiondate | item identifier</entry>
+            </row>
+            <row>
+              <entry>page</entry>
+              <entry>No</entry>
+              <entry>The page number. Page size of 50 will be used if no page size parameter is
+                specified.</entry>
+              <entry>Numeric positive value</entry>
+            </row>
+            <row>
+              <entry>pageSize</entry>
+              <entry>No</entry>
+              <entry>The page size. Unlimited if not specified.</entry>
+              <entry>Numeric zero or positive value</entry>
+            </row>
         </tbody>
       </tgroup>
     </table>
@@ -1912,13 +1938,23 @@ ORDER BY oul.level, par.name, ou.name</screen>
       operator and a filter.</para>
     <screen>api/analytics/events/query/&lt;program-id>?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd&amp;item=&lt;item-id>&amp;item=&lt;item-id>;&lt;operator>;&lt;filter></screen>
     <para>For example, to retrieve events from the "Inpatient morbidity and mortality" program
-      between January and October 2012, where the "Gender" and "Age" data elements are included and
-      the "Gender" item is filtered on "female", you can use the following query:</para>
-    <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;item=oZg33kd9taw;EQ;female&amp;item=qrur9Dvnyt5;eq;18</screen>
+        between January and October 2012, where the "Gender" and "Age" data elements are included
+        and the "Age" item is filtered on "18", you can use the following query:</para>
+    <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;item=oZg33kd9taw&amp;item=qrur9Dvnyt5;EQ;18</screen>
     <para>To retrieve events for the "Birh" program stage of the "Child programme" program between
       March and December 2012, where the "Weight" data element, filtered for values larger than
       2000, and the "Address" person attribute are included:</para>
     <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;item=UXz7xuGCEhU;GT;2000&amp;item=AMpUYgxuCaE</screen>
+      <para>Sorting can be applied to the query for the "executiondate" of the event and any items.
+        To sort descending on the executiondate and ascending on the "Age" data element item you can
+        use:</para>
+      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;item=qrur9Dvnyt5&amp;desc=executiondate&amp;asc=qrur9Dvnyt5</screen>
+      <para>Paging can be applied to the query by specifying the page number and the page size
+        parameters. If page number is specified but page size is not, a page size of 50 will be
+        used. If page size is specified but page number is not, a page number of 1 will be used. To
+        get the third page of the response with a page size of 20 you can use a query like
+        this:</para>
+      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;item=qrur9Dvnyt5&amp;page=3&amp;pageSize=20</screen>
   </section>
   <section>
     <title>Response formats</title>
@@ -1929,8 +1965,17 @@ ORDER BY oul.level, par.name, ou.name</screen>
         <listitem>
           <para>json (application/json)</para>
         </listitem>
+        <listitem>
+          <para>jsonp (application/javascript)</para>
+        </listitem>
+        <listitem>
+          <para>xls (application/vnd.ms-excel)</para>
+        </listitem>
       </itemizedlist>
-      <para>The response format will look similar to this:</para>
+      <para>As an example, to get a response in Excel format you can use a file extension in the
+        request URL like this:</para>
+      <screen>api/analytics/events/query/eBAyeGv0exc.xls?startDate=2012-01-01&amp;endDate=2012-10-31&amp;item=oZg33kd9taw&amp;item=qrur9Dvnyt5</screen>
+      <para>The default response JSON format will look similar to this:</para>
       <screen>{
     headers: [
         {
@@ -1955,7 +2000,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
             name: "Organisation unit",
             column: "ou",
             type: "java.lang.String",
-            meta: false},
+            meta: false
+        },
         {
             name: "Weight",
             column: "UXz7xuGCEhU",
@@ -1989,12 +2035,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
             "Mombasa road 93"
         ],
         [
-            ",
-            "lHcVxFKBk4O",
+            "j23JsB1h128",
+            "A03MvHHogjR",
             "2012-11-19",
             "DiszpKrYNg8",
             "2965",
-            "Main road 12"
+            "Selassie road 5"
         ]
     ]
 }</screen>
