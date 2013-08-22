@@ -1941,9 +1941,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
         between January and October 2012, where the "Gender" and "Age" data elements are included
         and the "Age" item is filtered on "18", you can use the following query:</para>
     <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;item=oZg33kd9taw&amp;item=qrur9Dvnyt5;EQ;18</screen>
-    <para>To retrieve events for the "Birh" program stage of the "Child programme" program between
-      March and December 2012, where the "Weight" data element, filtered for values larger than
-      2000, and the "Address" person attribute are included:</para>
+    <para>To retrieve events for the "Birth" program stage of the "Child programme" program between
+        March and December 2012, where the "Weight" data element, filtered for values larger than
+        2000, and the "Address" person attribute are included:</para>
     <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;item=UXz7xuGCEhU;GT;2000&amp;item=AMpUYgxuCaE</screen>
       <para>Sorting can be applied to the query for the "executiondate" of the event and any items.
         To sort descending on the executiondate and ascending on the "Age" data element item you can
@@ -1977,47 +1977,47 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <screen>api/analytics/events/query/eBAyeGv0exc.xls?startDate=2012-01-01&amp;endDate=2012-10-31&amp;item=oZg33kd9taw&amp;item=qrur9Dvnyt5</screen>
       <para>The default response JSON format will look similar to this:</para>
       <screen>{
-    headers: [
+    "headers": [
         {
-            name: "Event",
-            column: "psi",
-            type: "java.lang.String",
-            meta: false
+            "name": "Event",
+            "column": "psi",
+            "type": "java.lang.String",
+            "meta": false
         },
         {
-            name: "Program stage",
-            column: "ps",
-            type: "java.lang.String",
-            meta: false
+            "name": "Program stage",
+            "column": "ps",
+            "type": "java.lang.String",
+            "meta": false
         },
         {
-            name: "Execution date",
-            column: "executiondate",
-            type: "java.lang.String",
-            meta: false
+            "name": "Execution date",
+            "column": "executiondate",
+            "type": "java.lang.String",
+            "meta": false
         },
         {
-            name: "Organisation unit",
-            column: "ou",
-            type: "java.lang.String",
-            meta: false
+            "name": "Organisation unit",
+            "column": "ou",
+            "type": "java.lang.String",
+            "meta": false
         },
         {
-            name: "Weight",
-            column: "UXz7xuGCEhU",
-            type: "java.lang.String",
-            meta: false
+            "name": "Weight",
+            "column": "UXz7xuGCEhU",
+            "type": "java.lang.String",
+            "meta": false
         },
         {
-            name: "Address",
-            column: "AMpUYgxuCaE",
-            type: "java.lang.String",
-            meta: false
+            "name": "Address",
+            "column": "AMpUYgxuCaE",
+            "type": "java.lang.String",
+            "meta": false
         }
     ],
-    width: 6,
-    height: 3,
-    rows: [
+    "width": 6,
+    "height": 3,
+    "rows": [
         [
             "sJEabEml8sj",
             "A03MvHHogjR",
@@ -2040,7 +2040,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
             "2012-11-19",
             "DiszpKrYNg8",
             "2965",
-            "Selassie road 5"
+            "Haile Selassie road 5"
         ]
     ]
 }</screen>
