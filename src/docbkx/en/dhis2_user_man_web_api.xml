@@ -1839,6 +1839,176 @@ ORDER BY oul.level, par.name, ou.name</screen>
     </section>
   </section>
   <section>
+    <title>Event analytics</title>
+    <para>In order to query <emphasis role="italic">events</emphasis> captured in DHIS 2 you can
+      work with the <emphasis role="italic">analytics/events/query</emphasis> resource. This
+      resource lets you retrieve events based on a program and optionally a program stage, and lets
+      you retrieve and filter events on any event item. Event items include data elements and, for
+      programs which require person registration, person attributes and person identifiers.</para>
+    <section>
+    <title>Request query parameters</title>
+    <para>The analytics event API let you specify a range of query parameters.</para>
+    <table frame="all">
+	<title>Query parameters</title>
+      <tgroup cols="4">
+        <colspec colname="c1" colnum="1" colwidth="1.72*"/>
+        <colspec colname="c2" colnum="2" colwidth="1*"/>
+        <colspec colname="c3" colnum="3" colwidth="4.68*"/>
+        <colspec colname="c4" colnum="4" colwidth="1.78*"/>
+        <thead>
+          <row>
+            <entry><emphasis role="italic">Query parameter</emphasis></entry>
+            <entry><emphasis role="italic">Required</emphasis></entry>
+            <entry><emphasis role="italic">Description</emphasis></entry>
+            <entry><emphasis role="italic">Options</emphasis></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>program</entry>
+            <entry>Yes</entry>
+            <entry>Program identifier.</entry>
+            <entry>Any program identifier</entry>
+          </row>
+          <row>
+            <entry>stage</entry>
+            <entry>No</entry>
+            <entry>Program stage identifier.</entry>
+            <entry>Any program stage identifier</entry>
+          </row>
+          <row>
+            <entry>startDate</entry>
+            <entry>Yes</entry>
+            <entry>Start date for events.</entry>
+            <entry>Date in yyyy-MM-dd format</entry>
+          </row>
+          <row>
+            <entry>endDate</entry>
+            <entry>Yes</entry>
+            <entry>End date for events.</entry>
+            <entry>Date in yyyy-MM-dd format</entry>
+          </row>
+          <row>
+            <entry>ou</entry>
+            <entry>No</entry>
+            <entry>Organisation unit identifiers in a single parameter value separated by
+              ";".</entry>
+            <entry>Organisation unit identifiers </entry>
+          </row>
+          <row>
+            <entry>item</entry>
+            <entry>Yes</entry>
+            <entry>Item identifier including data elements, person attributes and person
+              identifiers. Parameter can be repeated any number of times. Filters can be applied to
+              an item on the format &lt;item-id>;&lt;operator>;&lt;filter>. Filter values are
+              case-insensitive.</entry>
+            <entry>Operators can be EQ | GT | GE | LT | LE | NE | LIKE | IN</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>Event queries should be on the format described below. Item identifiers can refer to any
+      of data elements, person attributes and person identifiers. Items can optionally have a query
+      operator and a filter.</para>
+    <screen>api/analytics/events/query/&lt;program-id>?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd&amp;item=&lt;item-id>&amp;item=&lt;item-id>;&lt;operator>;&lt;filter></screen>
+    <para>For example, to retrieve events from the "Inpatient morbidity and mortality" program
+      between January and October 2012, where the "Gender" and "Age" data elements are included and
+      the "Gender" item is filtered on "female", you can use the following query:</para>
+    <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;item=oZg33kd9taw;EQ;female&amp;item=qrur9Dvnyt5;eq;18</screen>
+    <para>To retrieve events for the "Birh" program stage of the "Child programme" program between
+      March and December 2012, where the "Weight" data element, filtered for values larger than
+      2000, and the "Address" person attribute are included:</para>
+    <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;item=UXz7xuGCEhU;GT;2000&amp;item=AMpUYgxuCaE</screen>
+  </section>
+  <section>
+    <title>Response formats</title>
+    <para>The default response representation format is JSON. The requests must be using the HTTP
+          <emphasis role="italic">GET</emphasis> method. The following response formats are
+        supported.</para>
+      <itemizedlist>
+        <listitem>
+          <para>json (application/json)</para>
+        </listitem>
+      </itemizedlist>
+      <para>The response format will look similar to this:</para>
+      <screen>{
+    headers: [
+        {
+            name: "Event",
+            column: "psi",
+            type: "java.lang.String",
+            meta: false
+        },
+        {
+            name: "Program stage",
+            column: "ps",
+            type: "java.lang.String",
+            meta: false
+        },
+        {
+            name: "Execution date",
+            column: "executiondate",
+            type: "java.lang.String",
+            meta: false
+        },
+        {
+            name: "Organisation unit",
+            column: "ou",
+            type: "java.lang.String",
+            meta: false},
+        {
+            name: "Weight",
+            column: "UXz7xuGCEhU",
+            type: "java.lang.String",
+            meta: false
+        },
+        {
+            name: "Address",
+            column: "AMpUYgxuCaE",
+            type: "java.lang.String",
+            meta: false
+        }
+    ],
+    width: 6,
+    height: 3,
+    rows: [
+        [
+            "sJEabEml8sj",
+            "A03MvHHogjR",
+            "2012-11-19",
+            "DiszpKrYNg8",
+            "2965",
+            "Main road 12"
+        ],
+        [
+            "bPYOAmnePvJ",
+            "A03MvHHogjR",
+            "2012-11-19",
+            "DiszpKrYNg8",
+            "2643",
+            "Mombasa road 93"
+        ],
+        [
+            ",
+            "lHcVxFKBk4O",
+            "2012-11-19",
+            "DiszpKrYNg8",
+            "2965",
+            "Main road 12"
+        ]
+    ]
+}</screen>
+      <para>The headers section of the response describes the content of the query result. The event
+        unique identifier, the program stage identifier, the execution date and the organistion unit
+        identifier appear as the first four items in the response and will always be present. Next
+        comes the data elements, person attributes and person identifiers which were specified as
+        items in the request. Eeach header contain a readable description as well as the identifier
+        of the item. </para>
+      <para>The rows section contains the events produced by the query. Each row represent a single
+        event.</para>
+  </section>
+  </section>
+  <section>
     <title>Generating resource, analytics and data mart tables</title>
     <para>DHIS 2 features a set of generated database tables which are used as basis for various
       system functionality. These tables can be executed immediately or scheduled to be executed at
