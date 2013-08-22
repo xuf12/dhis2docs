@@ -1901,6 +1901,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
       the full profile information for current user. This endpoint support both <emphasis
         role="italic">GET</emphasis> to retrieve profile and <emphasis role="italic">POST</emphasis>
       to update profile (the exact same format is used),</para>
+    <para><emphasis role="bold"
+        >http://&lt;server-url>/api/currentUser/assignedOrganisationUnits</emphasis> Lists all
+      organisation units directly assigned to the user.</para>
     <para><emphasis role="bold">http://&lt;server-url>/api/currentUser/assignedDataSets</emphasis>
       Gives all the datasets assigned to the users organisation units, and their direct children.
       This endpoint contains all required information to build a form based on one of our datasets.
