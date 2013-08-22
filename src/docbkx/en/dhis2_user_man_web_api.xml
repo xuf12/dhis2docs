@@ -1851,10 +1851,10 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <table frame="all">
 	<title>Query parameters</title>
       <tgroup cols="4">
-        <colspec colname="c1" colnum="1" colwidth="1.72*"/>
+        <colspec colname="c1" colnum="1" colwidth="1.48*"/>
         <colspec colname="c2" colnum="2" colwidth="1*"/>
-        <colspec colname="c3" colnum="3" colwidth="4.68*"/>
-        <colspec colname="c4" colnum="4" colwidth="1.78*"/>
+        <colspec colname="c3" colnum="3" colwidth="3.91*"/>
+        <colspec colname="c4" colnum="4" colwidth="1.53*"/>
         <thead>
           <row>
             <entry><emphasis role="italic">Query parameter</emphasis></entry>
@@ -1940,7 +1940,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>For example, to retrieve events from the "Inpatient morbidity and mortality" program
         between January and October 2012, where the "Gender" and "Age" data elements are included
         and the "Age" item is filtered on "18", you can use the following query:</para>
-    <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;item=oZg33kd9taw&amp;item=qrur9Dvnyt5;EQ;18</screen>
+    <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;ou=DiszpKrYNg8;TNbHYOuQi8s&amp;item=oZg33kd9taw&amp;item=qrur9Dvnyt5;EQ;18</screen>
     <para>To retrieve events for the "Birth" program stage of the "Child programme" program between
         March and December 2012, where the "Weight" data element, filtered for values larger than
         2000, and the "Address" person attribute are included:</para>
