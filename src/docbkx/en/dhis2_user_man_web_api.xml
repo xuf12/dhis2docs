@@ -1880,6 +1880,40 @@ ORDER BY oul.level, par.name, ou.name</screen>
 }</screen>
   </section>
   <section>
+    <title>API for third party data entry client</title>
+    <para>DHIS 2 includes many APIs for fetching resouces from the system. These can be data
+      elements, indicators, organisation units, etc, but this API is not really well suited when you
+      want to build your own third party client and only need information specific to the users
+      assigned data sets / programs. From DHIS 2.13, we also support an additional API for easily
+      building your own data entry client. This API is only available in JSON, since a third party
+      client in most cases these days will be a mobile client, or a client written in
+      JavaScript.</para>
+    <para>All the APIs for this have a starting point at <emphasis role="italic"
+        >http://&lt;server-url>/api/currentUser/*</emphasis>:</para>
+    <para><emphasis role="bold">http://&lt;server-url>/api/currentUser</emphasis> Gives basic
+      information about the user that you are currently logged in as, including username, user
+      credentials, assigned organisation units.</para>
+    <para><emphasis role="bold">http://&lt;server-url>/api/currentUser/dashboard</emphasis> Gives
+      information about currently unread messages and interpretations.</para>
+    <para><emphasis role="bold">http://&lt;server-url>/api/currentUser/inbox</emphasis> Lists all
+      messages and interpretations in the inbox (including replies).</para>
+    <para><emphasis role="bold">http://&lt;server-url>/api/currentUser/user-account</emphasis> Gives
+      the full profile information for current user. This endpoint support both <emphasis
+        role="italic">GET</emphasis> to retrieve profile and <emphasis role="italic">POST</emphasis>
+      to update profile (the exact same format is used),</para>
+    <para><emphasis role="bold">http://&lt;server-url>/api/currentUser/assignedDataSets</emphasis>
+      Gives all the datasets assigned to the users organisation units, and their direct children.
+      This endpoint contains all required information to build a form based on one of our datasets.
+      If you want all descendants of your assigned organisation units, you can use the query
+      parameter <emphasis role="italic">includeDescendants=true</emphasis>.</para>
+    <para><emphasis role="bold">http://&lt;server-url>/api/currentUser/assignedPrograms</emphasis>
+      Gives all the programs assigned to the users organisation units, and their direct children.
+      This endpoint contains all required information to build a form based on one of our datasets.
+      If you want all descendants of your assigned organisation units, you can use the query
+      parameter <emphasis role="italic">includeDescendants=true</emphasis>. Currently only single
+      event with no registration is supported.</para>
+  </section>
+  <section>
     <title>FRED API</title>
     <para>DHIS 2 from version 2.11 implements support for the current draft
       of the FRED API version 1.0. The project defines itself as <quote>open standard for sharing and updating
