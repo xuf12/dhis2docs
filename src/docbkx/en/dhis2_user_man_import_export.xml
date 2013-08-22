@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>Import and export</title>
   <para>In a primary health system, the HMIS typically involves a distributed application, where the
@@ -203,7 +203,7 @@ If there are no datasets defined for an organisation unit, it indicates that no 
         for organisation units, but for all kinds of metadata, allowing for easy import from other
         systems.</para>
     </section>
-      <section>
+      <section id="dhis14import">
       <title>Importing data from DHIS 1.4</title>
       <para>There are two ways to import data from a DHIS 1.4 database; 1) through the 1.4 XML-based export files, or 2) directly from the DHIS 1.4 data file (.mdb). Both are accessible from the DHIS 1.4 Import menu under Import in the Import-Export module.</para>
       <para>It is critical that all data integrity violations which are present in the DHIS 1.4
@@ -276,7 +276,7 @@ If there are no datasets defined for an organisation unit, it indicates that no 
       </section>
     </section>
   </section>
-  <section>
+  <section id="importCSVdata">
     <title>Importing CSV data</title>
     <para>DHIS 2 supports import of data in the CSV format. This can be used to import exchange file produced by DHIS 2 itself. It also comes in handy when you want to import data from a third-party system as CSV is widely supported in applications and is easy to produce manually.</para>
     <para>To import a CSV data exchange file navigate to the <emphasis role="italic">CSV Data Import </emphasis>item in the left-side menu. Upload the exchange file and click <emphasis role="italic">Import</emphasis>.</para>
@@ -344,7 +344,7 @@ If there are no datasets defined for an organisation unit, it indicates that no 
 &quot;DUSpd8Jq3M7&quot;,&quot;201202&quot;,&quot;gP6hn503KUX&quot;,&quot;V6L425pT3A0&quot;,&quot;10&quot;,&quot;bombali&quot;,&quot;2010-04-17&quot;,,&quot;false&quot;
 &quot;DUSpd8Jq3M7&quot;,&quot;201202&quot;,&quot;OjTS752GbZE&quot;,&quot;V6L425pT3A0&quot;,&quot;9&quot;,&quot;bombali&quot;,&quot;2010-04-06&quot;,,&quot;false&quot;</screen>
   </section>
-  <section>
+  <section id="importXMLdata">
     <title>Importing XML data</title>
     <para>DHIS 2 supports import of data in XML format. The format is called DXF (DHIS Exchange
       Format). To import an XML file navigate to the XML Data Import item in the left side menu.
@@ -354,4 +354,11 @@ If there are no datasets defined for an organisation unit, it indicates that no 
       and potential conflicts.</para>
     <para>If you need to manually produce such XML files please refer to the Web API chapter where you can find detailed documentation of the DXF format.</para>
   </section>
+    <section id="importPDFdata">
+    <title>Importing PDF data</title>
+    <para>DHIS 2 supports import of data in the PDF format. This can be used to import data produced by offline PDF data entry forms. Please refer to the section "Data set management" for details on how to produce a PDF form which can be used for offline data entry. </para>
+    <para>To import a PDF data file, navigate to the <emphasis role="italic">PDF Data Import </emphasis>item in the left-side menu. Upload the completed PDF file and click <emphasis role="italic">Import</emphasis>.</para>
+    <para>After the import process is finished, you can follow the link to the import summary, which will inform you about the outcome of the import process in terms of number of records imported, updated and ignored and potential conflicts.</para>
+  </section>
 </chapter>
+
