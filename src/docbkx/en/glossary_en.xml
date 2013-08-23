@@ -25,6 +25,13 @@
         <para>In the context of DHIS2, aggregate data refers to either data elements or indicators that have been derived from other hierarchical data sources. For instance, aggreagte facility data would result from the aggregate totals of all patients that have attended that facility for a particular service. Aggregate district data would result from the aggregate totals of all facilities contained with a particular district.</para>
       </glossdef>
     </glossentry>
+    <glossentry>
+      <glossterm>Application programming interface</glossterm>
+      <abbrev>API</abbrev>
+      <glossdef>
+        <para>An application programming interface is a specification of how different software components should interact with each other. The DHIS2 API (or WebAPI) can be used to interface DHIS2 with other software, to build reports or custom data entry forms. </para>
+      </glossdef>
+    </glossentry>
   </glossdiv>
   <glossdiv>
     <title>B</title>
@@ -40,13 +47,38 @@
     <glossentry>
       <glossterm>Category</glossterm>
       <glossdef>
-        <para>Categories are used to disaggreate data elements. As an example, the data element &quot;Number of confirmed cases of malaria&quot; could be disaggregated into an &quot;Age&quot; category, consisting of category options of &quot;Under 1&quot;, 1-5&quot; and &quot;Over 5&quot;. Category options are used during data entry to simplify the number of data elements that need to be created. During analysis of data, categories function essentially as dimensions. </para>
+        <para>Categories are groups of category options. The are used in combinations to disaggregate data elements. Categories are typically a single type of concept, such as &quot;Age&quot; or &quot;Gender&quot;. </para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Category combinations</glossterm>
+      <glossdef>
+        <para>Category combinations are used to disaggreate data elements. As an example, the data element &quot;Number of confirmed cases of malaria&quot; could be disaggregated subdivided into to categories:  &quot;Age&quot; and &quot;Gender&quot;. In turn each of these categories, would consist of several category options, such as &quot;Male&quot; and &quot;Female&quot; for the gender category. Category combinations may consist of one or several categories. </para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Category combination options</glossterm>
+      <glossdef>
+        <para>Category combination options are dynamically composed of all of the different combinations of category options which compose a category combination. As an example, two categories &quot;Gender&quot; and &quot;Age&quot;, might have options such as &quot;Male&quot;/&quot;Female&quot; and &quot;&lt;5 years&quot;/&quot;&gt;5 years&quot;. The category combination options would then consist of:</para>
+        <simplelist>
+          <member>(Male/&lt;5 years)</member>
+          <member>(Male/&gt;5 years)</member>
+          <member>(Female/&lt;5 years)</member>
+          <member>(Female/&gt;5 years)</member>
+        </simplelist>
       </glossdef>
     </glossentry>
     <glossentry>
       <glossterm>Category option</glossterm>
       <glossdef>
-        <para>Category options are atomic elements that are grouped into categories. Category options are used during data entry to disaggregate data elements into atomic pieces of information. </para>
+        <para>Category options are atomic elements that are grouped into categories.</para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Comma separated values</glossterm>
+      <abbrev>CSV</abbrev>
+      <glossdef>
+        <para>Comma separated values are series of tabular data stored in a plain-text format. They are commonly used with DHIS2 to export and import data values. </para>
       </glossdef>
     </glossentry>
   </glossdiv>
@@ -220,4 +252,14 @@
   </glossdiv>
   <glossdiv>
     <title>Z</title>
-  </glossdiv> --></glossary>
+  </glossdiv> -->  <glossdiv>
+    <title>U</title>
+    <glossentry>
+      <glossterm>Unique identifier</glossterm>
+      <abbrev>UID</abbrev>
+      <glossdef>
+        <para>A unique identifier (UID) is a semi-random series of letters and numbers used by DHIS2 to identify specific resources. UIDs begin with a letter, and are followed by exactly 10 letters or digits. </para>
+      </glossdef>
+    </glossentry>
+  </glossdiv>
+</glossary>
