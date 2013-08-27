@@ -2003,6 +2003,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
             "meta": false
         },
         {
+            "name": "Organisation unit name",
+            "column": "ouname",
+            "type": "java.lang.String",
+            "meta": false
+        },
+        {
             "name": "Weight",
             "column": "UXz7xuGCEhU",
             "type": "java.lang.String",
@@ -2015,6 +2021,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
             "meta": false
         }
     ],
+    "metaData": {
+        "names": {
+            "IpHINAT79UW": "Child Programme",
+            "A03MvHHogjR": "Birth"
+        }
+    },
     "width": 6,
     "height": 3,
     "rows": [
@@ -2023,6 +2035,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
             "A03MvHHogjR",
             "2012-11-19",
             "DiszpKrYNg8",
+            "Ngelehun CHC",
             "2965",
             "Main road 12"
         ],
@@ -2031,6 +2044,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
             "A03MvHHogjR",
             "2012-11-19",
             "DiszpKrYNg8",
+            "Ngelehun CHC",
             "2643",
             "Mombasa road 93"
         ],
@@ -2039,6 +2053,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
             "A03MvHHogjR",
             "2012-11-19",
             "DiszpKrYNg8",
+            "Ngelehun CHC",
             "2965",
             "Haile Selassie road 5"
         ]
