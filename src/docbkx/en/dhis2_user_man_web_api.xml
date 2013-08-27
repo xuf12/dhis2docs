@@ -1851,10 +1851,10 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <table frame="all">
 	<title>Query parameters</title>
       <tgroup cols="4">
-        <colspec colname="c1" colnum="1" colwidth="1.44*"/>
+        <colspec colname="c1" colnum="1" colwidth="1.82*"/>
         <colspec colname="c2" colnum="2" colwidth="1*"/>
-        <colspec colname="c3" colnum="3" colwidth="3.83*"/>
-        <colspec colname="c4" colnum="4" colwidth="1.5*"/>
+        <colspec colname="c3" colnum="3" colwidth="4.35*"/>
+        <colspec colname="c4" colnum="4" colwidth="1.71*"/>
         <thead>
           <row>
             <entry><emphasis role="italic">Query parameter</emphasis></entry>
@@ -1969,11 +1969,11 @@ ORDER BY oul.level, par.name, ou.name</screen>
         <title>Filter operators</title>
         <tgroup cols="2">
           <colspec colname="c1" colnum="1" colwidth="87.75pt"/>
-          <colspec colname="c2" colnum="2" colwidth="245.25pt"/>
+          <colspec colname="c2" colnum="2" colwidth="368.25pt"/>
           <thead>
             <row>
-              <entry>Operator</entry>
-              <entry>Description</entry>
+              <entry><emphasis role="italic">Operator</emphasis></entry>
+              <entry><emphasis role="italic">Description</emphasis></entry>
             </row>
           </thead>
           <tbody>
@@ -2007,7 +2007,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
             </row>
             <row>
               <entry>IN</entry>
-              <entry>Equal to one of multiple values, separate values with colon (:)</entry>
+              <entry>Equal to one of multiple values separated by ":"</entry>
             </row>
           </tbody>
         </tgroup>
@@ -2122,7 +2122,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
         comes the data elements, person attributes and person identifiers which were specified as
         items in the request. Eeach header contain a readable description as well as the identifier
         of the item. </para>
-      <para>The rows section contains the events produced by the query. Each row represent a single
+      <para>The rows section contains the events produced by the query. Each row represents one
         event.</para>
   </section>
   </section>
