@@ -1851,10 +1851,10 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <table frame="all">
 	<title>Query parameters</title>
       <tgroup cols="4">
-        <colspec colname="c1" colnum="1" colwidth="1.48*"/>
+        <colspec colname="c1" colnum="1" colwidth="1.44*"/>
         <colspec colname="c2" colnum="2" colwidth="1*"/>
-        <colspec colname="c3" colnum="3" colwidth="3.91*"/>
-        <colspec colname="c4" colnum="4" colwidth="1.53*"/>
+        <colspec colname="c3" colnum="3" colwidth="3.83*"/>
+        <colspec colname="c4" colnum="4" colwidth="1.5*"/>
         <thead>
           <row>
             <entry><emphasis role="italic">Query parameter</emphasis></entry>
@@ -1956,6 +1956,63 @@ ORDER BY oul.level, par.name, ou.name</screen>
         this:</para>
       <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;item=qrur9Dvnyt5&amp;page=3&amp;pageSize=20</screen>
   </section>
+    <section>
+      <title>Filtering</title>
+      <para>Filters can be applied to data elements, person attributes and person identifiers. The
+        filtering is done through the query parameter value on the following format:</para>
+      <screen>&amp;item=&lt;item-id>;&lt;operator>;&lt;filter-value></screen>
+      <para>As an example, you can filter the "Weight" data element for values greater than 2000 and
+        lower than 4000 like this:</para>
+      <screen>&amp;item=UXz7xuGCEhU;GT;2000&amp;item=UXz7xuGCEhU;LT;4000</screen>
+      <para>The available operators are listed below.</para>
+      <table frame="all">
+        <title>Filter operators</title>
+        <tgroup cols="2">
+          <colspec colname="c1" colnum="1" colwidth="87.75pt"/>
+          <colspec colname="c2" colnum="2" colwidth="245.25pt"/>
+          <thead>
+            <row>
+              <entry>Operator</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>EQ</entry>
+              <entry>Equal to</entry>
+            </row>
+            <row>
+              <entry>GT</entry>
+              <entry>Greater than</entry>
+            </row>
+            <row>
+              <entry>GE</entry>
+              <entry>Greater than or equal to</entry>
+            </row>
+            <row>
+              <entry>LT</entry>
+              <entry>Less than</entry>
+            </row>
+            <row>
+              <entry>LE</entry>
+              <entry>Less than or equal to</entry>
+            </row>
+            <row>
+              <entry>NE</entry>
+              <entry>Not equal to</entry>
+            </row>
+            <row>
+              <entry>LIKE</entry>
+              <entry>Like (free text match)</entry>
+            </row>
+            <row>
+              <entry>IN</entry>
+              <entry>Equal to one of multiple values, separate values with colon (:)</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
   <section>
     <title>Response formats</title>
     <para>The default response representation format is JSON. The requests must be using the HTTP
