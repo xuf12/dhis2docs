@@ -175,20 +175,15 @@ export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
     </itemizedlist>
     <section>
       <title>Basic setup for nginx</title>
-      <para>We recommend using nginx  (http://wiki.nginx.org) as reverse proxy due to its low memory footprint and ease of use. To get the latest version we recommend installing from source:</para>
-      <screen>sudo apt-get install make gcc libpcre3 libpcre3-dev zlibc zlib1g zlib1g-dev libssl-dev openssl</screen>
-      <para><screen>wget http://nginx.org/download/nginx-1.2.6.tar.gz
-tar xzvf nginx-1.2.6.tar.gz
-cd nginx-1.2.6
-./configure --with-http_ssl_module
-make
-sudo make install
-</screen></para>
-      <para>nginx can now be started and stopped with the following commands:</para>
-      <para><screen>sudo /usr/local/nginx/sbin/nginx
-sudo /usr/local/nginx/sbin/nginx -s stop</screen></para>
+      <para>We recommend using nginx (http://wiki.nginx.org) as reverse proxy due to its low memory
+        footprint and ease of use. To install invoke the following:</para>
+      <screen>sudo apt-get install nginx</screen>
+      <para>nginx can now be started, reloaded and stopped with the following commands:</para>
+      <para><screen>sudo /etc/init.d/nginx start
+sudo /etc/init.d/nginx reload
+sudo /etc/init.d/nginx stop</screen></para>
       <para>Now that we have installed nginx we will now continue to configure regular proxying of requests to our Tomcat instance, which we assume runs at <emphasis role="italic">http://localhost:8080</emphasis>. To configure nginx you can open the configuration file by invoking</para>
-      <para><code>sudo nano /usr/local/nginx/conf/nginx.conf</code></para>
+      <para><code>sudo nano /etc/nginx/nginx.conf</code></para>
       <para>nginx configuration is built around a hierarchy of blocks representing http, server and location, where each block inherit settings from parent blocks. The following snippet will configure nginx to proxy pass (redirect) requests from port 80 (which is the port nginx will listen on by default) to our Tomcat instance. It will also make nginx serve requests for static content such as javascript, stylesheets and images and instruct clients to cache it for 4 days which will reduce the load on Tomcat and improve overall performance. Include the following configuration in nginx.conf:</para>
       <para><screen><![CDATA[server {
   listen               80;
@@ -339,7 +334,7 @@ server {
 </screen>
     </section>
     <section>
-      <title>Control scripts for nginx</title>
+      <title>Starting tomcat and nginx on boot-time</title>
       <para>In certain situations a server might reboot unexpectedly. It is hence preferable to have Tomcat and nginx start automatically when the server starts. To achieve that the first step is to create init scripts. Create a new file called <code>tomcat</code> and paste the below content into it (adjust the HOME variable to your environment):</para>
       <screen>#!/bin/sh
 #Tomcat init script
@@ -360,30 +355,12 @@ restart)
         ;;
 esac
 exit 0</screen>
-      <para>Create a new file called <code>nginx</code> and paste the below content into it:</para>
-      <screen>#!/bin/sh
-#nginx init script
-
-DAEMON=/usr/local/nginx/sbin/nginx
-
-case $1 in
-start)
-        start-stop-daemon --start --exec $DAEMON
-        ;;
-stop)
-        start-stop-daemon --stop --exec $DAEMON
-        ;;
-restart)
-        start-stop-daemon --stop --exec $DAEMON
-        sleep 1
-        start-stop-daemon --start --exec $DAEMON
-        ;;
-esac
-exit 0</screen>
-      <para>Move both scripts to the init script directory and make them executable by invoking:</para>
-      <screen>sudo mv tomcat nginx /etc/init.d
-sudo chmod +x /etc/init.d/nginx /etc/init.d/tomcat</screen>
-      <para>Next make sure the init scripts will be invoked during system startup  and shutdown:</para>
+      <para>Move the script to the init script directory and make them executable by
+        invoking:</para>
+      <screen>sudo mv tomcat /etc/init.d
+sudo chmod +x /etc/init.d/tomcat</screen>
+      <para>Next make sure the tomcat and nginx init scripts will be invoked during system startup
+        and shutdown:</para>
       <screen>sudo /usr/sbin/update-rc.d -f nginx defaults 80
 sudo /usr/sbin/update-rc.d -f tomcat defaults 81</screen>
       <para>Tomcat and nginx will now be started at system startup and stopped at system shutdown. If you later need to revert this you can replace <code>defaults</code> with  <code>remove</code> and invoke the above commands again.</para>
