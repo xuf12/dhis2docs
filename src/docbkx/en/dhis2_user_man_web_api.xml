@@ -1898,18 +1898,18 @@ ORDER BY oul.level, par.name, ou.name</screen>
             <row>
               <entry>ouMode</entry>
               <entry>No</entry>
-              <entry>The mode of selecting organisation units. Default is DESCENDANTS, which means
-                all sub units in the hierarchy. CHILDREN refers to immediate children in the
-                hierarchy, while SELECTED refers to the selected organisation units only.</entry>
+              <entry>The mode of selecting organisation units. Default is DESCENDANTS, meaning all
+                sub units in the hierarchy. CHILDREN refers to immediate children in the hierarchy;
+                SELECTED refers to the selected organisation units only.</entry>
               <entry>DESCENDANTS, CHILDREN, SELECTED</entry>
             </row>
           <row>
             <entry>item</entry>
             <entry>Yes</entry>
             <entry>Item identifier including data elements, person attributes and person
-              identifiers. Parameter can be repeated any number of times. Filters can be applied to
-              an item on the format &lt;item-id>;&lt;operator>;&lt;filter>. Filter values are
-              case-insensitive.</entry>
+                identifiers. Can also be the fixed person attributes GENDER and ISDEAD. Parameter
+                can be repeated any number of times. Filters can be applied to an item on the format
+                &lt;item-id>;&lt;operator>;&lt;filter>. Filter values are case-insensitive.</entry>
             <entry>Operators can be EQ | GT | GE | LT | LE | NE | LIKE | IN</entry>
           </row>
             <row>
@@ -1953,6 +1953,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
         March and December 2012, where the "Weight" data element, filtered for values larger than
         2000, and the "Address" person attribute are included:</para>
     <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;ou=O6uvpzGd5pu&amp;item=UXz7xuGCEhU;GT;2000&amp;item=AMpUYgxuCaE</screen>
+      <para>Fixed person attributes can be specified as items as well. Currently the GENDER and
+        ISDEAD attributes are suppored and can be included and filtered on like this:</para>
+      <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;ou=O6uvpzGd5pu&amp;item=UXz7xuGCEhU;GT;2000&amp;item=ISDEAD&amp;item=GENDER;EQ;F</screen>
       <para>Sorting can be applied to the query for the "executiondate" of the event and any items.
         To sort descending on the executiondate and ascending on the "Age" data element item you can
         use:</para>
