@@ -1890,11 +1890,19 @@ ORDER BY oul.level, par.name, ou.name</screen>
           </row>
           <row>
             <entry>ou</entry>
-            <entry>No</entry>
+            <entry>Yes</entry>
             <entry>Organisation unit identifiers in a single parameter value separated by
               ";".</entry>
             <entry>Organisation unit identifiers </entry>
           </row>
+            <row>
+              <entry>ouMode</entry>
+              <entry>No</entry>
+              <entry>The mode of selecting organisation units. Default is DESCENDANTS, which means
+                all sub units in the hierarchy. CHILDREN refers to immediate children in the
+                hierarchy, while SELECTED refers to the selected organisation units only.</entry>
+              <entry>DESCENDANTS, CHILDREN, SELECTED</entry>
+            </row>
           <row>
             <entry>item</entry>
             <entry>Yes</entry>
@@ -1936,25 +1944,25 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>Event queries should be on the format described below. Item identifiers can refer to any
       of data elements, person attributes and person identifiers. Items can optionally have a query
       operator and a filter.</para>
-    <screen>api/analytics/events/query/&lt;program-id>?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd&amp;item=&lt;item-id>&amp;item=&lt;item-id>;&lt;operator>;&lt;filter></screen>
+    <screen>api/analytics/events/query/&lt;program-id>?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd&amp;ou=&lt;ou-id>;&lt;ou-id>&amp;item=&lt;item-id>&amp;item=&lt;item-id>;&lt;operator>;&lt;filter></screen>
     <para>For example, to retrieve events from the "Inpatient morbidity and mortality" program
         between January and October 2012, where the "Gender" and "Age" data elements are included
         and the "Age" item is filtered on "18", you can use the following query:</para>
-    <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;ou=DiszpKrYNg8;TNbHYOuQi8s&amp;item=oZg33kd9taw&amp;item=qrur9Dvnyt5;EQ;18</screen>
+    <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;ou=O6uvpzGd5pu;fdc6uOvgoji&amp;item=oZg33kd9taw&amp;item=qrur9Dvnyt5;EQ;18</screen>
     <para>To retrieve events for the "Birth" program stage of the "Child programme" program between
         March and December 2012, where the "Weight" data element, filtered for values larger than
         2000, and the "Address" person attribute are included:</para>
-    <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;item=UXz7xuGCEhU;GT;2000&amp;item=AMpUYgxuCaE</screen>
+    <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;ou=O6uvpzGd5pu&amp;item=UXz7xuGCEhU;GT;2000&amp;item=AMpUYgxuCaE</screen>
       <para>Sorting can be applied to the query for the "executiondate" of the event and any items.
         To sort descending on the executiondate and ascending on the "Age" data element item you can
         use:</para>
-      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;item=qrur9Dvnyt5&amp;desc=executiondate&amp;asc=qrur9Dvnyt5</screen>
+      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;ou=O6uvpzGd5pu&amp;item=qrur9Dvnyt5&amp;desc=executiondate&amp;asc=qrur9Dvnyt5</screen>
       <para>Paging can be applied to the query by specifying the page number and the page size
         parameters. If page number is specified but page size is not, a page size of 50 will be
         used. If page size is specified but page number is not, a page number of 1 will be used. To
         get the third page of the response with a page size of 20 you can use a query like
         this:</para>
-      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;item=qrur9Dvnyt5&amp;page=3&amp;pageSize=20</screen>
+      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;ou=O6uvpzGd5pu&amp;item=qrur9Dvnyt5&amp;page=3&amp;pageSize=20</screen>
   </section>
     <section>
       <title>Filtering</title>
@@ -2031,7 +2039,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
       </itemizedlist>
       <para>As an example, to get a response in Excel format you can use a file extension in the
         request URL like this:</para>
-      <screen>api/analytics/events/query/eBAyeGv0exc.xls?startDate=2012-01-01&amp;endDate=2012-10-31&amp;item=oZg33kd9taw&amp;item=qrur9Dvnyt5</screen>
+      <screen>api/analytics/events/query/eBAyeGv0exc.xls?startDate=2012-01-01&amp;endDate=2012-10-31&amp;ou=O6uvpzGd5pu&amp;item=oZg33kd9taw&amp;item=qrur9Dvnyt5</screen>
       <para>The default response JSON format will look similar to this:</para>
       <screen>{
     "headers": [
