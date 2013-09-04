@@ -2202,16 +2202,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
 }</screen>
   </section>
   <section>
-    <title>API for third party data entry client</title>
-    <para>DHIS 2 includes many APIs for fetching resouces from the system. These can be data
-      elements, indicators, organisation units, etc, but this API is not really well suited when you
-      want to build your own third party client and only need information specific to the users
-      assigned data sets / programs. From DHIS 2.13, we also support an additional API for easily
-      building your own data entry client. This API is only available in JSON, since a third party
-      client in most cases these days will be a mobile client, or a client written in
-      JavaScript.</para>
-    <para>All the APIs for this have a starting point at <emphasis role="italic"
-        >http://&lt;server-url>/api/currentUser/*</emphasis>:</para>
+    <title>User information and associations</title>
+    <para>In order to get information about the currently authenticated user and its associations to
+      other resources you can work with the <emphasis role="italic">currentUser</emphasis> resource.
+      The current user related resources gives your information which is useful when building
+      clients for instance for data entry and user management. The following describes these
+      resources and their purpose.</para>
     <para><emphasis role="bold">http://&lt;server-url>/api/currentUser</emphasis> Gives basic
       information about the user that you are currently logged in as, including username, user
       credentials, assigned organisation units.</para>
