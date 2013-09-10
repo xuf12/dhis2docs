@@ -221,7 +221,12 @@ sudo /etc/init.d/nginx stop</screen></para>
     </section>
     <section>
       <title>Enabling SSL on nginx</title>
-      <para>In order to improve security it is recommended to configure the server running DHIS to communicate with clients over an encrypted connection and to identify itself to clients using a trusted certificate. This can be achieved through SSL which is an cryptographic communication protocol running on top of TCP/IP.</para>
+      <para>In order to improve security it is recommended to configure the server running DHIS to
+        communicate with clients over an encrypted connection and to identify itself to clients
+        using a trusted certificate. This can be achieved through SSL which is an cryptographic
+        communication protocol running on top of TCP/IP. First, install the required <emphasis
+          role="italic">openssl</emphasis> library:</para>
+      <screen>sudo apt-get install openssl</screen>
       <para>To configure nginx to use SSL you will need a proper SSL certificate from an SSL provider. The cost of a certificate varies a lot depending on encryption strength. An affordable certificate from <ulink url="http://www.rapidsslonline.com">Rapid SSL Online</ulink> should serve most purposes. To generate the CSR (certificate signing request) you can invoke the  command below. When you are prompted for the <emphasis role="italic">Common Name</emphasis>, enter the fully qualified domain name for the site you are securing.</para>
       <screen>openssl req -new -newkey rsa:2048 -nodes -keyout server.key -out server.csr</screen>
       <para>When you have received your certificate files (.pem or .crt) you will need to place it

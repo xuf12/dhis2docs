@@ -1412,6 +1412,208 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <screen>http://apps.dhis2.org/dev/api/sqlViews/dI68mLkP1wN/data.csv?level:4</screen>
   </section>
   <section>
+    <title>Dashboard</title>
+    <para>The dashboard is designed to give you an overview of multiple analytical items like maps,
+      charts, pivot tables and reports which together can provide a comprehensive overview of your
+      data. Dashboards are available in the Web API through the <emphasis role="italic"
+        >dashboards</emphasis> resource. A dashboard contains a list of dashboard <emphasis
+        role="italic">items</emphasis>. An item can represent a single resource, like a chart, map
+      or report table, or represent a list of links to analytical resources, like reports,
+      resources, tabular reports and users. A dashboard item can contain up to eight links.
+      Typically, a dashboard client could choose to visualize the single-object items directly in a
+      user interface, while rendering the multi-object items as clickable links. </para>
+    <section>
+    <title>Browsing dashboards</title>
+    <para>To get a list of your dashboards with basic information including identifier, name and
+        link in JSON format you can make a <emphasis role="italic">GET</emphasis> request to the
+        following URL:</para>
+    <screen>/api/dashboards.json</screen>
+    <para>The dashboards resource will provide a list of dashboards. Remember that the dashboard
+        object is shared so the list will be affected by the currently authenticated user. You can
+        retrieve more information about a specific dashboard by following its link, similar to
+        this:</para>
+    <screen>api/dashboards/vQFhmLJU5sK.json</screen>
+    <para>A dashboard contains information like name and creation date and an array of dashboard
+        items. The response in JSON format will look something like this (access and user attributes
+        omitted for
+        brevity):<screen>{
+  "name": "Antenatal Care",
+  "created": "2013-09-08T20:55:58.060+0000",
+  "items": [{
+    "created": "2013-09-09T18:28:37.813+0000",
+    "chart": {
+      "name": "ANC: Visits by facility type",
+      "created": "2013-05-30T09:58:42.023+0000",
+      "href": "http://apps.dhis2.org/demo/api/charts/iRCGbznvyG8",
+      "id": "iRCGbznvyG8"
+    },
+    "map": null,
+    "reportTable": null,
+    "type": "chart",
+    "contentCount": 1,
+    "id": "FeQp4qJ63M8"
+  },
+  {
+    "created": "2013-09-08T21:00:07.266+0000",
+    "user": null,
+    "chart": null,
+    "map": null,
+    "reportTable": null,
+    "reports": [{
+      "name": "ANC: 1st Visit Cumulative Chart",
+      "created": "2012-11-13T13:49:45.007+0000",
+      "href": "http://apps.dhis2.org/demo/api/reports/Kvg1AhYHM8Q",
+      "id": "Kvg1AhYHM8Q"
+    }, {
+      "name": "ANC: Coverages This Year",
+      "created": "2012-11-13T13:52:01.630+0000",
+      "href": "http://apps.dhis2.org/demo/api/reports/qYVNH1wkZR0",
+      "id": "qYVNH1wkZR0"
+    }],
+    "type": "reports",
+    "contentCount": 2,
+    "id": "AWUUWkPzops"
+  }]
+}</screen></para>
+  </section>
+    <section>
+      <title>Searching dashboards</title>
+      <para>When setting a dashboard it is convenient from a consumer point of view to be able to
+        search for various analytical resources using the <emphasis role="italic"
+          >/dashboards/q</emphasis> resource. This resource lets you search for matches on the name
+        property of the following objects: charts, maps, report tables, users, reports and
+        resources. You can do a search by making a <emphasis role="italic">GET</emphasis> request on
+        the following resource URL pattern, where my-query should be replaced by the preferred
+        search query:</para>
+      <screen>api/dashboards/q/my-query.json</screen>
+      <para>JSON and XML response formats are currently supported. The response in JSON format will
+        contain references to matching resources and counts of how many matches were found in total
+        and for each type of resource. It will look similar to this:</para>
+      <screen>{
+    "charts": [{
+        "name": "ANC: 1-3 dropout rate Yearly",
+        "id": "LW0O27b7TdD"
+    }, {
+        "name": "ANC: 1 and 3 coverage Yearly",
+        "id": "UlfTKWZWV4u"
+    }, {
+        "name": "ANC: 1st and 3rd trends Monthly",
+        "id": "gnROK20DfAA"
+    }],
+    "maps": [{
+        "name": "ANC: 1st visit at facility (fixed) 2013",
+        "id": "YOEGBvxjAY0"
+    }, {
+        "name": "ANC: 3rd visit coverage 2012 by district",
+        "id": "ytkZY3ChM6J"
+    }],
+    "reportTables": [{
+        "name": "ANC: ANC 1 Visits Cumulative Numbers",
+        "id": "tWg9OiyV7mu"
+    }],
+    "reports": [{
+        "name": "ANC: 1st Visit Cumulative Chart",
+        "id": "Kvg1AhYHM8Q"
+    }, {
+        "name": "ANC: Coverages This Year",
+        "id": "qYVNH1wkZR0"
+    }],
+    "searchCount": 8,
+    "chartCount": 3,
+    "mapCount": 2,
+    "reportTableCount": 1,
+    "reportCount": 2,
+    "userCount": 0,
+    "patientTabularReportCount": 0,
+    "resourceCount": 0
+}</screen>
+    </section>
+    <section>
+      <title>Creating, updating and removing dashboards</title>
+      <para>Creating, updating and deleting dashboards follow standard REST semantics. In order to
+        create a new dashboard you can make a <emphasis role="italic">POST</emphasis> request to the
+          <emphasis role="italic">/api/dashboards</emphasis> resource. From a consumer perspective
+        it might be convenient to first create a dashboard and later add items to it. JSON and XML
+        formats are supported for the request payload. To create a dashboard with the name "My
+        dashboard" you can use a payload in JSON like this:</para>
+      <screen>{
+  "name": "My dashboard"
+}</screen>
+      <para>To update, e.g. rename, a dashboard, you can make a <emphasis role="italic"
+          >PUT</emphasis> request with a similar request payload the same api/dasboards
+        resource.</para>
+      <para>To remove a dashboard, you can make a <emphasis role="italic">DELETE</emphasis> request
+        to the specific dashboard resource similar to this:</para>
+      <screen>api/dashboards/vQFhmLJU5sK.json</screen>
+    </section>
+    <section>
+      <title>Adding, moving and removing dashboard items and content</title>
+      <para>In order to add dashboard items a consumer can use the <emphasis role="italic"
+          >/api/dashboards/&lt;dashboard-id>/items/content</emphasis> resource, where
+        &lt;dashboard-id> should be replaced by the relevant dashboard identifier. The request must
+        use the <emphasis role="italic">POST</emphasis> method. The URL syntax and parameters are
+        described in detail in the following table.</para>
+      <table frame="all">
+        <title>Items content parameters</title>
+        <tgroup cols="3">
+          <colspec colname="c1" colnum="1" colwidth="1*"/>
+          <colspec colname="c2" colnum="2" colwidth="2.32*"/>
+          <colspec colname="c3" colnum="3" colwidth="1.86*"/>
+          <thead>
+            <row>
+              <entry>Query parameter</entry>
+              <entry>Description</entry>
+              <entry>Options</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>type</entry>
+              <entry>Type of the resource to be represented by the dashboard item</entry>
+              <entry>chart | map | reportTable | users | reports | reportTables | resources |
+                patientTabularReports</entry>
+            </row>
+            <row>
+              <entry>id</entry>
+              <entry>Identifier of the resource to be represented by the dashboard item</entry>
+              <entry>Resource identifier</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>A <emphasis role="italic">POST</emphasis> request URL for adding a chart to a specific
+        dashboard could look like this, where the last id query parameter value is the chart
+        resource identifier:</para>
+      <screen>/api/dashboards/vQFhmLJU5sK/items/content?type=chart&amp;id=LW0O27b7TdD</screen>
+      <para>When adding resource of type map, chart and report table, the API will create and add a
+        new item to the dashboard. When adding a resource of type users, reports, report tables and
+        resources, the API will try to add the resource to an existing dashboard item of the same
+        type. If no item of same type or no item of same type with less than eight resources
+        associated with it exists, the API will create a new dashboard item and the resource to
+        it.</para>
+      <para>In order to move a dashboard item to a new position within the list of items in a
+        dashboard, a consumer can make a <emphasis role="italic">POST</emphasis> request to the
+        following resource URL, where &lt;dashboard-id> should be replaced by the identifier of the
+        dashboard, &lt;item-id> should be replaced by the identifier of the dashboard item and
+        &lt;index> should be replaced by the new position of the item in the dashboard, where the
+        index is
+        zero-based:<screen>/api/dashboards/&lt;dashboard-id>/items/&lt;item-id>/position/&lt;index></screen></para>
+      <para>To remove a dashboard item completely from a specific dashboard a consumer can make a
+          <emphasis role="italic">DELETE</emphasis> request to the below resource URL, where
+        &lt;dashboard-id> should be replaced by the identifier of the dashboard and &lt;item-id>
+        should be replaced by the identifier of the dashboard item. The dashboard item identifiers
+        can be retrieved through a GET request to the dashboard resource URL.</para>
+      <screen>/api/dashboards/&lt;dashboard-id>/items/&lt;item-id></screen>
+      <para>To remove a specific content resource within a dashboard item a consumer can make a
+          <emphasis role="italic">DELETE</emphasis> request to the below resource URL, where
+        &lt;content-resource-id> should be replaced by the identifier of a resource associated with
+        the dasboard item; e.g. the identifier of a report or a user. For instance, this can be used
+        to remove a single report from a dashboard item of type reports, as opposed to removing the
+        dashboard item completely:</para>
+      <screen>/api/dashboards/&lt;dashboard-id>/items/&lt;item-id>/content/&lt;content-resource-id></screen>
+    </section>
+  </section>
+  <section>
     <title>Analytics</title>
     <para>To access analytical, aggregated data in DHIS 2 you can work with the <emphasis role="italic">analytics</emphasis> resource. The analytics resource is powerful as it lets
       you query and retrieve data aggregated along all available data dimensions. For instance, you
