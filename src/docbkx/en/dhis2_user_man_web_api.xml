@@ -2177,6 +2177,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <para>As an example, you can filter the "Weight" data element for values greater than 2000 and
         lower than 4000 like this:</para>
       <screen>&amp;item=UXz7xuGCEhU;GT;2000&amp;item=UXz7xuGCEhU;LT;4000</screen>
+      <para>You can filter the "Age" data element for multiple, specific ages using the IN operator
+        like this:<screen>&amp;item=qrur9Dvnyt5;IN;18:19:20</screen></para>
       <para>The available operators are listed below.</para>
       <table frame="all">
         <title>Filter operators</title>
