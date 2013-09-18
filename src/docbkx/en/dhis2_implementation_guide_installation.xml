@@ -53,9 +53,8 @@
     <para><emphasis role="bold">Create new user (optional)</emphasis></para>
     <para>You might want to create a dedicated user for running DHIS - it is not recommended to run
       as the root user. Create a new user called dhis by invoking <code>useradd -d /home/dhis -m
-        dhis -s /bin/bash</code> If there is no admin group already you must create it by invoking
-        <code>groupadd admin</code> Then make the user able to perform operations temporarily as
-      root by invoking <code>usermod -G admin dhis</code> Then invoke <code>passwd dhis</code> to
+        dhis -s /bin/bash</code> Then make the user able to perform operations temporarily as root
+      user by invoking <code>usermod -G sudo dhis</code>. Then invoke <code>passwd dhis</code> to
       set the password for your account. Make sure you set a strong password with at least 15 random
       characters. You might want to disable remote login for the root account for improved security
       by invoking <code>sudo passwd -l root</code></para>
@@ -276,6 +275,8 @@ server {
     proxy_set_header  X-Forwarded-Proto  https;
  }
 }]]></screen>
+      <para>In order for tomcat to properly produce Location uris using https you also need to add two other parameters to the Connector in tomcat's server.xml file:</para>
+      <para><screen>&lt;Connector scheme=&quot;https&quot; proxyPort=&quot;443&quot; ... &gt;</screen></para>
     </section>
     <section>
       <title>Enabling caching, compression and SSL on nginx</title>
