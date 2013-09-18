@@ -2407,36 +2407,24 @@ ORDER BY oul.level, par.name, ou.name</screen>
   </section>
   <section>
     <title>User information and associations</title>
-    <para>In order to get information about the currently authenticated user and its associations to
-      other resources you can work with the <emphasis role="italic">currentUser</emphasis> resource.
-      The current user related resources gives your information which is useful when building
-      clients for instance for data entry and user management. The following describes these
+    <para>In order to get information about the currently authenticated user and its associations to other resources you can work with the <emphasis
+        role="italic">me</emphasis> resource (you can also refer to it by its old name <emphasis role="italic">currentUser</emphasis>). The current user related
+      resources gives your information which is useful when building clients for instance for data entry and user management. The following describes these
       resources and their purpose.</para>
-    <para><emphasis role="bold">http://&lt;server-url>/api/currentUser</emphasis> Gives basic
-      information about the user that you are currently logged in as, including username, user
-      credentials, assigned organisation units.</para>
-    <para><emphasis role="bold">http://&lt;server-url>/api/currentUser/dashboard</emphasis> Gives
-      information about currently unread messages and interpretations.</para>
-    <para><emphasis role="bold">http://&lt;server-url>/api/currentUser/inbox</emphasis> Lists all
-      messages and interpretations in the inbox (including replies).</para>
-    <para><emphasis role="bold">http://&lt;server-url>/api/currentUser/user-account</emphasis> Gives
-      the full profile information for current user. This endpoint support both <emphasis
-        role="italic">GET</emphasis> to retrieve profile and <emphasis role="italic">POST</emphasis>
-      to update profile (the exact same format is used),</para>
-    <para><emphasis role="bold"
-        >http://&lt;server-url>/api/currentUser/assignedOrganisationUnits</emphasis> Lists all
-      organisation units directly assigned to the user.</para>
-    <para><emphasis role="bold">http://&lt;server-url>/api/currentUser/assignedDataSets</emphasis>
-      Gives all the datasets assigned to the users organisation units, and their direct children.
-      This endpoint contains all required information to build a form based on one of our datasets.
-      If you want all descendants of your assigned organisation units, you can use the query
-      parameter <emphasis role="italic">includeDescendants=true</emphasis>.</para>
-    <para><emphasis role="bold">http://&lt;server-url>/api/currentUser/assignedPrograms</emphasis>
-      Gives all the programs assigned to the users organisation units, and their direct children.
-      This endpoint contains all required information to build a form based on one of our datasets.
-      If you want all descendants of your assigned organisation units, you can use the query
-      parameter <emphasis role="italic">includeDescendants=true</emphasis>. Currently only single
-      event with no registration is supported.</para>
+    <para><emphasis role="bold">http://&lt;server-url>/api/me</emphasis> Gives basic information about the user that you are currently logged in as, including
+      username, user credentials, assigned organisation units.</para>
+    <para><emphasis role="bold">http://&lt;server-url>/api/me/dashboard</emphasis> Gives information about currently unread messages and interpretations.</para>
+    <para><emphasis role="bold">http://&lt;server-url>/api/me/inbox</emphasis> Lists all messages and interpretations in the inbox (including replies).</para>
+    <para><emphasis role="bold">http://&lt;server-url>/api/me/user-account</emphasis> Gives the full profile information for current user. This endpoint support
+      both <emphasis role="italic">GET</emphasis> to retrieve profile and <emphasis role="italic">POST</emphasis> to update profile (the exact same format is
+      used),</para>
+    <para><emphasis role="bold">http://&lt;server-url>/api/me/organisationUnits</emphasis> Lists all organisation units directly assigned to the user.</para>
+    <para><emphasis role="bold">http://&lt;server-url>/api/me/dataSets</emphasis> Gives all the datasets assigned to the users organisation units, and their
+      direct children. This endpoint contains all required information to build a form based on one of our datasets. If you want all descendants of your
+      assigned organisation units, you can use the query parameter <emphasis role="italic">includeDescendants=true</emphasis>.</para>
+    <para><emphasis role="bold">http://&lt;server-url>/api/me/programs</emphasis> Gives all the programs assigned to the users organisation units, and their
+      direct children. This endpoint contains all required information to build a form based on one of our datasets. If you want all descendants of your
+      assigned organisation units, you can use the query parameter <emphasis role="italic">includeDescendants=true</emphasis>.</para>
   </section>
   <section>
     <title>FRED API</title>
