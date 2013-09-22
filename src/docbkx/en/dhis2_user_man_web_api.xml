@@ -2432,13 +2432,28 @@ ORDER BY oul.level, par.name, ou.name</screen>
         >systemSettings</emphasis> resource. A system setting is a simple key-value pair, where both
       the key and the value are plain text strings. To save or update a system setting you can make
       a <emphasis role="italic">POST</emphasis> request to the following URL:</para>
-    <screen>/api/systemSettings/my-key?value=my-value</screen>
-    <para>You should replace my-key with your real key and my-value with your real value. To
-      retrieve the value for a given key in plain text you can make a <emphasis role="italic"
-        >GET</emphasis> request to the following URL:</para>
+    <screen>/api/systemSettings/my-key?value=my-val</screen>
+    <para>You should replace my-key with your real key and my-val with your real value. To retrieve
+      the value for a given key in plain text you can make a <emphasis role="italic">GET</emphasis>
+      request to the following URL:</para>
     <screen>/api/systemSettings/my-key</screen>
     <para>To delete a system setting, you can make a <emphasis role="italic">DELETE</emphasis>
       request to the URL similar to the one used above for retrieval.</para>
+  </section>
+  <section>
+    <title>User settings</title>
+    <para>You can manipulate user settings by interacting with the <emphasis role="italic"
+        >userSettings</emphasis> resource. A user setting is a simple key-value pair, where both the
+      key and the value are plain text strings. The user setting will be linked to the user who is
+      authenticated for the Web API request. To save or update a user setting you can make a
+        <emphasis role="italic">POST</emphasis> request to the following URL:</para>
+    <screen>/api/userSettings/my-key?value=my-val</screen>
+    <para>You should replace my-key with your real key and my-val with your real value. To retrieve
+      the value for a given key in plain text you can make a <emphasis role="italic">GET</emphasis>
+      request to the following URL:</para>
+    <screen>/api/userSettings/my-key</screen>
+    <para>To delete a user setting, you can make a <emphasis role="italic">DELETE</emphasis> request
+      to the URL similar to the one used above for retrieval.</para>
   </section>
   <section>
     <title>FRED API</title>
