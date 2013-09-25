@@ -769,6 +769,60 @@ Content-Type: application/xml
       For xml you use <emphasis role="italic">application/xml</emphasis>; for csv you use <emphasis role="italic">application/csv</emphasis>.</para>
   </section>
   <section>
+    <title>Reading dataset complete registrations</title>
+    <para>This section explains how to retrieve dataset completeness registrations. We will be using
+      the completeDataSetRegistrations resource. The query parameters to use are these:</para>
+    <table frame="all">
+      <title>Data value set query parameters</title>
+      <tgroup cols="2">
+        <colspec colname="c1" colnum="1" colwidth="195pt"/>
+        <colspec colname="c2" colnum="2" colwidth="605.25pt"/>
+        <thead>
+          <row>
+            <entry><emphasis role="italic">Parameter</emphasis></entry>
+            <entry><emphasis role="italic">Description</emphasis></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>dataSet</entry>
+            <entry>Data set identifier, can be specified multiple times</entry>
+          </row>
+          <row>
+            <entry>period</entry>
+            <entry>PeriodType</entry>
+          </row>
+          <row>
+            <entry>startDate</entry>
+            <entry>Start date for the time span of the values to export</entry>
+          </row>
+          <row>
+            <entry>endDate</entry>
+            <entry>End date for the time span of the values to export</entry>
+          </row>
+          <row>
+            <entry>orgUnit</entry>
+            <entry>Organisation unit identifier, can be specified multiple times</entry>
+          </row>
+          <row>
+            <entry>children</entry>
+            <entry>Whether to include the children in the hierarchy of the organisation
+              units</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>The dataSet and orgUnit parameters can be repeated in order to include multiple data sets
+      and organisation units. An example request looks like
+      this:<screen>curl "http://apps.dhis2.org/dev/api/completeDataSetRegistrations?dataSet=pBOMPrpg1QX&amp;dataSet=BfMAe6Itzgt&amp;startDate=2013-01-01&amp;endDate=2013-01-31
+  &amp;orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:application/xml" -u admin:district -v</screen></para>
+    <para>You can get the response in <emphasis role="italic">xml</emphasis> and <emphasis
+        role="italic">json</emphasis> format. You can indicate which response format you prefer
+      through the <emphasis role="italic">Accept</emphasis> HTTP header like in the example above.
+      For xml you use <emphasis role="italic">application/xml</emphasis>; for json you use <emphasis
+        role="italic">application/json</emphasis>.</para>
+  </section>
+  <section>
     <title>Writing and reading messages</title>
     <para>DHIS 2 features a mechanism for sending messages for purposes such as user feedback, notifications and general information to  users. Messages are delivered to the DHIS 2 message inbox but can also be sent to the user&apos;s email addresses and mobile phones as SMS. In this example we will see how we can utilize the Web API to send and read messages. We will pretend to be the <emphasis role="italic">DHIS Administrator</emphasis>   user  and  send a message to the  <emphasis role="italic">Mobile</emphasis> user. We will then pretend to be the  mobile user and read our new message.</para>
     <para>The resource we need to interact with when sending and reading messages is the <emphasis
