@@ -2419,6 +2419,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <title>System resource</title>
     <para>The system resource provides you with convenient information and functions. The system
       resource can be found at <emphasis role="italic">/api/system</emphasis>. </para>
+    <section>
+	<title>Generate UIDs</title>
     <para>To genereate valid, random UIDs you can do a GET request to this resource:</para>
     <screen>http://&lt;server-url>/api/system/uid?n=3</screen>
     <para>The <emphasis role="italic">n</emphasis> query parameter is optional and indicates how
@@ -2428,7 +2430,10 @@ ORDER BY oul.level, par.name, ou.name</screen>
     "Y0moqFplrX4",
     "WI0VHXuWQuV",
     "BRJNBBpu4ki"
-]</screen>
+]   </screen>
+    </section>
+    <section>
+    <title>View system information</title>
     <para>To get information about the current system you can do a GET request to this URL:</para>
     <screen>http://yourdomain.com/api/system/info</screen>
     <para>The system info response currently includes the below properties. Note that if the user
@@ -2457,7 +2462,53 @@ ORDER BY oul.level, par.name, ou.name</screen>
     },
     memoryInfo: "Mem Total in JVM: 848 Free in JVM: 581 Max Limit: 1333",
     cpuCores: 8    
-}</screen>
+    }</screen>
+    </section>
+    <section>
+      <title>Check if username and password combination is correct</title>
+      <para>To check if some user credentials (a username and password combination) is correct you
+        can make a <emphasis role="italic">GET</emphasis> request to the following resource using
+          <emphasis role="italic">basic authentication</emphasis>:</para>
+      <screen>http://&lt;server-url>/api/system/ping</screen>
+      <para>You can detect the outcome of the authentication by inspecting the <emphasis
+          role="italic">HTTP status code</emphasis> of the response header. The meaning of the
+        possible status codes are listed below. Note that this applies to Web API requests in
+        general.</para>
+      <table frame="all">
+        <title>HTTP Status codes</title>
+        <tgroup cols="3">
+          <colspec colname="c1" colnum="1" colwidth="1.1*"/>
+          <colspec colname="c2" colnum="2" colwidth="1*"/>
+          <colspec colname="newCol3" colnum="3" colwidth="6.09*"/>
+          <thead>
+            <row>
+              <entry>HTTP Status code</entry>
+              <entry>Description</entry>
+              <entry>Outcome</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>200</entry>
+              <entry>OK</entry>
+              <entry>Authentication was successful</entry>
+            </row>
+            <row>
+              <entry>302</entry>
+              <entry>Found</entry>
+              <entry>No credentials was supplied with the request - no authentication took
+                place</entry>
+            </row>
+            <row>
+              <entry>401</entry>
+              <entry>Bad credentials</entry>
+              <entry>The username and password combination was incorrect - authentication not
+                successful</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
   </section>
   <section>
     <title>User information and associations</title>
