@@ -382,7 +382,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       events from the "Inpatient morbidity and mortality" program for the "Ngelehun CHC" facility in
       the demo database can be seen below:</para>
     <screen>&lt;?xml version="1.0" encoding="utf-8"?>
-&lt;event program="eBAyeGv0exc" orgUnit="DiszpKrYNg8" eventDate="2013-05-17" completed="true" storedBy="admin">
+&lt;event program="eBAyeGv0exc" orgUnit="DiszpKrYNg8" eventDate="2013-05-17" status="COMPLETED" storedBy="admin">
   &lt;coordinate latitude="59.8" longitude="10.9" />
   &lt;dataValues>
     &lt;dataValue dataElement="qrur9Dvnyt5" value="22" />
@@ -398,7 +398,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
   "program": "eBAyeGv0exc",
   "orgUnit": "DiszpKrYNg8",
   "eventDate": "2013-05-17",
-  "completed": true,
+  "status": "COMPLETED",
   "storedBy": "admin",
   "coordinate": {
     "latitude": "59.8",
@@ -417,14 +417,14 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <screen>&lt;?xml version="1.0" encoding="utf-8"?>
 &lt;events>
   &lt;eventList>
-    &lt;event program="eBAyeGv0exc" orgUnit="DiszpKrYNg8" eventDate="2013-05-17" completed="true" storedBy="admin">
+    &lt;event program="eBAyeGv0exc" orgUnit="DiszpKrYNg8" eventDate="2013-05-17" status="COMPLETED" storedBy="admin">
       &lt;coordinate latitude="59.8" longitude="10.9" />
       &lt;dataValues>
         &lt;dataValue dataElement="qrur9Dvnyt5" value="22" />
         &lt;dataValue dataElement="oZg33kd9taw" value="Male" />
       &lt;/dataValues>
     &lt;/event>
-    &lt;event program="eBAyeGv0exc" orgUnit="DiszpKrYNg8" eventDate="2013-05-17" completed="true" storedBy="admin">
+    &lt;event program="eBAyeGv0exc" orgUnit="DiszpKrYNg8" eventDate="2013-05-17" status="COMPLETED" storedBy="admin">
       &lt;coordinate latitude="59.8" longitude="10.9" />
       &lt;dataValues>
         &lt;dataValue dataElement="qrur9Dvnyt5" value="26" />
@@ -442,7 +442,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     "program": "eBAyeGv0exc",
     "orgUnit": "DiszpKrYNg8",
     "eventDate": "2013-05-17",
-    "completed": true,
+    "status": "COMPLETED",
     "storedBy": "admin",
     "coordinate": {
       "latitude": "59.8",
@@ -456,7 +456,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     "program": "eBAyeGv0exc",
     "orgUnit": "DiszpKrYNg8",
     "eventDate": "2013-05-17",
-    "completed": true,
+    "status": "COMPLETED",
     "storedBy": "admin",
     "coordinate": {
       "latitude": "59.8",
@@ -529,10 +529,11 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
               <entry>The date of when the event occured</entry>
             </row>
             <row>
-              <entry>completed</entry>
-              <entry>boolean</entry>
+              <entry>status</entry>
+              <entry>enum</entry>
               <entry>false</entry>
-              <entry>true | false</entry>
+              <entry>ACTIVE, COMPLETED, VISITED,<para>FUTURE_VISIT,
+                  LATE_VISIT,</para><para>SKIPPED</para></entry>
               <entry>Whether the event is complete or not</entry>
             </row>
             <row>
@@ -2622,6 +2623,24 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <para>For deleting a person, no payload is required. All that is needed is to the the HTTP
         method <emphasis role="bold">DELETE</emphasis> to the person resource, including the
         identifier.</para>
+    </section>
+    <section>
+      <title>Querying for persons</title>
+      <para>There are several parameter available on the <emphasis role="italic">persons</emphasis>
+        resource for querying for persons, <emphasis role="italic">orgUnit</emphasis> paramter is
+        always required (unless querying for identifiers, please see below).</para>
+      <para><emphasis role="bold">Query for
+        orgUnit:</emphasis><screen>GET /api/persons?orgUnit=OU_UID</screen></para>
+      <para><emphasis role="bold">Query for
+        orgUnit/program:</emphasis><screen>GET /api/persons?orgUnit=OU_UID&amp;program=PROGRAM_UID</screen></para>
+      <para><emphasis role="bold">Query for
+        orgUnit/program/gender:</emphasis><screen>GET /api/persons?orgUnit=OU_UID&amp;program=PROGRAM_UID&amp;gender=MALE/FEMALE/TRANSGENDER</screen></para>
+      <para><emphasis role="bold">Query for
+        orgUnit/gender:</emphasis><screen>GET /api/persons?orgUnit=OU_UID&amp;gender=MALE/FEMALE/TRANSGENDER</screen></para>
+      <para><emphasis role="bold">Query for system
+        identifier:</emphasis><screen>GET /api/persons?identifier=SYSTEM_ID</screen></para>
+      <para><emphasis role="bold">Query for specific identifier
+        type:</emphasis><screen>GET /api/persons?identifierType=ID_TYPE_UID&amp;identifier=ID_VALUE</screen></para>
     </section>
     <section>
       <title>Enrolling a person into a program</title>
