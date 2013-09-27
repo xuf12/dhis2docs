@@ -2106,12 +2106,13 @@ ORDER BY oul.level, par.name, ou.name</screen>
     </section>
   </section>
   <section>
-    <title>Event analytics</title>
+    <title>Event query analytics</title>
     <para>In order to query <emphasis role="italic">events</emphasis> captured in DHIS 2 you can
       work with the <emphasis role="italic">analytics/events/query</emphasis> resource. This
       resource lets you retrieve events based on a program and optionally a program stage, and lets
-      you retrieve and filter events on any event item. Event items include data elements and, for
-      programs which require person registration, person attributes and person identifiers.</para>
+      you retrieve and filter events on any event item. Event items include data elements, person
+      attributes and person identifiers. The query analytics resource will simply return events
+      matching a set of criteria and does not perform any aggregation.</para>
     <section>
     <title>Request query parameters</title>
     <para>The analytics event API let you specify a range of query parameters.</para>
@@ -2316,44 +2317,44 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <screen>{
     "headers": [
         {
-            "name": "Event",
-            "column": "psi",
+            "name": "psi",
+            "column": "Event",
             "type": "java.lang.String",
             "meta": false
         },
         {
-            "name": "Program stage",
-            "column": "ps",
+            "name": "ps",
+            "column": "Program stage",
             "type": "java.lang.String",
             "meta": false
         },
         {
-            "name": "Execution date",
-            "column": "executiondate",
+            "name": "executiondate",
+            "column": "Execution date",
             "type": "java.lang.String",
             "meta": false
         },
         {
-            "name": "Organisation unit",
-            "column": "ou",
+            "name": "ou",
+            "column": "Organisation unit",
             "type": "java.lang.String",
             "meta": false
         },
         {
-            "name": "Organisation unit name",
-            "column": "ouname",
+            "name": "ouname",
+            "column": "Organisation unit name",
             "type": "java.lang.String",
             "meta": false
         },
         {
-            "name": "Weight",
-            "column": "UXz7xuGCEhU",
+            "name": "UXz7xuGCEhU",
+            "column": "Weight",
             "type": "java.lang.String",
             "meta": false
         },
         {
-            "name": "Address",
-            "column": "AMpUYgxuCaE",
+            "name": "AMpUYgxuCaE",
+            "column": "Address",
             "type": "java.lang.String",
             "meta": false
         }
@@ -2405,6 +2406,80 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <para>The rows section contains the events produced by the query. Each row represents one
         event.</para>
   </section>
+  </section>
+  <section>
+    <title>Event aggregate analytics</title>
+    <para>In order to get aggregated numbers of <emphasis role="italic">events</emphasis> captured
+      in DHIS 2 you can work with the <emphasis role="italic">analytics/events/aggregate</emphasis>
+      resource. This resource lets you retrieve aggregate data based on a program and optionally a
+      program stage, and lets you filter on any event item. Event items include data elements,
+      person attributes and person identifiers.</para>
+    <para>The aggregate events resource follows much of the same semantics as the event query
+      resource which is described in the previous section. Please make sure you have read the
+      mentioned section before progressing.</para>
+    <para>Aggregate event queries should be on the format described below.</para>
+    <screen>api/analytics/events/aggregate/&lt;program-id>?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd&amp;ou=&lt;ou-id>;&lt;ou-id>&amp;item=&lt;item-id>&amp;item=&lt;item-id>;&lt;operator>;&lt;filter></screen>
+    <para>For example, to retrieve aggregate numbers for events from the "Inpatient morbidity and
+      mortality" program between January and October 2012, where the "Gender" and "Age" data
+      elements are included, the "Age" item is filtered on "18" and the "Gender" item is filtered on
+      "Female", you can use the following query:</para>
+    <screen>api/analytics/events/aggregate/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;ou=O6uvpzGd5pu;fdc6uOvgo7ji&amp;item=oZg33kd9taw;EQ;Female&amp;item=qrur9Dvnyt5;EQ;18</screen>
+    <para>The response will look similar to this:</para>
+    <screen>{
+    "headers": [
+        {
+            "name": "item",
+            "column": "Item",
+            "type": "java.lang.String",
+            "hidden": false,
+            "meta": false
+        },
+        {
+            "name": "pe",
+            "column": "Period",
+            "type": "java.lang.String",
+            "hidden": false,
+            "meta": false
+        },
+        {
+            "name": "ou",
+            "column": "Organisation unit",
+            "type": "java.lang.String",
+            "hidden": false,
+            "meta": false
+        },
+        {
+            "name": "value",
+            "column": "Value",
+            "type": "java.lang.String",
+            "hidden": false,
+            "meta": false
+        }
+    ],
+    "metaData": {
+        "names": {
+            "eBAyeGv0exc": "Inpatient morbidity and mortality"
+        }
+    },
+    "width": 4,
+    "height": 2,
+    "rows": [
+        [
+            "Gender: Female",
+            "",
+            "O6uvpzGd5pu",
+            "57"
+        ],
+        [
+            "Age: 18",
+            "",
+            "O6uvpzGd5pu",
+            "57"
+        ]
+    ]
+}</screen>
+    <para>The response tells us that for the "Gender" item filtered on "Female" and organisation
+      unit with identifier "O6uvpzGd5pu" there are 57 cases.</para>
   </section>
   <section>
     <title>Generating resource, analytics and data mart tables</title>
