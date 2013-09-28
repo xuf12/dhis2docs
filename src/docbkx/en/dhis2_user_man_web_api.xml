@@ -2110,19 +2110,63 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>In order to query <emphasis role="italic">events</emphasis> captured in DHIS 2 you can
       work with the <emphasis role="italic">analytics/events/query</emphasis> resource. This
       resource lets you retrieve events based on a program and optionally a program stage, and lets
-      you retrieve and filter events on any event item. Event items include data elements, person
-      attributes and person identifiers. The query analytics resource will simply return events
-      matching a set of criteria and does not perform any aggregation.</para>
+      you retrieve and filter events on any event dimensions. Event items include data elements,
+      person attributes, person identifiers, organisation units and periods. The query analytics
+      resource will simply return events matching a set of criteria and does not perform any
+      aggregation. The event dimensions are listed in the table below.</para>
+    <table frame="all">
+      <title>Event dimensions</title>
+      <tgroup cols="3">
+        <colspec colname="c1" colnum="1" colwidth="2.49*"/>
+        <colspec colname="c2" colnum="2" colwidth="1*"/>
+        <colspec colname="c3" colnum="3" colwidth="5.42*"/>
+        <thead>
+          <row>
+            <entry>Dimension</entry>
+            <entry>Dimension id</entry>
+            <entry>Description</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>Data elements</entry>
+            <entry>&lt;uid></entry>
+            <entry>Data element identifiers</entry>
+          </row>
+          <row>
+            <entry>Person attributes</entry>
+            <entry>&lt;uid>, GENDER, ISDEAD</entry>
+            <entry>Person attribute identifiers and the fixed person attributes GENDER and
+              ISDEAD</entry>
+          </row>
+          <row>
+            <entry>Person identifiers</entry>
+            <entry>&lt;uid></entry>
+            <entry>Person identifier identifiers</entry>
+          </row>
+          <row>
+            <entry>Organisation units</entry>
+            <entry>ou</entry>
+            <entry>Organisation unit identifiers</entry>
+          </row>
+          <row>
+            <entry>Periods</entry>
+            <entry>pe</entry>
+            <entry>ISO periods and relative periods, see "date and period format"</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
     <section>
     <title>Request query parameters</title>
     <para>The analytics event API let you specify a range of query parameters.</para>
     <table frame="all">
 	<title>Query parameters</title>
       <tgroup cols="4">
-        <colspec colname="c1" colnum="1" colwidth="1.82*"/>
+        <colspec colname="c1" colnum="1" colwidth="1.8*"/>
         <colspec colname="c2" colnum="2" colwidth="1*"/>
-        <colspec colname="c3" colnum="3" colwidth="4.35*"/>
-        <colspec colname="c4" colnum="4" colwidth="1.71*"/>
+        <colspec colname="c3" colnum="3" colwidth="4.3*"/>
+        <colspec colname="c4" colnum="4" colwidth="1.69*"/>
         <thead>
           <row>
             <entry><emphasis role="italic">Query parameter</emphasis></entry>
@@ -2157,11 +2201,13 @@ ORDER BY oul.level, par.name, ou.name</screen>
             <entry>Date in yyyy-MM-dd format</entry>
           </row>
           <row>
-            <entry>ou</entry>
+            <entry>dimension</entry>
             <entry>Yes</entry>
-            <entry>Organisation unit identifiers in a single parameter value separated by
-                ":".</entry>
-            <entry>Organisation unit identifiers </entry>
+            <entry>Dimension identifier including data elements, person attributes, person
+                identifiers, periods and organisation units. Parameter can be repeated any number of
+                times. Filters can be applied to a dimension on the format
+                &lt;item-id>:&lt;operator>:&lt;filter>. Filter values are case-insensitive.</entry>
+            <entry>Operators can be EQ | GT | GE | LT | LE | NE | LIKE | IN</entry>
           </row>
             <row>
               <entry>ouMode</entry>
@@ -2171,15 +2217,6 @@ ORDER BY oul.level, par.name, ou.name</screen>
                 SELECTED refers to the selected organisation units only.</entry>
               <entry>DESCENDANTS, CHILDREN, SELECTED</entry>
             </row>
-          <row>
-            <entry>item</entry>
-            <entry>Yes</entry>
-            <entry>Item identifier including data elements, person attributes and person
-                identifiers. Can also be the fixed person attributes GENDER and ISDEAD. Parameter
-                can be repeated any number of times. Filters can be applied to an item on the format
-                &lt;item-id>:&lt;operator>:&lt;filter>. Filter values are case-insensitive.</entry>
-            <entry>Operators can be EQ | GT | GE | LT | LE | NE | LIKE | IN</entry>
-          </row>
             <row>
               <entry>asc</entry>
               <entry>No</entry>
@@ -2212,11 +2249,11 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>Event queries should be on the format described below. Item identifiers can refer to any
       of data elements, person attributes and person identifiers. Items can optionally have a query
       operator and a filter.</para>
-    <screen>api/analytics/events/query/&lt;program-id>?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd&amp;ou=&lt;ou-id>:&lt;ou-id>&amp;item=&lt;item-id>&amp;item=&lt;item-id>:&lt;operator>:&lt;filter></screen>
+    <screen>api/analytics/events/query/&lt;program-id>?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd&amp;ou=&lt;ou-id>;&lt;ou-id>&amp;item=&lt;item-id>&amp;item=&lt;item-id>:&lt;operator>:&lt;filter></screen>
     <para>For example, to retrieve events from the "Inpatient morbidity and mortality" program
         between January and October 2012, where the "Gender" and "Age" data elements are included
         and the "Age" item is filtered on "18", you can use the following query:</para>
-    <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;ou=O6uvpzGd5pu:fdc6uOvgoji&amp;item=oZg33kd9taw&amp;item=qrur9Dvnyt5:EQ:18</screen>
+    <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;ou=O6uvpzGd5pu;fdc6uOvgoji&amp;item=oZg33kd9taw&amp;item=qrur9Dvnyt5:EQ:18</screen>
     <para>To retrieve events for the "Birth" program stage of the "Child programme" program between
         March and December 2012, where the "Weight" data element, filtered for values larger than
         2000, and the "Address" person attribute are included:</para>
@@ -2421,18 +2458,18 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>In order to get aggregated numbers of <emphasis role="italic">events</emphasis> captured
       in DHIS 2 you can work with the <emphasis role="italic">analytics/events/aggregate</emphasis>
       resource. This resource lets you retrieve aggregate data based on a program and optionally a
-      program stage, and lets you filter on any event item. Event items include data elements,
-      person attributes and person identifiers.</para>
+      program stage, and lets you filter on any event dimension. Event dimensions include data
+      elements, person attributes, person identifiers, periods and organisation units.</para>
     <para>The aggregate events resource follows much of the same semantics as the event query
       resource which is described in the previous section. Please make sure you have read the
       mentioned section before progressing.</para>
     <para>Aggregate event queries should be on the format described below.</para>
-    <screen>api/analytics/events/aggregate/&lt;program-id>?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd&amp;ou=&lt;ou-id>:&lt;ou-id>&amp;item=&lt;item-id>&amp;item=&lt;item-id>:&lt;operator>:&lt;filter></screen>
+    <screen>api/analytics/events/aggregate/&lt;program-id>?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd&amp;dimension=ou:&lt;ou-id>;&lt;ou-id>&amp;dimension=&lt;item-id>&amp;dimension=&lt;item-id>:&lt;operator>:&lt;filter></screen>
     <para>For example, to retrieve aggregate numbers for events from the "Inpatient morbidity and
       mortality" program between January and October 2012, where the "Gender" and "Age" data
       elements are included, the "Age" item is filtered on "18" and the "Gender" item is filtered on
       "Female", you can use the following query:</para>
-    <screen>api/analytics/events/aggregate/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;ou=O6uvpzGd5pu:fdc6uOvgo7ji&amp;item=oZg33kd9taw:EQ:Female&amp;item=qrur9Dvnyt5:EQ:18</screen>
+    <screen>api/analytics/events/aggregate/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:O6uvpzGd5pu;fdc6uOvgo7ji&amp;dimension=oZg33kd9taw:EQ:Female&amp;dimension=qrur9Dvnyt5:GT:50</screen>
     <para>The response will look similar to this:</para>
     <screen>{
     "headers": [
@@ -2440,35 +2477,30 @@ ORDER BY oul.level, par.name, ou.name</screen>
             "name": "oZg33kd9taw",
             "column": "Gender",
             "type": "java.lang.String",
-            "hidden": false,
             "meta": false
         },
         {
             "name": "qrur9Dvnyt5",
             "column": "Age",
             "type": "java.lang.String",
-            "hidden": false,
             "meta": false
         },
         {
             "name": "pe",
             "column": "Period",
             "type": "java.lang.String",
-            "hidden": false,
             "meta": false
         },
         {
             "name": "ou",
             "column": "Organisation unit",
             "type": "java.lang.String",
-            "hidden": false,
             "meta": false
         },
         {
             "name": "value",
             "column": "Value",
             "type": "java.lang.String",
-            "hidden": false,
             "meta": false
         }
     ],
@@ -2477,30 +2509,51 @@ ORDER BY oul.level, par.name, ou.name</screen>
             "eBAyeGv0exc": "Inpatient morbidity and mortality"
         }
     },
-    "width": 4,
-    "height": 2,
+    "width": 5,
+    "height": 39,
     "rows": [
         [
             "Female",
-            "19",
+            "95",
             "",
             "O6uvpzGd5pu",
-            "51"
+            "2"
         ],
         [
             "Female",
-            "20",
+            "63",
             "",
             "O6uvpzGd5pu",
-            "83"
+            "2"
         ],
         [
             "Female",
-            "18",
+            "67",
             "",
             "O6uvpzGd5pu",
-            "57"
-        ]
+            "1"
+        ],
+        [
+            "Female",
+            "71",
+            "",
+            "O6uvpzGd5pu",
+            "1"
+        ],
+        [
+            "Female",
+            "75",
+            "",
+            "O6uvpzGd5pu",
+            "14"
+        ],
+        [
+            "Female",
+            "73",
+            "",
+            "O6uvpzGd5pu",
+            "5"
+        ],
     ]
 }</screen>
     <para>The response tells us that for the "Gender" item filtered on "Female" and organisation
