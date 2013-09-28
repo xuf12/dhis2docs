@@ -2347,6 +2347,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
             "meta": false
         },
         {
+            "name": "oucode",
+            "column": "Organisation unit code",
+            "type": "java.lang.String",
+            "meta": false
+        },
+        {
             "name": "UXz7xuGCEhU",
             "column": "Weight",
             "type": "java.lang.String",
@@ -2374,6 +2380,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
             "2012-11-19",
             "DiszpKrYNg8",
             "Ngelehun CHC",
+            "OU101",
             "2965",
             "Main road 12"
         ],
@@ -2383,6 +2390,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
             "2012-11-19",
             "DiszpKrYNg8",
             "Ngelehun CHC",
+            "OU101",
             "2643",
             "Mombasa road 93"
         ],
@@ -2392,6 +2400,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
             "2012-11-19",
             "DiszpKrYNg8",
             "Ngelehun CHC",
+            "OU101",
             "2965",
             "Haile Selassie road 5"
         ]
@@ -2428,8 +2437,15 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <screen>{
     "headers": [
         {
-            "name": "item",
-            "column": "Item",
+            "name": "oZg33kd9taw",
+            "column": "Gender",
+            "type": "java.lang.String",
+            "hidden": false,
+            "meta": false
+        },
+        {
+            "name": "qrur9Dvnyt5",
+            "column": "Age",
             "type": "java.lang.String",
             "hidden": false,
             "meta": false
@@ -2465,13 +2481,22 @@ ORDER BY oul.level, par.name, ou.name</screen>
     "height": 2,
     "rows": [
         [
-            "Gender: Female",
+            "Female",
+            "19",
             "",
             "O6uvpzGd5pu",
-            "57"
+            "51"
         ],
         [
-            "Age: 18",
+            "Female",
+            "20",
+            "",
+            "O6uvpzGd5pu",
+            "83"
+        ],
+        [
+            "Female",
+            "18",
             "",
             "O6uvpzGd5pu",
             "57"
