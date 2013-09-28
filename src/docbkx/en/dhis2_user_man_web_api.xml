@@ -2160,7 +2160,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
             <entry>ou</entry>
             <entry>Yes</entry>
             <entry>Organisation unit identifiers in a single parameter value separated by
-              ";".</entry>
+                ":".</entry>
             <entry>Organisation unit identifiers </entry>
           </row>
             <row>
@@ -2177,7 +2177,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
             <entry>Item identifier including data elements, person attributes and person
                 identifiers. Can also be the fixed person attributes GENDER and ISDEAD. Parameter
                 can be repeated any number of times. Filters can be applied to an item on the format
-                &lt;item-id>;&lt;operator>;&lt;filter>. Filter values are case-insensitive.</entry>
+                &lt;item-id>:&lt;operator>:&lt;filter>. Filter values are case-insensitive.</entry>
             <entry>Operators can be EQ | GT | GE | LT | LE | NE | LIKE | IN</entry>
           </row>
             <row>
@@ -2212,18 +2212,18 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>Event queries should be on the format described below. Item identifiers can refer to any
       of data elements, person attributes and person identifiers. Items can optionally have a query
       operator and a filter.</para>
-    <screen>api/analytics/events/query/&lt;program-id>?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd&amp;ou=&lt;ou-id>;&lt;ou-id>&amp;item=&lt;item-id>&amp;item=&lt;item-id>;&lt;operator>;&lt;filter></screen>
+    <screen>api/analytics/events/query/&lt;program-id>?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd&amp;ou=&lt;ou-id>:&lt;ou-id>&amp;item=&lt;item-id>&amp;item=&lt;item-id>:&lt;operator>:&lt;filter></screen>
     <para>For example, to retrieve events from the "Inpatient morbidity and mortality" program
         between January and October 2012, where the "Gender" and "Age" data elements are included
         and the "Age" item is filtered on "18", you can use the following query:</para>
-    <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;ou=O6uvpzGd5pu;fdc6uOvgoji&amp;item=oZg33kd9taw&amp;item=qrur9Dvnyt5;EQ;18</screen>
+    <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;ou=O6uvpzGd5pu:fdc6uOvgoji&amp;item=oZg33kd9taw&amp;item=qrur9Dvnyt5:EQ:18</screen>
     <para>To retrieve events for the "Birth" program stage of the "Child programme" program between
         March and December 2012, where the "Weight" data element, filtered for values larger than
         2000, and the "Address" person attribute are included:</para>
-    <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;ou=O6uvpzGd5pu&amp;item=UXz7xuGCEhU;GT;2000&amp;item=AMpUYgxuCaE</screen>
+    <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;ou=O6uvpzGd5pu&amp;item=UXz7xuGCEhU:GT:2000&amp;item=AMpUYgxuCaE</screen>
       <para>Fixed person attributes can be specified as items as well. Currently the GENDER and
         ISDEAD attributes are suppored and can be included and filtered on like this:</para>
-      <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;ou=O6uvpzGd5pu&amp;item=UXz7xuGCEhU;GT;2000&amp;item=ISDEAD&amp;item=GENDER;EQ;F</screen>
+      <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;ou=O6uvpzGd5pu&amp;item=UXz7xuGCEhU:GT:2000&amp;item=ISDEAD&amp;item=GENDER:EQ:F</screen>
       <para>Sorting can be applied to the query for the "executiondate" of the event and any items.
         To sort descending on the executiondate and ascending on the "Age" data element item you can
         use:</para>
@@ -2239,12 +2239,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <title>Filtering</title>
       <para>Filters can be applied to data elements, person attributes and person identifiers. The
         filtering is done through the query parameter value on the following format:</para>
-      <screen>&amp;item=&lt;item-id>;&lt;operator>;&lt;filter-value></screen>
+      <screen>&amp;item=&lt;item-id>:&lt;operator>:&lt;filter-value></screen>
       <para>As an example, you can filter the "Weight" data element for values greater than 2000 and
         lower than 4000 like this:</para>
-      <screen>&amp;item=UXz7xuGCEhU;GT;2000&amp;item=UXz7xuGCEhU;LT;4000</screen>
+      <screen>&amp;item=UXz7xuGCEhU:GT:2000&amp;item=UXz7xuGCEhU:LT:4000</screen>
       <para>You can filter the "Age" data element for multiple, specific ages using the IN operator
-        like this:<screen>&amp;item=qrur9Dvnyt5;IN;18:19:20</screen></para>
+        like this:<screen>&amp;item=qrur9Dvnyt5:IN:18;19;20</screen></para>
       <para>The available operators are listed below.</para>
       <table frame="all">
         <title>Filter operators</title>
@@ -2427,12 +2427,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
       resource which is described in the previous section. Please make sure you have read the
       mentioned section before progressing.</para>
     <para>Aggregate event queries should be on the format described below.</para>
-    <screen>api/analytics/events/aggregate/&lt;program-id>?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd&amp;ou=&lt;ou-id>;&lt;ou-id>&amp;item=&lt;item-id>&amp;item=&lt;item-id>;&lt;operator>;&lt;filter></screen>
+    <screen>api/analytics/events/aggregate/&lt;program-id>?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd&amp;ou=&lt;ou-id>:&lt;ou-id>&amp;item=&lt;item-id>&amp;item=&lt;item-id>:&lt;operator>:&lt;filter></screen>
     <para>For example, to retrieve aggregate numbers for events from the "Inpatient morbidity and
       mortality" program between January and October 2012, where the "Gender" and "Age" data
       elements are included, the "Age" item is filtered on "18" and the "Gender" item is filtered on
       "Female", you can use the following query:</para>
-    <screen>api/analytics/events/aggregate/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;ou=O6uvpzGd5pu;fdc6uOvgo7ji&amp;item=oZg33kd9taw;EQ;Female&amp;item=qrur9Dvnyt5;EQ;18</screen>
+    <screen>api/analytics/events/aggregate/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;ou=O6uvpzGd5pu:fdc6uOvgo7ji&amp;item=oZg33kd9taw:EQ:Female&amp;item=qrur9Dvnyt5:EQ:18</screen>
     <para>The response will look similar to this:</para>
     <screen>{
     "headers": [
