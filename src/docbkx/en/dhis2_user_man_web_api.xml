@@ -2272,8 +2272,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:O6uvpzGd5pu;fdc6uOvgoji&amp;dimension=oZg33kd9taw&amp;dimension=qrur9Dvnyt5:EQ:18</screen>
     <para>To retrieve events for the "Birth" program stage of the "Child programme" program between
         March and December 2012, where the "Weight" data element, filtered for values larger than
-        2000, and the "Address" person attribute are included:</para>
-    <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=UXz7xuGCEhU:GT:2000&amp;dimension=AMpUYgxuCaE</screen>
+        2000:</para>
+    <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=UXz7xuGCEhU:GT:2000</screen>
       <para>Fixed person attributes can be specified as dimensions as well. Currently the GENDER and
         ISDEAD attributes are suppored and can be included and filtered on like this:</para>
       <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=UXz7xuGCEhU:GT:2000&amp;dimension=ISDEAD&amp;dimension=GENDER:EQ:F</screen>
@@ -2470,23 +2470,34 @@ ORDER BY oul.level, par.name, ou.name</screen>
   </section>  
   <section>
     <title>Event aggregate analytics</title>
-    <para>In order to get aggregated numbers of <emphasis role="italic">events</emphasis> captured
-      in DHIS 2 you can work with the <emphasis role="italic">analytics/events/aggregate</emphasis>
-      resource. This resource lets you retrieve aggregate data based on a program and optionally a
-      program stage, and lets you filter on any event dimension. Event dimensions include data
-      elements, person attributes, person identifiers, periods and organisation units.</para>
-    <para>The aggregate events resource follows much of the same semantics as the event query
-      resource which is described in the previous section. Please make sure you have read the
-      mentioned section before progressing.</para>
+    <para>In order to get <emphasis role="italic">aggregated numbers</emphasis> of events captured
+        in DHIS 2 you can work with the <emphasis role="italic"
+          >analytics/events/aggregate</emphasis> resource. This resource lets you retrieve aggregate
+        data based on a program and optionally a program stage, and lets you filter on any event
+        dimension. In other words, it does not return the event information itself, rather the
+        aggregate numbers of events matching the request query. Event dimensions include data
+        elements, person attributes, person identifiers, periods and organisation units.</para>
     <para>Aggregate event queries should be on the format described below.</para>
     <screen>api/analytics/events/aggregate/&lt;program-id>?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd&amp;dimension=ou:&lt;ou-id>;&lt;ou-id>&amp;dimension=&lt;item-id>&amp;dimension=&lt;item-id>:&lt;operator>:&lt;filter></screen>
     <para>For example, to retrieve aggregate numbers for events from the "Inpatient morbidity and
         mortality" program between January and October 2012, where the "Gender" and "Age" data
         elements are included, the "Age" dimension item is filtered on "18" and the "Gender" item is
         filtered on "Female", you can use the following query:</para>
-    <screen>api/analytics/events/aggregate/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:O6uvpzGd5pu;fdc6uOvgo7ji&amp;dimension=oZg33kd9taw:EQ:Female&amp;dimension=qrur9Dvnyt5:GT:50</screen>
+    <screen>api/analytics/events/aggregate/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=oZg33kd9taw:EQ:Female&amp;dimension=qrur9Dvnyt5:GT:50</screen>
+      <para>To retrieve data for fixed and relative periods instead of start and end date, in this
+        case May 2012 and last 12 months, and the organisation unit associated with the current
+        user, you can use the following query:</para>
+      <screen>api/analytics/events/aggregate/eBAyeGv0exc?dimension=pe:201205;LAST_12_MONTHS&amp;dimension=ou:USER_ORGUNIT;fdc6uOvgo7ji&amp;dimension=oZg33kd9taw</screen>
+      <para>In order to specify "Female" as a filter for "Gender" for the data response, meaning
+        "Gender" will not be part of the response but will filter the aggregate numbers in it, you
+        can use the following syntax:</para>
+      <screen>api/analytics/events/aggregate/eBAyeGv0exc?dimension=pe:2012;&amp;dimension=ou:O6uvpzGd5pu&amp;filter=oZg33kd9taw:EQ:Female</screen>
+      <para>To specify the "Bo" organisation unit and the period "2012" as filters, and the "Mode of
+        discharge" and Gender" as dimensions, where "Gender" is filtered on the "Male" item, you can
+        use a query like this:</para>
+      <screen>api/analytics/events/aggregate/eBAyeGv0exc?filter=pe:2012&amp;filter=ou:O6uvpzGd5pu&amp;dimension=fWIAEtYVEGk&amp;dimension=oZg33kd9taw:EQ:Male</screen>
     <section>
-	<title>Reponse formats</title>
+	<title>Response formats</title>
     <para>The default response representation format is JSON. The requests must be using the HTTP
             <emphasis role="italic">GET</emphasis> method. The response will look similar to
           this:</para>
@@ -2575,8 +2586,6 @@ ORDER BY oul.level, par.name, ou.name</screen>
         ],
     ]
 }</screen>
-    <para>The response tells us that for the "Gender" dimension filtered on "Female" and
-          organisation unit with identifier "O6uvpzGd5pu" there are 57 cases.</para>
   </section>
   </section>
   </section>
