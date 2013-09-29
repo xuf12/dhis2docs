@@ -2106,14 +2106,13 @@ ORDER BY oul.level, par.name, ou.name</screen>
     </section>
   </section>
   <section>
-    <title>Event query analytics</title>
-    <para>In order to query <emphasis role="italic">events</emphasis> captured in DHIS 2 you can
-      work with the <emphasis role="italic">analytics/events/query</emphasis> resource. This
-      resource lets you retrieve events based on a program and optionally a program stage, and lets
-      you retrieve and filter events on any event dimensions. Event items include data elements,
-      person attributes, person identifiers, organisation units and periods. The query analytics
-      resource will simply return events matching a set of criteria and does not perform any
-      aggregation. The event dimensions are listed in the table below.</para>
+    <title>Event analytics</title>
+    <para>The event analytics API lets you query <emphasis role="italic">events</emphasis> captured
+      in DHIS 2. This resource lets you retrieve events based on a program and optionally a program
+      stage, and lets you retrieve and filter events on any event dimensions. Event dimensions
+      include data elements, person attributes, person identifiers, organisation units and periods.
+      The query analytics resource will simply return events matching a set of criteria and does not
+      perform any aggregation. The event dimensions are listed in the table below.</para>
     <table frame="all">
       <title>Event dimensions</title>
       <tgroup cols="3">
@@ -2205,10 +2204,19 @@ ORDER BY oul.level, par.name, ou.name</screen>
             <entry>Yes</entry>
             <entry>Dimension identifier including data elements, person attributes, person
                 identifiers, periods and organisation units. Parameter can be repeated any number of
-                times. Filters can be applied to a dimension on the format
+                times. Item filtes can be applied to a dimension on the format
                 &lt;item-id>:&lt;operator>:&lt;filter>. Filter values are case-insensitive.</entry>
             <entry>Operators can be EQ | GT | GE | LT | LE | NE | LIKE | IN</entry>
           </row>
+            <row>
+              <entry>filter</entry>
+              <entry>No</entry>
+              <entry>Dimension identifier including data elements, person attributes, person
+                identifiers, periods and organisation units. Parameter can be repeated any number of
+                times. Item filters can be applied to a dimension on the format
+                &lt;item-id>:&lt;operator>:&lt;filter>. Filter values are case-insensitive.</entry>
+              <entry/>
+            </row>
             <row>
               <entry>ouMode</entry>
               <entry>No</entry>
@@ -2220,13 +2228,14 @@ ORDER BY oul.level, par.name, ou.name</screen>
             <row>
               <entry>asc</entry>
               <entry>No</entry>
-              <entry>Items to be sorted ascending, can reference executiondate or any items.</entry>
+              <entry>Dimensions to be sorted ascending, can reference executiondate or any
+                items.</entry>
               <entry>executiondate | item identifier</entry>
             </row>
             <row>
               <entry>desc</entry>
               <entry>No</entry>
-              <entry>Items to be sorted descending, can reference executiondate or any
+              <entry>Dimensions to be sorted descending, can reference executiondate or any
                 items.</entry>
               <entry>executiondate | item identifier</entry>
             </row>
@@ -2246,42 +2255,48 @@ ORDER BY oul.level, par.name, ou.name</screen>
         </tbody>
       </tgroup>
     </table>
-    <para>Event queries should be on the format described below. Item identifiers can refer to any
-      of data elements, person attributes and person identifiers. Items can optionally have a query
-      operator and a filter.</para>
-    <screen>api/analytics/events/query/&lt;program-id>?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd&amp;ou=&lt;ou-id>;&lt;ou-id>&amp;item=&lt;item-id>&amp;item=&lt;item-id>:&lt;operator>:&lt;filter></screen>
+    </section>
+    <section>
+	<title>Event query analytics</title>
+    <para>The <emphasis role="italic">events/query</emphasis> resource lets you query for captured
+        events. This resource does not perform any aggregation, rather it lets you query and filter
+        for information about events. You can specify any number of dimensions and any number of
+        filters in a query. Dimension item identifiers can refer to any of data elements, person
+        attributes, person identifiers, fixed and relative periods and organisation units.
+        Dimensions can optionally have a query operator and a filter. Event queries should be on the
+        format described below.</para>
+    <screen>api/analytics/events/query/&lt;program-id>?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd&amp;dimension=ou:&lt;ou-id>;&lt;ou-id>&amp;dimension=&lt;item-id>&amp;dimension=&lt;item-id>:&lt;operator>:&lt;filter></screen>
     <para>For example, to retrieve events from the "Inpatient morbidity and mortality" program
         between January and October 2012, where the "Gender" and "Age" data elements are included
-        and the "Age" item is filtered on "18", you can use the following query:</para>
-    <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;ou=O6uvpzGd5pu;fdc6uOvgoji&amp;item=oZg33kd9taw&amp;item=qrur9Dvnyt5:EQ:18</screen>
+        and the "Age" dimension is filtered on "18", you can use the following query:</para>
+    <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:O6uvpzGd5pu;fdc6uOvgoji&amp;dimension=oZg33kd9taw&amp;dimension=qrur9Dvnyt5:EQ:18</screen>
     <para>To retrieve events for the "Birth" program stage of the "Child programme" program between
         March and December 2012, where the "Weight" data element, filtered for values larger than
         2000, and the "Address" person attribute are included:</para>
-    <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;ou=O6uvpzGd5pu&amp;item=UXz7xuGCEhU:GT:2000&amp;item=AMpUYgxuCaE</screen>
-      <para>Fixed person attributes can be specified as items as well. Currently the GENDER and
+    <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=UXz7xuGCEhU:GT:2000&amp;dimension=AMpUYgxuCaE</screen>
+      <para>Fixed person attributes can be specified as dimensions as well. Currently the GENDER and
         ISDEAD attributes are suppored and can be included and filtered on like this:</para>
-      <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;ou=O6uvpzGd5pu&amp;item=UXz7xuGCEhU:GT:2000&amp;item=ISDEAD&amp;item=GENDER:EQ:F</screen>
-      <para>Sorting can be applied to the query for the "executiondate" of the event and any items.
-        To sort descending on the executiondate and ascending on the "Age" data element item you can
-        use:</para>
-      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;ou=O6uvpzGd5pu&amp;item=qrur9Dvnyt5&amp;desc=executiondate&amp;asc=qrur9Dvnyt5</screen>
+      <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=UXz7xuGCEhU:GT:2000&amp;dimension=ISDEAD&amp;dimension=GENDER:EQ:F</screen>
+      <para>Sorting can be applied to the query for the "executiondate" of the event and any
+        dimensions. To sort descending on the executiondate and ascending on the "Age" data element
+        dimension you can use:</para>
+      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=qrur9Dvnyt5&amp;desc=executiondate&amp;asc=qrur9Dvnyt5</screen>
       <para>Paging can be applied to the query by specifying the page number and the page size
         parameters. If page number is specified but page size is not, a page size of 50 will be
         used. If page size is specified but page number is not, a page number of 1 will be used. To
         get the third page of the response with a page size of 20 you can use a query like
         this:</para>
-      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;ou=O6uvpzGd5pu&amp;item=qrur9Dvnyt5&amp;page=3&amp;pageSize=20</screen>
-  </section>
+      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=qrur9Dvnyt5&amp;page=3&amp;pageSize=20</screen>
     <section>
       <title>Filtering</title>
       <para>Filters can be applied to data elements, person attributes and person identifiers. The
         filtering is done through the query parameter value on the following format:</para>
-      <screen>&amp;item=&lt;item-id>:&lt;operator>:&lt;filter-value></screen>
+      <screen>&amp;dimension=&lt;item-id>:&lt;operator>:&lt;filter-value></screen>
       <para>As an example, you can filter the "Weight" data element for values greater than 2000 and
         lower than 4000 like this:</para>
-      <screen>&amp;item=UXz7xuGCEhU:GT:2000&amp;item=UXz7xuGCEhU:LT:4000</screen>
+      <screen>&amp;dimension=UXz7xuGCEhU:GT:2000&amp;dimension=UXz7xuGCEhU:LT:4000</screen>
       <para>You can filter the "Age" data element for multiple, specific ages using the IN operator
-        like this:<screen>&amp;item=qrur9Dvnyt5:IN:18;19;20</screen></para>
+          like this:<screen>&amp;dimension=qrur9Dvnyt5:IN:18;19;20</screen></para>
       <para>The available operators are listed below.</para>
       <table frame="all">
         <title>Filter operators</title>
@@ -2349,7 +2364,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
       </itemizedlist>
       <para>As an example, to get a response in Excel format you can use a file extension in the
         request URL like this:</para>
-      <screen>api/analytics/events/query/eBAyeGv0exc.xls?startDate=2012-01-01&amp;endDate=2012-10-31&amp;ou=O6uvpzGd5pu&amp;item=oZg33kd9taw&amp;item=qrur9Dvnyt5</screen>
+      <screen>api/analytics/events/query/eBAyeGv0exc.xls?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=oZg33kd9taw&amp;dimension=qrur9Dvnyt5</screen>
       <para>The default response JSON format will look similar to this:</para>
       <screen>{
     "headers": [
@@ -2444,15 +2459,15 @@ ORDER BY oul.level, par.name, ou.name</screen>
     ]
 }</screen>
       <para>The headers section of the response describes the content of the query result. The event
-        unique identifier, the program stage identifier, the execution date and the organistion unit
-        identifier appear as the first four items in the response and will always be present. Next
-        comes the data elements, person attributes and person identifiers which were specified as
-        items in the request. Eeach header contain a readable description as well as the identifier
-        of the item. </para>
+          unique identifier, the program stage identifier, the execution date and the organistion
+          unit identifier appear as the first four dimensions in the response and will always be
+          present. Next comes the data elements, person attributes and person identifiers which were
+          specified as dimensions in the request. Eeach header contain a readable description as
+          well as the identifier of the dimension item. </para>
       <para>The rows section contains the events produced by the query. Each row represents one
         event.</para>
   </section>
-  </section>
+  </section>  
   <section>
     <title>Event aggregate analytics</title>
     <para>In order to get aggregated numbers of <emphasis role="italic">events</emphasis> captured
@@ -2466,11 +2481,15 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>Aggregate event queries should be on the format described below.</para>
     <screen>api/analytics/events/aggregate/&lt;program-id>?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd&amp;dimension=ou:&lt;ou-id>;&lt;ou-id>&amp;dimension=&lt;item-id>&amp;dimension=&lt;item-id>:&lt;operator>:&lt;filter></screen>
     <para>For example, to retrieve aggregate numbers for events from the "Inpatient morbidity and
-      mortality" program between January and October 2012, where the "Gender" and "Age" data
-      elements are included, the "Age" item is filtered on "18" and the "Gender" item is filtered on
-      "Female", you can use the following query:</para>
+        mortality" program between January and October 2012, where the "Gender" and "Age" data
+        elements are included, the "Age" dimension item is filtered on "18" and the "Gender" item is
+        filtered on "Female", you can use the following query:</para>
     <screen>api/analytics/events/aggregate/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:O6uvpzGd5pu;fdc6uOvgo7ji&amp;dimension=oZg33kd9taw:EQ:Female&amp;dimension=qrur9Dvnyt5:GT:50</screen>
-    <para>The response will look similar to this:</para>
+    <section>
+	<title>Reponse formats</title>
+    <para>The default response representation format is JSON. The requests must be using the HTTP
+            <emphasis role="italic">GET</emphasis> method. The response will look similar to
+          this:</para>
     <screen>{
     "headers": [
         {
@@ -2556,8 +2575,10 @@ ORDER BY oul.level, par.name, ou.name</screen>
         ],
     ]
 }</screen>
-    <para>The response tells us that for the "Gender" item filtered on "Female" and organisation
-      unit with identifier "O6uvpzGd5pu" there are 57 cases.</para>
+    <para>The response tells us that for the "Gender" dimension filtered on "Female" and
+          organisation unit with identifier "O6uvpzGd5pu" there are 57 cases.</para>
+  </section>
+  </section>
   </section>
   <section>
     <title>Generating resource, analytics and data mart tables</title>
