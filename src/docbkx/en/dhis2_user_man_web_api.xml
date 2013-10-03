@@ -2172,7 +2172,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
         <colspec colname="c1" colnum="1" colwidth="1.8*"/>
         <colspec colname="c2" colnum="2" colwidth="1*"/>
         <colspec colname="c3" colnum="3" colwidth="4.3*"/>
-        <colspec colname="c4" colnum="4" colwidth="1.69*"/>
+        <colspec colname="c4" colnum="4" colwidth="1.7*"/>
         <thead>
           <row>
             <entry><emphasis role="italic">Query parameter</emphasis></entry>
@@ -2230,10 +2230,10 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <table frame="all">
         <title>Query parameters for event query analytics only</title>
         <tgroup cols="4">
-          <colspec colname="c1" colnum="1" colwidth="1.85*"/>
+          <colspec colname="c1" colnum="1" colwidth="1.8*"/>
           <colspec colname="c2" colnum="2" colwidth="1*"/>
-          <colspec colname="c3" colnum="3" colwidth="4.4*"/>
-          <colspec colname="c4" colnum="4" colwidth="1.72*"/>
+          <colspec colname="c3" colnum="3" colwidth="4.3*"/>
+          <colspec colname="c4" colnum="4" colwidth="1.7*"/>
           <thead>
             <row>
               <entry><emphasis role="italic">Query parameter</emphasis></entry>
@@ -2282,12 +2282,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
         </tgroup>
       </table>
       <table frame="all">
-        <title>Query parameters for event query analytics</title>
+        <title>Query parameters for aggregate event analytics only</title>
         <tgroup cols="4">
-          <colspec colname="c1" colnum="1" colwidth="1.89*"/>
+          <colspec colname="c1" colnum="1" colwidth="1.8*"/>
           <colspec colname="c2" colnum="2" colwidth="1*"/>
-          <colspec colname="c3" colnum="3" colwidth="4.46*"/>
-          <colspec colname="c4" colnum="4" colwidth="1.74*"/>
+          <colspec colname="c3" colnum="3" colwidth="4.3*"/>
+          <colspec colname="c4" colnum="4" colwidth="1.7*"/>
           <thead>
             <row>
               <entry><emphasis role="italic">Query parameter</emphasis></entry>
@@ -2553,6 +2553,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
         discharge" and Gender" as dimensions, where "Gender" is filtered on the "Male" item, you can
         use a query like this:</para>
       <screen>api/analytics/events/aggregate/eBAyeGv0exc?filter=pe:2012&amp;filter=ou:O6uvpzGd5pu&amp;dimension=fWIAEtYVEGk&amp;dimension=oZg33kd9taw:EQ:Male</screen>
+      <para>To create a "Top 3 report" for "Mode of discharge" you can use the limit and sortOrder
+        query parameters similar to this:</para>
+      <screen>api/analytics/events/aggregate/eBAyeGv0exc?filter=pe:2012&amp;filter=ou:O6uvpzGd5pu&amp;dimension=fWIAEtYVEGk&amp;limit=3&amp;sortOrder=DESC</screen>
     <section>
 	<title>Response formats</title>
     <para>The default response representation format is JSON. The requests must be using the HTTP
