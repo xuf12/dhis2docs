@@ -1881,6 +1881,13 @@ ORDER BY oul.level, par.name, ou.name</screen>
                 <entry>false | true</entry>
               </row>
               <row>
+                <entry>hierarchyMeta</entry>
+                <entry>No</entry>
+                <entry>Include names of organisation unit ancestors in the hierarchy in
+                  meta-data</entry>
+                <entry>false | true</entry>
+              </row>
+              <row>
                 <entry>ignoreLimit</entry>
                 <entry>No</entry>
                 <entry>Ignore max number of values in response - use with care</entry>
