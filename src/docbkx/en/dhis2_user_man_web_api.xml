@@ -2224,6 +2224,13 @@ ORDER BY oul.level, par.name, ou.name</screen>
                 &lt;item-id>:&lt;operator>:&lt;filter>. Filter values are case-insensitive.</entry>
               <entry/>
             </row>
+            <row>
+              <entry>hierarchyMeta</entry>
+              <entry>No</entry>
+              <entry>Include names of organisation unit ancestors in the hierarchy in
+                meta-data</entry>
+              <entry>false | true</entry>
+            </row>
         </tbody>
       </tgroup>
     </table>
@@ -2422,107 +2429,105 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <para>As an example, to get a response in Excel format you can use a file extension in the
         request URL like this:</para>
       <screen>api/analytics/events/query/eBAyeGv0exc.xls?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=oZg33kd9taw&amp;dimension=qrur9Dvnyt5</screen>
-      <para>The default response JSON format will look similar to this:</para>
+      <para>You can set the hierarchyMeta query parameter to true in order to include names of all
+          ancestor organisation units in the meta-section of the response:</para>
+        <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:YuQRtpLP10I&amp;dimension=oZg33kd9taw:EQ:Female&amp;dimension=qrur9Dvnyt5:EQ:50</screen>
+        <para>The default response JSON format will look similar to this:</para>
       <screen>{
-    "headers": [
-        {
-            "name": "psi",
-            "column": "Event",
-            "type": "java.lang.String",
-            "meta": false
-        },
-        {
-            "name": "ps",
-            "column": "Program stage",
-            "type": "java.lang.String",
-            "meta": false
-        },
-        {
-            "name": "executiondate",
-            "column": "Execution date",
-            "type": "java.lang.String",
-            "meta": false
-        },
-        {
-            "name": "ou",
-            "column": "Organisation unit",
-            "type": "java.lang.String",
-            "meta": false
-        },
-        {
-            "name": "ouname",
-            "column": "Organisation unit name",
-            "type": "java.lang.String",
-            "meta": false
-        },
-        {
-            "name": "oucode",
-            "column": "Organisation unit code",
-            "type": "java.lang.String",
-            "meta": false
-        },
-        {
-            "name": "UXz7xuGCEhU",
-            "column": "Weight",
-            "type": "java.lang.String",
-            "meta": false
-        },
-        {
-            "name": "AMpUYgxuCaE",
-            "column": "Address",
-            "type": "java.lang.String",
-            "meta": false
-        }
-    ],
+    "headers": [
+    {
+        "name": "psi",
+        "column": "Event",
+        "type": "java.lang.String",
+        "hidden": false,
+        "meta": false
+    }, 
+    {
+        "name": "ps",
+        "column": "Program stage",
+        "type": "java.lang.String",
+        "hidden": false,
+        "meta": false
+    }, 
+    {
+        "name": "executiondate",
+        "column": "Execution date",
+        "type": "java.lang.String",
+        "hidden": false,
+        "meta": false
+    }, 
+    {
+        "name": "ouname",
+        "column": "Organisation unit name",
+        "type": "java.lang.String",
+        "hidden": false,
+        "meta": false
+    }, 
+    {
+        "name": "oucode",
+        "column": "Organisation unit code",
+        "type": "java.lang.String",
+        "hidden": false,
+        "meta": false
+    }, 
+    {
+        "name": "ou",
+        "column": "Organisation unit",
+        "type": "java.lang.String",
+        "hidden": false,
+        "meta": false
+    }, 
+    {
+        "name": "oZg33kd9taw",
+        "column": "Gender",
+        "type": "java.lang.String",
+        "hidden": false,
+        "meta": false
+    }, 
+    {
+        "name": "qrur9Dvnyt5",
+        "column": "Age",
+        "type": "java.lang.String",
+        "hidden": false,
+        "meta": false
+    } ],
     "metaData": {
+        "ou": {
+            "YuQRtpLP10I": "/ImspTQPwCqd/O6uvpzGd5pu"
+        },
         "names": {
-            "IpHINAT79UW": "Child Programme",
-            "A03MvHHogjR": "Birth"
+            "qrur9Dvnyt5": "Age",
+            "eBAyeGv0exc": "Inpatient morbidity and mortality",
+            "YuQRtpLP10I": "Badjia",
+            "oZg33kd9taw": "Gender"
         }
     },
-    "width": 6,
-    "height": 3,
-    "rows": [
-        [
-            "sJEabEml8sj",
-            "A03MvHHogjR",
-            "2012-11-19",
-            "DiszpKrYNg8",
-            "Ngelehun CHC",
-            "OU101",
-            "2965",
-            "Main road 12"
-        ],
-        [
-            "bPYOAmnePvJ",
-            "A03MvHHogjR",
-            "2012-11-19",
-            "DiszpKrYNg8",
-            "Ngelehun CHC",
-            "OU101",
-            "2643",
-            "Mombasa road 93"
-        ],
-        [
-            "j23JsB1h128",
-            "A03MvHHogjR",
-            "2012-11-19",
-            "DiszpKrYNg8",
-            "Ngelehun CHC",
-            "OU101",
-            "2965",
-            "Haile Selassie road 5"
-        ]
+    "width": 8,
+    "height": 25,
+    "rows": [
+        ["yx9IDINf82o", "Zj7UnCAulEk", "2012-08-05", "Ngelehun CHC", "OU_559", "YuQRtpLP10I", "Female", "50"],
+        ["IPNa7AsCyFt", "Zj7UnCAulEk", "2012-06-12", "Ngelehun CHC", "OU_559", "YuQRtpLP10I", "Female", "50"],
+        ["ZY9JL9dkhD2", "Zj7UnCAulEk", "2012-06-15", "Ngelehun CHC", "OU_559", "YuQRtpLP10I", "Female", "50"],
+        ["MYvh4WAUdWt", "Zj7UnCAulEk", "2012-06-16", "Ngelehun CHC", "OU_559", "YuQRtpLP10I", "Female", "50"]
     ]
 }</screen>
-      <para>The headers section of the response describes the content of the query result. The event
-          unique identifier, the program stage identifier, the execution date and the organistion
-          unit identifier appear as the first four dimensions in the response and will always be
-          present. Next comes the data elements, person attributes and person identifiers which were
-          specified as dimensions in the request. Eeach header contain a readable description as
-          well as the identifier of the dimension item. </para>
-      <para>The rows section contains the events produced by the query. Each row represents one
-        event.</para>
+      <para>The <emphasis role="italic">headers</emphasis> section of the response describes the
+          content of the query result. The event unique identifier, the program stage identifier,
+          the execution date, the organisation unit name, the organisation unit code and the
+          organisation unit identifier appear as the first six dimensions in the response and will
+          always be present. Next comes the data elements, person attributes and person identifiers
+          which were specified as dimensions in the request, in this case the "Gender" and "Age"
+          data element dimensions. The header section contains the identifier of the dimension item
+          in the "name" property and a readable dimension description in the "column"
+          property.</para>
+        <para>The <emphasis role="italic">metaData</emphasis> section, <emphasis role="italic"
+            >ou</emphasis> object contains the identifiers of all organisation units present in the
+          response mapped to a string representing the hierarchy. This hierarchy string lists the
+          identifiers of the ancestors (parents) of the organistion unit starting from the root. The
+            <emphasis role="italic">names</emphasis> object contains the identifiers of all items in
+          the response mapped to their names.</para>
+      <para>The <emphasis role="italic">rows</emphasis> section contains the events produced by the
+          query. Each row represents exactly one event.</para>
   </section>
   </section>  
   <section>
