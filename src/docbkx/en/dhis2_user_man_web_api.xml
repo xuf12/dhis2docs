@@ -2431,7 +2431,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <screen>api/analytics/events/query/eBAyeGv0exc.xls?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=oZg33kd9taw&amp;dimension=qrur9Dvnyt5</screen>
       <para>You can set the hierarchyMeta query parameter to true in order to include names of all
           ancestor organisation units in the meta-section of the response:</para>
-        <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:YuQRtpLP10I&amp;dimension=oZg33kd9taw:EQ:Female&amp;dimension=qrur9Dvnyt5:EQ:50</screen>
+        <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:YuQRtpLP10I&amp;dimension=oZg33kd9taw&amp;dimension=qrur9Dvnyt5:EQ:50&amp;hierarchyMeta=true</screen>
         <para>The default response JSON format will look similar to this:</para>
       <screen>{
     "headers": [
@@ -2498,6 +2498,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
         "names": {
             "qrur9Dvnyt5": "Age",
             "eBAyeGv0exc": "Inpatient morbidity and mortality",
+            "ImspTQPwCqd": "Sierra Leone",
+            "O6uvpzGd5pu": "Bo",
             "YuQRtpLP10I": "Badjia",
             "oZg33kd9taw": "Gender"
         }
