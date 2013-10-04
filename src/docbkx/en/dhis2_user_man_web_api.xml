@@ -1883,8 +1883,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
               <row>
                 <entry>hierarchyMeta</entry>
                 <entry>No</entry>
-                <entry>Include names of organisation unit ancestors in the hierarchy in
-                  meta-data</entry>
+                <entry>Include names of organisation unit ancestors and hierarchy paths of
+                  organisation units in the meta-data</entry>
                 <entry>false | true</entry>
               </row>
               <row>
@@ -2019,6 +2019,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
             "2012Q1",
             "2012Q2"
         ],
+        "ou": [
+            "ImspTQPwCqd"
+        ],
         "names": {
             "2012Q1": "Jan to Mar 2012",
             "2012Q2": "Apr to Jun 2012",
@@ -2060,11 +2063,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <para>The <emphasis role="italic">height</emphasis> and <emphasis role="italic">width</emphasis> properties indicate how many data columns and rows are contained in the
         response, respectively.</para>
       <para>The <emphasis role="italic">metaData periods</emphasis> property contains a unique,
-        ordered list of the periods included in the response. The <emphasis role="italic">metaData
-          names</emphasis> property contains a mapping between the identifiers used in the data
-        response and the names of the objects they represent. It can be used by clients to
-        substitute the identifiers within the data response with names in order to give a more
-        meaningful view of the data table.</para>
+        ordered array of the periods included in the response. The <emphasis role="italic">metaData
+          ou</emphasis> property contains an array of the identifiers of organisation units included
+        in the response. The <emphasis role="italic">metaData names</emphasis> property contains a
+        mapping between the identifiers used in the data response and the names of the objects they
+        represent. It can be used by clients to substitute the identifiers within the data response
+        with names in order to give a more meaningful view of the data table.</para>
       <para>The <emphasis role="italic">rows</emphasis> array contains the dimensional data table.
         It contains columns with dimension items (object or period identifiers) and a column with
         aggregated data values. The example response above has a data/indicator column, a period
@@ -2227,8 +2231,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
             <row>
               <entry>hierarchyMeta</entry>
               <entry>No</entry>
-              <entry>Include names of organisation unit ancestors in the hierarchy in
-                meta-data</entry>
+              <entry>Include names of organisation unit ancestors and hierarchy paths of
+                organisation units in the meta-data</entry>
               <entry>false | true</entry>
             </row>
         </tbody>
@@ -2491,10 +2495,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
         "hidden": false,
         "meta": false
     } ],
-    "metaData": {
-        "ou": {
-            "YuQRtpLP10I": "/ImspTQPwCqd/O6uvpzGd5pu"
-        },
+    "metaData": {        
         "names": {
             "qrur9Dvnyt5": "Age",
             "eBAyeGv0exc": "Inpatient morbidity and mortality",
@@ -2502,7 +2503,10 @@ ORDER BY oul.level, par.name, ou.name</screen>
             "O6uvpzGd5pu": "Bo",
             "YuQRtpLP10I": "Badjia",
             "oZg33kd9taw": "Gender"
-        }
+        },
+        "ouHierarchy": {
+            "YuQRtpLP10I": "/ImspTQPwCqd/O6uvpzGd5pu"
+        },
     },
     "width": 8,
     "height": 25,
