@@ -60,16 +60,19 @@
       on which the App has been installed. The <emphasis role="italic">icons&#x2192;48</emphasis>
       property is used for the icon that is displayed on the list of apps that are installed on a
       DHIS 2 instance.</para>
-    <para>The App can contain HTML, Javascript, CSS and image files. The file structure looks like
-      this:</para>
-    <screen>/                   #html files
-/manifest.webapp    #manifest file
-/css/               #css stylesheets
-/img/               #images
-/js/                #javascripts</screen>
-    <para><inlinegraphic fileref="resources/images/apps/appList.png"/></para>
-    <para>All the files in the project should then be compressed into a standard zip package. This
-      zip package can then be installed into DHIS 2 as you will see in the next section.</para>
+    <para>The App can contain HTML, Javascript, CSS and image files. The file structure could look
+      like this:</para>
+    <screen>/
+/manifest.webapp    #manifest file (mandatory)
+/css/               #css stylesheets (optional)
+/img/               #images (optional)
+/js/                #javascripts (optional)</screen>
+    <para>Note that it is only the manifest.webapp file which must be placed in the root. It is up
+      the developer to organize CSS, images and Javascript files inside the app.</para>
+    <para>All the files in the project should be compressed into a standard zip archive. Note that
+      the manifest.webapp file must be located on the root of the zip archive (do not include a
+      parent directory in the archive). This zip archive can then be installed into DHIS 2 as you
+      will see in the next section.</para>
   </section>
   <section>
     <title>Configuring DHIS 2 for Apps Installation</title>
