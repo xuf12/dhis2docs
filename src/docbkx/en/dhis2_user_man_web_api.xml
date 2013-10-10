@@ -468,18 +468,18 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
 	] }
   ]
 }</screen>
-    <para>(From 2.13) As part of the import summary you will also get the UID <emphasis
+    <para>(From 2.13) As part of the import summary you will also get the identifier <emphasis
         role="italic">reference</emphasis> to the event you just sent, together with a <emphasis
         role="italic">href</emphasis> element which points to the server location of this event. </para>
     <para><emphasis role="bold">Update</emphasis>: To update an existing event, the format of the
-      payload is the same, but the URL you are posting to must add the UID reference to the end of
-      the URL string and the request must be PUT.
+      payload is the same, but the URL you are posting to must add the identifier to the end of the
+      URL string and the request must be PUT.
       <screen>curl -X PUT -d @updated_event.xml "localhost:8080/api/events/Abcas12322" -H "Content-Type:application/xml" -u admin:district -v</screen><screen>curl -X PUT -d @updated_event.json "localhost:8080/api/events/Abcas12322" -H "Content-Type:application/json" -u admin:district -v</screen></para>
     <para><emphasis role="bold">Delete</emphasis>: To delete an existing event, all you need is to
-      send a DELETE request with a UID reference to the server you are
+      send a DELETE request with a identifier reference to the server you are
       using.<screen>curl -X DELETE "localhost:8080/api/events/Abcas12322" -u admin:district -v</screen></para>
     <para><emphasis role="bold">Get</emphasis>: To get an existing event you can issue a GET request
-      including the UID reference like
+      including the identifier like
       this:<screen>curl "localhost:8080/api/events/Abcas12322" -H "Content-Type:application/xml" -u admin:district -v</screen></para>
     <para>The table below describes the meaning of each element. Most elements should be fairly
       self-explanatory.</para>
@@ -512,14 +512,14 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
               <entry>string</entry>
               <entry>true</entry>
               <entry/>
-              <entry>UID of the single event with no registration program</entry>
+              <entry>Identifier of the single event with no registration program</entry>
             </row>
             <row>
               <entry>organisationUnitId</entry>
               <entry>string</entry>
               <entry>true</entry>
               <entry/>
-              <entry>UID of the organisation unit where the event took place</entry>
+              <entry>Identifier of the organisation unit where the event took place</entry>
             </row>
             <row>
               <entry>eventDate</entry>
@@ -556,7 +556,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
               <entry>string</entry>
               <entry>true</entry>
               <entry/>
-              <entry>UID of data element</entry>
+              <entry>Identifier of data element</entry>
             </row>
             <row>
               <entry>value</entry>
@@ -604,8 +604,10 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
   
 </ns:DataSet>
 </CrossSectionalData>]]></screen>
-    <para>One thing to note is that the SDMX-HD metadata for dataelements, orgunits and datasets are identified using <emphasis>codes</emphasis> rather than <emphasis>uids</emphasis>.
-    Assuming these coded datasets are present in the DHIS2 server then this can be posted, for example using the curl command below.</para>
+    <para>One thing to note is that the SDMX-HD metadata for dataelements, orgunits and datasets are
+      identified using <emphasis>codes</emphasis> rather than <emphasis>identifiers</emphasis>.
+      Assuming these coded datasets are present in the DHIS2 server then this can be posted, for
+      example using the curl command below.</para>
     <para><code>curl -d @sdmxdatavalueset.xml &quot;http://{server base url}/api/dataValueSets&quot; -H &quot;Content-Type:application/sdmx+xml&quot; -u admin:district -v</code></para>
   </section>
   <section>
@@ -646,12 +648,12 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
         <tbody>
           <row>
             <entry>dataElementIdScheme</entry>
-            <entry>uid | name | code</entry>
+            <entry>id | name | code</entry>
             <entry>Which property on the data element object to reference from the XML attribute</entry>
           </row>
           <row>
             <entry>orgUnitIdScheme</entry>
-            <entry>uid | name | code</entry>
+            <entry>id | name | code</entry>
             <entry>Which property on the org unit object to reference from the XML attribute</entry>
           </row>
           <row>
@@ -675,7 +677,13 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
   orgUnitIdScheme=&quot;name&quot; dryRun=&quot;true&quot; importStrategy=&quot;new&quot;&gt;
   ..
 &lt;/dataValueSet&gt;</screen>
-    <para>Regarding the id schemes, by default the  identifiers used in the XML messages refer to the DHIS stable object identifiers. In certain interoperability situations we might experience that the external system  decides the identifiers of the objects. In that case we can use the <emphasis role="italic">code</emphasis> property of the organisation unit and data element objects to set fixed identifiers dictated by the other system. When importing data values we hence need to reference the code property instead of the uid property, and can do so using the dataElementIScheme and orgUnitIdScheme paramaters.</para>
+    <para>Regarding the id schemes, by default the identifiers used in the XML messages refer to the
+      DHIS stable object identifiers. In certain interoperability situations we might experience
+      that the external system decides the identifiers of the objects. In that case we can use the
+        <emphasis role="italic">code</emphasis> property of the organisation unit and data element
+      objects to set fixed identifiers dictated by the other system. When importing data values we
+      hence need to reference the code property instead of the identfier property, and can do so
+      using the dataElementIScheme and orgUnitIdScheme paramaters.</para>
   </section>
   <section>
     <title>Reading data values</title>
@@ -1785,7 +1793,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012&amp;dimension=ou:LEVEL-3</screen>
     <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012&amp;dimension=ou:LEVEL-3;LEVEL-4;O6uvpzGd5pu;lc3eMKXaEf</screen>
     <para>When selecting organisation units you can also select all organisation units in an
-      organisation unit group to be included as dimension items using the OU_GROUP-&lt;uid> syntax.
+      organisation unit group to be included as dimension items using the OU_GROUP-&lt;id> syntax.
       The organisation units in the groups can optionally be constrained by any number of boundary
       organisation units. Both the level and the group items can be repeated any number of
       times:</para>
@@ -2140,18 +2148,18 @@ ORDER BY oul.level, par.name, ou.name</screen>
         <tbody>
           <row>
             <entry>Data elements</entry>
-            <entry>&lt;uid></entry>
+            <entry>&lt;id></entry>
             <entry>Data element identifiers</entry>
           </row>
           <row>
             <entry>Person attributes</entry>
-            <entry>&lt;uid>, GENDER, ISDEAD</entry>
+            <entry>&lt;id>, GENDER, ISDEAD</entry>
             <entry>Person attribute identifiers and the fixed person attributes GENDER and
               ISDEAD</entry>
           </row>
           <row>
             <entry>Person identifiers</entry>
-            <entry>&lt;uid></entry>
+            <entry>&lt;id></entry>
             <entry>Person identifier identifiers</entry>
           </row>
           <row>
@@ -2265,16 +2273,16 @@ ORDER BY oul.level, par.name, ou.name</screen>
             <row>
               <entry>asc</entry>
               <entry>No</entry>
-              <entry>Dimensions to be sorted ascending, can reference executiondate or any
+              <entry>Dimensions to be sorted ascending, can reference event date or any
                 items.</entry>
-              <entry>executiondate | item identifier</entry>
+              <entry>EVENTDATE | item identifier</entry>
             </row>
             <row>
               <entry>desc</entry>
               <entry>No</entry>
-              <entry>Dimensions to be sorted descending, can reference executiondate or any
+              <entry>Dimensions to be sorted descending, can reference event date or any
                 items.</entry>
-              <entry>executiondate | item identifier</entry>
+              <entry>EVENTDATE | item identifier</entry>
             </row>
             <row>
               <entry>page</entry>
@@ -2345,10 +2353,10 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <para>Fixed person attributes can be specified as dimensions as well. Currently the GENDER and
         ISDEAD attributes are suppored and can be included and filtered on like this:</para>
       <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=UXz7xuGCEhU:GT:2000&amp;dimension=ISDEAD&amp;dimension=GENDER:EQ:F</screen>
-      <para>Sorting can be applied to the query for the "executiondate" of the event and any
-        dimensions. To sort descending on the executiondate and ascending on the "Age" data element
-        dimension you can use:</para>
-      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=qrur9Dvnyt5&amp;desc=executiondate&amp;asc=qrur9Dvnyt5</screen>
+      <para>Sorting can be applied to the query for the event date of the event and any dimensions.
+        To sort descending on the event date and ascending on the "Age" data element dimension you
+        can use:</para>
+      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=qrur9Dvnyt5&amp;desc=EVENTDATE&amp;asc=qrur9Dvnyt5</screen>
       <para>Paging can be applied to the query by specifying the page number and the page size
         parameters. If page number is specified but page size is not, a page size of 50 will be
         used. If page size is specified but page number is not, a page number of 1 will be used. To
@@ -2454,8 +2462,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
         "meta": false
     }, 
     {
-        "name": "executiondate",
-        "column": "Execution date",
+        "name": "eventdate",
+        "column": "Event date",
         "type": "java.lang.String",
         "hidden": false,
         "meta": false
@@ -2519,7 +2527,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
 }</screen>
       <para>The <emphasis role="italic">headers</emphasis> section of the response describes the
           content of the query result. The event unique identifier, the program stage identifier,
-          the execution date, the organisation unit name, the organisation unit code and the
+          the event date, the organisation unit name, the organisation unit code and the
           organisation unit identifier appear as the first six dimensions in the response and will
           always be present. Next comes the data elements, person attributes and person identifiers
           which were specified as dimensions in the request, in this case the "Gender" and "Age"
@@ -2685,12 +2693,13 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>The system resource provides you with convenient information and functions. The system
       resource can be found at <emphasis role="italic">/api/system</emphasis>. </para>
     <section>
-	<title>Generate UIDs</title>
-    <para>To genereate valid, random UIDs you can do a GET request to this resource:</para>
-    <screen>http://&lt;server-url>/api/system/uid?n=3</screen>
+	<title>Generate identifiers</title>
+    <para>To genereate valid, random DHIS 2 identifiers you can do a GET request to this
+        resource:</para>
+    <screen>http://&lt;server-url>/api/system/id?n=3</screen>
     <para>The <emphasis role="italic">n</emphasis> query parameter is optional and indicates how
-      many UIDs you want to be returned with the response. The default is to return one UID. The
-      response will contain a JSON array similar to this:</para>
+        many identifiers you want to be returned with the response. The default is to return one
+        identifier. The response will contain a JSON array similar to this:</para>
     <screen>[
     "Y0moqFplrX4",
     "WI0VHXuWQuV",
@@ -2835,7 +2844,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <para>For creating a new person in the system, you will be working with the <emphasis
           role="italic">persons</emphasis> resource. An template payload can be seen
         below:<screen>{
-	"orgUnit": "Uid of the organisationUnit",
+	"orgUnit": "Identifier of the organisationUnit",
 	"name": "Name of Person",
 	"gender": "MALE / FEMALE / TRANSGENDER",
 	"dateOfBirth": {
@@ -2848,15 +2857,15 @@ ORDER BY oul.level, par.name, ou.name</screen>
 	},
 
 	"relationships": [
-		{ "type": "Uid of the relationshipType", "person": "LhsYtC2Hmpi" }
+		{ "type": "Identifier of the relationshipType", "person": "LhsYtC2Hmpi" }
 	],
 
 	"identifiers": [
-		{ "type": "Uid of the personIdentifier", "value": "uuid-13" }
+		{ "type": "Identifier of the personIdentifier", "value": "123" }
 	],
 
 	"attributes": [
-		{ "type": "Uid of the personAttribute", "value": "This is my new address" }
+		{ "type": "Identifier of the personAttribute", "value": "This is my new address" }
 	]
 }</screen></para>
       <para>For getting the identifiers for <emphasis role="italic">relationship</emphasis>,
@@ -2869,8 +2878,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <title>Updating a person</title>
       <para>For updating a person, the payload is the same as in the previous section. The only
         different is that you must use the HTTP method <emphasis role="bold">PUT</emphasis> when
-        sending the payload, you will also need to add the person identifier (UID) to the <emphasis
-          role="italic">persons</emphasis> resource (i.e. /api/persons/UID).</para>
+        sending the payload, you will also need to add the person identifier to the <emphasis
+          role="italic">persons</emphasis> resource (i.e. /api/persons/&lt;id>).</para>
     </section>
     <section>
       <title>Deleting a person</title>
@@ -2883,20 +2892,20 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <para>There are several parameter available on the <emphasis role="italic">persons</emphasis>
         resource for querying for persons, <emphasis role="italic">orgUnit</emphasis> paramter is
         always required (unless querying for identifiers, please see below).</para>
-      <para><emphasis role="bold">Query for
-        orgUnit:</emphasis><screen>GET /api/persons?orgUnit=OU_UID</screen></para>
-      <para><emphasis role="bold">Query for
-        orgUnit/nameLike:</emphasis><screen>GET /api/persons?orgUnit=OU_UID&amp;nameLike=sen</screen></para>
-      <para><emphasis role="bold">Query for
-        orgUnit/program:</emphasis><screen>GET /api/persons?orgUnit=OU_UID&amp;program=PROGRAM_UID</screen></para>
-      <para><emphasis role="bold">Query for
-        orgUnit/program/gender:</emphasis><screen>GET /api/persons?orgUnit=OU_UID&amp;program=PROGRAM_UID&amp;gender=MALE/FEMALE/TRANSGENDER</screen></para>
-      <para><emphasis role="bold">Query for
-        orgUnit/gender:</emphasis><screen>GET /api/persons?orgUnit=OU_UID&amp;gender=MALE/FEMALE/TRANSGENDER</screen></para>
+      <para><emphasis role="bold">Query for org
+        unit:</emphasis><screen>GET /api/persons?orgUnit=&lt;orgunit-id></screen></para>
+      <para><emphasis role="bold">Query for org
+        unit/nameLike:</emphasis><screen>GET /api/persons?orgUnit=&lt;orgunit-id>&amp;nameLike=sen</screen></para>
+      <para><emphasis role="bold">Query for org
+        unit/program:</emphasis><screen>GET /api/persons?orgUnit=&lt;orgunit-id>&amp;program=&lt;program-id></screen></para>
+      <para><emphasis role="bold">Query for org
+        unit/program/gender:</emphasis><screen>GET /api/persons?orgUnit=&lt;orgunit-id>&amp;program=&lt;program-id>&amp;gender=MALE/FEMALE/TRANSGENDER</screen></para>
+      <para><emphasis role="bold">Query for org
+        unit/gender:</emphasis><screen>GET /api/persons?orgUnit=&lt;orgunit-id>&amp;gender=MALE/FEMALE/TRANSGENDER</screen></para>
       <para><emphasis role="bold">Query for system
         identifier:</emphasis><screen>GET /api/persons?identifier=SYSTEM_ID</screen></para>
       <para><emphasis role="bold">Query for specific identifier
-        type:</emphasis><screen>GET /api/persons?identifierType=ID_TYPE_UID&amp;identifier=ID_VALUE</screen></para>
+        type:</emphasis><screen>GET /api/persons?identifierType=&lt;id-type-id>&amp;identifier=&lt;person-id></screen></para>
     </section>
     <section>
       <title>Enrolling a person into a program</title>
@@ -2913,8 +2922,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <para>For cancelling or completing an enrollment, you can send a <emphasis role="bold"
           >PUT</emphasis> request to the <emphasis role="italic">enrollments</emphasis> resource,
         including the identifier and the action you want to perform. For
-        cancelling:<screen>PUT /api/enrollments/UID/cancelled</screen></para>
-      <para>For completing:<screen>PUT /api/enrollments/UID/completed</screen></para>
+        cancelling:<screen>PUT /api/enrollments/&lt;enrollment-id>/cancelled</screen></para>
+      <para>For completing:<screen>PUT /api/enrollments/&lt;enrollment-id>/completed</screen></para>
     </section>
   </section>
   <section>
@@ -2930,17 +2939,17 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>This section will give some simple examples of using the API.</para>
         <para>Get all facilities:</para>
         <screen>curl -u username:password -X GET http://&lt;server-url>/api-fred/v1/facilities.json</screen>
-        <para>Get a specific facility based on either UID or UUID:</para>
-        <screen>curl -u username:password -X GET http://&lt;server-url>/api-fred/v1/facilities/UID.json
-curl -u username:password -X GET http://&lt;server-url>/api-fred/v1/facilities/UUID.json</screen>
+        <para>Get a specific facility based on either identifier or UUID:</para>
+        <screen>curl -u username:password -X GET http://&lt;server-url>/api-fred/v1/facilities/&lt;id>.json
+curl -u username:password -X GET http://&lt;server-url>/api-fred/v1/facilities/&lt;uuid>.json</screen>
         <para>Create a new facility:</para>
         <screen>curl -u username:password -X POST -d @new_facility.json
   -H "Content-Type: application/json" http://&lt;server-url>/api-fred/v1/facilities.json</screen>
         <para>Update a facility:</para>
         <screen>curl -u username:password -X POST -d @updated_facility.json
-  -H "Content-Type: application/json" http://&lt;server-url>/api-fred/v1/facilities/UID.json</screen>
+  -H "Content-Type: application/json" http://&lt;server-url>/api-fred/v1/facilities/&lt;id>.json</screen>
 <screen>
 curl -u username:password -X POST -d @updated_facility.json
-  -H "Content-Type: application/json" http://&lt;server-url>/api-fred/v1/facilities/UUID.json</screen>
+  -H "Content-Type: application/json" http://&lt;server-url>/api-fred/v1/facilities/&lt;uuid>.json</screen>
   </section>
 </chapter>
