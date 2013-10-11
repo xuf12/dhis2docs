@@ -2273,16 +2273,16 @@ ORDER BY oul.level, par.name, ou.name</screen>
             <row>
               <entry>asc</entry>
               <entry>No</entry>
-              <entry>Dimensions to be sorted ascending, can reference event date or any
-                items.</entry>
-              <entry>EVENTDATE | item identifier</entry>
+              <entry>Dimensions to be sorted ascending, can reference event date, org unit name and
+                code and any item identifiers.</entry>
+              <entry>EVENTDATE | OUNAME | OUCODE | item identifier</entry>
             </row>
             <row>
               <entry>desc</entry>
               <entry>No</entry>
-              <entry>Dimensions to be sorted descending, can reference event date or any
-                items.</entry>
-              <entry>EVENTDATE | item identifier</entry>
+              <entry>Dimensions to be sorted descending, can reference event date, org unit name and
+                code and any item identifiers.</entry>
+              <entry>EVENTDATE | OUNAME | OUCODE | item identifier</entry>
             </row>
             <row>
               <entry>page</entry>
