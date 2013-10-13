@@ -51,17 +51,30 @@
 }</screen>
     </para>
     <para>The <emphasis role="italic">manifest.webapp</emphasis> file must be located at the root of
-      the project. Among the properties, the <emphasis role="italic">activities</emphasis> property
-      is an extension meant to differentiate between a standard Open Web App and an App that can be
-      installed in DHIS 2. The <emphasis role="italic">*</emphasis> value for <emphasis
+      the project. Among the properties, the <emphasis role="italic">icons&#x2192;48</emphasis>
+      property is used for the icon that is displayed on the list of apps that are installed on a
+      DHIS 2 instance. The <emphasis role="italic">activities</emphasis> property is an
+      dhis-specific extension meant to differentiate between a standard Open Web App and an App that
+      can be installed in DHIS 2. The <emphasis role="italic">*</emphasis> value for <emphasis
         role="italic">href</emphasis> is converted to the appropriate URL when the App is uploaded
       and installed in DHIS 2. This value can then be used by the application's JavaScript and HTML
-      files to make calls to the DHIS 2 Web API  and identify the correct location of DHIS 2 server
-      on which the App has been installed. The <emphasis role="italic">icons&#x2192;48</emphasis>
-      property is used for the icon that is displayed on the list of apps that are installed on a
-      DHIS 2 instance.</para>
+      files to make calls to the DHIS 2 Web API and identify the correct location of DHIS 2 server
+      on which the App has been installed. To clarify, the <emphasis role="italic"
+        >activities</emphasis> part will look similar to this after the App has been
+      installed:</para>
+    <screen>"activities": {
+        "dhis": {
+            "href": "http://apps.dhis2.org/demo"
+        }
+    }</screen>
+    <para>To read the JSON structure into Javascript you can use a regular AJAX request and parse
+      the JSON into an object. Most Javascript libraries provide support for this, for instance with
+      jQuery it can be done like this:</para>
+    <screen>$.getJSON( "manifest.webapp", function( json ) {
+    var apiBaseUrl = json.activities.dhis.href + "/api";
+} </screen>
     <para>The App can contain HTML, Javascript, CSS and image files. The file structure could look
-      like this:</para>
+      something like this:</para>
     <screen>/
 /manifest.webapp    #manifest file (mandatory)
 /css/               #css stylesheets (optional)
@@ -71,7 +84,7 @@
       the developer to organize CSS, images and Javascript files inside the app.</para>
     <para>All the files in the project should be compressed into a standard zip archive. Note that
       the manifest.webapp file must be located on the root of the zip archive (do not include a
-      parent directory in the archive). This zip archive can then be installed into DHIS 2 as you
+      parent directory in the archive). The zip archive can then be installed into DHIS 2 as you
       will see in the next section.</para>
   </section>
   <section>
@@ -82,21 +95,22 @@
     <para>The following settings can be configured:</para>
     <orderedlist>
       <listitem>
-        <para>App Installation Folder: The folder on the file system where apps are unpacked. By
-          default this is under the expanded DHIS folder suffixed by /apps. If you like to install
-          your apps in another location, say www folder of Apache 2, you can specify the absolute
-          path to that directory on the server, making your apps to be unpacked at that
-          location.</para>
+        <para><emphasis role="italic">App Installation Folder:</emphasis> The folder on the file
+          system where apps are unpacked. By default this is under the expanded DHIS folder suffixed
+          by /apps. If you like to install your apps in another location, say www folder of Apache
+          2, you can specify the absolute path to that directory on the server, making your apps to
+          be unpacked at that location.</para>
       </listitem>
       <listitem>
-        <para>App Base URL: The URL through which the apps can be found on the Web. By default this
-          is the same as your DHIS 2 URL suffixed by /apps. If you are installing apps through a
-          different web server you need to provide the full URL for that web server.</para>
+        <para><emphasis role="italic">App Base URL:</emphasis> The URL through which the apps can be
+          found on the Web. By default this is the same as your DHIS 2 URL suffixed by /apps. If you
+          are installing apps through a different web server you need to provide the full URL for
+          that web server.</para>
       </listitem>
       <listitem>
-        <para>App store URL: The app repository through which new apps can be downloaded and
-          installed. Each deployment can host their own, approved set of apps that can be installed
-          in DHIS 2. We plan to host the global DHIS 2 App store at <ulink
+        <para><emphasis role="italic">App store URL:</emphasis> The app repository through which new
+          apps can be downloaded and installed. Each deployment can host their own, approved set of
+          apps that can be installed in DHIS 2. The DHIS 2 App store can be found at <ulink
             url="https://appstore.dhis2.org">https://appstore.dhis2.org</ulink></para>
       </listitem>
     </orderedlist>
@@ -113,7 +127,8 @@
   </section>
   <section>
     <title>Launching Apps</title>
-    <para>After installation your apps can be accessed from the home page of the apps module. Click
-      on an app in the list in order to launch it.</para>
+    <para>After installation your apps will be integrated with the menu system and can be accessed
+      under services and from the module overview page. It can also be accessed from the home page
+      of the apps module.  Click on an app in the list in order to launch it.</para>
   </section>
 </chapter>
