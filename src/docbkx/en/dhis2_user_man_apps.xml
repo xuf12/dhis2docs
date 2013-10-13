@@ -63,12 +63,12 @@
         >activities</emphasis> part will look similar to this after the App has been
       installed:</para>
     <screen>"activities": {
-        "dhis": {
-            "href": "http://apps.dhis2.org/demo"
-        }
-    }</screen>
+    "dhis": {
+        "href": "http://apps.dhis2.org/demo"
+    }
+ }</screen>
     <para>To read the JSON structure into Javascript you can use a regular AJAX request and parse
-      the JSON into an object. Most Javascript libraries provide support for this, for instance with
+      the JSON into an object. Most Javascript libraries provide some support, for instance with
       jQuery it can be done like this:</para>
     <screen>$.getJSON( "manifest.webapp", function( json ) {
     var apiBaseUrl = json.activities.dhis.href + "/api";
