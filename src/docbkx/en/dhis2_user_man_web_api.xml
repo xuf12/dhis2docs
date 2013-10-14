@@ -2710,9 +2710,10 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <title>View system information</title>
     <para>To get information about the current system you can do a GET request to this URL:</para>
     <screen>http://yourdomain.com/api/system/info</screen>
-    <para>The system info response currently includes the below properties. Note that if the user
-      who is requesting this resourec does not have full authority in the system then only the first
-      seven properties will be included, as this information is security sensitive.</para>
+    <para>JSON and JSONP response formats are supported. The system info response currently includes
+        the below properties. Note that if the user who is requesting this resourec does not have
+        full authority in the system then only the first seven properties will be included, as this
+        information is security sensitive.</para>
     <screen>{
     contextPath: "http://yourdomain.com",
     userAgent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.62 Safari/537.36",
@@ -2737,6 +2738,10 @@ ORDER BY oul.level, par.name, ou.name</screen>
     memoryInfo: "Mem Total in JVM: 848 Free in JVM: 581 Max Limit: 1333",
     cpuCores: 8    
     }</screen>
+      <para>To get information about the system context (<emphasis role="italic"
+          >contextPath</emphasis> and <emphasis role="italic">userAgent</emphasis>) only you can do
+        a GET request to the below URL. JSON and JSONP response formats are supported:
+        <screen>http://yourdomain.com/api/system/context</screen></para>
     </section>
     <section>
       <title>Check if username and password combination is correct</title>
