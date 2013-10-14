@@ -184,7 +184,7 @@ If there are no datasets defined for an organisation unit, it indicates that no 
           </imageobject>
         </mediaobject>
         <para>Here you can see that the organisation unit Nduvuibu MCHP had a unknown reference to
-          an object with UID "aaaU6Kr7Gtpidn", which means that an object with this UID was not
+          an object with ID "aaaU6Kr7Gtpidn", which means that an object with this ID was not
           present in your imported file, and it could not be found in the existing database. Its
           important to note that even if a reference could not be found, the object will still be
           imported, but you might have to fix this directly in DHIS 2 later, if the reference should
@@ -193,12 +193,12 @@ If there are no datasets defined for an organisation unit, it indicates that no 
     </section>
     <section>
       <title>Matching identifiers in DXF2</title>
-      <para>The DXF2 format currently support matching for two identifiers, our own UID, and also a
+      <para>The DXF2 format currently support matching for two identifiers, our own ID, and also a
         possible external identifier called code. When our importer is trying to search for
-        references (like the one above), it will first go to the UID field, and then to the code
-        field. This allows you to import from legacy systems without having a UID for every metadata
+        references (like the one above), it will first go to the ID field, and then to the code
+        field. This allows you to import from legacy systems without having a ID for every metadata
         object. I.e. if you are importing facility data from a legacy system, you can leave out the
-        UID field completely (DHIS 2 will fill this in for you) and the put the legacy systems own
+        ID field completely (DHIS 2 will fill this in for you) and the put the legacy systems own
         identifiers in the code field, this identifier is required to be unique. This not only works
         for organisation units, but for all kinds of metadata, allowing for easy import from other
         systems.</para>
@@ -293,7 +293,8 @@ If there are no datasets defined for an organisation unit, it indicates that no 
             <row>
               <entry>Data element</entry>
               <entry>Yes</entry>
-              <entry>Refers to uid by default, can also be name and code based on selected id scheme</entry>
+              <entry>Refers to id by default, can also be name and code based on selected id
+                scheme</entry>
             </row>
             <row>
               <entry>Period</entry>
@@ -303,12 +304,13 @@ If there are no datasets defined for an organisation unit, it indicates that no 
             <row>
               <entry>Org unit</entry>
               <entry>Yes</entry>
-              <entry>Refers to uid by default, can also be name and code based on selected id scheme</entry>
+              <entry>Refers to id by default, can also be name and code based on selected id
+                scheme</entry>
             </row>
             <row>
               <entry>Category option combo</entry>
               <entry>No</entry>
-              <entry>Refers to uid</entry>
+              <entry>Refers to id</entry>
             </row>
             <row>
               <entry>Value</entry>
