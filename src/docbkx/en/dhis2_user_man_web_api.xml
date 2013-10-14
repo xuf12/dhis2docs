@@ -1469,7 +1469,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
       SQL view from the api/sqlViews resource, then POST using the following command:</para>
     <screen>curl &quot;http://apps.dhis2.org/demo/api/sqlViews/dI68mLkP1wN/execute&quot; -X POST -u admin:district -v</screen>
     <para>The next step in the process is the retrieval of the data.The basic structure of the URL is as follows</para>
-    <screen>http://{server}/api/sqlViews/{uid}/data(.csv)</screen>
+    <screen>http://{server}/api/sqlViews/{id}/data(.csv)</screen>
     <para>The <parameter>{server}</parameter> parameter should be replaced with your own server. The
       next part of the URL <parameter>/api/sqlViews/</parameter> should be appended with the
       specific unique identifier (not the internal ID of the view). Append either
