@@ -2903,10 +2903,6 @@ ORDER BY oul.level, par.name, ou.name</screen>
         unit/nameLike:</emphasis><screen>GET /api/persons?orgUnit=&lt;orgunit-id>&amp;nameLike=sen</screen></para>
       <para><emphasis role="bold">Query for org
         unit/program:</emphasis><screen>GET /api/persons?orgUnit=&lt;orgunit-id>&amp;program=&lt;program-id></screen></para>
-      <para><emphasis role="bold">Query for org
-        unit/program/gender:</emphasis><screen>GET /api/persons?orgUnit=&lt;orgunit-id>&amp;program=&lt;program-id>&amp;gender=MALE/FEMALE/TRANSGENDER</screen></para>
-      <para><emphasis role="bold">Query for org
-        unit/gender:</emphasis><screen>GET /api/persons?orgUnit=&lt;orgunit-id>&amp;gender=MALE/FEMALE/TRANSGENDER</screen></para>
       <para><emphasis role="bold">Query for system
         identifier:</emphasis><screen>GET /api/persons?identifier=SYSTEM_ID</screen></para>
       <para><emphasis role="bold">Query for specific identifier
