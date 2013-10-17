@@ -969,7 +969,7 @@ ou=O6uvpzGd5pu&quot;&gt;Maternal Health Bo District 2012&lt;/a&gt;</screen>
   src=&quot;http://extjs-public.googlecode.com/svn/tags/extjs-4.0.7/release/ext-all.js&quot;&gt;
 &lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot;
-  src=&quot;http://apps.dhis2.org/demo/dhis-web-visualizer/app/plugin/plugin.js&quot;&gt;
+  src=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/plugin/chart.js&quot;&gt;
 &lt;/script&gt;</screen>
     <para>To authenticate with the DHIS server we use the same approach as in the previous section. In the header of the HTML document we include the following Javascript inside a script element. The <emphasis role="italic">setLinks</emphasis> method will be implemented later. Make sure the <emphasis role="italic">base</emphasis> variable is pointing to your DHIS installation.</para>
     <screen>var base = &apos;http://apps.dhis2.org/demo/&apos;;
@@ -978,11 +978,27 @@ Ext.onReady( function() {
   Ext.Ajax.request({ 
     url: base + &quot;dhis-web-commons-security/login.action&quot;,
     method: &apos;POST&apos;,
-    params: { j_username: &quot;admin&quot;, j_password: &quot;district&quot; },
+    params: { j_username: &quot;portal&quot;, j_password: &quot;Portal123&quot; },
     success: setLinks
   });
 });</screen>
-    <para>Now let us have a look at the various options for the Visualizer plug-in. If you want to refer to pre-defined charts already made inside DHIS you should use the <emphasis role="italic">uid</emphasis> parameter. If you want create dynamic charts you shoud include the indicators and/or dataelements parameter and omit the uid parameter. Asterisk (*) indicates that a parameter is required only when the uid  parameter is not used.</para>
+    <para>Now let us have a look at the various options for the Visualizer plug-in. Two properies are required: <emphasis role="italic">el</emphasis> and <emphasis role="italic">url</emphasis> (please refer to the table below). If you want to refer to pre-defined charts already made inside DHIS it is sufficient to provide the additional <emphasis role="italic">id</emphasis> parameter. If you want to create dynamic charts you shoud omit the id parameter and provide data dimensions inside a <emphasis role="italic">columns</emphasis> array (chart series), a <emphasis role="italic">rows</emphasis> array (chart categories) and optionally a <emphasis role="italic">filters</emphasis> array instead.</para>
+
+    <para>A data dimension is defined as an object with a text property called <emphasis role="italic">dimension</emphasis>. This property accepts the following values: <emphasis role="italic">in</emphasis> (indicator), <emphasis role="italic">de</emphasis> (data element), <emphasis role="italic">ds</emphasis> (data set), <emphasis role="italic">dc</emphasis> (data element operand), <emphasis role="italic">pe</emphasis> (period), <emphasis role="italic">ou</emphasis> (organisation unit) or the id of any organisation unit group set or data element group set (can be found in the web api). The data dimension also has an array property called <emphasis role="italic">items</emphasis> which accepts objects with an <emphasis role="italic">id</emphasis> property.</para>
+
+    <para>To sum up, if you want to have e.g. &quot;ANC 1 Coverage&quot;, &quot;ANC 2 Coverage&quot; and &quot;ANC 3 Coverage&quot; as series in your chart you can make the following <emphasis role="italic">columns</emphasis> config:</para>
+
+<screen>
+columns: [{
+  dimension: "in",
+  items: [
+    {id: "Uvn6LCg7dVU"},
+    {id: "OdiHJayrsKo"},
+    {id: "sB79w2hiLp8"}
+  ]
+}]
+</screen>
+    
     <table>
       <title>Visualizer chart plug-in configuration</title>
       <tgroup cols="5">
@@ -1007,11 +1023,25 @@ Ext.onReady( function() {
         </thead>
         <tbody>
           <row>
-            <entry>uid</entry>
+            <entry>el</entry>
+            <entry>string</entry>
+            <entry>Yes</entry>
+            <entry/>
+            <entry>Identifier of the HTML element to render the chart in your web page</entry>
+          </row>
+          <row>
+            <entry>url</entry>
+            <entry>string</entry>
+            <entry>Yes</entry>
+            <entry/>
+            <entry>Base URL of the DHIS server</entry>
+          </row>
+          <row>
+            <entry>id</entry>
             <entry>string</entry>
             <entry>No</entry>
             <entry/>
-            <entry>Identifier of a pre-defined chart in DHIS</entry>
+            <entry>Identifier of a pre-defined chart (favorite) in DHIS</entry>
           </row>
           <row>
             <entry>type</entry>
@@ -1021,68 +1051,40 @@ Ext.onReady( function() {
             <entry>Chart type</entry>
           </row>
           <row>
-            <entry>indicators</entry>
-            <entry>[string]</entry>
-            <entry>Yes*</entry>
+            <entry>columns</entry>
+            <entry>array</entry>
+            <entry>Yes (if no id provided)</entry>
             <entry/>
-            <entry>Identifiers of indicators to include in chart</entry>
+            <entry>Data dimensions to include in chart as series</entry>
           </row>
           <row>
-            <entry>dataelements</entry>
-            <entry>[string]</entry>
-            <entry>Yes*</entry>
+            <entry>rows</entry>
+            <entry>array</entry>
+            <entry>Yes (if no id provided)</entry>
             <entry/>
-            <entry>Identifiers of data elements to include in chart</entry>
-          </row>
-          <row>
-            <entry>periods</entry>
-            <entry>[string]</entry>
-            <entry>No</entry>
-            <entry>last12Months | lastMonth | lastQuarter | last4Quarters | lastSixMonth | last2SixMonths | thisYear | last5Years</entry>
-            <entry>Names of relative periods to include in chart</entry>
-          </row>
-          <row>
-            <entry>organisationunits</entry>
-            <entry>[string]</entry>
-            <entry>Yes*</entry>
-            <entry/>
-            <entry>Identifiers of organisation units to include in chart</entry>
-          </row>
-          <row>
-            <entry>series</entry>
-            <entry>string</entry>
-            <entry>No</entry>
-            <entry>data | period | organisationunit</entry>
-            <entry>Dimension to use as chart series</entry>
-          </row>
-          <row>
-            <entry>category</entry>
-            <entry>string</entry>
-            <entry>No</entry>
-            <entry>data | period | organisationunit</entry>
-            <entry>Dimension to use as chart category</entry>
+            <entry>Data dimensions to include in chart as category</entry>
           </row>
           <row>
             <entry>filter</entry>
-            <entry>string</entry>
+            <entry>array</entry>
             <entry>No</entry>
-            <entry>data | period | organisationunit</entry>
-            <entry>Dimension to use as chart filter</entry>
+            <entry/>
+            <entry>Data dimensions to include in chart as filters</entry>
           </row>
-          <row>
-            <entry>orgUnitIsParent</entry>
-            <entry>boolean</entry>
-            <entry>No</entry>
-            <entry>false | true</entry>
-            <entry>Whether the chart should display the children of the selected org units</entry>
-          </row>
-          <row>
-            <entry>skipAnimation</entry>
-            <entry>boolean</entry>
-            <entry>No</entry>
-            <entry>false | true</entry>
-            <entry>Whether the initial chart animation should be displayed</entry>
-          </row>
+
+          
+    showData: false,
+    //targetLineValue: 70,
+    //baseLineValue: 20,
+    //showTrendLine: true,
+    //hideLegend: true,
+    //title: 'My chart title',
+    //domainAxisTitle: 'Periods',
+    //rangeAxisTitle: 'Percent'
+  });
+
+
+  
           <row>
             <entry>showData</entry>
             <entry>boolean</entry>
@@ -1091,7 +1093,7 @@ Ext.onReady( function() {
             <entry>Whether to display data on the chart</entry>
           </row>
           <row>
-            <entry>trendLine</entry>
+            <entry>showTrendLine</entry>
             <entry>boolean</entry>
             <entry>No</entry>
             <entry>false | true</entry>
@@ -1105,25 +1107,11 @@ Ext.onReady( function() {
             <entry>Whether to hide the chart legend</entry>
           </row>
           <row>
-            <entry>hideSubtitle</entry>
+            <entry>hideTitle</entry>
             <entry>boolean</entry>
             <entry>No</entry>
             <entry>false | true</entry>
             <entry>Whether to hide the chart title</entry>
-          </row>
-          <row>
-            <entry>userOrganisationUnit</entry>
-            <entry>boolean</entry>
-            <entry>No</entry>
-            <entry>false | true</entry>
-            <entry>Whether the user of the current user should be included in the chart</entry>
-          </row>
-          <row>
-            <entry>userOrganisationUnitChildren</entry>
-            <entry>boolean</entry>
-            <entry>No</entry>
-            <entry>false | true</entry>
-            <entry>Whether the child org units of the current user should be included in the chart</entry>
           </row>
           <row>
             <entry>targetLineValue</entry>
@@ -1154,32 +1142,18 @@ Ext.onReady( function() {
             <entry>Label for baseline</entry>
           </row>
           <row>
-            <entry>domainAxisLabel</entry>
+            <entry>domainAxisTitle</entry>
             <entry>string</entry>
             <entry>No</entry>
             <entry/>
-            <entry>Label for the domain axis</entry>
+            <entry>Title for the domain axis</entry>
           </row>
           <row>
-            <entry>rangeAxisLabel</entry>
+            <entry>rangeAxisTitle</entry>
             <entry>string</entry>
             <entry>No</entry>
             <entry/>
-            <entry>Label for the range axis</entry>
-          </row>
-          <row>
-            <entry>el</entry>
-            <entry>string</entry>
-            <entry>Yes</entry>
-            <entry/>
-            <entry>Identifier of HTML element to render the chart in</entry>
-          </row>
-          <row>
-            <entry>url</entry>
-            <entry>string</entry>
-            <entry>Yes</entry>
-            <entry/>
-            <entry>Base URL of the DHIS server</entry>
+            <entry>Title for the range axis</entry>
           </row>
           <row>
             <entry>width</entry>
@@ -1195,46 +1169,42 @@ Ext.onReady( function() {
             <entry/>
             <entry>Height of chart</entry>
           </row>
-          <row>
-            <entry>legendPosition</entry>
-            <entry>string</entry>
-            <entry>No</entry>
-            <entry>top | right | bottom | left</entry>
-            <entry>Position of chart legend</entry>
-          </row>
         </tbody>
       </tgroup>
     </table>
     <para>We continue by including two pre-defined charts and to dynamic charts to our HTML document. You can browse the list of available charts using the Web API here: <ulink url="http://apps.dhis2.org/demo/api/charts"/>.</para>
-    <screen>function setLinks() {
-  DHIS.getChart({ uid: &apos;R0DVGvXDUNP&apos;, el: &apos;chartA1&apos;, url: base });
+    <screen>
+function setLinks() {
+  DV.plugin.getChart({ url: base, el: 'chartA1', id: 'R0DVGvXDUNP' });
 
-  DHIS.getChart({ uid: &apos;X0CPnV6uLjR&apos;, el: &apos;chartA2&apos;, url: base });
-
-
-  DHIS.getChart({ el: &apos;chartB1&apos;, url: base,
-    type: &apos;bar&apos;,
-    indicators: [&apos;FnYCr2EAzWS&apos;,&apos;eTDtyyaSA7f&apos;,&apos;tUIlpyeeX9N&apos;],
-    periods: &apos;last12Months&apos;,
-    organisationunits: [&apos;ImspTQPwCqd&apos;]
-  });
-
-  DHIS.getChart({ el: &apos;chartB2&apos;, url: base,
-    type: &apos;column&apos;,
-    indicators: [&apos;Uvn6LCg7dVU&apos;,&apos;sB79w2hiLp8&apos;],
-    periods: &apos;thisYear&apos;,
-    organisationunits: [&apos;O6uvpzGd5pu&apos;,&apos;fdc6uOvgoji&apos;,&apos;lc3eMKXaEfw&apos;,&apos;jmIPBj66vD6&apos;],
-    series: &apos;data&apos;,
-    category: &apos;organisationunit&apos;,
-    filter: &apos;period&apos;
+  DV.plugin.getChart({
+    url: base,
+    el: 'chartB1',
+    type: 'stackedBar',
+    columns: [
+      {dimension: 'de', items: [{id: 'YtbsuPPo010'}, {id: 'l6byfWFUGaP'}, {id: 's46m5MS0hxu'}]}
+    ],
+    rows: [
+      {dimension: 'pe', items: [{id: 'LAST_12_MONTHS'}]}
+    ],
+    filters: [
+      {dimension: 'ou', items: [{id: 'USER_ORGUNIT'}]}
+    ],
+    showData: false,
+    //targetLineValue: 70,
+    //baseLineValue: 20,
+    //showTrendLine: true,
+    //hideLegend: true,
+    //title: 'My chart title',
+    //domainAxisTitle: 'Periods',
+    //rangeAxisTitle: 'Percent'
   });
 };</screen>
     <para>Finally we include some <emphasis role="italic">div</emphasis> elements in the body section of the HTML document with the identifiers referred to in the plug-in Javascript.</para>
-    <screen>&lt;div id=&quot;chartA1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
-&lt;div id=&quot;chartA2&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
-
+    <screen>
+&lt;div id=&quot;chartA1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
 &lt;div id=&quot;chartB1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
-&lt;div id=&quot;chartB2&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;</screen>
+</screen>
     <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/chart.html"/>.</para>
   </section>
   <section>
