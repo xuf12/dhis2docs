@@ -356,7 +356,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para>To perform functional testing we will use the cURL tool (<ulink url="http://curl.haxx.se"/>) which provides an easy way of transferring data using HTTP. First we save the data value
       set XML content in a file called <emphasis role="italic">datavalueset.xml</emphasis> . From
       the directory where this file resides we invoke the following from the command line:</para>
-    <para><code>curl -d @datavalueset.xml &quot;http://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</code></para>
+    <screen>curl -d @datavalueset.xml &quot;http://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</screen>
     <para>The command will dispatch a request to the demo Web API,  set <emphasis role="italic">application/xml</emphasis> as the content-type and  authenticate using admin/district as username/password.   If all goes well this will return a <emphasis role="italic">200 OK</emphasis> HTTP status code. You can verify that the data has been received by opening the data entry module in DHIS 2 and select the org unit, data set and period used in this example.</para>
     <para>The API follows normal semantics for error handling and HTTP status codes. If you supply an invalid username or password, <emphasis role="italic">401 Unauthorized</emphasis> is returned. If you supply a content-type other than application/xml, <emphasis role="italic">415 Unsupported Media Type</emphasis> is returned. If the XML content is invalid according to the DXF namespace, <emphasis role="italic">400 Bad Request</emphasis> is returned. If you provide an invalid identifier in the XML content, <emphasis role="italic">409 Conflict</emphasis> is returned together with a descriptive message.</para>
     <para>In this example, cURL will authenticate to the server through  Basic authentication using our supplied username and password as credentials through the <emphasis role="italic">-u</emphasis> flag. </para>
@@ -611,7 +611,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       identified using <emphasis>codes</emphasis> rather than <emphasis>identifiers</emphasis>.
       Assuming these coded datasets are present in the DHIS2 server then this can be posted, for
       example using the curl command below.</para>
-    <para><code>curl -d @sdmxdatavalueset.xml &quot;http://{server base url}/api/dataValueSets&quot; -H &quot;Content-Type:application/sdmx+xml&quot; -u admin:district -v</code></para>
+    <screen>curl -d @sdmxdatavalueset.xml &quot;http://{server base url}/api/dataValueSets&quot; -H &quot;Content-Type:application/sdmx+xml&quot; -u admin:district -v</screen>
   </section>
   <section>
     <title>Sending large bulks of data values</title>
@@ -624,7 +624,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
   &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201202&quot; orgUnit=&quot;Jkhdsf8sdf4&quot; value=&quot;18&quot;/&gt;
 &lt;/dataValueSet&gt;</screen>
     <para>We test by using cURL  to send the data values:</para>
-    <para><code>curl -d @datavalueset.xml &quot;http://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</code></para>
+    <screen>curl -d @datavalueset.xml &quot;http://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</screen>
     <para>The data value set resource provides an XML response which is useful when you want to verify the impact your request had. The first time we send the data value set request above the server will respond with the following<emphasis role="italic"> import summary</emphasis>:</para>
     <screen>&lt;importSummary&gt;
   &lt;dataValueCount imported=&quot;2&quot; updated=&quot;1&quot; ignored=&quot;1&quot;/&gt;
@@ -721,9 +721,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       </tgroup>
     </table>
     <para>It is assumed that we have posted data values to DHIS according to the previous section called &quot;Sending data values&quot;. We can now put together our request and send it using cURL:</para>
-    <para><code>curl
-        &quot;http://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX</code><code>&amp;period=201201&amp;orgUnit=DiszpKrYNg8&quot;
-        -H &quot;Accept:application/xml&quot; -u admin:district -v</code></para>
+    <screen>curl &quot;http://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;period=201201&amp;orgUnit=DiszpKrYNg8&quot; -H &quot;Accept:application/xml&quot; -u admin:district -v</screen>
     <para>The  response will look something like this:</para>
     <screen>HTTP/1.1 200 OK
 Content-Type: application/xml
@@ -783,9 +781,8 @@ Content-Type: application/xml
     </table>
     <para>The dataSet and orgUnit parameters can be repeated in order to include multiple data sets
       and organisation units. An example request looks like this:</para>
-    <para><code>curl
-        "http://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;dataSet=BfMAe6Itzgt&amp;startDate=2013-01-01&amp;endDate=2013-01-31&amp;orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true"
-        -H "Accept:application/xml" -u admin:district -v</code></para>
+    <screen>curl "http://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;dataSet=BfMAe6Itzgt&amp;startDate=2013-01-01&amp;endDate=2013-01-31&amp;orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true"
+        -H "Accept:application/xml" -u admin:district -v</screen>
     <para>You can get the response in <emphasis role="italic">xml</emphasis> and <emphasis role="italic">csv</emphasis> format. You can indicate which response format you prefer
       through the <emphasis role="italic">Accept</emphasis> HTTP header like in the example above.
       For xml you use <emphasis role="italic">application/xml</emphasis>; for csv you use <emphasis role="italic">application/csv</emphasis>.</para>
@@ -892,10 +889,10 @@ Content-Type: application/xml
   &lt;/users&gt;
 &lt;/message&gt;</screen>
     <para>To test this we save the XML content into a file called <emphasis role="italic">message.xml</emphasis>. We use cURL to dispatch the message the the DHIS 2 demo instance where we indicate that the content-type is XML and authenticate as the <emphasis role="italic">admin</emphasis> user:</para>
-    <para><code>curl -d @message.xml &quot;http://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -X POST -v</code></para>
+    <screen>curl -d @message.xml &quot;http://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -X POST -v</screen>
     <para>If all is well we receive a <emphasis role="italic">201 Created</emphasis> HTTP status code. Also note that we receive a <emphasis role="italic">Location </emphasis>HTTP header which value  informs us of the URL of the newly  created message conversation resource - this can be used by a consumer to perform further action.</para>
     <para>We will now pretend to be the mobile user and read the message which was just sent by dispatching a GET request to the <emphasis role="italic">messageConversations</emphasis> resource. We supply an <emphasis role="italic">Accept</emphasis> header with <emphasis role="italic">application/xml</emphasis> as the value to indicate that we are interested in the XML resource representation and we authenticate as the <emphasis role="italic">mobile</emphasis> user:</para>
-    <para><code>curl &quot;http://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Accept:application/xml&quot; -u mobile:district -X GET -v</code></para>
+    <screen>curl &quot;http://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Accept:application/xml&quot; -u mobile:district -X GET -v</screen>
     <para>In response we get the following XML:</para>
     <screen>&lt;messageConversations xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;
   link=&quot;http://apps.dhis2.org/demo/api/messageConversations&quot;&gt;
@@ -905,18 +902,89 @@ Content-Type: application/xml
     link=&quot;http://apps.dhis2.org/demo/api/messageConversations/GDBqVfkmnp2&quot;/&gt;
 &lt;/messageConversations&gt;</screen>
     <para>From the response we are able to read the identifier of the newly sent message which is <emphasis role="italic">ZjHHSjyyeJ2</emphasis>. Note that the link to the specific resource is embedded and can be followed in order to read the full message. From the description at <ulink url="http://apps.dhis2.org/demo/api/messageConversations"/> we learned that we can reply directly to an existing message conversation once we know the URL by including the message text as the  request payload (body). We are now able to construct a URL for sending our reply:</para>
-    <para><code>curl -d &quot;Yes the Mortality data set has been reported&quot; &quot;http://apps.dhis2.org/demo/api/messageConversations/ZjHHSjyyeJ2&quot; -H &quot;Content-Type:text/plain&quot; -u mobile:district -X POST -v</code> </para>
+    <screen>curl -d &quot;Yes the Mortality data set has been reported&quot; &quot;http://apps.dhis2.org/demo/api/messageConversations/ZjHHSjyyeJ2&quot; -H &quot;Content-Type:text/plain&quot; -u mobile:district -X POST -v</screen>
     <para>If all went according to plan you will receive a <emphasis role="italic">200 OK</emphasis> status code.</para>
   </section>
   <section>
+    <title>Interpretations</title>
+    <para>For certain analysis-related resources in DHIS, like charts, maps and report tables, one
+      can write and share a data interpretation. An interpretation is simply a link to the the
+      relevant resource together with a text expressing some insight about the data. Interpretations
+      access control follows the access given for the interpreted object.</para>
+    <section>
+    <title>Reading interpretations</title>
+    <para>To read interpretations we will interact with the <emphasis role="italic"
+          >api/interpretations</emphasis> resource. The output in JSON response format could look
+        like below (use e.g. api/interpretations.json):</para>
+      <screen>{
+    "interpretations": [{
+        "created": "2013-10-07T11:37:19.273+0000",
+        "lastUpdated": "2013-10-07T12:08:58.028+0000",
+        "type": "map",
+        "href": "http://apps.dhis2.org/demo/api/interpretations/d3BukolfFZI",
+        "id": "d3BukolfFZI"
+    }, {
+        "created": "2013-05-30T10:24:06.181+0000",
+        "lastUpdated": "2013-05-30T10:25:08.066+0000",
+        "type": "reportTable",
+        "href": "http://apps.dhis2.org/demo/api/interpretations/XSHiFlHAhhh",
+        "id": "XSHiFlHAhhh"
+    }, {
+        "created": "2013-05-29T14:47:13.081+0000",
+        "lastUpdated": "2013-05-29T14:47:13.081+0000",
+        "type": "chart",
+        "href": "http://apps.dhis2.org/demo/api/interpretations/kr4AnZmYL43",
+        "id": "kr4AnZmYL43"
+    }]
+}</screen>
+      <para>An interpretation contains properties for identifier, date of creation and date of last
+        modification. The type property refers to the kind of object is being interpretated, and is
+        useful to show an appriate visual indication in a client. Valid options are "chart", "map",
+        "reportTable" and "dataSetReport". By following the link given in the "href" property one
+        can get more information about a specific interpretation. In the case of the map
+        interpretation, the response will look like this:</para>
+      <screen>{
+    "created": "2013-10-07T11:37:19.273+0000",
+    "lastUpdated": "2013-10-07T12:08:58.028+0000",
+    "map": {
+        "name": "ANC: ANC 2 Coverage",
+        "created": "2012-11-13T12:01:21.918+0000",
+        "lastUpdated": "2012-11-13T12:01:21.918+0000",
+        "href": "http://apps.dhis2.org/demo/api/maps/bhmHJ4ZCdCd",
+        "id": "bhmHJ4ZCdCd"
+    },
+    "text": "We can see that the ANC 2 coverage of Kasonko and Lei districts are under 40 %. What could be the cause for this?",
+    "comments": [{
+        "created": "2013-10-07T12:08:58.026+0000",
+        "lastUpdated": "2013-10-07T12:08:58.026+0000",
+        "text": "Due to the rural environment, getting women to the facilities is a challenge. Outreach campaigns might be helpful.",
+        "href": "http://apps.dhis2.org/demo/api/null/iB4Etq8yTE6",
+        "id": "iB4Etq8yTE6"
+    }],
+    "type": "map",
+    "href": "http://apps.dhis2.org/demo/api/interpretations/d3BukolfFZI",
+    "id": "d3BukolfFZI"
+}</screen>
+      <para>The map interpretation contains identifier and type information in the "id" and "type"
+        properties. The interpretation text is available in the "text" property and references to
+        any comments in the "comments" list. It also contains information about the interpreted
+        object, in this case the "map" property. Note that you can follow the link to the actual map
+        through the "href" property. For all analytical objects you can append <emphasis
+          role="italic">/data</emphasis> to the URL to retrieve the data associated with the
+        resource, as apposed to the meta-data. As an example, by following the map link and
+        appending /data one can retrieve a PNG (image) representation of the thematic map through
+        the following URL:</para>
+      <screen>http://apps.dhis2.org/demo/api/maps/bhmHJ4ZCdCd/data</screen>
+    </section>
+    <section>
     <title>Writing interpretations</title>
-    <para>For certain analysis-related resources in DHIS, like charts and report tables, one can share a data interpretation. An interpretation is simply a link to the the relevant resource together with a text expressing some insight about the data. Currently an interpretation can be viewed by all users in the system.</para>
     <para>We will start by writing an interpretation for the chart with identifier <emphasis role="italic">EbRN2VIbPdV</emphasis>. To write chart interpretations we will interact with the <ulink url="http://apps.dhis2.org/demo/api/interpretations/chart/{chartId}"/> resource. The interpretation will be the request body. Based on this we can put together the following request using cURL:</para>
-    <para><code>curl -d &quot;This chart shows a significant ANC 1-3 dropout&quot; &quot;http://apps.dhis2.org/demo/api/interpretations/chart/EbRN2VIbPdV&quot; -H &quot;Content-Type:text/plain&quot; -u admin:district -v</code></para>
+    <screen>curl -d &quot;This chart shows a significant ANC 1-3 dropout&quot; &quot;http://apps.dhis2.org/demo/api/interpretations/chart/EbRN2VIbPdV&quot; -H &quot;Content-Type:text/plain&quot; -u admin:district -v</screen>
     <para>Second we will write a comment on the interpretation we just wrote. By looking at the interpretation response you will see that a <emphasis role="italic">Location</emphasis> header is returned. This header tells us the URL of the newly created interpretation and from that we can read its identifier. This identifier is randomly generated so you will have to replace the one in the command below with your own. To write a comment we can interact with the <ulink url="http://apps.dhis2.org/demo/api/interpretations/{interpretationId}/comment"/> like this:</para>
-    <para><code>curl -d &quot;An intervention is needed&quot; &quot;http://apps.dhis2.org/demo/api/interpretations/j8sjHLkK8uY/comment&quot; -H &quot;Content-Type:text/plain&quot; -u admin:district -v</code></para>
+    <screen>curl -d &quot;An intervention is needed&quot; &quot;http://apps.dhis2.org/demo/api/interpretations/j8sjHLkK8uY/comment&quot; -H &quot;Content-Type:text/plain&quot; -u admin:district -v</screen>
     <para>You can also write interpretations for report tables in a similar way by interacting with the <ulink url="http://app.dhis2.org/demo/api/interpretations/reportTable/{reportTableId}"/>. For report tables you can also provide an optional <emphasis role="italic">ou</emphasis> query parameter to supply an organisation unit identifier in the case where the report table has an organisation unit report parameter:</para>
-    <para><code>curl -d &quot;This table reveals poor data quality&quot; &quot;http://apps.dhis2.org/demo/api/interpretations/reportTable/xIWpSo5jjT1?ou=O6uvpzGd5pu&quot; -H &quot;Content-Type:text/plain&quot; -u admin:district -v</code></para>
+    <screen>curl -d &quot;This table reveals poor data quality&quot; &quot;http://apps.dhis2.org/demo/api/interpretations/reportTable/xIWpSo5jjT1?ou=O6uvpzGd5pu&quot; -H &quot;Content-Type:text/plain&quot; -u admin:district -v</screen>
+    </section>
   </section>
   <section>
     <title>Embedding reports in web pages</title>
@@ -1070,22 +1138,7 @@ columns: [{
             <entry>No</entry>
             <entry/>
             <entry>Data dimensions to include in chart as filters</entry>
-          </row>
-
-          
-    showData: false,
-    //targetLineValue: 70,
-    //baseLineValue: 20,
-    //showTrendLine: true,
-    //hideLegend: true,
-    //title: 'My chart title',
-    //domainAxisTitle: 'Periods',
-    //rangeAxisTitle: 'Percent'
-  });
-
-
-  
-          <row>
+          </row><row>
             <entry>showData</entry>
             <entry>boolean</entry>
             <entry>No</entry>
