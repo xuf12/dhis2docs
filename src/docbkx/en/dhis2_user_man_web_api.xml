@@ -1924,7 +1924,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
               <row>
                 <entry>ignoreLimit</entry>
                 <entry>No</entry>
-                <entry>Ignore max number of values in response - use with care</entry>
+                <entry>Ignore limit on max 50 000 records in response - use with care</entry>
                 <entry>false | true</entry>
               </row>
               <row>
