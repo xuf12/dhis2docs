@@ -2493,7 +2493,14 @@ ORDER BY oul.level, par.name, ou.name</screen>
         "type": "java.lang.String",
         "hidden": false,
         "meta": false
-    }, 
+    },
+    {
+        "name": "coordinates",
+        "column": "Coordinates",
+        "type": "java.lang.String",
+        "hidden": false,
+        "meta": false
+    },
     {
         "name": "ouname",
         "column": "Organisation unit name",
@@ -2545,10 +2552,10 @@ ORDER BY oul.level, par.name, ou.name</screen>
     "width": 8,
     "height": 25,
     "rows": [
-        ["yx9IDINf82o", "Zj7UnCAulEk", "2012-08-05", "Ngelehun CHC", "OU_559", "YuQRtpLP10I", "Female", "50"],
-        ["IPNa7AsCyFt", "Zj7UnCAulEk", "2012-06-12", "Ngelehun CHC", "OU_559", "YuQRtpLP10I", "Female", "50"],
-        ["ZY9JL9dkhD2", "Zj7UnCAulEk", "2012-06-15", "Ngelehun CHC", "OU_559", "YuQRtpLP10I", "Female", "50"],
-        ["MYvh4WAUdWt", "Zj7UnCAulEk", "2012-06-16", "Ngelehun CHC", "OU_559", "YuQRtpLP10I", "Female", "50"]
+        ["yx9IDINf82o", "Zj7UnCAulEk", "2012-08-05", "[5.12, 1.23]", "Ngelehun CHC", "OU_559", "YuQRtpLP10I", "Female", "50"],
+        ["IPNa7AsCyFt", "Zj7UnCAulEk", "2012-06-12", "[5.22, 1.43]", "Ngelehun CHC", "OU_559", "YuQRtpLP10I", "Female", "50"],
+        ["ZY9JL9dkhD2", "Zj7UnCAulEk", "2012-06-15", "[5.42, 1.33]", "Ngelehun CHC", "OU_559", "YuQRtpLP10I", "Female", "50"],
+        ["MYvh4WAUdWt", "Zj7UnCAulEk", "2012-06-16", "[5.32, 1.53]", "Ngelehun CHC", "OU_559", "YuQRtpLP10I", "Female", "50"]
     ]
 }</screen>
       <para>The <emphasis role="italic">headers</emphasis> section of the response describes the
