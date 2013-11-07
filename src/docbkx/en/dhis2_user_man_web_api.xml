@@ -1089,47 +1089,252 @@ api/maps/DHE98Gsynpr/data?date=2013-07-01
 api/reports/OeJsA6K1Otx/data.pdf
 api/reports/OeJsA6K1Otx/data.pdf?date=2012-01-01</screen>
   </section>
+
+  
+ 
+
+  <section>
+    <title>Embedding pivot tables with the Pivot table plug-in</title>
+    <para>In this example we will see how we can embed good-looking, light-weight html pivot tables with data served from a DHIS back-end into a Web page. To accomplish this we will use the Pivot table plug-in. The plug-in is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/table.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
+    <para>We start by including three files in the header section of the HTML document. The first two files are the Ext JS javascript library (we use the Google content delivery network in this case) and its css stylesheet. The third file is the Pivot table plug-in. Make sure the path is pointing to your DHIS server installation.</para>
+    <screen>		&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://extjs-public.googlecode.com/
+			svn/tags/extjs-4.0.7/release/resources/css/ext-plugin-gray.css&quot; /&gt;
+
+		&lt;script src=&quot;http://extjs-public.googlecode.com/svn/tags/extjs-4.0.7/release/
+					   ext-all.js&quot;&gt;&lt;/script&gt;
+
+		&lt;script src=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/plugin/
+					   table.js&quot;&gt;&lt;/script&gt;</screen>
+    <para>To authenticate with the DHIS server we use the same approach as in the previous section. In the header of the HTML document we include the following Javascript inside a script element. The <emphasis role="italic">setLinks</emphasis> method will be implemented later. Make sure the <emphasis role="italic">base</emphasis> variable is pointing to your DHIS installation.</para>
+    <screen>		var base = &quot;http://apps.dhis2.org/demo/&quot;;
+
+		Ext.onReady( function() {
+				Ext.Ajax.request({ 
+						url: base + &quot;dhis-web-commons-security/login.action&quot;,
+						method: &quot;POST&quot;,
+						params: { j_username: &quot;portal&quot;, j_password: &quot;Portal123&quot; },
+						success: setLinks
+				});
+		});</screen>
+    <para>Now let us have a look at the various options for the Pivot table plug-in. Two properies are required: <emphasis role="italic">el</emphasis> and <emphasis role="italic">url</emphasis> (please refer to the table below). Now, if you want to refer to pre-defined tables already made inside DHIS it is sufficient to provide the additional <emphasis role="italic">id</emphasis> parameter. If you instead want to configure a pivot table dynamically you shoud omit the id parameter and provide data dimensions inside a <emphasis role="italic">columns</emphasis> array (chart series), a <emphasis role="italic">rows</emphasis> array (chart categories) and optionally a <emphasis role="italic">filters</emphasis> array instead.</para>
+
+    <para>A data dimension is defined as an object with a text property called <emphasis role="italic">dimension</emphasis>. This property accepts the following values: <emphasis role="italic">in</emphasis> (indicator), <emphasis role="italic">de</emphasis> (data element), <emphasis role="italic">ds</emphasis> (data set), <emphasis role="italic">dc</emphasis> (data element operand), <emphasis role="italic">pe</emphasis> (period), <emphasis role="italic">ou</emphasis> (organisation unit) or the id of any organisation unit group set or data element group set (can be found in the web api). The data dimension also has an array property called <emphasis role="italic">items</emphasis> which accepts objects with an <emphasis role="italic">id</emphasis> property.</para>
+
+    <para>To sum up, if you want to have e.g. &quot;ANC 1 Coverage&quot;, &quot;ANC 2 Coverage&quot; and &quot;ANC 3 Coverage&quot; on the columns in your chart you can make the following <emphasis role="italic">columns</emphasis> config:</para>
+
+	<screen>		columns: [{
+				dimension: "in", // "in", "de", "ds", "dc", "pe", "ou" or any dimension id
+				items: [
+						{id: "Uvn6LCg7dVU"}, // the id of ANC 1 Coverage
+						{id: "OdiHJayrsKo"}, // the id of ANC 2 Coverage
+						{id: "sB79w2hiLp8"}  // the id of ANC 3 Coverage
+				]
+		}]</screen>
+    
+    <table>
+      <title>Pivot table plug-in configuration</title>
+      <tgroup cols="5">
+        <thead>
+          <row>
+            <entry>
+              <emphasis role="italic">Param</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Type</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Required</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Options (default first)</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Description</emphasis>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>el</entry>
+            <entry>string</entry>
+            <entry>Yes</entry>
+            <entry/>
+            <entry>Identifier of the HTML element to render the chart in your web page</entry>
+          </row>
+          <row>
+            <entry>url</entry>
+            <entry>string</entry>
+            <entry>Yes</entry>
+            <entry/>
+            <entry>Base URL of the DHIS server</entry>
+          </row>
+          <row>
+            <entry>id</entry>
+            <entry>string</entry>
+            <entry>No</entry>
+            <entry/>
+            <entry>Identifier of a pre-defined chart (favorite) in DHIS</entry>
+          </row>
+          <row>
+            <entry>columns</entry>
+            <entry>array</entry>
+            <entry>Yes (if no id provided)</entry>
+            <entry/>
+            <entry>Data dimensions to include in chart as series</entry>
+          </row>
+          <row>
+            <entry>rows</entry>
+            <entry>array</entry>
+            <entry>Yes (if no id provided)</entry>
+            <entry/>
+            <entry>Data dimensions to include in chart as category</entry>
+          </row>
+          <row>
+            <entry>filter</entry>
+            <entry>array</entry>
+            <entry>No</entry>
+            <entry/>
+            <entry>Data dimensions to include in chart as filters</entry>
+          </row>  
+          <row>
+            <entry>showTotals</entry>
+            <entry>boolean</entry>
+            <entry>No</entry>
+            <entry>true | false</entry>
+            <entry>Whether to display totals for columns and rows</entry>
+          </row>
+          <row>
+            <entry>showSubTotals</entry>
+            <entry>boolean</entry>
+            <entry>No</entry>
+            <entry>true | false</entry>
+            <entry>Whether to display sub-totals for columns and rows</entry>
+          </row>
+          <row>
+            <entry>hideEmptyRows</entry>
+            <entry>boolean</entry>
+            <entry>No</entry>
+            <entry>false | true</entry>
+            <entry>Whether to hide rows with no data</entry>
+          </row>
+          <row>
+            <entry>showHierarchy</entry>
+            <entry>boolean</entry>
+            <entry>No</entry>
+            <entry>false | true</entry>
+            <entry>Whether to extend orgunit names with the name of all anchestors</entry>
+          </row>
+          <row>
+            <entry>displayDensity</entry>
+            <entry>string</entry>
+            <entry>No</entry>
+            <entry>"normal" | "comfortable" | "compact"</entry>
+            <entry>The amount of space inside table cells</entry>
+          </row>
+          <row>
+            <entry>fontSize</entry>
+            <entry>string</entry>
+            <entry>No</entry>
+            <entry>"normal" | "large" | "small"</entry>
+            <entry>Table font size</entry>
+          </row>
+          <row>
+            <entry>digitGroupSeparator</entry>
+            <entry>string</entry>
+            <entry>No</entry>
+            <entry>"space" | "comma" | "none"</entry>
+            <entry>How values are formatted: 1 000 | 1,000 | 1000</entry>
+          </row>
+          <row>
+            <entry>legendSet</entry>
+            <entry>object</entry>
+            <entry>No</entry>
+            <entry/>
+            <entry>Show a color indicator next to the values (currently reusing legend sets from GIS)</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>We continue by adding one pre-defined and one dynamic pivot table to our HTML document. You can browse the list of available pivot tables using the Web API here: <ulink url="http://apps.dhis2.org/demo/api/reportTables"/>.</para>
+    <screen>		function setLinks() {
+				DV.plugin.getTable({ url: base, el: 'chartA1', id: 'R0DVGvXDUNP' });
+
+				DV.plugin.getTable({
+						url: base,
+						el: 'chartB1',
+						type: 'stackedBar',
+						columns: [
+								{dimension: 'de', items: [{id: 'YtbsuPPo010'}, {id: 'l6byfWFUGaP'}]}
+						],
+						rows: [
+								{dimension: 'pe', items: [{id: 'LAST_12_MONTHS'}]}
+						],
+						filters: [
+								{dimension: 'ou', items: [{id: 'USER_ORGUNIT'}]}
+						],
+						//showTotals: false,
+						//showSubTotals: false,
+						//hideEmptyRows: true,
+						//showHierarchy: true,
+						//displayDensity: "comfortable",
+						//fontSize: "large",
+						//digitGroupSeparator: "comma",
+						//legendSet: {id: "BtxOoQuLyg1"}
+				});
+		};</screen>
+    <para>Finally we include some <emphasis role="italic">div</emphasis> elements in the body section of the HTML document with the identifiers referred to in the plug-in Javascript.</para>
+    <screen>		&lt;div id=&quot;tableA1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
+		&lt;div id=&quot;tableB1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;</screen>
+    <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/table.html"/>.</para>
+  </section>
+
+
+
+  
+
+
+
+
+  
+
+
   <section>
     <title>Embedding charts with the Visualizer chart plug-in</title>
     <para>In this example we will see how we can embed good-looking Ext JS charts (<ulink url="http://www.sencha.com/products/extjs"/>) with data served from a DHIS back-end into a Web page. To accomplish this we will use the DHIS Visualizer plug-in. The plug-in is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/chart.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
-    <para>We start by including three required Javascript files in the header section of the HTML document. The first file is the  Ext JS Javascript library (we use  the Google content delivery network in this case). The third file is the Visualizer plug-in. Make sure the path is pointing to your DHIS server installation.</para>
-    <screen>&lt;script type=&quot;text/javascript&quot;
-  src=&quot;http://extjs-public.googlecode.com/svn/tags/extjs-4.0.7/release/ext-all.js&quot;&gt;
-&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot;
-  src=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/plugin/chart.js&quot;&gt;
-&lt;/script&gt;</screen>
-    <para>To authenticate with the DHIS 2 server we use the same approach as in the previous
-      section. In the header of the HTML document we include the following Javascript inside a
-      script element. The <emphasis role="italic">setLinks</emphasis> method will be implemented
-      later. Make sure the <emphasis role="italic">base</emphasis> variable is pointing to your DHIS
-      installation.</para>
-    <screen>var base = &apos;http://apps.dhis2.org/demo/&apos;;
+    <para>We start by including three files in the header section of the HTML document. The first two files are the Ext JS javascript library (we use the Google content delivery network in this case) and its stylesheet. The third file is the Visualizer plug-in. Make sure the path is pointing to your DHIS server installation.</para>
+    <screen>		&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://extjs-public.googlecode.com/
+			svn/tags/extjs-4.0.7/release/resources/css/ext-plugin-gray.css&quot; /&gt;
 
-Ext.onReady( function() {
-  Ext.Ajax.request({ 
-    url: base + &quot;dhis-web-commons-security/login.action&quot;,
-    method: &apos;POST&apos;,
-    params: { j_username: &quot;portal&quot;, j_password: &quot;Portal123&quot; },
-    success: setLinks
-  });
-});</screen>
-    <para>Now let us have a look at the various options for the Visualizer plug-in. Two properies are required: <emphasis role="italic">el</emphasis> and <emphasis role="italic">url</emphasis> (please refer to the table below). If you want to refer to pre-defined charts already made inside DHIS it is sufficient to provide the additional <emphasis role="italic">id</emphasis> parameter. If you want to create dynamic charts you shoud omit the id parameter and provide data dimensions inside a <emphasis role="italic">columns</emphasis> array (chart series), a <emphasis role="italic">rows</emphasis> array (chart categories) and optionally a <emphasis role="italic">filters</emphasis> array instead.</para>
+		&lt;script src=&quot;http://extjs-public.googlecode.com/svn/tags/extjs-4.0.7/release/
+					   ext-all.js&quot;&gt;&lt;/script&gt;
+
+		&lt;script src=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/plugin/
+					   table.js&quot;&gt;&lt;/script&gt;</screen>
+    <para>To authenticate with the DHIS server we use the same approach as in the previous section. In the header of the HTML document we include the following Javascript inside a script element. The <emphasis role="italic">setLinks</emphasis> method will be implemented later. Make sure the <emphasis role="italic">base</emphasis> variable is pointing to your DHIS installation.</para>
+    <screen>		var base = &quot;http://apps.dhis2.org/demo/&quot;;
+
+		Ext.onReady( function() {
+				Ext.Ajax.request({ 
+						url: base + &quot;dhis-web-commons-security/login.action&quot;,
+						method: &quot;POST&quot;,
+						params: { j_username: &quot;portal&quot;, j_password: &quot;Portal123&quot; },
+						success: setLinks
+				});
+		});</screen>
+    <para>Now let us have a look at the various options for the Visualizer plug-in. Two properies are required: <emphasis role="italic">el</emphasis> and <emphasis role="italic">url</emphasis> (please refer to the table below). Now, if you want to refer to pre-defined charts already made inside DHIS it is sufficient to provide the additional <emphasis role="italic">id</emphasis> parameter. If you instead want to configure a chart dynamically you shoud omit the id parameter and provide data dimensions inside a <emphasis role="italic">columns</emphasis> array (chart series), a <emphasis role="italic">rows</emphasis> array (chart categories) and optionally a <emphasis role="italic">filters</emphasis> array instead.</para>
 
     <para>A data dimension is defined as an object with a text property called <emphasis role="italic">dimension</emphasis>. This property accepts the following values: <emphasis role="italic">in</emphasis> (indicator), <emphasis role="italic">de</emphasis> (data element), <emphasis role="italic">ds</emphasis> (data set), <emphasis role="italic">dc</emphasis> (data element operand), <emphasis role="italic">pe</emphasis> (period), <emphasis role="italic">ou</emphasis> (organisation unit) or the id of any organisation unit group set or data element group set (can be found in the web api). The data dimension also has an array property called <emphasis role="italic">items</emphasis> which accepts objects with an <emphasis role="italic">id</emphasis> property.</para>
 
     <para>To sum up, if you want to have e.g. &quot;ANC 1 Coverage&quot;, &quot;ANC 2 Coverage&quot; and &quot;ANC 3 Coverage&quot; as series in your chart you can make the following <emphasis role="italic">columns</emphasis> config:</para>
 
-<screen>
-columns: [{
-  dimension: "in",
-  items: [
-    {id: "Uvn6LCg7dVU"},
-    {id: "OdiHJayrsKo"},
-    {id: "sB79w2hiLp8"}
-  ]
-}]
-</screen>
+	<screen>		columns: [{
+				dimension: "in", // could be "in", "de", "ds", "dc", "pe", "ou" or any dimension id
+				items: [
+						{id: "Uvn6LCg7dVU"}, // the id of ANC 1 Coverage
+						{id: "OdiHJayrsKo"}, // the id of ANC 2 Coverage
+						{id: "sB79w2hiLp8"}  // the id of ANC 3 Coverage
+				]
+		}]</screen>
     
     <table>
       <title>Visualizer chart plug-in configuration</title>
@@ -1202,7 +1407,8 @@ columns: [{
             <entry>No</entry>
             <entry/>
             <entry>Data dimensions to include in chart as filters</entry>
-          </row><row>
+          </row>  
+          <row>
             <entry>showData</entry>
             <entry>boolean</entry>
             <entry>No</entry>
@@ -1290,40 +1496,295 @@ columns: [{
       </tgroup>
     </table>
     <para>We continue by including two pre-defined charts and to dynamic charts to our HTML document. You can browse the list of available charts using the Web API here: <ulink url="http://apps.dhis2.org/demo/api/charts"/>.</para>
-    <screen>
-function setLinks() {
-  DV.plugin.getChart({ url: base, el: 'chartA1', id: 'R0DVGvXDUNP' });
+    <screen>		function setLinks() {
+				DV.plugin.getChart({ url: base, el: 'chartA1', id: 'R0DVGvXDUNP' });
 
-  DV.plugin.getChart({
-    url: base,
-    el: 'chartB1',
-    type: 'stackedBar',
-    columns: [
-      {dimension: 'de', items: [{id: 'YtbsuPPo010'}, {id: 'l6byfWFUGaP'}, {id: 's46m5MS0hxu'}]}
-    ],
-    rows: [
-      {dimension: 'pe', items: [{id: 'LAST_12_MONTHS'}]}
-    ],
-    filters: [
-      {dimension: 'ou', items: [{id: 'USER_ORGUNIT'}]}
-    ],
-    showData: false,
-    //targetLineValue: 70,
-    //baseLineValue: 20,
-    //showTrendLine: true,
-    //hideLegend: true,
-    //title: 'My chart title',
-    //domainAxisTitle: 'Periods',
-    //rangeAxisTitle: 'Percent'
-  });
-};</screen>
+				DV.plugin.getChart({
+						url: base,
+						el: 'chartB1',
+						type: 'stackedBar',
+						columns: [
+								{dimension: 'de', items: [{id: 'YtbsuPPo010'}, {id: 'l6byfWFUGaP'}, {id: 's46m5MS0hxu'}]}
+						],
+						rows: [
+								{dimension: 'pe', items: [{id: 'LAST_12_MONTHS'}]}
+						],
+						filters: [
+								{dimension: 'ou', items: [{id: 'USER_ORGUNIT'}]}
+						],
+						showData: false,
+						//targetLineValue: 70,
+						//baseLineValue: 20,
+						//showTrendLine: true,
+						//hideLegend: true,
+						//title: 'My chart title',
+						//domainAxisTitle: 'Periods',
+						//rangeAxisTitle: 'Percent'
+				});
+		};</screen>
     <para>Finally we include some <emphasis role="italic">div</emphasis> elements in the body section of the HTML document with the identifiers referred to in the plug-in Javascript.</para>
-    <screen>
-&lt;div id=&quot;chartA1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
-&lt;div id=&quot;chartB1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
+    <screen>		&lt;div id=&quot;chartA1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
+		&lt;div id=&quot;chartB1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
 </screen>
     <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/chart.html"/>.</para>
   </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <section>
+    <title>Embedding maps with the GIS map plug-in</title>
+    <para>In this example we will see how we can embed maps with data served from a DHIS back-end into a Web page. To accomplish this we will use the GIS map plug-in. The plug-in is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/map.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
+    <para>We start by including four files and Google Maps in the header section of the HTML document. The first two files are the Ext JS javascript library (we use the Google content delivery network in this case) and its stylesheet. The third file is the OpenLayers javascript mapping framework (<ulink url="http://openlayers.org"/>) and finally we include the GIS map plug-in. Make sure the path is pointing to your DHIS server installation.</para>
+	<screen>		&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://extjs-public.googlecode.com/
+			svn/tags/extjs-4.0.7/release/resources/css/ext-plugin-gray.css&quot; /&gt;
+
+		&lt;script src=&quot;http://extjs-public.googlecode.com/svn/tags/extjs-4.0.7/release/
+					   ext-all.js&quot;&gt;&lt;/script&gt;
+
+		&lt;script src=&quot;https://maps.google.com/maps/api/js?sensor=false&quot;&gt;&lt;/script&gt;
+
+		&lt;script src=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/openlayers/
+					   OpenLayers.js&quot;&gt;&lt;/script&gt;
+
+		&lt;script src=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/plugin/
+					   map.js&quot;&gt;&lt;/script&gt;</screen>
+					   
+    <para>To authenticate with the DHIS server we use the same approach as in the previous section. In the header of the HTML document we include the following Javascript inside a script element. The <emphasis role="italic">setLinks</emphasis> method will be implemented later. Make sure the <emphasis role="italic">base</emphasis> variable is pointing to your DHIS installation.</para>
+    <screen>		var base = &quot;http://apps.dhis2.org/demo/&quot;;
+
+		Ext.onReady( function() {
+				Ext.Ajax.request({ 
+						url: base + &quot;dhis-web-commons-security/login.action&quot;,
+						method: &quot;POST&quot;,
+						params: { j_username: &quot;portal&quot;, j_password: &quot;Portal123&quot; },
+						success: setLinks
+				});
+		});</screen>
+    <para>Now let us have a look at the various options for the GIS plug-in. Two properies are required: <emphasis role="italic">el</emphasis> and <emphasis role="italic">url</emphasis> (please refer to the table below). Now, if you want to refer to pre-defined charts already made inside DHIS it is sufficient to provide the additional <emphasis role="italic">id</emphasis> parameter. If you instead want to configure a chart dynamically you shoud omit the id parameter and provide <emphasis role="italic">mapViews</emphasis> (layers) instead. They should be configured with data dimensions inside a <emphasis role="italic">columns</emphasis> array (chart series), a <emphasis role="italic">rows</emphasis> array (chart categories) and optionally a <emphasis role="italic">filters</emphasis> array instead.</para>
+
+    <para>A data dimension is defined as an object with a text property called <emphasis role="italic">dimension</emphasis>. This property accepts the following values: <emphasis role="italic">in</emphasis> (indicator), <emphasis role="italic">de</emphasis> (data element), <emphasis role="italic">ds</emphasis> (data set), <emphasis role="italic">dc</emphasis> (data element operand), <emphasis role="italic">pe</emphasis> (period), <emphasis role="italic">ou</emphasis> (organisation unit) or the id of any organisation unit group set or data element group set (can be found in the web api). The data dimension also has an array property called <emphasis role="italic">items</emphasis> which accepts objects with an <emphasis role="italic">id</emphasis> property.</para>
+
+    <para>To sum up, if you want to have a layer with e.g. &quot;ANC 1 Coverage&quot; in your map you can make the following <emphasis role="italic">columns</emphasis> config:</para>	
+
+	<screen>		columns: [{
+				dimension: "in", // could be "in", "de", "ds", "dc", "pe", "ou" or any dimension id
+				items: [{id: "Uvn6LCg7dVU"}], // the id of ANC 1 Coverage
+		}]</screen>
+    
+    <table>
+      <title>Visualizer chart plug-in configuration</title>
+      <tgroup cols="5">
+        <thead>
+          <row>
+            <entry>
+              <emphasis role="italic">Param</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Type</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Required</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Options (default first)</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Description</emphasis>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>el</entry>
+            <entry>string</entry>
+            <entry>Yes</entry>
+            <entry/>
+            <entry>Identifier of the HTML element to render the chart in your web page</entry>
+          </row>
+          <row>
+            <entry>url</entry>
+            <entry>string</entry>
+            <entry>Yes</entry>
+            <entry/>
+            <entry>Base URL of the DHIS server</entry>
+          </row>
+          <row>
+            <entry>id</entry>
+            <entry>string</entry>
+            <entry>No</entry>
+            <entry/>
+            <entry>Identifier of a pre-defined chart (favorite) in DHIS</entry>
+          </row>
+          <row>
+            <entry>mapViews</entry>
+            <entry>array</entry>
+            <entry>Yes (if no id provided)</entry>
+            <entry/>
+            <entry>Array of layers</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+
+	<para>If no id is provided you must add map view objects with the following config options:</para>
+    
+    <table>
+      <tgroup cols="5">
+        <tbody>
+          <row>
+            <entry>layer</entry>
+            <entry>string</entry>
+            <entry>No</entry>
+            <entry>"thematic1" | "thematic2" | "thematic3" | "thematic4" | "boundary" | "facility" | </entry>
+            <entry>The layer to which the map view content should be added</entry>
+          </row>
+          <row>
+            <entry>columns</entry>
+            <entry>array</entry>
+            <entry>Yes</entry>
+            <entry/>
+            <entry>Indicator, data element, data operand or data set (only one will be used)</entry>
+          </row>
+          <row>
+            <entry>rows</entry>
+            <entry>array</entry>
+            <entry>Yes</entry>
+            <entry/>
+            <entry>Organisation units (multiple allowed)</entry>
+          </row>
+          <row>
+            <entry>filter</entry>
+            <entry>array</entry>
+            <entry>Yes</entry>
+            <entry/>
+            <entry>Period (only one will be used)</entry>
+          </row>  
+          <row>
+            <entry>classes</entry>
+            <entry>integer</entry>
+            <entry>No</entry>
+            <entry>5 | 1-7</entry>
+            <entry>The number of automatic legend classes</entry>
+          </row>
+          <row>
+            <entry>method</entry>
+            <entry>integer</entry>
+            <entry>No</entry>
+            <entry>2 | 3</entry>
+            <entry>Legend calculation method where 2 = equal intervals and 3 = equal counts</entry>
+          </row>
+          <row>
+            <entry>colorLow</entry>
+            <entry>string</entry>
+            <entry>No</entry>
+            <entry>"ff0000" (red) | Any hex color</entry>
+            <entry>The color representing the first automatic legend class</entry>
+          </row>
+          <row>
+            <entry>colorHigh</entry>
+            <entry>string</entry>
+            <entry>No</entry>
+            <entry>"00ff00" (green) | Any hex color</entry>
+            <entry>The color representing the last automatic legend class</entry>
+          </row>
+          <row>
+            <entry>radiusLow</entry>
+            <entry>integer</entry>
+            <entry>No</entry>
+            <entry>5 | Any integer</entry>
+            <entry>Only applies for facilities (points) - radius of the point with lowest value</entry>
+          </row>
+          <row>
+            <entry>radiusHigh</entry>
+            <entry>integer</entry>
+            <entry>No</entry>
+            <entry>15 | Any integer</entry>
+            <entry>Only applies for facilities (points) - radius of the point with highest value</entry>
+          </row>
+          <row>
+            <entry>opacity</entry>
+            <entry>double</entry>
+            <entry>No</entry>
+            <entry>0.8 | 0 - 1</entry>
+            <entry>Opacity/transparency of the layer content</entry>
+          </row>
+          <row>
+            <entry>legendSet</entry>
+            <entry>object</entry>
+            <entry>No</entry>
+            <entry/>
+            <entry>Pre-defined legend set. Will override the automatic legend set.</entry>
+          </row>
+          <row>
+            <entry>width</entry>
+            <entry>integer</entry>
+            <entry>No</entry>
+            <entry/>
+            <entry>Width of map</entry>
+          </row>
+          <row>
+            <entry>height</entry>
+            <entry>integer</entry>
+            <entry>No</entry>
+            <entry/>
+            <entry>Height of map</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>We continue by adding one pre-defined and one dynamically configured map to our HTML document. You can browse the list of available maps using the Web API here: <ulink url="http://apps.dhis2.org/demo/api/maps"/>.</para>
+    <screen>		function setLinks() {
+				Ext.onReady(function() {
+						var url = "http://apps.dhis2.org/demo/";
+
+						GIS.plugin.getMap({
+								url: url,
+								el: "mapA1",
+								id: "ytkZY3ChM6J"
+						});
+
+						GIS.plugin.getMap({
+								url: url,
+								el: "mapB1",
+								mapViews: [{
+										columns: [{dimension: 'in', items: [{id: 'Uvn6LCg7dVU'}]}], // data
+										rows: [{dimension: 'ou', items: [{id: 'LEVEL-3'}, {id: 'ImspTQPwCqd'}]}], // organisation units
+										filters: [{dimension: 'pe', items: [{id: 'LAST_3_MONTHS'}]}], // period
+										classes: 7,
+										colorLow: '02079c',
+										colorHigh: 'e5ecff',
+										opacity: 0.9
+										//legendSet: {id: 'fqs276KXCXi'}
+								}]
+						});
+				});
+		};</screen>
+    <para>Finally we include some <emphasis role="italic">div</emphasis> elements in the body section of the HTML document with the identifiers referred to in the plug-in Javascript.</para>
+    <screen>		&lt;div id=&quot;mapA1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
+		&lt;div id=&quot;mapB1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
+</screen>
+    <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/map.html"/>.</para>
+  </section>
+
+
+
+
+
+
+
+
+  
   <section>
     <title>Creating a chart carousel with the carousel plug-in</title>
     <para>The chart plug-in also makes it possible to create a chart carousel which for instance can be used to create an attractive front page on a Web portal. To use the carousel we need to import a few  files in the head section of our HTML page:</para>
