@@ -987,47 +987,107 @@ Content-Type: application/xml
     </section>
   </section>
   <section>
-    <title>Embedding reports in web pages</title>
-    <para>In this example we will see how we can build a simple web page  where dynamic data such as tabular reports is pulled from the DHIS Web API. A full example on how this can done is available at <ulink url="http://apps.dhis2.org/portal"/>.</para>
-    <para>The Web API contains several resources which are useful for data analysis: <emphasis role="italic">report</emphasis>, <emphasis role="italic">reportTable</emphasis>, <emphasis role="italic">chart</emphasis>, <emphasis role="italic">map</emphasis> and <emphasis role="italic">document</emphasis>. Dispatching  GET requests to the mentioned resources will return meta-data information such as name and the date it was last updated. All these resources have an associated <emphasis role="italic">data</emphasis> resource which produces a data view of  related aggregated data - also  known as  reports, charts and maps. You can follow the links or simply append <emphasis role="italic">/data</emphasis> to the URL to arrive at it. This information can be represented in a variety of formats including HTML, PDF, Excel, PNG and Jasper, as we will see in the next section.</para>
-    <para>We  start as usual at the Web API entrypoint at <ulink url="http://apps.dhis2.org/demo/api"/>. We look for a relevant  report table by following the <emphasis role="italic">reportTables</emphasis> link to <ulink url="http://apps.dhis2.org/demo/api/reportTables"/>. We assume that we are interested in the &quot;District Maternal Health&quot; report and follow the link to <ulink url="http://apps.dhis2.org/demo/api/reportTables/xIWpSo5jjT1"/>. This resource provides meta-data information about the report table. From here we can follow the link to the default data view of aggregated data, which leads us to  <ulink url="http://apps.dhis2.org/demo/api/reportTables/xIWpSo5jjT1/data"/>. As we can see we are provided with a  report table in HTML format, which is the default representation format for report tables.</para>
-    <para>As stated in the introduction there are three ways of indicating which resource representation format you prefer for the response. The most suitable alternative for direct use in web pages is to append a file suffix to the URL. We assume that we are interested in the PDF representation and indicate that by appending <emphasis role="italic">.pdf</emphasis> to our URL: <ulink url="http://apps.dhis2.org/demo/api/reportTables/xIWpSo5jjT1/data.pdf"/>. Go ahead and try out all valid extensions for this resource which are <emphasis role="italic">.html</emphasis>, <emphasis role="italic">.pdf</emphasis>, <emphasis role="italic">.xls</emphasis> and <emphasis role="italic">.csv</emphasis>.</para>
-    <para>The report table can be parameterized with an organisation unit and a period by supplying a <emphasis role="italic">ou</emphasis> and <emphasis role="italic">pe</emphasis> query parameter accompanied with an organisation unit  identifier and period string  in the URL. If not provided the Web API will use the top-most organisation unit in the hierarchy and the last  period for the report table content. The organisation unit identifier can be looked up by going to the Web API entrypoint and follow the link to the <emphasis role="italic">organisationUnits</emphasis> resouce. For our example we will use <emphasis role="italic">Bo</emphasis> district whith identifier <emphasis role="italic">O6uvpzGd5pu</emphasis> as the organisation unit: <ulink url="http://apps.dhis2.org/demo/api/reportTables/xIWpSo5jjT1/data?ou=O6uvpzGd5pu"/>. From the HTML representation we can  see that the report now contains data for <emphasis role="italic">Bo</emphasis> district. These URLs can  simply  be used in links embedded in the web page like this:</para>
-    <screen>&lt;a href=&quot;http://apps.dhis2.org/demo/api/reportTables/xIWpSo5jjT1/data.pdf?
-ou=O6uvpzGd5pu&quot;&gt;Maternal Health Bo District 2012&lt;/a&gt;</screen>
-    <para>There are many ways to authenticate over the Web and each method has its advantages and disadvantages. For this example we will use an  approach where we emulate a  login from the web-based login form. To help us we will use the <emphasis role="italic">jQuery</emphasis> JavaScript library. This JavaScript code should be embedded in the <emphasis role="italic">head</emphasis> section of the Web page:</para>
-    <screen>jQuery(document).ready(function() {
-  $.post( &quot;http://apps.dhis2.org/demo/dhis-web-commons-security/login.action&quot;, {
-      j_username: &quot;admin&quot;, j_password: &quot;district&quot; 
-    }
-  );
-});</screen>
-    <para>In this code block we ask jQuery to send a POST request to the standard authentication point with two name-value pairs containing the username and password information. We assume that the user has the necessary authorities to view reports in the DHIS 2 Web API. If  authentication was successful the server will send a HTTP cookie in the response with a session identifier. This will make sure that the current user is authorized to view reports for up to 60 minutes.</para>
-    <para>Caveat:  The username and password will be present in the web page in plain text. Make sure  you create a dedicated user in DHIS 2 for this purpose provided only with the minimum authorities required. For a more robust way of exposing resources without requiring authentication see the the section on reverse proxy setup in the installation chapter.</para>
-    <para>For a full example visit <ulink url="http://apps.dhis2.org/portal"/> and view the page source in a browser. Note that the example web page is hosted within the same domain (apps.dhis2.org) as the demo DHIS 2 instance. This is done to avoid issues related to the &quot;same origin policy&quot;, a concept which prevents scripts hosted on one domain to access resources running on another. While one can circumvent this through techniques such as <emphasis role="italic">CORS</emphasis>, there are none which have wide browser support at the moment. Therefore we recommend hosting web pages and portals on the same domain. Techniques using reverse proxies described in the &quot;installation&quot; chapter can be useful in this regard. Finally we provide some sample URLs pointing to various data resources for your inspiration:</para>
-    <itemizedlist>
-      <listitem>
-        <para><ulink url="http://apps.dhis2.org/demo/api/maps/JlXSUIcLsmd/data"/></para>
-      </listitem>
-      <listitem>
-        <para><ulink url="http://apps.dhis2.org/demo/api/maps/data?in=JIVMtpjVZqJ&amp;ou=O6uvpzGd5pu"/></para>
-      </listitem>
-      <listitem>
-        <para><ulink url="http://apps.dhis2.org/demo/api/reports/Cb2BcgxBUPz/data"/></para>
-      </listitem>
-      <listitem>
-        <para><ulink url="http://apps.dhis2.org/demo/api/charts/nwqNUFG9Vky/data"/></para>
-      </listitem>
-      <listitem>
-        <para><ulink url="http://apps.dhis2.org/demo/api/charts/data?in=JIVMtpjVZqJ&amp;ou=O6uvpzGd5pu"/></para>
-      </listitem>
-      <listitem>
-        <para><ulink url="http://apps.dhis2.org/demo/api/charts/data?in=JIVMtpjVZqJ&amp;ou=O6uvpzGd5pu&amp;periods=true"/></para>
-      </listitem>
-      <listitem>
-        <para><ulink url="http://apps.dhis2.org/demo/api/documents/MfHNQx51HT9/data"/></para>
-      </listitem>
-    </itemizedlist>
+    <title>Viewing analytical resource representations</title>
+    <para>DHIS 2 has several resources for data analysis. These resources include <emphasis
+        role="italic">charts</emphasis>, <emphasis role="italic">maps</emphasis>, <emphasis
+        role="italic">reportTables</emphasis>, <emphasis role="italic">reports</emphasis> and
+        <emphasis role="italic">documents</emphasis>. By visiting these resources you will retrieve
+      information about the resource. For instance, by navigating to <emphasis role="italic"
+        >api/charts/R0DVGvXDUNP</emphasis> the response will contain the name, last date of
+      modication and so on for the chart. To retrieve the analytical representation, for instance a
+      PNG representation of the chart, you can append <emphasis role="italic">/data</emphasis> to
+      all these resources. For instance, by visiting <emphasis role="italic"
+        >api/charts/R0DVGvXDUNP/data</emphasis> the system will return a PNG image of the
+      chart.</para>
+    <table frame="all">
+      <title>Analytical resources</title>
+      <tgroup cols="4">
+        <colspec colname="c1" colnum="1" colwidth="1.01*"/>
+        <colspec colname="c2" colnum="2" colwidth="1*"/>
+        <colspec colname="c3" colnum="3" colwidth="1.93*"/>
+        <colspec colname="newCol4" colnum="4" colwidth="1.91*"/>
+        <thead>
+          <row>
+            <entry>Resource</entry>
+            <entry>Description</entry>
+            <entry>Data URL</entry>
+            <entry>Resource representations</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>charts</entry>
+            <entry>Charts</entry>
+            <entry>api/charts/&lt;identifier>/data</entry>
+            <entry>png</entry>
+          </row>
+          <row>
+            <entry>maps</entry>
+            <entry>Maps</entry>
+            <entry>api/maps/&lt;identifier>/data</entry>
+            <entry>png</entry>
+          </row>
+          <row>
+            <entry>reportTables</entry>
+            <entry>Pivot tables</entry>
+            <entry>api/reportTables/&lt;identifier>/data</entry>
+            <entry>json | jsonp | html | xml | pdf | xls | csv</entry>
+          </row>
+          <row>
+            <entry>reports</entry>
+            <entry>Standard reports</entry>
+            <entry>api/reports/&lt;identifier>/data</entry>
+            <entry>pdf | xls | html</entry>
+          </row>
+          <row>
+            <entry>documents</entry>
+            <entry>Resources</entry>
+            <entry>api/documents/&lt;identifier>/data</entry>
+            <entry>&lt;follows document></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>The data content of the analytical represantations can be modified by providing a
+        <emphasis role="italic">date</emphasis> query parameter. This requires that the analytical
+      resource is set up for relative periods for the period dimension.</para>
+    <table frame="all">
+      <title>Data query parameters</title>
+      <tgroup cols="3">
+        <colspec colname="c1" colnum="1" colwidth="1*"/>
+        <colspec colname="c2" colnum="2" colwidth="1.31*"/>
+        <colspec colname="c3" colnum="3" colwidth="2.34*"/>
+        <thead>
+          <row>
+            <entry>Query parameter</entry>
+            <entry>Value</entry>
+            <entry>Description</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>date</entry>
+            <entry>Date in yyyy-MM-dd format</entry>
+            <entry>Basis for relative periods in report (requires relative periods)</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>Some examples of valid URLs for retrieving various analytical representations are listed
+      below.</para>
+    <screen>api/charts/R0DVGvXDUNP/data
+api/charts/R0DVGvXDUNP/data?date=2013-06-01
+
+api/reportTables/jIISuEWxmoI/data.html
+api/reportTables/jIISuEWxmoI/data.html?date=2013-01-01
+api/reportTables/FPmvWs7bn2P/data.xls
+api/reportTables/FPmvWs7bn2P/data.pdf
+
+api/maps/DHE98Gsynpr/data
+api/maps/DHE98Gsynpr/data?date=2013-07-01
+
+api/reports/OeJsA6K1Otx/data.pdf
+api/reports/OeJsA6K1Otx/data.pdf?date=2012-01-01</screen>
   </section>
   <section>
     <title>Embedding charts with the Visualizer chart plug-in</title>
@@ -1039,7 +1099,11 @@ ou=O6uvpzGd5pu&quot;&gt;Maternal Health Bo District 2012&lt;/a&gt;</screen>
 &lt;script type=&quot;text/javascript&quot;
   src=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/plugin/chart.js&quot;&gt;
 &lt;/script&gt;</screen>
-    <para>To authenticate with the DHIS server we use the same approach as in the previous section. In the header of the HTML document we include the following Javascript inside a script element. The <emphasis role="italic">setLinks</emphasis> method will be implemented later. Make sure the <emphasis role="italic">base</emphasis> variable is pointing to your DHIS installation.</para>
+    <para>To authenticate with the DHIS 2 server we use the same approach as in the previous
+      section. In the header of the HTML document we include the following Javascript inside a
+      script element. The <emphasis role="italic">setLinks</emphasis> method will be implemented
+      later. Make sure the <emphasis role="italic">base</emphasis> variable is pointing to your DHIS
+      installation.</para>
     <screen>var base = &apos;http://apps.dhis2.org/demo/&apos;;
 
 Ext.onReady( function() {
