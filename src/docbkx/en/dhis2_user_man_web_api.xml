@@ -3404,91 +3404,101 @@ ORDER BY oul.level, par.name, ou.name</screen>
       to the URL similar to the one used above for retrieval.</para>
   </section>
   <section>
-    <title>CRUD operations for Persons</title>
-    <para>(From 2.13) we have full CRUD (create, read, update, delete) support in the Web-API.
-      Together with a new API for enrollment and updated event API, most operations needed for
-      working with persons and programs are supported.</para>
+    <title>Person management</title>
+    <para>Persons have full CRUD (create, read, update, delete) support in the Web-API. Together
+      with the API for enrollment most operations needed for working with persons and programs are
+      supported.</para>
     <section>
       <title>Creating a new person</title>
       <para>For creating a new person in the system, you will be working with the <emphasis
           role="italic">persons</emphasis> resource. An template payload can be seen
         below:<screen>{
-	"orgUnit": "Identifier of the organisationUnit",
-	"name": "Name of Person",
-	"gender": "MALE / FEMALE / TRANSGENDER",
-	"dateOfBirth": {
-		"type": "VERIFIED / DECLARED / APPROXIMATE",
-		"age": "30", // only required for APPROXIMATE
+    "orgUnit": "Organisation unit identifier",
+    "name": "Name of Person",
+    "gender": "MALE | FEMALE | TRANSGENDER",
+    "dateOfBirth": {
+        "type": "VERIFIED | DECLARED | APPROXIMATE",
+        "age": "30", // only required for APPROXIMATE
         "date": "2081-03-04" // required for VERIFIED, DECLARED
-	},
-	"contact": {
-		"phoneNumber": "PHONE_NUMBER"
-	},
-
-	"relationships": [
-		{ "type": "Identifier of the relationshipType", "person": "LhsYtC2Hmpi" }
-	],
-
-	"identifiers": [
-		{ "type": "Identifier of the personIdentifier", "value": "123" }
-	],
-
-	"attributes": [
-		{ "type": "Identifier of the personAttribute", "value": "This is my new address" }
-	]
+    },
+    "contact": {
+        "phoneNumber": "PHONE_NUMBER"
+    },
+    "relationships": [ { 
+        "type": "Relationship type identifier", 
+        "person": "Person identifier" 
+    } ],
+    "identifiers": [ { 
+        "type": "Person id identifier", 
+        "value": "1234" 
+    } ],
+    "attributes": [ { 
+        "type": "Person attribute identifier", 
+        "value": "My new address" 
+    } ]
 }</screen></para>
       <para>For getting the identifiers for <emphasis role="italic">relationship</emphasis>,
           <emphasis role="italic">identifiers</emphasis>, <emphasis role="italic"
           >attributes</emphasis> you can have a look at the respective resources <emphasis
           role="italic">relationshipTypes</emphasis>, <emphasis role="italic"
-          >personIdentifiers</emphasis>, <emphasis role="italic">personAttributes</emphasis>.</para>
+          >personIdentifiers</emphasis>, <emphasis role="italic">personAttributes</emphasis>. To
+        create a person you must use the HTTP <emphasis role="bold">POST</emphasis> method. You can
+        post the payload the the following URL:</para>
+      <screen>/api/persons</screen>
     </section>
     <section>
       <title>Updating a person</title>
-      <para>For updating a person, the payload is the same as in the previous section. The only
-        different is that you must use the HTTP method <emphasis role="bold">PUT</emphasis> when
-        sending the payload, you will also need to add the person identifier to the <emphasis
-          role="italic">persons</emphasis> resource (i.e. /api/persons/&lt;id>).</para>
+      <para>For updating a person, the payload is the equal to the previous section. The difference
+        is that you must use the HTTP <emphasis role="bold">PUT</emphasis> method for the request
+        when sending the payload. You will also need to append the person identifier to the
+          <emphasis role="italic">persons</emphasis> resource in the URL like this, where
+        &lt;person-identifier> should be replaced by the identifier of the person:</para>
+      <screen>/api/persons/&lt;person-id></screen>
     </section>
     <section>
       <title>Deleting a person</title>
-      <para>For deleting a person, no payload is required. All that is needed is to the the HTTP
-        method <emphasis role="bold">DELETE</emphasis> to the person resource, including the
-        identifier.</para>
+      <para>To delete a person you can make a request to the URL identifiying the person with the
+        HTTP <emphasis role="bold">DELETE</emphasis> method. The URL is equal to the one above used
+        for update.</para>
     </section>
     <section>
       <title>Querying for persons</title>
       <para>There are several parameter available on the <emphasis role="italic">persons</emphasis>
         resource for querying for persons, <emphasis role="italic">orgUnit</emphasis> paramter is
         always required (unless querying for identifiers, please see below).</para>
-      <para><emphasis role="bold">Query for org
-        unit:</emphasis><screen>GET /api/persons?orgUnit=&lt;orgunit-id></screen></para>
-      <para><emphasis role="bold">Query for org
-        unit/nameLike:</emphasis><screen>GET /api/persons?orgUnit=&lt;orgunit-id>&amp;nameLike=sen</screen></para>
-      <para><emphasis role="bold">Query for org
-        unit/program:</emphasis><screen>GET /api/persons?orgUnit=&lt;orgunit-id>&amp;program=&lt;program-id></screen></para>
-      <para><emphasis role="bold">Query for system
-        identifier:</emphasis><screen>GET /api/persons?identifier=SYSTEM_ID</screen></para>
-      <para><emphasis role="bold">Query for specific identifier
-        type:</emphasis><screen>GET /api/persons?identifierType=&lt;id-type-id>&amp;identifier=&lt;person-id></screen></para>
+      <para>Query for persons can be done in these ways. All requests should use the HTTP <emphasis
+          role="bold">GET</emphasis>
+        method:<screen>/api/persons?orgUnit=&lt;orgunit-id></screen></para>
+      <para>Query for org unit and like
+        name:<screen>/api/persons?orgUnit=&lt;orgunit-id>&amp;nameLike=&lt;name></screen></para>
+      <para>Query for org unit and
+        program:<screen>/api/persons?orgUnit=&lt;orgunit-id>&amp;program=&lt;program-id></screen></para>
+      <para>Query for system identifier:<screen>/api/persons?identifier=SYSTEM_ID</screen></para>
+      <para>Query for specific identifier
+        type:<screen>/api/persons?identifierType=&lt;id-type-id>&amp;identifier=&lt;person-id></screen></para>
     </section>
     <section>
       <title>Enrolling a person into a program</title>
       <para>For enrolling persons into a program, you will need to first get the identifier of the
-        person from the <emphasis role="italic">persons</emphasis> resource, then you will need to
+        person from the <emphasis role="italic">persons</emphasis> resource. Then, you will need to
         get the program identifier from the <emphasis role="italic">programs</emphasis> resource. A
         template payload can be seen
         below:<screen>{
-	"person": "ZRyCnJ1qUXS",
-	"program": "S8uo8AlvYMz",
-	"dateOfEnrollment": "2013-09-17",
-	"dateOfIncident": "2013-09-17"
+    "person": "ZRyCnJ1qUXS",
+    "program": "S8uo8AlvYMz",
+    "dateOfEnrollment": "2013-09-17",
+    "dateOfIncident": "2013-09-17"
 }</screen></para>
-      <para>For cancelling or completing an enrollment, you can send a <emphasis role="bold"
+      <para>This payload should be used in a <emphasis role="bold">POST</emphasis> request to the
+        enrollments resource identified by the following URL:</para>
+      <screen>POST /api/enrollments</screen>
+      <para>For cancelling or completing an enrollment, you can make a <emphasis role="bold"
           >PUT</emphasis> request to the <emphasis role="italic">enrollments</emphasis> resource,
-        including the identifier and the action you want to perform. For
-        cancelling:<screen>PUT /api/enrollments/&lt;enrollment-id>/cancelled</screen></para>
-      <para>For completing:<screen>PUT /api/enrollments/&lt;enrollment-id>/completed</screen></para>
+        including the identifier and the action you want to perform. For cancelling an enrollment
+        for a person:<screen>PUT /api/enrollments/&lt;enrollment-id>/cancelled</screen></para>
+      <para>For completing a program for a person you can make a <emphasis role="bold"
+          >PUT</emphasis> request to the following
+        URL:<screen>PUT /api/enrollments/&lt;enrollment-id>/completed</screen></para>
     </section>
   </section>
   <section>
