@@ -3419,11 +3419,11 @@ ORDER BY oul.level, par.name, ou.name</screen>
     "gender": "MALE | FEMALE | TRANSGENDER",
     "dateOfBirth": {
         "type": "VERIFIED | DECLARED | APPROXIMATE",
-        "age": "30", // only required for APPROXIMATE
-        "date": "2081-03-04" // required for VERIFIED, DECLARED
+        "age": "30", // years, relevant for APPROXIMATE
+        "date": "2081-03-04" // date, relevant for VERIFIED and DECLARED
     },
     "contact": {
-        "phoneNumber": "PHONE_NUMBER"
+        "phoneNumber": "Phone number"
     },
     "relationships": [ { 
         "type": "Relationship type identifier", 
@@ -3435,7 +3435,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
     } ],
     "attributes": [ { 
         "type": "Person attribute identifier", 
-        "value": "My new address" 
+        "value": "My address" 
     } ]
 }</screen></para>
       <para>For getting the identifiers for <emphasis role="italic">relationship</emphasis>,
