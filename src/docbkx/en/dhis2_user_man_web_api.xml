@@ -868,7 +868,7 @@ Content-Type: application/xml
     &lt;userGroup id=&quot;userGroup1ID&quot; /&gt;
     &lt;userGroup id=&quot;userGroup2ID&quot; /&gt;
     &lt;userGroup id=&quot;userGroup3ID&quot; /&gt;
-  &lt;/users&gt;
+  &lt;/userGroups&gt;
 &lt;/message&gt;</screen></para>
     <para>For sending to all users connected to one or more organisation units, we can use:</para>
     <para><screen>&lt;message xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
