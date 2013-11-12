@@ -878,7 +878,7 @@ Content-Type: application/xml
     &lt;organisationUnit id=&quot;ou1ID&quot; /&gt;
     &lt;organisationUnit id=&quot;ou2ID&quot; /&gt;
     &lt;organisationUnit id=&quot;ou3ID&quot; /&gt;
-  &lt;/users&gt;
+  &lt;/organisationUnits&gt;
 &lt;/message&gt;</screen></para>
     <para>Since we want to send a message to our friend the mobile user we need to look up her identifier. We do so by going to the  Web API entry point and follow the link to the <emphasis role="italic">users</emphasis> resource at <ulink url="http://apps.dhis2.org/demo/api/users"/>. We continue by following link to the mobile user at <ulink url="http://apps.dhis2.org/demo/api/users/PhzytPW3g2J"/> where we learn that her identifier is <emphasis role="italic">PhzytPW3g2J</emphasis>. We are now ready to put our XML message together to form a message where we want to ask the mobile user whether she has reported data for January 2012:</para>
     <screen>&lt;message xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
