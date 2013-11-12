@@ -1259,24 +1259,24 @@ Ext.onReady( function() {
     el: 'chartB1',
     type: 'stackedBar',
     columns: [
-	  {dimension: 'de', items: [{id: 'YtbsuPPo010'}, {id: 'l6byfWFUGaP'}]}
-	],
-	rows: [
-	  {dimension: 'pe', items: [{id: 'LAST_12_MONTHS'}]}
-	],
-	filters: [
-	  {dimension: 'ou', items: [{id: 'USER_ORGUNIT'}]}
-	],
-	showTotals: false, // All following options are optional
-	showSubTotals: false,
-	hideEmptyRows: true,
-	showHierarchy: true,
-	displayDensity: "comfortable",
-	fontSize: "large",
-	digitGroupSeparator: "comma",
-	legendSet: {id: "BtxOoQuLyg1"}
+      {dimension: 'de', items: [{id: 'YtbsuPPo010'}, {id: 'l6byfWFUGaP'}]}
+    ],
+    rows: [
+      {dimension: 'pe', items: [{id: 'LAST_12_MONTHS'}]}
+    ],
+    filters: [
+      {dimension: 'ou', items: [{id: 'USER_ORGUNIT'}]}
+    ],
+    showTotals: false, // All following options are optional
+    showSubTotals: false,
+    hideEmptyRows: true,
+    showHierarchy: true,
+    displayDensity: "comfortable",
+    fontSize: "large",
+    digitGroupSeparator: "comma",
+    legendSet: {id: "BtxOoQuLyg1"}
   });
-;</screen>
+};</screen>
     <para>Finally we include some <emphasis role="italic">div</emphasis> elements in the body section of the HTML document with the identifiers referred to in the plug-in Javascript.</para>
     <screen>&lt;div id=&quot;tableA1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
 &lt;div id=&quot;tableB1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;</screen>
@@ -1497,11 +1497,11 @@ Ext.onReady( function() {
       {dimension: 'de', items: [{id: 'YtbsuPPo010'}, {id: 'l6byfWFUGaP'}, {id: 's46m5MS0hxu'}]}
 	],
     rows: [
-	  {dimension: 'pe', items: [{id: 'LAST_12_MONTHS'}]}
+      {dimension: 'pe', items: [{id: 'LAST_12_MONTHS'}]}
     ],
     filters: [
       {dimension: 'ou', items: [{id: 'USER_ORGUNIT'}]}
-	],
+    ],
     showData: false, // All following options are optional
     targetLineValue: 70,
     baseLineValue: 20,
