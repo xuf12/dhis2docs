@@ -3492,14 +3492,14 @@ ORDER BY oul.level, par.name, ou.name</screen>
 }</screen></para>
       <para>This payload should be used in a <emphasis role="bold">POST</emphasis> request to the
         enrollments resource identified by the following URL:</para>
-      <screen>POST /api/enrollments</screen>
+      <screen>/api/enrollments</screen>
       <para>For cancelling or completing an enrollment, you can make a <emphasis role="bold"
           >PUT</emphasis> request to the <emphasis role="italic">enrollments</emphasis> resource,
         including the identifier and the action you want to perform. For cancelling an enrollment
-        for a person:<screen>PUT /api/enrollments/&lt;enrollment-id>/cancelled</screen></para>
+        for a person:<screen>/api/enrollments/&lt;enrollment-id>/cancelled</screen></para>
       <para>For completing a program for a person you can make a <emphasis role="bold"
           >PUT</emphasis> request to the following
-        URL:<screen>PUT /api/enrollments/&lt;enrollment-id>/completed</screen></para>
+        URL:<screen>/api/enrollments/&lt;enrollment-id>/completed</screen></para>
     </section>
   </section>
   <section>
