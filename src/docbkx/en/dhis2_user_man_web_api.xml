@@ -3404,6 +3404,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
         "age": "30", // years, relevant for APPROXIMATE
         "date": "2081-03-04" // date, relevant for VERIFIED and DECLARED
     },
+    "dateOfRegistration": "2013-04-01", // Optional, current date is default
     "contact": {
         "phoneNumber": "Phone number"
     },
