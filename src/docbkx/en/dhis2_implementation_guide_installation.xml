@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd"[]>
 <chapter>
   <title>Installation</title>
   <para>The installation chapter provides information on how to install DHIS 2 in various contexts, including online central server, offline local network, standalone application and self-contained package called DHIS 2 Live.</para>
@@ -74,32 +74,31 @@ net.core.wmem_max = 8388608</screen>
       <title>Postgresql installation and tuning</title>
       <para>To install PostgreSQL version 9.2 we first need to add a Ubuntu package repository to our system.</para>
       <screen>sudo apt-get install python-software-properties
-
-sudo add-apt-repository ppa:pitti/postgresql 
-
+sudo add-apt-repository ppa:pitti/postgresql
 sudo apt-get update</screen>
-      <para>Now install PostgreSQL by invoking <code>sudo apt-get install postgresql-9.2</code></para>
+      <para>Now install PostgreSQL by invoking:</para>
+      <screen>sudo apt-get install postgresql-9.2</screen>
       <para>Switch to the postgres user by invoking <code>sudo su postgres</code></para>
       <para>Create a non-privileged user called <emphasis role="italic">dhis</emphasis> by invoking
         <code>createuser -SDRP dhis</code>. Enter a secure password at the prompt. Create a database by invoking
         <code>createdb -O dhis dhis2</code>.  Return to your session by invoking <code>exit</code> You now have a
       PostgreSQL user called <emphasis role="italic">dhis</emphasis> and a database called <emphasis role="italic">dhis2</emphasis>.</para>
       <para>Do performance tuning by opening the following  file by invoking </para>
-      <para><code>sudo nano /etc/postgresql/9.2/main/postgresql.conf</code></para>
+      <para><screen>sudo nano /etc/postgresql/9.2/main/postgresql.conf</screen></para>
       <para>and set the following properties:</para>
-      <para><code>shared_buffers = 3200MB</code></para>
+      <para><screen>shared_buffers = 3200MB</screen></para>
       <para>Determines how much memory should be allocated exclusively for PostgreSQL caching. This
       setting controls the size of the kernel shared memory which should be reserved for PostgreSQL.
       Should be set to around 40% of total memory dedicated for PostgreSQL.</para>
-      <para><code>work_mem = 20MB</code></para>
+      <para><screen>work_mem = 20MB</screen></para>
       <para>Determines the amount of memory used for internal sort and hash operations. This setting
       is per connection, per query so a lot of memory may be consumed if raising this too high.
       Setting this value correctly is essential for DHIS 2 aggregation performance.</para>
-      <para><code>maintenance_work_mem = 256MB</code></para>
+      <para><screen>maintenance_work_mem = 256MB</screen></para>
       <para>Determines the amount of memory PostgreSQL can use for maintenance operations such as
       creating indexes, running vacuum, adding foreign keys. Incresing this value might improve
       performance of index creation during the analytics and data mart generation processes.</para>
-      <para><code>effective_cache_size = 8000MB</code></para>
+      <para><screen>effective_cache_size = 8000MB</screen></para>
       <para>An estimate of how much memory is available for disk caching by the operating system (not
       an allocation) and is used by PostgreSQL to determine whether a query plan will fit into
       memory or not. Setting it to a higher value than what is really available will result in poor
@@ -108,15 +107,15 @@ sudo apt-get update</screen>
       shared_buffers setting. PostgreSQL delegates the second layer to the operating system disk
       cache and the size of available memory can be given with the effective_cache_size
       setting.</para>
-      <para><code>checkpoint_segments = 32</code></para>
+      <para><screen>checkpoint_segments = 32</screen></para>
       <para>PostgreSQL writes new transactions to a log file called WAL segments which are 16MB in size. When a number of segments have been written a checkpoint occurs. Setting this number to a larger value will thus improve performance for write-heavy systems such as DHIS 2.</para>
-      <para><code>checkpoint_completion_target = 0.8</code></para>
+      <para><screen>checkpoint_completion_target = 0.8</screen></para>
       <para>Determines the percentage of segment completion before a checkpoint occurs. Setting this to a high value will thus spread the writes out and lower the average write overhead.</para>
-      <para><code>wal_buffers = 16MB</code></para>
+      <para><screen>wal_buffers = 16MB</screen></para>
       <para>Sets the memory used for buffering during the WAL write process. Increasing this value might improve throughput in write-heavy systems.</para>
-      <para><code>synchronous_commit = off</code></para>
+      <para><screen>synchronous_commit = off</screen></para>
       <para>Specifies whether transaction commits will wait for WAL records to be written to the disk before returning to the client or not. Setting this to off will improve performance considerably. It also implies that there is a slight delay between the transaction is reported successful to the client and it actually being safe, but the database state cannot be corrupted and this is a good alternative for performance-intensive and write-heavy systems like DHIS 2.</para>
-      <para><code>wal_writer_delay = 10000ms</code></para>
+      <para><screen>wal_writer_delay = 10000ms</screen></para>
       <para>Specifies the delay between WAL write operations. Setting this to a high value will improve performance on write-heavy systems since potentially many write operations can be executed within a single flush to disk.</para>
       <para>Restart PostgreSQL by invoking <code>sudo /etc/init.d/postgresql restart</code></para>
       <para><emphasis role="bold">Set the database configuration</emphasis></para>
@@ -135,8 +134,10 @@ hibernate.hbm2ddl.auto = update</screen></para>
     </section>
     <section>
       <title>Install Java</title>
-      <para>Install Java by invoking the following command: <command>sudo apt-get install openjdk-7-jdk</command></para>
-      <para>Check that your installation is okay by invoking <command>java -version</command>. </para>
+      <para>Install Java by invoking the following command:</para>
+      <screen>sudo apt-get install openjdk-7-jdk</screen>
+      <para>Check that your installation is okay by invoking:</para>
+      <screen>java -version</screen>
     </section>
     <section>
       <title>Install Tomcat and DHIS2</title>
