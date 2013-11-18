@@ -94,10 +94,10 @@ sudo apt-get update</screen>
       <para>Determines the amount of memory used for internal sort and hash operations. This setting
       is per connection, per query so a lot of memory may be consumed if raising this too high.
       Setting this value correctly is essential for DHIS 2 aggregation performance.</para>
-      <para><screen>maintenance_work_mem = 256MB</screen></para>
+      <para><screen>maintenance_work_mem = 512MB</screen></para>
       <para>Determines the amount of memory PostgreSQL can use for maintenance operations such as
-      creating indexes, running vacuum, adding foreign keys. Incresing this value might improve
-      performance of index creation during the analytics and data mart generation processes.</para>
+        creating indexes, running vacuum, adding foreign keys. Incresing this value might improve
+        performance of index creation during the analytics generation processes.</para>
       <para><screen>effective_cache_size = 8000MB</screen></para>
       <para>An estimate of how much memory is available for disk caching by the operating system (not
       an allocation) and is used by PostgreSQL to determine whether a query plan will fit into
