@@ -817,38 +817,50 @@ Content-Type: application/xml
             <row>
               <entry>program</entry>
               <entry>identifier</entry>
-              <entry>true (unless programStage is provided)</entry>
-              <entry>Identifier of wanted program.</entry>
+              <entry>false</entry>
+              <entry>Identifier of wanted program</entry>
             </row>            
             <row>
               <entry>programStage</entry>
               <entry>identifier</entry>
-              <entry>true (unless program is provided)</entry>
-              <entry>Identifier of wanted program stage.</entry>
+              <entry>false</entry>
+              <entry>Identifier of wanted program stage</entry>
             </row>
             <row>
               <entry>orgUnit</entry>
               <entry>identifier</entry>
               <entry>true</entry>
-              <entry>Identifier of wanted organisation unit.</entry>
+              <entry>Identifier of wanted organisation unit</entry>
             </row>
             <row>
               <entry>person</entry>
               <entry>identifier</entry>
               <entry>false</entry>
-              <entry>Identifier of wanted person.</entry>
+              <entry>Identifier of wanted person</entry>
             </row>
             <row>
               <entry>startDate</entry>
               <entry>date</entry>
               <entry>false</entry>
-              <entry>Only events newer than this date.</entry>
+              <entry>Only events newer than this date</entry>
             </row>
             <row>
               <entry>endDate</entry>
               <entry>date</entry>
               <entry>false</entry>
-              <entry>Only events older than this date.</entry>
+              <entry>Only events older than this date</entry>
+            </row>
+            <row>
+              <entry>includeChildren</entry>
+              <entry>boolean</entry>
+              <entry>false</entry>
+              <entry>Include direct children of orgUnit</entry>
+            </row>
+            <row>
+              <entry>includeDescendants</entry>
+              <entry>boolean</entry>
+              <entry>false</entry>
+              <entry>Include all descendants of orgUnit</entry>
             </row>
           </tbody>
         </tgroup>
@@ -856,6 +868,10 @@ Content-Type: application/xml
     </para>
     <section>
       <title>Examples</title>
+      <para>Query for all events with a certain orgUnit + children:
+        <screen>/api/events?orgUnit=ID&amp;includeChildren=true</screen></para>
+      <para>Query for all events with a certain orgUnit + descendants:
+        <screen>/api/events?orgUnit=ID&amp;includeDescendants=true</screen></para>
       <para>Query for all events with a certain program/orgUnit:
         <screen>/api/events?program=ID&amp;orgUnit=ID</screen></para>
       <para>Query for all events with a certain program/orgUnit for a specific person:
