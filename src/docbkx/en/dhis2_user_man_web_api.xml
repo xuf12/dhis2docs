@@ -1688,6 +1688,20 @@ Ext.onReady( function() {
             <entry>Identifier of a pre-defined chart (favorite) in DHIS</entry>
           </row>
           <row>
+            <entry>baseLayer</entry>
+            <entry>string/boolean</entry>
+            <entry>No</entry>
+            <entry>'gs', 'googlestreets' | 'gh', 'googlehybrid' | 'osm', 'openstreetmap' | false, null, 'none', 'off'</entry>
+            <entry>Background map</entry>
+          </row>
+          <row>
+            <entry>hideLegend</entry>
+            <entry>boolean</entry>
+            <entry>No</entry>
+            <entry>false | true</entry>
+            <entry>Hide legend panel</entry>
+          </row>
+          <row>
             <entry>mapViews</entry>
             <entry>array</entry>
             <entry>Yes (if no id provided)</entry>
