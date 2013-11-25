@@ -788,6 +788,85 @@ Content-Type: application/xml
       For xml you use <emphasis role="italic">application/xml</emphasis>; for csv you use <emphasis role="italic">application/csv</emphasis>.</para>
   </section>
   <section>
+    <title>Reading event data values</title>
+    <para>This section explains how to read out the events that have been stored in the DHIS2 instance. For more advanced uses of the event
+      data , please see the section on eventanalytics. The output format from the <emphasis role="italic">/api/events</emphasis> endpoint
+      will match the format that is used to send events to it (which the analytics event api does not support). Both XML and JSON are
+      supported, either through adding .json/.xml or by setting the appropriate <emphasis role="italic">Accept</emphasis> header.</para>
+    <para>
+      <table>
+        <title>Events endpoint query parameters</title>
+        <tgroup cols="5">
+          <thead>
+            <row>
+              <entry>
+                <emphasis role="italic">Key</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="italic">Type</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="italic">Required</emphasis>
+              </entry>
+              <entry>
+                <emphasis role="italic">Description</emphasis>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>program</entry>
+              <entry>identifier</entry>
+              <entry>true (unless programStage is provided)</entry>
+              <entry>Identifier of wanted program.</entry>
+            </row>            
+            <row>
+              <entry>programStage</entry>
+              <entry>identifier</entry>
+              <entry>true (unless program is provided)</entry>
+              <entry>Identifier of wanted program stage.</entry>
+            </row>
+            <row>
+              <entry>orgUnit</entry>
+              <entry>identifier</entry>
+              <entry>true</entry>
+              <entry>Identifier of wanted organisation unit.</entry>
+            </row>
+            <row>
+              <entry>person</entry>
+              <entry>identifier</entry>
+              <entry>false</entry>
+              <entry>Identifier of wanted person.</entry>
+            </row>
+            <row>
+              <entry>startDate</entry>
+              <entry>date</entry>
+              <entry>false</entry>
+              <entry>Only events newer than this date.</entry>
+            </row>
+            <row>
+              <entry>endDate</entry>
+              <entry>date</entry>
+              <entry>false</entry>
+              <entry>Only events older than this date.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>      
+    </para>
+    <section>
+      <title>Examples</title>
+      <para>Query for all events with a certain program/orgUnit:
+        <screen>/api/events?program=ID&amp;orgUnit=ID</screen></para>
+      <para>Query for all events with a certain program/orgUnit for a specific person:
+        <screen>/api/events?program=ID&amp;orgUnit=ID&amp;person=ID</screen></para>
+      <para>Query for all events with a certain program/orgUnit older or equal to 2012-02-03:
+        <screen>/api/events?program=ID&amp;orgUnit=ID&amp;endDate=2012-02-03</screen></para>
+      <para>Query for all events with a certain programStage/orgUnit/person in the year 2012:
+        <screen>/api/events?program=ID&amp;orgUnit=ID&amp;person=ID&amp;startDate=2012-01-01&amp;endDate=2012-12-31</screen></para>
+    </section>
+  </section>
+  <section>
     <title>Reading dataset complete registrations</title>
     <para>This section explains how to retrieve dataset completeness registrations. We will be using
       the completeDataSetRegistrations resource. The query parameters to use are these:</para>
