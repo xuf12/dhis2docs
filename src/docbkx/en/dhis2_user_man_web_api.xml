@@ -790,7 +790,7 @@ Content-Type: application/xml
   <section>
     <title>Reading event data values</title>
     <para>This section explains how to read out the events that have been stored in the DHIS2 instance. For more advanced uses of the event
-      data , please see the section on eventanalytics. The output format from the <emphasis role="italic">/api/events</emphasis> endpoint
+      data, please see the section on event analytics. The output format from the <emphasis role="italic">/api/events</emphasis> endpoint
       will match the format that is used to send events to it (which the analytics event api does not support). Both XML and JSON are
       supported, either through adding .json/.xml or by setting the appropriate <emphasis role="italic">Accept</emphasis> header.</para>
     <para>
