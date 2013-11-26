@@ -124,9 +124,9 @@
       periods in addition to fixed periods (defined above). The relative periods are relative to the
       current date, and allows e.g. for creating dynamic reports. The available relative period
       values are:</para>
-    <screen>LAST_MONTH, LAST_BIMONTH, LAST_QUARTER, LAST_SIX_MONTH, MONTHS_THIS_YEAR, QUARTERS_THIS_YEAR, 
-THIS_YEAR, MONTHS_LAST_YEAR, QUARTERS_LAST_YEAR, LAST_YEAR, LAST_5_YEARS, LAST_12_MONTHS, 
-LAST_3_MONTHS, LAST_6_BIMONTHS, LAST_4_QUARTERS, LAST_2_SIXMONTHS, THIS_FINANCIAL_YEAR, 
+    <screen>LAST_MONTH, LAST_BIMONTH, LAST_QUARTER, LAST_SIX_MONTH, MONTHS_THIS_YEAR, QUARTERS_THIS_YEAR,
+THIS_YEAR, MONTHS_LAST_YEAR, QUARTERS_LAST_YEAR, LAST_YEAR, LAST_5_YEARS, LAST_12_MONTHS,
+LAST_3_MONTHS, LAST_6_BIMONTHS, LAST_4_QUARTERS, LAST_2_SIXMONTHS, THIS_FINANCIAL_YEAR,
 LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WEEKS, LAST_52_WEEKS</screen>
   </section>
   <section>
@@ -325,7 +325,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       of January 2012. We have now aggregated our data into a statistical report and want to send
       that data to the national DHIS 2 instance.</para>
     <para>The entry point for the Web API running on the demo instance is <ulink url="http://apps.dhis2.org/demo/api"/>. The entry point provides a convenient HTML page with links to all of the available resources in the Web API. The resource which is most appropriate for our purpose of sending data values is the <emphasis role="italic">dataValueSets</emphasis> resource. A data value set represents a set of data values which have a logical relationship, usually from being captured off  the same data entry form. We follow the link to the HTML representation which will take us to <ulink url="http://apps.dhis2.org/demo/api/dataValueSets"/>. The default representation is a HTML page which provides us with  useful instructions on how to interact with this resources. It tells us that we can use the POST verb to send values using a XML format defined by the <emphasis role="italic">http://dhis2.org/schema/dxf/2.0</emphasis> namespace:</para>
-    <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;dataSetID&quot; 
+    <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;dataSetID&quot;
   completeDate=&quot;date&quot; period=&quot;period&quot; orgUnit=&quot;orgUnitID&quot;&gt;
   &lt;dataValue dataElement=&quot;dataElementID&quot; value=&quot;1&quot;/&gt;
   &lt;dataValue dataElement=&quot;dataElementID&quot; value=&quot;2&quot;/&gt;
@@ -347,7 +347,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       with id <emphasis role="italic">Ix2HsbDMLea</emphasis> and <emphasis role="italic">Cholera</emphasis> with id <emphasis role="italic">eY5ehpbEsB7</emphasis>.</para>
     <para>What remains is to get hold of the identifier of the facility (org unit). Again the <emphasis role="italic">dataSet</emphasis> representation conveniently provides link to org units which report on it so we search for<emphasis role="italic"> Ngelehun CHC</emphasis> and follow the link to the HTML representation at <ulink url="http://apps.dhis2.org/demo/api/organisationUnits/DiszpKrYNg8"/>, which tells us that the identifier of this org unit is <emphasis role="italic">DiszpKrYNg8</emphasis>.</para>
     <para>From our case-based data we assume that we have 12 cases of measles, 14 cases of dysentery and 16 cases of cholera. We have now gathered enough information to be able to put together the XML data value set message:</para>
-    <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;pBOMPrpg1QX&quot; 
+    <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;pBOMPrpg1QX&quot;
   completeDate=&quot;2012-02-03&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot;&gt;
   &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; value=&quot;12&quot;/&gt;
   &lt;dataValue dataElement=&quot;Ix2HsbDMLea&quot; value=&quot;14&quot;/&gt;
@@ -580,11 +580,11 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       specify the Content-Type as <emphasis role="italic">application/sdmx+xml</emphasis>.</para>
     <para>The example below shows an SDMX-HD dataValueSet:</para>
     <screen><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
-<CrossSectionalData xmlns="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message" 
+<CrossSectionalData xmlns="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
   xmlns:common="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/common"
   xmlns:ns="urn:sdmx:org.sdmx.infomodel.keyfamily.KeyFamily=DHIS2:KF_DHIS2_SIMPLE:1.0:cross"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xsi:schemaLocation="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message SDMXMessage.xsd 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message SDMXMessage.xsd
   urn:sdmx:org.sdmx.infomodel.keyfamily.KeyFamily=DHIS2:KF_DHIS2_SIMPLE:1.0:cross file:./KF_HOSP_cross.xsd">
 
   <Header>
@@ -593,7 +593,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <Prepared>2012-03-21</Prepared>
     <Sender id="DDU"/>
   </Header>
-  
+
   <ns:DataSet FREQ="M" TIME_PERIOD="2012-01" FACILITY="DDU" datasetID="KF_HOSP">
     <ns:Group>
       <ns:Section>
@@ -604,7 +604,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
         <ns:OBS_VALUE DATAELEMENT="DE005" value="5" />
       </ns:Section>
     </ns:Group>
-  
+
 </ns:DataSet>
 </CrossSectionalData>]]></screen>
     <para>One thing to note is that the SDMX-HD metadata for dataelements, orgunits and datasets are
@@ -676,7 +676,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <screen>http://apps.dhis2.org/demo/api/dataValueSets?dataElementIdScheme=code&amp;
   orgUnitIdScheme=name&amp;dryRun=true&amp;importStrategy=new</screen>
     <para>They can also be supplied as XML attributes on the data value set element like below. XML attributes will override query string parameters.</para>
-    <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataElementIdScheme=&quot;code&quot; 
+    <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataElementIdScheme=&quot;code&quot;
   orgUnitIdScheme=&quot;name&quot; dryRun=&quot;true&quot; importStrategy=&quot;new&quot;&gt;
   ..
 &lt;/dataValueSet&gt;</screen>
@@ -729,11 +729,11 @@ Content-Type: application/xml
 &lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;
 &lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;pBOMPrpg1QX&quot;
   completeDate=&quot;2012-01-02&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot;&gt;
-&lt;dataValue dataElement=&quot;eY5ehpbEsB7&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot; 
+&lt;dataValue dataElement=&quot;eY5ehpbEsB7&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot;
   categoryOptionCombo=&quot;bRowv6yZOF2&quot; value=&quot;10003&quot;/&gt;
-&lt;dataValue dataElement=&quot;Ix2HsbDMLea&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot; 
+&lt;dataValue dataElement=&quot;Ix2HsbDMLea&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot;
   categoryOptionCombo=&quot;bRowv6yZOF2&quot; value=&quot;10002&quot;/&gt;
-&lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot; 
+&lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot;
   categoryOptionCombo=&quot;bRowv6yZOF2&quot; value=&quot;10001&quot;/&gt;
 &lt;/dataValueSet&gt;</screen>
     <para>The header tells us that the request was processed successfully and that we are receiving a response in XML format. The XML message looks familiar - it is the data values we sent in the previous section.</para>
@@ -817,9 +817,9 @@ Content-Type: application/xml
             <row>
               <entry>program</entry>
               <entry>identifier</entry>
-              <entry>false</entry>
-              <entry>Identifier of wanted program</entry>
-            </row>            
+              <entry>true (unless programStage is provided)</entry>
+              <entry>Identifier of wanted program.</entry>
+            </row>
             <row>
               <entry>programStage</entry>
               <entry>identifier</entry>
@@ -864,7 +864,7 @@ Content-Type: application/xml
             </row>
           </tbody>
         </tgroup>
-      </table>      
+      </table>
     </para>
     <section>
       <title>Examples</title>
@@ -1185,8 +1185,8 @@ api/reports/OeJsA6K1Otx/data.pdf
 api/reports/OeJsA6K1Otx/data.pdf?date=2012-01-01</screen>
   </section>
 
-  
- 
+
+
 
   <section>
     <title>Embedding pivot tables with the Pivot table plug-in</title>
@@ -1199,7 +1199,7 @@ api/reports/OeJsA6K1Otx/data.pdf?date=2012-01-01</screen>
     <screen>var base = &quot;http://apps.dhis2.org/demo/&quot;;
 
 Ext.onReady( function() {
-  Ext.Ajax.request({ 
+  Ext.Ajax.request({
     url: base + &quot;dhis-web-commons-security/login.action&quot;,
     method: &quot;POST&quot;,
     params: { j_username: &quot;portal&quot;, j_password: &quot;Portal123&quot; },
@@ -1220,7 +1220,7 @@ Ext.onReady( function() {
     {id: "sB79w2hiLp8"}  // the id of ANC 3 Coverage
   ]
 }]</screen>
-    
+
     <table>
       <title>Pivot table plug-in configuration</title>
       <tgroup cols="5">
@@ -1285,7 +1285,7 @@ Ext.onReady( function() {
             <entry>No</entry>
             <entry/>
             <entry>Data dimensions to include in chart as filters</entry>
-          </row>  
+          </row>
           <row>
             <entry>showTotals</entry>
             <entry>boolean</entry>
@@ -1380,12 +1380,12 @@ Ext.onReady( function() {
 
 
 
-  
 
 
 
 
-  
+
+
 
 
   <section>
@@ -1399,7 +1399,7 @@ Ext.onReady( function() {
     <screen>var base = &quot;http://apps.dhis2.org/demo/&quot;;
 
 Ext.onReady( function() {
-  Ext.Ajax.request({ 
+  Ext.Ajax.request({
     url: base + &quot;dhis-web-commons-security/login.action&quot;,
     method: &quot;POST&quot;,
     params: { j_username: &quot;portal&quot;, j_password: &quot;Portal123&quot; },
@@ -1420,7 +1420,7 @@ Ext.onReady( function() {
     {id: "sB79w2hiLp8"}  // the id of ANC 3 Coverage
   ]
 }]</screen>
-    
+
     <table>
       <title>Visualizer chart plug-in configuration</title>
       <tgroup cols="5">
@@ -1492,7 +1492,7 @@ Ext.onReady( function() {
             <entry>No</entry>
             <entry/>
             <entry>Data dimensions to include in chart as filters</entry>
-          </row>  
+          </row>
           <row>
             <entry>showData</entry>
             <entry>boolean</entry>
@@ -1636,12 +1636,12 @@ Ext.onReady( function() {
 &lt;script src=&quot;https://maps.google.com/maps/api/js?sensor=false&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/openlayers/OpenLayers.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/plugin/map.js&quot;&gt;&lt;/script&gt;</screen>
-					   
+
     <para>To authenticate with the DHIS server we use the same approach as in the previous section. In the header of the HTML document we include the following Javascript inside a script element. The <emphasis role="italic">setLinks</emphasis> method will be implemented later. Make sure the <emphasis role="italic">base</emphasis> variable is pointing to your DHIS installation.</para>
     <screen>var base = &quot;http://apps.dhis2.org/demo/&quot;;
 
 Ext.onReady( function() {
-  Ext.Ajax.request({ 
+  Ext.Ajax.request({
     url: base + &quot;dhis-web-commons-security/login.action&quot;,
     method: &quot;POST&quot;,
     params: { j_username: &quot;portal&quot;, j_password: &quot;Portal123&quot; },
@@ -1652,13 +1652,13 @@ Ext.onReady( function() {
 
     <para>A data dimension is defined as an object with a text property called <emphasis role="italic">dimension</emphasis>. This property accepts the following values: <emphasis role="italic">in</emphasis> (indicator), <emphasis role="italic">de</emphasis> (data element), <emphasis role="italic">ds</emphasis> (data set), <emphasis role="italic">dc</emphasis> (data element operand), <emphasis role="italic">pe</emphasis> (period), <emphasis role="italic">ou</emphasis> (organisation unit) or the id of any organisation unit group set or data element group set (can be found in the web api). The data dimension also has an array property called <emphasis role="italic">items</emphasis> which accepts objects with an <emphasis role="italic">id</emphasis> property.</para>
 
-    <para>To sum up, if you want to have a layer with e.g. &quot;ANC 1 Coverage&quot; in your map you can make the following <emphasis role="italic">columns</emphasis> config:</para>	
+    <para>To sum up, if you want to have a layer with e.g. &quot;ANC 1 Coverage&quot; in your map you can make the following <emphasis role="italic">columns</emphasis> config:</para>
 
 	<screen>columns: [{
   dimension: "in", // could be "in", "de", "ds", "dc", "pe", "ou" or any dimension id
   items: [{id: "Uvn6LCg7dVU"}], // the id of ANC 1 Coverage
 }]</screen>
-    
+
     <table>
       <title>Visualizer chart plug-in configuration</title>
       <tgroup cols="5">
@@ -1708,7 +1708,7 @@ Ext.onReady( function() {
             <entry>string/boolean</entry>
             <entry>No</entry>
             <entry>'gs', 'googlestreets' | 'gh', 'googlehybrid' | 'osm', 'openstreetmap' | false, null, 'none', 'off'</entry>
-            <entry>Background map</entry>
+            <entry>Show background map</entry>
           </row>
           <row>
             <entry>hideLegend</entry>
@@ -1729,7 +1729,7 @@ Ext.onReady( function() {
     </table>
 
 	<para>If no id is provided you must add map view objects with the following config options:</para>
-    
+
     <table>
 	  <title>Map plug-in configuration</title>
       <tgroup cols="5">
@@ -1761,7 +1761,7 @@ Ext.onReady( function() {
             <entry>Yes</entry>
             <entry/>
             <entry>Period (only one will be used)</entry>
-          </row>  
+          </row>
           <row>
             <entry>classes</entry>
             <entry>integer</entry>
@@ -1817,6 +1817,13 @@ Ext.onReady( function() {
             <entry>No</entry>
             <entry/>
             <entry>Pre-defined legend set. Will override the automatic legend set.</entry>
+          </row>
+          <row>
+            <entry>labels</entry>
+            <entry>boolean/object</entry>
+            <entry>No</entry>
+            <entry>false | true | object properties: fontSize (integer), color (hex string), strong (boolean), italic (boolean)</entry>
+            <entry>Show labels on the map</entry>
           </row>
           <row>
             <entry>width</entry>
@@ -1876,7 +1883,7 @@ Ext.onReady( function() {
 
 
 
-  
+
   <section>
     <title>Creating a chart carousel with the carousel plug-in</title>
     <para>The chart plug-in also makes it possible to create a chart carousel which for instance can be used to create an attractive front page on a Web portal. To use the carousel we need to import a few  files in the head section of our HTML page:</para>
@@ -2100,11 +2107,11 @@ Ext.get(&apos;link1&apos;).set({href: url1});</screen>
       example, lets assume we have been asked to provide a view of all organization units with their
       names, parent names, organization unit level and name, and the coordinates listed in the
       database. The view might look something like this: </para>
-    <screen>SELECT ou.name as orgunit, par.name as parent, ou.coordinates, ous.level, oul.name from organisationunit ou  
+    <screen>SELECT ou.name as orgunit, par.name as parent, ou.coordinates, ous.level, oul.name from organisationunit ou
 INNER JOIN _orgunitstructure ous ON ou.organisationunitid = ous.organisationunitid
 INNER JOIN organisationunit par ON ou.parentid = par.organisationunitid
 INNER JOIN orgunitlevel oul ON ous.level = oul.level
-WHERE ou.coordinates is not null 
+WHERE ou.coordinates is not null
 ORDER BY oul.level, par.name, ou.name</screen>
     <para>We will use <command>curl</command> to first execute the view on the DHIS 2 server. This
       is essentially a materialization process, and ensures that we have the most recent data
@@ -2646,25 +2653,25 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <screen>{
     "headers": [
         {
-            "name": "dx", 
-            "column": "Data", 
-            "meta": true, 
+            "name": "dx",
+            "column": "Data",
+            "meta": true,
             "type": "java.lang.String"
-        }, 
+        },
         {
-            "name": "pe", 
-            "column": "Period", 
-            "meta": true, 
+            "name": "pe",
+            "column": "Period",
+            "meta": true,
             "type": "java.lang.String"
-        }, 
+        },
         {
-            "name": "value", 
-            "column": "Value", 
-            "meta": false, 
+            "name": "value",
+            "column": "Value",
+            "meta": false,
             "type": "java.lang.Double"
         }
-    ], 
-    "height": 4, 
+    ],
+    "height": 4,
     "metaData": {
         "pe": [
             "2012Q1",
@@ -2680,29 +2687,29 @@ ORDER BY oul.level, par.name, ou.name</screen>
             "ImspTQPwCqd": "Sierra Leone",
             "eTDtyyaSA7f": "Fully Immunized Coverage"
         }
-    }, 
+    },
     "rows": [
         [
-            "eTDtyyaSA7f", 
-            "2012Q2", 
+            "eTDtyyaSA7f",
+            "2012Q2",
             "81.1"
-        ], 
+        ],
         [
-            "eTDtyyaSA7f", 
-            "2012Q1", 
+            "eTDtyyaSA7f",
+            "2012Q1",
             "74.7"
-        ], 
+        ],
         [
-            "FbKK4ofIv5R", 
-            "2012Q2", 
+            "FbKK4ofIv5R",
+            "2012Q2",
             "88.9"
-        ], 
+        ],
         [
-            "FbKK4ofIv5R", 
-            "2012Q1", 
+            "FbKK4ofIv5R",
+            "2012Q1",
             "84.0"
         ]
-    ], 
+    ],
     "width": 3
 }
 </screen>
@@ -3096,14 +3103,14 @@ ORDER BY oul.level, par.name, ou.name</screen>
         "type": "java.lang.String",
         "hidden": false,
         "meta": false
-    }, 
+    },
     {
         "name": "ps",
         "column": "Program stage",
         "type": "java.lang.String",
         "hidden": false,
         "meta": false
-    }, 
+    },
     {
         "name": "eventdate",
         "column": "Event date",
@@ -3124,28 +3131,28 @@ ORDER BY oul.level, par.name, ou.name</screen>
         "type": "java.lang.String",
         "hidden": false,
         "meta": false
-    }, 
+    },
     {
         "name": "oucode",
         "column": "Organisation unit code",
         "type": "java.lang.String",
         "hidden": false,
         "meta": false
-    }, 
+    },
     {
         "name": "ou",
         "column": "Organisation unit",
         "type": "java.lang.String",
         "hidden": false,
         "meta": false
-    }, 
+    },
     {
         "name": "oZg33kd9taw",
         "column": "Gender",
         "type": "java.lang.String",
         "hidden": false,
         "meta": false
-    }, 
+    },
     {
         "name": "qrur9Dvnyt5",
         "column": "Age",
@@ -3153,7 +3160,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
         "hidden": false,
         "meta": false
     } ],
-    "metaData": {        
+    "metaData": {
         "names": {
             "qrur9Dvnyt5": "Age",
             "eBAyeGv0exc": "Inpatient morbidity and mortality",
@@ -3193,7 +3200,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <para>The <emphasis role="italic">rows</emphasis> section contains the events produced by the
           query. Each row represents exactly one event.</para>
   </section>
-  </section>  
+  </section>
   <section>
     <title>Event aggregate analytics</title>
     <para>In order to get <emphasis role="italic">aggregated numbers</emphasis> of events captured
@@ -3386,7 +3393,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
         user: "dhis"
     },
     memoryInfo: "Mem Total in JVM: 848 Free in JVM: 581 Max Limit: 1333",
-    cpuCores: 8    
+    cpuCores: 8
     }</screen>
       <para>To get information about the system context (<emphasis role="italic"
           >contextPath</emphasis> and <emphasis role="italic">userAgent</emphasis>) only you can do
@@ -3517,17 +3524,17 @@ ORDER BY oul.level, par.name, ou.name</screen>
     "contact": {
         "phoneNumber": "Phone number"
     },
-    "relationships": [ { 
-        "type": "Relationship type identifier", 
-        "person": "Person identifier" 
+    "relationships": [ {
+        "type": "Relationship type identifier",
+        "person": "Person identifier"
     } ],
-    "identifiers": [ { 
-        "type": "Person id identifier", 
-        "value": "1234" 
+    "identifiers": [ {
+        "type": "Person id identifier",
+        "value": "1234"
     } ],
-    "attributes": [ { 
-        "type": "Person attribute identifier", 
-        "value": "My address" 
+    "attributes": [ {
+        "type": "Person attribute identifier",
+        "value": "My address"
     } ]
 }</screen></para>
       <para>For getting the identifiers for <emphasis role="italic">relationship</emphasis>,
