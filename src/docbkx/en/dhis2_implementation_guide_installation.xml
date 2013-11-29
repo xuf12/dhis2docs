@@ -158,7 +158,16 @@ hibernate.hbm2ddl.auto = update</screen></para>
       <para><screen>export JAVA_HOME=&apos;/usr/lib/jvm/java-7-openjdk&apos;
 export JAVA_OPTS=&apos;-Xmx7500m -Xms4000m -XX:MaxPermSize=500m -XX:PermSize=300m&apos;
 export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
-      <para>If you need to change the <emphasis role="italic">port</emphasis> of which Tomcat listens for requests you can open the Tomcat configuration file <emphasis role="italic">/conf/server.xml</emphasis>, locate the <emphasis role="italic">&lt;Connector&gt;</emphasis> element which is not commented out and change the <emphasis role="italic">port</emphasis> attribute value to the desired port number.</para>
+      <para>In order to enable <emphasis role="italic">UTF-8</emphasis> encoding of request data,
+        navigate to the <emphasis role="italic">&lt;tomcat-dir>/conf/server.xml</emphasis>
+        configuration file and locate the <emphasis role="italic">Connector</emphasis> element which
+        connects on port 8080 by default and add <code>URIEncoding="UTF-8"</code> to it:</para>
+      <screen>&lt;Connector port="8080" protocol="HTTP/1.1"
+  connectionTimeout="20000"
+  redirectPort="8443"
+  URIEncoding="UTF-8" /></screen>
+      <para>If you want to change the port of which Tomcat listens for requests you can set the
+          <code>port</code> attribute to the desired number.</para>
       <para>To monitor the behavior of Tomcat the log is the primary source of information. The log can be easily viewed with the command <command>tail -f logs/catalina.out</command></para>
     </section>
     <section>
