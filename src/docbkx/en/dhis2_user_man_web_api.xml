@@ -1191,7 +1191,10 @@ api/reports/OeJsA6K1Otx/data.pdf?date=2012-01-01</screen>
   <section>
     <title>Embedding pivot tables with the Pivot table plug-in</title>
     <para>In this example we will see how we can embed good-looking, light-weight html pivot tables with data served from a DHIS back-end into a Web page. To accomplish this we will use the Pivot table plug-in. The plug-in is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/table.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
-    <para>We start by including three files in the header section of the HTML document. The first two files are the Ext JS javascript library (we use the Google content delivery network in this case) and its css stylesheet. The third file is the Pivot table plug-in. Make sure the path is pointing to your DHIS server installation.</para>
+    <para>We start by including three files in the header section of the HTML document. The first
+      two files are the Ext JS javascript library (we use the DHIS 2 content delivery network in
+      this case) and its css stylesheet. The third file is the Pivot table plug-in. Make sure the
+      path is pointing to your DHIS server installation.</para>
     <screen>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://dhis2-cdn.org/v213/ext/resources/css/ext-plugin-gray.css&quot; /&gt;
 &lt;script src=&quot;http://dhis2-cdn.org/v213/ext/ext-all.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;http://dhis2-cdn.org/v213/plugin/table.js&quot;&gt;&lt;/script&gt;</screen>
@@ -1382,7 +1385,10 @@ Ext.onReady( function() {
   <section>
     <title>Embedding charts with the Visualizer chart plug-in</title>
     <para>In this example we will see how we can embed good-looking Ext JS charts (<ulink url="http://www.sencha.com/products/extjs"/>) with data served from a DHIS back-end into a Web page. To accomplish this we will use the DHIS Visualizer plug-in. The plug-in is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/chart.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
-    <para>We start by including three files in the header section of the HTML document. The first two files are the Ext JS javascript library (we use the Google content delivery network in this case) and its stylesheet. The third file is the Visualizer plug-in. Make sure the path is pointing to your DHIS server installation.</para>
+    <para>We start by including three files in the header section of the HTML document. The first
+        two files are the Ext JS javascript library (we use the DHIS 2 content delivery network in
+        this case) and its stylesheet. The third file is the Visualizer plug-in. Make sure the path
+        is pointing to your DHIS server installation.</para>
     <screen>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://dhis2-cdn.org/v213/ext/resources/css/ext-plugin-gray.css&quot; /&gt;
 &lt;script src=&quot;http://dhis2-cdn.org/v213/ext/ext-all.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;http://dhis2-cdn.org/v213/plugin/table.js&quot;&gt;&lt;/script&gt;</screen>
@@ -1607,7 +1613,11 @@ Ext.onReady( function() {
   <section>
     <title>Embedding maps with the GIS map plug-in</title>
     <para>In this example we will see how we can embed maps with data served from a DHIS back-end into a Web page. To accomplish this we will use the GIS map plug-in. The plug-in is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/map.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
-    <para>We start by including four files and Google Maps in the header section of the HTML document. The first two files are the Ext JS javascript library (we use the Google content delivery network in this case) and its stylesheet. The third file is the OpenLayers javascript mapping framework (<ulink url="http://openlayers.org"/>) and finally we include the GIS map plug-in. Make sure the path is pointing to your DHIS server installation.</para>
+    <para>We start by including four files and Google Maps in the header section of the HTML
+        document. The first two files are the Ext JS javascript library (we use the DHIS 2 content
+        delivery network in this case) and its stylesheet. The third file is the OpenLayers
+        javascript mapping framework (<ulink url="http://openlayers.org"/>) and finally we include
+        the GIS map plug-in. Make sure the path is pointing to your DHIS server installation.</para>
 	<screen>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://dhis2-cdn.org/v213/ext/resources/css/ext-plugin-gray.css&quot; /&gt;
 &lt;script src=&quot;http://dhis2-cdn.org/v213/ext/ext-all.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;https://maps.google.com/maps/api/js?sensor=false&quot;&gt;&lt;/script&gt;
