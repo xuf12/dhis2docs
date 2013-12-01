@@ -1377,17 +1377,8 @@ Ext.onReady( function() {
 &lt;div id=&quot;tableB1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;</screen>
     <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/table.html"/>.</para>
   </section>
-
-
-
-
-
-
-
-
-
-
-
+  <section><title>Plugins</title>
+  <para>DHIS 2 comes with plugins which enables you to embed live data directly in your web portal or web site. Currently, plugins exist for charts, maps and pivot tables.</para>
   <section>
     <title>Embedding charts with the Visualizer chart plug-in</title>
     <para>In this example we will see how we can embed good-looking Ext JS charts (<ulink url="http://www.sencha.com/products/extjs"/>) with data served from a DHIS back-end into a Web page. To accomplish this we will use the DHIS Visualizer plug-in. The plug-in is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/chart.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
@@ -1613,20 +1604,6 @@ Ext.onReady( function() {
 </screen>
     <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/chart.html"/>.</para>
   </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <section>
     <title>Embedding maps with the GIS map plug-in</title>
     <para>In this example we will see how we can embed maps with data served from a DHIS back-end into a Web page. To accomplish this we will use the GIS map plug-in. The plug-in is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/map.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
@@ -1875,15 +1852,6 @@ Ext.onReady( function() {
 </screen>
     <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/map.html"/>.</para>
   </section>
-
-
-
-
-
-
-
-
-
   <section>
     <title>Creating a chart carousel with the carousel plug-in</title>
     <para>The chart plug-in also makes it possible to create a chart carousel which for instance can be used to create an attractive front page on a Web portal. To use the carousel we need to import a few  files in the head section of our HTML page:</para>
@@ -1915,6 +1883,7 @@ new Ext.ux.carousel.Carousel( &apos;chartCarousel&apos;, {
 &lt;div id=&quot;chartA3&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
 &lt;div id=&quot;chartA4&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;</screen>
     <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/carousel.html"/>.</para>
+  </section>
   </section>
   <section>
     <title>Working with SQL views</title>
