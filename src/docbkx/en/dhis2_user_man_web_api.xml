@@ -1187,7 +1187,8 @@ api/reports/OeJsA6K1Otx/data.pdf?date=2012-01-01</screen>
 
 
 
-
+  <section><title>Plugins</title>
+  <para>DHIS 2 comes with plugins which enables you to embed live data directly in your web portal or web site. Currently, plugins exist for charts, maps and pivot tables.</para>  
   <section>
     <title>Embedding pivot tables with the Pivot table plug-in</title>
     <para>In this example we will see how we can embed good-looking, light-weight html pivot tables with data served from a DHIS back-end into a Web page. To accomplish this we will use the Pivot table plug-in. The plug-in is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/table.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
@@ -1380,8 +1381,6 @@ Ext.onReady( function() {
 &lt;div id=&quot;tableB1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;</screen>
     <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/table.html"/>.</para>
   </section>
-  <section><title>Plugins</title>
-  <para>DHIS 2 comes with plugins which enables you to embed live data directly in your web portal or web site. Currently, plugins exist for charts, maps and pivot tables.</para>
   <section>
     <title>Embedding charts with the Visualizer chart plug-in</title>
     <para>In this example we will see how we can embed good-looking Ext JS charts (<ulink url="http://www.sencha.com/products/extjs"/>) with data served from a DHIS back-end into a Web page. To accomplish this we will use the DHIS Visualizer plug-in. The plug-in is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/chart.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
