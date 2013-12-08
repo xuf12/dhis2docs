@@ -141,13 +141,14 @@ hibernate.hbm2ddl.auto = update</screen></para>
     </section>
     <section>
       <title>Install Tomcat and DHIS2</title>
-      <para>To install Tomcat, which is the servlet container serving the DHIS 2 WAR file, we will
-        use the Tomcat user package like this:</para>
+      <para>To install the Tomcat servlet container we will utilize the Tomcat user package by
+        invoking:</para>
       <screen>sudo apt-get install tomcat7-user</screen>
-      <para>This lets us easily create a new Tomcat instance. The instance will be created in the
-        current directory. An appropriate location is the home directory of the dhis user:</para>
+      <para>This package lets us easily create a new Tomcat instance. The instance will be created
+        in the current directory. An appropriate location is the home directory of the dhis
+        user:</para>
       <screen>tomcat7-instance-create tomcat-dhis</screen>
-      <para>This will create an instance in a directory calleed <emphasis role="italic"
+      <para>This will create an instance in a directory called <emphasis role="italic"
           >tomcat-dhis</emphasis>. Note that the tomcat7-user package allows for creating any number
         of dhis instances if that is desired.</para>
       <para>Next edit the file <emphasis role="italic">tomcat-dhis/bin/setenv.sh</emphasis> and add
