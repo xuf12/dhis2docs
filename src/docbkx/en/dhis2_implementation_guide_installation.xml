@@ -141,38 +141,48 @@ hibernate.hbm2ddl.auto = update</screen></para>
     </section>
     <section>
       <title>Install Tomcat and DHIS2</title>
-      <para>Download the Tomcat binary distribution from <emphasis role="italic">http://tomcat.apache.org/download-70.cgi</emphasis> A useful tool for downloading files
-      from the web is <emphasis role="italic">wget</emphasis>. Extract to a convenient location.
-      This guide assumes that you have navigated to the root directory of the extracted archive.
-      Download the latest stable DHIS WAR file by invoking: <command>wget stable.dhis2.org</command></para>
-      <para>Clear the pre-installed web applications by invoking <code>rm -rf webapps/*</code> Move
-      the DHIS WAR file to the <emphasis role="italic">webapps</emphasis> directory and rename it to
-        <emphasis role="italic">ROOT.war</emphasis>. </para>
-      <para>Create a file <emphasis role="italic">bin/setenv.sh</emphasis> and add the lines below.
-      The first line will set the location of your Java Runtime Environment, the second will dedicate
-      memory to Tomcat and the third will set the location for where DHIS 2 will search for the
-        <emphasis role="italic">hibernate.properties</emphasis> configuration file. Please check
-      that the path the Java binaries are correct as they might vary from system to system, e.g. on
-      AMD systems you might see <emphasis role="italic">/java-7-openjdk-amd64</emphasis> Note that
-      you should adjust this to your environment:</para>
+      <para>To install Tomcat, which is the servlet container serving the DHIS 2 WAR file, we will
+        use the Tomcat user package like this:</para>
+      <screen>sudo apt-get install tomcat7-user</screen>
+      <para>This lets us easily create a new Tomcat instance. The instance will be created in the
+        current directory. An appropriate location is the home directory of the dhis user:</para>
+      <screen>tomcat7-instance-create tomcat-dhis</screen>
+      <para>This will create an instance in a directory calleed <emphasis role="italic"
+          >tomcat-dhis</emphasis>. Note that the tomcat7-user package allows for creating any number
+        of dhis instances if that is desired.</para>
+      <para>Next edit the file <emphasis role="italic">tomcat-dhis/bin/setenv.sh</emphasis> and add
+        the lines below. The first line will set the location of your Java Runtime Environment, the
+        second will dedicate memory to Tomcat and the third will set the location for where DHIS 2
+        will search for the <emphasis role="italic">hibernate.properties</emphasis> configuration
+        file. Please check that the path the Java binaries are correct as they might vary from
+        system to system, e.g. on AMD systems you might see <emphasis role="italic"
+          >/java-7-openjdk-amd64</emphasis> Note that you should adjust this to your
+        environment:</para>
       <para><screen>export JAVA_HOME=&apos;/usr/lib/jvm/java-7-openjdk&apos;
 export JAVA_OPTS=&apos;-Xmx7500m -Xms4000m -XX:MaxPermSize=500m -XX:PermSize=300m&apos;
 export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
-      <para>In order to enable <emphasis role="italic">UTF-8</emphasis> encoding of request data,
-        navigate to the <emphasis role="italic">&lt;tomcat-dir>/conf/server.xml</emphasis>
-        configuration file and locate the <emphasis role="italic">Connector</emphasis> element which
-        connects on port 8080 by default and add <code>URIEncoding="UTF-8"</code> to it:</para>
+      <para>The Tomcat configiration file is located in <emphasis role="italic"
+          >tomcat-dhis/conf/server.xml</emphasis>. The element which defines the connection to DHIS
+        is the <emphasis role="italic">Connector</emphasis> element with port 8080. You can change
+        the port number in the Connector element to a desired port if necessary. If UTF-8 encoding
+        of request data is needed, make sure that the <emphasis role="italic">URIEncoding</emphasis>
+        attribute is set to <emphasis role="italic">UTF-8</emphasis>.</para>
       <screen>&lt;Connector port="8080" protocol="HTTP/1.1"
   connectionTimeout="20000"
   redirectPort="8443"
   URIEncoding="UTF-8" /></screen>
-      <para>If you want to change the port of which Tomcat listens for requests you can set the
-          <code>port</code> attribute to the desired number.</para>
-      <para>To monitor the behavior of Tomcat the log is the primary source of information. The log can be easily viewed with the command <command>tail -f logs/catalina.out</command></para>
+      <para>To monitor the behavior of Tomcat the log is the primary source of information. The log
+        can be easily viewed with the command <command>tail -f
+          tomcat-dhis/logs/catalina.out</command></para>
     </section>
     <section>
       <title>Running DHIS2</title>
-      <para>Make the startup script executable by invoking <code>chmod 755 bin/*</code> DHIS 2 can now be started by invoking <code>bin/startup.sh</code> The log can be monitored by invoking <code>tail -f logs/catalina.out</code> DHIS 2 can be stopped by invoking <code>bin/shutdown.sh</code> Assuming that the WAR file is called ROOT.war, you can now access your DHIS instance at <emphasis role="italic">http://localhost:8080</emphasis></para>
+      <para>Make the startup script executable by invoking <code>chmod 755 tomcat-dhis/bin/*</code>
+        DHIS 2 can now be started by invoking <code>tomcat-dhis/bin/startup.sh</code> The log can be
+        monitored by invoking <code>tail -f tomcat-dhis/logs/catalina.out</code> DHIS 2 can be
+        stopped by invoking <code>tomcat-dhis/bin/shutdown.sh</code> Assuming that the WAR file is
+        called ROOT.war, you can now access your DHIS instance at <emphasis role="italic"
+          >http://localhost:8080</emphasis>.</para>
     </section>
   </section>
   <section>
