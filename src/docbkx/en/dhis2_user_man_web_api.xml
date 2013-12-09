@@ -2333,6 +2333,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
                 <entry>false | true</entry>
               </row>
               <row>
+                <entry>skipRounding</entry>
+                <entry>No</entry>
+                <entry>Skip rounding of data values, i.e. provide full precision</entry>
+                <entry>false | true</entry>
+              </row>
+              <row>
                 <entry>hierarchyMeta</entry>
                 <entry>No</entry>
                 <entry>Include names of organisation unit ancestors and hierarchy paths of
