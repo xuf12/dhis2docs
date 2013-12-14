@@ -691,8 +691,8 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
   <section>
     <title>Sending individual data values</title>
     <para>This example will show how to send individual data values to be saved in a request. This
-      can be achieved by interacting with the <emphasis role="italic">dataValues</emphasis>
-      resource:</para>
+      can be achieved by sending a <emphasis role="italic">POST</emphasis> request to the <emphasis
+        role="italic">dataValues</emphasis> resource:</para>
     <screen>http://apps.dhis2.org/demo/api/dataValues</screen>
     <para>The following query parameters are supported for this resource:</para>
     <table frame="all">
@@ -750,7 +750,9 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para>If any of the identifiers given are invalid, if the data value or comment are invalid or
       if the data is locked, the response will contain the <emphasis role="italic">409
         Conflict</emphasis> status code and descriptive text message. If the operation lead to a
-      saved or updated value, <emphasis role="italic">200 OK</emphasis> will be returned.</para>
+      saved or updated value, <emphasis role="italic">200 OK</emphasis> will be returned. An example
+      of a request looks like this:</para>
+    <screen>curl "http://apps.dhis2.org/demo/api/dataValues?de=s46m5MS0hxu&amp;co=Prlt0C1RF0s&amp;pe=201301&amp;ou=DiszpKrYNg8&amp;value=12" -X POST -u admin:district -v</screen>
   </section>
   <section>
     <title>Reading data values</title>
