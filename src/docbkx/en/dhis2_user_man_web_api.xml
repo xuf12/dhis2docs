@@ -689,6 +689,70 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       using the dataElementIScheme and orgUnitIdScheme paramaters.</para>
   </section>
   <section>
+    <title>Sending individual data values</title>
+    <para>This example will show how to send individual data values to be saved in a request. This
+      can be achieved by interacting with the <emphasis role="italic">dataValues</emphasis>
+      resource:</para>
+    <screen>http://apps.dhis2.org/demo/api/dataValues</screen>
+    <para>The following query parameters are supported for this resource:</para>
+    <table frame="all">
+      <title>Data values query parameters</title>
+      <tgroup cols="3">
+        <colspec colname="c1" colnum="1" colwidth="1*"/>
+        <colspec colname="c2" colnum="2" colwidth="1.59*"/>
+        <colspec colname="c3" colnum="3" colwidth="3.16*"/>
+        <thead>
+          <row>
+            <entry>Query parameter</entry>
+            <entry>Required</entry>
+            <entry>Description</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>de</entry>
+            <entry>Yes</entry>
+            <entry>Data element identifier</entry>
+          </row>
+          <row>
+            <entry>co</entry>
+            <entry>No</entry>
+            <entry>Category option combo identifier, default will be used if omitted</entry>
+          </row>
+          <row>
+            <entry>pe</entry>
+            <entry>Yes</entry>
+            <entry>Period identifier</entry>
+          </row>
+          <row>
+            <entry>ou</entry>
+            <entry>Yes</entry>
+            <entry>Organisation unit identifier</entry>
+          </row>
+          <row>
+            <entry>value</entry>
+            <entry>No</entry>
+            <entry>Data value</entry>
+          </row>
+          <row>
+            <entry>comment</entry>
+            <entry>No</entry>
+            <entry>Data comment</entry>
+          </row>
+          <row>
+            <entry>followUp</entry>
+            <entry>No</entry>
+            <entry>Follow up on data value, will toggle the current boolean value</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>If any of the identifiers given are invalid, if the data value or comment are invalid or
+      if the data is locked, the response will contain the <emphasis role="italic">409
+        Conflict</emphasis> status code and descriptive text message. If the operation lead to a
+      saved or updated value, <emphasis role="italic">200 OK</emphasis> will be returned.</para>
+  </section>
+  <section>
     <title>Reading data values</title>
     <para>This section explains how to retrieve data values from the Web API by interacting with the dataValueSets resource. Data values can currently be retrieved in XML format. Since we want to read data we will use the <emphasis role="italic">GET</emphasis> HTTP verb. We will also specify that we are interested in the XML resource representation by including an <emphasis role="italic">Accept</emphasis> HTTP header with our request. The following query parameters are required:</para>
     <table>
