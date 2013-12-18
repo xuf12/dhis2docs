@@ -3200,14 +3200,15 @@ ORDER BY oul.level, par.name, ou.name</screen>
       consuming clients. </para>
     <para>The resource tables are used internally by the DHIS 2 application for various analysis
       functions. These tables are also valuable for users writing advanced SQL reports. They can be
-      generated with a PUT request to the following URL:</para>
+      generated with a POST or PUT request to the following URL:</para>
     <screen>http://&lt;server-url>/api/resourceTables</screen>
     <para>The analytics tables are optimized for data aggregation and used currently in DHIS 2 for
-      the pivot table module. The analytics tables can be generated with a PUT request to:</para>
+      the pivot table module. The analytics tables can be generated with a POST or PUT request
+      to:</para>
     <screen>http://&lt;server-url>/api/resourceTables/analytics</screen>
     <para>The data mart is tables containing pre-calculated aggregated data which are used by DHIS 2
       analysis modules and can be used directly by SQL reports. The data mart tables can be
-      generated with a PUT request to:</para>
+      generated with a POST or PUT request to:</para>
     <screen>http://&lt;server-url>/api/resourceTables/dataMart</screen>
     <para>These requests will return immediately and initiate a server-side process.</para>
   </section>
