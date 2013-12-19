@@ -699,8 +699,8 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       <title>Data values query parameters</title>
       <tgroup cols="3">
         <colspec colname="c1" colnum="1" colwidth="1*"/>
-        <colspec colname="c2" colnum="2" colwidth="1.59*"/>
-        <colspec colname="c3" colnum="3" colwidth="3.16*"/>
+        <colspec colname="c2" colnum="2" colwidth="1.23*"/>
+        <colspec colname="c3" colnum="3" colwidth="4.08*"/>
         <thead>
           <row>
             <entry>Query parameter</entry>
@@ -715,11 +715,6 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
             <entry>Data element identifier</entry>
           </row>
           <row>
-            <entry>co</entry>
-            <entry>No</entry>
-            <entry>Category option combo identifier, default will be used if omitted</entry>
-          </row>
-          <row>
             <entry>pe</entry>
             <entry>Yes</entry>
             <entry>Period identifier</entry>
@@ -728,6 +723,21 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
             <entry>ou</entry>
             <entry>Yes</entry>
             <entry>Organisation unit identifier</entry>
+          </row>
+          <row>
+            <entry>co</entry>
+            <entry>No</entry>
+            <entry>Category option combo identifier, default will be used if omitted</entry>
+          </row>
+          <row>
+            <entry>cc</entry>
+            <entry>No (must combine with cp)</entry>
+            <entry>Attribute combo identifier</entry>
+          </row>
+          <row>
+            <entry>cp</entry>
+            <entry>No (must combine with cc)</entry>
+            <entry>Attribute option identifiers, can be repeated multiple times</entry>
           </row>
           <row>
             <entry>value</entry>
@@ -752,7 +762,12 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
         Conflict</emphasis> status code and descriptive text message. If the operation lead to a
       saved or updated value, <emphasis role="italic">200 OK</emphasis> will be returned. An example
       of a request looks like this:</para>
-    <screen>curl "http://apps.dhis2.org/demo/api/dataValues?de=s46m5MS0hxu&amp;co=Prlt0C1RF0s&amp;pe=201301&amp;ou=DiszpKrYNg8&amp;value=12" -X POST -u admin:district -v</screen>
+    <screen>curl "http://apps.dhis2.org/demo/api/dataValues?de=s46m5MS0hxu&amp;pe=201301&amp;ou=DiszpKrYNg8&amp;co=Prlt0C1RF0s&amp;value=12" -X POST -u admin:district -v</screen>
+    <para>This resource also allows a special syntax for associating the value to an attribute
+      option combination. This can be done by sending the identifier of the attribute combination,
+      together with the identifier(s) of the attribute option(s) which the value represents within
+      the combination. An example looks like this:</para>
+    <screen>curl "http://apps.dhis2.org/demo/api/dataValues?de=s46m5MS0hxu&amp;ou=DiszpKrYNg8&amp;pe=201308&amp;cc=dzjKKQq0cSO&amp;cp=wbrDrL2aYEc&amp;cp=btOyqprQ9e8&amp;value=26" -X POST -u admin:district -v</screen>
   </section>
   <section>
     <title>Reading data values</title>
