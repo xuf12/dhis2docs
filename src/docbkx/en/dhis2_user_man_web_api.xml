@@ -2684,9 +2684,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
           </row>
           <row>
             <entry>Person attributes</entry>
-            <entry>&lt;id>, GENDER, ISDEAD</entry>
-            <entry>Person attribute identifiers and the fixed person attributes GENDER and
-              ISDEAD</entry>
+            <entry>&lt;id></entry>
+            <entry>Person attribute identifiers</entry>
           </row>
           <row>
             <entry>Person identifiers</entry>
@@ -2881,9 +2880,6 @@ ORDER BY oul.level, par.name, ou.name</screen>
         March and December 2012, where the "Weight" data element, filtered for values larger than
         2000:</para>
     <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=UXz7xuGCEhU:GT:2000</screen>
-      <para>Fixed person attributes can be specified as dimensions as well. Currently the GENDER and
-        ISDEAD attributes are suppored and can be included and filtered on like this:</para>
-      <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=UXz7xuGCEhU:GT:2000&amp;dimension=ISDEAD&amp;dimension=GENDER:EQ:F</screen>
       <para>Sorting can be applied to the query for the event date of the event and any dimensions.
         To sort descending on the event date and ascending on the "Age" data element dimension you
         can use:</para>
