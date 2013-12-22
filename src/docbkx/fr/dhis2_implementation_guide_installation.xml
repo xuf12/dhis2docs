@@ -1,198 +1,180 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd"[]>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd"[]>
 <chapter>
   <title>Installation</title>
-  <para>The installation chapter provides information on how to install DHIS 2 in various contexts, including online central server, offline local network, standalone application and self-contained package called DHIS 2 Live.</para>
-  <para>DHIS 2 runs on all platforms for which there exists a Java Runtime Environment (version 6 or
-    higher, 7 is recommended), which includes most popular operating systems such as Windows, Linux
-    and Mac. DHIS 2 also runs on many relational database systems such as PostgreSQL, MySQL, H2 and
-    Derby. DHIS 2 is packaged as a standard Java Web Archive (WAR-file) and thus runs on any Servlet
-    containers such as Tomcat and Jetty.</para>
-  <para>The DHIS 2 team recommends Ubuntu 12.04 LTS operating system, PostgreSQL database system and
-    Tomcat Servlet container as the preferred environment for server installations. The mentioned
-    frameworks can be regarded as market leaders within their domain and is heavily field tested
-    over many years.</para>
-  <para>This chapter provides a guide for setting up the above technology stack. It should however be read as a guide for getting up and running and not as an exhaustive documentation for the mentioned environment. We refer to the official Ubuntu, PostgreSQL and Tomcat documentation for in-depth reading.</para>
+  <para>Le chapitre installation fournit des informations sur la façon d'installer DHIS 2 dans divers contextes: serveur central en ligne, au sein d'un réseau local hors ligne, en application autonome par le biais de l’application autonome appelée DHIS 2 Live.</para>
+  <para>DHIS 2 fonctionne sur toutes les plates-formes pour lesquelles il existe un environnement d'exécution Java (version 6 ou ultérieure, 7 étant recommandé), ce qui inclut les systèmes d'exploitation les plus populaires tels que Windows, Linux et Mac. DHIS 2 fonctionne également avec de nombreux systèmes de bases de données relationnelles telles que PostgreSQL, MySQL, H2 et Derby. DHIS 2 est empaquetée comme une archive Web Java standard (WAR - fichier) et fonctionne donc sur les conteneurs de servlet tels que Tomcat et Jetty.</para>
+  <para>L'équipe du DHIS 2 recommande Ubuntu 12.04 LTS comme système d'exploitation, le système de base de données PostgreSQL et le conteneur web de servlets Tomcat comme environnement préféré pour l'installation des serveurs. Ces plateformes peuvent être considérés comme les leaders du marché dans leur domaine respectif et ont largement eu l'opportunité d'être testées sur le terrain depuis de nombreuses années.</para>
+  <para>Ce chapitre fournit un guide pour la mise en place de la couche technologique mentionnée ci-dessus. Il faut cependant le lire comme un guide pour commencer et démarrer, et non comme une documentation exhaustive pour les environnements mentionnés. Nous vous recommandons la lecture de la documentation officielle d'Ubuntu, PostgreSQL et Tomcat pour approfondir les connaissances de ces technologies.</para>
   <section>
-    <title>Server specifications</title>
-    <para>DHIS 2 is a database intensive application and requires that your server has an
-      appropriate amount of RAM, number of CPU cores and a fast disk. These recommendations should
-      be considered as rules-of-thumb and not exact measures. DHIS 2 scales linearly on the amount
-      of RAM and number of CPU cores so the more you can afford, the better the application will
-      perform.</para>
+    <title>Spécifications du serveur</title>
+    <para>DHIS 2 est une application utilisant de manière intensive les bases de données et nécessite que votre serveur dispose d'une quantité appropriée de RAM, de cœurs de processeur et d'un disque rapide. Ces recommandations devraient être considérées comme des règles élémentaires et non comme des mesures exactes. Les performances de DHIS 2 évoluent proportionnellement à la quantité de RAM et au nombre de cœurs de processeur, donc plus vous en ferez dans ce domaine mieux ce sera pour les performances de l'application.</para>
     <itemizedlist>
       <listitem>
-        <para>RAM: At least 1 GB memory per 1 million captured data records per month or per 1000
-          concurrent users. At least 4 GB for a small instance, 12 GB for a medium instance.</para>
+        <para>RAM : Au moins 1 Go de mémoire pour 1 million de données collectées par mois ou par 1000 utilisateurs simultanés. Au moins 4 Go pour une petite instance, 12 Go pour une instance moyenne.</para>
       </listitem>
       <listitem>
-        <para>CPU cores: 4 CPU cores for a small instance, 8 CPU cores for a medium or large
-          instance.</para>
+        <para>Cœurs de processeurs : 4 cœurs de CPU pour un petit exemple, 8 cœurs de CPU pour une instance moyenne ou grande.</para>
       </listitem>
       <listitem>
-        <para>Disk: Ideally use an SSD. Otherwise use a 7200 rpm disk. Minimum read speed is 150
-          Mb/s, 200 Mb/s is good, 350 Mb/s or better is ideal. </para>
+        <para>Disque : Idéalement utiliser un disque SSD. Sinon, utilisez un disque à 7200 tours par minute. Avec une vitesse de lecture minimum de 150 Mb/s, 200 Mb/s étant une bonne vitesse, 350 Mb/s ou mieux étant une vitesse idéale.</para>
       </listitem>
     </itemizedlist>
   </section>
   <section>
-    <title>Server setup</title>
-    <para>This section describes how to set up a server instance of DHIS 2 on Ubuntu 12.04 64 bit
-      with PostgreSQL as database system and Tomcat as Servlet container. This guide is not meant to be a step-by-step guide per se, but rather to serve as a reference to how DHIS2 can be deployed on a server. There are many possible deployment strategies, which will differ depending on the operating system and database you are using, and other factors. The term <emphasis role="italic">invoke</emphasis> refers to executing a given command in a terminal. </para>
-    <para>For a national server the recommended configuration is a quad-core 2 Ghz processor or
-      higher and 12 Gb RAM or higher. Note that a 64 bit operating system is required for utilizing
-      more than 4 Gb of RAM, the Ubuntu 12.04 64 bit edition is thus recommended. </para>
-    <para>For this guide we assume that 8 Gb RAM is allocated for PostgreSQL and 8 GB RAM is
-      allocated for Tomcat/JVM, and that a 64-bit operating system is used. <emphasis role="italic">If you are running a different configuration please adjust the suggested values accordingly!</emphasis> We recommend that the available memory is split roughly equally
-      between the database and the JVM. Remember to leave some of the physical memory to the
-      operating system for it to perform its tasks, for instance around 2 GB. The steps marked as
-        <emphasis role="italic">optional</emphasis>, like the step for performance tuning, can be
-      done at a later stage.</para>
+    <title>Configuration du serveur</title>
+    <para>Cette section décrit comment configurer une instance du serveur DHIS 2 sur Ubuntu 12.04 64 bits avec PostgreSQL comme base de données et Tomcat comme conteneur de servlet. Ce guide n'est pas destiné à être un guide étape par étape, mais plutôt à servir de référence sur la façon dont DHIS2 peut être déployé sur un serveur. Il existe de nombreuses stratégies de déploiement possibles, qui diffèrent selon le système d'exploitation et la base de données que vous utiliserez, et d'autres facteurs. Le terme <emphasis role="italic">"invoquer" </emphasis> fait référence à la saisie et à l'exécution d'une commande donnée dans un terminal. </para>
+    <para>Pour un serveur national, la configuration recommandée est un processeur quad-core de 2 GHz, ou plus, et 12 Go de RAM, ou plus. Notez qu'un système d'exploitation 64 bits est requis pour utiliser plus de 4 Go de RAM, l'édition Ubuntu 12.04 64 bits est donc recommandée.</para>
+    <para>Pour ce guide, nous supposerons que 8 Go de RAM sont allouées à PostgreSQL, 8 Go de RAM à Tomcat et la machine virtuelle Java, et qu'un système d'exploitation 64 bits est utilisé. <emphasis role="italic">Si vous utilisez une configuration différente veuillez ajuster les valeurs proposées en conséquence!</emphasis>Nous recommandons que la mémoire disponible soit partagée à peu près également entre la base de données et la machine virtuelle Java. N'oubliez pas de laisser une partie de la mémoire physique au système d'exploitation pour l'exécution de ses tâches, environ 2 Go par exemple. Les étapes marquées <emphasis role="italic">optionnelles</emphasis>, comme l'optimisation des performances, pourront être faites à un stade ultérieur.</para>
     <section>
-      <title>Creating a user to run DHIS2</title>
-      <para>You should create a dedicated user for running DHIS - it is not recommended to run
-      as the root user. Create a new user called dhis by invoking <code>useradd -d /home/dhis -m dhis -s /bin/bash</code> Then make the user able to perform operations temporarily as root
-      user by invoking <code>usermod -G sudo dhis</code>. Then invoke <code>passwd dhis</code> to
-      set the password for your account. Make sure you set a strong password with at least 15 random
-      characters. You might want to disable remote login for the root account for improved security
-      by invoking <code>sudo passwd -l root</code></para>
+      <title>Création d'un utilisateur pour exécuter DHIS2</title>
+      <para>Vous devez créer un utilisateur dédié ) l'éxécution de DHIS - il n'est pas recommandé d'exécuter en tant qu'utilisateur root. Créez un nouvel utilisateur appelé dhis en invoquant <code>useradd -d /home/dhis -m dhis -s /bin/bash</code>Faites ensuite que l'utilisateur soit en mesure d'effectuer des opérations temporairement en tant que root en invoquant <code>usermod -G sudo dhis</code>. Puis invoquer <code>passwd dhis</code>pour définir le mot de passe pour votre compte. Assurez-vous de créer un mot de passe fort d'au moins 15 caractères aléatoires. Vous pouvez désactiver la connexion à distance pour le compte root pour améliorer la sécurité en invoquant <code>sudo passwd -l root</code></para>
     </section>
     <section>
-      <title>Operating system kernel tuning</title>
-      <para>These settings are optional except for the shared memory setting which is required for PostgreSQL memory allocation. Open the kernel configuration file by invoking <code>sudo nano /etc/sysctl.conf</code> At the end of the file add the following lines and save.</para>
-      <screen>kernel.shmmax = 4294967296
+      <title>Règlages du noyau du système d'exploitation</title>
+      <para>Ces paramètres sont facultatifs, sauf pour le réglage de la mémoire partagée qui est nécessaire à l'allocation de la mémoire à PostgreSQL. Ouvrez le fichier de configuration du noyau en invoquant <code>sudo nano /etc/sysctl.conf</code> . A la fin de ce fichier, ajoutez les lignes suivantes et enregistrer le fichier:</para>
+      <screen format="linespecific">kernel.shmmax = 4294967296
 net.core.rmem_max = 8388608
 net.core.wmem_max = 8388608</screen>
     </section>
     <section>
-      <title>Setting the server time</title>
-      <para>Remember to set the server date correctly according to the time zone of which the main part of the users of the system are located. This will affect e.g. when scheduled tasks are executed. For instance, to the set time to 22:45, October 17, 2012, invoke <command>sudo date 101722452012</command>.</para>
-      <para>It may be necessary to reconfigure the time zone of the server to match the time zone of the location which the DHIS2 server will be covering. If you are using a virtual private server, the default time zone may not correspond to the time zone of your DHIS2 location. You can easily reconfigure the time zone by invoking <command>sudo dpkg-reconfigure tzdata</command> and following the instructions. </para>
-      <para>It is easy to keep your server very accurate  by using the NTP package. You can install it by simply invoking <command>sudo apt-get install ntp</command>. NTP will automatically syncronize your server time on a regular basis. </para>
+      <title>Définition de l'heure du serveur</title>
+      <para>Rappelez-vous de régler la date du serveur correctement en fonction du fuseau horaire où se situent la majeur partie des utilisateurs du système. Cela aura notamment un effet sur l'heure à laquelle les tâches planifiées seront exécutées. Par exemple, pour mettre la date et l'heure du serveur au jeudi 17 Octobre 2012 à 22h45, invoquer <command moreinfo="none">sudo date 101722452012</command>.</para>
+      <para>Il peut être nécessaire de reconfigurer le fuseau horaire du serveur pour le faire correspondre au fuseau horaire de l'endroit que le serveur DHIS2 couvrira. Si vous utilisez un serveur privé virtuel, le fuseau horaire par défaut peut ne pas correspondre au fuseau horaire du lieu géographique où se trouve DHIS2. Vous pouvez facilement reconfigurer le fuseau horaire en invoquant <command moreinfo="none">sudo dpkg-reconfigure tzdata</command> et en suivant les instructions.</para>
+      <para>Il est facile de conserver la précision de l'horloge de votre serveur en utilisant le paquet NTP. Vous pouvez l'installer en invoquant tout simplement <command moreinfo="none">sudo apt-get install ntp</command>. NTP se chargera automatiquement de synchroniser le temps de votre serveur sur une base régulière. </para>
     </section>
     <section>
-      <title>Postgresql installation and tuning</title>
-      <para>To install PostgreSQL version 9.2 we first need to add a Ubuntu package repository to our system.</para>
-      <screen>sudo apt-get install python-software-properties
+      <title>Installation et règlages de PostgreSQL</title>
+      <para>Pour installer la version 9.2 de PostgreSQL nous devons d'abord ajouter un dépôt de paquets Ubuntu à notre système.</para>
+      <screen format="linespecific">sudo apt-get install python-software-properties
 sudo add-apt-repository ppa:pitti/postgresql
 sudo apt-get update</screen>
-      <para>Now install PostgreSQL by invoking:</para>
-      <screen>sudo apt-get install postgresql-9.2</screen>
-      <para>Switch to the postgres user by invoking <code>sudo su postgres</code></para>
-      <para>Create a non-privileged user called <emphasis role="italic">dhis</emphasis> by invoking
-        <code>createuser -SDRP dhis</code>. Enter a secure password at the prompt. Create a database by invoking
-        <code>createdb -O dhis dhis2</code>.  Return to your session by invoking <code>exit</code> You now have a
-      PostgreSQL user called <emphasis role="italic">dhis</emphasis> and a database called <emphasis role="italic">dhis2</emphasis>.</para>
-      <para>Do performance tuning by opening the following  file by invoking </para>
-      <para><screen>sudo nano /etc/postgresql/9.2/main/postgresql.conf</screen></para>
-      <para>and set the following properties:</para>
-      <para><screen>shared_buffers = 3200MB</screen></para>
-      <para>Determines how much memory should be allocated exclusively for PostgreSQL caching. This
-      setting controls the size of the kernel shared memory which should be reserved for PostgreSQL.
-      Should be set to around 40% of total memory dedicated for PostgreSQL.</para>
-      <para><screen>work_mem = 20MB</screen></para>
-      <para>Determines the amount of memory used for internal sort and hash operations. This setting
-      is per connection, per query so a lot of memory may be consumed if raising this too high.
-      Setting this value correctly is essential for DHIS 2 aggregation performance.</para>
-      <para><screen>maintenance_work_mem = 512MB</screen></para>
-      <para>Determines the amount of memory PostgreSQL can use for maintenance operations such as
-        creating indexes, running vacuum, adding foreign keys. Incresing this value might improve
-        performance of index creation during the analytics generation processes.</para>
-      <para><screen>effective_cache_size = 8000MB</screen></para>
-      <para>An estimate of how much memory is available for disk caching by the operating system (not
-      an allocation) and is used by PostgreSQL to determine whether a query plan will fit into
-      memory or not. Setting it to a higher value than what is really available will result in poor
-      performance. This value should be inclusive of the shared_buffers setting. PostgreSQL has two
-      layers of caching: The first layer uses the kernel shared memory and is controlled by the
-      shared_buffers setting. PostgreSQL delegates the second layer to the operating system disk
-      cache and the size of available memory can be given with the effective_cache_size
-      setting.</para>
-      <para><screen>checkpoint_segments = 32</screen></para>
-      <para>PostgreSQL writes new transactions to a log file called WAL segments which are 16MB in size. When a number of segments have been written a checkpoint occurs. Setting this number to a larger value will thus improve performance for write-heavy systems such as DHIS 2.</para>
-      <para><screen>checkpoint_completion_target = 0.8</screen></para>
-      <para>Determines the percentage of segment completion before a checkpoint occurs. Setting this to a high value will thus spread the writes out and lower the average write overhead.</para>
-      <para><screen>wal_buffers = 16MB</screen></para>
-      <para>Sets the memory used for buffering during the WAL write process. Increasing this value might improve throughput in write-heavy systems.</para>
-      <para><screen>synchronous_commit = off</screen></para>
-      <para>Specifies whether transaction commits will wait for WAL records to be written to the disk before returning to the client or not. Setting this to off will improve performance considerably. It also implies that there is a slight delay between the transaction is reported successful to the client and it actually being safe, but the database state cannot be corrupted and this is a good alternative for performance-intensive and write-heavy systems like DHIS 2.</para>
-      <para><screen>wal_writer_delay = 10000ms</screen></para>
-      <para>Specifies the delay between WAL write operations. Setting this to a high value will improve performance on write-heavy systems since potentially many write operations can be executed within a single flush to disk.</para>
-      <para>Restart PostgreSQL by invoking <code>sudo /etc/init.d/postgresql restart</code></para>
-      <para><emphasis role="bold">Set the database configuration</emphasis></para>
-      <para>The database connection information is provided to DHIS 2 through a configuration file called <emphasis role="italic">hibernate.properties</emphasis>. Create this file and save it in a convenient location. A  file corresponding to the above setup has these properties: </para>
-      <para><screen>hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+      <para>Maintenant, installez PostgreSQL en invoquant :</para>
+      <screen format="linespecific">sudo apt-get install postgresql-9.2</screen>
+      <para>Passez à l'utilisateur postgres en invoquant <code>sudo su postgres</code></para>
+      <para>Créez un utilisateur non-privilégié appelé <emphasis role="italic">dhis</emphasis>en invoquant <code>createuser -SDRP dhis</code>. Entrez un mot de passe sécurisé lorsque vous serez invité à le faire. Créez une base de données en invoquant 
+        <code>createdb -O dhis dhis2</code>.  Revenez à votre session en invoquant  <code>exit</code>ous avez maintenant un utilisateur PostgreSQL appelé <emphasis role="italic">dhis</emphasis> et une base de données appelée  <emphasis role="italic">dhis2</emphasis>.</para>
+      <para>Réglez les performances de la base de données en ouvrant le fichier suivant en invoquant:</para>
+      <para>
+        <screen format="linespecific">sudo nano /etc/postgresql/9.2/main/postgresql.conf</screen>
+      </para>
+      <para>et définissez les propriétés suivantes :</para>
+      <para>
+        <screen format="linespecific">shared_buffers = 3200MB</screen>
+      </para>
+      <para>Qui détermine la quantité de mémoire qui doit être allouée exclusivement au cache PostgreSQL. Ce paramètre contrôle la taille de la mémoire partagée du noyau qui doit être réservée à PostgreSQL. Elle doit être fixée à environ 40% de la mémoire totale dédiée à PostgreSQL.</para>
+      <para>
+        <screen format="linespecific">work_mem = 20MB</screen>
+      </para>
+      <para>Qui détermine la quantité de mémoire utilisée pour les opérations de tri et de hachage internes. Ce paramètre est défini par connexion, par requête, ce qui fait que beaucoup de mémoire sera consommée si vous mettez ce paramètre à une valeur trop élevée. Définir cette valeur correctement est essentielle pour les performances de DHIS2 lors des processus d'agrégation.</para>
+      <para>
+        <screen format="linespecific">maintenance_work_mem = 512MB</screen>
+      </para>
+      <para>Qui détermine la quantité de mémoire que PostgreSQL peut utiliser pour les opérations de maintenance telles que la création d'index, les purges, l'ajout de clés étrangères. L'augmentation de cette valeur peut améliorer les performances de création d'index au cours des processus de génération d'analyse.</para>
+      <para>
+        <screen format="linespecific">effective_cache_size = 8000MB</screen>
+      </para>
+      <para>Qui est une estimation de la quantité de mémoire rendue disponible pour le cache disque par le système d'exploitation (il ne s'agit pas d'une allocation) et qui est utilisée par PostgreSQL pour déterminer si un plan de requête doit tenir dans la mémoire ou pas. Mettre ce paramètre à une valeur plus élevée que ce qui est vraiment disponible se traduira par des performances médiocres. Cette valeur doit être comprise dans le paramètre shared_buffers. PostgreSQL dispose de deux couches de cache : La première couche utilise la mémoire partagée du noyau et est contrôlée par le paramètre shared_buffers. PostgreSQL délégue la deuxième couche de la mémoire cache du disque au système d'exploitation et la taille de la mémoire disponible peut être attribuée avec le paramètre effective_cache_size.</para>
+      <para>
+        <screen format="linespecific">checkpoint_segments = 32</screen>
+      </para>
+      <para>PostgreSQL écrit les nouvelles transactions dans un fichier journal nommé segments WAL, lesquels ont une taille de 16 Mo. Quand un certain nombre de segments sont écrits, un contrôle est opéré. La définition de ce paramètre à une valeur supérieure servira donc à améliorer les performances des systèmes utilisant intensivement les écritures comme le DHIS 2.</para>
+      <para>
+        <screen format="linespecific">checkpoint_completion_target = 0.8</screen>
+      </para>
+      <para>Qui détermine le pourcentage d'achèvement du segment avant qu'un point de contrôle ne s'opère. Mettre ce paramètre à une valeur élevée servira donc à réduire le temps moyen d'écriture.</para>
+      <para>
+        <screen format="linespecific">wal_buffers = 16MB</screen>
+      </para>
+      <para>Qui définit la mémoire utilisée en tampon pendant le processus d'écriture WAL. L'augmentation de cette valeur peut améliorer le débit dans les systèmes utilisant beaucoup les écritures.</para>
+      <para>
+        <screen format="linespecific">synchronous_commit = off</screen>
+      </para>
+      <para>Qui indique si la validation d'une transaction devra attendre l'écriture des enregistrements WAL sur le disque avant de retourner au client ou non. Mettre ce paramètre à off permettra d'améliorer considérablement les performances. Cela implique aussi qu'il y'aura un léger délai entre le moment où la transaction est signalée avec succès au client et sa  sécurisation, mais l'état de la base de données ne peut pas être endommagé, ce qui est une bonne alternative pour la performances des systèmes utilisant intensivement les écritures comme DHIS 2.</para>
+      <para>
+        <screen format="linespecific">wal_writer_delay = 10000ms</screen>
+      </para>
+      <para>Qui indique le délai entre les opérations d'écriture WAL. Mettre ce paramètre à une valeur élevée améliore les performances systèmes utilisant intensivement les écritures puisque potentiellement de nombreuses opérations d'écriture pourront être exécutées d'un seul trait sur le disque.</para>
+      <para>Redémarrez PostgreSQL en invoquant <code>sudo /etc/init.d/postgresql restart</code></para>
+      <para>
+        <emphasis role="bold">Définition de la base de données</emphasis>
+      </para>
+      <para>Les informations de connexion à la base de données sont fournies à DHIS 2 par l'intermédiaire d'un fichier de configuration nommé <emphasis role="italic">hibernate.properties</emphasis>. Créez ce fichier et enregistrez-le dans un emplacement convenable. Un fichier correspondant à la configuration décrite ci-dessus contiendra les propriétés suivantes: </para>
+      <para>
+        <screen format="linespecific">hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
 hibernate.connection.driver_class = org.postgresql.Driver
 hibernate.connection.url = jdbc:postgresql:dhis2
 hibernate.connection.username = dhis
 hibernate.connection.password = xxxx
-hibernate.hbm2ddl.auto = update</screen></para>
-      <para>A common mistake is to have a white-space after the last property value - make sure there
-      is no white-space at the end of any line.  Also remember that this file contains the clear text
-      password for your dhis2 database so needs to be protected from unauthorized access.  To do this
-    invoke <code>chmod 0600 hibernate.properties</code> which ensures that only the dhis user which owns the
-    file is allowed to read or write to it.</para>
+hibernate.hbm2ddl.auto = update</screen>
+      </para>
+      <para>Une erreur fréquente est de laisser un espace blanc après la dernière valeur de chaque propriété - assurez-vous qu'il n'y a pas d'espace blanc à la fin de chaque ligne. Rappelez-vous aussi que ce fichier contient le mot de passe en texte clair pour votre base de données dhis2 et qu'en conséquence il doit être protégé contre tout accès non autorisé. Pour ce  faire, invoquez la commande <code>chmod 0600 hibernate.properties</code>qui garantit que seul l'utilisateur dhis, propriétaire de ce fichier, sera autorisé à le lire ou le modifier.</para>
     </section>
     <section>
-      <title>Install Java</title>
-      <para>Install Java by invoking the following command:</para>
-      <screen>sudo apt-get install openjdk-7-jdk</screen>
-      <para>Check that your installation is okay by invoking:</para>
-      <screen>java -version</screen>
+      <title>Installez Java</title>
+      <para>Installez Java en invoquant la commande suivante :</para>
+      <screen format="linespecific">sudo apt-get install openjdk-7-jdk</screen>
+      <para>Vérifiez que votre installation est correcte en invoquant :</para>
+      <screen format="linespecific">java -version</screen>
     </section>
     <section>
-      <title>Install Tomcat and DHIS2</title>
-      <para>Download the Tomcat binary distribution from <emphasis role="italic">http://tomcat.apache.org/download-70.cgi</emphasis> A useful tool for downloading files
-      from the web is <emphasis role="italic">wget</emphasis>. Extract to a convenient location.
-      This guide assumes that you have navigated to the root directory of the extracted archive.
-      Download the latest stable DHIS WAR file by invoking: <command>wget stable.dhis2.org</command></para>
-      <para>Clear the pre-installed web applications by invoking <code>rm -rf webapps/*</code> Move
-      the DHIS WAR file to the <emphasis role="italic">webapps</emphasis> directory and rename it to
-        <emphasis role="italic">ROOT.war</emphasis>. </para>
-      <para>Create a file <emphasis role="italic">bin/setenv.sh</emphasis> and add the lines below.
-      The first line will set the location of your Java Runtime Environment, the second will dedicate
-      memory to Tomcat and the third will set the location for where DHIS 2 will search for the
-        <emphasis role="italic">hibernate.properties</emphasis> configuration file. Please check
-      that the path the Java binaries are correct as they might vary from system to system, e.g. on
-      AMD systems you might see <emphasis role="italic">/java-7-openjdk-amd64</emphasis> Note that
-      you should adjust this to your environment:</para>
-      <para><screen>export JAVA_HOME=&apos;/usr/lib/jvm/java-7-openjdk&apos;
-export JAVA_OPTS=&apos;-Xmx7500m -Xms4000m -XX:MaxPermSize=500m -XX:PermSize=300m&apos;
-export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
-      <para>If you need to change the <emphasis role="italic">port</emphasis> of which Tomcat listens for requests you can open the Tomcat configuration file <emphasis role="italic">/conf/server.xml</emphasis>, locate the <emphasis role="italic">&lt;Connector&gt;</emphasis> element which is not commented out and change the <emphasis role="italic">port</emphasis> attribute value to the desired port number.</para>
-      <para>To monitor the behavior of Tomcat the log is the primary source of information. The log can be easily viewed with the command <command>tail -f logs/catalina.out</command></para>
+      <title>Installez Tomcat et DHIS2</title>
+      <para>Pour installer le conteneur de servlet Tomcat, nous allons utiliser le paquet utilisateur Tomcat en invoquant :</para>
+      <screen format="linespecific">sudo apt-get install tomcat7-user</screen>
+      <para>Ce paquet nous permet de créer facilement une nouvelle instance de Tomcat. L'instance sera créée dans le répertoire courant. Un emplacement approprié est le répertoire personnel de l'utilisateur dhis. Ainsi :</para>
+      <screen format="linespecific">tomcat7-instance-create tomcat-dhis</screen>
+      <para>va créer une instance dans un répertoire appelé <emphasis role="italic">tomcat-dhis</emphasis>. Notez que le paquetage tomcat7-user permet de créer n'importe quel nombre d'instances de dhis si cela est souhaité.</para>
+      <para>Modifiez ensuite le fichier <emphasis role="italic">tomcat-dhis/bin/setenv.sh</emphasis>et ajoutez les lignes ci-dessous. La première ligne servira à définir l'emplacement de votre environnement d'exécution Java, la seconde attribuera la mémoire Tomcat et le troisième définira l'emplacement où DHIS 2 recherchera le fichier de configuration <emphasis role="italic">hibernate.properties</emphasis>. Veillez à vous assurer que le chemin d'accès des fichiers binaires Java sont corrects car ils peuvent varier d'un système à un autre, par exemple, sur les systèmes AMD vous pourrez avoir <emphasis role="italic">/java-7-openjdk-amd64</emphasis> Notez que vous devez ajuster ces valeurs à votre environnement :</para>
+      <para>
+        <screen format="linespecific">export JAVA_HOME='/usr/lib/jvm/java-7-openjdk'
+export JAVA_OPTS='-Xmx7500m -Xms4000m -XX:MaxPermSize=500m -XX:PermSize=300m'
+export DHIS2_HOME='/home/dhis/config'</screen>
+      </para>
+      <para>Le fichier configuration Tomcat est situé sous <emphasis role="italic">tomcat-dhis/conf/server.xml</emphasis>. L'élément qui définit la connexion au DHIS est l'élément <emphasis role="italic">Connector</emphasis> avec le port 8080. Vous pouvez changer le numéro de port au niveau de cet élément Connector avec un numéro port de votre choix si nécessaire. Si l'encodage UTF-8 des données de requête est nécessaire, assurez-vous que l'attribut<emphasis role="italic">URIEncoding</emphasis>
+        est défini avec la valeur  <emphasis role="italic">UTF-8</emphasis>.</para>
+      <screen format="linespecific">&lt;Connector port="8080" protocol="HTTP/1.1"
+  connectionTimeout="20000"
+  redirectPort="8443"
+  URIEncoding="UTF-8" /&gt;</screen>
+      <para>Pour surveiller le comportement de Tomcat le journal est la principale source d'information. Le journal peut être facilement consulté avec la commande <command moreinfo="none">tail -f
+          tomcat-dhis/logs/catalina.out</command></para>
     </section>
     <section>
-      <title>Running DHIS2</title>
-      <para>Make the startup script executable by invoking <code>chmod 755 bin/*</code> DHIS 2 can now be started by invoking <code>bin/startup.sh</code> The log can be monitored by invoking <code>tail -f logs/catalina.out</code> DHIS 2 can be stopped by invoking <code>bin/shutdown.sh</code> Assuming that the WAR file is called ROOT.war, you can now access your DHIS instance at <emphasis role="italic">http://localhost:8080</emphasis></para>
+      <title>Lancer DHIS2</title>
+      <para>Rendez le script de démarrage exécutable en invoquant <code>chmod 755 bin/*</code> DHIS 2 peut maintenant être lancé en invoquant  <code>bin/startup.sh</code> Le journal peut être surveillé en invoquant  <code>tail -f logs/catalina.out</code> DHIS 2 peut être arrêté en invoquant  <code>bin/shutdown.sh</code> En supposant que le fichier WAR est appelé ROOT.war, vous pouvez désormais accéder à votre instance de DHIS avec votre navigateur web à l'adresse <emphasis role="italic">http://localhost:8080</emphasis></para>
     </section>
   </section>
   <section>
-    <title>Reverse proxy configuration</title>
-    <para>A reverse proxy is a proxy server that acts on behalf of a server. Using a reverse proxy in combination with a servlet container is optional but has many advantages:</para>
+    <title>Configuration du proxy inverse</title>
+    <para>Un proxy inverse est un serveur proxy qui agit au nom d'un serveur. L'utilisation d'un proxy inverse en combinaison avec un conteneur de servlet est optionnel mais a de nombreux avantages :</para>
     <itemizedlist>
       <listitem>
-        <para>Requests can be mapped and passed on to multiple servlet containers - this improves flexibility and makes it easier to run multiple instances of DHIS on the same server. It also makes it possible to change the internal server setup without affecting clients.</para>
+        <para>Les requêtes peuvent être cataloguées et transmises à plusieurs conteneurs de servlet - ce qui améliore la flexibilité et rend plus facile d'exécuter plusieurs instances de DHIS sur le même serveur. Il permet également de changer la configuration du serveur interne sans affecter les clients.</para>
       </listitem>
       <listitem>
-        <para>The DHIS application can be run as a non-root user on a port different than 80 which reduces the consequences of session hijacking.</para>
+        <para>L'application DHIS peut être exécutée en tant qu'utilisateur non root sur un port différent de 80 ce qui réduit les risques de piratage de session.</para>
       </listitem>
       <listitem>
-        <para>The reverse proxy can  act as a single SSL server and be configured to inspect requests for malicious content, log requests and responses and provide non-sensitive error messages which will improve security.</para>
+        <para>Le proxy inverse peut agir comme un serveur SSL unique et être configuré pour détecter la présence de contenus malveillants dans les requêtes, d'enregistrer dans les fichiers logs les requêtes et les réponses, et fournir des messages d'erreur non-sensibles qui permettront d'améliorer la sécurité.</para>
       </listitem>
     </itemizedlist>
     <section>
-      <title>Basic setup for nginx</title>
-      <para>We recommend using <ulink url="http://www.nginx.org">nginx</ulink>  as reverse proxy due to its low memory
-        footprint and ease of use. To install invoke the following:</para>
-      <screen>sudo apt-get install nginx</screen>
-      <para>nginx can now be started, reloaded and stopped with the following commands:</para>
-      <para><screen>sudo /etc/init.d/nginx start
+      <title>Configuration de base pour nginx</title>
+      <para>Nous vous recommandons d'utiliser  <ulink url="http://www.nginx.org">nginx</ulink> comme proxy inverse en raison de sa faible empreinte mémoire et sa facilité d'utilisation. Pour l'installer  invoquer la commande suivante :</para>
+      <screen format="linespecific">sudo apt-get install nginx</screen>
+      <para>nginx peut alors être démarré, rechargé et arrêté avec les commandes  suivantes :</para>
+      <para>
+        <screen format="linespecific">sudo /etc/init.d/nginx start
 sudo /etc/init.d/nginx reload
-sudo /etc/init.d/nginx stop</screen></para>
-      <para>Now that we have installed nginx we will now continue to configure regular proxying of requests to our Tomcat instance, which we assume runs at <emphasis role="italic">http://localhost:8080</emphasis>. To configure nginx you can open the configuration file by invoking</para>
-      <para><code>sudo nano /etc/nginx/nginx.conf</code></para>
-      <para>nginx configuration is built around a hierarchy of blocks representing http, server and location, where each block inherit settings from parent blocks. The following snippet will configure nginx to proxy pass (redirect) requests from port 80 (which is the port nginx will listen on by default) to our Tomcat instance. It will also make nginx serve requests for static content such as Javascript, stylesheets and images and instruct clients to cache it for 4 days which will reduce the load on Tomcat and improve overall performance. Include the following configuration in nginx.conf:</para>
-      <para><screen>http {
+sudo /etc/init.d/nginx stop</screen>
+      </para>
+      <para>Maintenant que nous avons installé nginx nous allons configurer le proxy  pour qu'il redirige toutes les requêtes à notre instance de Tomcat, lequel,  nous supposons, est accessible à l'adresse <emphasis role="italic">http://localhost:8080</emphasis>. Pour  configurer nginx vous pouvez ouvrir le fichier de configuration en  invoquant : </para>
+      <para>
+        <code>sudo nano /etc/nginx/nginx.conf</code>
+      </para>
+      <para>Le fichier de configuration de nginx est construit sur la base d’une hiérarchie de blocs représentant http, le serveur et l'emplacement, chaque bloc héritant des paramètres des blocs parents. L'extrait suivant permet de configurer nginx  pour rediriger les requêtes faites sur le port 80 (qui est le port sur  lequel nginx écoute par défaut) vers notre instance de Tomcat. Il fera  également en sorte que nginx serve les demandes de contenu statique comme Javascript, les feuilles de style et les images, et donnera aux clients des instructions pour qu'ils mettent en cache pendant 4 jours ces contenus, ce qui permettra de réduire la charge sur Tomcat et améliorera la performance globale du serveur. Pour ce faire, inclure la configuration suivante dans le fichier nginx.conf :</para>
+      <para>
+        <screen format="linespecific">http {
   gzip on; # Enables compression
 
   server {
@@ -218,42 +200,33 @@ sudo /etc/init.d/nginx stop</screen></para>
       proxy_set_header  X-Forwarded-Proto  http;
     }
   }
-}</screen></para>
-      <para>You can now access your DHIS instance at <emphasis role="italic">http://localhost</emphasis>. Since the reverse proxy has been set up we can improve
-        security by making Tomcat only listen for local connections. In <emphasis role="italic">/conf/server.xml</emphasis> you can add an <emphasis role="italic">address</emphasis>
-        attribute with the value <emphasis role="italic">localhost</emphasis> to the Connector
-        element for HTTP 1.1 like this:</para>
-      <para><screen>&lt;Connector address=&quot;localhost&quot; protocol=&quot;HTTP/1.1&quot; ... &gt;</screen></para>
+}</screen>
+      </para>
+      <para>Vous pouvez désormais accéder à votre instance de DHIS à l'adresse <emphasis role="italic">http://localhost</emphasis>. Puisque le proxy inverse a été mis en place, nous pouvons améliorer la sécurité en faisant en sorte que Tomcat soit uniquement à l'écoute des connexions locales. Dans <emphasis role="italic">/conf/server.xml</emphasis> vous pouvez ajouter à l'élément Connector pour HTTP 1.1 un attribut  <emphasis role="italic">address</emphasis>
+        ayant la valeur <emphasis role="italic">localhost</emphasis> comme dans l’exemple qui suit :</para>
+      <para>
+        <screen format="linespecific">&lt;Connector address="localhost" protocol="HTTP/1.1" ... &gt;</screen>
+      </para>
       <important>
-        <para>The location block for static content is essential as web browsers will not cache
-          static content by default over SSL. It will only cache such content on the client side if
-          told explicitly by the web server. It is also useful to enable compression of data which
-          is returned by nginx in order to reduce the size of data that has to be transferred over
-          the network through the gzip directive.</para>
+        <para>Le bloc prévu pour le contenu statique est essentiel étant donné que les navigateurs Web ne mettent pas automatiquement en cache le contenu statique sous SSL. Un tel contenu ne sera mis en cache sur le client que si cette demande est  explicitement faite par le serveur web. Il est également utile d'activer la compression des données renvoyées par nginx afin de réduire la taille des données devant être transférées sur le réseau via la directive gzip.</para>
       </important>
     </section>
     <section>
-      <title>Enabling SSL on nginx</title>
-      <para>In order to improve security it is recommended to configure the server running DHIS to
-        communicate with clients over an encrypted connection and to identify itself to clients
-        using a trusted certificate. This can be achieved through SSL which is an cryptographic
-        communication protocol running on top of TCP/IP. First, install the required <emphasis role="italic">openssl</emphasis> library:</para>
-      <screen>sudo apt-get install openssl</screen>
-      <para>To configure nginx to use SSL you will need a proper SSL certificate from an SSL provider. The cost of a certificate varies a lot depending on encryption strength. An affordable certificate from <ulink url="http://www.rapidsslonline.com">Rapid SSL Online</ulink> should serve most purposes. To generate the CSR (certificate signing request) you can invoke the  command below. When you are prompted for the <emphasis role="italic">Common Name</emphasis>, enter the fully qualified domain name for the site you are securing.</para>
-      <screen>openssl req -new -newkey rsa:2048 -nodes -keyout server.key -out server.csr</screen>
-      <para>When you have received your certificate files (.pem or .crt) you will need to place it
-        together with the generated server.key file in a location which is reachable by nginx. A
-        good location for this can be the same directory as where your nginx.conf file is
-        located.</para>
-      <para>Below is an nginx server block where the certificate files are named server.crt and server.key. Since SSL connections usually occur on port 443 (HTTPS) we pass requests on that port (443) on to the DHIS instance running on <emphasis role="italic">http://localhost:8080</emphasis> The first server block will rewrite all requests connecting to port 80 and force the use of HTTPS/SSL. This is also necessary because DHIS is using a lot of redirects internally which must be passed on to use HTTPS. Remember to replace <emphasis role="italic">&lt;server-ip&gt;</emphasis> with the  IP of your server. These blocks should replace the  one from the previous section.</para>
-      <screen>http {
+      <title>Activation du SSL sur nginx</title>
+      <para>Afin d'améliorer la sécurité, il est recommandé de configurer le serveur exécutant DHIS pour qu'il communique avec les clients via une connexion cryptée et s'identifie lui-même aux clients en utilisant un certificat d'authenticité. Ceci peut être fait en utilisant le SSL qui est un protocole de communication cryptée fonctionnant au-dessus de la couche TCP/IP. Il est nécessaire pour utiliser le SSL d'installer tout d'abord la bibliothèque  <emphasis role="italic">openssl</emphasis> requise en invoquant la commande :</para>
+      <screen format="linespecific">sudo apt-get install openssl</screen>
+      <para>Pour configurer nginx afin qu'il utilise SSL, vous aurez besoin d'obtenir un certificat SSL auprès d'un fournisseur SSL. Le coût d'un certificat varie et dépend de la force du cryptage désiré. Un certificat, à un prix abordable, obtenu auprès de <ulink url="http://www.rapidsslonline.com">Rapid SSL Online</ulink> devrait suffir dans la plupart des cas. Pour générer le CSR (Certificate Signing Request, qui peut être traduit par: demande de signature de certificat), vous devez invoquer la commande ci-dessous. Lorsque vous serez invité à saisir le  <emphasis role="italic">Nom Commun (en anglais: Common Name)</emphasis>, entrez le nom de domaine complet du site que vous voulez sécuriser.</para>
+      <screen format="linespecific">openssl req -new -newkey rsa:2048 -nodes -keyout server.key -out server.csr</screen>
+      <para>Une fois que vous aurez reçu vos fichiers de certificat (.pem ou .crt), vous devrez les placer avec le fichier généré server.key dans un endroit accessible par nginx. Un bon endroit pourrait être le répertoire contenant votre fichier de configuration nginx.conf.</para>
+      <para>Vous trouverez ci-dessous un exemple de bloc serveur du fichier de configuration de nginx où les fichiers de certificats sont nommés server.crt et server.key. Etant donné que les connexions SSL se font généralement sur le port 443 (HTTPS), nous passons les requêtes sur le port (443) de l'instance de DHIS en cours d'exécution à l'adresse <emphasis role="italic">http://localhost:8080</emphasis> Le premier bloc serveur réécrit toutes les requêtes de connexion sur le port 80 et force l'utilisation de HTTPS/SSL . Cela est également nécessaire étant donné que DHIS utilise en interne un grand nombre de redirections qui doivent être transmises pour utiliser le protocole HTTPS. N'oubliez pas de  remplacer  <emphasis role="italic">&lt;server-ip&gt;</emphasis> par l'adresse IP de votre serveur. Ces blocs devraient remplacer ceux de la section précédente.</para>
+      <screen format="linespecific">http {
   gzip on; # Enables compression
 
   # HTTP server - rewrite to force use of SSL
 
   server {
     listen     80;
-    rewrite    ^ https://&lt;server-url>$request_uri? permanent;
+    rewrite    ^ https://&lt;server-url&gt;$request_uri? permanent;
   }
 
   # HTTPS server
@@ -292,18 +265,15 @@ sudo /etc/init.d/nginx stop</screen></para>
     }
   }
 }</screen>
-      <para>In order for tomcat to properly produce Location uris using https you also need to add two other parameters to the Connector in tomcat&apos;s server.xml file:</para>
-      <para><screen>&lt;Connector scheme=&quot;https&quot; proxyPort=&quot;443&quot; ... &gt;</screen></para>
+      <para>Pour que Tomcat puisse produire correctement les URIs Location utilisant https, vous devez également ajouter deux autres paramètres à la directive Connector dans le fichier server.xml de Tomcat :</para>
+      <para>
+        <screen format="linespecific">&lt;Connector scheme="https" proxyPort="443" ... &gt;</screen>
+      </para>
     </section>
     <section>
-      <title>Enabling caching and SSL on nginx</title>
-      <para>Requests for reports, charts, maps and other analysis-related resources will often take
-        some time to respond and might utilize a lot of server resources. In order to improve
-        response times, reduce the load on the server and hide potential server downtime we can
-        introduce a cache proxy in our server setup. The cached content will be stored in directory
-        /var/cache/nginx, and up to 250 MB of storage will be allocated. Nginx will create this
-        directory automatically.</para>
-      <screen>http {
+      <title>Activation de la mise en cache et du SSL sur nginx</title>
+      <para>Les requêtes pour obtenir des rapports, des graphiques, des cartes et d'autres ressources relatives à l'analyse prennent souvent beaucoup  de temps à obtenir des réponses et peuvent dans certains cas utiliser  beaucoup de ressources sur le serveur. Afin d'améliorer les temps de  réponse, de réduire la charge sur le serveur et masquer de potentielles interruptions du serveur, il est possible de mettre en place un proxy cache dans la configuration de notre serveur. Le contenu du cache sera stocké dans le répertoire /var/cache/nginx, et jusqu'à 250 Mo de mémoire seront réservés à ce processus. Nginx créera automatiquement ce répertoire.</para>
+      <screen format="linespecific">http {
   # ...
   root              /home/dhis/tomcat/webapps/ROOT; # Update path!
   proxy_cache_path  /var/cache/nginx  keys_zone=dhis:250m  inactive=1d;
@@ -356,9 +326,9 @@ sudo /etc/init.d/nginx stop</screen></para>
 </screen>
     </section>
     <section>
-      <title>Starting tomcat and nginx on boot-time</title>
-      <para>In certain situations a server might reboot unexpectedly. It is hence preferable to have Tomcat and nginx start automatically when the server starts. To achieve that the first step is to create init scripts. Create a new file called <code>tomcat</code> and paste the below content into it (adjust the HOME variable to your environment):</para>
-      <screen>#!/bin/sh
+      <title>Exécuter tomcat et nginx au lancement du serveur</title>
+      <para>Dans certaines situations, un serveur pourrait se mettre à redémarrer de façon inattendue. Il est donc préférable que Tomcat et nginx puisse se lancer automatiquement au démarrage du serveur. Pour ce faire la première étape consiste à créer des scripts d'initialisation. Créer un nouveau fichier appelé <code>tomcat</code>et copiez le contenu présent ci-dessous dans ce fichier (ajuster la variable HOME avec la valeur de votre environnement) :</para>
+      <screen format="linespecific">#!/bin/sh
 #Tomcat init script
 
 HOME=/home/dhis/tomcat/bin
@@ -377,21 +347,19 @@ restart)
         ;;
 esac
 exit 0</screen>
-      <para>Move the script to the init script directory and make them executable by
-        invoking:</para>
-      <screen>sudo mv tomcat /etc/init.d
+      <para>Déplacez ce script dans le répertoire de scripts d'initialisation et rendez-le exécutable en invoquant :</para>
+      <screen format="linespecific">sudo mv tomcat /etc/init.d
 sudo chmod +x /etc/init.d/tomcat</screen>
-      <para>Next make sure the tomcat and nginx init scripts will be invoked during system startup
-        and shutdown:</para>
-      <screen>sudo /usr/sbin/update-rc.d -f nginx defaults 80
+      <para>Assurez-vous ensuite que les scripts d'initialisation de Tomcat et de nginx soient invoquées au démarrage et à l'arrêt du système :</para>
+      <screen format="linespecific">sudo /usr/sbin/update-rc.d -f nginx defaults 80
 sudo /usr/sbin/update-rc.d -f tomcat defaults 81</screen>
-      <para>Tomcat and nginx will now be started at system startup and stopped at system shutdown. If you later need to revert this you can replace <code>defaults</code> with  <code>remove</code> and invoke the above commands again.</para>
+      <para>Tomcat et nginx vont maintenant être lancés au démarrage du système et arrêté au cours de l'arrêt du système. Si plus tard il vous arrive de vouloir revenir sur cette configuration, vous pouvez remplacer le mot clef <code>defaults</code> par  <code>remove</code> dans les commandes ci-dessus et les invoquer de nouveau avec ces nouveaux paramètres.</para>
     </section>
     <section>
-      <title>Making resources available with nginx</title>
-      <para>In some scenarios it is desirable to make certain resources publicly available on the Web without requiring authentication. One example is when you want to make data analysis related resources in the Web API available in a Web portal. The following example will allow access to charts, maps, reports, report table and document resources through basic authentication by injecting an <emphasis role="italic">Authorization</emphasis> HTTP  header into the request. It will remove the Cookie header from the request and the Set-Cookie header from the response in order to avoid changing the currently logged in user. It is recommended to create a user for this purpose given only the minimum authorities required. The Authorization value can be constructed by Base64-encoding the username appended with a colon and the password and prefix it &quot;Basic &quot;, more precisely &quot;Basic base64_encode(username:password)&quot;. It will check the HTTP method used for requests and return <emphasis role="italic">405 Method Not Allowed</emphasis> if anything but GET is detected.</para>
-      <para>It can be favorable to set up a separate domain for such public users when using this approach. This is because we don&apos;t want to change the credentials for already logged in users when they access the public resources. For instance, when your server is deployed at somedomain.com, you can set a dedicated subdomain at api.somedomain.com, and point URLs from your portal to this subdomain.</para>
-      <screen>server {
+      <title>Rendre des ressources disponibles avec nginx</title>
+      <para>Dans certains scénarios, il peut être souhaitable de rendre certaines  ressources disponibles publiquement sur le Web sans avoir à effectuer  des demandes d'authentification. C'est le cas par exemple, lorsque vous voulez rendre disponible sur un portail web des ressources relatives aux analyse des données par le biais de l'API Web. L'exemple qui suit permette l'accès aux graphiques, cartes, rapports, tableaux de rapport et documents grâce à une authentification de base, par l'injection d'un en-tête <emphasis role="italic">Authorization</emphasis> dans la requête. Il supprime l'en-tête de Cookie de la requête et l'en-tête Set-Cookie de la réponse afin d'éviter de changer l'utilisateur actuellement connecté . Il est recommandé de créer un utilisateur à cet effet auquel il ne sera donné que des autorités minimales requises. La valeur Authorization peut être construite en encodant en  Base64 le nom d'utilisateur et en lui annexant une virgule, le mot de  passe et en lui ajoutant le préfixe "Basic", plus exactement "Basic base64_encode(nom_d_utilisateur:mot_de_passe)". Il va vérifier la  méthode HTTP utilisée pour les demandes et retourner  <emphasis role="italic">405 Méthode Non Authorisée</emphasis> si autre chose que GET est détecté.</para>
+      <para>Il peut être utile de mettre en place un domaine séparé pour ces utilisateurs publics lorsque cette approche est utilisée. Ce afin de ne pas avoir à pas changer les identifiants des utilisateurs déjà connectés lorsqu'ils accèdent aux ressources publiques. Par exemple, si votre serveur est déployé sur exempledomaine.com, vous pouvez définir un sous-domaine dédié sous api.exempledomaine.com, et pointer les URLs de votre portail vers ce sous-domaine.</para>
+      <screen format="linespecific">server {
   listen       80;
   server_name  api.somedomain.com;
     
@@ -406,53 +374,59 @@ sudo /usr/sbin/update-rc.d -f tomcat defaults 81</screen>
     proxy_set_header   X-Real-IP          $remote_addr;
     proxy_set_header   X-Forwarded-For    $proxy_add_x_forwarded_for;
     proxy_set_header   X-Forwarded-Proto  http;
-    proxy_set_header   Authorization      &quot;Basic YWRtaW46ZGlzdHJpY3Q=&quot;;
-    proxy_set_header   Cookie             &quot;&quot;;
+    proxy_set_header   Authorization      "Basic YWRtaW46ZGlzdHJpY3Q=";
+    proxy_set_header   Cookie             "";
     proxy_hide_header  Set-Cookie;
   }
 }</screen>
     </section>
     <section>
-      <title>Basic reverse proxy setup with Apache</title>
-      <para>The Apache HTTP server is the most common </para>
+      <title>Configuration d’un proxy inverse basique avec Apache</title>
       <important>
-        <para>Using nginx is the preferred option as reverse proxy with DHIS2 and you should not attempt to install both nginx and Apache on the same server. If you have installed nginx please ignore this section. </para>
+        <para>L’utilisation de nginx est l'option préférée pour la mise en place de proxy inverse avec DHIS2 et vous ne devriez pas essayer d'installer à la fois nginx et Apache sur le même serveur. Si vous avez installé nginx veuillez ignorer cette section.</para>
       </important>
-      <para>The Apache HTTP server is the most widely used HTTP server currently. Depdenign on your exact nature of deployment, you may need to use Apache as a reverse proxy for your DHIS2 server. In this section, we will describe how to implement a simple reverse proxy setup with Apache. </para>
-      <para>First we need to install a few necessary programs modules for Apache and enable the modules. </para>
-      <para><screen>sudo apt-get install apache2 libapache2-mod-proxy-html libapache2-mod-jk
-a2enmod proxy proxy_ajp proxy_connect</screen></para>
-      <para>Lets define an AJP connector which Apache HTTP server will use to connect to Tomcat with. The Tomcat <filename>server.xml</filename> file should be located in the /conf/ director of your Tomcat installation. Be sure this line is uncommented.You can set the port to anything you like which is unused.</para>
-      <para><screen>&lt;Connector port=&quot;8009&quot; protocol=&quot;AJP/1.3&quot; redirectPort=&quot;8443&quot; /&gt;
-</screen>Now, we need to make the adjustments to the Apache HTTP server which will answer requests on port 80 and pass them to the Tomcat server through an AJP connector. Edit the file <filename>/etc/apache2/mods-enabled/proxy.conf</filename> so that it looks like the example below.  Be sure that the port defined in the configuration file matches the one from Tomcat.</para>
-      <para><screen>&lt;IfModule mod_proxy.c&gt;
+      <para>Le serveur HTTP Apache est le serveur HTTP le plus utilisé du moment.  Selon la nature exacte de votre déploiement, il se peut que vous ayiez besoin d'utiliser Apache comme proxy inverse pour votre serveur DHIS2. Dans cette section, nous allons décrire comment mettre en place une configuration de proxy inverse simple avec Apache.</para>
+      <para>Nous aurons d'abord à installer quelques modules de programmes nécessaires à Apache et activer les modules.</para>
+      <para>
+        <screen format="linespecific">sudo apt-get install apache2 libapache2-mod-proxy-html libapache2-mod-jk
+a2enmod proxy proxy_ajp proxy_connect</screen>
+      </para>
+      <para>Définissons alors un connecteur AJP que le serveur HTTP Apache utilisera pour se connecter à Tomcat. Le fichier <filename moreinfo="none">server.xml</filename>de Tomcat doit être situé dans le répertoire /conf/ de votre installation de Tomcat. Assurez-vous que la ligne ci-dessous est décommentée. Vous pouvez fixer le port à la valeur non utilisée que vous voulez.</para>
+      <para>
+        <screen format="linespecific">&lt;Connector port="8009" protocol="AJP/1.3" redirectPort="8443" /&gt;
+</screen>A présent, nous devrons effectuer des ajustements sur le serveur HTTP  Apache qui répondra aux requêtes sur le port 80 et les retransmettra  au serveur Tomcat via un connecteur AJP. Modifiez le fichier <filename moreinfo="none">/etc/apache2/mods-enabled/proxy.conf</filename> et faites en sorte qu'il  ressemble à l'exemple ci-dessous. Assurez-vous que le port défini  dans le fichier de configuration corresponde à celui de Tomcat.</para>
+      <para>
+        <screen format="linespecific">&lt;IfModule mod_proxy.c&gt;
 
 ProxyRequests Off
 ProxyPass /dhis  ajp://localhost:8009/dhis
 ProxyPassReverse /dhis  ajp://localhost:8009/dhis
 
-&lt;Location &quot;/dhis&quot;&gt;
+&lt;Location "/dhis"&gt;
   Order allow,deny
   Allow from all
 &lt;/Location&gt;     
 &lt;/IfModule&gt;
-</screen></para>
-      <para>You now can restart Tomcat and the Apache HTTPD server and your DHIS 2 instance should be available on http://<emphasis>myserver</emphasis>/dhis where <emphasis>myserver</emphasis> is the hostname of your server. </para>
+</screen>
+      </para>
+      <para>Vous pouvez maintenant redémarrer Tomcat et le serveur Apache HTTPD,  et votre instance DHIS 2 devrait alors être accessible à l'adresse http://<emphasis>monserveur</emphasis>/dhis où <emphasis>monserveur</emphasis> est le nom d'hôte de votre  serveur. </para>
     </section>
     <section>
-      <title>Basic load-balancing with Apache and Tomcat</title>
-      <para>Load balancing may be employed to more evenly distribute system load across multiple Tomcat instances in situations where user load is too high to be handled by a single server instance. In this example, we will create a simple load-balanced architecture using &quot;sticky sessions&quot; to distribute users across two instances of Tomcat. </para>
-      <para>First, we need at least two instances of Tomcat running DHIS2, which are connected to the same database. There are various architectures, such as running the application servers (Tomcat) on separate (virtual) machines connected to a single database server, or perhaps running multiple Tomcat instances and a database on a single-high capacity machine in situations with I/O is not an issue, but when CPU usage of a single Tomcat instance limits overall system performance. In this scenario, we will configure connect two Tomcat instances running on the same machine to a single database through a load-balanced reverse proxy. Apache will take care of the details of determining which Tomcat instance a particular client is interfaced to with the </para>
-      <para>The first step is to configure our  Tomcat instances. The previous sections have detailed how this should be done. Importantly, both Tomcat instances should be configured to use the same database server. Some modifications need to be made to the server.xml file of each Tomcat instance, which will be used to uniquely identify each instance. Two copies of Tomcat should be extracted to a directory of your choice. Modify the server.xml file so that the following lines are unique for each instance. </para>
-      <para><screen>&lt;Server port=&quot;<emphasis>800<emphasis>5</emphasis></emphasis>&quot; shutdown=&quot;SHUTDOWN&quot;&gt;
+      <title>Equilibrage de charge (load-balancing) de base avec Apache et  Tomcat</title>
+      <para>L'équilibrage de charge peut être utilisé pour mieux répartir la charge du système sur plusieurs instances de Tomcat, dans des situations où la charge utilisateur est trop élevée pour être traitée par une seule instance de serveur. Dans l'exemple qui suit, nous allons créer une architecture simple d'équilibrage de charge en utilisant les "sticky sessions" (en français "affinité de session") pour distribuer les utilisateurs sur deux instances de Tomcat.</para>
+      <para>En premier lieu, il nous faut au moins deux instances de Tomcat  exécutant DHIS2 et reliées à la même base de données. Il existe  différentes architectures, comme l'exécution des serveurs  d'applications (Tomcat) sur des machines séparées (virtuelles)  connectées à un serveur de base de données unique, ou encore  l'exécution de plusieurs instances de Tomcat et une base de données  sur une même machine de grande capacité dans des situations où les  E/S (Entrées/Sorties) ne sont pas un problème, mais que l'utilisation  du CPU d'une instance Tomcat unique limite les performances globales  du système. Dans ce scénario, nous allons configurer la connexion des  deux instances de Tomcat sur la même machine à une base de données à  travers un proxy inverse à équilibrage de charge. Apache prendra soin  des détails de la détermination de l'instance Tomcat sur laquelle un  client particulier sera relié.</para>
+      <para>La première étape consiste à configurer nos instances de Tomcat. Les  sections précédentes ont détaillé comment cela devait être fait. Ce  qui importe surtout, c'est que les deux instances de Tomcat doivent  être configurées pour utiliser le même serveur de base de données.  Certaines modifications doivent être apportées au fichier server.xml  de chaque instance de Tomcat, modifications qui serviront à  identifier de façon unique chaque instance. Deux copies de Tomcat  doivent être extraites sous un répertoire de votre choix. Vous devrez  alors modifier le fichier server.xml de telle sorte que les lignes  suivantes soient uniques pour chaque instance.</para>
+      <para>
+        <screen format="linespecific">&lt;Server port="<emphasis>800<emphasis>5</emphasis></emphasis>" shutdown="SHUTDOWN"&gt;
 ...
-&lt;Connector port=<emphasis>&quot;8009</emphasis>&quot; protocol=&quot;AJP/1.3&quot; redirectPort=&quot;8444&quot; /&gt;
+&lt;Connector port=<emphasis>"8009</emphasis>" protocol="AJP/1.3" redirectPort="8444" /&gt;
 ...
 
-&lt;Engine name=&quot;Catalina&quot; defaultHost=&quot;localhost&quot; jvmRoute=&quot;<emphasis>jvm1</emphasis>&quot;&gt;</screen></para>
-      <para>The important parameters here are the server port, the AJP connector port, and the <parameter>jvmRoute</parameter> identifier. The <parameter>jvmRoute</parameter> identifier will be appended to the JSESSIONID so that Apache will know which Tomcat instance a particular session should be routed to. The parameters must be unique for each Tomcat instance. After configuring Tomcat, setup DHIS2 according to the normal procedures detailed in other sections.  </para>
-      <para>Next, we will configure the Apache HTTP server to perform load balancing. Incoming client requests will be assigned to one of the instances with a sticky session. Alter the <filename>/etc/apache2/apache2.conf </filename>file (or other appropriate file depending on your exact configuration) to define a proxy load balancer and a proxy and reverse proxy path. Note that the port numbers and <parameter>route</parameter> parameters must match the Tomcat port and <parameter>jvmRoute</parameter> parameters which were defined earlier in the Tomcat configuration.</para>
-      <screen>&lt;Proxy balancer://dhiscluster&gt;
+&lt;Engine name="Catalina" defaultHost="localhost" jvmRoute="<emphasis>jvm1</emphasis>"&gt;</screen>
+      </para>
+      <para>Les paramètres importants sont le port du serveur, le port du  connecteur AJP, et l'identifiant <parameter moreinfo="none">jvmRoute</parameter> L'identifiant  <parameter moreinfo="none">jvmRoute</parameter> sera ajouté à la JSESSIONID pour qu'Apache sache vers quelle instance  Tomcat une session particulière doit être routée. Les paramètres  doivent être uniques pour chaque instance de Tomcat. Après avoir  configuré Tomcat, vous devrez configurez DHIS2 selon les procédures  normales décrites dans les autres sections. </para>
+      <para>Nous allons ensuite configurer le serveur HTTP Apache pour qu'il  réalise l'équilibrage de charge. Les requêtes clientes entrantes  seront affectées à l'une des instances par le biais une session  collante ("sticky session"). Modifiez le fichier  <filename moreinfo="none">/etc/apache2/apache2.conf </filename>(ou autre fichier approprié en fonction de votre configuration exacte) pour définir un équilibreur de charge, ainsi qu'un proxy et chemin de proxy inverse. Notez que les numéros de port et les paramètres <parameter moreinfo="none">route</parameter> doivent correspondre aux paramètres de port Tomcat et <parameter moreinfo="none">jvmRoute</parameter> qui ont été définis plus tôt dans la configuration de Tomcat.</para>
+      <screen format="linespecific">&lt;Proxy balancer://dhiscluster&gt;
 Order Allow,Deny
 Allow from all
 &lt;/Proxy&gt;
@@ -470,136 +444,136 @@ ProxyPass /dhis/ balancer://dhiscluster/ stickysession=JSESSIONID nofailover=on
 
 ProxyPassReverse /dhis/ balancer://dhiscluster/ stickysession=JSESSIONID|jsessionid
 </screen>
-      <para>Finally, start both Tomcat instances, and then restart Apache HTTP. </para>
-      <para>This example demonstrates how to implement a simple load balanced system with sticky sessions using Apache HTTP server.</para>
+      <para>Finalement, démarrez les deux instances de Tomcat, puis redémarrez le  serveur Apache HTTP.</para>
+      <para>Cet exemple montre comment implémenter un système d'équilibrage de  charge simple par le biais des sessions collantes ("sticky sessions")  en utilisant le serveur HTTP Apache.</para>
     </section>
     <section>
-      <title>Basic SSL encryption with Apache</title>
-      <para>Using Apache and the reverse proxy  setup described in the previous section, we can easily implement encrypted transfer of data between clients and the server over HTTPS. This section will describe how to use self-signed certificates, although  the same procedure could be used if you have fully-signed certificates as well. </para>
-      <para>First (as root), generate the necessary private key files and CSR (Certificate Signing Request) </para>
-      <screen>mkdir /etc/apache2/ssl
+      <title>Cryptage SSL de base avec Apache</title>
+      <para>En utilisant la configuration d'Apache et du proxy inverse décrite  dans la section précédente, nous pouvons facilement mettre en place  un transfert crypté des données entre les clients et le serveur via  HTTPS. Cette section décrit comment utiliser les certificats auto- signés, bien que la même procédure puisse être utilisée si vous avez  également des certificats entièrement signés.</para>
+      <para>En premier lieu (en tant qu'utilisateur root), générez les fichiers de clés privées nécessaires ainsi que la CSR (Certificate Signing Request) </para>
+      <screen format="linespecific">mkdir /etc/apache2/ssl
 cd /etc/apache2/ssl
 openssl genrsa -des3 -out server.key 1024
 openssl req -new -key server.key -out server.csr</screen>
-      <para>We need to remove the password from the key, otherwise Apache will not be able to use it. </para>
-      <para><screen>cp server.key server.key.org
-openssl rsa -in server.key.org -out server.key</screen></para>
-      <para>Next, generate a self-signed certificate which will be valid for one year.</para>
-      <screen>openssl x509 -req -days 365 -in server.csr -signkey \ server.key -out server.crt</screen>
-      <para>Now, lets configure Apache by enabling the SSL modules and creating a default site.</para>
-      <screen>a2enmod ssl
+      <para>Nous aurons besoins d'éliminer le mot de passe de la clé, sinon  Apache ne sera pas en mesure de l'utiliser.</para>
+      <para>
+        <screen format="linespecific">cp server.key server.key.org
+openssl rsa -in server.key.org -out server.key</screen>
+      </para>
+      <para>Ensuite, générez un certificat auto-signé qui sera valable un an.</para>
+      <screen format="linespecific">openssl x509 -req -days 365 -in server.csr -signkey \ server.key -out server.crt</screen>
+      <para>A présent, configurons Apache en activant les modules SSL et en  créant un site par défaut.</para>
+      <screen format="linespecific">a2enmod ssl
 a2ensite default-ssl</screen>
-      <para>Now, we need to edit the default-ssl (located at <filename>/etc/apache2/sites-enabled/default-ssl</filename>) file in order to enable the SSL transfer functionality of Apache. </para>
-      <para><screen>&lt;VirtualHost *:443&gt;
+      <para>Maintenant, nous devons modifier le fichier default-ssl (situé sous <filename moreinfo="none">/etc/apache2/sites-enabled/default-ssl</filename>) pour activer la fonctionnalité de transfert SSL d'Apache.</para>
+      <para>
+        <screen format="linespecific">&lt;VirtualHost *:443&gt;
         ServerAdmin wemaster@mydomain.org
        SSLEngine On
        SSLCertificateFile /etc/apache2/ssl/server.crt
        SSLCertificateKeyFile /etc/apache2/ssl/server.key
-...</screen></para>
-      <para>Be sure that the *:80 section of this file is changed to port *:443, which is the default SSL port. Also, be sure to change the ServerAdmin to the webmaster&apos;s email. Lastly, we need to be sure that the hostname is setup properly in /etc/hosts. Just under the &quot;localhost&quot; line, be sure to add the server&apos;s IP address and domain name. </para>
-      <para><screen>127.0.0.1 localhost
-XXX.XX.XXX.XXX foo.mydomain.org</screen></para>
-      <para>Now, just restart Apache and you should be able to view https://foo.mydomain.org/dhis. </para>
-      <screen>/etc/init.d/apache2 restart</screen>
+...</screen>
+      </para>
+      <para>Assurez-vous que la section *:80 de ce fichier soit changée en port  *:443, qui est le port SSL par défaut. Aussi, n'oubliez pas de  changer la valeur de ServerAdmin avec l'adresse email du webmaster.  Enfin, nous devons nous assurer que le nom d'hôte est correctement configuré dans /etc/hosts. Juste sous la ligne "localhost",  n'oubliez pas d'ajouter l'adresse IP du serveur et le nom de domaine.</para>
+      <para>
+        <screen format="linespecific">127.0.0.1 localhost
+XXX.XX.XXX.XXX foo.mydomain.org</screen>
+      </para>
+      <para>A présent, redémarrez Apache et vous devriez être en mesure d'afficher https://foo.mydomain.org/dhis.</para>
+      <screen format="linespecific">/etc/init.d/apache2 restart</screen>
     </section>
   </section>
   <section>
-    <title>DHIS 2 Live setup</title>
-    <para>The DHIS 2 Live package is extremely convenient to install and run. It is intended for demonstrations, for users who want to explore the system and for small, offline installations typically at districts or facilities. It only requires a Java Runtime Environment and runs on all browsers except Internet Explorer 7 and lower.</para>
-    <para>To install start by downloading DHIS 2 Live from <emphasis role="italic">http://dhis2.org</emphasis> and extract the archive to any location. On Windows click the executable archive. On Linux invoke the startup.sh script. After the startup process is done your default web browser will automtically be pointed to  <emphasis role="italic">http://localhost:8082</emphasis> where the application is accessible. A system tray menu is accessible on most operating systems where you can start and stop the server and start new browser sesssions. Please note that if you have the server running there is no need to start it again, simply open the application from the tray  menu.</para>
-    <para>DHIS 2 Live is running on an embedded Jetty servlet container and an embedded H2 database. However it can easily be configured to run on other database systems such as PostgreSQL. Please read the section above about server installations for an explanation of the database configuration. The <emphasis role="italic">hibernate.properties</emphasis> configuration file is located in the <emphasis role="italic">conf</emphasis> folder. Remember to restart the Live package for your changes to take effect. The server port is 8082 by default. This can be changed by modifying the value in the<emphasis role="italic"> jetty.port</emphasis> configuration file located in the <emphasis role="italic">conf</emphasis> directory.</para>
+    <title>Mise en oeuvre de DHIS 2 Live</title>
+    <para>L'application DHIS 2 Live est très facile à installer et à exécuter. Il est fait pour les démonstrations de l'application, des utilisateurs qui veulent étudier le système et pour les petites installations non connectées, généralement situés au niveau des établissements de santé ou des districts. Il requiert seulement un environnement d'exécution Java et fonctionne sur tous les navigateurs (sauf les versions 7 et inférieures d'Internet Explorer).</para>
+    <para>Pour l'installer commencez par télécharger DHIS 2 Live à l'adresse <emphasis role="italic">http://dhis2.org</emphasis> et faites l'extraction de l'archive à n'importe quel  endroit. Sur Windows, cliquez sur l'archive exécutable. Sous Linux  invoquez le script startup.sh. Après le démarrage votre navigateur  par défaut sera automatiquement lancé et dirigé vers l'adresse   <emphasis role="italic">http://localhost:8082</emphasis>où l'application est accessible. Un menu est  accessible dans la barre des tâches sur la plupart des systèmes  d'exploitation où vous pouvez démarrer et arrêter le serveur et  démarrer de nouvelles sessions navigateur. Veuillez noter que si vous  avez le serveur est en cours d'exécution, il n'est pas nécessaire de  le redémarrer, il suffit simplement d'ouvrir l'application à partir  du menu de la barre de tâches.</para>
+    <para>DHIS 2 Live fonctionne à l'intérieur d'un conteneur de servlets Jetty  embarqué et avec une base de données H2 intégrée. Cependant, il peut  facilement être configuré pour fonctionner sur d'autres systèmes de  base de données tels que PostgreSQL. Veuillez lire la section ci- dessus sur les installations de serveur pour une explication sur la  configuration de base de données. Le fichier de configuration <emphasis role="italic">hibernate.properties</emphasis> se trouve sous le dossier  <emphasis role="italic">conf</emphasis>Rappelez-vous de  redémarrer l'application Live pour que vos changements prennent  effet. Le port du serveur est 8082 par défaut. Celui-ci peut être  modifié en modifiant la valeur dans le fichier de configuration de <emphasis role="italic"> jetty.port</emphasis> situé sous le répertoire  <emphasis role="italic">conf</emphasis>.</para>
   </section>
   <section>
-    <title>Backup</title>
-    <para>Doing automated database backups for information systems in production is an absolute must, and might have uncomfortable consequences if ignored. Backups have two main purposes: The primary is data recovery in case data is lost, the secondary purpose is archiving of data for a historical period of time.</para>
-    <para>Backup should be central in a disaster recovery plan. Even though such a plan should cover additional subjects, the database is the key component to consider since this is where all data used in the DHIS 2 application is stored. Most other parts of the IT infrastructure surrounding the application can be restored based on standard components.</para>
-    <para>There are of course many ways to set up backup; however the following describes a setup where the database is copied into a dump file and saved on the file system. This can be considered a <emphasis role="italic">full</emphasis> backup. The backup is done with a <emphasis role="italic">cron job</emphasis>, which is a time-based scheduler in Unix/Linux operating systems.</para>
-    <remark>You can download both files from http://dhis2.com/download/pg_backup.zip</remark>
-    <para>The cron job is set up with two files. The first is a <emphasis role="italic">script</emphasis> which performs the actual task of backup up the database. It uses a PostgreSQL program called <emphasis role="italic">pg_dump</emphasis> for creating the database copy. The second is a crontab file which runs the backup script every day at 23:00. Note that this script backs up the database file to the local disk. It is strongly recommended to store a copy of the backup at a location outside the server where the application is hosted. This can be achieved with the <emphasis role="italic">scp</emphasis> tool. Make sure that you have set the system date correctly on your server.</para>
+    <title>Sauvegardes</title>
+    <para>Faire des sauvegardes automatisées des bases de données pour les systèmes d'information en production est une nécessité absolue, et vous vous exposez à des conséquences désagréables si vous les ignorez. Les sauvegardes ont deux objectifs principaux: Le premier est la récupération de données en cas de perte de données, et le second est l'archivage des données pour une période de temps historique.</para>
+    <para>Les sauvegardes doivent être centrales dans un plan de reprise après sinistre. Même si un tel plan peut couvrir d'autres sujets, la base de données est l'élément clé à considérer car c'est là que toutes les données utilisées dans l'application DHIS 2 sont stockées. La plupart des autres parties de l'infrastructure informatique entourant l'application peuvent être restaurées sur la base de composants standards.</para>
+    <para>Il ya bien sûr plusieurs façons de mettre en place une solution  de sauvegarde; la manière suivante décrit une configuration où  la base de données est copiée dans un fichier dump et sauvegardé  sur le système de fichiers. Ceci peut être considéré comme une  sauvegarde <emphasis role="italic">complète</emphasis>. Cette sauvegarde se fait par le biais d'une  <emphasis role="italic">tâche cron</emphasis>, qui est un ordonnanceur de tâche dans les systèmes d'exploitation Unix/Linux.</para>
+    <remark>Vous pouvez télécharger les deux fichiers à l'adresse  http://dhis2.com/download/pg_backup.zip</remark>
+    <para>La tâche cron est configurée avec deux fichiers. Le premier est un <emphasis role="italic">script</emphasis> qui exécute la tâche effective de sauvegarde de la base de données. Il utilise un programme de PostgreSQL appelé  <emphasis role="italic">pg_dump</emphasis> pour effectuer une copie de base de données. Le second fichier est un fichier crontab qui exécute le script de sauvegarde tous les jours à 23h00. Notez que ce script  sauvegarde le fichier de base de données sur le disque local. Il  est fortement recommandé de conserver une copie de la sauvegarde  à un endroit extérieur au serveur où l'application est hébergée. Ceci peut être obtenu avec l'outil  <emphasis role="italic">scp</emphasis>. Assurez-vous que vous avez réglé la date de système correctement sur votre serveur.</para>
   </section>
   <section>
-    <title>Working with the PostgreSQL database</title>
-    <para>Common operations when managing a DHIS instance are dumping and restoring databases. To
-      make a dump (copy) of your database, assuming the setup from the installation section, you can
-      invoke the following: </para>
-    <screen>pg_dump dhis2 -U dhis -f dhis2.sql</screen>
-    <para>The first argument (dhis2) refers to the name of the database. The second argument (dhis)
-      refers to the database user. The last argument (dhis2.sql) is the file name of the copy. If
-      you want to compress the file copy immediately you can do:</para>
-    <screen>pg_dump dhis2 -U dhis | gzip &gt; dhis2.sql.gz</screen>
-    <para>To restore this copy on another system, you first need to create an empty database as
-      described in the installation section. You also need to gunzip the copy if you created a
-      compressed version. You can the invoke:</para>
-    <screen>psql -d dhis2 -U dhis -f dhis2.sql</screen>
+    <title>Travailler avec la base de données PostgreSQL</title>
+    <para>Les opérations courantes qui sont effectuées lors de la gestion d’une instance de DHIS sont la sauvegarde dump et la restauration des bases de données. Pour réaliser une sauvegarde dump (copie) de votre base de données, en supposant que vous avez la même configuration que dans la section installation, vous pouvez invoquer la commande suivante :</para>
+    <screen format="linespecific">pg_dump dhis2 -U dhis -f dhis2.sql</screen>
+    <para>Le premier argument (dhis2) fait référence au nom de la base de  données. Le second argument (dhis) se réfère à l'utilisateur de la  base de données. Le dernier argument (dhis2.sql) est le nom du  fichier de sauvegarde. Si vous souhaitez compresser le fichier de  sauvegarde en même temps vous pouvez faire :</para>
+    <screen format="linespecific">pg_dump dhis2 -U dhis | gzip &gt; dhis2.sql.gz</screen>
+    <para>Pour restaurer cette copie sur un autre système, vous devez d'abord  créer une base de données vide, comme décrit dans la section  d'installation. Vous devez également dé-zipper votre sauvegarde si  vous avez créé une version compressée. Vous pouvez alors invoquer :</para>
+    <screen format="linespecific">psql -d dhis2 -U dhis -f dhis2.sql</screen>
   </section>
   <section>
-    <title>Using Amazon Web services</title>
-    <para>Amazon Web Services (AWS) offers virtual cloud-computing resources which allow developers and implementers to quickly scale an application, both horizontally and vertically, in a cost effective manner. AWS offers multiple operating systems and instance sizes depending on the exact nature of the deployment. This section will describe a basic setup with the AWS Elastic Cloud Compute (EC2) system using the Basic 32 bit Amazon AMI, which is based on the Red Hat Linux distribution. </para>
-    <para>Estimating the cost of an AWS instance can be performed using the<ulink url="http://calculator.s3.amazonaws.com/calc5.html"> &quot;Simple Monthly Cal culator&quot;</ulink>. AWS costs are based entirely on usage. As your application usage grows, you can provision new servers. </para>
-    <orderedlist>
+    <title>Utilisation des services Web Amazon</title>
+    <para>Amazon Web Services (AWS) offre des ressources virtuelles sur le cloud  qui permettent aux développeurs et aux concepteurs de rapidement  déployer une application, aussi bien horizontalement que  verticalement, de manière rentable. AWS offre de multiples systèmes  d'exploitation et des tailles d'instance dépendant de la nature  exacte de votre déploiement. Cette section décrit une configuration  de base avec le système AWS Elastic Cloud Compute (EC2) en utilisant  Amazon AMI 32 bits basique, qui est basée sur la distribution Red  Hat Linux.</para>
+    <para>L'estimation du coût d'une instance AWS peut être effectuée en  utilisant le <ulink url="http://calculator.s3.amazonaws.com/calc5.html"> "calculateur mensuel simplifié"</ulink>. Les coûts d'AWS sont  entièrement basés sur l'utilisation. A mesure que votre utilisation  de l'application augmente, vous pouvez vous attribuer de nouveaux  serveurs.</para>
+    <orderedlist inheritnum="ignore" continuation="restarts">
       <listitem>
-        <para>You will need an existing AWS account. If you do not have one, you can create one <ulink url="http://aws.amazon.com/">here</ulink>.  Once you have created and enabled your account, login to the<ulink url="https://console.aws.amazon.com/s3/home"> AWS console</ulink>. </para>
+        <para>Vous aurez besoin d'un compte AWS existant. Si vous n'en avez  pas, vous pouvez en créer un <ulink url="http://aws.amazon.com/">ici</ulink>.  fois que vous avez créé et  activé votre compte, vous pouvez vous connecter à la<ulink url="https://console.aws.amazon.com/s3/home"> console AWS</ulink>. </para>
       </listitem>
       <listitem>
-        <para>Once you have logged in, select the &quot;EC2&quot; tab. You will need to select a region in which to instantiate your instance. Users in Europe and Africa, should probably use the EU West region, while users in Asia should probably use on of the Asia Pacific regions (either Singapore or Tokyo). Selection of the appropriate region will reduce latency between the server and clients.</para>
+        <para>Une fois que vous êtes connecté, sélectionnez l'onglet "EC2".  Vous devrez sélectionner une région dans laquelle instancier votre  instance. Les utilisateurs en Europe et en Afrique auront  probablement à utiliser la région Ouest de l'UE, tandis que les  utilisateurs en Asie utiliseront plutôt des régions de l'Asie-Pacifique (Singapour ou Tokyo). La sélection de la région appropriée  permettra de réduire la latence entre le serveur et les clients.</para>
       </listitem>
       <listitem>
-        <para>Click the &quot;Instances&quot; link on the right menu, and then the &quot;Launch Instances&quot; button. </para>
+        <para>Cliquez sur le lien "Instances" sur le menu de droite, puis sur  le bouton "Lancer les instances". </para>
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="60%" align="center" fileref="resources/images/aws/create_instance.png"/>
+              <imagedata width="60%" align="center" fileref="resources/images/aws/create_instance.png" />
             </imageobject>
           </mediaobject>
         </screenshot>
-        <para>Select one of the AMIs for your server. Using either of the Basic Amazon AMIs (either 32 or 64 bit) is recommended, but you can use whichever AMI is most appropriate. </para>
+        <para>Sélectionnez une des AMIs pour votre serveur. Il est recommandé d’utiliser l’une des AMIs Amazon Basiques (32 ou 64 bits), mais vous pouvez utiliser n'importe quel AMI plus appropriée. </para>
       </listitem>
       <listitem>
-        <para>Next, you will need to select the size of your instance. The size of the instance selected will depend on the number of anticipated users. Selecting the &quot;Micro&quot; size, will enable you to test DHIS  2 in the AWS environment for a period of one year, at no cost if you use one of the &quot;Free tier eligible&quot; AMIs. </para>
+        <para>Ensuite, vous devrez choisir la taille de votre instance. La taille de l'instance sélectionnée dépendra du nombre d'utilisateurs attendus. La sélection de la taille "Micro" vous permettra de tester DHIS 2 dans l'environnement AWS pour une période d'un an, sans frais si vous utilisez l'un des AMIs de "niveaux gratuit admissible".</para>
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="60%" align="center" fileref="resources/images/aws/instance_size.png"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-      </listitem>
-      <listitem>
-        <para>Once you have selected the instance size, you can select a specific kernel ID and RAM disk ID. If you do not have a specific reason, just use the defaults and proceed to the next dialog. </para>
-      </listitem>
-      <listitem>
-        <para>Next, you can add key-value pairs to help you to easily identify the instance. This is just metadata for your own usage. </para>
-      </listitem>
-      <listitem>
-        <para>Next, you will need a key pair which will enable you to remotely access your instance. If you have an existing key pair you can use it, otherwise, you can create a new key pair. </para>
-        <screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="60%" align="center" fileref="resources/images/aws/create_key_pairs.png"/>
+              <imagedata width="60%" align="center" fileref="resources/images/aws/instance_size.png" />
             </imageobject>
           </mediaobject>
         </screenshot>
       </listitem>
       <listitem>
-        <para>You will need to assign a security group to the instance. Security groups can be used to expose certain services (SSH, HTTP, Tomcat, etc) to the Internet.With security groups, you can control which ports will be open to specific network ranges. For DHIS 2, you would normally need at least port 22 (SSH) and port 80 (HTTP) open to the internet or specific address ranges. </para>
+        <para>Une fois que vous aurez sélectionné la taille de l'instance, vous pourrez sélectionner une ID de noyau et une ID de RAM. Si vous n'avez pas de raison spécifique, vous pouvez d'utiliser les valeurs par défaut et passer à la boîte de dialogue suivante.</para>
+      </listitem>
+      <listitem>
+        <para>Ensuite, vous pourrez ajouter des paires clé-valeur pour vous aider à identifier facilement l'instance. Ce sont juste des métadonnées pour votre propre usage.</para>
+      </listitem>
+      <listitem>
+        <para>Ensuite, vous aurez besoin d'une paire de clés qui vous permettront d'accéder à distance à votre instance. Si vous avez déjà une paire de clés, vous pouvez les utiliser, sinon, vous pouvez créer une nouvelle paire de clés.</para>
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="50%" align="center" fileref="resources/images/aws/security_groups.png"/>
+              <imagedata width="60%" align="center" fileref="resources/images/aws/create_key_pairs.png" />
             </imageobject>
           </mediaobject>
         </screenshot>
       </listitem>
       <listitem>
-        <para>Finally, you can review and launch your instance. </para>
+        <para>Vous aurez besoin d'assigner un groupe de sécurité à l'instance. Les groupes de sécurité peuvent être utilisés pour exposer certains services (SSH, HTTP, Tomcat, etc) à Internet. Avec les groupes de sécurité vous pouvez contrôler les ports qui seront ouverts pour des plages de réseau spécifiques. Pour DHIS 2, vous aurez normalement besoin d'au moins le port 22 (SSH) et le port 80 (HTTP) ouvert sur l'Internet ou pour des plages d'adresses spécifiques.</para>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="50%" align="center" fileref="resources/images/aws/security_groups.png" />
+            </imageobject>
+          </mediaobject>
+        </screenshot>
       </listitem>
       <listitem>
-        <para>Once the instance, has been launched, you can connect via PuTTY or any other SSH client to the instance using the instance&apos;s Public DNS, which is listed on the EC2 control panel. You will need to install a few packages if you are using the Amazon default AMI.</para>
-        <screen>yum install jdk.i586 postgresql-server.i686 apache-tomcat-apis.
+        <para>Vous pourrez enfin réviser et lancer votre instance.</para>
+      </listitem>
+      <listitem>
+        <para>Une fois l'instance lancée, vous pouvez vous connecter via PuTTY ou tout autre client SSH à votre instance à l'aide des DNS publiques de l'instance, qui sont listées sur le panneau de contrôle de EC2. Vous aurez besoin d'installer quelques paquets si vous utilisez l'AMI Amazon par défaut.</para>
+        <screen format="linespecific">yum install jdk.i586 postgresql-server.i686 apache-tomcat-apis.
 noarch tomcat-native.i686 httpd.i686</screen>
       </listitem>
       <listitem>
-        <para>Once you have installed these packages, you can follow the instructions provided in the  on setting up a server.  </para>
+        <para>Une fois que vous avez installé ces paquets, vous pouvez suivre les instructions fournies dans la section dédiée à la configuration du serveur.</para>
       </listitem>
     </orderedlist>
   </section>
