@@ -737,7 +737,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
           <row>
             <entry>cp</entry>
             <entry>No (must combine with cc)</entry>
-            <entry>Attribute option identifiers, can be repeated multiple times</entry>
+            <entry>Attribute option identifiers, separated with ; for multiple values</entry>
           </row>
           <row>
             <entry>value</entry>
@@ -767,7 +767,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       option combination. This can be done by sending the identifier of the attribute combination,
       together with the identifier(s) of the attribute option(s) which the value represents within
       the combination. An example looks like this:</para>
-    <screen>curl "http://apps.dhis2.org/demo/api/dataValues?de=s46m5MS0hxu&amp;ou=DiszpKrYNg8&amp;pe=201308&amp;cc=dzjKKQq0cSO&amp;cp=wbrDrL2aYEc&amp;cp=btOyqprQ9e8&amp;value=26" -X POST -u admin:district -v</screen>
+    <screen>curl "http://apps.dhis2.org/demo/api/dataValues?de=s46m5MS0hxu&amp;ou=DiszpKrYNg8&amp;pe=201308&amp;cc=dzjKKQq0cSO&amp;cp=wbrDrL2aYEc;btOyqprQ9e8&amp;value=26" -X POST -u admin:district -v</screen>
   </section>
   <section>
     <title>Reading data values</title>
