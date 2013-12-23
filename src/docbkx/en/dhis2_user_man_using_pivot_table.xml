@@ -61,15 +61,18 @@
       periods are "Last month", "Last 12 months", "Last 5 years". Relative periods can be selected
       by ticking the checkboxes next to each period. The main advantage of using relative periods is
       that when you save a pivot table favorite, it will stay updated with the latest data as time
-      goes by without the need for constantly updating it.</para>
+      goes by without the need for constantly updating it. The "Rewind one period" will make the
+      relative periods relative to the current date subtracted by one period. This is useful to
+      manage situations where there is a gap between the end of the reporting period and the time
+      when data is entered into the system.</para>
     <para>For the organisation unit dimension you can select any number of organisation units from
       the hierarchy. To select all organisation units below a specific parent organisation unit,
       right click and click "Select all children". To manually select multiple organisation units,
       click and hold the Ctrl button while clicking on organisation units. You can tick "User
-      organisation unit", "User organisation unit children" or "User organisation unit grand children"
-      in order to dynamically insert the organisation unit or units associated with your user account.
-      This is useful when you save a pivot table favorite and want to share it with other users, as the
-      organisation units linked with the other user's account will be used when viewing the favorite.</para>
+      organisation unit" or "User organisation unit children" in order to dynamically insert the
+      organisation unit or units associated with your user account. This is useful when you save a
+      pivot table favorite and want to share it with other users, as the organisation units linked
+      with the other user's account will be used when viewing the favorite.</para>
     <screenshot>
       <screeninfo>Selection of fixed and relative periods.</screeninfo>
       <mediaobject>
@@ -108,7 +111,7 @@
       <screeninfo>Pivot table where organisation units and periods are repeated on rows.</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata width="90%" fileref="resources/images/pivot_table/pivot_rows.png" format="PNG"/>
+          <imagedata width="85%" fileref="resources/images/pivot_table/pivot_rows.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -134,11 +137,6 @@
           table more readable.</para>
       </listitem>
       <listitem>
-        <para>Show hierarchy: Shows the name of all ancestors for organisation units, e.g.
-		  "Sierra Leone / Bombali / Tamabaka / Sanya CHP" for Sanya CHP. The organisation units are then
-		  sorted alphabetically which will order the organisation units perfectly according to the hierarchy.</para>
-      </listitem>
-      <listitem>
         <para>Display density: Controls the size of the cells in the table. Can be set to
           "comfortable", "normal" and "compact". The "compact" option is handy in order to fit large
           tables into the browser screen.</para>
@@ -150,9 +148,6 @@
       <listitem>
         <para>Digit group separator: Controls which character to separate groups of digits or "thousands". Can
           be set to "comma", "space" and "none".</para>
-      </listitem>
-      <listitem>
-        <para>Legend set: Shows a color indicator next to the values. Currently the GIS legend sets are being used.</para>
       </listitem>
     </itemizedlist>
   </section>
@@ -176,31 +171,6 @@
     </screenshot>
   </section>
   <section>
-    <title>Analysis integration</title>
-    <para>The analysis apps in DHIS 2 are completely integrated, so you can easily switch
-	  between pivot table, chart and map visualization of your data. When you have made a pivot table
-	  you can click e.g. "Chart" in the top right corner and then select "Open this table as chart".</para>
-    <screenshot>
-      <screeninfo>Analysis integration</screeninfo>
-      <mediaobject>
-        <imageobject>
-          <imagedata width="25%" fileref="resources/images/pivot_table/pivot_integration.png" format="PNG"/>
-        </imageobject>
-      </mediaobject>
-    </screenshot>    
-    <para>If you just want to visualize a small part of your pivot table as a chart, you can click directly on a
-    value in the table instead. A menu will appear. If you mouse hover the "Open selection as chart" option you can see
-    that some of the dimension headers in the table are highlighted, indicating what data will be visualized as a chart.</para>
-    <screenshot>
-      <screeninfo>Chart integration</screeninfo>
-      <mediaobject>
-        <imageobject>
-          <imagedata width="90%" fileref="resources/images/pivot_table/pivot_integration_table.png" format="PNG"/>
-        </imageobject>
-      </mediaobject>
-    </screenshot>
-  </section>
-  <section>
     <title>Downloading data</title>
     <para>You can download the data in the current pivot table by clicking on "Download" in the top
       menu. The data can be downloaded in MS Excel and CSV format. The data table will have one
@@ -213,12 +183,6 @@
       dimension items and will be opened in a new browser window in order to reveal the URL of the
       request to the Web API in the address bar. This will be useful for developers of apps and 
       other client modules based on the DHIS 2 Web API.</para>
-  </section>
-  <section>
-    <title>Share interpretations</title>
-    <para>After saving or loading a favorite the "Share" button on the toolbar is enabled. Clicking it will
-    open up a window where you can write your interpretation of the favorite and share it with other users.
-    Below the textarea there are links to the favorite, as pivot table and in the api respectively.</para>
   </section>
   <section>
     <title>Constraints</title>

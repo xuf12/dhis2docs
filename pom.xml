@@ -4,22 +4,22 @@
   <groupId>org.hisp.dhis</groupId>
   <artifactId>dhis-documentation-docbook</artifactId>
   <name>DHIS2 Documentation</name>
-  <version>2.13</version>
+  <version>2.12</version>
   <description>DHIS 2 Documentation</description>
   <packaging>pom</packaging>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>docbkx.snapshots</id>
-      <name>Maven Plugin Snapshots</name>
-      <url>http://docbkx-tools.sourceforge.net/snapshots/</url>
-      <releases>
-	  	<enabled>true</enabled>
-	  </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>
+   <pluginRepositories>
+  <pluginRepository>
+    <id>docbkx.snapshots</id>
+    <name>Maven Plugin Snapshots</name>
+    <url>http://docbkx-tools.sourceforge.net/snapshots/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 
   <properties>
     <docbkx.plugin.version>2.0.14</docbkx.plugin.version>
@@ -42,7 +42,7 @@
                   <format property="now" pattern="yyyy-MM-dd HH:mm:ss"/>
                 </tstamp>
                 <exec executable="bzr" outputproperty="revision" failifexecutionfails="false">
-                  <arg line="revno -q"/>
+                      <arg line="revno -q"/>
                 </exec>
                <echo file="${project.basedir}/src/docbkx/build.properties" message="&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;&lt;revhistory&gt;&lt;revision&gt;&lt;revnumber&gt; ${revision}&lt;/revnumber&gt;&lt;revremark&gt;Version ${project.version} ${now}&lt;/revremark&gt;&lt;/revision&gt;&lt;/revhistory&gt;" />
               </tasks>
