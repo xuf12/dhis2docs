@@ -3389,10 +3389,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
       task. Currently PNG and PDF output formats are supported. An optional query parameter
         <emphasis role="italic">filename</emphasis> can be used to specify the filename of the
       response attachment file. Note that the file extension should be omitted. For PNG you can send
-      a <emphasis role="italic">POST</emphasis> request with the SVG content as body like
-      this:</para>
+      a <emphasis role="italic">POST</emphasis> request with the SVG content as body to the
+      following URL with Content-type <emphasis role="italic">application/xml</emphasis>.</para>
     <screen>api/svg.png?filename=myfile</screen>
-    <para>For PDF you can send a POST request with the SVG content as body like this:</para>
+    <para>For PDF you can send a <emphasis role="italic">POST</emphasis> request with the SVG
+      content as body to the following URL with Content-type <emphasis role="italic"
+        >application/xml</emphasis>.</para>
     <screen>api/svg.pdf?filename=myfile</screen>
   </section>
   <section>
