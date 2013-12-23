@@ -212,36 +212,44 @@ sudo /etc/init.d/nginx stop</screen></para>
       <para>Now that we have installed nginx we will now continue to configure regular proxying of requests to our Tomcat instance, which we assume runs at <emphasis role="italic">http://localhost:8080</emphasis>. To configure nginx you can open the configuration file by invoking</para>
       <para><code>sudo nano /etc/nginx/nginx.conf</code></para>
       <para>nginx configuration is built around a hierarchy of blocks representing http, server and location, where each block inherit settings from parent blocks. The following snippet will configure nginx to proxy pass (redirect) requests from port 80 (which is the port nginx will listen on by default) to our Tomcat instance. It will also make nginx serve requests for static content such as Javascript, stylesheets and images and instruct clients to cache it for 4 days which will reduce the load on Tomcat and improve overall performance. Include the following configuration in nginx.conf:</para>
-      <para><screen><![CDATA[server {
-  listen               80;
-  root  /home/dhis/tomcat/webapps/ROOT; # Update path!
-  client_max_body_size 10M;
+      <para><screen>http {
+  gzip on; # Enables compression
 
-  # Serve static content
+  server {
+    listen               80;
+    root  /home/dhis/tomcat/webapps/ROOT; # Update path!
+    client_max_body_size 10M;
 
-  location ~ (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|\.ico$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
-    add_header  Cache-Control  public;
-    expires  7d;
-  } 
+    # Serve static content
 
-  # Proxy pass to servlet container
+    location ~ (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|\.ico$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
+      add_header  Cache-Control  public;
+      expires  7d;
+    } 
 
-  location / {
-    proxy_pass        http://localhost:8080/;
-    proxy_redirect    off;
-    proxy_set_header  Host               $host;
-    proxy_set_header  X-Real-IP          $remote_addr;
-    proxy_set_header  X-Forwarded-For    $proxy_add_x_forwarded_for;
-    proxy_set_header  X-Forwarded-Proto  http;
+    # Proxy pass to servlet container
+
+    location / {
+      proxy_pass        http://localhost:8080/;
+      proxy_redirect    off;
+      proxy_set_header  Host               $host;
+      proxy_set_header  X-Real-IP          $remote_addr;
+      proxy_set_header  X-Forwarded-For    $proxy_add_x_forwarded_for;
+      proxy_set_header  X-Forwarded-Proto  http;
+    }
   }
-}]]></screen></para>
+}</screen></para>
       <para>You can now access your DHIS instance at <emphasis role="italic">http://localhost</emphasis>. Since the reverse proxy has been set up we can improve
         security by making Tomcat only listen for local connections. In <emphasis role="italic">/conf/server.xml</emphasis> you can add an <emphasis role="italic">address</emphasis>
         attribute with the value <emphasis role="italic">localhost</emphasis> to the Connector
         element for HTTP 1.1 like this:</para>
       <para><screen>&lt;Connector address=&quot;localhost&quot; protocol=&quot;HTTP/1.1&quot; ... &gt;</screen></para>
       <important>
-        <para>The location block for static content is essential as web browsers will not cache static content by default over SSL. It will only cache such content on the client side if told explicitly by the web server.</para>
+        <para>The location block for static content is essential as web browsers will not cache
+          static content by default over SSL. It will only cache such content on the client side if
+          told explicitly by the web server. It is also useful to enable compression of data which
+          is returned by nginx in order to reduce the size of data that has to be transferred over
+          the network through the gzip directive.</para>
       </important>
     </section>
     <section>
@@ -258,60 +266,63 @@ sudo /etc/init.d/nginx stop</screen></para>
         good location for this can be the same directory as where your nginx.conf file is
         located.</para>
       <para>Below is an nginx server block where the certificate files are named server.crt and server.key. Since SSL connections usually occur on port 443 (HTTPS) we pass requests on that port (443) on to the DHIS instance running on <emphasis role="italic">http://localhost:8080</emphasis> The first server block will rewrite all requests connecting to port 80 and force the use of HTTPS/SSL. This is also necessary because DHIS is using a lot of redirects internally which must be passed on to use HTTPS. Remember to replace <emphasis role="italic">&lt;server-ip&gt;</emphasis> with the  IP of your server. These blocks should replace the  one from the previous section.</para>
-      <screen><![CDATA[# HTTP server - rewrite to force use of SSL
+      <screen>http {
+  gzip on; # Enables compression
 
-server {
-  listen     80;
-  rewrite    ^ https://<server-url>$request_uri? permanent;
-}
+  # HTTP server - rewrite to force use of SSL
 
-# HTTPS server
+  server {
+    listen     80;
+    rewrite    ^ https://&lt;server-url>$request_uri? permanent;
+  }
 
-server {
-  listen               443;
-  root  /home/dhis/tomcat/webapps/ROOT; # Update path!
-  client_max_body_size 10M;
+  # HTTPS server
 
-  ssl                  on;
-  ssl_certificate      server.crt;
-  ssl_certificate_key  server.key;
+  server {
+    listen               443;
+    root  /home/dhis/tomcat/webapps/ROOT; # Update path!
+    client_max_body_size 10M;
 
-  ssl_session_timeout  30m;
+    ssl                  on;
+    ssl_certificate      server.crt;
+    ssl_certificate_key  server.key;
 
-  ssl_protocols              SSLv2 SSLv3 TLSv1;
-  ssl_ciphers                HIGH:!aNULL:!MD5;
-  ssl_prefer_server_ciphers  on;
+    ssl_session_timeout  30m;
 
-  # Serve static content
+    ssl_protocols              SSLv2 SSLv3 TLSv1;
+    ssl_ciphers                HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers  on;
 
-  location ~ (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|\.ico$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
-    add_header  Cache-Control  public;
-    expires  7d;
-  } 
+    # Serve static content
 
-  # Proxy pass to servlet container
+    location ~ (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|\.ico$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
+      add_header  Cache-Control  public;
+      expires  7d;
+    } 
 
-  location / {
-    proxy_pass        http://localhost:8080/;
-    proxy_redirect    off;
-    proxy_set_header  Host               $host;
-    proxy_set_header  X-Real-IP          $remote_addr;
-    proxy_set_header  X-Forwarded-For    $proxy_add_x_forwarded_for;
-    proxy_set_header  X-Forwarded-Proto  https;
- }
-}]]></screen>
+    # Proxy pass to servlet container
+
+    location / {
+      proxy_pass        http://localhost:8080/;
+      proxy_redirect    off;
+      proxy_set_header  Host               $host;
+      proxy_set_header  X-Real-IP          $remote_addr;
+      proxy_set_header  X-Forwarded-For    $proxy_add_x_forwarded_for;
+      proxy_set_header  X-Forwarded-Proto  https;
+    }
+  }
+}</screen>
       <para>In order for tomcat to properly produce Location uris using https you also need to add two other parameters to the Connector in tomcat&apos;s server.xml file:</para>
       <para><screen>&lt;Connector scheme=&quot;https&quot; proxyPort=&quot;443&quot; ... &gt;</screen></para>
     </section>
     <section>
-      <title>Enabling caching, compression and SSL on nginx</title>
+      <title>Enabling caching and SSL on nginx</title>
       <para>Requests for reports, charts, maps and other analysis-related resources will often take
         some time to respond and might utilize a lot of server resources. In order to improve
         response times, reduce the load on the server and hide potential server downtime we can
         introduce a cache proxy in our server setup. The cached content will be stored in directory
         /var/cache/nginx, and up to 250 MB of storage will be allocated. Nginx will create this
-        directory automatically. It is also useful to enable compression of data which is returned
-        by nginx in order to reduce the size of data that has to be transferred over the network. </para>
+        directory automatically.</para>
       <screen>http {
   # ...
   root              /home/dhis/tomcat/webapps/ROOT; # Update path!

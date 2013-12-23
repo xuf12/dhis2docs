@@ -59,6 +59,9 @@
           the proportion of data for individual data elements compared to the total sum of all data
           elements in the chart.</para>
       </listitem>
+      <listitem>
+        <para>Radar chart: Displaying multivariate data on axes starting from the same point. Also known as spider chart.</para>
+      </listitem>
     </orderedlist>
   </section>
   <section id="dvSeriesCategoryFilter">
@@ -110,66 +113,53 @@
     <para>The visualizer can display reporting rates in a chart, by itself or together with indicators and data elements. Reporting rates can be selected by clicking at the &quot;Reporting rates&quot; header. Reporting rates are defined by data sets. It can be selected by double-clicking in the list of available data sets to the left.</para>
   </section>
   <section>
-    <title>Selecting relative periods</title>
-    <para>To select relative periods click on the &quot;Relative periods&quot; header. You can select any number of periods from the set of periods listed under the header, such as &quot;Last month&quot;, &quot;Months this year&quot; and &quot;Last 5 years&quot;. The names should be fairly self-descriptive. All periods are relative to the current date, meaning that if the current month is March and you select &quot;Last month&quot;, the month of February will be included in the chart.</para>
-  </section>
-  <section>
-    <title>Selecting fixed periods</title>
-    <para>To select fixed periods click on the &quot;Fixed periods&quot; header and select a period type from the combo box. You can select any number of fixed periods from any period type. You are free to combine fixed periods and relative periods in the same chart. Overlapping periods will be filtered so that they only appear once.</para>
+    <title>Selecting fixed and relative periods</title>
+    <para>Click on the &quot;Periods&quot; header. For fixed periods, select a period type from the combo box. You can select any number of fixed periods from any period type. Below the fixed period you will find the relative period checkboxes and you may select as many as you like. The names should be fairly self-descriptive and they are relative to the current date, meaning that if the current month is March and you select &quot;Last month&quot;, the month of February will be included in the chart. You are also free to combine fixed periods and relative periods in the same chart. Overlapping periods will be filtered so that they only appear once.</para>
   </section>
   <section>
     <title>Selecting organisation units</title>
     <para>You can select which organisation units to include in the chart by clicking the
-      &quot;Organisation units&quot; header. This section features a tree including all organisation
-      units in the system. You can select any of the organisation units by clicking them. If you
-      want to select multiple, arbitrary organisation units you can press the Ctrl button and then
-      click away in the tree. If you want to include all organisation units existing directly under
-      a specific organisation unit (the children of the parent organisation unit in other terms) you
-      can right-click on the organisation unit and select &quot;Select all children&quot;. You can
-      also automatically select all organisation units in a particular organisation unit group.
-      Click the &quot;Group&quot; button on the far right of the toolbar above the tree and select a
-      group in the drop down list.</para>
-    <para>This panel also features two checkboxes. Checking &quot;User organisation unit&quot; will disable the organisation unit tree and give you the organisation unit that is related to the current/logged in user instead. This is also useful for administrators as they can create a meaningful &quot;system&quot; favorite with this option checked and all users will find their respective organisation unit when they open it. The the same concept goes for the &quot;User organisation unit children&quot; checkbox.</para>
+      &quot;Organisation units&quot; header. This section features three ways of selecting organisation units. The default mode is called &quot;Organisation units&quot; and lets you select the organisation units you want to appear in the chart from the tree. This mode also features three checkboxes. Checking &quot;User org unit&quot; will disable the organisation unit tree and give you the organisation unit that is related to the current/logged in user instead. This is also useful for administrators as they can create a meaningful &quot;system&quot; favorite with this option checked and all users will find their respective organisation unit when they open it. The the same concept goes for &quot;Org unit children&quot; and &quot;Org unit grand children&quot;. The second mode is called &quot;Select levels&quot;. Here you can select all organisation units at one or more levels. However, at the same time you also have the option to select parent organisation units in the tree, which makes it easy to select e.g. all facilities inside one or more districts. The same thing goes for the third mode called &quot;Select groups&quot;. Here you can select all organisation units inside one or more groups and parent organisation units at the same time.</para>
   </section>
   <section>
-	<title>Selecting organisation unit groups</title>
-	<para>You can break down the national level into organisation unit groups by simply selecting a group set in the combo box. The groups in the selected group set will replace any selected organisation units in the organisation unit panel.</para>
+	<title>Selecting organisation unit group sets and data element group sets</title>
+	<para>All dimension tabs listed below &quot;Organisation units&quot; are organisation unit group sets and data element group sets. You are free to add groups from any of these group sets to your chart. Remember to add the group set in either the series, category or filters combobox.</para>
   </section>
   <section>
     <title>Selecting chart options</title>
-    <para>You can set various chart options by clicking on the &quot;Chart options&quot; header in the panel to the  left. </para>
+    <para>You can set various chart options by clicking on the &quot;Options&quot; button the chart toolbar.</para>
     <itemizedlist>
-      <listitem>
-        <para>Show series data: Displays the corresponding value next to columns and bars in the chart.</para>
-      </listitem>
       <listitem>
         <para>Show trend line: The trend line will visualize how your data evolves over time - e.g.
           is performance improving or deteriorating. Makes sense when periods are selected as
           category. </para>
       </listitem>
       <listitem>
-        <para>Hide chart subtitle: Hides the title and subtitle of your chart.</para>
+        <para>Show series data: Displays the corresponding value next to columns and bars in the chart.</para>
       </listitem>
       <listitem>
-        <para>Hide chart legend: Hides the legend and leave more room for the chart itself.</para>
+        <para>Target line value/title: Displays a horizontal line at the given domain value. Useful e.g. when you want to compare your performance to the current target.</para>
+      </listitem>
+      <listitem>
+        <para>Base line value/title: Displays a horizontal line at the given domain value. Useful e.g. when you want to visualize how your performance has evolved since the beginning of a process.</para>
+      </listitem>
+      <listitem>
+        <para>Show values: Shows the values above the series in the chart.</para>
+      </listitem>
+      <listitem>
+        <para>Hide chart legend: Hides the legend and leaves more room for the chart itself.</para>
+      </listitem>
+      <listitem>
+        <para>Hide chart title: Hides the title of your chart.</para>
+      </listitem>
+      <listitem>
+        <para>Chart title: Type any title you like and it will appear above the chart.</para>
       </listitem>
       <listitem>
         <para>Domain axis label: Displays a label below the domain axis (also referred to as the X axis). Can give context information to the chart, e.g. the type of periods being listed.</para>
       </listitem>
       <listitem>
         <para>Range axis label: Displays a label next to the range axis (also referred to as the Y axis). Can give context information to the chart, e.g. the unit of measure being used.</para>
-      </listitem>
-      <listitem>
-        <para>Target line value: Displays a horizontal line at the given domain value. Useful e.g.  when you want to compare your performance to the current target.</para>
-      </listitem>
-      <listitem>
-        <para>Target line label: Displays a label next to the target line.</para>
-      </listitem>
-      <listitem>
-        <para>Base line value: Displays a horizontal line at the given domain value. Useful e.g. when you want to visualize how your performance has evolved since the beginning of a process.</para>
-      </listitem>
-      <listitem>
-        <para>Base line label: Displays a label next to the baseline.</para>
       </listitem>
     </itemizedlist>
   </section>
@@ -179,32 +169,14 @@
     <para>Notice that you can hide and show individual data series in the chart by clicking directly on the series label in the chart - they appear either at the top or to the right of the chart.</para>
     <para>If you want to give the chart more space on your screen you can click on the triple left-arrow button on the top centre menu. This will collapse the left side menu. You can get this menu back by clicking on the same button again.</para>
   </section>
-  <section id="dvDisplayDataTable">
-    <title>Displaying a data table</title>
-    <para>After you have rendered a chart you can display the data in a table by clicking on the &quot;Data table&quot; button on the top centre menu (next to &quot;Update&quot;). This will show a table with four columns, one for data (meaning data element or indicator), period, organisation unit and data value. This table can be sorted ascending or descending on any of the columns.</para>
-    <screenshot>
-      <screeninfo>Example chart illustrating the concepts of series, categories and filter.</screeninfo>
-      <mediaobject>
-        <imageobject>
-          <imagedata width="70%" fileref="resources/images/visualizer/data_table.png" format="PNG"/>
-        </imageobject>
-      </mediaobject>
-    </screenshot>
-  </section>
   <section id="dvSaveChart">
     <title>Downloading chart as image or PDF</title>
-    <para>After you have rendered a chart you can save that view as file and download it to your local computer by clicking on &quot;Save as&quot; on the top centre menu. You can select between PNG (image) or PDF. The file will be automatically downloaded to your computer - for instance can you now embed the image file into a text document as part of a report.</para>
+    <para>After you have rendered a chart you can download it to your local computer as and image or pdf by clicking on &quot;Download&quot; on the top centre menu. The file will be automatically downloaded to your computer - for instance can you now embed the image file into a text document as part of a report. You can also download the data source behind the chart in json, xml, csv or Microsoft Excel format.</para>
   </section>
   <section id="dvFavorites">
     <title>Saving chart as favorite</title>
-    <para>Once you have rendered a chart you can save it as a favorite. Click on the
-      &quot;Favorites&quot; button on the top menu and then on the &quot;Manage favorites&quot;
-      link. In the name field enter the desired name for your chart. By ticking the
-      &quot;System&quot; checkbox the chart will be visible to all users of the system, if you do
-      not tick it the chart will be visible only to yourself. This requires that your user account
-      has the privilege to create system charts. You can rename any favorite by selecting it in the
-      list, modifying its name in the name input field and clicking &quot;Rename&quot;. You can
-      delete any favorite by selecting it and then clicking &quot;Delete&quot;.</para>
+    <para>Once you have rendered a chart you can save it as a favorite to able to access it easily at a later point. Click on the
+      &quot;Favorites&quot; button on the top menu to open up the favorites window. Click &quot;Add new&quot; and in the name field enter the desired name for your chart. The chart will be visible only to yourself. For every favorite in the list you have four options to the right. You can rename the chart (grey button), overwrite the chart (green button), modify the sharing settings of the chart (blue button) or delete the chart (red button).</para>
     <para>These favorite charts can later be included on your personal dashboard. After saving you can navigate to the dashboard module, click on the &quot;Insert&quot; link over the chart areas and select your preferred chart.</para>
     <screenshot>
       <screeninfo>Data visualizer module displaying a column chart.</screeninfo>
@@ -228,7 +200,21 @@
       toolbar.</para>
   </section>
   <section>
+    <title>Analysis integration</title>
+    <para>The analysis apps in DHIS 2 are completely integrated, so you can easily switch
+	  between pivot table, chart and map visualization of your data. When you have made a chart
+	  you can click e.g. "Map" in the top right corner and then select "Open this table as map".</para>
+    <screenshot>
+      <screeninfo>Analysis integration</screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="25%" fileref="resources/images/visualizer/chart_integration.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>  
+  </section>
+  <section>
     <title>Exiting the data visualizer module</title>
-    <para>If you want to exit the module and go back to the DHIS start page you can click on the &quot;Exit&quot; button to the right side of the top centre menu.</para>
+    <para>If you want to exit the module and go back to the DHIS start page you can click on the &quot;Home&quot; button to the right side of the top centre menu.</para>
   </section>
 </chapter>
