@@ -3383,19 +3383,19 @@ ORDER BY oul.level, par.name, ou.name</screen>
   <section>
     <title>SVG conversion</title>
     <para>The Web API provides a resource which can be used to convert SVG content into more widely
-      used formats such as PNG and PDF.Ideally this conversion should happen on the client side, but
-      not all client side technologies are capable of performing this task. Currently PNG and PDF
-      output formats are supported. The SVG content itself should passed with a <emphasis
+      used formats such as PNG and PDF. Ideally this conversion should happen on the client side,
+      but not all client side technologies are capable of performing this task. Currently PNG and
+      PDF output formats are supported. The SVG content itself should passed with a <emphasis
         role="italic">svg</emphasis> query parameter, and an optional query parameter <emphasis
         role="italic">filename</emphasis> can be used to specify the filename of the response
       attachment file. Note that the file extension should be omitted. For PNG you can send a
         <emphasis role="italic">POST</emphasis> request to the following URL with Content-type
-        <emphasis role="italic">application/xml</emphasis> or
-      application/x-www-form-urlencoded.</para>
+        <emphasis role="italic">application/x-www-form-urlencoded</emphasis>, identical to a regular
+      HTML form submission.</para>
     <screen>api/svg.png</screen>
     <para>For PDF you can send a <emphasis role="italic">POST</emphasis> request with the SVG
       content as body to the following URL with Content-type <emphasis role="italic"
-        >application/xml</emphasis> or application/x-www-form-urlencoded.</para>
+        >application/x-www-form-urlencoded</emphasis>.</para>
     <screen>api/svg.pdf</screen>
     <table frame="all">
       <title>Query parameters</title>
