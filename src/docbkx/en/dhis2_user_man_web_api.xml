@@ -3217,6 +3217,38 @@ ORDER BY oul.level, par.name, ou.name</screen>
       the pivot table module. The analytics tables can be generated with a POST or PUT request
       to:</para>
     <screen>http://&lt;server-url>/api/resourceTables/analytics</screen>
+    <table frame="all">
+      <title>Analytics tables optional query parameters</title>
+      <tgroup cols="3">
+        <colspec colname="c1" colnum="1" colwidth="2.38*"/>
+        <colspec colname="c2" colnum="2" colwidth="1*"/>
+        <colspec colname="c3" colnum="3" colwidth="3.76*"/>
+        <thead>
+          <row>
+            <entry>Query parameter</entry>
+            <entry>Options value</entry>
+            <entry>Description</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>skipResourceTables</entry>
+            <entry>false | true</entry>
+            <entry>Skips generation of resource tables</entry>
+          </row>
+          <row>
+            <entry>skipAggregate</entry>
+            <entry>false | true</entry>
+            <entry>Skips generation of aggregate data and completeness data</entry>
+          </row>
+          <row>
+            <entry>skipEvents</entry>
+            <entry>false | true</entry>
+            <entry>Skips generation of event data</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
     <para>The data mart is tables containing pre-calculated aggregated data which are used by DHIS 2
       analysis modules and can be used directly by SQL reports. The data mart tables can be
       generated with a POST or PUT request to:</para>
