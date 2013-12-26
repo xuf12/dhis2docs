@@ -1,152 +1,99 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd"[]>
 <chapter>
-  <title>Localization concepts</title>
-  <para>Localization involves the adaptation of an application to another location. When
-    implementing DHIS 2 in a given country, adequate resources should be allocated to translate the
-    application when required. Translation of the user interface elements, messages, layout, date
-    and time formats, currency and other aspects must be considered. DHIS 2 supports
-    internationalization (i18n) of the user interface through the use of Java property strings. Each
-    element in the user interface has been assigned a specific key which is linked to a value. As an
-    example, consider the following key/value pairs.</para>
-  <programlisting>org_unit_tree=Organisation Unit Tree
+  <title>Concepts de localisation</title>
+  <para>La localisation fait référence à l'adaptation d'une application à une autre région. Lors de la mise en œuvre de DHIS 2 dans un pays donné, des ressources suffisantes devraient être allouées pour traduire l'application en cas de besoin. La traduction des éléments de l'interface utilisateur, des messages, de la mise en page, des formats de date et de temps, de la monnaie et d'autres aspects doivent être pris en considération. DHIS 2 prend en charge l'internationalisation (i18n) de l'interface utilisateur grâce à l'utilisation de chaînes de propriété Java. Chaque élément de l'interface utilisateur a reçu une clé spécifique liée à une valeur. A titre d'exemple, considérons les paires clé / valeur suivantes.</para>
+  <programlisting format="linespecific">org_unit_tree=Organisation Unit Tree
 error_occurred=An error has occurred.</programlisting>
-  <para>In French the same key/value pairs would appear as follows</para>
-  <programlisting>org_unit_tree=Arborescence des unités d&apos;organisation
-error_occurred=Une erreur s&apos;est produite</programlisting>
-  <para>Note that the keys (text before the = symbol) are the same in both examples, but the values
-    (after the = ) symbol are in each of the respective languages. Each of these key/value pairs
-    would need to be translated from the original language (English) to the destination language
-    (e.g. French). When the user specifies French for the user interface language, all of the
-    strings would then appear in French instead of the default language (English). Any strings which
-    have not been translated, would appear in English.</para>
-  <para>The translation keys and values are stored in files called resource bundles. The resource
-    bundles follow fallback rules, meaning that one can create a hierarchy of resource bundles
-    through the file naming convention where property keys are searched from the bottom of the
-    hierarchy and returned at the first match. This comes in useful when you need partial
-    translations, for instance to cater for country-specific variances in a language. One example is
-    Portuguese for which DHIS 2 has several resource bundles:</para>
-  <orderedlist>
+  <para>En français ces mêmes paires clé / valeur apparaîtraient comme suit</para>
+  <programlisting format="linespecific">org_unit_tree=Arborescence des unités d'organisation
+error_occurred=Une erreur s'est produite</programlisting>
+  <para>Notez que les clés (texte avant le symbole =) sont les mêmes dans les deux exemples, mais que les valeurs des symboles (après le signe =) sont dans chacune des langues respectives. Chacune de ces paires clé / valeur aura besoin d'être traduite de la langue originale (anglais) à la langue de destination (par exemple le français). Ainsi lorsque l'utilisateur spécifie français comme langue de l'interface utilisateur, toutes les chaînes apparaitront alors en français à la place de la langue par défaut (anglais). Toutes les chaînes qui n'ont pas été traduites, apparaitront en anglais.</para>
+  <para>Les clés et valeurs de traduction sont stockées dans des fichiers appelés regroupements de ressources. Les regroupements de ressources suivent les règles de "Fallback", ce qui signifie qu’il est possible de créer une hiérarchie de regroupements de ressources à travers la convention de nommage de fichiers où les clés de la propriété seront recherchées à partir du bas de la hiérarchie et la première occurrence sera retrouvée. Cela est utile lorsque vous avez à effectuer des traductions partielles, par exemple pour répondre aux nuances spécifiques de la langue de votre pays. Un exemple est le portugais pour lequel DHIS 2 dispose de plusieurs regroupements de ressources:</para>
+  <orderedlist inheritnum="ignore" continuation="restarts">
     <listitem>
-      <para>i18n_global.properties (The ulimate fallback locale, which is English)</para>
+      <para> i18n_global.properties (La localisation ultime du "Fallback", qui est l'anglais)</para>
     </listitem>
     <listitem>
-      <para>i18n_module_pt.properties (Portuguese translations)</para>
+      <para>i18n_module_pt.properties (les traductions en portugais)</para>
     </listitem>
     <listitem>
-      <para>i18n_module_pt_BR.properties (Brazilian Portuguese translations)</para>
+      <para>i18n_module_pt_BR.properties (les traductions en portugais brésilien)</para>
     </listitem>
   </orderedlist>
-  <para>This structure allows us to have a full general Portuguese translation, and a partial
-    Brazilian Portuguese translation which provides translations of Brazilian-specific keys. For
-    keys which are not translated in the Brazilian Portuguese resource bundle, the system will fall
-    back to the general Portuguese translation. If the key is not present in that file either, the
-    system will fall back to the ultimate fallback locale which is English.</para>
-  <para>There are a number of different mechanisms to begin to localize DHIS 2, two of which will be
-    discussed in the next sections.</para>
+  <para>Cette structure nous permet d'avoir une traduction générale complète en portugais, ainsi qu’une traduction partielle en portugais brésilien qui fournit des traductions des clés spécifiques à la langue brésilienne. Quant aux clés qui ne sont pas traduites dans le regroupement de ressources du portugais brésilien, le système va les remplacer (mécanisme du "Fallback") par celles de la traduction générale en portugais. Dans l’éventualité où cette clé ne serait pas présente dans ce fichier, le système reviendrait à l'environnement local ultime de "Fallback" qui est l'anglais.</para>
+  <para>Il ya un certain nombre de mécanismes différents pour réaliser une localisation du DHIS 2, dont deux seront traités dans les sections suivantes.</para>
   <section>
-    <title>DHIS 2 i18n tool</title>
-    <para>The i18n resource editor is Java desktop application which can be downloaded from
-      http://www.dhis2.org/downloads . It requires that you have checked out the DHIS 2 source code
-      from Bazaar (check out http://www.dhis2.org/development if necessary) and have a Java Runtime
-      Environment installed on your computer. On Windows, simly unpack the ZIP archvie and click the
-      executable file. On Linux, extract the archive, navigate inside the extracted directory and
-      invoke the following:</para>
-    <screen>java -jar dhis-i18n-resourceeditor.jar</screen>
-    <para/>
-    <orderedlist>
+    <title>Outil i18n de DHIS 2</title>
+    <para>L'éditeur de ressources i18n est une application Java qui peut être téléchargée à l’adresse http://www.dhis2.org/downloads. Elle exige que vous fassiez un "checkout" du code source de DHIS 2 via Bazaar (consultez le site http://www.dhis2.org/development si nécessaire) et que vous ayez un environnement d'exécution Java installé sur votre ordinateur (JRE). Sous Windows, décompressez simplement l’archive ZIP et cliquez sur le fichier exécutable. Sous Linux, décompressez l'archive, allez dans le répertoire d’extraction et invoquez la commande suivante:</para>
+    <screen format="linespecific">java -jar dhis-i18n-resourceeditor.jar</screen>
+    <para />
+    <orderedlist inheritnum="ignore" continuation="restarts">
       <listitem>
-        <para>Press &quot;Browse&quot; when the application starts and select the path to the
-          "dhis-2" directory inside your local copy (checkout) of the DHIS 2 source code repository,
-          followed by OK. </para>
+        <para>Appuyez sur "Parcourir" lors du démarrage de l'application et sélectionnez le chemin du répertoire "dhis-2" à l'intérieur de votre copie locale (dépôt Bazaar) du référentiel de code source DHIS 2, et faites OK.</para>
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata align="center" fileref="resources/images/i18n/i18n_tool_startup.png"/>
+              <imagedata align="center" fileref="resources/images/i18n/i18n_tool_startup.png" />
             </imageobject>
           </mediaobject>
         </screenshot>
       </listitem>
       <listitem>
-        <para>Next, select the destination locale which you will translate strings into. Remember
-          that if you want to create or add to a general language translation, select e.g.
-          "Portuguese - [pt]. If you want to create a country-specific translation, select e.g.
-          "Portuguese - Brazil [pt_BR]. Locales which already have keys translated will show the
-          text "Resources for this locale exist".</para>
+        <para>Ensuite, sélectionnez les paramètres de localisation cible pour laquelle vous souhaitez effectuer une traduction des chaînes. N'oubliez pas que si vous souhaitez créer ou ajouter une traduction en langue générale, vous devez sélectionner par exemple "Portugais - [pt] ". Si vous voulez créer une traduction spécifique à un pays, sélectionnez par exemple les localisations " Portugais - Brésil [fr_BR] " qui ont déjà des clés traduites et afficheront le texte «Des ressources pour cette localisation existent".</para>
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata align="center" fileref="resources/images/i18n/i18n_tool_select_locale.png"
-              />
+              <imagedata align="center" fileref="resources/images/i18n/i18n_tool_select_locale.png" />
             </imageobject>
           </mediaobject>
         </screenshot>
       </listitem>
       <listitem>
-        <para>Select one of the web modules from the left hand side to translate, e.g.
-          dhis-web-maintenance-dataset.</para>
+        <para>Sélectionnez l'un des modules Web de la plateforme sur le panneau gauche pour lequel vous souhaitez effectuer une traduction, par exemple, dhis-web-maintenance-dataset.</para>
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="80%" align="center"
-                fileref="resources/images/i18n/i18n_tool_main_window.png"/>
+              <imagedata width="80%" align="center" fileref="resources/images/i18n/i18n_tool_main_window.png" />
             </imageobject>
           </mediaobject>
         </screenshot>
-        <para>Once you have selected a module, click on a particular key from the left-hand side. A
-          reference value for the key will be displayed in the lower right-hand pane, and the
-          translation value will be displayed in the upper right-hand pane. Keys with missing values
-          will be indicated with a red icon. If the value does not exist, simply add the translation
-          there.</para>
+        <para>Une fois que vous avez sélectionné un module, cliquez sur une clé quelconque du panneau gauche. Une valeur de référence de la clé s'affiche alors dans le volet inférieur droit, et la valeur de traduction s'affiche dans le volet supérieur droit. Les clés ayant des valeurs manquantes seront indiquées par une icône rouge. Si la valeur n'existe pas, ajoutez simplement la traduction.</para>
       </listitem>
       <listitem>
-        <para>Once you have finished translating, make sure to press the &quot;Save&quot; button. </para>
+        <para>Une fois que vous avez terminé votre traduction, assurez-vous d'appuyer sur le bouton "Enregistrer".</para>
       </listitem>
     </orderedlist>
   </section>
   <section>
-    <title>Using the DHIS 2 translation server</title>
-    <para>A web-based portal solution has been setup in order to facilitate the translation of DHIS
-      2 into multiple languages. Simply direct your browser to http://translate.dhis2.net/ and
-      register for an account by providing a username, email address and password. The server will
-      send you a confirmation email which you can use to activate your account. Once you have
-      activated your account, simply press the &quot;Log in&quot; link from the main portal page,
-      and provide your username and password. </para>
-    <para>The first time you login, you should select your settings, by clicking &quot;My account-&gt;Settings&quot;. Here you can select your interface language, the projects which you wish to work on,  and the languages which you will translate into. Be sure to press &quot;Save&quot; when have finished making your changes. </para>
-    <para>To start translating, be sure you have logged in, and then press the &quot;Home&quot; link
-      in the upper-right hand corner. Select a project (e.g. DHIS 2) and then click on the language
-      which you wish to translate. The number of words which need to be translated will be displayed
-      under the &quot;Summary&quot; field. Click on one of the modules (e.g. dhis-2) and the keep
-      drilling down through the folders to find a module which needs translation, (e.g.
-      dhis-web-&gt;dhis-web-caseentry). Now click on the &quot;Summary&quot; text which will say
-      something like &quot;194 words need attention&quot;. You will be directed to the key/value
-      pair which requires translation. </para>
+    <title>Utilisation du serveur de traduction de DHIS 2</title>
+    <para>Une solution basée sur un portail Web a été mise en place pour faciliter la traduction de DHIS 2 en plusieurs langues. Il suffit de vous rendre avec votre navigateur à l’adresse http://translate.dhis2.net/ et d’y créer un compte en fournissant un nom d'utilisateur, une adresse e-mail et un mot de passe. Le serveur vous enverra un email de confirmation pour que vous puissiez activer et utiliser votre compte. Une fois que vous avez activé votre compte, appuyez simplement sur le lien "Connexion" de la page d’accueil du portail, et saisissez votre nom d'utilisateur et votre mot de passe.</para>
+    <para>La première fois que vous vous connectez, vous devez sélectionner vos paramètres, en cliquant sur "My account-&gt; Settings". Là, vous pourrez sélectionner la langue de votre interface, les projets sur lesquels vous souhaitez travailler, et les langues pour lesquelles vous souhaitez effectuer des traductions. Assurez-vous d'appuyer sur "Enregistrer" lorsque vous aurez terminé vos modifications.</para>
+    <para>Pour commencer à traduire, assurez-vous que vous vous êtes connecté, puis appuyez sur le lien «Accueil» dans le coin supérieur droit. Sélectionnez un projet (par exemple DHIS 2), puis cliquez sur la langue que vous souhaitez traduire. Le nombre de mots qui doivent être traduits sera alors affiché sous le champ "Résumé". Cliquez sur l'un des modules (par exemple dhis-2) et sélectionnez à travers le menu déroulant les dossiers pour trouver un module qui doit être traduit (par exemple dhis-web-&gt; dhis-web-caseentry). Maintenant, cliquez sur le texte "Résumé" qui affichera quelque chose comme "194 mots ont besoin de votre attention". Vous serez alors dirigés vers ces paires clé / valeur qui nécessitent une traduction.</para>
     <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata width="80%" align="center" fileref="resources/images/i18n/i18n_web_portal_translate.PNG"/>
+          <imagedata width="80%" align="center" fileref="resources/images/i18n/i18n_web_portal_translate.PNG" />
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>In this case, we need to translate the phrase &quot;Name-based&quot; from English to French. Enter the translation in the window just below the reference phrase.. If you are unsure if the translation is correct or needs review, you can mark it as &quot;Fuzzy&quot;. Once you have completed the translation, just press &quot;Submit&quot;. Your translations will be incorporated into the source code on a regular basis by the development team. </para>
+    <para>Dans ce cas, nous avons besoin de traduire l'expression "Name-based"  de l'anglais en français. Entrez la traduction dans la fenêtre juste en dessous de la phrase de référence. Si vous ne savez pas si la traduction est correcte ou doit être revue, vous pouvez le marquer comme "floue". Une fois que vous avez terminé la traduction, appuyez simplement sur "Envoyer". Vos traductions seront ajoutées au code source sur une base régulière par l'équipe de développement.</para>
   </section>
   <section>
-    <title>Important localization concepts</title>
+    <title>Concepts importants de localisation</title>
     <important>
       <itemizedlist>
         <listitem>
-          <para>There are a number of key/value pairs such as &quot;format.FinancialApril.startDate=dd MMM yyyy &apos;to &apos;&quot; which are used for date/time formatting in the application. Part of the value should not be translated because it is actually a Java date formatting template. It this example it is  &quot;dd MMM yyyy&quot;. Consult this <ulink url="http://docs.oracle.com/javase/tutorial/i18n/format/simpleDateFormat.html">site</ulink> for more information on the Java date formatting syntax. The part of the value which can be translated would be &quot;to&quot;, for instance to &quot;a&quot; in Spanish. If these data format template strings are translated, it may result in errors in the application. </para>
+          <para>Il ya un certain nombre de paires clé / valeur tels que " format.FinancialApril.startDate = dd MMM yyyy ' to ' " qui sont utilisées pour le formatage  de la date et de l’heure de l’application. Une partie de ces valeurs  ne doit pas être traduite parce qu'elle est en fait un modèle de formatage de date Java. Dans cet exemple, la valeur est " dd MMM yyyy " . Consultez ce <ulink url="http://docs.oracle.com/javase/tutorial/i18n/format/simpleDateFormat.html">site</ulink> pour plus d'informations sur la syntaxe de mise en forme des dates Java. La partie de la valeur qui peut être traduit serait "to , donnant par exemple "a" en espagnol . Si ces chaînes de modèle de format de données sont converties , elles peuvent entraîner des erreurs dans l'application.</para>
         </listitem>
         <listitem>
-          <para>It is not necessary to translate a string from the original language (English) if
-            the translated string is the same. You can simply leave it blank. By default, DHIS 2
-            will use English values for all strings which have not been translated. </para>
+          <para>Il n'est pas nécessaire de traduire une chaîne à partir de la langue originale (anglais) si la chaîne traduite est la même. Vous pouvez simplement la laisser vide. Par défaut, DHIS 2 utilise les valeurs en anglais pour toutes les chaînes qui n'ont pas été traduites.</para>
         </listitem>
         <listitem>
-          <para>All translated strings must be stored in escaped UTF-8 format. If you are using the translation portal, be sure your browser settings are set to UTF-8 when translating. If you are using a text editor or other tool such as an IDE, you may need to convert the UTF-8 characters to escaped syntax, using the Java &quot;native2ascii&quot; utility. </para>
+          <para>Toutes les chaînes traduites doivent être enregistrées au le format UTF-8. Si vous utilisez le portail de traduction, assurez-vous que les paramètres de votre navigateur sont réglés à UTF-8 lors de la traduction. Si vous utilisez un éditeur de texte ou un autre outil comme un EDI, vous pouvez avoir besoin de convertir les caractères en UTF-8 en utilisant l’utilitaire Java "native2ascii".</para>
         </listitem>
         <listitem>
-          <para>Some special variables (e.g. {0} ) used curly brackets. This denotes a variable which will be replaced by a number or other value by the application. You must place this variable notation in the correct position. </para>
+          <para>Certaines variables spéciales (par exemple, {0}) utilisent des accolades. Cela indique une variable qui sera remplacée par un numéro ou une autre valeur par l'application. Vous devez placer la notation de cette variable à sa position correcte.</para>
         </listitem>
       </itemizedlist>
     </important>

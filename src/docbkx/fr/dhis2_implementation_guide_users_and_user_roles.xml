@@ -1,57 +1,56 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. -->
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd"[]>
 <chapter>
-  <title>Users and User Roles</title>
-  <para>DHIS 2 comes with an advanced solution for fine-grained management of users and user roles. The system is completely flexible in terms of the number and type of users and roles allowed.</para>
+  <title>Utilisateurs et Rôles d’Utilisateurs</title>
+  <para>DHIS 2 vient avec une solution de pointe pour la gestion fine des utilisateurs et des rôles d'utilisateurs. Le système est totalement flexible en termes de nombre et de type d'utilisateurs et de rôles.</para>
   <section>
-    <title>Users</title>
-    <para>A user in the DHIS 2 context is a human who is utilizing the software. Each user in DHIS 2 has a user account which is identified by a username. A user account allows the user to authenticate to system services and be granted authorization to access them. To log in (authenticate) the user is required to enter a valid combination of username and password. If that combination matches a username and password registered in the database, the user is allowed to enter.</para>
-    <para>In addition, a user should be given a first name, surname, email and phone number. This information is important to get correct when creating new users since certain functions in DHIS 2 relies on sending emails to notify users about important events. It is also useful to be able to communicate to users directly over email and telephone to discuss data management issues or to sort out potential problems with the system.</para>
-    <para>A user in DHIS 2 is associated with an organisation unit. This implies that when creating a new user account that account should be associated to the location where user works. For instance when creating a user account for a district record officer that user account should be linked with the particular district where she works. The link between user account and organisation unit has several implications for the operation of the system:</para>
+    <title>Utilisateurs</title>
+    <para>Un utilisateur dans le contexte DHIS 2 est un être humain qui utilise le logiciel. Chaque utilisateur dans DHIS 2 dispose d'un compte d'utilisateur qui est représenté par un nom d'utilisateur. Un compte d'utilisateur permet à l'utilisateur de s'authentifier et d'obtenir l'autorisation d'accéder aux ressources du système. Pour se connecter (s'authentifier), l'utilisateur doit entrer une combinaison valide de nom d'utilisateur et de mot de passe. Si cette combinaison correspond à un nom d'utilisateur et un mot de passe enregistré dans la base de données, l'utilisateur est autorisé à entrer.</para>
+    <para>En outre, un utilisateur devrait avoir un nom, un prénom, une adresse e-mail et un numéro de téléphone. Il est important que ces informations soient correctes lors de la création de nouveaux utilisateurs puisque certaines fonctions dans DHIS 2 s'appuient sur l'envoi de courriels pour  informer les utilisateurs sur des événements importants. Il est également utile de pouvoir communiquer avec les utilisateurs directement par e-mail et téléphone pour discuter des questions de gestion des données ou pour régler les problèmes potentiels avec le système.</para>
+    <para>Un utilisateur dans DHIS 2 est associé à une unité d'organisation. Cela signifie que lorsque vous créez un nouveau compte d'utilisateur, ce compte doit être associé à l'emplacement où l'utilisateur travaille. Par exemple lors de la création d'un compte utilisateur pour un agent d'enregistrement de district, ce compte d'utilisateur doit être associé au district où il travaille. Le lien entre compte d'utilisateur et unité d'organisation a plusieurs conséquences pour le fonctionnement du système :</para>
     <itemizedlist>
       <listitem>
-        <para>In the data entry module, a user can only be entering data for the organisation unit she is associated with and the organisation units below that in the hierarchy. For instance, a district records officer will be able to register data for her district and the facilities below that district only.</para>
+        <para>Dans le module d'entrée de données, un utilisateur ne peut saisir des données que pour l'unité d'organisation à laquelle il est associé et aux unités d'organisation situées en dessous dans la hiérarchie. Par exemple, un agent d'enregistrement de district sera en mesure d'enregistrer des données pour son district et les établissements de santé relevant de son district.</para>
       </listitem>
       <listitem>
-        <para>In the user module, a user can only create new users for the organisation unit she is associated with in addition to the organisation units below that in the hierarchy.</para>
+        <para>Dans le module utilisateur, un utilisateur ne peut créer de nouveaux utilisateurs que pour l'unité d'organisation à laquelle elle est associée et pour les unités d'organisation situées en dessous dans la hiérarchie.</para>
       </listitem>
       <listitem>
-        <para>In the reports module, a user can only view reports her organisation units and those below. (This is something we consider to open up to allow for comparison reports.)</para>
+        <para>Dans le module rapports, un utilisateur ne peut visualiser que les rapports de ses unités d'organisation et ceux situés en dessous dans la hiérarchie. (C'est une limitation que nous cherchons à réduire pour permettre la création de rapports comparatifs).</para>
       </listitem>
     </itemizedlist>
-    <para>A user role in DHIS 2 is also associated with a set of user roles. Such user roles are discussed in the following section.</para>
+    <para>Un rôle d'utilisateur dans DHIS 2 est également associé à un ensemble de rôles d'utilisateur. Ces rôles d'utilisateur sont traités dans la section suivante.</para>
   </section>
   <section>
-    <title>User Roles</title>
-    <para>A user role in the DHIS 2 context is a group of authorities. An authority in this regard means the permission to perform one or more specific tasks. For instance, a user role may contain authorities to create a new data element, update an organisation unit or view a report. Such a group of authorities constitutes a user role.</para>
-    <para>In a health system the users are logically grouped with respect to the task they perform and the position they occupy. Examples of commonly found positions are:</para>
-    <orderedlist>
+    <title>Rôles de l'utilisateur</title>
+    <para>Un rôle de l'utilisateur dans le cadre DHIS 2 est un ensemble de pouvoirs. Un pouvoir dans ce contexte signifie la permission d'effectuer une ou plusieurs tâches spécifiques. Par exemple, un rôle d'utilisateur peut contenir les pouvoirs de créer un nouvel élément de données, mettre à jour  une unité d'organisation ou afficher un rapport. Un tel ensemble de pouvoirs constitue un rôle d'utilisateur.</para>
+    <para>Dans un système de santé, les utilisateurs sont regroupés de manière logique par rapport à la tâche qu'ils accomplissent et la position qu'ils occupent. Des exemples de postes couramment rencontrés sont :</para>
+    <orderedlist inheritnum="ignore" continuation="restarts">
       <listitem>
-        <para>National health managers</para>
+        <para>Les gestionnaires nationaux de la santé</para>
       </listitem>
       <listitem>
-        <para>National health information system division officers (HISO)</para>
+        <para>Les agents de division du système national d'information sanitaire ( HISO )</para>
       </listitem>
       <listitem>
-        <para>Province health managers</para>
+        <para>Les responsables de santé de la province</para>
       </listitem>
       <listitem>
-        <para>District health records and information officers (DHRIO)</para>
+        <para>Les responsables des enregistrements et de l'information de santé des districts</para>
       </listitem>
       <listitem>
-        <para>Facility health records and information officers (HRIO)</para>
+        <para>Les responsables des enregistrements et de l'information de santé des établissements de santé</para>
       </listitem>
       <listitem>
-        <para>Data entry clerks</para>
+        <para>Les agents de saisie des données</para>
       </listitem>
     </orderedlist>
-    <para>When creating user roles such positions within the health system should be kept in mind and it is often sensible to create a user role dedicated for each of those positions. The process of creating user roles should be aligned with the process of deciding which users are doing what tasks in the system.</para>
-    <para>First it should be defined which users should fulfill the role as system administrators. This will often a part of the members of the national HIS division and should have full authority in the system. Second a user role should be created roughly for each position. A sensible consideration of what authorities should be given each role must be done. An important rule is that each role should only be given the authorities which are needed to perform the job well - not more. When operating a large, centralized information system there is a need to coordinate the work between the people involved. This is made easier if only those who are supposed to perform a task have the authorities to perform it. </para>
-    <para>An example might highlight this issue: The task of setting up the basic structure (meta-data) of the system is critical to the system and should only be performed by the administrators of system. This means that the system administrator user role should have the authority to add, update and delete the core elements of the system such as data elements, indicators and data sets. Allowing users outside the team of system administrators to modify these elements might lead to problems with coordination.</para>
-    <para>National and provincial health managers are often concerned with data analysis and monitoring. Hence this group of users should be authorized to access and use the reports module, GIS module, data quality module and dashboard. However they would not need authority to enter data or update data elements and data sets. District information officers are often tasked with both entering data into the system coming from facilities which are not able to do so directly as well as monitoring, evaluation and analysis of data. This means that they will need access to all of the analysis and validation modules mentioned above in addition to the authority to access and use the data entry module.</para>
-    <para>In addition, a user role is associated with a collection of data sets. This affects the data entry module in that the user is only allowed to enter data for the data sets registered for her user role. This is often useful in situations where one wants to allow officers from health programs to enter data for their relevant data entry forms only.</para>
-    <para>A user can be granted one or any number of user roles. In the case of many user roles, the user is privileged with the sum of all authorities and data sets included in the user roles. This means that user roles can be mixed and matched for special purposes instead of merely creating new ones.</para>
-    <para>An important part of user management is to control which users are allowed to create new users with which authorities. In DHIS 2 one can control which users are allowed to perform this task. In this process the key principle is that a user can only grant authorities and access to data sets that the user itself has. The users at national, province and district level are often relatively few and can be created and managed by the system administrators. If a large part of the facilities are entering data directly into the system the number of users might become unwieldy. Experience suggests that delegating and decentralizing this task to the district officers will make the process more efficient and support the facility users better.</para>
+    <para>Lors de la création des rôles d'utilisateurs, la structure de ces postes au sein du système de santé doit être présente à l'esprit et il est souvent judicieux de créer un rôle d'utilisateur dédié pour chacun de ces postes. Le processus de création des rôles d'utilisateur doit s'aligner sur le processus de définition des utilisateurs et de leurs tâches dans le système.</para>
+    <para>Il convient tout d'abord de définir quels utilisateurs doivent remplir le rôle d'administrateurs système. Ce sera souvent une partie des membres de la division nationale du Système d'Information de Santé et ils devraient avoir tous les pouvoirs sur le système. En second lieu un rôle d'utilisateur doit être créé à peu près pour chaque poste. Un examen raisonnable des pouvoirs à donner à chaque rôle doit être fait. Une règle importante est que chaque rôle ne devrait recevoir que les pouvoirs qui lui sont nécessaires pour effectuer correctement son travail - et pas plus. Lors de l'utilisation d'un grand système d'information centralisé, il est nécessaire de coordonner le travail entre les personnes impliquées. Ceci n'est facilement possible que si ceux qui sont censés effectuer une tâche ont le pouvoir de le faire.</para>
+    <para>L'exemple suivant permet de mettre en évidence ce fait : La tâche de mettre en place la structure de base (méta-données) du système est critique pour le système et ne doit être effectuée que par les administrateurs du système. Cela signifie que le rôle d'administrateur système doit avoir le pouvoir d'ajouter, modifier et supprimer les éléments de base du système, tels que les éléments de données, les indicateurs et les ensembles de données. Permettre aux utilisateurs en dehors de l'équipe des administrateurs de système de modifier ces éléments pourrait conduire à des problèmes de coordination.</para>
+    <para>Les gestionnaires de santé nationaux et provinciaux sont souvent préoccupés par l'analyse et le suivi des données. Ainsi ce groupe d'utilisateurs devrait être autorisé à accéder et utiliser les rapports, le module SIG, le module de qualité des données et le tableau de bord. Cependant, ils n'auraient pas besoin du pouvoir de saisir des données ou de mettre à jour des éléments de données ou des ensembles de données. Les agents d'information de district sont souvent chargés à la fois la saisie des données dans le système provenant des établissements qui ne sont pas en mesure de le faire directement ainsi que du suivi, de l'évaluation et de l'analyse des données. Cela signifie qu'ils devront avoir accès à tous les modules d'analyse et de validation mentionnés ci-dessus, et en plus du pouvoir d'accéder et d'utiliser le module de saisie de données.</para>
+    <para>En outre, un rôle d'utilisateur est associé à une collection d'ensembles de données. Ceci affecte le module de saisie de données par le fait que l'utilisateur est seulement autorisé à entrer des données pour les ensembles de données définies pour son rôle d'utilisateur. Ceci est souvent utile dans des situations où l'on veut permettre aux agents de programmes de santé d'entrer des données uniquement pour les formulaires de saisie de données relevant de leur programme.</para>
+    <para>Un utilisateur peut recevoir un ou un certain nombre de rôles d'utilisateur. Dans la situation où il y a de nombreux rôles d'utilisateur, l'utilisateur a les privilèges obtenus par la somme de tous les pouvoirs et des ensembles de données inclus dans les rôles d'utilisateur. Cela signifie que les rôles de l'utilisateur peuvent être mélangés et combinés à des fins spéciales au lieu de simplement créer de nouveaux.</para>
+    <para>Une partie importante de la gestion des utilisateurs est le contrôle des utilisateurs ayant la permission de créer de nouveaux utilisateurs ainsi que leurs pouvoirs. Dans DHIS 2 il est possible de contrôler quels utilisateurs sont autorisés à exécuter cette tâche. Dans ce processus, le principe fondamental est que l'utilisateur ne peut accorder que les pouvoirs et les accès aux ensembles de données que l'utilisateur lui-même possède. Les utilisateurs au niveau national, provincial et de district sont souvent relativement peu nombreux et peuvent être créés et gérés par les administrateurs système. Si une grande partie des établissements font la saisie des données directement dans le système, le nombre d'utilisateurs pourrait devenir ingérable. L'expérience montre que la délégation et la décentralisation de cette tâche pour les responsables de district rend le processus plus efficace et permet de mieux soutenir les utilisateurs des  établissements de santé.</para>
   </section>
 </chapter>

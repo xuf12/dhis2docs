@@ -1,69 +1,56 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. -->
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd"[]>
 <chapter>
   <title>Support</title>
-  <para>The DHIS 2 community uses a set of collaboration and coordination platforms for information and provision of downloads, documentation, development, source code,  functionality specifications, bug tracking. This chapter will describe this in more detail.</para>
+  <para>La communauté DHIS 2 utilise un ensemble de plates-formes de collaboration et de coordination pour l'information et la fourniture de téléchargements, la documentation, le développement, le code source, les spécifications de fonctionnalités, le suivi des bogues. Ce chapitre décrit ceci  plus en détail.</para>
   <section>
-    <title>Home page: dhis2.org</title>
-    <para>The DHIS 2 home page is found at <emphasis role="italic">http://dhis2.org</emphasis>The <emphasis role="italic">download</emphasis> page provides downloads for the DHIS 2 Live package, WAR files, the mobile client, a Debian package, the source code, sample databases and a tool for editing the application user interface translations. Please note that the current latest release will be maintained until the next is released and both the actual release and the latest build from the release branch are provided. We recommend that you check back regularly on the download page and update your online server with the latest build from the release branch. The build revision can be found under <emphasis role="italic">Help</emphasis> - <emphasis role="italic">About</emphasis> inside DHIS 2.</para>
-    <para>The <emphasis role="italic">documentation</emphasis> page provides installation instructions, user documentation, this implementation guide, presentations, Javadocs, changelog, roadmap and a guide for contributing to the documentation. The user documentation is focused on the practical aspects of using DHIS 2, such as how to create data elements and reports. This implementation guide is addressing the more high-level aspects of DHIS 2 implementation, database development and maintenance. The change log and roadmap sections provide links to the relevant pages in the Launchpad site described later.</para>
-    <para>The <emphasis role="italic">functionality</emphasis> and <emphasis role="italic">features</emphasis> pages give a brief overview with screenshots of the main functionalities and features of DHIS 2. A demo DHIS 2 application can be reached from the <emphasis role="italic">demo</emphasis> top menu link. These pages can be used when a quick introduction to the system must be given to various stakeholders.</para>
-    <para>The <emphasis role="italic">about</emphasis> page has information about the license under which DHIS 2 is released, how to sign up for the mailing lists, get access to the source code and more.</para>
+    <title>La page d'accueil de l'application : dhis2.org</title>
+    <para>La page d'accueil du site Internet de DHIS 2 est à l'adresse <emphasis role="italic">http://dhis2.org</emphasis>La page <emphasis role="italic">download (Téléchargements) </emphasis>du site propose en téléchargement l'application DHIS 2 Live, les fichiers WAR, le client mobile, un paquet Debian, le code source, une base de données exemple et un outil pour  l'édition des traductions de l'interface utilisateur de l'application. Veuillez noter que la dernière version en cours est maintenue jusqu'à la mise en ligne de la version suivante, et qu'aussi bien la version mise en ligne et la dernière version compilée de la branche sont fournies. Nous vous recommandons de consulter régulièrement la page de téléchargements et de mettre à jour votre serveur en ligne avec la dernière version compilée de la branche. La révision  peut être trouvée sous <emphasis role="italic">Help - About (Aide - A propos)</emphasis> à l'intérieur de DHIS2.</para>
+    <para>La page  <emphasis role="italic">documentation (Documentations) </emphasis> fournit des instructions sur l'installation, la documentation utilisateur, ce guide de mise en œuvre, ainsi que des présentations, des Javadocs, un journal des modifications (changelog), une feuille de route et un guide pour contribuer à la  documentation. La documentation utilisateur est axée sur les aspects pratiques de l'utilisation de DHIS 2, comme la façon de créer des éléments de données et des rapports. Ce guide de mise en œuvre se penche sur les aspects de plus haut niveau de la mise en œuvre de DHIS 2 mise en œuvre, le développement de bases de données et la maintenance. Les sections dédiées au journal des modifications et à la feuille de route fournissent des liens vers les pages correspondantes du site Launchpad décrit plus loin.</para>
+    <para>Les pages <emphasis role="italic">functionality (Fonctonnalités) </emphasis> et  <emphasis role="italic">features (Caractéristiques) </emphasis> donnent un bref aperçu, avec des captures d'écran, des principales fonctionnalités et caractéristiques de DHIS 2. Une démonstration de DHIS 2 est accessible à partir du lien de menu  <emphasis role="italic">demo (Démonstration)</emphasis> en haut de  page. Ces pages peuvent être utilisées lors qu'une présentation rapide du système doit être faite aux différentes parties prenantes.</para>
+    <para>La page <emphasis role="italic">about (A propos) </emphasis>contient des informations sur la licence sous laquelle DHIS 2 est livrée, des informations sur la manière de vous inscrire aux listes de diffusion, comment obtenir l'accès au code source et bien plus encore.</para>
   </section>
   <section>
-    <title>Collaboration platform: launchpad.net/dhis2</title>
-    <para>DHIS 2 uses <emphasis role="italic">Launchpad</emphasis> as the main collaboration platform. The site can be accessed at <emphasis role="italic">http://lanchpad.net/dhis2</emphasis> Launchpad is used for source code hosting, functionality specifications, bug tracking and notifications. The <emphasis role="italic">Bazaar</emphasis> version control system is tightly integrated with Launchpad and is required for checking out the source code. </para>
-    <para>The various source code branches including trunk and release branches can be browsed at <emphasis role="italic">http://code.launchpad.net/dhis2</emphasis> </para>
-    <para>If you want to suggest new functionality to be implemented in DHIS 2 you can air your views on the developer mailing list and eventually write a specification, which is referred to as <emphasis role="italic">blueprints</emphasis> in Launchpad. The bueprint will be considered by the core development team and if accepted be assigned a developer, approver and release version. Blueprints can be browsed and added at <emphasis role="italic">http://blueprints.launchpad.net/dhis2</emphasis></para>
-    <para>If you find a bug in DHIS 2 you can report it at Launchpad by navigating to <emphasis role="italic">http://bugs.launchpad.net/dhis2</emphasis> Your bug report will be investigated by the developer team and be given a status. If valid it will also be assigned to a developer and approver and eventually be fixed. Note that bugfixes are incorporated into the trunk and latest release branch - so more testing and feedback to the developer teams leads to higher quality of your software.</para>
+    <title>La plate-forme de collaboration : launchpad.net/dhis2</title>
+    <para>DHIS 2 utilise  <emphasis role="italic">Launchpad</emphasis> comme principale plate-forme de collaboration. Le site de Launchpad est accessible à l'adresse  <emphasis role="italic">http://lanchpad.net/dhis2</emphasis>. Launchpad est utilisé pour l'hébergement du code source, les spécifications des fonctionnalité, le suivi des bogues et les notifications. Le système de contrôle de version <emphasis role="italic">Bazaar</emphasis> est étroitement intégré à Launchpad et est nécessaire pour effectuer des vérifications sur le code source.</para>
+    <para>Les différentes branches du code source, y compris le trunk (tronc) et les release branches (branches publiées) sont accessibles à l'adresse <emphasis role="italic">http://code.launchpad.net/dhis2</emphasis></para>
+    <para>Si vous souhaitez proposer de nouvelles fonctionnalités à mettre en œuvre dans DHIS 2, vous pouvez diffuser votre vision sur la liste de diffusion des développeurs et éventuellement écrire une spécification, qui est désignée sous le nom de <emphasis role="italic">blueprints</emphasis> sous Launchpad. Le blueprint sera examiné par l'équipe principale de développement et, si elle est acceptée, se verra attribué un développeur, un approbateur et une version de sortie. Les blueprints peuvent être consultés et ajoutés à l'adresse <emphasis role="italic">http://blueprints.launchpad.net/dhis2</emphasis></para>
+    <para>Si vous trouvez un bogue dans DHIS 2 vous pouvez le signaler à Launchpad en accédant <emphasis role="italic">http://bugs.launchpad.net/dhis2</emphasis>. Votre rapport de bogue sera étudié par l'équipe de développement et se verra attribué un statut. S'il est valide, il sera également attribué à un développeur et un approbateur et sera probablement résolu. Notez que des corrections de bogues sont régulièrement incorporées au tronc et à la dernière version de la branche - ce qui fait que plus de tests et de retours aux équipes de développeurs conduisent à une meilleure qualité de votre logiciel.</para>
   </section>
   <section>
     <title>Reporting a problem</title>
-    <para>If you encounter a problem with the DHIS 2 software you can ask for assistance on the
-      developer's mailing list at <ulink url="https://launchpad.net/~dhis2-devs"
-        >https://launchpad.net/~dhis2-devs</ulink>. Before reporting, make sure that you
-      have:</para>
+    <para>Si vous rencontrez un problème avec le logiciel DHIS 2, vous pouvez demander de l'aide sur la liste de diffusion des développeurs à l'adresse <ulink url="https://launchpad.net/~dhis2-devs">https://launchpad.net/~dhis2-devs</ulink>. Avant d'envoyer vos rapports, assurez-vous que vous avez:</para>
     <itemizedlist>
       <listitem>
-        <para>Cleared the web browser cache (also called history or browsing data) completely
-          (select all options before clearing).</para>
+        <para>Effacé complètement le cache du navigateur web (aussi appelé historique ou données de navigation). Sélectionnez toutes les options avant de procéder à l'effacement.</para>
       </listitem>
       <listitem>
-        <para>Cleared the DHIS 2 application cache: Go to Data administration -> Cache statistics
-          and click Clear cache.</para>
+        <para>Effacé le cache de l'application DHIS 2 : Aller à Administration des données - &gt; statistiques de cache et cliquez sur Effacer le cache.</para>
       </listitem>
     </itemizedlist>
-    <para>If you believe you have found a bug you can report it either to the developer mailing
-      lists or to the bug tracker at https://bugs.launchpad.net/dhis2 .</para>
-    <para>For the developers to be able to help you need to provide as much useful information as
-      possible: </para>
+    <para>Si vous pensez avoir trouvé un bogue, vous pouvez le déclarer sur les listes de diffusion des développeurs ou sur le traceur de bogue à l'adresse https://bugs.launchpad.net/dhis2.</para>
+    <para>Pour que les développeurs soient en mesure de vous aider vous devez leur fournir autant d'informations utiles que possible :</para>
     <itemizedlist>
       <listitem>
-        <para>DHIS 2 version: Look in the Help -> About page inside DHIS 2 and provide the version
-          and build revision.</para>
+        <para>La version de DHIS 2 utilisée : Consultez la page Help -&gt; About à l'intérieur de DHIS 2 et fournissez les numéros de version et de révision.</para>
       </listitem>
       <listitem>
-        <para>Web browser including version.</para>
+        <para>Le navigateur Web utilisé avec sa version.</para>
       </listitem>
       <listitem>
-        <para>Operating system including version.</para>
+        <para>Le système d'exploitation utilisé avec sa version.</para>
       </listitem>
       <listitem>
-        <para>Servlet container / Tomcat log: Provide any output in the Tomcat log (typically
-          catalina.out) related to your problem.</para>
+        <para>Le fichier journal du conteneur de servlet Tomcat : Fournir une sortie du journal Tomcat (généralement catalina.out) lié à votre problème.</para>
       </listitem>
       <listitem>
-        <para>Web browser console: In the Chrome web browser, click F12, then "Console", and look
-          for exceptions related to your problem.</para>
+        <para>La console du navigateur Web : Sous le navigateur Web Chrome, cliquez sur F12, puis "Console", et cherchez des exceptions liées à votre problème.</para>
       </listitem>
       <listitem>
-        <para>Actions leading to the problem: Describe as clearly as possible which steps you take
-          leading to the problem or exception.</para>
+        <para>Les actions conduisant au problème : Décrivez le plus clairement possible les étapes que vous suivez qui conduisent au problème ou à l'exception.</para>
       </listitem>
       <listitem>
-        <para>Problem description: Describe the problem clearly, why you think it is a problem and
-          which behavior you would expect from the system.</para>
+        <para>La description du problème : Décrivez clairement le problème, et dites pourquoi vous pensez que c'est un problème ainsi que le comportement que vous attendiez du système.</para>
       </listitem>
     </itemizedlist>
   </section>

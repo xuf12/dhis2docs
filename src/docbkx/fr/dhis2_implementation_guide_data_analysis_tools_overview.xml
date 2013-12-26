@@ -1,83 +1,82 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. -->
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd"[]>
 <chapter>
-  <title>Data Analysis Tools Overview</title>
-  <para>This chapter offers an overview of the available tools for data analysis provided by DHIS 2 along with a description of the purpose and benefits of each. If you are looking for a detailed guide on how to use each tool we recommend to continue to read the user guide after finishing this chapter. The following list shows the various tools:</para>
-  <orderedlist>
+  <title>Aperçu des outils d’analyse de données</title>
+  <para>Ce chapitre offre une vue d'ensemble des outils disponibles pour l'analyse des données fournies par DHIS 2 avec une description de l'objet et des avantages de chacun. Si vous cherchez un guide détaillé sur la façon d'utiliser chaque outil, nous vous recommandons de poursuivre la lecture du manuel de l'utilisateur à la fin de ce chapitre. La liste suivante présente les différents outils disponibles dans DHIS 2 :</para>
+  <orderedlist inheritnum="ignore" continuation="restarts">
     <listitem>
-      <para>Standard reports</para>
+      <para>Les rapports standards</para>
     </listitem>
     <listitem>
-      <para>Data set reports</para>
+      <para>Les rapports d'ensemble de données</para>
     </listitem>
     <listitem>
-      <para>Data completeness reports</para>
+      <para>Les rapports de complétude de données</para>
     </listitem>
     <listitem>
-      <para>Static reports</para>
+      <para>Les rapports statiques</para>
     </listitem>
     <listitem>
-      <para>Organisation unit distribution reports</para>
+      <para>Les rapports de distribution d'unité d'organisation</para>
     </listitem>
     <listitem>
-      <para>Report tables</para>
+      <para>Les tableaux de rapport</para>
     </listitem>
     <listitem>
-      <para>Charts</para>
+      <para>Les graphiques</para>
     </listitem>
     <listitem>
-      <para>Web Pivot table</para>
+      <para>Les tableaux croisés dynamiques Web</para>
     </listitem>
     <listitem>
-      <para>GIS</para>
+      <para>Les SIG</para>
     </listitem>
     <listitem>
-      <para>My Datamart and Excel pivot tables</para>
+      <para>My Datamart et les tableaux croisés dynamiques Excel</para>
     </listitem>
   </orderedlist>
   <section>
-    <title>Data analysis tools</title>
-    <para>The following section gives a description of each tool.</para>
+    <title>Les outils d'analyse de données</title>
+    <para>La section suivante donne une description de chaque outil.</para>
     <section>
-      <title>Standard reports</title>
-      <para>Standard reports are reports with predefined designs. This means that the reports are easily accessible with a few clicks and can be consumed by users at all levels of experience. The report can contain statistics in the form of tables and charts and can be tailored to suit most requirements. The report solution in DHIS 2 is based on JasperReports and reports are most often designed with the iReport report designer. Even though the report design is fixed, data can be dynamically loaded into the report based on any organisation unit from in the hierarchy and with a variety of time periods.</para>
+      <title>Les rapports standards</title>
+      <para>Les rapports standards sont des rapports ayant un design prédéfini. Cela signifie que ces rapports sont facilement accessibles en quelques clics et peuvent être utilisés par les utilisateurs de tout niveau d'expérience. Le rapport peut contenir des statistiques sous forme de tableaux et graphiques, et peut être adaptée pour répondre à la plupart des exigences. La solution de rapport dans DHIS 2 est basée sur JasperReports et les rapports sont le plus souvent conçus avec le concepteur de rapport iReport. Même si le design du rapport est fixé, les données peuvent être chargées dynamiquement dans le rapport en sélectionnant une unité d'organisation de la hiérarchie et en variant les périodes.</para>
     </section>
     <section>
-      <title>Data set reports</title>
-      <para>Data set reports displays the design of data entry forms as a report populated with aggregated data (as opposed to captured low-level data). This report is easily accessible for all types of users and gives quick access to aggregate data. There is often a legacy requirement for viewing data entry forms as reports which this tool efficiently provides for. The data set report supports all types of data entry forms including section and custom forms.</para>
+      <title>Les rapports d'ensemble de données</title>
+      <para>Les rapports d'ensemble de données affichent le canevas des formulaires de saisie de données sous la forme de rapports alimentés par des données agrégées (contrairement aux données de bas niveau collectées). Ces rapports sont accessibles à tous les types d'utilisateurs et permettent d'accéder rapidement à des données agrégées. Il est souvent nécessaire de devoir afficher les formulaires de saisie de données sous forme de rapports, ce que permet de manière efficace cet outil. Le rapport d'ensemble de données prend en charge tous les types de formulaires de saisie de données, y compris les formulaires basés sur les sections et les formulaires personnalisés.</para>
     </section>
     <section>
-      <title>Data completeness report</title>
-      <para>The data completeness report produces statistics for the degree of completeness of data entry forms. The statistical data can be analysed per individual data sets or per a list of organisation units with a common parent in the hierarchy. It provides a percentage value for the total completeness and for the completeness of timely submissions. One can use various definitions of completeness as basis for the statistics: First based on number of data sets marked manually as complete by the user entering data. Second based on whether all data element defined as compulsory are being filled in for a data set. Third based on the percentage of number of values filled over the total number of values in a data set.</para>
+      <title>Les rapports de complétude de données</title>
+      <para>Le rapport de complétude de données fournit des statistiques sur le degré de complétude des formulaires de saisie de données. Ces données statistiques peuvent être analysées pour des ensembles de données particuliers ou pour une liste d'unités d'organisation ayant un parent commun dans la hiérarchie. Il fournit une valeur en pourcentage de la complétude totale et de la complétude des données soumises à temps. Il est possible d'utiliser différentes définitions de la complétude pour servir de base à la production des statistiques : d'abord en fonction du nombre d'ensembles de données portant la mention "complet" manuellement saisie par l'utilisateur qui a saisi les données; ensuite, selon le fait que tous les éléments de données définis comme étant obligatoires ont été remplis pour un ensemble de données; enfin sur la base du pourcentage du nombre de valeurs remplies par rapport au nombre total de valeurs dans un ensemble de données.</para>
     </section>
     <section>
-      <title>Static reports</title>
-      <para>Static reports provides two methods for linking to existing resources in the user interface. First it provides the possibility to link to a resource on the Internet trough a URL. Second it provides the possibility to upload files to the system and link to those files. The type of files to upload can be any kind of document, image or video. Useful examples of documents to link to are health surveys, policy documents and annual plans. URLs can point to relevant web sites such as the Ministry of Health home page, sources of health related information. In addition it can be used as an interface to third-party web based analysis tools by pointing at specific resources. One example is pointing a URL to a report served by the BIRT reporting framework.</para>
+      <title>Les rapports statiques</title>
+      <para>Les rapports statiques fournissent deux méthodes pour se connecter aux ressources existantes dans l'interface utilisateur. En premier lieu, ils offrent la possibilité de se connecter à une ressource à travers Internet par une URL. Ensuite, ils offrent la possibilité de charger des fichiers sur le système et d'établir un lien vers ces fichiers. Le type de fichiers qui peuvent  être chargés sont n'importe quel type de document, image ou vidéo. Des exemples utiles de documents à lier sont des enquêtes sur la santé, des documents de politique et des plans annuels. Les URLs peuvent également pointer vers des sites Web pertinents, tels que la page d'accueil le Ministère de la santé, ou les sources d'information relatifs à la santé. En outre, ils peuvent être utilisés comme une interface pour se connecter sur des outils d'analyse tiers basés sur le web en les pointant vers les ressources indiquées. Un exemple peut être de créer une URL qui pointe sur un rapport fourni par la plateforme de rapports BIRT.</para>
     </section>
     <section>
-      <title>Organisation unit distribution reports</title>
-      <para>The organisation unit distribution report provides statistics on the facilities (organisation units) in the hierarchy based on their classification. The classification is based on organisation unit groups and group sets. For instance can facilities be classified by type through assignment to the relevant group from the group set for organisation unit type. The distribution report produces the number of facilities for each class and can be generated for all organisation units and for all group sets in the system.</para>
+      <title>Les rapports de distribution d'unité d'organisation</title>
+      <para>Le rapport de distribution d'unité d'organisation fournit des statistiques sur les établissements de santé (unités d'organisation) dans la hiérarchie en fonction de leur classification. La classification est basée sur les groupes d'unités d'organisation et les ensembles de groupe. Par exemple des établissements de santé peuvent être classés par type par le biais d'une affectation au groupe adéquat à partir de l'ensemble de groupe pour le type d'unité d'organisation. Le rapport de distribution produit le nombre d'établissements pour chaque classe et peut être généré pour toutes les unités d'organisation et pour tous les ensembles de groupe dans le système.</para>
     </section>
     <section>
-      <title>Report tables</title>
-      <para>Report tables are reports based on aggregated data in a tabular format. A report table can be used as a stand-alone report or can be used as data source for a more sophisticated standard report design. The tabular format can be cross-tabulated with any number of dimensions appearing as columns. It can contain indicator and data element aggregate data as well as completeness data for data sets. It can contain relative periods which enables the report to be reused over time. It can contain user selectable parameters for organisation units and periods to enable the report to be reused for all organisation units in the hierarchy. The report table can be limited to the top results and sorted ascending or descending. When generated the report table data can be downloaded as PDF, Excel workbook, CSV file and Jasper report.</para>
+      <title>Les tableaux de rapport</title>
+      <para>Les tableaux de rapport sont des rapports basés sur des données agrégées et présentés dans un format tabulaire. Un tableau de rapport peut être utilisé comme un rapport autonome ou comme une source de données pour la conception de rapports standards plus sophistiqués. Le format tabulaire peut effectuer des croisements avec n'importe quel nombre de dimensions présentes sous forme de colonnes. Il peut contenir des indicateurs, des agrégats d'éléments de données ainsi que des données de complétude pour des ensembles de données. Il peut contenir des périodes relatives qui permet au rapport d'être réutilisé dans le temps. Il peut contenir des paramètres que les utilisateurs peuvent sélectionner pour changer les unités d'organisation ou les périodes afin de  permettre au rapport d'être réutilisés pour toutes les unités d'organisation dans la hiérarchie. Le tableau de rapport peut se limiter aux premiers résultats ou être trié par ordre croissant ou décroissant. Lorsqu'il est généré, les données de la table de rapport peuvent être téléchargés au format PDF, Excel, CSV ou sous la forme de rapports Jasper.</para>
     </section>
     <section>
-      <title>Charts</title>
-      <para>The chart component offers a wide variety of charts including the standard bar, line and pie charts. The charts can contain indicators, data elements, periods and organisation units on both the x and y axis as well as a fixed horizontal target line. Charts can be view directly or as part of the dashboard as will be explained later.</para>
+      <title>Les graphiques</title>
+      <para>Le composant graphique offre une grande variété de représentations graphiques, comme les diagrammes standards en barres, en ligne ou en camembert. Les représentations graphiques peuvent contenir des indicateurs, des éléments de données, des périodes et des unités d'organisation en abscisses comme en ordonnées. Il existe aussi une ligne horizontale servant de repère. Les graphiques peuvent être affichés directement ou être insérés comme éléments du tableau de bord comme cela sera expliqué plus tard.</para>
     </section>
     <section>
-      <title>Web Pivot tables</title>
-      <para>The web pivot table offers quick access to statistical data in a tabular format and provides the ability to “pivot” any number of the dimensions such as indicators, data elements, organisation units and periods to appear on columns and rows in order to create tailored views. Each cell in the table can be visualized as a bar chart. </para>
+      <title>Les tableaux croisés dynamiques Web</title>
+      <para>Les tableaux croisés dynamiques offrent un accès rapide à des données statistiques sous forme de tableaux et donnent la possibilité de "pivoter" n'importe quel nombre de dimensions telles que les indicateurs, les éléments de données, les unités d'organisation et les périodes qui vont apparaître sur les colonnes et les lignes afin de créer des vues personnalisées. Chaque cellule du tableau peut être visualisée comme un graphique à barres.</para>
     </section>
     <section>
-      <title>GIS </title>
-      <para>The GIS module gives the ability to visualize aggregate data on maps. The GIS module can provide thematic mapping of polygons such as provinces and districts and of points such as facilities in separate layers. The mentioned layers can be displayed together and be combined with custom overlays. Such map views can be easily navigated back in history, saved for easy access at a later stage and saved to disk as an image file. The GIS module provides automatic and fixed class breaks for thematic mapping,  predefined and automatic legend sets, ability to display labels (names) for the geographical elements and the ability to measure the distance between points in the map. Mapping can be viewed for any indicator or data element and for any level in the organisation unit hierarchy. There is also a special layer for displaying facilities on the map where each one is represented with a symbol based on the its type.</para>
+      <title>Les SIG</title>
+      <para>Le module SIG donne la possibilité de visualiser des données agrégées sur des cartes géographiques. Le module SIG peut fournir sur une carte géographique des représentations thématiques à l'aide des polygones comme la représentation des provinces, des districts et insérer des points sur des couches séparées pour représenter les établissements de santé. Les couches mentionnées peuvent être affichées ensemble et être combinées en superpositions personnalisées. L'historique de ces cartes peut être facilement consulté, et leur enregistrement pour un accès ultérieur est aussi simplifié. Il est également possible de les enregistrer sur le disque comme un fichier image. Le module SIG fournit des fonctionnalités automatiques pour la gestion des cartes thématiques, des jeux de légende prédéfinis et automatiques; il est capable d'afficher des étiquettes (noms) sur les éléments géographiques et de mesurer la distance entre les points d'une carte. La cartographie peut être réalisée pour tout indicateur ou élément de données, et pour chaque niveau de la hiérarchie d'unités d'organisation. Il existe également une couche particulière pour afficher des établissements de santé sur la carte, où chaque établissement est représenté par un symbole en fonction de sa nature.</para>
     </section>
     <section>
-      <title>My Datamart and Excel Pivot tables</title>
-      <para>The purpose of the My Datamart tool is provide users with full access to aggregate data even on unreliable Internet connections. This tool consists of a light-weight client application which is installed at the computer of the users. It connects to an online central server running a DHIS 2 instance, downloads aggregate data and stores it in a database at he local computer. This database can be used to connect third-party tools such as MS Excel Pivot tables, which is a powerful tool for data analysis and visualization. This solution implies that just short periods of Internet connectivity are required to synchronize the client database with the central online one, and that after this process is done the data will be available independent of connectivity. Please read the chapter dedicated to this tool for in-depth information.</para>
+      <title>My Datamart et les tableaux croisés dynamiques Excel</title>
+      <para>Le but de l'outil My Datamart est de fournir aux utilisateurs un accès complet à des données agrégées, même sur des connexions Internet qui ne sont pas fiables. Cet outil est constitué d'une application client légère installée sur l'ordinateur de l'utilisateur. Il se connecte sur un serveur central en ligne qui exécute une instance DHIS 2, télécharge les données agrégées, et les stocke dans une base de données sur l'ordinateur local. Cette base de données peut être utilisée pour connecter des outils tiers comme les tableaux croisés dynamiques Excel, qui sont un outil puissant pour l'analyse des données et leur visualisation. Cette solution implique que de courtes périodes de connectivité Internet soient établies pour synchroniser la base de données cliente avec le serveur central en ligne, après quoi les données seront disponibles indépendamment de la connexion. Veuillez lire le chapitre consacré à cet outil pour plus d'informations à ce sujet.</para>
     </section>
   </section>
 </chapter>
