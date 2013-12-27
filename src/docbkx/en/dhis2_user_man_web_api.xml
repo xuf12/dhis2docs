@@ -356,11 +356,11 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       <emphasis role="bold">Example: Get a filtered set of meta-data that was updated since August 1
         2012</emphasis>
     </para>
-    <para>As described in the last section, there is a number of options you can apply to <emphasis
-        role="italic">/api/metaData</emphasis> to give you a filtered view. The use-case we will be
-      looking into here is where you want a nightly job that synchronizes organisation units. We
-      will be using <emphasis role="italic">cURL</emphasis> as the HTTP
-      client.<screen>curl -H &quot;Accept: application/xml&quot; -u admin:district "http://apps.dhis2.org/demo/api/metaData?assumeTrue=false&amp;organisationUnits=true&amp;lastUpdated=2012-08-01"</screen></para>
+    <para>As described in the last section, there is a number of options you can apply to <emphasis role="italic">/api/metaData</emphasis>
+        to give you a filtered view. The use-case we will be looking into here is where you want a nightly job that synchronizes
+        organisation units. We will be using <emphasis role="italic">cURL</emphasis> as the HTTP
+        client.<screen>curl -H &quot;Accept: application/xml&quot; -u admin:district
+  &quot;http://apps.dhis2.org/demo/api/metaData?assumeTrue=false&amp;organisationUnits=true&amp;lastUpdated=2012-08-01&quot;</screen></para>
     <para><emphasis role="bold">Example: Get meta-data that was updated since February
         2012</emphasis></para>
     <para>This example will just the default <emphasis role="italic">assumeTrue</emphasis> setting,
