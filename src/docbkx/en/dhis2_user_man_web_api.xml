@@ -1229,6 +1229,21 @@ Content-Type: application/xml
     </section>
   </section>
   <section>
+    <title>Adding, Updating and Deleting interpretation comments</title>
+    <para>
+      <emphasis role="bold">Adding comments to existing interpretation:</emphasis>
+      <screen>POST "plain-text comment" to /api/interpretations/ID/comments</screen>
+    </para>
+    <para>
+      <emphasis role="bold">Updating comment in existing interpretation:</emphasis>
+      <screen>PUT "plain-text comment" to /api/interpretations/ID/comments/ID</screen>
+    </para>
+    <para>
+      <emphasis role="bold">Deleting comment in existing interpretation:</emphasis>
+      <screen>DELETE /api/interpretations/ID/comments/ID</screen>
+    </para>
+  </section>
+  <section>
     <title>Viewing analytical resource representations</title>
     <para>DHIS 2 has several resources for data analysis. These resources include <emphasis
         role="italic">charts</emphasis>, <emphasis role="italic">maps</emphasis>, <emphasis
