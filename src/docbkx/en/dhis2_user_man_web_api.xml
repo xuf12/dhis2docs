@@ -1084,6 +1084,94 @@ Content-Type: application/xml
         role="italic">application/json</emphasis>.</para>
   </section>
   <section>
+    <title>Data approval</title>
+    <para>This section explains how to approve, unapprove and check approval status using the
+        <emphasis role="italic">dataApprovals</emphasis> resource. Approval is done per data set,
+      period, organisation unit and attribute option combo. </para>
+    <table frame="all">
+      <title>Data approval query parameters</title>
+      <tgroup cols="3">
+        <colspec colname="c1" colnum="1" colwidth="1*"/>
+        <colspec colname="c2" colnum="2" colwidth="1.15*"/>
+        <colspec colname="c3" colnum="3" colwidth="3.92*"/>
+        <thead>
+          <row>
+            <entry>Query parameter</entry>
+            <entry>Required</entry>
+            <entry>Description</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>ds</entry>
+            <entry>Yes</entry>
+            <entry>Data set identifier</entry>
+          </row>
+          <row>
+            <entry>pe</entry>
+            <entry>Yes</entry>
+            <entry>Period identifier</entry>
+          </row>
+          <row>
+            <entry>ou</entry>
+            <entry>Yes</entry>
+            <entry>Organisation unit identifier</entry>
+          </row>
+          <row>
+            <entry>cc</entry>
+            <entry>No (must combine with cp)</entry>
+            <entry>Attribute combo identifier</entry>
+          </row>
+          <row>
+            <entry>cp</entry>
+            <entry>No (must combine with cp)</entry>
+            <entry>Attribute option identifiers, separated with ; for multiple values</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>To check the status for approval you can issue a <emphasis role="italic">GET</emphasis>
+      request to the dataApprovals resource:</para>
+    <screen>api/dataApprovals</screen>
+    <table frame="all">
+      <title>Approval status</title>
+      <tgroup cols="2">
+        <colspec colname="c1" colnum="1" colwidth="1*"/>
+        <colspec colname="c2" colnum="2" colwidth="2.21*"/>
+        <thead>
+          <row>
+            <entry>Approval status</entry>
+            <entry>Description</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>APPROVED</entry>
+            <entry>Data in this data set is approved for this period and organisation unit</entry>
+          </row>
+          <row>
+            <entry>READY_FOR_APPROVAL</entry>
+            <entry>Data in this data set is ready to be approved for this period and organisation
+              unit</entry>
+          </row>
+          <row>
+            <entry>WAITING_FOR_LOWER_LEVEL_APPROVAL</entry>
+            <entry>Data is not ready to be approved because it is waiting for approval at a
+              lower-level organisation unit</entry>
+          </row>
+          <row>
+            <entry>APPROVAL_NOT_NEEDED</entry>
+            <entry>Data does not need approval because approval is not required or data set is not
+              collected at organisation unit</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>To approve data you can issue a <emphasis role="italic">POST</emphasis> request to the
+      dataApprovals resource. To un-approve data you can issue a <emphasis role="italic"
+        >DELETE</emphasis> request.</para>
+  </section>
+  <section>
     <title>Writing and reading messages</title>
     <para>DHIS 2 features a mechanism for sending messages for purposes such as user feedback, notifications and general information to  users. Messages are delivered to the DHIS 2 message inbox but can also be sent to the user&apos;s email addresses and mobile phones as SMS. In this example we will see how we can utilize the Web API to send and read messages. We will pretend to be the <emphasis role="italic">DHIS Administrator</emphasis>   user  and  send a message to the  <emphasis role="italic">Mobile</emphasis> user. We will then pretend to be the  mobile user and read our new message.</para>
     <para>The resource we need to interact with when sending and reading messages is the <emphasis
