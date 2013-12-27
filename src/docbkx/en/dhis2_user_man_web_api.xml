@@ -268,6 +268,14 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
               <entry>Indicates whether to get all resources or no resources by default.</entry>
             </row>
             <row>
+              <entry>dryRun</entry>
+              <entry>boolean</entry>
+              <entry>false</entry>
+              <entry>false | true</entry>
+              <entry>If you set this to true, the actual import will not happen. Instead the system will generate a
+                summary of what would have been done.</entry>
+            </row>
+            <row>
               <entry>{resources}</entry>
               <entry>boolean</entry>
               <entry>false</entry>
@@ -286,16 +294,64 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
             <row>
               <entry>preheatCache</entry>
               <entry>boolean</entry>
-              <entry>true</entry>
+              <entry>false</entry>
               <entry>true | false</entry>
               <entry>Turn cache-map preheating on/off. This is on by default, turning this off will make initial load time for importer much
                 shorter (but will make the import itself slower). This is mostly used for cases where you have a small XML file you want to
                 import, and don't want to wait for cache-map preheating.</entry>
             </row>
+            <row>
+              <entry>strategy</entry>
+              <entry>enum</entry>
+              <entry>false</entry>
+              <entry>CREATE_AND_UPDATE | CREATE | UPDATE | DELETE</entry>
+              <entry>Import strategy to use, see below for more information.</entry>
+            </row>
           </tbody>
         </tgroup>
       </table>
     </para>
+
+    <section>
+    <title>Available strategies for import</title>
+    <para>
+    <table>
+      <title>Available Strategies</title>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry>
+              <emphasis role="italic">Type</emphasis>
+            </entry>
+            <entry>
+              <emphasis role="italic">Description</emphasis>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>CREATE_AND_UPDATE</entry>
+            <entry>Allows creation and updating of objects.</entry>
+          </row>
+          <row>
+            <entry>CREATE</entry>
+            <entry>Allows creation of objects.</entry>
+          </row>
+          <row>
+            <entry>UPDATE</entry>
+            <entry>Allows update of objects.</entry>
+          </row>
+          <row>
+            <entry>DELETE</entry>
+            <entry>Allows deletes of objects.</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    </para>
+  </section>
+  <section>
+    <title>Examples</title>
     <para>
       <emphasis role="bold">Example: Get a filtered set of meta-data that was updated since August 1
         2012</emphasis>
@@ -322,6 +378,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para>The import will happen in a asyncronous process which implies that the response will
       return as soon as the process is started. The response status code to be expected is 204 No
       Content.</para>
+  </section>
   </section>
   <section>
     <title>Sending data values</title>
