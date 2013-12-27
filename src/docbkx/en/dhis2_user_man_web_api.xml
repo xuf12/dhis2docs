@@ -237,7 +237,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     </para>
     <para>The following query parameters are available for customizing your request.</para>
     <para>
-    <table>
+      <table>
         <title>Available Query Filters</title>
         <tgroup cols="5">
           <thead>
@@ -283,10 +283,19 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
                 yyyyMMdd</entry>
               <entry>Filters the meta-data based on the lastUpdated field.</entry>
             </row>
+            <row>
+              <entry>preheatCache</entry>
+              <entry>boolean</entry>
+              <entry>true</entry>
+              <entry>true | false</entry>
+              <entry>Turn cache-map preheating on/off. This is on by default, turning this off will make initial load time for importer much
+                shorter (but will make the import itself slower). This is mostly used for cases where you have a small XML file you want to
+                import, and don't want to wait for cache-map preheating.</entry>
+            </row>
           </tbody>
         </tgroup>
       </table>
-   </para>
+    </para>
     <para>
       <emphasis role="bold">Example: Get a filtered set of meta-data that was updated since August 1
         2012</emphasis>
