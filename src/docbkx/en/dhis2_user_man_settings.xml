@@ -146,11 +146,12 @@
       <title>Access settings</title>
       <itemizedlist>
         <listitem>
-          <para>Self registration account user role: Defines which user role should be given to
-            self-registered user accounts. To enable self-registration of users, select any user
-            role from the list. To disable it, select "Do not allow self registration". When
-            enabled, a link to the self-registration form will be displayed on the login
-            page.</para>
+          <para>Self registration account user role: Defines which user role should be given to self-registered user accounts. To enable
+            self-registration of users, select any user role from the list. To disable it, select "Do not allow self registration". When
+            enabled, a link to the self-registration form will be displayed on the login page.</para>
+        </listitem>
+        <listitem>
+          <para>Do not use recaptcha for self registration: Whether or not to use reCAPTCHA for user registration.</para>
         </listitem>
         <listitem>
           <para>Self registration account organisation unit: Defines which organisation unit should
