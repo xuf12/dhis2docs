@@ -162,6 +162,10 @@
             it. When enabled, a link to the account recovery form will be displayed on the front page. User account recovery requires that
             you have configured email settings (SMTP).</para>
         </listitem>
+        <listitem>
+          <para>Require user account password change: Require that users change their password every 3,6,12 months. Please note that for
+            2.14 release, they will have to login through the desktop to change passwords.</para>
+        </listitem>
       </itemizedlist>
     </section>
   </section>
