@@ -86,8 +86,13 @@
           <para>Days after period end to qualify for timely data submission: Sets the number of days after the end of a period in which a data entry form must be marked as complete in order to be considered timely. This affects the &quot;reporting rate&quot; tool in the reporting module which lists forms marked as complete as well as marked as complete in time. The default value is 15.</para>
         </listitem>
         <listitem>
-          <para>Phone number area code: The area code for the area in which your deployment is
-            located. Used for sending and receiving SMS.</para>
+          <para>Phone number area code: The area code for the area in which your deployment is located. Used for sending and receiving
+            SMS.</para>
+        </listitem>
+        <listitem>
+          <para>Google Analytics (Universal Analytics) Key: Set your Google UA key here to provide analytics for your DHIS 2 instance. Most
+            places are covered, but it will not be provided for custom apps. Read more about Google Analytics at
+              <uri>http://google.com/analytics</uri>.</para>
         </listitem>
         <listitem>
           <para>Omit indicator values with zero numerator value in data mart: Defines whether aggregated indicator values with zero as the
@@ -97,9 +102,9 @@
             of values written to the data mart (which again will improve performance) and could safely be set to omit.</para>
         </listitem>
         <listitem>
-          <para>Google Analytics (Universal Analytics) Key: Set your Google UA key here to provide analytics for your DHIS 2 instance. Most
-            places are covered, but it will not be provided for custom apps. Read more about Google Analytics at
-              <uri>http://google.com/analytics</uri>.</para>
+          <para>Enable multi-organisation unit forms: Enable support for entering data forms for multiple organisation units at the same
+            time, in data entry, click on the parent organisation unit for the children that you want to enter data for, and the dataset
+            list will include datasets that are assigned to the children of that parent.</para>
         </listitem>
       </itemizedlist>
     </section>
