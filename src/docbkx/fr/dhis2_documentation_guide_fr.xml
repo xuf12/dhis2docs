@@ -137,11 +137,9 @@ Si vous souhaitez relier plusieurs articles ensemble dans un livre, DocBook four
     <para>Notez que le nom de fichier et son identifiant ont été attributes dans le document parent, faisant une reference au document courant (href) et au fragment particulier du document enfant qui pourrait être référencé dans le document parent (xpointer).
  </para>
     <para>Inclure des chapitres dans un document est un processus très simple. L’exemple suivant illustre comment faire : </para>
-    <para>
-      <programlisting format="linespecific">
-        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_ mod1.xml" encoding="UTF-8" />
-      </programlisting>
-    </para>
+<para><programlisting>&lt;xi:include xmlns:xi=&quot;http://www.w3.org/2001/XInclude&quot; href=&quot;dhis2_user_man_
+mod1.xml&quot; encoding=&quot;UTF-8&quot;/&gt; </programlisting>
+</para>
     <para>Dans ce cas, il n’est pas nécessaire de faire explicitement une reference à une partie du document, à moins de vouloir inclure une partie du chapitre. Si vous voulez utiliser une section du chapitre, vous pouvez attribuer un id à cette section, puis référencer cette section par le biais d’un xpointer. </para>
   </section>
   <section id="docs_8">
