@@ -13,31 +13,31 @@
   <section id="docs_2">
     <title>Introduction</title>
     <para>
- L'un des principaux avantages de DocBook est la séparation complète qu'il opère entre le contenu et la présentation. DocBook est un format XML pur, et il est bien documenté. Nous croyons qu'un très petit sous-ensemble de ses fonctionnalités sera nécessaire à la réalisation d'une documentation de grande qualité du DHIS. Il contient environ 400 balises qui correspondent à quasiment tous les niveaux d'exigence des documentations techniques, mais en réalité, il n'y aura besoin que d'une petite douzaine de ces éléments pour réaliser une documentation de grande qualité du DHIS 2, aussi bien pour la production de documents destinés à l'impression que pour la production de documents consultables en ligne comme les pages HTML ou les pages d'aide intégrées à l'application elle-même. Il existe de nombreuses manières de créer des fichiers DocBook. Une liste assez exhaustive de ces possibilités est décrite  <ulink url="http://wiki.docbook.org/topic/DocBookAuthoringTools">ici</ulink> . Il est présentement recommandé d'utiliser l'éditeur WYSIWYG <ulink url="http://sourceforge.net/projects/sernafree.mirror/files/latest/download">Syntext Serna  Free</ulink> pour l'édition des fichiers sources DocBook. En principe, toutefois, n'importe quel éditeur de texte ou de fichiers XML peut être utilisé pour l'édition  de fichiers DocBook.  </para>
+ L'un des principaux avantages de DocBook est la séparation complète qu'il opère entre le contenu et la présentation. DocBook est un format XML pur, et il est bien documenté. Nous croyons qu'un très petit sous-ensemble de ses fonctionnalités est nécessaire à la réalisation d'une documentation de grande qualité du DHIS. Il contient environ 400 balises qui correspondent à quasiment tous les niveaux d'exigence des documentations techniques, mais en réalité, il n'y aura besoin que d'une petite douzaine de ces éléments pour réaliser une documentation de grande qualité du DHIS 2, aussi bien pour la production de documents destinés à l'impression que pour la production de documents consultables en ligne comme les pages HTML ou les pages d'aide intégrées à l'application elle-même. Il existe de nombreuses manières de créer des fichiers DocBook. Une liste assez exhaustive de ces possibilités est décrite  <ulink url="http://wiki.docbook.org/topic/DocBookAuthoringTools">ici</ulink> . Il est présentement recommandé d'utiliser l'éditeur WYSIWYG <ulink url="http://sourceforge.net/projects/sernafree.mirror/files/latest/download">Syntext Serna  Free</ulink> pour l'édition des fichiers sources DocBook. En principe, toutefois, n'importe quel éditeur de texte ou de fichiers XML peut être utilisé pour l'édition  de fichiers DocBook.  </para>
     <note>
       <para>Il est déconseillé d'utiliser l'éditeur XMLmind XML Editor Personal Edition (également connu sous le nom de XXE Personal), vu que cet éditeur ajoute "discrètement" des espaces inutiles et d'autres agrémentations au fichier source DocBook, rendant ainsi la création collaborative de documents fortement difficile.  </para>
     </note>
     <para>
-  L'un des concepts clés à garder à l'esprit lors de la création de documentation sous DocBook, ou sous d'autres formats neutres de présentation d'information, est que le  <emphasis role="bold">contenu</emphasis>  du document doit être pris en considération en premier lieu. La  <emphasis role="bold">présentation </emphasis> du document s'effectue au cours d'une étape ultérieure, au moment où le document va être transformé en différents formats comme le HTML et le PDF. Il est à cet effet important de faire en sorte que le document soit bien organisé et structuré, avec les balises DocBook appropriées, et la bonne prise en compte des élements structurels de sa composition. 
+  L'un des concepts clés à garder à l'esprit lors de la création de documents sous DocBook, ou sous d'autres formats neutres de présentation d'information, est que le  <emphasis role="bold">contenu</emphasis>  du document doit être pris en considération en premier lieu. La  <emphasis role="bold">présentation </emphasis> du document s'effectue au cours d'une étape ultérieure, au moment où le document va être transformé en différents formats comme le HTML et le PDF. Il est à cet effet important de faire en sorte que le document soit bien organisé et structuré, avec les balises DocBook appropriées, et une bonne prise en compte des élements structurels de sa composition. 
  </para>
     <para>
- Il est considéré comme une bonne attitude de scinder votre document en plusieurs sections en utilisant la balise "sect", ou un élement de section. Les éléments de section peuvent aussi être imbriqués les uns à l'intérieur des autres, comme "Section 1" et "Section 2". C'est le même concept que celui utilisé par <productname class="trade">Microsoft Word</productname>  ou d'autres logiciels de traitement de texte. DocBook se chargera automatiquement de numéroter les sections au cours de la production du document. Les deux autres éléments sont la balise "itemizedlist" et "numberedlist". Ils sont presque identiques, mais la balise "itemizedlist" correspond à des listes à puce, tandis que la balise "numberedlist" fait référence à des éléments listés séquentiellement avec des numéros. Les autres éléments clés sont les balises "screenshot" et "table" qui parlent d'eux-mêmes.
+ Il est considéré comme une bonne attitude de scinder votre document en plusieurs sections en utilisant la balise "sect", ou un élement de section. Les éléments de section peuvent aussi être imbriqués les uns à l'intérieur des autres, comme "Section 1" et "Section 2". C'est le même concept que celui utilisé par <productname class="trade">Microsoft Word</productname>  ou d'autres logiciels de traitement de texte. DocBook se chargera automatiquement de numéroter les sections au cours de la production du document. Les deux autres éléments sont la balise "itemizedlist" et "numberedlist". Ils sont presque identiques, et différent par le fait que la balise "itemizedlist" correspond à des listes à puces, tandis que la balise "numberedlist" fait référence à des éléments listés séquentiellement avec des numéros. Les autres éléments clés sont les balises "screenshot" et "table" qui parlent d'eux-mêmes.
  </para>
   </section>
   <section id="docs_3">
     <title>Introduction à Launchpad</title>
     <para>
- Actuellement, le système de documentation est une partie du code source et il est hébergé chez  <ulink url="https://launchpad.net/">Launchpad</ulink> . Launchpad est une plateforme collaborative qui permet à plusieurs personnes de travailler sur des projets de logiciels de manière collaborative. Pour rendre cela possible, un système de contrôle de version est nécessaire, son rôle étant de gérer toutes les modifications que plusieurs utilisateurs pourraient effectuer. Launchpad utilise le système de contrôle de version  <emphasis>Bazaar</emphasis>  . Bien qu'il soit hors de portée de ce document de décrire les fonctionnalités de  <emphasis> Bazaar </emphasis>, les utilisateurs qui souhaitent créer des documents gagneraient à avoir au moins une compréhension de base de la façon dont ce système fonctionne. Un guide de base est fourni dans la section suivante. 
+ Actuellement, le système de documentation fait partie du code source et il est hébergé chez  <ulink url="https://launchpad.net/">Launchpad</ulink> . Launchpad est une plateforme collaborative qui permet à plusieurs personnes de travailler sur des projets de logiciels de manière collaborative. Pour rendre cela possible, un système de contrôle de version est nécessaire, son rôle étant de gérer toutes les modifications que plusieurs utilisateurs pourraient effectuer. Launchpad utilise le système de contrôle de version  <emphasis>Bazaar</emphasis>  . Bien qu'il soit hors de portée de ce document de décrire les fonctionnalités de  <emphasis> Bazaar </emphasis>, les utilisateurs qui souhaitent créer des documents gagneraient à avoir au moins une compréhension de base de la façon dont ce système fonctionne. Un guide de base est fourni dans la section suivante. 
  </para>
     <para>
-  Afin de commencer à ajouter ou éditer la documentation, vous devrez d'abord effectuer une vérification du code source. Si vous n'avez pas déjà un identifiant sous Launchpad, vous devrez d'abord en avoir un. Vous pouvez le faire sur  <ulink url="https://launchpad.net/+login">ce lien</ulink>. Une fois que vous vous serez enregistré sur Launchpad, vous devrez solliciter l'accès auprès du groupe des rédacteurs de documents du DHIS 2, le groupe baptisé  <emphasis> dhis2-documenters</emphasis>. Pour ce faire, connectez-vous à Launchpad, puis sollicitez un accès sur 
- <ulink url="https://code.launchpad.net/~dhis2-documenters/dhis2/dhis2-docbook-docs">ce lien</ulink>. Votre demande devra d'abord être aprouvée par le groupe d'administrateurs. Une fois que cet accès vous sera accordé, il vous sera possible de soumettre vos modifications sur l'arbre de documentation et d'envoyer ou recevoir des messages sur les groupes de discussion. 
+  Avant de commencer à faire des ajouts ou des modifications dans la documentation, vous devrez d'abord effectuer une vérification du code source. Si vous n'avez pas déjà un identifiant sous Launchpad, vous devrez d'abord en créer un. Vous pouvez le faire sur  <ulink url="https://launchpad.net/+login">ce lien</ulink>. Une fois que vous vous serez enregistré sur Launchpad, vous devrez solliciter l'accès auprès du groupe des rédacteurs de documents du DHIS 2, le groupe baptisé  <emphasis> dhis2-documenters</emphasis>. Pour ce faire, connectez-vous à Launchpad, puis sollicitez un accès sur 
+ <ulink url="https://code.launchpad.net/~dhis2-documenters/dhis2/dhis2-docbook-docs">ce lien</ulink>. Votre demande devra d'abord être approuvée par le groupe d'administrateurs. Dès que cet accès vous sera accordé, il vous sera possible de soumettre vos modifications sur l'arbre de documentation et d'envoyer ou recevoir des messages sur les groupes de discussion. 
  </para>
   </section>
   <section id="docs_4">
     <title>Obtenir le fichier source de la documentation</title>
     <para>
-Afin de modifier la documentation, vous aurez besoin de télécharger les pages sources de la documentation sur votre ordinateur. Launchpad utilise un système de contrôle de version connue sous le nom de bzr. Il existe différentes méthodes pour faire fonctionner Bazaar sur votre système, en fonction du système d'exploitation que vous utilisez. Un bon guide étape-par-étape pour  le système d’exploitation <productname class="trade">Microsoft</productname>  peut être visualisé <ulink url="http://wiki.showmedo.com/index.php/Using_Launchpad_and_Bazaar#Steps_to_download_a_project_on_Launchpad_that_uses_Bazaar_with_only_one_branch">ici</ulink>. Si vous utilisez Linux, vous aurez besoin d’installer bzr sur votre système à l’aide de votre gestionnaire de paquets ou du code source. </para>
+Pour modifier la documentation, vous aurez besoin de télécharger les pages sources de la documentation sur votre ordinateur. Launchpad utilise un système de contrôle de version connue sous le nom de bzr. Il existe différentes méthodes pour faire fonctionner Bazaar sur votre système, en fonction du système d'exploitation que vous utilisez. Un bon guide étape-par-étape pour le système d’exploitation <productname class="trade">Microsoft</productname>  peut être visualisé <ulink url="http://wiki.showmedo.com/index.php/Using_Launchpad_and_Bazaar#Steps_to_download_a_project_on_Launchpad_that_uses_Bazaar_with_only_one_branch">ici</ulink>. Si vous utilisez Linux, vous aurez besoin d’installer bzr sur votre système à l’aide de votre gestionnaire de paquets ou du code source. </para>
     <para>Une fois que vous aurez installé bzr sur votre système, vous aurez besoin de télécharger le code source de la documentation. Vous pouvez suivre la procedure suivante:</para>
     <orderedlist inheritnum="ignore" continuation="restarts">
       <listitem>
@@ -63,7 +63,7 @@ Si vous utilisez Linux, ou, également, si vous utilisez
  </para>
       </listitem>
       <listitem>
-        <para>Le téléchargement devrait alors commencer et tous les fichiers sources  de la documentation seront téléchargés dans le dossier que vous aurez précisé. </para>
+        <para>Le téléchargement devrait alors commencer et tous les fichiers sources de la documentation seront téléchargés dans le dossier que vous aurez précisé. </para>
       </listitem>
     </orderedlist>
   </section>
@@ -72,18 +72,18 @@ Si vous utilisez Linux, ou, également, si vous utilisez
     <para>
  Une fois que vous aurez téléchargé les fichiers sources, vous obtiendrez une série de dossiers à l’intérieur du dossier dhis2-docbook-docs . Tous les documents devraient être dans le dossier 
  <filename moreinfo="none">dhis2-docbook-docs/src/docbkx/XX</filename>
-  folder. Noter que 
+. Noter que 
  <filename moreinfo="none">XX</filename>
   représente le code ISO 639-1 (à deux lettres) de la langue de la documentation. Si vous créez une documentation en Anglais, placez la à l’intérieur du dossier 
  <filename moreinfo="none">/dhis2-docbook-docs/src/docbkx/en/</filename>
   . Placez tous les fichiers images qui devront être liés à votre document dans le dossier
  <filename moreinfo="none">/dhis2-docbook-docs/src/docbkx/XX/resources/images</filename>
-  et utilisez les pour insérer des liens à l’intérieur de votre document DocBook en utilisant un lien de fichier relatif. Lorsque le document est généré, dans une étape séparée, les images seront automatiquement copiées pendant le processus de genèse.</para>
+  et utilisez les pour insérer des liens à l’intérieur de votre document DocBook en utilisant un lien de fichier relatif. Lorsque le document est généré, au cours d'une étape séparée, les images seront automatiquement copiées pendant le processus de genèse.</para>
   </section>
   <section>
     <title>Bibliographie du DHIS2</title>
     <para>
-DHIS2 a un vaste ensemble de documentation académique qui peut servir de ressources précieuses pendant les implémentations, les propositions de projets et pour des lectures plus approfondies que ce qui est mis dans un mode d'emploi général. Une bibliographie spécialisée a été ajoutée au code source de l’application.
+DHIS2 dispose d'un vaste ensemble de documentation académique qui peut servir de ressources précieuses pendant les implémentations, les propositions de projets et pour des lectures plus approfondies que ce qui est mis dans un mode d'emploi général. Une bibliographie spécialisée a été ajoutée au code source de l’application.
  <ulink url="http://www.bibtex.org">BibTeX</ulink>
   est un langage specialisé qui est largement utilisé dans le monde académique pour gérer les bases de données bibliographiques. Un grand nombre d’utilitaires libres et open source sont en mesure de travailler avec BibTeX. Actuellement, l’utilitaire de prédilection pour gérer la bibliographie de DHIS 2 est 
  <ulink url="http://jabref.sourceforge.net/">JabRef</ulink>
@@ -92,7 +92,7 @@ DHIS2 a un vaste ensemble de documentation académique qui peut servir de ressou
     <para>
  Pour commencer avec la bibliographie, téléchargez une copie de JabRef et ouvrez le fichier 
  <filename moreinfo="none">/src/bibliography/dhis2_bibliography.bib file</filename>
- . . Ajoutez quelques nouvelles references, puis exportez la bibliographie dans le fichier 
+ . Ajoutez quelques nouvelles références, puis exportez la bibliographie dans le fichier 
  <filename moreinfo="none">/src/docbkx/en/dhis2_bibliography.xml</filename>
   , en utilisant le format d’exportation DocBook 4.4. La bibliographie mise à jour sera automatiquement incluse dans la documentation après que vous ayez soumis (via l’argument de commande commit) vos modifications.
  </para>
@@ -100,7 +100,7 @@ DHIS2 a un vaste ensemble de documentation académique qui peut servir de ressou
   <section id="docs_6">
     <title>Utilisation des images</title>
     <para> 
-Les captures d'écran sont très utiles pour fournir des informations aux utilisateurs sur la façon dont certaines actions doivent être effectuées. DocBook ne possède pas de mécanismes internes pour savoir exactement comment une image doit être rendue dans le document final. Par conséquent, il est nécessaire de fournir des instructions par l'intermédiaire d’attributs d'élément. Le fragment de code XML suivant montre comment une image peut être définie pour occuper 80% de la largeur de la page disponible. Pour des captures d'écran affichées au format paysage, ceci semble être une valeur indiquée. Vous devrez peut-être  faire un peu d’essais pour obtenir la largeur idéale de votre image. Alternativement, vous pouvez modifier la résolution de l'image elle-même, afin d'obtenir une taille appropriée pendant le rendu.
+Les captures d'écran sont très utiles pour fournir des informations aux utilisateurs sur la façon dont certaines actions doivent être effectuées. DocBook ne possède pas de mécanismes internes pour savoir exactement comment une image doit être rendue dans le document final. Par conséquent, il est nécessaire de lui fournir des instructions par l'intermédiaire d’attributs d'élément. Le fragment de code XML suivant montre comment une image peut être définie pour occuper 80% de la largeur de la page disponible. Pour des captures d'écran affichées au format paysage, ceci semble être une valeur appropriée. Vous devrez peut-être  faire un peu d’essais pour obtenir la largeur idéale de votre image. Alternativement, vous pouvez modifier la résolution de l'image elle-même, afin d'obtenir une taille appropriée pendant le rendu.
 </para>
     <programlisting format="linespecific">
       <screenshot>
@@ -112,16 +112,15 @@ Les captures d'écran sont très utiles pour fournir des informations aux utilis
         </mediaobject>
       </screenshot>
     </programlisting>
-    <para>Pour les autres images, selon leur taille, une valeur différente pourrait être nécessaire. Si vous ne précisez pas la largeur de votre image, et que leur taille réelle est plus grande que l’écran disponible, l’image pourrait déborder dans certains documents qui utilisent une largeur fixe, comme les PDF.
+    <para>Pour les autres images, selon leur taille, une valeur différente pourrait être nécessaire. Si vous ne précisez pas la largeur de votre image, et que leur taille réelle est plus grande que l’écran disponible, l’image pourrait déborder dans certains documents qui utilisent une largeur fixe, comme les documents PDF.
 </para>
   </section>
   <section id="docs_7">
     <title>Relier les documents entre eux</title>
     <para> 
-DocBook offre un cadre modulaire où de nombreux documents séparés peuvent être reliés entre eux dans un document maître. Des portions de différents documents peuvent également être réutilisées dans différents contextes. Il est donc important de déterminer si votre document doit être construit comme un article ou comme un chapitre. Les chapitres sont essentiellement des parties d'un livre, et peuvent donc être reliés entre eux dans un document plus facilement. Les articles sont essentiellement des documents autonomes, mais ils peuvent aussi être assemblés dans un document plus large.
+DocBook offre un cadre modulaire où de nombreux documents séparés peuvent être reliés entre eux dans un document principal. Des portions de différents documents peuvent également être réutilisés dans différents contextes. Il est donc important de déterminer si votre document doit être construit comme un article ou comme un chapitre. Les chapitres sont essentiellement des parties d'un livre, et peuvent donc être reliés entre eux dans un document plus facilement. Les articles sont essentiellement des documents autonomes, mais ils peuvent aussi être rassemblés dans un document plus large.
 </para>
-    <para>Should you wish to link several articles together into a book, DocBook provides a mechanism to assign an id to a section. In the example below, a section has been assigned an id. This id must be unique within the document. 
-Si vous souhaitez relier plusieurs articles ensemble dans un livre, DocBook fournit un mécanisme pour attribuer un identifiant à une section. Dans l'exemple ci-dessous, un identifiant a été attribué à une section. Cet id doit être unique dans le document.
+    <para>Si vous souhaitez relier plusieurs articles ensemble dans un livre, DocBook fournit un mécanisme pour attribuer un identifiant à une section. Dans l'exemple ci-dessous, un identifiant a été attribué à une section. Cet id doit être unique dans le document.
 </para>
     <para>
       <programlisting format="linespecific">  &lt;section id="mod2_1"&gt;
@@ -134,29 +133,30 @@ Si vous souhaitez relier plusieurs articles ensemble dans un livre, DocBook four
  xpointer="mod2_1" encoding="UTF-8"/&gt;
 ... </programlisting>
     </para>
-    <para>Notez que le nom de fichier et son identifiant ont été attributes dans le document parent, faisant une reference au document courant (href) et au fragment particulier du document enfant qui pourrait être référencé dans le document parent (xpointer).
+    <para>Notez que le nom de fichier et son identifiant ont été attribués dans le document parent, faisant une référence au document courant (href) et au fragment particulier du document enfant qui pourrait être référencé dans le document parent (xpointer).
  </para>
     <para>Inclure des chapitres dans un document est un processus très simple. L’exemple suivant illustre comment faire : </para>
-<para><programlisting>&lt;xi:include xmlns:xi=&quot;http://www.w3.org/2001/XInclude&quot; href=&quot;dhis2_user_man_
-mod1.xml&quot; encoding=&quot;UTF-8&quot;/&gt; </programlisting>
-</para>
-    <para>Dans ce cas, il n’est pas nécessaire de faire explicitement une reference à une partie du document, à moins de vouloir inclure une partie du chapitre. Si vous voulez utiliser une section du chapitre, vous pouvez attribuer un id à cette section, puis référencer cette section par le biais d’un xpointer. </para>
+    <para>
+      <programlisting format="linespecific">&lt;xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_
+mod1.xml" encoding="UTF-8"/&gt; </programlisting>
+    </para>
+    <para>Dans ce cas, il n’est pas nécessaire de faire explicitement une référence à une partie du document, à moins de vouloir inclure une partie du chapitre. Si vous voulez utiliser une section du chapitre, vous pouvez attribuer un id à cette section, puis référencer cette section par le biais d’un xpointer. </para>
   </section>
   <section id="docs_8">
     <title>Gérer une documentation en langues multiples </title>
     <para>
- La structure du repertoire de la documentation a été créée dans le but de faciliter la creation de documents dans n’importe quelle langue. Si vous voulez créer un nouvel ensemble de documents dans un langage donné, veuillez simplement créer un nouveau répertoire dans le dossier 
+ La structure des dossiers de la documentation a été créée dans le but de faciliter la création de documents dans n’importe quelle langue. Si vous voulez créer un nouvel ensemble de documents dans un langage donnée, veuillez simplement créer un nouveau dossier dans le dossier 
  <filename moreinfo="none">dhis2-docbook-docs/src/docbkx/</filename>
-  . Assurez-vous d’utiliser le code ISO 639-1 de la langue pour laquelle vous allez créer les documents. Une liste complete de ces codes peut être trouvée  
+  . Assurez-vous d’utiliser le code ISO 639-1 de la langue pour laquelle vous allez créer les documents. Une liste complète de ces codes peut être trouvée  
  <ulink url="http://en.wikipedia.org/wiki/ISO_639-1">ici</ulink>
- . Ajouter un nouveau dossier pour les images dans un sous-répertoire, en remplaçant XX avec le code ISO 639-1 de la langue pour laquelle vous voulez créer des documents. Vous aurez également besoin de modifier le fichier
+ . Ajoutez un nouveau dossier pour les images dans un sous-dossier, en remplaçant XX avec le code ISO 639-1 de la langue pour laquelle vous voulez créer des documents. Vous aurez également besoin de modifier le fichier
  <filename moreinfo="none">pom.xml </filename>
- dans le dossier principal dhis2-docbook-docs. Si vous n’êtes pas sûrs de quelles modifications doivent être apportées à ce fichier, demandez d’abord à la liste de diffusion, étant donné que ce fichier contrôle la génération de toute la documentation.
+ dans le dossier principal dhis2-docbook-docs. Si vous n’êtes pas sûr des modifications qui doivent être apportées à ce fichier, demandez d’abord à la liste de diffusion, étant donné que ce fichier contrôle la génération de toute la documentation.
  </para>
   </section>
   <section id="docs_9">
     <title>Construire la documentation </title>
-    <para>L’un des avantages principaux du format DocBook, c’est que les fichiers sources de la documentation peuvent être transformés en une grande variété de formats, dont HML, HTML par parties, XHTML, PDF, et un grand nombre d’autres formats.Il y’a une grande variété d’utilitaires quis sont en mesure d’effectuer cette tâche. Pour simplifier, le code source XML du document va être transformé en utilisant les feuilles de style standards XSL de DocBook dans le format souhaité. La liste complète des outils capables de transformés DocBook  ne sera pas listée ici, mais quelques exemples sont fournis ci-dessous.
+    <para>L’un des avantages principaux du format DocBook, c’est que les fichiers sources de la documentation peuvent être transformés en une grande variété de formats, dont HML, HTML par parties, XHTML, PDF, et un grand nombre d’autres formats.Il y’a une grande variété d’utilitaires qui sont en mesure d’effectuer cette tâche. Pour simplifier, le code source XML du document va être transformé en utilisant les feuilles de style standards XSL de DocBook dans le format souhaité. La liste complète des outils capables de transformer DocBook  ne sera pas affichée ici, mais quelques exemples sont fournis ci-dessous.
  </para>
     <para>
  Les dernières constructions de la documentation sont disponibles sur 
@@ -168,13 +168,13 @@ mod1.xml&quot; encoding=&quot;UTF-8&quot;/&gt; </programlisting>
     <section>
       <title>Construire la documentation à l’aide d’Apache Maven</title>
       <para>
- Afin de transformer les fichiers sources de la documentation en different formats, comme HTML ou PDF, vous aurez besoin d’installer le programme Apache Maven. Vous pouvez obtenir une copie  
+ Afin de transformer les fichiers sources de la documentation en différents formats, comme HTML ou PDF, vous aurez besoin d’installer le programme Apache Maven. Vous pouvez obtenir une copie  
  <ulink url="http://maven.apache.org/download.html">ici</ulink>
-  ou en l’installant or by installing par le biais du gestionnaire de parquets si vous utilisez Linux. Veuillez juste exécuter la commande 
+  ou en l’installant par le biais du gestionnaire de paquets si vous utilisez Linux. Veuillez juste exécuter la commande 
  <command moreinfo="none">mvn clean package</command>
-  sous Windows ou sous Linux à partir du répertoire 
+  sous Windows ou sous Linux à partir du dossier 
  <filename moreinfo="none">/dhis2-docbook-docs </filename>
-. Maven va démarrer le téléchargement des composants necessaries pour transformer les documents en HTML, PDF et RTF. Une fois que le processus est complété (soyez patient la première fois, étant donné qu’il y’a un grand nombre de composants qui doivent être téléchargés), tous les types de documents cibles vont être générés dans les répertoires respectifs à partir du dossier
+. Maven va démarrer le téléchargement des composants necessaires pour transformer les documents en HTML, PDF et RTF. Une fois que le processus est complété (soyez patient la première fois, étant donné qu’il y’a un grand nombre de composants qui doivent être téléchargés), tous les types de documents cibles vont être générés dans les dossiers respectifs à partir du dossier
  /
  <filename moreinfo="none">dhis2-docbook-docs/target/docbkx</filename>
   .
@@ -185,19 +185,19 @@ mod1.xml&quot; encoding=&quot;UTF-8&quot;/&gt; </programlisting>
     <title>Construire à l’aide de xmlto</title>
     <para>
       <command moreinfo="none">xmlto</command>
-  est un utilitaire utile disponible sur les plateformes Linux pour transformer les documents DocBook en plusieurs formats different. Plus d’informations sur le paquet peuvent être trouvés 
+  est un utilitaire utile disponible sur les plateformes Linux pour transformer les documents DocBook en plusieurs formats differents. Plus d’informations sur le paquet peuvent être trouvées 
  <ulink url="http://cyberelk.net/tim/software/xmlto/">ici</ulink>
  . Si vous ne voulez pas utiliser Apache Maven pour une raison quelconque, vous pouvez installer 
  <command moreinfo="none">xmlto</command>
-  Par le biais du gestionnaire de paquets. Une fois que vous avez installé 
+  par le biais du gestionnaire de paquets. Une fois que vous avez installé 
  <command moreinfo="none">xmlto</command>
-  vous pouvez juste executer la commande
+  vous pouvez juste exécuter la commande
 <command moreinfo="none">
  xmlto 
  <parameter moreinfo="none">html</parameter><parameter moreinfo="none">fichier_a_transformer</parameter></command>
   où le paramètre
  <parameter moreinfo="none"> fichier_a_transformer </parameter>
-  est le meme que celui du fichier que vous voulez transformer. Il y’a plusieurs autres formats disponibles, comme PDF, PS, JavaHelp et d’autres. 
+  est le même que celui du fichier que vous voulez transformer. Il y’a plusieurs autres formats disponibles, comme PDF, PS, JavaHelp et d’autres. 
  </para>
   </section>
   <section id="docs_10">
@@ -205,12 +205,12 @@ mod1.xml&quot; encoding=&quot;UTF-8&quot;/&gt; </programlisting>
     <para>
 Une fois que vous avez fini de modifier votre document, vous devez confirmer vos modifications dans Launchpad. Ouvrez une invite de commande sous Windows ou une console sur Linux, et accédez au dossier où vous avez placé votre documentation. Si vous avez ajouté de nouveaux fichiers ou des dossiers à votre référentiel local, vous devrez les ajouter à l’arborescence source avec la commande
  <command moreinfo="none">bzr add</command>
-, suivie du dossier ou du nom de (s) fichier (s) que vous avez ajouté (s). Une fois que vous avez ajouté tous vos nouveaux fichiers, vous devez mettre à jour le référentiel local pour vous assurer qu’il n'y a pas de conflits à l'aide de la commande suivante
+, suivie du dossier ou du nom de(s) fichier(s) que vous avez ajouté(s). Une fois que vous avez ajouté tous vos nouveaux fichiers, vous devez mettre à jour le référentiel local pour vous assurer qu’il n'y a pas de conflits à l'aide de la commande suivante
  <command moreinfo="none"> bzr update</command></para>
     <para>
  . S’il y’a des conflits, bazaar va vous les notifer. Vos conflits peuvent aussi être listés en utilisant la commande 
  <command moreinfo="none">bzr conflicts</command>
-  . S’il y’a des conflits dans un fichier, bazaar va créer trios versions de ce fichier :
+  . S’il y’a des conflits dans un fichier, bazaar va créer trois versions de ce fichier :
  </para>
     <itemizedlist>
       <listitem>
@@ -230,11 +230,11 @@ Une fois que vous avez fini de modifier votre document, vous devez confirmer vos
       </listitem>
     </itemizedlist>
     <para>
- Ces fichiers correspondent respectivement aux parties communes au fichier, à la version locale et à la version sur le. Ces fichiers vont contenir des marqueurs pour indiquer les zones en conflit. Après la résolution des conflits en éditant chaque fichier et en supprimant les marqueurs de conflit, utiliser la commande 
+ Ces fichiers correspondent respectivement aux parties communes aux fichiers, à la version locale et à la version sur le serveur. Ces fichiers contiendront des marqueurs pour indiquer les zones en conflit. Après la résolution des conflits en modifiant chaque fichier et en supprimant les marqueurs de conflit, utilisez la commande 
  <command moreinfo="none">bzr resolve</command>
- . Cela va indiquer bazaar que les conflits ont été resoles, et procéder à la suppression des fichiers BASE, THIS, et OTHER.
+ . Cela va indiquer bazaar que les conflits ont été résolus, et va procéder à la suppression des fichiers BASE, THIS, et OTHER.
  </para>
-    <para>Une fois votre code source mis à jour et les conflits resoles, vous pouvez confirmer vos modifications avec un message d’information concernant les modifications que vous avez effectuées: </para>
+    <para>Une fois votre code source mis à jour et les conflits resolus, vous pouvez confirmer vos modifications avec un message d’information concernant les modifications que vous avez effectuées: </para>
     <para>
       <blockquote>
         <para>
@@ -246,11 +246,11 @@ Une fois que vous avez fini de modifier votre document, vous devez confirmer vos
       <para>
  N’effectuez jamais une confirmation du code en utilisant 
  <command moreinfo="none">bzr push</command>
- , étant donné que cette commande va écraser tous les changements sur le depot et que tous les historiques de revision seront perdus. 
+ , étant donné que cette commande va écraser tous les changements effectués sur le depôt et que tous les historiques de révision seront perdus. 
  </para>
     </important>
     <para>
- Si vous avez des questions, ou trouvez que vous n’arrivez pas à commencer, veuillez juste envoyer un email avec une description de votre problem à l’adresse 
+ Si vous avez des questions, ou trouvez que vous n’arrivez pas à commencer, veuillez juste envoyer un email avec une description de votre problème à l’adresse 
  <email>dhis2-documenters@lists.launchpad.net</email>
  .
  </para>
