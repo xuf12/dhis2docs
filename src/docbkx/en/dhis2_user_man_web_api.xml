@@ -3575,19 +3575,23 @@ ORDER BY oul.level, par.name, ou.name</screen>
       request to the URL similar to the one used above for retrieval.</para>
   </section>
   <section>
-    <title>I18n Resource</title>
-    <para>This endpoint can be used to get i18n common key (keys that are shared among all our modules). The endpoint is located at
-        <emphasis role="bold">/api/i18n</emphasis> and the format is a simple array of the keys you want looked up, an example is (remember
-      to set content type to <emphasis role="bold"
-      >json</emphasis>):<screen>[
+    <title>Translations</title>
+    <para>In order to retrieve key-value pairs for translated strings you can use the <emphasis
+        role="italic">i18n</emphasis> resource. The endpoint is located at <emphasis role="italic"
+        >api/i18n</emphasis> and the request format is a simple array of the key-value pairs:</para>
+    <screen>[
   "access_denied",
   "uploading_data_notification"
-]</screen></para>
-    <para>And the result from the server will
-      be:<screen>{
+]</screen>
+    <para>The request must be of type <emphasis role="italic">POST</emphasis> and use <emphasis
+        role="italic">application/json</emphasis> as content-type. An example using curl, assuming
+      the request data is saved as a file keys.json:</para>
+    <screen>curl -d @keys.json "apps.dhis2.org/demo/api/i18n" -X POST -H "Content-Type: application/json" -u admin:district -v</screen>
+    <para>The result will look like this:</para>
+    <screen>{
   "access_denied":"Access denied",
   "uploading_data_notification":"Uploading locally stored data to the server"
-}</screen></para>
+}</screen>
   </section>
   <section>
     <title>User settings</title>
