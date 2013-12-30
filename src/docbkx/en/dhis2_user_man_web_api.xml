@@ -1601,9 +1601,9 @@ Ext.onReady( function() {
     </table>
     <para>We continue by adding one pre-defined and one dynamic pivot table to our HTML document. You can browse the list of available pivot tables using the Web API here: <ulink url="http://apps.dhis2.org/demo/api/reportTables"/>.</para>
     <screen>function setLinks() {
-  DV.plugin.getTable({ url: base, el: 'chartA1', id: 'R0DVGvXDUNP' });
+  PT.plugin.getTable({ url: base, el: 'chartA1', id: 'R0DVGvXDUNP' });
 
-  DV.plugin.getTable({
+  PT.plugin.getTable({
     url: base,
     el: 'chartB1',
     type: 'stackedBar',
