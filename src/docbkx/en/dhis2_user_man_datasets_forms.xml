@@ -38,6 +38,10 @@
           message will be delivered through the DHIS messaging system.</para>
       </listitem>
       <listitem>
+        <para>Approve data: Define whether data for this data set should be Approved.
+          (See the Data approval chapter.)</para>
+      </listitem>
+      <listitem>
         <para>Skip aggregation: Define whether data for this data set should be skipped during data
           mart generation. You should leave this on no, which is the default behavior, in most
           situations. Can be useful if you have limited server resources and are setting up new
