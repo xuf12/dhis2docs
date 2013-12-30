@@ -170,8 +170,11 @@ BODY P B.APPLICATION {
 }   
   
 .SCREEN {  
-	padding: 1ex;
+	padding: 2ex;
 	color: #2B8328;
+	border: 1px solid #DDD;
+	border-radius: 3px;
+	margin: 2ex 0;
 }
 
 .CODE {
