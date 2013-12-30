@@ -2,7 +2,7 @@
 <!-- This document was created with Syntext Serna Free. -->
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
-  <title>Approving data</title>
+  <title>Data approval</title>
   <para>DHIS 2 has an optional feature that allows authorized users to approve data that has been entered. It allows data to be reviewed and approved at each level in the organisation unit hierarchy, so the approval follows the structure of the hierarchy from lower levels to higher levels.</para>
   <para>Data may be approved for each combination of (a) data set, (b) period and (c) organisation unit. Data may be approved for the organisation unit for which it is entered, as well as for higher-level organisation units to which the data is aggregated. It can be approved for a higher-level organisation unit only after it has been approved for all that organisation unit&apos;s children for the same data set and period.</para>
   <para>For example, the following diagram illustrates that data has already been approved for organisation units C and D, for a given data set and period. It may now be approved for organisation unit B for the same data set and period. But it is not ready to be approved for organization unit A. Before it can be approved for organisation unit A, it must be approved for B, and for any other children of organisation unit A, for that data set and period.</para>
@@ -16,15 +16,9 @@
   </figure>
   <section>
     <title>Configure approving data</title>
-    <para>When you add or edit a data set, you  specify whether or not data entered for that data set will be available for approval. This is done with the <emphasis role="italic">Approve data</emphasis> option when adding or editing a data set:</para>
-    <screenshot>
-      <screeninfo>Configuring data set approval</screeninfo>
-      <mediaobject>
-        <imageobject>
-          <imagedata width="80%" align="center" fileref="resources/images/dhis2UserManual/approve_data_for_data_set.png" format="PNG"/>
-        </imageobject>
-      </mediaobject>
-    </screenshot>
+    <para>When you add or edit a data set, you specify whether or not data entered for that data set
+      will be available for approval. This is done with the <emphasis role="italic">Approve
+        data</emphasis> option when adding or editing a data set.</para>
   </section>
   <section>
     <title>Authority for approving data</title>
