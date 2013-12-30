@@ -3575,6 +3575,21 @@ ORDER BY oul.level, par.name, ou.name</screen>
       request to the URL similar to the one used above for retrieval.</para>
   </section>
   <section>
+    <title>I18n Resource</title>
+    <para>This endpoint can be used to get i18n common key (keys that are shared among all our modules). The endpoint is located at
+        <emphasis role="bold">/api/i18n</emphasis> and the format is a simple array of the keys you want looked up, an example is (remember
+      to set content type to <emphasis role="bold"
+      >json</emphasis>):<screen>[
+  "access_denied",
+  "uploading_data_notification"
+]</screen></para>
+    <para>And the result from the server will
+      be:<screen>{
+  "uploading_data_notification":"Uploading locally stored data to the server",
+  "access_denied":"Access denied"
+}</screen></para>
+  </section>
+  <section>
     <title>User settings</title>
     <para>You can manipulate user settings by interacting with the <emphasis role="italic"
         >userSettings</emphasis> resource. A user setting is a simple key-value pair, where both the
