@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. -->
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<chapter>
+  <title>Approving data</title>
+  <para>DHIS 2 has an optional feature that allows authorized users to approve data that has been entered. It allows data to be reviewed and approved at each level in the organisation unit hierarchy, so the approval follows the structure of the hierarchy from lower levels to higher levels.</para>
+  <para>Data may be approved for each combination of (a) data set, (b) period and (c) organisation unit. Data may be approved for the organisation unit for which it is entered, as well as for higher-level organisation units to which the data is aggregated. It can be approved for a higher-level organisation unit only after it has been approved for all that organisation unit&apos;s children for the same data set and period.</para>
+  <para>For example, the following diagram illustrates that data has already been approved for organisation units C and D, for a given data set and period. It may now be approved for organisation unit B for the same data set and period. But it is not ready to be approved for organization unit A. Before it can be approved for organisation unit A, it must be approved for B, and for any other children of organisation unit A, for that data set and period.</para>
+  <figure>
+    <title>Approving at organisation units</title>
+    <mediaobject>
+      <imageobject>
+        <imagedata width="200px" align="center" fileref="resources/images/dhis2UserManual/approval_hierarchy.png"/>
+      </imageobject>
+    </mediaobject>
+  </figure>
+  <section>
+    <title>Configure approving data</title>
+    <para>When you add or edit a data set, you  specify whether or not data entered for that data set will be available for approval. This is done with the <emphasis role="italic">Approve data</emphasis> option when adding or editing a data set:</para>
+    <screenshot>
+      <screeninfo>Configuring data set approval</screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="80%" align="center" fileref="resources/images/dhis2UserManual/approve_data_for_data_set.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </section>
+  <section>
+    <title>Authority for approving data</title>
+    <para>To approve data, you must be assigned a role containing one (or both) of these two authorities:</para>
+    <itemizedlist>
+      <listitem>
+        <para><emphasis role="bold">Approve data</emphasis> - You may approve data for the organisation unit(s) to which you are assigned. Note that this authority does not allow you to approve data for lower-level organisation units below the organisation unit(s) to which you are assigned. This is useful to separate the users authorized to approve at one level from the users authorized to approve at levels below.</para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">Approve data at lower levels</emphasis> - Allows you to approve data for all lower-level organisation units below the organisation units assigned to you. This is useful if, for example, you are a district-level user whose role includes approving the data for all the facilities within that district, but not for the district itself.</para>
+      </listitem>
+    </itemizedlist>
+    <para>If you are assigned both of these authorities, you may approve data for the organisation unit(s) to which you have been assigned, and for all other organisation units under them.</para>
+  </section>
+  <section>
+    <title>Approving data</title>
+    <para>To approve data, you use the data set report. When a data set report shows data that is configured for approval, it shows the approval status of the data in the report. The approval status will be one of the following:</para>
+    <itemizedlist>
+      <listitem>
+        <para><emphasis role="bold">Ready for approval</emphasis> - This data may now be approved by an authorized user.</para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">Approved</emphasis> - This data has already been approved.</para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">Waiting for lower level org units to approve</emphasis> - This data is not yet ready to be approved, because it first needs to be approved for all the child organisation units to this organisation unit, for the same data set and period.</para>
+      </listitem>
+    </itemizedlist>
+    <para>Note that the approval status will not be displayed on data set reports that are for a different period type from how the data is entered. For example, if data is entered monthly and the data set report is aggregating for a quarterly or yearly report, the approval status will not be shown.</para>
+    <para>If the data is ready for approval, and if you have the authority to approve the data, you may approve the data by clicking the <emphasis role="italic">Approve</emphasis> button below the data.</para>
+  </section>
+  <section>
+    <title>Unapproving data</title>
+    <para>If data has been approved by accident, or if a problem is found with the data after approval, you may use the data set report to <emphasis role="italic">unapprove</emphasis> the data. To unapprove data, click the <emphasis role="italic">Unapprove</emphasis> button below the data in the data set report.</para>
+    <para>In order to unapprove data for a given organisation unit, you must have the authority to approve data for that organisation unit or to approve data for a higher-level organisation unit to which that data is aggregated. The reason for this is as follows: If you are reviewing data for approval at a higher organisation unit level, you should consider whether the data at lower organisation units are reasonable. If all lower-level data looks good, you can approve the data at the higher level. If some lower-level data looks suspect, you can unapprove the data at the lower level. This allows the data to be reviewed again at the lower level, corrected if necessary, and re-approved up through the organisation unit levels according to the hierarchy.</para>
+    <para>If you want to unapprove data, and it has already been approved at higher levels above this organisation unit, it will be unapproved also for those higher-level organisation units. In this case, you must also have the authority to unapprove at any higher levels that are already approved. If you do not have this authority, you must seek someone with authority at the higher levels to unapprove at those levels.</para>
+  </section>
+</chapter>
