@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. -->
 <chapter>
   <title>Tracker</title>
   <section>
@@ -145,10 +146,6 @@
           <para>Define formulas, expressions, rules for aggregation data from tracker to aggregation module</para>
         </listitem>
         <listitem>
-          <para>Validation Criteria</para>
-          <para>Create, modify and view validation criteria. A criteria is used for validation of Person data. </para>
-        </listitem>
-        <listitem>
           <para>Schedule Message </para>
           <para>Configure message reminders to be automatically sent to enrolled persons XX days before scheduled appointments and/or XX days after a missed visit.</para>
         </listitem>
@@ -179,8 +176,12 @@
           <listitem>
             <para><emphasis role="italic">Value Type</emphasis> - Data type of value to be entered.
               In addition to supporting basic data such as <emphasis role="italic">Number</emphasis>, <emphasis role="italic">Text</emphasis>, <emphasis role="italic">Yes/No</emphasis>, <emphasis role="italic">Yes Only, Date</emphasis>, the system supports a
-              value type as <emphasis role="italic">Predefined value</emphasis> for defining
-              attribute values. Users only can select on value in the defined list for each person
+              value type called Phone number, Tracker associate, Age(years) and Predefined value. </para>
+            <para>- Attribute type <emphasis role="italic">Phone number</emphasis> : To make it more flexible to define new recipients to reminders and other messages in Tracker we will add a new Attribute Type called &quot;Phone Number&quot;. Here the user can put any recipient name (attribute name) and collect the phone number (the value). All attributes of this type &quot;phone number&quot; will be available in the recipient lists for reminder templates or manual reminders/messages in Tracker.</para>
+            <para>- Attribute type <emphasis role="italic">Tracker associate</emphasis> : In person registration form, this type of attribute is displayed as a checkbox. Users click on it to search / register a representative for the person.
+
+In Update person form, the date which was saved into this attribute will be calculated to return a number ( ages in year) and display on registration form.</para>
+            <para>- Attribute type <emphasis role="italic">Predefined value</emphasis>  type, users only can select on value in the defined list for each person
               registered. E.g. code values which record the information on access to HIV prevention
               services can be pre-defined, include <emphasis role="italic">T</emphasis>, <emphasis role="italic">TR</emphasis>, <emphasis role="italic">TRR</emphasis>, <emphasis role="italic">TRRD</emphasis>, <emphasis role="italic">TRRDm</emphasis>, <emphasis role="italic">TRRDmDb</emphasis> as <emphasis role="italic">PMTCT Code</emphasis>
               attribute.</para>
@@ -226,7 +227,7 @@
               characters for value to be entered. </para>
           </listitem>
           <listitem>
-            <para><emphasis role="italic">Type</emphasis> - Data type of value inputted, includes <emphasis role="italic">Text</emphasis>, <emphasis role="italic">Number</emphasis>,  <emphasis role="italic">Letter Only</emphasis> and Local Identifier. For Local identifier type, user needs to define scope for specifying the identifier based on an organisation unit, a program or a period.</para>
+            <para><emphasis role="italic">Type</emphasis> - Data type of value inputted, includes <emphasis role="italic">Text</emphasis>, <emphasis role="italic">Number</emphasis>,  <emphasis role="italic">Letter Only</emphasis> and <emphasis role="italic">Local Identifier</emphasis>. For <emphasis role="italic">Local identifier</emphasis> type, user needs to define scope for specifying the identifier based on an organisation unit, a program or a period.</para>
           </listitem>
         </itemizedlist>
       </section>
@@ -240,7 +241,7 @@
         <title>Person registration form</title>
         <para>Person registration form section provides a mechanism for defining custom registration form for each available program in system or for normal registration form.</para>
         <para>To access the person registration form maintenance module, from <emphasis role="italic">Maintenance</emphasis> menu, go to <emphasis role="italic">Persons and Programs</emphasis> option and click on it and select <emphasis role="italic">Person Registration Form</emphasis> option.</para>
-        <para>To define a custom program registration form, please select a program in list and click <emphasis role="italic">Add</emphasis> icon, the first icon corresponding the program you want to design.</para>
+        <para>To define a custom program registration form, please select a program in list and click on the row corresponding the program you want to design. Then select Design registration form link on context menu.</para>
         <para>Check on<emphasis role="italic"> Auto save person registration forms</emphasis> checkbox in to save the data entry form to being designed.</para>
       </section>
       <section id="program">
@@ -263,25 +264,19 @@
               <para><emphasis role="italic">Type</emphasis> - There are three types of program: multi events with registration, single event with registration and single event without registration.</para>
             </listitem>
             <listitem>
-              <para>Data entry method - Used for displaying option-set data elements in case entry form as drop down list or radio buttons. If this option is selected as radio buttons, just option-set  data elements which  the number of option values is less then 8 are displayed as radio buttons. Others are displayed as drop down lists</para>
+              <para><emphasis role="italic">Data entry method</emphasis> - Used for displaying option-set data elements in case entry form as drop down list or radio buttons. If this option is selected as radio buttons, just option-set  data elements which  the number of option values is less then 8 are displayed as radio buttons. Others are displayed as drop down lists</para>
             </listitem>
           </itemizedlist>
           <para><emphasis role="italic">Enrollment details </emphasis>section - </para>
           <itemizedlist>
             <listitem>
-              <para>Allow to select enrollment date in future</para>
+              <para><emphasis role="italic">Allow to select enrollment date in future</emphasis></para>
             </listitem>
             <listitem>
-              <para>Allow to select incident date in future</para>
+              <para><emphasis role="italic">Allow to select incident date in future</emphasis></para>
             </listitem>
             <listitem>
-              <para>Use birthdate as incident date</para>
-            </listitem>
-            <listitem>
-              <para>Use birthdate as enrollment date</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Only enroll one </emphasis>- Check on it if a person only can enroll the program one time. For example, Child Vaccination Program, Post-mortem examination, PSI&apos;s IPC process. This will avoid a person enrolling more than one into a program when it doesn&apos;t make sense.</para>
+              <para><emphasis role="italic">Only enroll once (per person lifetime)</emphasis> - Check on it if a person only can enroll the program one time. For example, Child Vaccination Program, Post-mortem examination, PSI&apos;s IPC process. This will avoid a person enrolling more than one into a program when it doesn&apos;t make sense.</para>
             </listitem>
             <listitem>
               <para><emphasis role="italic">Show incident date</emphasis> - Set show/hide incident date field when a person enroll in this program.</para>
@@ -303,13 +298,13 @@ For example: the date in which a person enrolls to the system.</para>
               <para><emphasis role="italic">Shortcut link label (e.g. Add Child)</emphasis> - The label for this shortcut link which is displayed in Relation tab of person dashboard.</para>
             </listitem>
             <listitem>
-              <para>Relationship description - Select a relationship type defined, e.g Mother/Child, ...</para>
+              <para><emphasis role="italic">Relationship</emphasis> - Select a relationship type defined, e.g Mother/Child, ...</para>
             </listitem>
             <listitem>
-              <para>Who is the new relative to the existing person? </para>
+              <para><emphasis role="italic">Who is the new relative to the existing person? </emphasis></para>
             </listitem>
             <listitem>
-              <para>Program for new relative to be enrolled in - Select a program related.</para>
+              <para><emphasis role="italic">Program for new relative to be enrolled in</emphasis> - Select a program related.</para>
             </listitem>
           </itemizedlist>
           <para><emphasis role="italic">Scheduling of events</emphasis> section - </para>
@@ -318,7 +313,7 @@ For example: the date in which a person enrolls to the system.</para>
               <para><emphasis role="italic">Skip generation of events that are overdue (before enrollment date)</emphasis> - When a person enrolls into the program, the  events corresponding to the program-stages are created. If this field is checked, the system will ignore to generate overdue events.</para>
             </listitem>
           </itemizedlist>
-          <para><emphasis role="italic">Identifiers / attributes <emphasis role="italic">section</emphasis></emphasis> - Select identifier-types and person attributes which belong to the program. Check  <emphasis role="italic">Displayed in list</emphasis> checkboxes of identifier types to display its value in person list instead of person&apos;s full-name.</para>
+          <para><emphasis role="italic">Identifiers / attributes <emphasis role="italic">section</emphasis></emphasis> - Select identifier-types and person attributes which belong to the program. Check  <emphasis role="italic">Displayed in person list</emphasis> checkboxes of identifier types to display its value in person list instead of person&apos;s full-name.</para>
           <para><emphasis role="italic">Template reminder message</emphasis> section -  Define  template reminder messages which are used for sending messages for person automatically. </para>
           <itemizedlist>
             <listitem>
@@ -363,7 +358,7 @@ For example: the date in which a person enrolls to the system.</para>
         </section>
         <section>
           <title>Program stage</title>
-          <para>To define a program stage, click the <emphasis role="italic">Program Stage Management</emphasis> icon, the forth icon under Operations, corresponding to the program you would like  and then <emphasis role="italic">Add new</emphasis> button. Fill in the <emphasis role="italic">Name</emphasis> and <emphasis role="italic">Description</emphasis> fields and then select the data elements that should belong to the group from the left panel. Click the <emphasis role="italic">Move</emphasis> selected button to add the selected data elements to the right panel. Click the Remove selected button to remove data elements that have been selected in the right panel. Finally, click the <emphasis role="italic">Add</emphasis> button to save changes, or the <emphasis role="italic">Cancel</emphasis> button to discard any changes.</para>
+          <para>To define a program stage, click the row corresponding to the program you would like, then View program stages link in context menu. In Program stage management form, click <emphasis role="italic">Add new</emphasis> button. Fill in the <emphasis role="italic">Name</emphasis> and <emphasis role="italic">Description</emphasis> fields and then select the data elements that should belong to the group from the left panel. Click the <emphasis role="italic">Move</emphasis> selected button to add the selected data elements to the right panel. Click the Remove selected button to remove data elements that have been selected in the right panel. Finally, click the <emphasis role="italic">Add</emphasis> button to save changes, or the <emphasis role="italic">Cancel</emphasis> button to discard any changes.</para>
           <para>Basic information -</para>
           <para><emphasis role="italic">Program stage details</emphasis> section - </para>
           <itemizedlist>
@@ -403,7 +398,7 @@ For example: the date in which a person enrolls to the system.</para>
               <para><emphasis role="italic">Open data entry form after enrollment</emphasis>  - After a person enrolls into the program successfull, the event of this stage is opened.</para>
             </listitem>
             <listitem>
-              <para><emphasis role="italic">Report Date to use</emphasis> - The date is used for report date of the event. When a data entry of this event are opened after registration, the system  use registration date, date of incident or date of enrollment for report date. </para>
+              <para><emphasis role="italic">Report Date to use</emphasis> - The date is used for report date of the event. When a data entry of this event are opened after registration, the system  use date of incident or date of enrollment for report date. </para>
             </listitem>
             <listitem>
               <para><emphasis role="italic">Block entry form after completed</emphasis> - Check on it for blocking entry form after completed. The data values in the entry form cannot be changed until the status of the event is reset as incomplete.</para>
@@ -465,6 +460,13 @@ For example: the date in which a person enrolls to the system.</para>
             </listitem>
           </orderedlist>
           <para>To sort program stages by scheduled days, click <emphasis role="italic">Sort by scheduled</emphasis> days button.</para>
+        </section>
+        <section id="validation_criteria">
+          <title>Validation criteria</title>
+          <para>Validation criteria section provides a mechanism for defining criteria for persons when enrolling a program.</para>
+          <para>To access the validation criteria maintenance module, from <emphasis role="italic">Maintenance</emphasis> menu, go to <emphasis role="italic">Persons and Programs</emphasis> option and click on it. Select <emphasis role="italic">Progam</emphasis> option and  click on the row corresponding the program you want to design. Then select <emphasis role="italic">View validation criteria</emphasis> link on context menu to open <emphasis role="italic">Validation criteria management</emphasis> form.</para>
+          <para>To create a new validation criterion, click the <emphasis role="italic">Add new</emphasis> button. Fill all fields with read asterisk, and click <emphasis role="italic">Add</emphasis> button.</para>
+          <para>To translate the name of a program, click <emphasis role="italic">Translation</emphasis> icon, the third icon under Operations, corresponding to the validation criteria  you would like.</para>
         </section>
       </section>
       <section id="patient_aggregation_query_builder">
@@ -633,14 +635,6 @@ For example: the date in which a person enrolls to the system.</para>
             </listitem>
           </orderedlist>
         </section>
-      </section>
-      <section id="validation_criteria">
-        <title>Validation criteria</title>
-        <para>Validation criteria section provides a mechanism for defining criteria for persons when enrolling a program.</para>
-        <para>To access the validation criteria maintenance module, from <emphasis role="italic">Maintenance</emphasis> menu, go to <emphasis role="italic">Persons and Programs</emphasis> option and click on it. Select <emphasis role="italic">Validation Criteria</emphasis> option to create a new program.</para>
-        <para>To create a new validation criterion, click the <emphasis role="italic">Add new</emphasis> button. Fill all fields with read asterisk, and click <emphasis role="italic">Add</emphasis> button.</para>
-        <para>You can assign facilities to a validation criterion in the <emphasis role="italic">Validation Criteria Management </emphasis>(list of available validation criteria are shown) by clicking the blue folder icon, the first icon under Operations, corresponding to the validation criterion you would like to assign. Click the <emphasis role="italic">Move selected</emphasis> button to add the selected programs to the validation criterion. Click the <emphasis role="italic">Remove selected</emphasis> button to remove programs from the group that have been selected in the right panel. Finally, click the <emphasis role="italic">Save</emphasis> button to save changes, or the <emphasis role="italic">Cancel</emphasis> button to discard any change.</para>
-        <para>To translate the name of a program, click <emphasis role="italic">Translation</emphasis> icon, the third icon under Operations, corresponding to the validation criteria  you would like.</para>
       </section>
       <section id="schedule_sending_message">
         <title>Schedule automated message reminder</title>
@@ -1015,7 +1009,7 @@ The case update  is designed in the same manner so that services which are recei
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="70%" depth="" fileref="resources/images/patients_programs/tracking_program.png" format="PNG"/>
+              <imagedata width="70%" fileref="resources/images/patients_programs/tracking_program.png" format="PNG" depth=""/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -1280,7 +1274,7 @@ The case update  is designed in the same manner so that services which are recei
               <screenshot>
                 <mediaobject>
                   <imageobject>
-                    <imagedata width="80%" align="center" fileref="resources/images/patients_programs/aggregate_tabular_report.png" format="PNG"/>
+                    <imagedata width="80%" fileref="resources/images/patients_programs/aggregate_tabular_report.png" format="PNG" align="center"/>
                   </imageobject>
                 </mediaobject>
               </screenshot>
@@ -1311,7 +1305,7 @@ The case update  is designed in the same manner so that services which are recei
           <screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata width="80%" align="center" fileref="resources/images/patients_programs/statistical_program_summary_report.png" format="PNG"/>
+                <imagedata width="80%" fileref="resources/images/patients_programs/statistical_program_summary_report.png" format="PNG" align="center"/>
               </imageobject>
             </mediaobject>
           </screenshot>
