@@ -1460,11 +1460,11 @@ Ext.onReady( function() {
       success: setLinks
   });
 });</screen>
-    <para>Now let us have a look at the various options for the Pivot table plug-in. Two properies are required: <emphasis role="italic">el</emphasis> and <emphasis role="italic">url</emphasis> (please refer to the table below). Now, if you want to refer to pre-defined tables already made inside DHIS it is sufficient to provide the additional <emphasis role="italic">id</emphasis> parameter. If you instead want to configure a pivot table dynamically you shoud omit the id parameter and provide data dimensions inside a <emphasis role="italic">columns</emphasis> array (chart series), a <emphasis role="italic">rows</emphasis> array (chart categories) and optionally a <emphasis role="italic">filters</emphasis> array instead.</para>
+    <para>Now let us have a look at the various options for the Pivot table plug-in. Two properies are required: <emphasis role="italic">el</emphasis> and <emphasis role="italic">url</emphasis> (please refer to the table below). Now, if you want to refer to pre-defined tables already made inside DHIS it is sufficient to provide the additional <emphasis role="italic">id</emphasis> parameter. If you instead want to configure a pivot table dynamically you shoud omit the id parameter and provide data dimensions inside a <emphasis role="italic">columns</emphasis> array, a <emphasis role="italic">rows</emphasis> array and optionally a <emphasis role="italic">filters</emphasis> array instead.</para>
 
     <para>A data dimension is defined as an object with a text property called <emphasis role="italic">dimension</emphasis>. This property accepts the following values: <emphasis role="italic">in</emphasis> (indicator), <emphasis role="italic">de</emphasis> (data element), <emphasis role="italic">ds</emphasis> (data set), <emphasis role="italic">dc</emphasis> (data element operand), <emphasis role="italic">pe</emphasis> (period), <emphasis role="italic">ou</emphasis> (organisation unit) or the id of any organisation unit group set or data element group set (can be found in the web api). The data dimension also has an array property called <emphasis role="italic">items</emphasis> which accepts objects with an <emphasis role="italic">id</emphasis> property.</para>
 
-    <para>To sum up, if you want to have e.g. &quot;ANC 1 Coverage&quot;, &quot;ANC 2 Coverage&quot; and &quot;ANC 3 Coverage&quot; on the columns in your chart you can make the following <emphasis role="italic">columns</emphasis> config:</para>
+    <para>To sum up, if you want to have e.g. &quot;ANC 1 Coverage&quot;, &quot;ANC 2 Coverage&quot; and &quot;ANC 3 Coverage&quot; on the columns in your table you can make the following <emphasis role="italic">columns</emphasis> config:</para>
 
 	<screen>columns: [{
   dimension: "in", // "in", "de", "ds", "dc", "pe", "ou" or any dimension id
@@ -1503,7 +1503,7 @@ Ext.onReady( function() {
             <entry>string</entry>
             <entry>Yes</entry>
             <entry/>
-            <entry>Identifier of the HTML element to render the chart in your web page</entry>
+            <entry>Identifier of the HTML element to render the table in your web page</entry>
           </row>
           <row>
             <entry>url</entry>
@@ -1517,28 +1517,28 @@ Ext.onReady( function() {
             <entry>string</entry>
             <entry>No</entry>
             <entry/>
-            <entry>Identifier of a pre-defined chart (favorite) in DHIS</entry>
+            <entry>Identifier of a pre-defined table (favorite) in DHIS</entry>
           </row>
           <row>
             <entry>columns</entry>
             <entry>array</entry>
             <entry>Yes (if no id provided)</entry>
             <entry/>
-            <entry>Data dimensions to include in chart as series</entry>
+            <entry>Data dimensions to include in table as columns</entry>
           </row>
           <row>
             <entry>rows</entry>
             <entry>array</entry>
             <entry>Yes (if no id provided)</entry>
             <entry/>
-            <entry>Data dimensions to include in chart as category</entry>
+            <entry>Data dimensions to include in table as rows</entry>
           </row>
           <row>
             <entry>filter</entry>
             <entry>array</entry>
             <entry>No</entry>
             <entry/>
-            <entry>Data dimensions to include in chart as filters</entry>
+            <entry>Data dimensions to include in table as filters</entry>
           </row>
           <row>
             <entry>showTotals</entry>
@@ -1601,11 +1601,11 @@ Ext.onReady( function() {
     </table>
     <para>We continue by adding one pre-defined and one dynamic pivot table to our HTML document. You can browse the list of available pivot tables using the Web API here: <ulink url="http://apps.dhis2.org/demo/api/reportTables"/>.</para>
     <screen>function setLinks() {
-  PT.plugin.getTable({ url: base, el: 'chartA1', id: 'R0DVGvXDUNP' });
+  PT.plugin.getTable({ url: base, el: 'tableA1', id: 'R0DVGvXDUNP' });
 
   PT.plugin.getTable({
     url: base,
-    el: 'chartB1',
+    el: 'tableB1',
     type: 'stackedBar',
     columns: [
       {dimension: 'de', items: [{id: 'YtbsuPPo010'}, {id: 'l6byfWFUGaP'}]}
@@ -1627,8 +1627,8 @@ Ext.onReady( function() {
   });
 };</screen>
     <para>Finally we include some <emphasis role="italic">div</emphasis> elements in the body section of the HTML document with the identifiers referred to in the plug-in Javascript.</para>
-    <screen>&lt;div id=&quot;tableA1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
-&lt;div id=&quot;tableB1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;</screen>
+    <screen>&lt;div id=&quot;tableA1&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;tableB1&quot;&gt;&lt;/div&gt;</screen>
     <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/table.html"/>.</para>
   </section>
   <section>
@@ -1854,8 +1854,8 @@ Ext.onReady( function() {
   });
 };</screen>
     <para>Finally we include some <emphasis role="italic">div</emphasis> elements in the body section of the HTML document with the identifiers referred to in the plug-in Javascript.</para>
-    <screen>&lt;div id=&quot;chartA1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
-&lt;div id=&quot;chartB1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
+    <screen>&lt;div id=&quot;chartA1&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;chartB1&quot;&gt;&lt;/div&gt;
 </screen>
     <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/chart.html"/>.</para>
   </section>
@@ -1884,7 +1884,7 @@ Ext.onReady( function() {
     success: setLinks
   });
 });</screen>
-    <para>Now let us have a look at the various options for the GIS plug-in. Two properies are required: <emphasis role="italic">el</emphasis> and <emphasis role="italic">url</emphasis> (please refer to the table below). Now, if you want to refer to pre-defined charts already made inside DHIS it is sufficient to provide the additional <emphasis role="italic">id</emphasis> parameter. If you instead want to configure a chart dynamically you shoud omit the id parameter and provide <emphasis role="italic">mapViews</emphasis> (layers) instead. They should be configured with data dimensions inside a <emphasis role="italic">columns</emphasis> array (chart series), a <emphasis role="italic">rows</emphasis> array (chart categories) and optionally a <emphasis role="italic">filters</emphasis> array instead.</para>
+    <para>Now let us have a look at the various options for the GIS plug-in. Two properies are required: <emphasis role="italic">el</emphasis> and <emphasis role="italic">url</emphasis> (please refer to the table below). Now, if you want to refer to pre-defined maps already made in the DHIS 2 GIS it is sufficient to provide the additional <emphasis role="italic">id</emphasis> parameter. If you instead want to configure a map dynamically you shoud omit the id parameter and provide <emphasis role="italic">mapViews</emphasis> (layers) instead. They should be configured with data dimensions inside a <emphasis role="italic">columns</emphasis> array, a <emphasis role="italic">rows</emphasis> array and optionally a <emphasis role="italic">filters</emphasis> array instead.</para>
 
     <para>A data dimension is defined as an object with a text property called <emphasis role="italic">dimension</emphasis>. This property accepts the following values: <emphasis role="italic">in</emphasis> (indicator), <emphasis role="italic">de</emphasis> (data element), <emphasis role="italic">ds</emphasis> (data set), <emphasis role="italic">dc</emphasis> (data element operand), <emphasis role="italic">pe</emphasis> (period), <emphasis role="italic">ou</emphasis> (organisation unit) or the id of any organisation unit group set or data element group set (can be found in the web api). The data dimension also has an array property called <emphasis role="italic">items</emphasis> which accepts objects with an <emphasis role="italic">id</emphasis> property.</para>
 
@@ -1896,7 +1896,7 @@ Ext.onReady( function() {
 }]</screen>
 
     <table>
-      <title>Visualizer chart plug-in configuration</title>
+      <title>GIS map plug-in configuration</title>
       <tgroup cols="5">
         <thead>
           <row>
@@ -1923,7 +1923,7 @@ Ext.onReady( function() {
             <entry>string</entry>
             <entry>Yes</entry>
             <entry/>
-            <entry>Identifier of the HTML element to render the chart in your web page</entry>
+            <entry>Identifier of the HTML element to render the map in your web page</entry>
           </row>
           <row>
             <entry>url</entry>
@@ -1937,7 +1937,7 @@ Ext.onReady( function() {
             <entry>string</entry>
             <entry>No</entry>
             <entry/>
-            <entry>Identifier of a pre-defined chart (favorite) in DHIS</entry>
+            <entry>Identifier of a pre-defined map (favorite) in DHIS</entry>
           </row>
           <row>
             <entry>baseLayer</entry>
@@ -2106,8 +2106,8 @@ Ext.onReady( function() {
 });
 };</screen>
     <para>Finally we include some <emphasis role="italic">div</emphasis> elements in the body section of the HTML document with the identifiers referred to in the plug-in Javascript.</para>
-    <screen>&lt;div id=&quot;mapA1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
-&lt;div id=&quot;mapB1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
+    <screen>&lt;div id=&quot;mapA1&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;mapB1&quot;&gt;&lt;/div&gt;
 </screen>
     <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/map.html"/>.</para>
   </section>
@@ -2137,10 +2137,10 @@ new Ext.ux.carousel.Carousel( &apos;chartCarousel&apos;, {
     <para>The first argument in the configuration is  the id of the div element in which you want to render the carousel. The <emphasis role="italic">autoPlay</emphasis> configuration option refers to whether we want the carousel to start when the user loads the Web page. The <emphasis role="italic">interval</emphasis> option defines how many seconds each chart should be displayed. The <emphasis role="italic">showPlayButton</emphasis> defines whether we want to render a button for the user to start and stop the carousel. Finally we need to insert the div elements in the body of the HTML document:</para>
     <screen>&lt;div id=&quot;chartCarousel&quot;&gt;
 
-&lt;div id=&quot;chartA1&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
-&lt;div id=&quot;chartA2&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
-&lt;div id=&quot;chartA3&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;
-&lt;div id=&quot;chartA4&quot; class=&quot;chart&quot;&gt;&lt;/div&gt;</screen>
+&lt;div id=&quot;chartA1&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;chartA2&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;chartA3&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;chartA4&quot;&gt;&lt;/div&gt;</screen>
     <para>To see a complete working example please visit <ulink url="http://apps.dhis2.org/portal/carousel.html"/>.</para>
   </section>
   </section>
