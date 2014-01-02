@@ -1328,21 +1328,21 @@ Content-Type: application/xml
     <para>You can also write interpretations for report tables in a similar way by interacting with the <ulink url="http://app.dhis2.org/demo/api/interpretations/reportTable/{reportTableId}"/>. For report tables you can also provide an optional <emphasis role="italic">ou</emphasis> query parameter to supply an organisation unit identifier in the case where the report table has an organisation unit report parameter:</para>
     <screen>curl -d &quot;This table reveals poor data quality&quot; &quot;http://apps.dhis2.org/demo/api/interpretations/reportTable/xIWpSo5jjT1?ou=O6uvpzGd5pu&quot; -H &quot;Content-Type:text/plain&quot; -u admin:district -v</screen>
     </section>
-  </section>
-  <section>
-    <title>Adding, Updating and Deleting interpretation comments</title>
-    <para>
-      <emphasis role="bold">Adding comments to existing interpretation:</emphasis>
-      <screen>POST "plain-text comment" to /api/interpretations/ID/comments</screen>
-    </para>
-    <para>
-      <emphasis role="bold">Updating comment in existing interpretation:</emphasis>
-      <screen>PUT "plain-text comment" to /api/interpretations/ID/comments/ID</screen>
-    </para>
-    <para>
-      <emphasis role="bold">Deleting comment in existing interpretation:</emphasis>
-      <screen>DELETE /api/interpretations/ID/comments/ID</screen>
-    </para>
+    <section>
+      <title>Creating, updating and removing interpretation comments</title>
+      <para>
+        Creating comments to existing interpretations:
+        <screen>POST "plain-text comment" to /api/interpretations/ID/comments</screen>
+      </para>
+      <para>
+        Updating comments in existing interpretations:
+        <screen>PUT "plain-text comment" to /api/interpretations/ID/comments/ID</screen>
+      </para>
+      <para>
+        Removing comments in existing interpretations:
+        <screen>DELETE /api/interpretations/ID/comments/ID</screen>
+      </para>
+    </section>
   </section>
   <section>
     <title>Viewing analytical resource representations</title>
