@@ -268,6 +268,14 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
               <entry>Indicates whether to get all resources or no resources by default.</entry>
             </row>
             <row>
+              <entry>viewClass</entry>
+              <entry>enum</entry>
+              <entry>false</entry>
+              <entry>export | basic | detailed</entry>
+              <entry>Alternative views of the meta-data. Please note that only meta-data exported with viewClass=export can be used for
+                import.</entry>
+            </row>
+            <row>
               <entry>dryRun</entry>
               <entry>boolean</entry>
               <entry>false</entry>
