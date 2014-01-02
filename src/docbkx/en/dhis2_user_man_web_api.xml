@@ -1141,6 +1141,11 @@ Content-Type: application/xml
     <para>To check the status for approval you can issue a <emphasis role="italic">GET</emphasis>
       request to the dataApprovals resource:</para>
     <screen>api/dataApprovals</screen>
+    <para>To get approval state for a data set you can issue a GET request similar to this:</para>
+    <screen>api/dataApprovals?ds=aLpVgfXiz0f&amp;pe=2013&amp;ou=DiszpKrYNg8</screen>
+    <para>To approval a data set which has attributes you can issue a <emphasis role="italic"
+        >POST</emphasis> request like this:</para>
+    <screen>curl "http://apps.dhis2.org/demo/api/dataApprovals?ds=lyLU2wR22tC&amp;pe=201312&amp;ou=DiszpKrYNg8&amp;cc=O4VaNks6tta&amp;cp=C6nZpLKjEJr;i4Nbp8S2G6A" -X POST -u admin:district -v</screen>
     <table frame="all">
       <title>Approval status</title>
       <tgroup cols="2">
