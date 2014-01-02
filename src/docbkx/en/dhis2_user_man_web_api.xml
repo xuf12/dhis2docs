@@ -1441,14 +1441,79 @@ api/reports/OeJsA6K1Otx/data.pdf?date=2012-01-01</screen>
   <para>DHIS 2 comes with plugins which enables you to embed live data directly in your web portal or web site. Currently, plugins exist for charts, maps and pivot tables.</para>  
   <section>
     <title>Embedding pivot tables with the Pivot table plug-in</title>
+    
     <para>In this example we will see how we can embed good-looking, light-weight html pivot tables with data served from a DHIS back-end into a Web page. To accomplish this we will use the Pivot table plug-in. The plug-in is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/table.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
-    <para>We start by including three files in the header section of the HTML document. The first
+
+	<para>We start by having a look at what the complete html file could look like. This setup puts two tables in our web page. The first one is referring to an existing table. The second is configured inline.
+	<screen>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://dhis2-cdn.org/v214/ext/resources/css/ext-plugin-gray.css&quot; /&gt;
+  &lt;script src=&quot;http://dhis2-cdn.org/v214/ext/ext-all.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://dhis2-cdn.org/v214/plugin/table.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script&gt;
+    var base = &quot;http://apps.dhis2.org/demo&quot;;
+
+    // Login - if OK, call the setLinks function
+    
+    Ext.onReady( function() {
+      Ext.Ajax.request({
+        url: base + &quot;dhis-web-commons-security/login.action&quot;,
+        method: &quot;POST&quot;,
+        params: { j_username: &quot;portal&quot;, j_password: &quot;Portal123&quot; },
+        success: setLinks
+      });
+    });
+
+    function setLinks() {
+
+      // Referring to an existing table through the id parameter, render to &quot;tableA1&quot; div
+      
+      DHIS.getTable({ url: base, el: &quot;tableA1&quot;, id: &quot;R0DVGvXDUNP&quot; });
+
+      // Full table configuration, render to &quot;tableB1&quot; div
+      
+      DHIS.getTable({
+        url: base,
+        el: &quot;tableB1&quot;,
+        columns: [
+          {dimension: &quot;de&quot;, items: [{id: &quot;YtbsuPPo010&quot;}, {id: &quot;l6byfWFUGaP&quot;}]}
+        ],
+        rows: [
+          {dimension: &quot;pe&quot;, items: [{id: &quot;LAST_12_MONTHS&quot;}]}
+        ],
+        filters: [
+          {dimension: &quot;ou&quot;, items: [{id: &quot;USER_ORGUNIT&quot;}]}
+        ],
+        // All following options are optional
+        showTotals: false,
+        showSubTotals: false,
+        hideEmptyRows: true,
+        showHierarchy: true,
+        displayDensity: &quot;comfortable&quot;,
+        fontSize: &quot;large&quot;,
+        digitGroupSeparator: &quot;comma&quot;,
+        legendSet: {id: &quot;BtxOoQuLyg1&quot;}
+      });
+    }
+  &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div id=&quot;tableA1&quot;&gt;&lt;/div&gt;
+  &lt;div id=&quot;tableB1&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</screen>
+    </para>
+    
+    <para>Three files are included in the header section of the HTML document. The first
       two files are the Ext JS javascript library (we use the DHIS 2 content delivery network in
       this case) and its css stylesheet. The third file is the Pivot table plug-in. Make sure the
       path is pointing to your DHIS server installation.</para>
-    <screen>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://dhis2-cdn.org/v213/ext/resources/css/ext-plugin-gray.css&quot; /&gt;
-&lt;script src=&quot;http://dhis2-cdn.org/v213/ext/ext-all.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;http://dhis2-cdn.org/v213/plugin/table.js&quot;&gt;&lt;/script&gt;</screen>
+    <screen>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://dhis2-cdn.org/v214/ext/resources/css/ext-plugin-gray.css&quot; /&gt;
+&lt;script src=&quot;http://dhis2-cdn.org/v214/ext/ext-all.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://dhis2-cdn.org/v214/plugin/table.js&quot;&gt;&lt;/script&gt;</screen>
     <para>To authenticate with the DHIS server we use the same approach as in the previous section. In the header of the HTML document we include the following Javascript inside a script element. The <emphasis role="italic">setLinks</emphasis> method will be implemented later. Make sure the <emphasis role="italic">base</emphasis> variable is pointing to your DHIS installation.</para>
     <screen>var base = &quot;http://apps.dhis2.org/demo/&quot;;
 
@@ -1600,32 +1665,32 @@ Ext.onReady( function() {
       </tgroup>
     </table>
     <para>We continue by adding one pre-defined and one dynamic pivot table to our HTML document. You can browse the list of available pivot tables using the Web API here: <ulink url="http://apps.dhis2.org/demo/api/reportTables"/>.</para>
-    <screen>function setLinks() {
-  PT.plugin.getTable({ url: base, el: 'tableA1', id: 'R0DVGvXDUNP' });
+    <screen>function setLinks() {  
+  DHIS.getTable({ url: base, el: &quot;tableA1&quot;, id: &quot;R0DVGvXDUNP&quot; });
 
-  PT.plugin.getTable({
-    url: base,
-    el: 'tableB1',
-    type: 'stackedBar',
-    columns: [
-      {dimension: 'de', items: [{id: 'YtbsuPPo010'}, {id: 'l6byfWFUGaP'}]}
-    ],
-    rows: [
-      {dimension: 'pe', items: [{id: 'LAST_12_MONTHS'}]}
-    ],
-    filters: [
-      {dimension: 'ou', items: [{id: 'USER_ORGUNIT'}]}
-    ],
-    showTotals: false, // All following options are optional
-    showSubTotals: false,
-    hideEmptyRows: true,
-    showHierarchy: true,
-    displayDensity: "comfortable",
-    fontSize: "large",
-    digitGroupSeparator: "comma",
-    legendSet: {id: "BtxOoQuLyg1"}
+  DHIS.getTable({
+	url: base,
+	el: &quot;tableB1&quot;,
+	columns: [
+	  {dimension: &quot;de&quot;, items: [{id: &quot;YtbsuPPo010&quot;}, {id: &quot;l6byfWFUGaP&quot;}]}
+	],
+	rows: [
+	  {dimension: &quot;pe&quot;, items: [{id: &quot;LAST_12_MONTHS&quot;}]}
+	],
+	filters: [
+	  {dimension: &quot;ou&quot;, items: [{id: &quot;USER_ORGUNIT&quot;}]}
+	],
+	// All following options are optional
+	showTotals: false,
+	showSubTotals: false,
+	hideEmptyRows: true,
+	showHierarchy: true,
+	displayDensity: &quot;comfortable&quot;,
+	fontSize: &quot;large&quot;,
+	digitGroupSeparator: &quot;comma&quot;,
+	legendSet: {id: &quot;BtxOoQuLyg1&quot;}
   });
-};</screen>
+}</screen>
     <para>Finally we include some <emphasis role="italic">div</emphasis> elements in the body section of the HTML document with the identifiers referred to in the plug-in Javascript.</para>
     <screen>&lt;div id=&quot;tableA1&quot;&gt;&lt;/div&gt;
 &lt;div id=&quot;tableB1&quot;&gt;&lt;/div&gt;</screen>
@@ -1634,13 +1699,78 @@ Ext.onReady( function() {
   <section>
     <title>Embedding charts with the Visualizer chart plug-in</title>
     <para>In this example we will see how we can embed good-looking Ext JS charts (<ulink url="http://www.sencha.com/products/extjs"/>) with data served from a DHIS back-end into a Web page. To accomplish this we will use the DHIS Visualizer plug-in. The plug-in is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/chart.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
-    <para>We start by including three files in the header section of the HTML document. The first
+
+	<para>We start by having a look at what the complete html file could look like. This setup puts two charts in our web page. The first one is referring to an existing chart. The second is configured inline.
+	<screen>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://dhis2-cdn.org/v214/ext/resources/css/ext-plugin-gray.css&quot; /&gt;
+  &lt;script src=&quot;http://dhis2-cdn.org/v214/ext/ext-all.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://dhis2-cdn.org/v214/plugin/chart.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script&gt;
+    var base = &quot;http://apps.dhis2.org/demo&quot;;
+
+    // Login - if OK, call the setLinks function
+    
+    Ext.onReady( function() {
+      Ext.Ajax.request({
+        url: base + &quot;dhis-web-commons-security/login.action&quot;,
+        method: &quot;POST&quot;,
+        params: { j_username: &quot;portal&quot;, j_password: &quot;Portal123&quot; },
+        success: setLinks
+      });
+    });
+
+    function setLinks() {
+
+      // Referring to an existing chart through the id parameter, render to "chartA1" div
+      
+      DHIS.getChart({ url: base, el: &quot;chartA1&quot;, id: &quot;R0DVGvXDUNP&quot; });
+
+      // Full chart configuration, render to "chartB1" div
+      
+      DHIS.getChart({
+        url: base,
+        el: &quot;chartB1&quot;,
+        type: &quot;stackedBar&quot;,
+        columns: [ // Chart series
+          {dimension: &quot;de&quot;, items: [{id: &quot;YtbsuPPo010&quot;}, {id: &quot;l6byfWFUGaP&quot;}]}
+        ],
+        rows: [ // Chart categories
+          {dimension: &quot;pe&quot;, items: [{id: &quot;LAST_12_MONTHS&quot;}]}
+        ],
+        filters: [
+          {dimension: &quot;ou&quot;, items: [{id: &quot;USER_ORGUNIT&quot;}]}
+        ],
+        // All following options are optional
+        showData: false,
+        targetLineValue: 70,
+        baseLineValue: 20,
+        showTrendLine: true,
+        hideLegend: true,
+        title: &quot;My chart title&quot;,
+        domainAxisTitle: &quot;Periods&quot;,
+        rangeAxisTitle: &quot;Percent&quot;
+      });
+    }
+  &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div id=&quot;chartA1&quot;&gt;&lt;/div&gt;
+  &lt;div id=&quot;chartB1&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</screen>
+    </para>
+    
+    <para>Three files are included in the header section of the HTML document. The first
         two files are the Ext JS javascript library (we use the DHIS 2 content delivery network in
         this case) and its stylesheet. The third file is the Visualizer plug-in. Make sure the path
         is pointing to your DHIS server installation.</para>
     <screen>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://dhis2-cdn.org/v213/ext/resources/css/ext-plugin-gray.css&quot; /&gt;
 &lt;script src=&quot;http://dhis2-cdn.org/v213/ext/ext-all.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;http://dhis2-cdn.org/v213/plugin/table.js&quot;&gt;&lt;/script&gt;</screen>
+&lt;script src=&quot;http://dhis2-cdn.org/v213/plugin/chart.js&quot;&gt;&lt;/script&gt;</screen>
     <para>To authenticate with the DHIS server we use the same approach as in the previous section. In the header of the HTML document we include the following Javascript inside a script element. The <emphasis role="italic">setLinks</emphasis> method will be implemented later. Make sure the <emphasis role="italic">base</emphasis> variable is pointing to your DHIS installation.</para>
     <screen>var base = &quot;http://apps.dhis2.org/demo/&quot;;
 
@@ -1828,31 +1958,32 @@ Ext.onReady( function() {
     </table>
     <para>We continue by including two pre-defined charts and to dynamic charts to our HTML document. You can browse the list of available charts using the Web API here: <ulink url="http://apps.dhis2.org/demo/api/charts"/>.</para>
     <screen>function setLinks() {
-  DV.plugin.getChart({ url: base, el: 'chartA1', id: 'R0DVGvXDUNP' });
+  DHIS.getChart({ url: base, el: &quot;chartA1&quot;, id: &quot;R0DVGvXDUNP&quot; });
 
-  DV.plugin.getChart({
-    url: base,
-    el: 'chartB1',
-    type: 'stackedBar',
-    columns: [
-      {dimension: 'de', items: [{id: 'YtbsuPPo010'}, {id: 'l6byfWFUGaP'}, {id: 's46m5MS0hxu'}]}
+  DHIS.getChart({
+	url: base,
+	el: &quot;chartB1&quot;,
+	type: &quot;stackedBar&quot;,
+	columns: [ // Chart series
+	  {dimension: &quot;de&quot;, items: [{id: &quot;YtbsuPPo010&quot;}, {id: &quot;l6byfWFUGaP&quot;}]}
 	],
-    rows: [
-      {dimension: 'pe', items: [{id: 'LAST_12_MONTHS'}]}
-    ],
-    filters: [
-      {dimension: 'ou', items: [{id: 'USER_ORGUNIT'}]}
-    ],
-    showData: false, // All following options are optional
-    targetLineValue: 70,
-    baseLineValue: 20,
-    showTrendLine: true,
-    hideLegend: true,
-    title: 'My chart title',
-    domainAxisTitle: 'Periods',
-    rangeAxisTitle: 'Percent'
+	rows: [ // Chart categories
+	  {dimension: &quot;pe&quot;, items: [{id: &quot;LAST_12_MONTHS&quot;}]}
+	],
+	filters: [
+	  {dimension: &quot;ou&quot;, items: [{id: &quot;USER_ORGUNIT&quot;}]}
+	],
+	// All following options are optional
+	showData: false,
+	targetLineValue: 70,
+	baseLineValue: 20,
+	showTrendLine: true,
+	hideLegend: true,
+	title: &quot;My chart title&quot;,
+	domainAxisTitle: &quot;Periods&quot;,
+	rangeAxisTitle: &quot;Percent&quot;
   });
-};</screen>
+}</screen>
     <para>Finally we include some <emphasis role="italic">div</emphasis> elements in the body section of the HTML document with the identifiers referred to in the plug-in Javascript.</para>
     <screen>&lt;div id=&quot;chartA1&quot;&gt;&lt;/div&gt;
 &lt;div id=&quot;chartB1&quot;&gt;&lt;/div&gt;
@@ -1862,21 +1993,71 @@ Ext.onReady( function() {
   <section>
     <title>Embedding maps with the GIS map plug-in</title>
     <para>In this example we will see how we can embed maps with data served from a DHIS back-end into a Web page. To accomplish this we will use the GIS map plug-in. The plug-in is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/map.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
-    <para>We start by including four files and Google Maps in the header section of the HTML
+	<para>We start by having a look at what the complete html file could look like. This setup puts two maps in our web page. The first one is referring to an existing map. The second is configured inline.
+    
+    <screen>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://dhis2-cdn.org/v214/ext/resources/css/ext-plugin-gray.css&quot; /&gt;
+  &lt;script src=&quot;http://dhis2-cdn.org/v214/ext/ext-all.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://maps.google.com/maps/api/js?sensor=false&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://dhis2-cdn.org/v214/openlayers/OpenLayers.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://dhis2-cdn.org/v214/plugin/map.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script&gt;
+    var base = &quot;http://apps.dhis2.org/demo&quot;;
+
+    // Login - if OK, call the setLinks function
+    
+    Ext.onReady( function() {
+      Ext.Ajax.request({
+        url: base + &quot;dhis-web-commons-security/login.action&quot;,
+        method: &quot;POST&quot;,
+        params: { j_username: &quot;portal&quot;, j_password: &quot;Portal123&quot; },
+        success: setLinks
+      });
+    });
+
+    function setLinks() {
+      DHIS.getMap({ url: base, el: &quot;mapA1&quot;, id: &quot;ytkZY3ChM6J&quot; });
+
+      DHIS.getMap({
+        url: base,
+        el: &quot;mapB1&quot;,
+        mapViews: [{
+          columns: [{dimension: &quot;in&quot;, items: [{id: &quot;Uvn6LCg7dVU&quot;}]}], // data
+          rows: [{dimension: &quot;ou&quot;, items: [{id: &quot;LEVEL-3&quot;}, {id: &quot;ImspTQPwCqd&quot;}]}], // organisation units,
+          filters: [{dimension: &quot;pe&quot;, items: [{id: &quot;LAST_3_MONTHS&quot;}]}], // period
+          // All following options are optional
+          classes: 7,
+          colorLow: &quot;02079c&quot;,
+          colorHigh: &quot;e5ecff&quot;,
+          opacity: 0.9,
+          legendSet: {id: &quot;fqs276KXCXi&quot;}
+        }]
+      });
+    }
+  &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div id=&quot;mapA1&quot;&gt;&lt;/div&gt;
+  &lt;div id=&quot;mapB1&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</screen></para>
+    <para>Four files and Google Maps are included in the header section of the HTML
         document. The first two files are the Ext JS javascript library (we use the DHIS 2 content
         delivery network in this case) and its stylesheet. The third file is the OpenLayers
         javascript mapping framework (<ulink url="http://openlayers.org"/>) and finally we include
         the GIS map plug-in. Make sure the path is pointing to your DHIS server installation.</para>
-	<screen>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://dhis2-cdn.org/v213/ext/resources/css/ext-plugin-gray.css&quot; /&gt;
-&lt;script src=&quot;http://dhis2-cdn.org/v213/ext/ext-all.js&quot;&gt;&lt;/script&gt;
+	<screen>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://dhis2-cdn.org/v214/ext/resources/css/ext-plugin-gray.css&quot; /&gt;
+&lt;script src=&quot;http://dhis2-cdn.org/v214/ext/ext-all.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;https://maps.google.com/maps/api/js?sensor=false&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;http://dhis2-cdn.org/v213/openlayers/OpenLayers.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;http://dhis2-cdn.org/v213/plugin/map.js&quot;&gt;&lt;/script&gt;</screen>
+&lt;script src=&quot;http://dhis2-cdn.org/v214/openlayers/OpenLayers.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://dhis2-cdn.org/v214/plugin/map.js&quot;&gt;&lt;/script&gt;</screen>
 
     <para>To authenticate with the DHIS server we use the same approach as in the previous section. In the header of the HTML document we include the following Javascript inside a script element. The <emphasis role="italic">setLinks</emphasis> method will be implemented later. Make sure the <emphasis role="italic">base</emphasis> variable is pointing to your DHIS installation.</para>
-    <screen>var base = &quot;http://apps.dhis2.org/demo/&quot;;
-
-Ext.onReady( function() {
+    <screen>Ext.onReady( function() {
   Ext.Ajax.request({
     url: base + &quot;dhis-web-commons-security/login.action&quot;,
     method: &quot;POST&quot;,
@@ -2080,31 +2261,30 @@ Ext.onReady( function() {
     </table>
     <para>We continue by adding one pre-defined and one dynamically configured map to our HTML document. You can browse the list of available maps using the Web API here: <ulink url="http://apps.dhis2.org/demo/api/maps"/>.</para>
     <screen>function setLinks() {
-  Ext.onReady(function() {
-  var url = "http://apps.dhis2.org/demo/";
+  DHIS.getMap({ url: base, el: &quot;mapA1&quot;, id: &quot;ytkZY3ChM6J&quot; });
 
-  GIS.plugin.getMap({
-    url: url,
-    el: "mapA1",
-    id: "ytkZY3ChM6J"
+  DHIS.getMap({
+	url: base,
+	el: &quot;mapB1&quot;,
+	mapViews: [
+	  columns: [ // Chart series
+		columns: [{dimension: &quot;in&quot;, items: [{id: &quot;Uvn6LCg7dVU&quot;}]}], // data
+	  ],
+	  rows: [ // Chart categories
+		rows: [{dimension: &quot;ou&quot;, items: [{id: &quot;LEVEL-3&quot;}, {id: &quot;ImspTQPwCqd&quot;}]}], // organisation units
+	  ],
+	  filters: [
+		filters: [{dimension: &quot;pe&quot;, items: [{id: &quot;LAST_3_MONTHS&quot;}]}], // period
+	  ],
+	  // All following options are optional
+	  classes: 7,
+	  colorLow: &quot;02079c&quot;,
+	  colorHigh: &quot;e5ecff&quot;,
+	  opacity: 0.9,
+	  legendSet: {id: &quot;fqs276KXCXi&quot;}
+	]
   });
-
-  GIS.plugin.getMap({
-    url: url,
-    el: "mapB1",
-    mapViews: [{
-      columns: [{dimension: 'in', items: [{id: 'Uvn6LCg7dVU'}]}], // data
-      rows: [{dimension: 'ou', items: [{id: 'LEVEL-3'}, {id: 'ImspTQPwCqd'}]}], // organisation units
-      filters: [{dimension: 'pe', items: [{id: 'LAST_3_MONTHS'}]}], // period
-      classes: 7,
-      colorLow: '02079c',
-      colorHigh: 'e5ecff',
-      opacity: 0.9
-      legendSet: {id: 'fqs276KXCXi'} // Optional
-    }]
-  });
-});
-};</screen>
+}</screen>
     <para>Finally we include some <emphasis role="italic">div</emphasis> elements in the body section of the HTML document with the identifiers referred to in the plug-in Javascript.</para>
     <screen>&lt;div id=&quot;mapA1&quot;&gt;&lt;/div&gt;
 &lt;div id=&quot;mapB1&quot;&gt;&lt;/div&gt;
