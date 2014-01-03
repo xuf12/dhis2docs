@@ -5,6 +5,9 @@
   <title>Data approval</title>
   <para>DHIS 2 has an optional feature that allows authorized users to approve data that has been entered. It allows data to be reviewed and approved at each level in the organisation unit hierarchy, so the approval follows the structure of the hierarchy from lower levels to higher levels.</para>
   <para>Data may be approved for each combination of (a) data set, (b) period and (c) organisation unit. Data may be approved for the organisation unit for which it is entered, as well as for higher-level organisation units to which the data is aggregated. It can be approved for a higher-level organisation unit only after it has been approved for all that organisation unit&apos;s children for the same data set and period.</para>
+  <para>After a data set, period and organiasation unit combination has been approved, the form will
+    be locked and any further data entry or modification will be prohibited, unless it is later
+    un-approved.</para>
   <para>For example, the following diagram illustrates that data has already been approved for organisation units C and D, for a given data set and period. It may now be approved for organisation unit B for the same data set and period. But it is not ready to be approved for organization unit A. Before it can be approved for organisation unit A, it must be approved for B, and for any other children of organisation unit A, for that data set and period.</para>
   <figure>
     <title>Approving at organisation units</title>
