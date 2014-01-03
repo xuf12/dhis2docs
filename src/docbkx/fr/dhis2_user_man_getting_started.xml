@@ -1,336 +1,230 @@
-
-
-<? Xml version = '1 .0 'encoding =' UTF-8 "?> 
-<!-- Ce document a �t� cr�� avec Syntext Serna libre. --><! Chapitre DOCTYPE PUBLIC "-// OASIS// DTD DocBook XML V4.4// EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [] > 
-<chapter> 
-  <title> Premiers pas avec DHIS 2 </title> 
-  <section id="mod2_1">  
-    <title> Premiers pas avec DHIS2</title> 
-      <para> Apr�s avoir lu ce chapitre, vous allez �tre capable de comprendre: </para> 
-      <itemizedlist> 
-        <listitem> 
-          <para> Premier DHIS 2 � partir du Bureau </para> 
-        </listitem> 
-        <listitem> 
-          <para> Comment identifiez-vous du Bureau </para> 
-        </listitem> 
-        <listitem> 
-          <para> Cr�er de nouveaux utilisateurs et utilisateurs des r�les </para> 
-        </listitem> 
-      </itemizedlist> 
-    <section> 
-      > Pr�-requis <title> </title> 
-      <para> Vous devez vous assurer que vous avez une version r�cente de Java Runtime install� sur votre machine. En fonction de votre syst�me d'exploitation, il existe diff�rentes fa�ons d'installer Java. Le lecteur est renvoy� � ce <ulink url="http://java.sun.com/javase/downloads/index.jsp"> site Web </ ulink> pour des informations d�taill�es sur Java � l 'installation. </para> 
-      <para/> 
-    </section> 
-    <section> 
-      <title> partir du paquet DHIS2 Live</title> 
-      <para> Le paquet DHIS2 Live est le moyen le plus facile de d�marrer avec DHIS2. DHIS2 Live est appropri� pour un type autonome de l'installation. Il suffit de t�l�charger l'application � partir <ulink url="http://www.dhis2.org/downloads"> ici </ ulink>. 
-        Une fois le fichier t�l�charg�, vous pouvez simplement double-cliquez sur le fichier t�l�charg�, et commencer � utiliser DHIS2. </para> 
-    </section> 
-    <section> <title> de travail directement avec la base de donn�es H2</title> 
-      <para> 
-        DHIS2 Live utilise une embarqu�s <ulink url="www.h2database.com/"> H2 base de donn�es</ulink>. Cela a plusieurs avantages - il n'est pas n�cessaire 
-        d'installer un moteur de bases de donn�es distinctes, telles que PostgreSQL ou MySQL, et de sauvegarde peut �tre fait en copiant simplement le fichier. L'ensemble de db 
-        existe dans la m�moire, ce qui signifie que la haute performance. L'inconv�nient est n�cessaire de RAM. Il n'est pas appropri� pour le serveur mulitiuser 
-        installations. 
-      </para> 
-      <para> 
-      En g�n�ral, il est recommand� de travailler avec la base de donn�es via l'interface utilisateur DHIS2, mais dans certaines situations, on peut avoir besoin de 
-      manipuler directement les donn�es. Si l'on t�l�chargements H2 s�par�ment, il est livr� avec une interface web. Il peut aussi �tre manipul� � l'aide 
-        > <ulink url="http://openoffice.org"> OpenOffice.org </ulink>, en utilisant la proc�dure suivante. Cela suppose que dhis2-vivre se trouve dans 
-        l'utilisateur r�pertoire Linux (repr�sent� par ~). Remplacez le chemin absolu � votre installation dhis2-vivre. 
-        <itemizedlist> 
-          <listitem> 
-            <para> Premier OpenOffice traitement de texte et s�lectionnez Outils - Options, puis Java - Chemin de la classe ... et cliquez sur Ajouter Archives ...</para> 
-          </listitem> 
-          <listitem> 
-            <para> S�lectionnez le fichier suivant (version peut varier): ~/dhis2-live/webapps/dhis/WEB-INF/lib/h2-1.1.119.jar </para> 
-          </listitem> 
-          <listitem> 
-            <para> Fermer OpenOffice compl�tement et puis ouvrez OpenOffice.org Base de donn�es. S�lectionnez connecter � une base de donn�es existante -> JDBC </para> 
-          </listitem> 
-          <listitem> 
-            <para> Datasource URL est H2: ~/dhis2-live/database/dhis2; AUTO_SERVER = TRUE, et la classe du pilote JDBC est <org.h2.Driver/para> 
-          </listitem> 
-          <listitem> 
-            Nom d'utilisateur est <para> SA, mot de passe ne sont pas n�cessaires. Enfin, s�lectionnez un nom et un dossier pour le fichier odb.. </para> 
-          </listitem> 
-        </itemizedlist> 
-        <ulink url="http://www.oooforum.org/forum/viewtopic.phtml?t=97522"> Plus Conseils </ulink> 
-         
-      </para> 
-    </section> 
-    <section> 
-      <title> T�l�chargement et installation de la version serveur</title> 
-      <para> fonctions DHIS2 la fois comme un 
-      application de bureau, ainsi que d'une application Web-enabled client-serveur. 
-      Pour les plus grands, les installations de production avec de nombreux utilisateurs et de gros volumes 
-      de donn�es (par exemple en tant que serveur au niveau national), il est recommand� de 
-      installer la version serveur. La derni�re version de l'infrastructure peut �tre 
-      trouv�s <ulink url = "http://dhis.uio.no/ci/job/Dhis2% 20Web% 20Trunk/lastSuccessfulBuild/artifact/dhis-2/dhis-web/dhis-web-portal/target/dhis.war" > ici </ ulink>. 
-      </para> 
-      <para> Il existe de nombreuses permutations d'obtenir une installation du serveur et en cours d'ex�cution, et d�pendra beaucoup de la nature de l'installation. Une installation typique pour une seule machine, fonctionnant sous Ubuntu Linux seront d�crites dans la discussion qui suit. Ce type d'installation unique serait appropri� pour un travail en petits groupes. Il ya tellement de fa�ons diff�rentes pour obtenir l'application en cours d'ex�cution, et cela d�pendra dans une large mesure sur le nombre d'utilisateurs, vous serez � la restauration, le type de mat�riel dont vous disposez, et la nature de la mise en �uvre de l'application (par exemple un serveur central plut�t que de multiples installations sous-national). L'exemple donn� ici est destin� � �tre un guide sommaire pour ceux qui sont mise en place d'une instance de serveur DHIS2 � partir de z�ro, cependant, vous devriez songer � toutes les exigences de s�curit� de votre application avant de suivre aveugl�ment cet exemple. </para> 
-      <para> Vous devrez d�cider quel syst�me de base de donn�es back-end que vous allez utiliser. DHIS2 est une base de donn�es d'application, en principe, agnostique, et devrait tourner sur n'importe quel syst�me avec un pilote compatible JDBC. Toutefois, il est recommand� soit d'utiliser PostgreSQL ou MySQL, car ces syst�mes sont largement utilis�s par les autres membres de la communaut� DHIS2. En outre le syst�me de base de donn�es back-end, vous aurez besoin d'un conteneur de servlet compatible. Apache Tomcat 6 est recommand� par les d�veloppeurs, mais en principe, l'application doit s'ex�cuter dans un conteneur conforme � la sp�cification Servlet 2.5. </para> 
-      <para> Il est certainement possible d'installer tous les paquets � partir du code source, mais il est sugg�r� d'installer la plupart des forfaits de base par le biais de votre gestionnaire de paquets syst�mes. Selon la version de Linux que vous utilisez peut-�tre, vous pourriez avoir besoin d'installer une version plus r�cente des deux le syst�me de base de donn�es back-end (comme PostgreSQL et MySQL) et conteneur de servlet. Il est recommand� d'utiliser au moins la version 8.3 ou Postgresl MySQL 5.0. </para> 
-      <para> Pour commencer le t�l�chargement des paquets n�cessaires, ex�cuter les commandes suivantes. Notez que vous devrez peut-�tre ajouter le <sudo <command>/commande> commande avant ces commandes, si vous n'�tes pas en tant que root. </para> 
-      <para> <programlisting> <userinput> apt-get install nano <userinput> wget nano/etc/apt/sources.list </ <> userinput/<> userinput/programlisting> </para> 
-      <para> D�commentez et ajouter "multiverse" apr�s "l'univers" dans chaque ligne de ce fichier. </para> 
-      <para> Apr�s avoir modifi� le sources.list ex�cuter ces commandes. </para> 
-      <para> <programlisting> <userinput> apt-get Mise � jour </userinput> 
-<userinput> apt-get install sun-java6-jdk postgresql postgresql-client</userinput> 
-<userinput> postgresql postgresql-contrib-8.3-postgis </userinput> </programlisting> </para> 
-      <para> Cela permet d'installer un certain nombre de paquets sur votre syst�me, y compris Java et le syst�me de base de donn�es Postgresql. En principe, DHIS2 fonctionne sous n'importe quel conteneur de servlet, mais il est recommand� d'utiliser Apache Tomcat. V�rifiez avec les d�veloppeurs DHIS2 si vous avez des questions sur l'utilisation de conteneurs de servlets autres. Pour obtenir Tomcat, ex�cutez la <commandes suivantes/para> 
-      <para> <programlisting> <userinput> <userinput> wget http://apache.mirror.testserver.li/tomcat/tomcat-6/v6.0.20/bin/apache-tomcat-6.0.20.tar.gz </ > tar xvzf apache-userinput tomcat-6.0.20.tar.gz mv apache-tomcat-6.0.20/usr/local/</ tomcat <> userinput/programlisting> </para> 
-      <para> Si vous avez besoin pr�voyez d'installer GeoServer dans le cadre de votre installation DHIS2, aller de l'avant et de le t�l�charger et l'installer. Vous devez v�rifier sur le <<ulink url="http://www.geoserver.org"> GeoServer page web/ulink> pour la version la plus r�cente. </para> 
-      <para> 
-
-<userinput> wget http://downloads.sourceforge.net/geoserver/geoserver-2.0.0a-war.zip </userinput> </para> 
-      <para> <userinput> unzip GeoServer-2.0.0a-war.zip </userinput> </para> 
-      <para> 
-<userinput> d�compresser geoserver.war-d/usr/local/tomcat/webapps </userinput> </para> 
-      <para> 
-mv <userinput> /usr/local/tomcat/webapps/GeoServer/data/usr/local/g�odonn�es </userinput> </para> 
-      <para> Vous devez maintenant changer le mot de passe par d�faut GeoServer � quelque chose de plus s�r. Ex�cuter <userinput> nano /usr/local/g�odonn�es/security/users.properties </userinput> et changer le mot de passe et enregistrer toutes les modifications. </para> 
-      <para> Modifier une de vos variables d'environnement persistantes (voir <ulink url="https://help.ubuntu.com/community/EnvironmentVariables#Persistent%20environment%20variables"> cette page </ulink> pour plus de d�tails). Ajoutez les lignes suivantes dans le fichier s�lectionn�. </para> 
-      <para> exportation <envar> JAVA_HOME = /usr/lib/jvm/java-6-sun</envar> </para> 
-      <para> exportation <envar> JDK_HOME = /usr/lib/jvm/java-6-sun </envar> 
-</para> 
-      <para> <envar> exportation JAVA_OPTS =- XX: PermSize = 256m-XX: MaxPermSize = 1536-Xms512m -Xmx1024m-server </envar>
-</para> 
-      GEOSERVER_DATA_DIR <para> exportation <envar> =/usr/local/<g�odonn�es /> envar 
-</para> 
-      <para> exportation <envar> DHIS2_HOME =/root/dhis/dhis2 </> envar 
-</para> 
-      <para> Notez que vous pouvez avoir besoin de modifier les chemins d'acc�s pour pointer vers les r�pertoires r�els sur votre syst�me. </para> 
-      <para> En supposant que vous avez install� le syst�me de base de donn�es PostgreSQL, vous pouvez cr�er une nouvelle base de donn�es avec les commandes suivantes. </para> 
-      <para> <userinput> sudo su - postgres </userinput> </para> 
-      <para> <userinput> createdb createdb-E utf-8 <parameter> dhis </parameter> </userinput> </para> 
-      <para> Notez que vous pouvez changer le nom de la base de donn�es � tout ce qui convient � votre environnement. </para> 
-      <para> Pour dire l'application DHIS2 o� trouver sa base de donn�es que vous avez besoin d'un <filename> hibernate.properties</filename> fichier dans <envar> DHIS2_HOME </envar>. Pour une connexion � la base postgres � une base de donn�es appel�e �dhis, avec nom d'utilisateur et mot de passe 'dhis, vous avez besoin de mettre le texte suivant dans votre fichier/root/dhis/dhis2/hibernate.properties: </para> 
-      <para> <userinput> hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect </userinput> </para> 
-      Org.postgresql.Driver <para> <userinput> hibernate.connection.driver_class =</userinput> 
-</para> 
-      <para> <userinput> hibernate.connection.url = jdbc: postgresql: dhis </userinput> </para> 
-      <para> <userinput> hibernate.connection.username = dhis </userinput> </para> 
-      > <para> <userinput> Hibernate.connection.password = dhis </userinput>
-</para> 
-      <para> <userinput> hibernate.hbm2ddl.auto update</userinput> </para> 
-      <para> Enregistrez ce fichier dans le r�pertoire DHIS2_HOME. Quittez le shell en cours afin de recharger les variables de l'environnement et ouvrez un nouveau shell. Vous aurez besoin pour commencer deux PostgreSQL ainsi que le serveur Tomcat. Si vous avez install� PostgreSQL avec la commande apt-get, vous pouvez commencer ce � partir du fichier/etc/init.d/r�pertoire avec les commandes. </para> 
-      <para> <userinput> sudo su - </userinput> </para> 
-      <para> <userinput> cd/etc/init.d/</userinput> </para> 
-      <para> <userinput> d�but ./S18postgresql</userinput> </para> 
-      <para> Notez que vous pouvez avoir besoin de modifier cette commande pour votre syst�me. </para> 
-      Il est <para> bonne pratique de s�curit� pour ex�cuter l'application Tomcat en tant qu'utilisateur distinct. Si vous ne poss�dez pas d�j� un compte utilisateur s�par�, vous pouvez en cr�er un avec les commandes suivantes. </para> 
-      <para> <userinput> sudo useradd-d/m home/tomcat6 tomcat6 </userinput> </para> 
-      <para> <userinput> sudo passwd tomcat6 </userinput> </para> 
-      <para> Vous ne devez pas modifier les autorisations de fichier pour le r�pertoire que vous avez install� Tomcat, avec la commande suivante. </para> 
-      <para> <userinput> sudo chown-R tomcat6: tomcat6/usr/local/tomcat </userinput> </para> 
-      <para> Pour d�marrer l'application, connectez-vous que l'utilisateur, acc�dez � l'<filename>/usr/local/tomcat/bin/r�pertoire</filename>, et d'ex�cuter le start.sh <filename></script> nom_fichier. </para> 
-      <para> <userinput> sudo su - tomcat6 </userinput> </para> 
-      <para> <userinput> cd/usr/local/tomcat/bin </userinput> </para> 
-      <para> <userinput>./startup.sh</userinput> </para> 
-    </section> 
-    <section> 
-      <title> Installation DHIS2 avec l'installation de Debian package </title> 
-      <para> Si vous utilisez Ubuntu ou Debian, un paquet s�par� Debian a �t� cr�� pour simplifier le processus d'installation. Vous pouvez simplement t�l�charger ce fichier url="http://www.dhis2.org/download/dhis2-2.0.3.deb"> <ulink </ ulink> et puis installez DHIS2 de la ligne de commande avec la commande suivante. </para> 
-      <para> <userinput> sudo dpkg-i dhis2-2.0.6.deb</userinput> </para> 
-      <para> Vous pouvez aussi installer ce paquet Debian � partir de votre gestionnaire de paquets syst�mes. </para> 
-    </section> 
-  </section> 
-  id="mod2_2"> <section 
-    <title> connexion � DHIS2</title> 
-    <para> Peu importe si vous avez install� la version serveur de l' 
-    Desktop version Live, vous utilisez un navigateur Web pour se connecter � l' 
-    application. DHIS 2 devrait �tre compatible avec la plupart des navigateurs Web modernes, 
-    Mais vous devrez veiller � ce que Java Script est activ�. </para> 
-    <para> Pour vous connecter � l'application il suffit d'entrer url="http://localhost:8080/dhis" <ulink type=""> <http://localhost:8080/dhis/ulink> si vous 
-    utilisez le paquet DHIS2 vivre, ou de remplacer localhost par le nom ou l'IP 
-    l'adresse du serveur sur lequel la version du serveur est install�. </para> 
-    <para> fois que vous avez commenc� DHIS2, soit en ligne ou hors ligne, l'affichage 
-    �cran vous invite � entrer votre nom d'utilisateur enregistr� �et 
-    'Password'. Apr�s avoir entr� les informations requises sur cliquez sur log-in bouton 
-    se connecter � l'application. Le nom d'utilisateur et mot de passe par d�faut sont �admin� et �district�. Ils doivent �tre chang�s d�s l'ouverture de session la premi�re fois. </para> 
-    <screenshot> 
-      <screeninfo> DHIS2 �cran de connexion </screeninfo>
-      <mediaobject> 
-        <imageobject> 
-          width="60%" <imagedata fileref="resources/images/dhis2UserManual/dhis2_login_screen.jpg" format="JPG"/> 
-        </imageobject> 
-      </mediaobject> 
-    </screenshot> 
-  </section> 
-  id="mod2_3"> <section 
-    <title> Cr�er de nouveaux utilisateurs et r�les</title> 
-    <para> Cette section d�crit comment ajouter de nouveaux utilisateurs au DHIS 2 
-    application. </para> 
-    <section> 
-      <title> Open Menu utilisateur </title> 
-      <para> Pour cr�er ou trouver un utilisateur commence par cliquer sur le 'user' module 
-      s'affiche dans le menu d�roulant du module de maintenance �tablis sur le 
-      barre d'outils principale sur la partie sup�rieure de l'�cran s'affiche. Les noms d'utilisateur 
-      D�j� enregistr� appara�tra comme une liste comme on le voit dans la capture d'�cran 
-      ci-dessous. </para> 
-      <screenshot> 
-        <screeninfo> S�lectionnez <menu Utilisateurs point </screeninfo>
-        <mediaobject> 
-          <imageobject> 
-            width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/select_user_menu.jpg"/> 
-          </imageobject> 
-        </mediaobject> 
-      </screenshot> 
-      <screenshot> 
-        <screeninfo> Recherche par nom d'utilisateur </screeninfo>
-        <mediaobject> 
-          <imageobject> 
-            width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/search_user_by_name.jpg"/> 
-          </imageobject> 
-        </mediaobject> 
-      </screenshot> 
-      <para> Vous pouvez rechercher des noms d'utilisateurs sp�cifiques dans la liste des utilisateurs par 
-      indiquer le nom de la �filtrer par nom d'utilisateur 'sur le terrain comme le montre 
-      ci-dessus. </para> 
-    </section> 
-    <section> 
-      <title> D�finir un nouveau r�le</title> 
-      <para> Dans le cadre de la cr�ation d'un nom d'utilisateur vous sont n�cessaires pour d�finir l'utilisateur 
-      r�le. Le faire en cliquant sur le r�le de l'utilisateur du "figurant sur le c�t� gauche de 
-      l'�cran s'affiche. </para> 
-      <screenshot> 
-        > Cr�er <screeninfo> nouveau r�le d'utilisateur <screeninfo/>
-        <mediaobject> 
-          <imageobject> 
-            width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/select_user_role.jpg"/> 
-          </imageobject> 
-        </mediaobject> 
-      </screenshot> 
-      <para> Ceci vous m�nera � la page gestion des r�les o� vous aurez 
-      cliquer sur Ajouter <guibutton> nouvelle </guibutton> de cr�er un nouveau r�le. </para> 
-      <screenshot> 
-        Ajouter de nouveaux <screeninfo> r�le de l'utilisateur </screeninfo>
-        <mediaobject> 
-          <imageobject> 
-            width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/add_user_role.jpg"/> 
-          </imageobject> 
-        </mediaobject> 
-      </screenshot> 
-      <para> L'�cran suivant s'ouvre et ici, dans la premi�re zone de texte vous 
-      n�cessit� de donner le nom du r�le comme Super User, Admin utilisateur, etc 
-      deuxi�me zone de texte appel� �Description� donne plus d'informations sur la 
-      Type d'utilisateur Le r�le qui est cr�� pour par exemple Administration des utilisateurs d'�tat, 
-      > District de saisie de donn�es. </para> 
-      <screenshot> 
-        > <screeninfo> R�le page de maintenance </screeninfo>
-        <mediaobject> 
-          <imageobject> 
-            width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/role_maintainence_page.jpg"/> 
-          </imageobject> 
-        </mediaobject> 
-      </screenshot> 
-      <para> Ensuite, vous sp�cifiez l'ensemble de donn�es particulier (s) qui doivent �tre 
-      � la disposition du r�le particulier. Vous aurez �galement besoin de pr�ciser les 
-      type d '�autorit� � donner � l'utilisateur particulier. Pour chacune des 
-      trois options nomm�ment ensembles de donn�es, rapports et l'utilisateur peut s�lectionner les autorit�s 
-      de multiples options de dans le menu d�roulant pr�vu contre chaque champ. 
-      Un utilisateur peut choisir plusieurs options, soit en les d�pla�ant 
-      un par un. </para> 
-      <screenshot> 
-        Ajout d'un ensemble de donn�es <screeninfo> � un r�le de l'utilisateur</screeninfo>
-        <mediaobject> 
-          <imageobject> 
-            width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/assign_one_dataset_user_role.png" format="PNG"/> 
-          </imageobject> 
-        </mediaobject> 
-      </screenshot> 
-      <para> Pour certains utilisateurs de pouvoir entrer des donn�es, vous devez 
-      les ajouter � la fois un ensemble de donn�es ainsi qu'un niveau de l'unit� d'organisation. Vous 
-      pouvez �galement s�lectionner plusieurs ensembles de donn�es individuellement en appuyant sur la touche Ctrl 
-      sur le clavier et en cliquant sur des donn�es individuelles <>./para 
-      <screenshot> 
-        Ajout de plusieurs ensembles de donn�es <screeninfo> � des r�les d'utilisateur </screeninfo> 
-        <mediaobject> 
-          <imageobject> 
-            width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/assign_multiple_datasets_user_role.png" format="PNG"/> 
-          </imageobject> 
-        </mediaobject> 
-      </screenshot> 
-      <para> Enfin si vous avez choisi, cliquez sur les champs requis 
-      <guibutton> Enregistrer </guibutton> qui est situ� sur la partie inf�rieure de la 
-      �cran affich�. Le r�le de l'utilisateur d�sir� et l'autorisation connexes 
-      �tre enregistr�s dans la base de donn�es, et peut alors �tre affect� � un particulier 
-      utilisateur. </para> 
-    </section> 
-    <section> 
-      Ajouter <title>> Nouvel utilisateur </title> 
-      Sous <para> r�le d'utilisateur particulier, il peut �tre plus d'un utilisateur. Pour ajouter 
-      nouveaux utilisateurs acc�dez aux options de l'utilisateur dans le cadre du module d'entretien. </para> 
-      <screenshot> 
-        Ajouter <screeninfo> utilisateur <> screeninfo/
-        <mediaobject> 
-          <imageobject> 
-            width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/add_new_user.png"/> 
-          </imageobject> 
-        </mediaobject> 
-      </screenshot> 
-      <para> Pour ajouter un nouvel utilisateur, proc�dez comme suit: </para> 
-      <itemizedlist> 
-        <listitem> 
-          <para> Cliquez sur le <guibutton> Ajouter un nouveau bouton </guibutton>. </para> 
-        </listitem> 
-        <listitem> 
-          Entrez les d�tails <para> New utilisateur comme <guilabel> Nom d'utilisateur</guilabel>, 
-          <guilabel> Mot de passe, </guilabel> <guilabel>Confirmer mot de passe </guilabel>, <guilabel> Nom </guilabel>,<guilabel> Pr�nom </guilabel><guilabel> et e-mail </guilabel> en option d'un nouvel utilisateur 
-          onglets. </para> 
-        </listitem> 
-        <listitem> 
-          <para> Cliquez sur Ajouter <guibutton> bouton </guibutton> pour la confirmation des 
-          D�tails nouvel utilisateur et suivez les erreurs des utilisateurs tandis que la cr�ation de nouveaux 
-          utilisateur. </para> 
-        </listitem> 
-        <listitem> 
-          <para> L'utilisateur r�cemment cr�� de nouvelles peut �tre vu dans les principales 'utilisateur 
-          gestion de l'�cran </para> 
-        </listitem> 
-        <listitem> 
-          <para> Vous pouvez modifier (comme mot de passe, nom de famille .... etc) et supprimer les 
-          les d�tails des nouveaux/anciens utilisateurs en s�lectionnant correspondante de l'utilisateur 
-          <guibutton> Modifier </guibutton> et <guibutton> Supprimer </guibutton> 
-          Boutons. </para> 
-        </listitem> 
-        <listitem> 
-          <para> Cliquez sur Enregistrer <guibutton> onglet </guibutton> apr�s l'�dition tous les 
-          les d�tails d'un utilisateur particulier s�lectionn�. </para> 
-          <screenshot> 
-            <screeninfo> Ajouter ou modifier les utilisateurs </screeninfo> 
-            <mediaobject> 
-              <imageobject> 
-                width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/add_edit_users.jpg"/> 
-              </imageobject> 
-            </mediaobject> 
-          </screenshot> 
-          <screenshot> 
-            <screeninfo> Utilisateur �cran de gestion </screeninfo> 
-            <mediaobject> 
-              <imageobject> 
-                width="60%" <imagedata align="center" fileref="resources/images/dhis2UserManual/user_management.jpg"/> 
-              </imageobject> 
-            </mediaobject> 
-          </screenshot> 
-        </listitem> 
-      </itemizedlist> 
-    </section> 
-  </section> 
-<section id="mod2_4"> 
-    <title> D�connexion de DHIS2</title> 
-    <para> vous suffit de cliquer sur le <guibutton> D�connexion bouton </guibutton> pour quitter le 
-    application. </para> 
-    <screenshot> 
-      <screeninfo> D�connexion de DHIS 2 </screeninfo> 
-      <mediaobject> 
-        <imageobject>
-           <imagedata width="60%" align="center" fileref="resources/images/dhis2UserManual/dhis2_logoff.jpg"/> 
-        </imageobject> 
-      </mediaobject> 
-    </screenshot> 
-  </section> 
-</chapitre>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd"[]>
+<chapter>
+  <title>Premiers pas avec DHIS 2</title>
+  <section id="mod2_1">
+    <title>Premiers pas avec DHIS 2</title>
+    <para>Après la lecture de ce chapitre, vous serez en mesure de comprendre:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Comment lancer DHIS 2 à partir de votre poste de travail</para>
+      </listitem>
+      <listitem>
+        <para>Comment vous connecter à partir de votre poste de travail</para>
+      </listitem>
+    </itemizedlist>
+    <itemizedlist>
+      <listitem>
+        <para>Comment créer de nouveaux utilisateurs et de nouveaux rôles</para>
+      </listitem>
+    </itemizedlist>
+    <itemizedlist>
+      <listitem>
+        <para>Quelles sont les étapes nécessaires pour concevoir une base de données pour votre organisation</para>
+      </listitem>
+    </itemizedlist>
+    <section>
+      <title>Prérequis</title>
+      <para>Vous devez vous assurer qu'une version récente de l'environnement Java (JRE) est installé sur votre ordinateur. Il existe différentes façons d'installer Java, selon votre système d'exploitation. Le lecteur est renvoyé vers ce <ulink url="http://java.sun.com/javase/downloads/index.jsp">site web</ulink> pour des informations détaillées sur la manière d'installer Java.</para>
+    </section>
+    <section>
+      <title>Démarrage de l'application DHIS2 Live</title>
+      <para>L'application DHIS2 Live est la meilleure façon de débuter avec DHIS2. Elle est bien indiquée pour une installation indépendante ou pour des besoins de démonstrations. Il suffit de télécharger l'application à partir de <ulink url="http://www.dhis2.org/downloads"> ce lien </ulink>. Une fois le fichier téléchargé, vous pouvez juste double-cliquer sur le fichier téléchargé pour commencer à utiliser DHIS 2.</para>
+      <section>
+        <title>Commencer avec une base de données vierge</title>
+        <para>L'application Live est livrée avec une base de données de démonstration, identique à celle que vous avez sur le <ulink url="http://apps.dhis2.org/demo/">site de démonstration en ligne </ulink> (lequel est basée sur le SNIS de la Sierra Leone); de ce fait,si vous voulez commencer avec un nouveau système et une base de données vierge et construire votre propre système, vous devez faire ce qui suit :</para>
+        <para>1) Arrêtez l'application DHIS2 Live si elle est en cours d'exécution. Faites un clic droit sur l'icône présente sur la barre de tâches et sélectionnez Quitter. L'icône de la barre de tâche est celui qui a le symbole vert en bas à droite de votre écran (sous Windows) et qui affiche "Serveur DHIS 2 en cours d'exécution" si vous passez le pointeur de la souris dessus.</para>
+        <para>2) Ouvrez le dossier d'installation de DHIS2 Live et repérez le dossier "conf".</para>
+        <para>3) Dans le dossier conf/ ouvrez le fichier appelé "hibernate" dans un éditeur de texte (notepad ou similaire) et effectuez la modification suivante: recherchez la chaîne "jdbc:h2:./database/dhis2" et remplacez la partie "dhis2" par le nom que vous voulez donner à votre base de données (par exemple dhis2_test).</para>
+        <para>4) Sauvegardez et fermez le fichier hibernate.</para>
+        <para>5) Démarrez DHIS 2 Live en double-cliquant sur le fichier dhis2-live.exe dans le dossier d'installation ou en utilisant le raccourci sur le bureau ou le lien de menu que vous pouvez avoir installé.</para>
+        <para>6) Attendez que la fenêtre du navigateur s'ouvre et que l'écran de connexion s'affiche, puis connectez-vous avec le nom d'utilisateur: admin et le mot de passe: district.</para>
+        <para>7) A présent, vous allez avoir un système DHIS 2 complètement vide et vous devrez commencer par ajouter vos utilisateurs, définir votre hiérarchie organisationnelle, vos éléments de données et vos ensembles de données, etc. Veuillez vous référer aux autres sections de ce manuel pour obtenir des instructions sur la façon de procéder.</para>
+      </section>
+    </section>
+    <section>
+      <title>Travailler directement avec la base de données H2</title>
+      <para>DHIS 2 Live utilise une base de données <ulink url="www.h2database.com/">H2</ulink>intégrée. Ce qui présente de nombreux avantages - il n'est pas nécessaire d'installer un moteur de base de données distinct comme PostgreSQL ou MySQL, et la sauvegarde peut être faite en copiant simplement le fichier. L'ensemble de la base réside en  mémoire, ce qui signifie un gain en performance. L'inconvénient est le besoin de RAM. Elle n'est en plus pas indiquée pour des installations en mode serveur et multi-utilisateurs.</para>
+      <para>En général, il est recommandé de travailler avec la base de données à travers l'interface utilisateur de DHIS2, mais dans certaines situations, il peut être nécessaire de manipuler directement les données. Si la base de données H2 a été téléchargée séparément, elle est livrée avec une interface web. Elle peut aussi être manipulée en utilisant <ulink url="http://openoffice.org">OpenOffice.org</ulink>, en utilisant la procédure suivante. Ceci suppose que dhis2-live se trouve dans le dossier racine de l'utilisateur Linux actuel (représenté par le symbole ~). Veuillez remplacer le chemin absolu par celui de votre installation de dhis2-live.
+        <itemizedlist><listitem><para>Démarrez l'application de traitement de texte OpenOffice et sélectionnez Outils - Options, puis Java - Class Path ... et cliquez sur Ajouter Archive ...</para></listitem><listitem><para>Sélectionnez le fichier suivant (la version peut être différente) : ~/dhis2-live/webapps/dhis/WEB-INF/lib/h2-1.1.119.jar</para></listitem><listitem><para>Fermez complètement OpenOffice puis ouvrez la base de données OpenOffice.org. Sélectionner connecter à une base de données existante - JDBC</para></listitem><listitem><para>L'URL de la source de données URL est h2:~/dhis2-live/database/dhis2;AUTO_SERVER=TRUE, et la classe de pilote JDBC est org.h2.Driver</para></listitem><listitem><para>Le nom d'utilisateur est sa, le mot de passe n'est pas nécessaire. Enfin, sélectionner un nom et un dossier pour le fichier .odb.</para></listitem></itemizedlist><ulink url="http://www.oooforum.org/forum/viewtopic.phtml?t=97522">Plus d'astuces</ulink></para>
+    </section>
+    <section>
+      <title>Télécharger et installer la version serveur</title>
+      <para>La dernière version stable du serveur peut être téléchargée à partir de ce <ulink url="http://stable.dhis2.org/">site web</ulink>. Pour plus d'informations sur la façon de l'installer veuillez consulter le chapitre d'installation présent dans le manuel de mise en oeuvre.</para>
+    </section>
+  </section>
+  <section id="mod2_2">
+    <title>Connexion à DHIS 2</title>
+    <para>Que vous ayiez installé la version serveur ou la version Live, vous devrez utiliser un navigateur Web pour vous connecter à l'application. DHIS2 devrait être compatible avec la plupart des navigateurs web modernes, mais vous devrez tout de même vous assurer que Java Script y est bien activé.</para>
+    <para>Pour vous connecter à l'application, veuillez saisir <ulink url="http://localhost:8080/dhis" type="">http://localhost:8080/dhis</ulink> si vous utilisez l'application DHIS2 Live, ou remplacer localhost par le nom ou l'adresse IP du serveur sur lequel la version du serveur est installée.</para>
+    <para>Une fois que vous avez démarré DHIS2, en ligne ou hors ligne, la page qui s'affiche vous demande de saisir les 'nom d'utilisateur' et 'mot de passe' que vous avez créés. Après avoir saisi ces informations requises, cliquez sur le bouton d'ouverture de session pour vous connecter à l'application. Notez que le nom d'utilisateur et le mot de passe par défaut sont "admin" et  "district". Ils doivent être changés dès votre première connexion au système.</para>
+  </section>
+  <section id="users">
+    <title>Créer de nouveaux utilisateurs et rôles</title>
+    <para>Cette section décrit comment ajouter de nouveaux utilisateurs dans l'application DHIS 2.</para>
+    <section>
+      <title>Ouvrir le menu utilisateur</title>
+      <para>Pour créer ou retrouver un utilisateur, commencez par cliquer sur le module "utilisateurs" qui s'affiche en déroulant le menu du module d'administration situé sur la principale barre d'outils dans la partie supérieure de l'écran comme illustré sur la capture d'écran ci-dessous.</para>
+      <screenshot>
+        <screeninfo>Elément de menu Sélectionner les Utilisateurs</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="100%" fileref="resources/images/dhis2UserManual/select_user_menu.png" format="PNG" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Les noms d’utilisateurs qui ont déjà été créés s’afficheront dans une liste comme indiqué sur la capture d’écran ci-dessous.</para>
+      <screenshot>
+        <screeninfo>Rechercher par nom d'utilisateur</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="100%" fileref="resources/images/dhis2UserManual/search_user_by_name.png" format="PNG" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Vous pouvez effectuer une recherché sur des noms d’utilisateur spécifiques dans la liste des utilisateurs en saisissant un nom dans le champ ‘filtrer par nom d’utilisateur’ comme illustré ci-dessus.</para>
+    </section>
+    <section id="user_roles">
+      <title>Define a new role</title>
+      <para>Dans le cadre de la création d'un nom d'utilisateur, vous devez définir le rôle de l'utilisateur. Vous pouvez le faire en cliquant sur le lien "rôles d'utilisateur" figurant sur le côté gauche de la page. Ce lien vous conduira à la page de gestion des rôles sur laquelle vous devrez cliquer sur <guibutton moreinfo="none">'Ajouter nouveau'</guibutton> pour créer un nouveau rôle.</para>
+      <screenshot>
+        <screeninfo>Ajouter un nouveau rôle d'utilisateur</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="100%" fileref="resources/images/dhis2UserManual/add_user_role.png" format="PNG" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>L'écran suivant s'affiche et ici, dans la première zone de texte, vous devez spécifier le nom du Rôle comme Super Utilisateur, utilisateur Admin, etc. La deuxième zone de texte appelée "Description" permet de donner plus d'informations sur le type de rôle d'utilisateur que vous créez, par exemple utilisateur Admin national, Saisie de données au Niveau District.</para>
+      <screenshot>
+        <screeninfo>Page d'administration des rôles</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="100%" fileref="resources/images/dhis2UserManual/role_maintenance_page.png" format="PNG" />
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Ensuite, vous allez spécifier l'ensemble (ou les ensembles) de données en particulier qui doivent être mis à la disposition de ce rôle. Vous devrez également spécifier le type d'"autorisations" à donner à l'utilisateur. Pour chacune des trois options à savoir Ensembles de Données, Rapports et  Pouvoirs, l'utilisateur peut sélectionner plusieurs options dans le menu déroulant prévu en face de chaque champ. Un utilisateur peut choisir plusieurs options, soit en les déplaçant un par un.</para>
+      <para>Pour que des utilisateurs donnés puissent saisir des données, vous devez les ajouter à la fois à un ensemble de données et à un niveau d'unité d'organisation. Vous avez également la possibilité de sélectionner plusieurs ensembles de données en appuyant sur la touche Ctrl du clavier et en cliquant sur les ensembles de données un par un.</para>
+      <para>Enfin, lorsque vous avez saisi les champs requis, cliquez sur <guibutton moreinfo="none">Enregistrer</guibutton>, qui est situé sur la partie inférieure de la page. Le rôle d'utilisateur souhaité et les autorisations associées seront enregistrés dans la base de données, et pourront par la suite être affectés à un utilisateur quelconque.</para>
+    </section>
+    <section>
+      <title>Ajouter un nouvel utilisateur</title>
+      <para>Pour chaque rôle d'utilisateur, il peut y avoir plus d'un utilisateur. Pour ajouter de nouveaux utilisateurs, allez dans les options de l'utilisateur dans le module d'administration.</para>
+      <para>Pour ajouter un nouvel utilisateur, procédez comme suit:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Cliquez sur le bouton <guibutton moreinfo="none">Ajouter Nouveau</guibutton></para>
+        </listitem>
+        <listitem>
+          <para>Entrez les nouvelles informations de l'utilisateur comme<guilabel moreinfo="none">le nom d'utilisateur</guilabel>, <guilabel moreinfo="none">le mot de passe</guilabel>, <guilabel moreinfo="none">Confirmer le mot de passe</guilabel>, <guilabel moreinfo="none">le nom</guilabel>, <guilabel moreinfo="none">le prénom</guilabel> et <guilabel moreinfo="none">l'adresse e-mail</guilabel> sur l'onglet des options du nouvel utilisateur.</para>
+        </listitem>
+        <listitem>
+          <para>Cliquez sur le bouton <guibutton moreinfo="none">Ajouter</guibutton> pour confirmer les nouvelles informations de l'utilisateur et rectifiez les éventuelles erreurs.</para>
+        </listitem>
+        <listitem>
+          <para>Le nouvel utilisateur venant d'être créé peut être consulté sur la page principale de gestion des utilisateurs.</para>
+        </listitem>
+        <listitem>
+          <para>Vous pouvez effectuer des modifications (mot de passe, nom de famille, etc.) et supprimer les informations des utilisateurs anciens ou nouveaux en cliquant sur les boutons <guibutton moreinfo="none">Modifier</guibutton> et <guibutton moreinfo="none">Supprimer</guibutton> correspondants.</para>
+        </listitem>
+        <listitem>
+          <para>Cliquez sur <guibutton moreinfo="none">Enregistrer</guibutton>après vos modifications.</para>
+          <screenshot>
+            <screeninfo>Ecran de gestion des utilisateurs</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="100%" fileref="resources/images/dhis2UserManual/user_management.png" format="PNG" />
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </listitem>
+      </itemizedlist>
+    </section>
+  </section>
+  <section id="mod2_4">
+    <title>Déconnexion de DHIS 2</title>
+    <para>Cliquez simplement sur le lien Déconnexion figurant sur le coin supérieur droit pour quitter l’application. </para>
+  </section>
+  <section id="database_design">
+    <title>Introduction rapide à la conception d'une base de données DHIS 2</title>
+    <para>L'application DHIS 2 est livrée avec un ensemble d'outils pour la collecte de données, la validation, le reporting et l'analyse, mais le contenu de la base de données, par exemple ce qui doit être collecté, ceux qui doivent effectuer ces collectes et leur format dépendra du contexte d'utilisation. Ces métadonnées doivent être renseignées dans l'application avant de pouvoir être utilisées, et cela peut être fait par le biais de l'interface utilisateur et ne nécessite aucune programmation ni connaissances techniques du logiciel. Nous appelons ce processus initial: conception ou personnalisation de la base de données.</para>
+    <para>Cette section fournit une introduction très rapide et sommaire à la conception de base de données de DHIS 2 et explique surtout les différentes étapes nécessaires à la préparation d'un nouveau système DHIS 2 pour son utilisation. La manière de procéder pour chaque étape est expliquée dans d'autres chapitres, et les meilleures pratiques en matière de choix de conception sont détaillées dans le guide de mise en oeuvre. Voici les étapes à suivre :</para>
+    <para>1. Mettre en place une hiérarchie organisationnelle</para>
+    <para>2. Définir les éléments de données</para>
+    <para>3. Définir les ensembles de données et les formulaires de saisie de données</para>
+    <para>4. Définir les règles de validation</para>
+    <para>5. Définir les indicateurs</para>
+    <para>6. Définir les tables de rapport et concevoir les rapports</para>
+    <para>7. Mettre en place le module SIG</para>
+    <para>8. Concevoir des graphiques et personnaliser le tableau de bord</para>
+    <section>
+      <title>La hiérarchie organisationnelle</title>
+      <para>La hiérarchie de l'organisation décrit l'organisation qui utilise le DHIS 2, les établissements de santé, les zones administratives et autres zones géographiques utilisées pour la collecte de données et l'analyse des données. Cette dimension de données est définie comme une hiérarchie comprenant une unité racine (par exemple le Ministère de la Santé) et un nombre quelconque de niveaux et des nœuds en dessous. Chaque nœud de cette hiérarchie est appelée une unité organisationnelle dans DHIS 2.</para>
+      <para>La conception de cette hiérarchie permettra de déterminer les unités géographiques d'analyse disponibles pour les utilisateurs étant donné que les données sont recueillies et regroupées dans cette structure. Il ne peut y avoir qu'une hiérarchie à la fois, la définition de sa structure nécessite le plus grand soin. Les hiérarchies supplémentaires (par exemple, les limites administratives  parallèles pour le secteur des soins de santé) peuvent être modélisées à l'aide des groupes d'organisation et des ensembles de groupe, mais la hiérarchie de l'organisation est le principal support pour l'agrégation des données sur la dimension géographique. Typiquement les hiérarchies organisationnelles nationales en santé publique sont constituées de 4 à 6 niveaux, mais n'importe quel nombre de niveaux peut être pris en charge par l'application. La hiérarchie est constituée de relations parent-enfant, par exemple un pays ou un Ministère de la Santé (la racine) pouvant avoir 8 unités filles (provinces), et chaque province pouvant de nouveau (au niveau 2) avoir entre 10 et 15 districts en tant que filles de ces provinces. Normalement, les établissements de santé seront situés au niveau le plus bas, mais ils peuvent également être situés à des niveaux plus élevés, par exemple des hôpitaux nationaux ou provinciaux; les structures organisationnelles asymétriques sont donc également pris en charge (par exemple, un nœud fille peut être positionné au niveau 2, tandis que la plupart des autres nœuds filles sont au niveau 5).</para>
+      <para>En général, il existe une hiérarchie géographique définie par le système de santé comme par exemple en tenant compte des emplacements des bureaux administratifs (Ministère de la Santé, Province, District), mais bien souvent il existe d'autres limites administratives dans le pays qui pourraient  ou ne pourraient pas être ajoutées, selon la façon dont la prise en compte de ces limites peut permettre d'améliorer l'analyse des données. Lors de la conception de la hiérarchie le nombre d'enfants pour une unité d'organisation peut indiquer l'utilité de la structure; à titre d'exemple le fait d'avoir une ou plusieurs relations 1-1 entre deux niveaux n'est pas très utile étant donné que les valeurs sont les mêmes pour les niveaux enfant et parent. À l'opposé un nombre très élevé d'enfants au centre de la hiérarchie (par exemple 50 districts au niveau d'une province) pourrait nécessiter d'ajouter un niveau supplémentaire entre les deux pour augmenter l'utilité de l'analyse des données. Le niveau le plus bas, le niveau des établissements de santé, contiendra souvent un grand nombre d'enfants (10-60), mais pour d'autres niveaux plus hauts dans la hiérarchie le nombre d'enfants recommandés est d'environ 5-20. Le fait d'avoir trop ou trop peu d'enfants peut indiquer qu'un niveau doit être supprimé ou ajouté.</para>
+      <para>Notez qu'il est assez facile de faire des changements aux niveaux supérieurs de la hiérarchie à un stade ultérieur, le seul problème concerne en réalité le fait de changer les unités organisationnelles qui recueillent des données (les nœuds feuilles), par exemple lors de la division ou de la fusion des établissements de santé. L'agrégation de la hiérarchie se fait sur la base de la hiérarchie actuelle à tout moment et reflétera toujours les changements les plus récents apportés à la structure organisationnelle. Reportez-vous au chapitre sur les unités d'organisation pour apprendre à créer des unités d'organisation et construire la hiérarchie.</para>
+    </section>
+    <section>
+      <title>Eléments de Données</title>
+      <para>L'Elément de Données est peut-être le bloc de construction le plus important d'une base de données DHIS 2. Il représente la dimension "QUOI", il décrit ce qui est recueilli ou analysé. Dans certains contextes, c'est ce qu'on appelle un indicateur, mais en DHIS 2 nous appelons cette unité de collecte et d'analyse un <emphasis role="italic">élément de données</emphasis>. L'élément de données représente souvent un nombre de  quelque chose, et son nom décrit ce qui est pris en compte, par exemple, "Doses de BCG administrées" ou "Cas de paludisme". Lorsque les données sont collectées, validées, analysées, rapportées ou présentées ce sont les éléments de données ou les expressions construites sur ces éléments de données qui décrivent le "QUOI" pour ces données. En tant que tel, ces éléments de données sont importantes au système entier et ils influencent non seulement la manière dont les données sont collectées , mais plus encore, comment les valeurs de données sont représentées dans la base de données, ce qui à son tour influence la manière dont les données sont analysées et présentées.</para>
+      <para>Il est possible d'ajouter plus de détails à cette dimension "QUOI" dimension à travers la dimension de désagrégation appelée catégories d'éléments de données. Certaines catégories communes peuvent être l'âge et le sexe, mais en réalité n'importe quelle catégorie peut être ajoutée par l'utilisateur et liée à des éléments de données particuliers. La combinaison d'un nom d'élément de données et de sa catégorie associée définit la plus petite unité de collecte et d'analyse disponible dans le système, et décrit par conséquent les données brutes de la base de données. Les agrégations peuvent être effectuées en faisant un zoom en arrière sur cette dimension, mais aucune recherche n'est plus possible en dessous; ce qui signifie que la conception des éléments de données et des catégories définit le détail de l'analyse mis à la disposition du système (sur la dimension QUOI). Des modifications effectuées à un stade ultérieur sur des éléments et des catégories de données  pourraient être compliquées, vu qu'elles affecteront le sens des valeurs de données déjà saisies dans la base de données (s'il y'en a). Par conséquent, il convient de comprendre que cette étape est l'une des étapes les plus décisives dans le processus de conception de base de données et qu'elle mérite une attention particulière.</para>
+      <para>Une bonne pratique lors de la conception des éléments de données est de penser aux éléments de données comme une unité d'analyse de données et non pas seulement comme un champ dans le formulaire de collecte de données. Chaque élément de données a sa propre existence dans la base de données, indépendamment de tout formulaire de collecte; les rapports et les autres données générées sont basées sur ces éléments de données et les expressions / formules composées d'éléments de données et non sur les formulaires de collecte de données. Ainsi, ce sont les besoins d'analyse de données qui devraient conduire le processus de conception, et non pas l’aspect des formulaires de collecte de données. Une règle de base élémentaire consiste à dire que le nom de l'élément de données doit être capable de décrire par lui-même la valeur de données qu'elle représente même en dehors du cadre du formulaire de collecte. Par exemple un nom d'élément de données comme "Total de références" a du sens lorsqu'il est observé dans un formulaire "RCH" ou le formulaire "OPD", mais par lui-même il ne suffit pas à décrire le phénomène qu'il représente (à qui fait-on référence ?); il devrait plutôt être appelé "Total références de maternité" ou "Nombre de références de OPD". Ce sont deux éléments de données différents ayant des significations différentes, bien que le champ présent sur le formulaire papier s'appelle uniquement "Total de références", puisque l'utilisateur du formulaire sera toujours en mesure de savoir d'où ces références proviennent. Dans une base de données ou un lieu de stockage d'éléments de données, ce contexte n'est plus valide, et donc les noms des éléments de données deviennent vraiment importants pour la description des données.</para>
+      <para>Les propriétés communes des éléments de données peuvent être modélisées par ce qu'on appelle des groupes d'éléments de données. Les groupes sont complètement flexibles dans la mesure où à la fois leurs noms et leurs membres peuvent être définis par l'utilisateur. Les groupes sont utiles à la fois pour naviguer entre les données et présenter des données associées, mais peuvent également être utilisés pour regrouper ensemble les éléments de données. Les groupes sont faiblement couplés aux éléments de données et non liés directement aux valeurs de données, ce qui signifie qu'ils peuvent être modifiés et ajoutés à n'importe quel moment sans interférer avec les données brutes.</para>
+    </section>
+    <section>
+      <title>Ensemble de données et formulaires de saisie de données</title>
+      <para>Toutes les saisies de données dans DHIS 2 se font à travers les ensembles de données. Un ensemble de données est une collection d'éléments de données regroupées pour la collecte de données, et dans le cas d'installations distribuées, ils définissent également des morceaux de données pour l'exportation et l'importation entre instances de DHIS 2 (par exemple exportation d'une installation locale au bureau de district vers l'installation sur le serveur national). Les ensembles de données ne sont pas liés directement aux valeurs de données, mais à travers les éléments de données qui les constituent et les fréquences de collecte; en tant que tel un ensemble de données peut être modifié, supprimé ou ajouté à moment sans affecter les données brutes déjà saisies dans le système. De telles modifications auront toutefois une incidence sur la façon dont les nouvelles données seront collectées.</para>
+      <para>Un ensemble de données a un type de période qui contrôle la fréquence de collecte des données, celle-ci pouvant être quotidienne, hebdomadaire, mensuelle, trimestrielle, semestrielle ou annuelle. Aussi bien les éléments de données à inclure dans le jeu de données et le type de période associé sont définis par l'utilisateur, avec un nom, un nom abrégé et un code.</para>
+      <para>Afin de permettre à un ensemble de données de collecter des données pour une unité d'organisation spécifique vous devez assigner l'unité d'organisation à l'ensemble de données, et ce mécanisme contrôle les unités d'organisation qui peuvent utiliser les jeux de données, et permet de définir en même temps les valeurs cibles pour la complétude des données (par exemple, combien d'établissements de santé dans un district sont attendus pour la présentation des données RCH chaque mois).</para>
+      <para>Un élément de données peut appartenir à plusieurs ensembles de données, mais cela nécessite qu'une réflexion approfondie soit menée, car cela peut conduire à des données qui se chevauchent ou qui deviennent incohérentes si par exemple les ensembles de données utilisent des périodes différentes et sont utilisés par les mêmes unités d'organisation.</para>
+      <section>
+        <title>Formulaires de saisie de données</title>
+        <para>Une fois que vous avez attribué un ensemble de données à une unité d'organisation, cet ensemble de données est rendu disponible dans la partie dédiée à la Saisie des Données (sous le menu Services) pour les unités d'organisation que vous avez attribuées à cet ensemble de données et pour les périodes correspondant au type de période défini pour l'ensemble de données. Un formulaire de saisie par défaut des données est alors affiché, qui est simplement une liste des éléments de données appartenant à l'ensemble des données avec une colonne pour la saisie des valeurs de données associées. Si votre ensemble de données contient des éléments de données avec des catégories telles que des groupes d'âge ou de sexe, alors des colonnes supplémentaires seront générés automatiquement dans le formulaire par défaut en fonction des catégories. Il existe  deux alternatives en plus du formulaire de saisie de données par défaut, les formulaires basés sur les sections et les formulaires personnalisés.</para>
+        <section>
+          <title>Formulaires à section</title>
+          <para>Section forms allow for a bit more flexibility when it comes to using tabular forms
+            and are quick and simple to design. Often your data entry form will need multiple tables
+            with subheadings, and sometimes you need to disable (grey out) a few fields in the table
+            (e.g. some categories do not apply to all data elements), both of these functions are
+            supported in section forms. After defining a dataset you can define it's sections
+            with subsets of dataelements, a heading and possible grey fields i the section's
+            table. The order of sections in a dataset can also be defined. In Data Entry you can now
+            start using the Section form (should appear automatically when sections are available
+            for the selected dataset). You can switch between default and section forms in the top
+            right corner of the data entry screen. Most tabular data entry forms should be possible
+            to do with sections forms, and the more you can utilise the section forms (or default
+            forms) the easier it is for you. If these two types of forms are not meeting your
+            requirements then the third option is the completely flexible, although more
+            time-consuming, custom data entry forms.</para>
+        </section>
+        <section>
+          <title>Formulaires personnalisés</title>
+          <para>Lorsque le formulaire que vous voulez concevoir est trop compliqué pour que soit utilisé le formulaire par défaut ou le formulaire basé sur les sections, alors votre dernière option est d'utiliser un formulaire personnalisé. Cela prend plus de temps, mais vous donne une totale  flexibilité en termes de design. Dans DHIS 2, ces formulaires sont construits à travers un éditeur HTML (Editeur FCK) dans le concepteur de formulaires, lequel vous permet soit de concevoir le formulaire avec l'interface graphique ou de coller votre code html directement (en utilisant la  fenêtre "source" de l'éditeur). Dans le formulaire personnalisé vous pouvez insérer du texte statique ou des champs de données (liés aux éléments de données + options de catégorie de combinaison) à n'importe quel endroit sur le formulaire et vous avez toute la liberté pour concevoir la mise en page de votre formulaire. Une fois que le formulaire personnalisé a été créé  pour un ensemble de données, il devient disponible dans la partie saisie de données et utilisé automatiquement. Vous pouvez revenir aux formulaires par défaut ou à sections (s’ils existent) à partir du coin supérieur droit de l’écran de saisie de données.</para>
+        </section>
+      </section>
+    </section>
+    <section>
+      <title>Règles de validation</title>
+      <para>Une fois que vous avez mis en place la partie de saisie de données du système et commencé à collecter des données, il devient temps de définir des contrôles de qualité des données afin d'améliorer la qualité des données recueillies. Vous pouvez ajouter autant de règles de validation que vous souhaitez, celles-ci étant composées d'expressions de gauche et de droite qui sont encore composées d'éléments de données, avec un opérateur entre les deux parties. Généralement, ces règles comparent les sous-totaux et les totaux de quelque chose. Par exemple si vous avez deux éléments de données "tests de dépistage du VIH effectués" et "résultats de test VIH positifs", alors vous savez que, dans le même formulaire (pour la même période et la même unité d'organisation) le nombre total de tests doit toujours être égal ou supérieur au nombre de tests positifs. Ces règles devraient être des règles absolues ce qui signifie qu'elles doivent être mathématiquement correctes et pas seulement des hypothèses ou "la plupart du temps correct". Les règles peuvent être exécutées lors de la saisie de données, après le remplissage de chaque formulaire, ou comme un processus en lot exécuté sur plusieurs formulaires en même temps, par exemple pour tous les établissements de santé pour le mois précédent. Les résultats de ces tests vont mettre en évidence toutes les violations ainsi que les valeurs détaillées présentes de chaque côté de l'expression où la règle a été enfreinte afin de faciliter le retour à la saisie des données et de corriger les valeurs.</para>
+    </section>
+    <section>
+      <title>Indicateurs</title>
+      <para>Les indicateurs représentent probablement la fonctionnalité d'analyse des données la plus puissante de DHIS 2. Alors que les éléments de données représentent les données brutes (valeurs numéraires) collectées, les indicateurs représentent des formules générant des taux de couverture, des taux d'incidence, des rapports et d'autres unités d'analyse basées sur des formules. Un indicateur est constitué d'un facteur (par exemple 1, 100, 1 000, 100 000), un numérateur et un dénominateur, ces deux derniers étant tous les deux des expressions basées sur un ou plusieurs éléments de données. Par exemple l'indicateur "couverture BCG &lt; 1 an" est défini par la formule ayant un facteur 100, un numérateur ("doses de BCG administrées aux enfants de moins de 1 an") et un dénominateur ("population cible de moins de 1 an"). Le "Taux d'abandon de DPT1 à DPT3" est obtenu par la formule 100% x ("doses DPT1 administrées " - "doses DPT3 administrées") / ("doses DPT1 administrées").</para>
+      <para>La plupart des modules de rapport dans DHIS 2 supportent à la fois les éléments de données et les indicateurs et vous pouvez également combiner ceux-ci dans des rapports personnalisés; toutefois la différence importante et la force des indicateurs par rapport aux données brutes (les valeurs des éléments de données) est leur capacité de comparer les données entre les différentes zones géographiques (par exemple, zones densément peuplées et zones rurales) par le fait que la population cible peut être utilisée au niveau du dénominateur.</para>
+      <para>Les indicateurs peuvent être ajoutés, modifiés ou supprimés à tout moment, sans interférer avec les valeurs des données présentes dans la base de données.</para>
+    </section>
+    <section>
+      <title>Tableaux de rapports et rapports</title>
+      <para>Les rapports standards sous DHIS 2 sont un moyen très souple de présenter les données qui ont été collectées. Les données peuvent être agrégées par unité d'organisation ou niveau d'unité d'organisation, par éléments de données, indicateurs, ou en fonction du temps (par exemple, mensuellement, trimestriellement, annuellement). Les tableaux de rapport sont des sources de données personnalisables utilisées pour les rapports standards et peuvent être définis avec flexibilité dans l'interface utilisateur et rendus également accessibles aux éditeurs de rapports externes comme iReport ou BIRT. Ces modèles de rapport peuvent être définis comme des rapports accessibles en un seul clic avec des paramètres de personnalisation, de sorte que les utilisateurs peuvent exécuter les mêmes rapports, par exemple chaque mois lorsque de nouvelles données sont saisies.  Ils peuvent aussi servir aux utilisateurs des différents niveaux hiérarchiques, étant donné que l'unité d'organisation peut également être choisie au moment de l'exécution du rapport.</para>
+    </section>
+    <section>
+      <title>SIG</title>
+      <para>Dans le module SIG intégré, vous pouvez facilement afficher vos données sur des cartes, aussi bien sur des polygones (surfaces) qu'en des points (établissements de santé), comme des éléments ou des indicateurs de données. En fournissant les coordonnées de vos unités d'organisation au système, vous pouvez rapidement le connecté à ce module. Voir la section SIG pour plus de détails sur la façon de procéder.</para>
+    </section>
+    <section>
+      <title>Graphiques et tableau de bord</title>
+      <para>L'une des façons les plus simples de visualiser vos données d'indicateurs est avec les graphiques. Un assistant de création de graphiques facile à utiliser vous guidera à travers le processus de création de différents types de graphiques avec des données présentant des indicateurs, des unités d'organisation et les périodes de votre choix. Ces graphiques peuvent être  facilement ajoutées à une des quatre sections de votre tableau de bord, ce qui les rend ainsi accessibles dès votre connexion au système. Vous devrez veiller à configurer le module de tableau de bord comme module de démarrage dans les paramètres de l’utilisateur.</para>
+    </section>
+  </section>
+</chapter>
