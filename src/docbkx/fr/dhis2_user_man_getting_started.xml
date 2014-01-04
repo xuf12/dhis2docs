@@ -183,20 +183,7 @@
         <para>Une fois que vous avez attribué un ensemble de données à une unité d'organisation, cet ensemble de données est rendu disponible dans la partie dédiée à la Saisie des Données (sous le menu Services) pour les unités d'organisation que vous avez attribuées à cet ensemble de données et pour les périodes correspondant au type de période défini pour l'ensemble de données. Un formulaire de saisie par défaut des données est alors affiché, qui est simplement une liste des éléments de données appartenant à l'ensemble des données avec une colonne pour la saisie des valeurs de données associées. Si votre ensemble de données contient des éléments de données avec des catégories telles que des groupes d'âge ou de sexe, alors des colonnes supplémentaires seront générés automatiquement dans le formulaire par défaut en fonction des catégories. Il existe  deux alternatives en plus du formulaire de saisie de données par défaut, les formulaires basés sur les sections et les formulaires personnalisés.</para>
         <section>
           <title>Formulaires à section</title>
-          <para>Section forms allow for a bit more flexibility when it comes to using tabular forms
-            and are quick and simple to design. Often your data entry form will need multiple tables
-            with subheadings, and sometimes you need to disable (grey out) a few fields in the table
-            (e.g. some categories do not apply to all data elements), both of these functions are
-            supported in section forms. After defining a dataset you can define it's sections
-            with subsets of dataelements, a heading and possible grey fields i the section's
-            table. The order of sections in a dataset can also be defined. In Data Entry you can now
-            start using the Section form (should appear automatically when sections are available
-            for the selected dataset). You can switch between default and section forms in the top
-            right corner of the data entry screen. Most tabular data entry forms should be possible
-            to do with sections forms, and the more you can utilise the section forms (or default
-            forms) the easier it is for you. If these two types of forms are not meeting your
-            requirements then the third option is the completely flexible, although more
-            time-consuming, custom data entry forms.</para>
+          <para>Les formulaires à section offrent un peu plus de souplesse quand il s'agit d'utiliser des formulaires tabulaires et sont rapides et simples à concevoir. Souvent, votre formulaire de saisie de données devra contenir plusieurs tables avec des sous-titres, et parfois vous avez besoin de désactiver (griser) certains champs de la table (par exemple certaines catégories ne s'appliquant pas à tous les éléments de données), ces deux fonctions sont prises en charge par les formulaires à section. Après avoir défini un ensemble de données, vous pouvez définir ces sections avec des sous-ensembles d'éléments de données, un titre et éventuellement des champs grisés dans le tableau de la section. L'ordre des sections dans un ensemble de données peut également être défini. Dans la saisie de données, vous pouvez maintenant commencer à utiliser le formulaire à sections (qui devrait apparaître automatiquement lorsque les sections sont disponibles pour l'ensemble de données sélectionné). Vous pouvez basculer entre les formulaires par défaut et les formulaires à section  dans le coin supérieur droit de l'écran de saisie des données. La plupart des formulaires de saisie de données tabulaires peuvent être réalisés à l'aide des formulaires à section, et plus vous pouvez utiliser les formulaires à section (ou formulaires par défaut) mieux c'est pour vous en terme de facilité. Si ces deux types de formulaites ne répondent toujours pas à vos besoins, alors la troisième option est le formulaire de saisie de données personnalisé, totalement flexible, bien que demandant plus de temps pour sa conception.</para>
         </section>
         <section>
           <title>Formulaires personnalisés</title>
