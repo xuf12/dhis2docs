@@ -141,5 +141,7 @@
       app:</emphasis><screen>curl -X POST -u user:pass -F file=@app.zip http://server/api/apps</screen></para>
     <para><emphasis role="bold">To delete an
       app:</emphasis><screen>curl -X DELETE -u user:pass http://server/api/apps/&lt;app-name></screen></para>
+    <para><emphasis role="bold">Force reload of installed apps (useful if you added a file manually in the
+      file-system):</emphasis><screen>curl -X PUT -u user:pass http://server/api/apps</screen></para>
   </section>
 </chapter>
