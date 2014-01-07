@@ -2805,6 +2805,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
                 <entry>No</entry>
                 <entry>Hides empty rows in response, applicable when table layout is true</entry>
                 <entry>false | true</entry>
+              </row> 
+              <row>
+                <entry>showHierarchy</entry>
+                <entry>No</entry>
+                <entry>Display full org unit hierarchy path together with org unit name</entry>
+                <entry>false | true</entry>
               </row>
               <row>
                 <entry>columns</entry>
