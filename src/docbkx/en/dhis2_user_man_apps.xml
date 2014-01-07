@@ -131,4 +131,15 @@
       under services and from the module overview page. It can also be accessed from the home page
       of the apps module.  Click on an app in the list in order to launch it.</para>
   </section>
+  <section>
+    <title>Web-API for Apps</title>
+    <para>From DHIS 2.14 there is also additional support for apps through the web-api. The <emphasis role="italic">/api/apps</emphasis>
+      endpoint can be used for installing, deleting, listing apps.</para>
+    <para><emphasis role="bold">To list all installed apps (mediatypes works as usual, accept header or file extension, xml and
+        json):</emphasis><screen>curl -X GET -u user:pass -H "Accept: application/json" http://server/api/apps</screen></para>
+    <para><emphasis role="bold">To install an
+      app:</emphasis><screen>curl -X POST -u user:pass -F file=@app.zip http://server/api/apps</screen></para>
+    <para><emphasis role="bold">To delete an
+      app:</emphasis><screen>curl -X DELETE -u user:pass http://server/api/apps/&lt;app-name></screen></para>
+  </section>
 </chapter>
