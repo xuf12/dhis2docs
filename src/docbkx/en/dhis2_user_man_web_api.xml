@@ -936,8 +936,8 @@ Content-Type: application/xml
     </table>
     <para>The dataSet and orgUnit parameters can be repeated in order to include multiple data sets
       and organisation units. An example request looks like this:</para>
-    <screen>curl "http://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;dataSet=BfMAe6Itzgt&amp;startDate=2013-01-01&amp;endDate=2013-01-31&amp;orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true"
-        -H "Accept:application/xml" -u admin:district -v</screen>
+    <screen>curl "http://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;dataSet=BfMAe6Itzgt&amp;startDate=2013-01-01&amp;endDate=2013-01-31&amp;
+orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:application/xml" -u admin:district -v</screen>
     <para>You can get the response in <emphasis role="italic">xml</emphasis> and <emphasis role="italic">csv</emphasis> format. You can indicate which response format you prefer
       through the <emphasis role="italic">Accept</emphasis> HTTP header like in the example above.
       For xml you use <emphasis role="italic">application/xml</emphasis>; for csv you use <emphasis role="italic">application/csv</emphasis>.</para>
@@ -1084,7 +1084,7 @@ Content-Type: application/xml
     <para>The dataSet and orgUnit parameters can be repeated in order to include multiple data sets
       and organisation units. An example request looks like
       this:<screen>curl "http://apps.dhis2.org/dev/api/completeDataSetRegistrations?dataSet=pBOMPrpg1QX&amp;dataSet=BfMAe6Itzgt&amp;startDate=2013-01-01&amp;endDate=2013-01-31
-  &amp;orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:application/xml" -u admin:district -v</screen></para>
+&amp;orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:application/xml" -u admin:district -v</screen></para>
     <para>You can get the response in <emphasis role="italic">xml</emphasis> and <emphasis
         role="italic">json</emphasis> format. You can indicate which response format you prefer
       through the <emphasis role="italic">Accept</emphasis> HTTP header like in the example above.
