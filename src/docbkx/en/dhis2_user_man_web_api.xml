@@ -1007,8 +1007,8 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
   </section>
   </section>
   <section>
-    <title>Reading dataset complete registrations</title>
-    <para>This section explains how to retrieve dataset completeness registrations. We will be using
+    <title>Reading complete data set registrations</title>
+    <para>This section explains how to retrieve data set completeness registrations. We will be using
       the completeDataSetRegistrations resource. The query parameters to use are these:</para>
     <table frame="all">
       <title>Data value set query parameters</title>
@@ -1059,6 +1059,63 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
       through the <emphasis role="italic">Accept</emphasis> HTTP header like in the example above.
       For xml you use <emphasis role="italic">application/xml</emphasis>; for json you use <emphasis
         role="italic">application/json</emphasis>.</para>
+  </section>
+  <section>
+    <title>Completing and un-completing data sets</title>
+    <para>This section explains how you can register and un-register a data set as complete. To
+      complete or un-complete a data set you will interact with the following resource:</para>
+    <screen>/api/completeDataSetRegistrations</screen>
+    <para>This resource supports the methods <emphasis role="italic">POST</emphasis> for
+      registration and <emphasis role="italic">DELETE</emphasis> for un-registration. The following
+      query parameters are supported:</para>
+    <table frame="all">
+      <title>Complete data set registrations query parameters</title>
+      <tgroup cols="3">
+        <colspec colname="c1" colnum="1" colwidth="1*"/>
+        <colspec colname="c2" colnum="2" colwidth="1.16*"/>
+        <colspec colname="c3" colnum="3" colwidth="3.96*"/>
+        <thead>
+          <row>
+            <entry>Query parameter</entry>
+            <entry>Required</entry>
+            <entry>Description</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>ds</entry>
+            <entry>Yes</entry>
+            <entry>Data set identifier</entry>
+          </row>
+          <row>
+            <entry>pe</entry>
+            <entry>Yes</entry>
+            <entry>Period identifier</entry>
+          </row>
+          <row>
+            <entry>ou</entry>
+            <entry>Yes</entry>
+            <entry>Organisation unit identifier</entry>
+          </row>
+          <row>
+            <entry>cc</entry>
+            <entry>No (must combine with cp)</entry>
+            <entry>Attribute combo identifier (for locking check)</entry>
+          </row>
+          <row>
+            <entry>cp</entry>
+            <entry>No (must combine with cp)</entry>
+            <entry>Attribute option identifiers, separated with ; for multiple values (for locking
+              check)</entry>
+          </row>
+          <row>
+            <entry>multiOu</entry>
+            <entry>No (default false)</entry>
+            <entry>Whether registration applies to sub units</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
   </section>
   <section>
     <title>Data approval</title>
