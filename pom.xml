@@ -20,13 +20,11 @@
       </snapshots>
     </pluginRepository>
   </pluginRepositories>
-
   <properties>
     <docbkx.plugin.version>2.0.15</docbkx.plugin.version>
     <docbook.source>${project.basedir}/src/docbkx</docbook.source>
     <docbook.target>${project.basedir}/target/site</docbook.target>
   </properties>
-
   <build>
     <plugins>
 	<!--This section dynamically builds the build.properites which is replaced inside the document preface -->
@@ -97,7 +95,6 @@
               </postProcess>
             </configuration>
           </execution>
-
           <execution>
             <id>chunked-html-docs-end-user</id>
             <phase>package</phase>
@@ -133,7 +130,6 @@
               </postProcess>
             </configuration>
           </execution>
-
           <execution>
             <id>chunked-html-docs-implementer</id>
             <phase>package</phase>
@@ -169,7 +165,6 @@
               </postProcess>
             </configuration>
           </execution>
-
           <execution>
             <id>html-docs-en</id>
             <phase>package</phase>
@@ -193,7 +188,6 @@
               </postProcess>
             </configuration>
           </execution>
-
           <execution>
             <id>pdf-docs-en-user</id>
             <phase>package</phase>
@@ -212,7 +206,6 @@
               </postProcess>
             </configuration>
           </execution>
-		  
 		  <execution>
             <id>pdf-docs-en-implementer</id>
             <phase>package</phase>
@@ -250,7 +243,6 @@
               </postProcess>
             </configuration>
           </execution>
-		  
 		  <execution>
             <id>pdf-documentation-guide</id>
             <phase>package</phase>
@@ -295,7 +287,6 @@
           </execution>
         </executions>
       </plugin>
-
     </plugins>
   </build>
 </project>

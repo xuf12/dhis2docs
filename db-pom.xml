@@ -1,86 +1,84 @@
 ﻿<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.hisp.dhis</groupId>
-  <artifactId>dhis-documentation-docbook</artifactId>
-  <name>DHIS2 Documentation</name>
-  <version>2.14</version>
-  <description>DHIS 2 Documentation</description>
-  <packaging>pom</packaging>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>docbkx.snapshots</id>
-      <name>Maven Plugin Snapshots</name>
-      <url>http://docbkx-tools.sourceforge.net/snapshots/</url>
-      <releases>
-	    <enabled>true</enabled>
-      </releases>
-      <snapshots>
-	    <enabled>false</enabled>
-	  </snapshots>
-	</pluginRepository>
-  </pluginRepositories>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.hisp.dhis</groupId>
+	<artifactId>dhis-documentation-docbook</artifactId>
+	<name>DHIS2 Documentation</name>
+	<version>2.14</version>
+	<description>DHIS 2 Documentation</description>
+	<packaging>pom</packaging>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>docbkx.snapshots</id>
+			<name>Maven Plugin Snapshots</name>
+			<url>http://docbkx-tools.sourceforge.net/snapshots/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 
-  <properties>
-    <docbkx.plugin.version>2.0.14</docbkx.plugin.version>
-    <docbook.source>${project.basedir}/src/docbkx</docbook.source>
-    <docbook.target>${project.basedir}/target/site</docbook.target>
-  </properties>
+	<properties>
+		<docbkx.plugin.version>2.0.15</docbkx.plugin.version>
+		<docbook.source>${project.basedir}/src/docbkx</docbook.source>
+		<docbook.target>${project.basedir}/target/site</docbook.target>
+	</properties>
 
-  <build>
-    <plugins>
-     <plugin>
-        <groupId>com.agilejava.docbkx</groupId>
-        <artifactId>docbkx-maven-plugin</artifactId>
-        <version>${docbkx.plugin.version}</version>
-        <configuration>
-          <xincludeSupported>true</xincludeSupported>
-        </configuration>
-        <executions>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.agilejava.docbkx</groupId>
+				<artifactId>docbkx-maven-plugin</artifactId>
+				<version>${docbkx.plugin.version}</version>
+				<configuration>
+					<xincludeSupported>true</xincludeSupported>
+				</configuration>
+				<executions>
 
-	      
-		  <execution>
-            <id>webhelp-docs-en</id>
-            <phase>package</phase>
-            <goals>
-              <goal>generate-webhelp</goal>
-            </goals>
-            <configuration>
-			  <webhelpIndexerLanguage>en</webhelpIndexerLanguage>
-              <webhelpIncludeSearchTab>1</webhelpIncludeSearchTab>
-              <includes>dhis2_database_schema.xml</includes>
-              <sourceDirectory>${docbook.source}/en/</sourceDirectory>
-            </configuration>
-          </execution>
-		  
-	
-		</executions>
-        <dependencies>
-          <dependency>
-            <groupId>org.docbook</groupId>
-            <artifactId>docbook-xml</artifactId>
-            <version>4.4</version>
-            <scope>runtime</scope>
-          </dependency>
-        </dependencies>
-      </plugin>
-      <plugin>
-        <groupId>com.agilejava.docbkx</groupId>
-        <artifactId>docbkx-fop-support</artifactId>
-        <version>${docbkx.plugin.version}</version>
-        <executions>
-          <execution>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-            <configuration>
-              <ansi>false</ansi>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+					<execution>
+						<id>webhelp-docs-en</id>
+						<phase>package</phase>
+						<goals>
+							<goal>generate-webhelp</goal>
+						</goals>
+						<configuration>
+							<webhelpIndexerLanguage>en</webhelpIndexerLanguage>
+							<webhelpIncludeSearchTab>1</webhelpIncludeSearchTab>
+							<includes>dhis2_database_schema.xml</includes>
+							<sourceDirectory>${docbook.source}/en/</sourceDirectory>
+						</configuration>
+					</execution>
 
-    </plugins>
-  </build>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.docbook</groupId>
+						<artifactId>docbook-xml</artifactId>
+						<version>4.4</version>
+						<scope>runtime</scope>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>com.agilejava.docbkx</groupId>
+				<artifactId>docbkx-fop-support</artifactId>
+				<version>${docbkx.plugin.version}</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<ansi>false</ansi>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
 </project>
