@@ -2395,7 +2395,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <screen>/data?criteria=col1:value1&amp;criteria=col2:value2</screen>
     <para>As an example, to filter the SQL view result set above to only return organisation units
       at level 4 you can use the following URL:</para>
-    <screen>http://apps.dhis2.org/dev/api/sqlViews/dI68mLkP1wN/data.csv?level:4</screen>
+    <screen>http://apps.dhis2.org/dev/api/sqlViews/dI68mLkP1wN/data.csv?criteria=level:4</screen>
   </section>
   <section>
     <title>Dashboard</title>
