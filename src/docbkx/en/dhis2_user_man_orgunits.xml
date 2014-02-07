@@ -29,10 +29,18 @@
     <title>Organisation unit maintenance</title>
     <section id="orgunit">
       <title>Organisation units</title>
-      <para>This is where you can create organisation units (from now on referred to as orgunits) and build up the orgunit hierarchy. Orgunits are added one by one as either root unit or a child of a selected unit. The left side menu represents the current organisational hierarchy and if you select a unit there you will see its children listed in the main list of orgunits in the middle of the screen. When an orgunit is selected in the left side menu you can also add new child units to it. To locate an orgunit in the hierarchy you can either navigate through the tree by expanding the branches (click on the + symbol), or search for it by opening the search field (click the green symbol above the root of the hierarchy). In search you can either search for the orgunit name or its code, both will only show exact matches (case-insensitive). To add a new orgunit first select its parent and then click on the Add new button in the top right corner of the list of orgunits. To add a new root orgunit make sure no orgunit is selected in the menu and click on &quot;Add new&quot;. The details of adding a new orgunit are explained in <xref linkend="editOrganisationalUnits"/>.</para>
+      <para>This is where you can create organisation units (from now on referred to as orgunits) and build up the orgunit hierarchy. Orgunits are added one by one as either root unit or a child of a selected unit. The left side menu represents the current organisational hierarchy and if you select a unit there you will see its children listed in the main list of orgunits in the middle of the screen. When an orgunit is selected in the left side menu you can also add new child units to it. To locate an orgunit in the hierarchy you can either navigate through the tree by expanding the branches (click on the + symbol), or search for it by opening the search field (click the green symbol above the root of the hierarchy). In search you can either search for the orgunit name or its code, both will only show exact matches (case-insensitive). To add a new orgunit first select its parent and then click on the Add new button in the top right corner of the list of orgunits. To add a new root orgunit make sure no orgunit is selected in the menu and click on &quot;Add new&quot;. The details of adding a new orgunit are explained in <xref linkend="editOrganisationalUnits"/>. </para>
       <section id="ou_edit">
         <title id="editOrganisationalUnits">Editing organisation units</title>
-        <para>To edit the properties of an existing orgunit first select its parent (if any) in the left side menu, then locate the orgunit in the listed orgunits, and finally click on the &quot;Edit&quot; <inlinegraphic fileref="resources/images/dhis2_images/edit.png" align="center"/> button next to the  name of the orgunit that you want to modify.  The following properties can be defined in the Edit (or Create new) window:</para>
+        <para>To edit the properties of an existing orgunit first select its parent (if any) in the left side menu, then locate the orgunit in the listed orgunits, and  click on  the  name of the orgunit that you want to modify. A context menu will appear, and you should select &quot;Edit&quot;. Refer to the screen-shot below to see how it works. </para>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata align="center" format="PNG" width="50%" fileref="resources/images/orgunits/editing_orgunits.png"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>   The following properties can be defined in the Edit (or Create new) window:</para>
         <itemizedlist>
           <listitem>
             <para>Name: Define the precise name of the orgunit in this field. Each orgunit must have a unique name. </para>
@@ -42,6 +50,9 @@
           </listitem>
           <listitem>
             <para>Code: In many countries, orgunits are assigned a code. This code can be entered in this field. </para>
+          </listitem>
+          <listitem>
+            <para>Description: A description can be a longer piece of text which can be used to describe the organisationunit. </para>
           </listitem>
           <listitem>
             <para>Opening date: Used to control which orgunits that where existing  at a point in time, e.g. when analysing historical data. This attribute is required. The default date for opening of organisation units is 1900-01-01, but can be set to any date (even dates which occur in the future).</para>
@@ -68,6 +79,7 @@
             <para>Organisation unit groups: Assignments to organisational units group sets can be assigned through the individual drop-down boxes which appear for each group set.</para>
           </listitem>
         </itemizedlist>
+        <para>In addition to all of the options listed above, if you have added any attributes to organisation units, your custom attributes may also appear there. Please refer to the section on &quot;Attributes&quot; for more information about how attributes can be used.</para>
       </section>
     </section>
     <section id="ou_groupsets">
@@ -103,7 +115,7 @@
       <para>It is important to keep in mind when using the &quot;Organisational unit group&quot; set function, that unless great care is taken, organisational units can be assigned to multiple groups of a group set. This can be checked through the &quot;Data Integrity&quot; module, which will report which organisational units are not members of a compulsory organisational unit group set, and which organisational units have been assigned to more than one member of a group set. </para>
       <section id="ou_groupsets_edit">
         <title id="editOrgunitGroupSets">Editing organisation unit group sets</title>
-        <para>Click on the &quot;Edit&quot; <inlinegraphic fileref="resources/images/dhis2_images/edit.png" align="center"/> button next to the  name of the orgunit group set that you want to modify.  The following properties can be defined in the Edit (or Create new) window:</para>
+        <para>Click on the name of the organisation unit group set you wish to modify, followed by &quot;Edit&quot; from the context menu which will appear.  The following properties can be defined in the Edit (or Create new) window:</para>
         <itemizedlist>
           <listitem>
             <para>Name: Provide a precise name for the group set.</para>
@@ -125,13 +137,22 @@
       <para>This function will allow you to  add new and manage existing organisation groups and their memberships. It can be accessed by choosing Maintenance-&gt;Organisation units-&gt;Organisation Unit group from the main menu. To add a new orgunit group click on the &quot;Add new&quot; button in the top right corner of the list of  groups. </para>
       <section id="ou_groups_edit">
         <title id="editOrgunitGroups">Editing organisation unit groups</title>
-        <para>Click on the &quot;Edit&quot; <inlinegraphic fileref="resources/images/dhis2_images/edit.png" align="center"/> button next to the  name of the orgunit group that you want to modify.  The following properties can be defined in the Edit (or Create new) window:</para>
+        <para>Click on   name of the orgunit group that you want to modify and then select &quot;Edit&quot; from the context menu which will appear.  The following properties can be defined in the Edit (or Create new) window:</para>
         <itemizedlist>
           <listitem>
-            <para>Name: Provide a precise name for the orgunit group.</para>
+            <para>Name: Provide a precise,unique and descriptive name for the orgunit group.</para>
+          </listitem>
+          <listitem>
+            <para>Short name: This name should be less than 25 characters, and will be used in certain places in DHIS2 when the number of characters needs to be restricted due to space constraints.</para>
+          </listitem>
+          <listitem>
+            <para>Symbol: Select a symbol which will be used to display the  organisation unit (points only) when the layer is displayed in the GIS.</para>
           </listitem>
           <listitem>
             <para>Organisation unit tree selection: This is where you assign orgunits to the group. The tree supports multiple selection so select all the orgunits that you want to add (the selected ones appear with orange color) and click on &quot;Save&quot;. Click on &quot;Cancel&quot; to undo your changes and return to the list of orgunit groups. Use the &quot;Select at level&quot; button and dropdown if you want to select all orgunits at a specific level in the hierarchy (e.g. all districts). </para>
+          </listitem>
+          <listitem>
+            <para>Datasets: If you assign a dataset to an organisational unit group, all organisation units which are currently assigned to the dataset will be also present in this organisation unit group. </para>
           </listitem>
         </itemizedlist>
       </section>
