@@ -6,12 +6,11 @@
   <screenshot>
     <mediaobject>
       <imageobject>
-        <imagedata width="100%" fileref="resources/images/maintainence/data_element_main.png" format="PNG"/>
+        <imagedata width="80%" fileref="resources/images/maintainence/data_element_main.png" format="PNG"/>
       </imageobject>
     </mediaobject>
   </screenshot>
-  <para>From the left side menu or by clicking on the sections listed in the central area you can access the various sections on data elements;</para>
-  <para>Data Element, Data Element Group, Data Element Group Editor, Data Element Group Set, Data Element Category, Data Element Category Combination. </para>
+  <para>From the left side menu or by clicking on the sections listed in the central area you can access the various sections on data elements and indicators.</para>
   <section>
     <title>Data element maintenance</title>
     <para>Each of the options for maintenance of  data elements will be described in the following section.</para>
@@ -43,11 +42,8 @@
       <para>To access the data element maintenance module, choose Maintenance -&gt; Data elements and Indicators -&gt; Data element. </para>
       <para>The ‘Filter by name’ will allow you to filter a range of data elements if you know either the full name of the data element, or just a part of it. Type the name
                into the search field and any matching data elements are displayed below.
-               You can also choose ‘Filter by group/view all’ to narrow down a data
-               element search within a particular data element group. In default mode, this
-               field will display all the data elements in the application.
-               The ‘Get PDF’ button can be clicked to generate a .pdf file of all the data
-               elements. The &apos;Sort&apos; button can be used to sort the data elements into alphabetical order. </para>
+
+ The &apos;Sort&apos; button can be used to sort the data elements into alphabetical order. </para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -58,7 +54,7 @@
       <para>To add a new data element, click the &apos;Add new&apos; button. There are various options available from this page that allow the user to modify data elements already present in the database. Each of the options are described below in the &quot;Editing data elements&quot;. </para>
       <section>
         <title>Editing data elements</title>
-        <para>Click the &quot;Edit&quot;<inlinegraphic fileref="resources/images/dhis2_images/edit.png" align="center"/> button to modify the properties of a data element that has been previously defined. </para>
+        <para>To edit an existing data element, click the name of data element you wish to modify, and then select &quot;Edit&quot; from the context menu which will appear.</para>
         <screenshot>
           <mediaobject>
             <imageobject>
@@ -139,7 +135,7 @@
       </section>
       <section>
         <title>Data element translation</title>
-        <para>DHIS2 provides functionality to translate existing data elements into other languages. Simply press the translate button <inlinegraphic fileref="resources/images/dhis2_images/i18n.png" align="center"/> to get started. The following dialogue will appear. </para>
+        <para>DHIS2 provides functionality to translate existing data elements into other languages. Click the name of the data element you wish to translate, and select &quot;Translate&quot; from the context menu which will appear.. The following dialogue will be displayed.</para>
         <screenshot>
           <mediaobject>
             <imageobject>
@@ -147,27 +143,15 @@
             </imageobject>
           </mediaobject>
         </screenshot>
-        <para>The reference language is displayed in the upper right portion of the dialogue. Choose a locale to translate the data element into by selecting an option from the locale drop-down menu. Specify the name, short-name and description in the target language. Press &quot;Save&quot; to save your changes. </para>
-        <para>The &quot;Details&quot; section of this dialogue will allow you add a new locale if it is not already present in the database. There are two options:</para>
-        <itemizedlist>
-          <listitem>
-            <para>Language code</para>
-            <para>Refers to the ISO 639-1 (two-letter code) language code. Refer to this <ulink url="http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">web page</ulink> for a detailed listing of language codes. </para>
-          </listitem>
-          <listitem>
-            <para>Country code</para>
-            <para>Refers to the ISO 3166-1-alpha-2 code. A complete listing is available <ulink url="http://www.iso.org/iso/country_codes/iso_3166_code_lists/english_country_names_and_code_elements.htm">here</ulink>. </para>
-          </listitem>
-        </itemizedlist>
-        <para>The combination of these two codes together, forms a &quot;locale&quot; code, which is composed of the combination of the location and language. A very comprehensive discussion of the technical standard (RFC 3066) is available <ulink url="http://www.ietf.org/rfc/rfc3066.txt">here</ulink>.  This <ulink url="http://www.i18nguy.com/unicode/language-identifiers.html">page</ulink> provides a very comprehensive list of recognised locale codes. </para>
+        <para>The reference language is displayed in the upper right portion of the dialogue. Choose a locale to translate the data element into by selecting an option from the locale drop-down menu. Specify the name, short-name, description and form name in the target language. Press &quot;Save&quot; to save your changes. </para>
       </section>
       <section>
         <title>Deleting a data element</title>
-        <para>Simply press the delete button <inlinegraphic fileref="resources/images/dhis2_images/delete.png" align="center"/> to delete a data element. Note that this operation is only possible if there is no data attached to the data element itself.  The user will be prompted to ensure that the data element should be deleted.</para>
+        <para>In order to delete a data element, click the name of the data element you wish to delete, and then select &quot;Remove&quot; from the context menu. Note that this operation is only possible if there is no data attached to the data element itself.  The user will be prompted to ensure that the data element should be deleted.</para>
       </section>
       <section>
         <title>Displaying data element details</title>
-        <para>This operation displays an in-line panel in the browser which displays all metadata about a given data element. Press the information button <inlinegraphic fileref="resources/images/dhis2_images/information.png" align="center"/>to access this view. </para>
+        <para>This operation displays an in-line panel in the browser which displays all metadata about a given data element. Click the name of the data element and then select &quot;Show details&quot; from the context menu. </para>
       </section>
     </section>
     <section id="dataElementGroup">
@@ -197,8 +181,8 @@
     </section>
     <section id="dataElementGroupSet">
       <title>Data element group sets</title>
-      <para>Data element group sets allow multiple data element groups to be categorised into a set. Data element group sets are used during analysis and reporting to combine similar data element groups into a common theme. To access the data element group set maintenance module, choose &quot;Maintenance -&gt; Data elements and Indicators -&gt; Data Element Group Set&quot;.  Similar to the other data element maintenance modules, new data element group sets can be added by pressing the &quot;Add new button&quot;.  Other operations include Edit, Translate, Delete and Information, similar to the other modules in this section.</para>
-      <para>Existing data element group  set members can be edited by clicking the &quot;Edit&quot; button <inlinegraphic fileref="resources/images/dhis2_images/edit.png" align="center"/> of the desired data element group set as seen below.</para>
+      <para>Data element group sets allow multiple data element groups to be categorised into a set. Data element group sets are used during analysis and reporting to combine similar data element groups into a common theme. To access the data element group set maintenance module, choose &quot;Maintenance -&gt; Data elements and Indicators -&gt; Data Element Group Set&quot;.  Similar to the other data element maintenance modules, new data element group sets can be added by pressing the &quot;Add new button&quot;.  Other operations include Edit, Translate, Delete and Information, similar to data elements and data element groups as described in the previous sections.</para>
+      <para>Existing data element group  set members can be edited by clicking the name  and selecting &quot;Edit&quot; from the context menu of the desired data element group set as seen below.</para>
       <mediaobject>
         <imageobject>
           <imagedata width="100%" fileref="resources/images/maintainence/data_element_group_set.png" format="PNG"/>
@@ -241,11 +225,11 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="60%" align="center" fileref="resources/images/maintainence/data_element_category_options.PNG"/>
+            <imagedata width="40%" align="center" fileref="resources/images/maintainence/data_element_category_options.PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>Once all category options have been defined for a particular category, the category can be defined with the &quot;Data Element Category&quot; dialog.(Maintenance -&gt; Data Elements and Indicators-&gt;Data Element Category) as seen below. </para>
+      <para>Once all category options have been defined for a particular category, the category can be defined with the &quot;Data Element Category&quot; dialog.(Maintenance -&gt; Data Elements and Indicators-&gt;Data Element Category). Enter the name of the data element category and press &quot;Save&quot;. Once you have defined the name of the category, you can assign category options to it by selecting the category which you have just defined, clicking its name, and then selecting &quot;Edit&quot; from the context menu as seen below. </para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -253,7 +237,8 @@
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>Type the name of the new data element category in the &quot;Name&quot; field in the &quot;Details&quot; region and assign a concept to the category.  Category options can be added by moving category options from the left-side pane (Available category options) into the right-side pane(Selected category options). Category options can be reordered using the &quot;Move Up&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_up.png" align="center"/> and &quot;Move Down&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_down.png" align="center"/> buttons. Categories options can be deleted by selecting the data element category option and pressing the &quot;Delete&quot;<inlinegraphic fileref="resources/images/dhis2_images/delete.png" align="center"/> button. Once all data element categories options have been added to the data element category, press the <guibutton>&quot;Add&quot;</guibutton> button to save all changes or the <guibutton>&quot;Cancel&quot;</guibutton>  button to discard any changes.</para>
+      <para>Type the name of the new data element category in the &quot;Name&quot; field in the &quot;Details&quot; region and assign a concept to the category.  Category options can be added by moving category options from the left-side pane (Available category options) into the right-side pane(Selected category options). Category options can be reordered using the &quot;Move Up&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_up.png" align="center"/> and &quot;Move Down&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_down.png" align="center"/> buttons. . Once all data element categories options have been added to the data element category, press the <guibutton>&quot;Add&quot;</guibutton> button to save all changes or the <guibutton>&quot;Cancel&quot;</guibutton>  button to discard any changes.</para>
+      <para>A data elemement category can be used either as a dimension type &quot;Disaggregation&quot; or &quot;Attribute&quot;. For data elements, you should select &quot;Disaggregation&quot;. </para>
     </section>
     <section id="dataElementCategoryCombo">
       <title>Data element category combinations</title>
@@ -278,18 +263,6 @@
       </screenshot>
       <para>Type the name of the category combination in the &quot;Name&quot; field, and then select the desired categories from the left panel. Press the &quot;Move right&quot; button to add the selected categories to the category combination. Press &quot;Move left&quot; to remove any categories that should not be part of the category combination. </para>
       <para>Categories can only be added to a category combination at this step. Categories can be removed from category combinations later by editing the category combination, however, it is not allowed to add additional categories once the combination has been created. Ensure that the category combination and its respective categories is final before you create the category combination and assign it to a data element. </para>
-    </section>
-    <section id="dataDictionary">
-      <title>Data dictionaries</title>
-      <para>Data dictionaries are used to group data elements and indicators during filtering operations. They are useful for combining related groups of data elements and indicators according to the programs to which they belong. For instance a data dictionary called &quot;MCH&quot; could be created, and all maternal and child health data elements and indicators could be added to the dictionary. The data dictionary can be access by choosing Maintenance-&gt;Data elements and indicators-&gt;Data dictionary. The following screen will be displayed in the browser. </para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="100%" fileref="resources/images/maintainence/data_dictionary.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Provide a name for the data dictionary in the &quot;Name&quot; field and a description of its contents. Data elements and indicators can be added or removed from the dictionary. Click &quot;Save&quot; if you are creating a new data dictionary or &quot;Add&quot; if you are editing the contents of an existing data dictionary.   </para>
     </section>
     <section id="translation">
       <title>Translations</title>
