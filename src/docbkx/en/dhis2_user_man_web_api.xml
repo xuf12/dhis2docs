@@ -3609,6 +3609,81 @@ ORDER BY oul.level, par.name, ou.name</screen>
   </section>
   </section>
   <section>
+    <title>Geo features</title>
+    <para>The <emphasis role="italic">geoFeatures</emphasis> resource lets you retrieve geospatial
+      information from DHIS 2. Geo features are stored together with organisation units, and the
+      syntax for retrieving features is identical to the syntax used for the organisation unit
+      dimension for the analytics resource. It is recommended to read up on the analytics api
+      resource before continuing reading this section. You must use the GET request type, and only
+      JSON response format is supported.</para>
+    <para>As an example, to retrieve geo features for all organisation units at level 3 in the
+      organisation unit hierarchy you can use a GET request with the following URL:</para>
+    <screen>api/geoFeatures.json?ou=ou:LEVEL-3</screen>
+    <para>To retrieve geo features for organisation units at level within the boundary of an
+      organisation unit (e.g. at level 2) you can use this URL:</para>
+    <screen>api/geoFeatures.json?ou=ou:LEVEL-4;O6uvpzGd5pu</screen>
+    <para>The semantics of the response properties are described in the following table.</para>
+    <table frame="all">
+      <title>Geo features response</title>
+      <tgroup cols="2">
+        <colspec colname="c1" colnum="1" colwidth="1*"/>
+        <colspec colname="c2" colnum="2" colwidth="5.67*"/>
+        <thead>
+          <row>
+            <entry>Property</entry>
+            <entry>Description</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>id</entry>
+            <entry>Organisation unit / geo feature identifier</entry>
+          </row>
+          <row>
+            <entry>na</entry>
+            <entry>Organisation unit / geo feature name</entry>
+          </row>
+          <row>
+            <entry>hcd</entry>
+            <entry>Has coordinates down, indicating whether one or more children organisation units
+              exist with coordinates (below in the hierarchy).</entry>
+          </row>
+          <row>
+            <entry>hcu</entry>
+            <entry>Has coordinates up, indicating whether the parent organisation unit has
+              coordinates (above in the hierarchy).</entry>
+          </row>
+          <row>
+            <entry>le</entry>
+            <entry>Level of this organisation unit / geo feature.</entry>
+          </row>
+          <row>
+            <entry>pg</entry>
+            <entry>Parent graph, the graph of parent organisation unit identifiers up to the root in
+              the hierarchy.</entry>
+          </row>
+          <row>
+            <entry>pi</entry>
+            <entry>Parent identifier, the identifier of the parent of this organisation
+              unit.</entry>
+          </row>
+          <row>
+            <entry>pn</entry>
+            <entry>Parent name, the name of the parent of this organisation unit.</entry>
+          </row>
+          <row>
+            <entry>ty</entry>
+            <entry>Geo feature type, 1 = point and 2 = polygon or multi-polygon.</entry>
+          </row>
+          <row>
+            <entry>co</entry>
+            <entry>Coordinates of this geo feature.</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+  <section>
     <title>Generating resource, analytics and data mart tables</title>
     <para>DHIS 2 features a set of generated database tables which are used as basis for various
       system functionality. These tables can be executed immediately or scheduled to be executed at
