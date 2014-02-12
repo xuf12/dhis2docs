@@ -1,8 +1,8 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <chapter>
-  <title>Indicators</title>
-  <para>When the ‘Data Elements and Indicators’ options is chosen from the main Maintenance menu, the following screen appears:</para>
+  <title>Indicator maintenance</title>
+  <para>Indicators can be maintained by choosing &quot;Maintenance-&gt;Data elements and indicators&quot; from the main menu. The following screen will appear.</para>
   <screenshot>
     <mediaobject>
       <imageobject>
@@ -12,16 +12,16 @@
   </screenshot>
   <para>From the left side menu or by scrolling down the central area you can access the various sections on Indicators; </para>
   <para>Indicator, Indicator Type, Indicator Group, Indicator Group Editor, and Indicator Group Set. </para>
-  <section>
+  <section id="indicator_maintenance">
     <title>Indicator maintenance</title>
     <para>Indicator maintenance functions essentially the same as each of the respective sections in the previous section on data elements. The basic operations will be described in this section, but the reader should  refer to the corresponding sections above for detailed instructions. </para>
     <section id="indicator">
       <title>Indicators</title>
       <para>Indicators are composed of multiple data elements, and typically consist of a numerator
-        and denominator. Indicators are never entered in DHIS2, but are derived from combinations of
+        and denominator. Calculated totals do not have a denominator. Indicators are never entered directly in DHIS2 through data entry, but are derived from combinations of
         data elements and factors. Indicators are used to calculate coverage rates, incidence and
         other values are a result of data element values that have been entered into the system. </para>
-      <para>To access the Indicator maintains page, press Maintenance -&gt; Data Element and Indicators -&gt; Indicator from the main DHIS2 menu. Similar to data elements, you can add, delete, modify and view extra information about the indicators in the system. </para>
+      <para>To access the Indicator maintains page, press Maintenance -&gt; Data Element and Indicators  and then pressing &quot;Indicator&quot; from the left pane or the main dialog.  Similar to data elements, you can add, delete, modify and view extra information about the indicators in the system. </para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -29,19 +29,22 @@
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>Indicators can be filtered by entering the name or a part of the indicator name in the &quot;Filter by name&quot; field. Similar to data elements, indicators can be added by pressing the &quot;Add new&quot; button. Other operations available from this menu are as follows. </para>
+      <para>Indicators can be filtered by entering the name or a part of the indicator name in the &quot;Filter by name&quot; field. Similar to data elements, indicators can be added by pressing the &quot;Add new&quot; button. Other operations available from the context menu (available by clicking on the indicator name) are as follows. </para>
       <itemizedlist>
         <listitem>
-          <para><inlinegraphic fileref="resources/images/dhis2_images/edit.png"/> Existing indicators can be edited. </para>
+          <para>Sharing settings: Assign sharing privileges to user groups. </para>
         </listitem>
         <listitem>
-          <para><inlinegraphic fileref="resources/images/dhis2_images/i18n.png"/> Translate an existing indicator. </para>
+          <para>Edit: Edit an existing indicator</para>
         </listitem>
         <listitem>
-          <para><inlinegraphic fileref="resources/images/dhis2_images/delete.png"/> Delete an existing indicator. </para>
+          <para>Translate: Translate an existing indicator to a different language.</para>
         </listitem>
         <listitem>
-          <para><inlinegraphic fileref="resources/images/dhis2_images/information.png"/> Get detailed information about this indicator. </para>
+          <para>Remove: Delete an existing indicator. </para>
+        </listitem>
+        <listitem>
+          <para>Show details:  Get detailed information about this indicator. </para>
         </listitem>
       </itemizedlist>
       <para>To add a new indicator, click the &quot;Add new&quot; button. The following screen is displayed. </para>
@@ -61,9 +64,6 @@
           <para>Short name: An abbreviated name of the indicator such as &quot;Inc conf. malaria per 1000 pop&quot;. The short name must be less than or equal to 25 characters, including spaces.</para>
         </listitem>
         <listitem>
-          <para>Alternative name: An additional field for a possible alternative name of the indicator. </para>
-        </listitem>
-        <listitem>
           <para>Code: In many countries, indicators are often assigned a particular code. This code can be entered here. </para>
         </listitem>
         <listitem>
@@ -73,7 +73,10 @@
           <para>Annualized: Determines whether or not an annualization factor is applied during the calculation of the indicator. Typically, annualized indicator&apos;s numerator are multiplied by a factor of 12, and the denominator is for instance a yearly population figure. This allows for monthly coverage values to be calculated with yearly population figures.</para>
         </listitem>
         <listitem>
-          <para>Type: This field will determine a factor that will automatically be applied during the calculation of the indicator. Possible choices are determined by the Indicator Types (described below). For instance, a &quot;Percent&quot; indicator will automatically be multiplied by a factor of 100 when exported to the data mart, so that it will display as a percentage. </para>
+          <para>Indicator type: This field will determine a factor that will automatically be applied during the calculation of the indicator. Possible choices are determined by the Indicator Types (described below). For instance, a &quot;Percent&quot; indicator will automatically be multiplied by a factor of 100 when exported to the data mart, so that it will display as a percentage. </para>
+        </listitem>
+        <listitem>
+          <para>Legend set: Define a legend set for this indicator. Refer to the section on &quot;GIS&quot; for more information about legend sets.</para>
         </listitem>
         <listitem>
           <para>URL: Can be used as a link to an indicator registry, where a full metadata description of the indicator can be made available. </para>
@@ -90,16 +93,10 @@
       <para>Essentially, an indicator is a formula that can be composed of multiple data elements, constant factors, and mathematical operators. In order to define a new indicator proceed with the following steps.  </para>
       <orderedlist>
         <listitem>
-          <para>Enter at least the required fields (Name and short name) from the indicator maintenance screen.</para>
+          <para>A description of the numerator/denominator must be provided in the &quot;Description field&quot;. This should provide a clear description of the numerator/denominator. This field is required.</para>
         </listitem>
         <listitem>
-          <para>Next, press &quot;Edit numerator&quot; from the main indicator maintenance screen. This will provide a dialog where you can define the actual formula of the indicator&apos;s numerator..</para>
-        </listitem>
-        <listitem>
-          <para>A description of the numerator/denominator must be provided in the &quot;Description field&quot;. This should provide a clear description of </para>
-        </listitem>
-        <listitem>
-          <para>Define the formula of the indicator by selecting the data elements that should compose the numerator from the &quot;Data elements&quot; field. Simply select the data element, and double click it. It will now appear in the formula. You formula must be mathematically valid, including the proper use of parentheses when necessary. You can double click on each of the mathematical operator buttons below the indicator formula definition  to add them to your formula. </para>
+          <para>Define the formula of the indicator by selecting the data elements that should compose the numerator from the &quot;Data elements&quot; field. Simply select the data element, and double click it. It will now appears as part of  the formula. You formula must be mathematically valid, including the proper use of parentheses when necessary. You can double click on each of the mathematical operator buttons below the indicator formula definition  to add them to your formula. </para>
         </listitem>
         <listitem>
           <para>Click the Save button to save all changes to the numerator. Click cancel to discard any changes that you have made. </para>
@@ -108,12 +105,16 @@
           <para>Follow the same procedure in order to define the denominator. </para>
         </listitem>
       </orderedlist>
+      <note>
+        <para>Indicators may make use of constants. Constants are numerical values which will remain the same for all indicator calculations.</para>
+        <para>A special operator &quot;D&quot; is also available. This operator will always provide the number of days for a given indicator calculation. As an example, if you wish to calculate the &quot;Percentage of time vaccine refrigerator was non-functional&quot;, you could define the numerator as (&quot;D-&quot;Number of days vaccine refrigerator was available&quot;&quot;)/&quot;D&quot;. For example, if the fridge was available 25 days in June, the indicator would be calculated as (30-25/25)*100=17%. If you were however to calculate the total for Quarter 1, the number of days (&quot;D&quot;) would be equal to 31+28+31=90. Thus, the &quot;D&quot; paramater will always be the number of days in the period of interest. </para>
+      </note>
     </section>
     <section id="indicatorType">
       <title>Indicator types</title>
       <para>Indicator types simply define a factor that will be applied during aggregation. Indicator values that are calculate during a data mart export or report table generation process will appear properly formatted, and will therefore not require an additional multiplier (e.g. 100 in the case of percents) for the values to appear correctly formatted. </para>
       <para>The indicator type maintenance panel has all of the same functions (Add new, Edit, Translate, Delete, and Information) as the Indicator maintenance section. </para>
-      <para>There are only two fields that need to be filled-in to create an indicator type, Name and Factor, as seen below. Name refers to the Indicator type (e.g. Per cent, Per thousand, Per ten thousand, etc). The factor is the numeric factor that will be applied during the calculation of the indicator. </para>
+      <para>There are only two fields that need to be filled-in to create an indicator type, Name and Factor, as seen below. Name refers to the Indicator type (e.g. Per cent, Per thousand, Per ten thousand, etc). The factor is the numeric factor that will be multipled to the indicator formula during the calculation of the indicator. </para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -135,7 +136,7 @@
     </section>
     <section id="indicatorGroupSet">
       <title>Indicator group sets</title>
-      <para>Similar to data element group sets, indicator group sets serve to create combined groups of similar indicators. For instance, you might have a group of indicators called &quot;Malaria&quot; and &quot;Leishmaniasis&quot;. Both of these groups could be combined into a group set called &quot;Vector-borne diseases&quot;. Indicator groups sets are used during analysis of data to combine similar themes of indicators. To access this module choose Maintenance-&gt;Data elements and indicators-&gt;Indicator group sets from the main menu. The following dialogue will appear. </para>
+      <para>Similar to data element group sets, indicator group sets serve to create combined groups of similar indicators. For instance, you might have a group of indicators called &quot;Malaria&quot; and &quot;Leishmaniasis&quot;. Both of these groups could be combined into a group set called &quot;Vector-borne diseases&quot;. Indicator groups sets are used during analysis of data to combine similar themes of indicators. To access this module choose Maintenance-&gt;Data elements and indicators-&gt;Indicator group sets from the main menu and then press &quot;Add new&quot;. The following dialogue will appear. </para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -144,6 +145,9 @@
         </mediaobject>
       </screenshot>
       <para>Supply a name for the indicator group set, and then move the desired members from the &quot;Available Indicator Groups&quot; to the &quot;Group members&quot;. Click &quot;Add&quot; to save your changes and &quot;Cancel&quot; to discard any changes. </para>
+      <note>
+        <para>Similar to data elemement and indicator group sets, typically, indicator groups should be exclusive, meaning that one indicator group should not belong to multiple indicator group sets.</para>
+      </note>
     </section>
   </section>
 </chapter>
