@@ -191,8 +191,9 @@
       <para>Available data element groups are displayed in the left panel. They can be moved into the selected data element group set by pressing the &quot;Move right&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/> button. Data element groups that are currently members of the data element group set are displayed in the right hand panel. They can be removed from the data element group set by clicking the desired data element group and pressing the &quot;Move left&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_left.png" align="center"/> button.  The ordering of the data element groups can be set with the &quot;Move Up&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_up.png" align="center"/> and &quot;Move Down&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_down.png" align="center"/>arrows. This ordering will be used in the datamart and reports to order the data element groups.  Press the <guibutton>&quot;Update&quot;</guibutton> button to save any changes and the <guibutton>&quot;Cancel&quot;</guibutton> button to discard all changes. </para>
     </section>
     <section id="dataElementCategory">
-      <title>Data element categories</title>
-      <para>Data element categories can be used to disaggregate data elements into individual atomic components. Data element categories are typically a concept, such as Gender, Age or  Disease Status. Data elements such as &quot;Number of cases of confirmed malaria&quot; are often broken into smaller component parts to determine, for instance, the number of confirmed malaria cases of particular age groups. As an example, three data element categories: Under 1, 1-5 and Over 5 could be created. They could be assigned as categories to the data element, which would then create in the data entry screens, three separate fields for this data element namely: </para>
+      <title>Categories</title>
+      <para>Categories can be used to disaggregate data elements into individual atomic components. They can also be used to assign attributes to all data recorded in a specific dataset, such as &quot;Implementing partner&quot; and &quot;Funding agency.&quot; </para>
+      <para> Data element categories are typically a concept, such as Gender, Age or  Disease Status. Data elements such as &quot;Number of cases of confirmed malaria&quot; are often broken into smaller component parts to determine, for instance, the number of confirmed malaria cases of particular age groups. As an example, three data element categories: Under 1, 1-5 and Over 5 could be created. They could be assigned as categories to the data element, which would then create in the data entry screens, three separate fields for this data element namely: </para>
       <itemizedlist>
         <listitem>
           <para>Number of confirmed malaria cases (Under 1)</para>
@@ -205,7 +206,7 @@
         </listitem>
       </itemizedlist>
       <para>Effective use of data element categories greatly simplifies the process of setting up the DHIS2 system, as the data element categories can be reused to disaggregate many different data elements. Otherwise, each of the data elements listed above, would need to be created separately. Judicious use of data element categories will greatly simplify the DHIS2 implementation, and allow for subsequent advanced analysis. </para>
-      <para>Where possible, data element category options should be recycled. For instance, there might be two categories which might share a particular category option (e.g. &lt;1 year of age). When creating the data element categories, this category option could be reused. This is important if particular category options (or category option combinations) need to be analyzed together. </para>
+      <para>Where possible, category options should be recycled. For instance, there might be two categories which might share a particular category option (e.g. &lt;1 year of age). When creating the  categories, this category option could be reused. This is important if particular category options (or category option combinations) need to be analyzed together. </para>
       <orderedlist>
         <listitem>
           <para> All possible category options should be defined.</para>
@@ -220,8 +221,8 @@
           <para>Data elements should be created and assigned a particular category combination. </para>
         </listitem>
       </orderedlist>
-      <para>A data element category option consists of a name, along with an optional code, and a concept. </para>
-      <para>Data element categories can be added by accessing the &quot;Data Element Category Option&quot; dialog. (Maintenance -&gt; Data Elements and Indicators-&gt;Data Element Category Options&quot; as seen below. The category option must consist of a name, an optional code, and a concept. </para>
+      <para>A  category option consists of a name, along with an optional code, and a concept. </para>
+      <para>Categories can be added by accessing the &quot;Data Element Category Option&quot; dialog. (Maintenance -&gt; Data Elements and Indicators-&gt;Data Element Category Options&quot; as seen below. The category option must consist of a name, an optional code, and a concept. </para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -238,11 +239,12 @@
         </mediaobject>
       </screenshot>
       <para>Type the name of the new data element category in the &quot;Name&quot; field in the &quot;Details&quot; region and assign a concept to the category.  Category options can be added by moving category options from the left-side pane (Available category options) into the right-side pane(Selected category options). Category options can be reordered using the &quot;Move Up&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_up.png" align="center"/> and &quot;Move Down&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_down.png" align="center"/> buttons. . Once all data element categories options have been added to the data element category, press the <guibutton>&quot;Add&quot;</guibutton> button to save all changes or the <guibutton>&quot;Cancel&quot;</guibutton>  button to discard any changes.</para>
-      <para>A data elemement category can be used either as a dimension type &quot;Disaggregation&quot; or &quot;Attribute&quot;. For data elements, you should select &quot;Disaggregation&quot;. </para>
+      <para>A  category can have two types &quot;Disaggregation&quot; or &quot;Attribute&quot;. For disaggregation of data elements, you should select &quot;Disaggregation&quot;.  A dimension type of &quot;Attribute&quot; will allow the category to be used to assign a combination of categories to data recorded through a dataset.</para>
+      <para>If the &quot;Use as data dimension&quot; box is ticked, the category will be available to the analytics as another dimension, in addition to the standard dimensions of &quot;Period&quot; and &quot;Organisation unit&quot;. </para>
     </section>
     <section id="dataElementCategoryCombo">
-      <title>Data element category combinations</title>
-      <para>Data element category combinations allow multiple data element categories to be combined into a related set. As an example, a data element &quot;Number of new HIV infections&quot; might be disaggregated according to the following categories. </para>
+      <title>Category combinations</title>
+      <para>Category combinations allow multiple categories to be combined into a related set. As an example, a data element &quot;Number of new HIV infections&quot; might be disaggregated according to the following categories. </para>
       <itemizedlist>
         <listitem>
           <para>Age: &quot;Under 5&quot;, &quot;5-15&quot;, &quot;15-24&quot;, &quot;24 and above&quot;</para>
@@ -251,8 +253,8 @@
           <para>Gender: Male, Female</para>
         </listitem>
       </itemizedlist>
-      <para> In this example, there would be two levels of disaggregation, consisting of two separate data element categories, each consisting of several data element category options. In most HMIS systems, different data elements are disaggregated according to a common set of categories. By combining these different categories into a data element category combination and assigning these combinations to data elements, the appropriate disaggregation levels can be applied efficiently and quickly to a large number of data elements. </para>
-      <para>To access the data element category combination maintenance module, select &quot;Maintenance-&gt;Data element and indicators-&gt;Data element category combinations&quot; from the main DHIS2 menu. As with the  other maintains modules, you can filter the listed category combinations by entering the name (or portion thereof) of the category combination. Other operations such as &quot;Edit&quot;, &quot;Delete&quot; and &quot;Information&quot; should be familiar to the reader. </para>
+      <para> In this example, there would be two levels of disaggregation, consisting of two separate data element categories, each consisting of several data element category options. In most HMIS systems, different data elements are disaggregated according to a common set of categories. By combining these different categories into a category combination and assigning these combinations to data elements, the appropriate disaggregation levels can be applied efficiently and quickly to a large number of data elements. </para>
+      <para>To access the  category combination maintenance module, select &quot;Maintenance-&gt;Data element and indicators-&gt;Data element category combinations&quot; from the main DHIS2 menu. As with the  other maintains modules, you can filter the listed category combinations by entering the name (or portion thereof) of the category combination. Other operations such as &quot;Edit&quot;, &quot;Delete&quot; and &quot;Information&quot; should be familiar to the reader. </para>
       <para>To add a new category combination, click the &quot;Add new&quot; button. The following dialogue will be displayed. </para>
       <screenshot>
         <mediaobject>
@@ -263,6 +265,20 @@
       </screenshot>
       <para>Type the name of the category combination in the &quot;Name&quot; field, and then select the desired categories from the left panel. Press the &quot;Move right&quot; button to add the selected categories to the category combination. Press &quot;Move left&quot; to remove any categories that should not be part of the category combination. </para>
       <para>Categories can only be added to a category combination at this step. Categories can be removed from category combinations later by editing the category combination, however, it is not allowed to add additional categories once the combination has been created. Ensure that the category combination and its respective categories is final before you create the category combination and assign it to a data element. </para>
+    </section>
+    <section>
+      <title>Using categories as attributes</title>
+      <para>In some deployments of DHIS2, informaiton on attributes such as &quot;Implementing partner&quot; and &quot;Project&quot; are important to record as an attribute of each data value. To provide an example, let us suppose that an NGO is providing ART services in a give facility. They would need to report each month on the &quot;ART monthly summar&quot;, which would be reported monthly and contain a number of data elements. In many situations, a given  NGO may implement their activities as part of a project in a specific health facility. The NGO and project could potentially change over time. In order to be able to effectively attribute data to a given NGO and project at any point in time, this information would need to be recorded along with each data value at the time of data entry. </para>
+      <para>When categories and category combinations have a type of &quot;Attribute&quot;, they can serve as a means of applying a common set of attributes (e.g. Implementing partner and funding agency) to a related set of data values contained in a dataset. Let us suppose we create two categories called &quot;Implementing partner&quot; and &quot;Funding mechanism&quot;. Each of these categories would be created with a dimension type of &quot;Attribute&quot;. Finally, a category combination called &quot;Implementing partners and projects&quot; would be created with these two categories and assigned a dimension type of &quot;Attribute&quot;. Finally, we can use this dimension to apply an attribute to the dataset &quot;ART monthly summary&quot;, by choosing  the &quot;Implementing partners and projects&quot; as the &quot;Combination of categories&quot;. </para>
+      <para>The following screen shot of an example data entry screen illustrates all of these concepts. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" align="center" fileref="resources/images/maintainence/categories_dataset_attributes.png"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Note that when data is entered, an &quot;Implementing partner&quot; and &quot;Project&quot; can be selected. Each data value recorded in this data entry screen, would be assigned a specific combination of these categories as an attribute. In summary, when category combinations are used as attribute, they effectively serve as another dimension (similar to &quot;Period&quot; and &quot;Organisationion unit&quot;) which can be used for analysis. </para>
     </section>
     <section id="translation">
       <title>Translations</title>
