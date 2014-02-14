@@ -75,6 +75,9 @@
               <chunkedOutput>true</chunkedOutput>
 			  <useEmbedForSvg>1</useEmbedForSvg>
               <includes>dhis2_user_manual_en.xml</includes>
+			  <!-- <collectXrefTargets>yes</collectXrefTargets> 
+              <targetsFilename>${docbook.target}/en/user/html/dhis2_user_manual_en.html.target.db</targetsFilename>
+              <olinkBaseUri>dhis2_user_manual_en.html</olinkBaseUri> -->
               <sourceDirectory>${docbook.source}/en/</sourceDirectory>
               <targetDirectory>${docbook.target}/en/user/html/</targetDirectory>
               <postProcess>
