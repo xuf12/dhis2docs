@@ -593,8 +593,9 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       together with the identifier(s) of the attribute option(s) which the value represents within
       the combination. An example looks like this:</para>
     <screen>curl "http://apps.dhis2.org/demo/api/dataValues?de=s46m5MS0hxu&amp;ou=DiszpKrYNg8&amp;pe=201308&amp;cc=dzjKKQq0cSO&amp;cp=wbrDrL2aYEc;btOyqprQ9e8&amp;value=26" -X POST -u admin:district -v</screen>
-      <para>You can delete data values with a request using the <emphasis role="italic"
-          >DELETE</emphasis> method.</para>
+      <para>You can delete a data value with a request using the <emphasis role="italic"
+          >DELETE</emphasis> method. You can retrieve a data value with a request using the
+          <emphasis role="italic">GET</emphasis> method.</para>
   </section>
   <section>
     <title>Reading data values</title>
@@ -2759,10 +2760,10 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>The analytics resource lets you specify a range of query parameters:<table frame="all">
           <title>Query parameters</title>
           <tgroup cols="4">
-            <colspec colname="c1" colnum="1" colwidth="1.82*"/>
+            <colspec colname="c1" colnum="1" colwidth="1.75*"/>
             <colspec colname="newCol2" colnum="2" colwidth="1*"/>
-            <colspec colname="c2" colnum="3" colwidth="4.71*"/>
-            <colspec colname="c3" colnum="4" colwidth="2.81*"/>
+            <colspec colname="c2" colnum="3" colwidth="4.5*"/>
+            <colspec colname="c3" colnum="4" colwidth="2.7*"/>
             <thead>
               <row>
                 <entry><emphasis role="italic">Query parameter</emphasis></entry>
@@ -3265,6 +3266,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
               <entry>No</entry>
               <entry>Sort the records on the value column in ascending or descending order.</entry>
               <entry>ASC | DESC</entry>
+            </row>
+            <row>
+              <entry>skipMeta</entry>
+              <entry>No</entry>
+              <entry>Exclude the meta data part of response (improves performance)</entry>
+              <entry>false | true</entry>
             </row>
           </tbody>
         </tgroup>
