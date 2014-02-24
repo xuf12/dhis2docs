@@ -13,118 +13,20 @@
     HMIS. This feature also helps us overcome the dependency on Internet to some degree, as data
     updates can be transferred via USB key where there is no connectivity, or through email where
     there is limited Internet connectivity. DHIS 2 provides robust export-import functionality to
-    fulfil these needs. </para>
-  <section id="export">
-    <title>Exporting data</title>
-    <para>DHIS 2 makes it possible to export various types of data in multiple data formats. You can
-      export your data, also referred to as measures or facts; and your meta-data, which refers to
-      the information describing your data. Data can be exported both in raw, non-aggregated format
-      and in aggregated format. It is also possible to export a combination of data and meta-data in
-      case you have special requirements. This chapter covers mainly how to export data and
-      meta-data through the user interface of the import-export DHIS 2 module. Data can also be
-      exported programmatically through the DHIS 2 Web API, and it is useful to be aware of the
-      various options available:</para>
-    <itemizedlist>
-      <listitem>
-        <para>Export raw, nonaggregatd data through the user interface: Covered in this
-          chapter.</para>
-      </listitem>
-      <listitem>
-        <para>Export aggregated data programmatically through the Web API: Please refer to the Web
-          API chapter, section on Analytics.</para>
-      </listitem>
-      <listitem>
-        <para>Export a combination of data and meta-data: Please refer to the SQL view sections in
-          the Data administration chapter and Web API chapter.</para>
-      </listitem>
-      <listitem>
-        <para>Export meta-data through the user interface: Covered in this chapter.</para>
-      </listitem>
-      <listitem>
-        <para>Export meta-data programmatically through the Web API: Please refer to the Web API
-          chapter, section on meta data.</para>
-      </listitem>
-      <listitem>
-        <para>Export and periodically synchronize systems: Please refer to the Integration engine
-          chapter.</para>
-      </listitem>
-    </itemizedlist>
-    <para>Data can be exported on various formats, including DXF 2 (the DHIS 2 meta-data and data
-      exchange format based on XML), CSV, PDF, MS Excel and the DHIS 1.4 XML format. </para>
-    <para>Another aspect of data export is the type of DHIS 2 deployment. In the case of online
-      deployment, all data is saved into a single database only. In an offline deployment, each
-      instance will store data in a separate database in their local system. In an offline
-      deployment, after the data entry is finished, data will have to be manually sent to the next
-      level in the organizational hierarchy. In an on-line application this is not required, as all
-      data is captured over an Internet connection and stored in a central location.</para>
+    fulfill these needs. </para>
+  <para>To access the main Import-Export module, choose <guimenu>Services-&gt;Import-Export. </guimenu>A number of services are available, all of which will be described in detail in respective sections below. </para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata width="80%" align="center" fileref="resources/images/import_export/import_export_overview.png"/>
+      </imageobject>
+    </mediaobject>
+  </screenshot>
+  <section>
+    <title>Meta-data import</title>
     <section>
-      <title>Exporting from DHIS 2</title>
-      <para>The export option can be made use of by selecting it as follows. 
-The import or export is available only when the selected organisation (source/destination) has defined datasets. This is because datasets help to define which data is to be or is being exported. Further, which specific data elements get exported is determined by the composition of the dataset being exported.
-If there are no datasets defined for an organisation unit, it indicates that no data values are registered for this level of organisation or lower.
-To access the main Import-Export module, choose <guimenu>Services-&gt;Import-Export</guimenu></para>
-      <para>The exported data values are stored in an XML file. The file name is defined by the name
-        of the source organisation unit and the period to allow the receiving organisation unit to
-        identify the source and the period of the export file.</para>
-    </section>
-    <section>
-      <title>Exporting data to other DHIS 2 systems</title>
-      <para>Once the data export screen is displayed, select the Organisation unit, period and dataset for which data export should be selected.Finally click on the export option that will be available on the lower left side of displayed screen.
-If there are no datasets defined for an organisation unit, it indicates that no data values are registered for this level of organisation or lower.
-</para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="100%" fileref="resources/images/import_export/export_to_dhis2.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>A pop-up save option will appear on the displayed screen (see picture below) prompting the saving of the exported data. You may save the export folder on your desktop or any other folder by selecting the ‘Save to Disk’ option from the pop-up prompt.
-</para>
-    </section>
-    <section>
-      <title>Exporting metadata to other DHIS 2 systems</title>
-      <section>
-        <title>Metadata export</title>
-        <para>Metadata is &quot;data about data&quot;. In the context of DHIS 2, metadata consists
-          of definitions of data elements, indicators, the structure and names contained in the
-          organizational hierarchy, and other options. Click on the &quot;Metadata export&quot; link
-          from the main &quot;Data export&quot; screen in order to access this. Just select the
-          features, format, and the compression that you want and click &quot;Export&quot;. This
-          metadata file can then be transmitted just like a data file, except it will contain
-          information on the definitions of the various features, as opposed to the values of the
-          data themselves. </para>
-        <screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata width="100%" fileref="resources/images/import_export/metadata_export.png" format="PNG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-      </section>
-    </section>
-    <section>
-      <title>DHIS 1.4 Metadata export</title>
-      <para>The DHIS 1.4 Metadata export functionality provides the same functionality as the standard DHIS 2 metadata export, except that the resulting file can be used to transmit metadata information to DHIS 1.4 systems. </para>
-    </section>
-    <section>
-      <title>DHIS 1.4 Detailed Metadata Export</title>
-      <para>The DHIS 1.4 Metadata export functionality provides the same functionality as the detailed DHIS 2 metadata export, except that the resulting file can be used to transmit metadata information to DHIS 1.4 systems. Simply select the data elements and indicators that you want and click &quot;Export&quot; to begin the export process.</para>
-    </section>
-    <section>
-      <title>PDF Metadata Export</title>
-      <para>The PDF export functionality lets you export the meta-data definitions to the Portable
-        Document Format (PDF).</para>
-    </section>
-  </section>
-  <section id="import">
-    <title>Importing data</title>
-    <para>The import option allows different instance of DHIS 2 to receive standardised set of data in the absence of a networked system. Typically, a data set is exported from one DHIS instance (e.g. a district level system) to another system (e.g. a provincial level system).  DHIS 2 is capable of importing data from other systems that either support the DXF of IXF formats. DHIS 2 is capable of importing data directly from a DHIS 1.4 Access database. Each of these options will be discussed in the following sections. </para>
-    <section id="import_another_instance">
-      <title>Importing data from another DHIS 2 instance</title>
-      <para>Data can be imported into different instances of DHIS 2 through the use of the DXF data exchange format. There are two screens that are used to import data, with default and advanced options. </para>
-      <para>The default data import menu can be accessed by clicking the <guimenuitem>&quot;Import&quot;</guimenuitem> from the main <guimenuitem>Import-Export</guimenuitem> screen. </para>
-      <para>By clicking the <guibutton>&quot;Browse&quot;</guibutton> button, you can select a file from you local file system. This file may have been received by email, copied from another users system, or received on a CD for example. Simply select the file that you wish to import. </para>
+      <title>XML Meta-data import</title>
+      <para>Meta-data in the XML format known as DXF2 can be easily imported by accessing Services-&gt;Import-Export-&gt;Meta-Data import. Select the XML file by pressing &quot;Select&quot; and choose the file from your local file system. Both raw XML as well as a ZIP archive of the XML are supported.  </para>
       <screenshot>
         <screeninfo>Default import screen</screeninfo>
         <mediaobject>
@@ -133,32 +35,30 @@ If there are no datasets defined for an organisation unit, it indicates that no 
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para/>
-      <para>There are three separate options for importing data. </para>
+      <para>There are two separate options for importing data. </para>
       <itemizedlist>
         <listitem>
           <para>Dry run: This is similar to the old preview option, this will do a dry run import,
             and give you information about any errors.</para>
         </listitem>
         <listitem>
-          <para>Strategy: There are three options here, "New and Updates", "New only", and "Update
-            only". New and updates tells the importer to expect both new metadata, and updates to
-            existing ones. New only will only accept fresh metadata, usually you would use this on a
-            empty database. Updates only will only allow the metadata to match metadata that is
+          <para>Strategy: There are three options here, &quot;New and Updates&quot;, &quot;New only&quot;, and &quot;Update
+            only&quot;. New and updates tells the importer to expect both new meta-data, and updates to
+            existing ones. New only will only accept fresh meta-data, usually you would use this on a
+            empty database. Updates only will only allow the meta-data to match meta-data that is
             already there (same identifiers, new name etc).</para>
         </listitem>
-        <listitem>
-          <para><emphasis role="bold">NOTE: We highly recommend always using the Dry run
-              option</emphasis> when importing data to make sure you keep control over any changes
-            to your metadata and databases being out of synch on data elements or orgunit
-            names.</para>
-        </listitem>
       </itemizedlist>
+      <note>
+        <para><emphasis role="bold">It is highly recommend always using the Dry run option</emphasis> when importing data to make sure you keep control over any changes
+            to your meta-data and databases being out of synch on data elements or orgunit
+            names</para>
+      </note>
       <section>
         <title>Dry run before importing</title>
         <para>Before doing the import into your database, it is highly recommended that you run the
           import with the dry run option set to true first. This will enabled you to have a look at
-          how many new, updates, and ignored metadata there will be. After you have selected your
+          how many new, updates, and ignored meta-data there will be. After you have selected your
           file, set dry run to true, you can now click the import button. After doing this, you will
           be greeted by this window.</para>
         <mediaobject>
@@ -167,15 +67,14 @@ If there are no datasets defined for an organisation unit, it indicates that no 
           </imageobject>
         </mediaobject>
         <para>Here you can see a short summary of what was contained in your import file. To see
-          further details, please click on the "display import summary" link.</para>
+          further details, please click on the &quot;display import summary&quot; link.</para>
         <mediaobject>
           <imageobject>
             <imagedata width="100%" fileref="resources/images/import_export/import_summary.png"/>
           </imageobject>
         </mediaobject>
         <para>Here you can see that the import dry run was successful and the import contained
-            <emphasis role="bold">1</emphasis> new organisation unit, <emphasis role="bold"
-            >1332</emphasis> updated, and <emphasis role="bold">4</emphasis> organisation unit
+            <emphasis role="bold">1</emphasis> new organisation unit, <emphasis role="bold">1332</emphasis> updated, and <emphasis role="bold">4</emphasis> organisation unit
           levels.</para>
         <para>Below you can see another example.</para>
         <mediaobject>
@@ -184,36 +83,401 @@ If there are no datasets defined for an organisation unit, it indicates that no 
           </imageobject>
         </mediaobject>
         <para>Here you can see that the organisation unit Nduvuibu MCHP had a unknown reference to
-          an object with ID "aaaU6Kr7Gtpidn", which means that an object with this ID was not
+          an object with ID &quot;aaaU6Kr7Gtpidn&quot;, which means that an object with this ID was not
           present in your imported file, and it could not be found in the existing database. Its
           important to note that even if a reference could not be found, the object will still be
           imported, but you might have to fix this directly in DHIS 2 later, if the reference should
           have pointed to something else.</para>
       </section>
-    </section>
-    <section>
-      <title>Matching identifiers in DXF2</title>
-      <para>The DXF2 format currently support matching for two identifiers, our own ID, and also a
-        possible external identifier called code. When our importer is trying to search for
-        references (like the one above), it will first go to the ID field, and then to the code
-        field. This allows you to import from legacy systems without having a ID for every metadata
+      <section>
+        <title>Matching identifiers in DXF2</title>
+        <para>The DXF2 format currently support matching for two identifiers, the internal DHIS2 identifier (known as a UID), and also using an  external identifier called called a &quot;code&quot;. When the importer is trying to search for
+        references (like the one above), it will first go to the UID field, and then to the code
+        field. This allows you to import from legacy systems without having a UID for every meta-data
         object. I.e. if you are importing facility data from a legacy system, you can leave out the
         ID field completely (DHIS 2 will fill this in for you) and the put the legacy systems own
         identifiers in the code field, this identifier is required to be unique. This not only works
-        for organisation units, but for all kinds of metadata, allowing for easy import from other
+        for organisation units, but for all kinds of meta-data, allowing for easy import from other
         systems.</para>
+      </section>
     </section>
-      <section id="dhis14import">
+    <section>
+      <title>Importing CSV meta-data</title>
+      <para>DHIS 2 supports import of meta-data in the CSV format. Currently data elements are
+      supported. You can import data elements from <emphasis role="italic">CSV Meta-data Import</emphasis> in the import-export module. Columns which are not required can be omitted
+      in the CSV file, but the order will be affected. If you would like to specify columns which
+      appear late in the order but not specify columns which appear early in the order you can
+      include empty columns (&quot;&quot;) for them.</para>
+      <para>To import CV meta-data go to import-export module and select CSV Meta-Data Import form the
+      left side menu. You must select the object type which your CSV file contains. You can only
+      upload one type of objects at the time. Upload your file and click update.</para>
+      <para>The formats for the currently supported object types for CSV import are listed
+      below.</para>
+      <table frame="all">
+        <title>Data Element CSV Format</title>
+        <tgroup cols="4">
+          <colspec colnum="1" colname="c1" colwidth="1.33*"/>
+          <colspec colnum="2" colname="c2" colwidth="1*"/>
+          <colspec colnum="3" colname="newCol3" colwidth="1.33*"/>
+          <colspec colnum="4" colname="c3" colwidth="5.84*"/>
+          <thead>
+            <row>
+              <entry>Column</entry>
+              <entry>Required</entry>
+              <entry>Default value</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Name</entry>
+              <entry>Yes</entry>
+              <entry/>
+              <entry>Name. Max 230 char. Unique.</entry>
+            </row>
+            <row>
+              <entry>UID</entry>
+              <entry>No</entry>
+              <entry>System generated</entry>
+              <entry>Stable identifier. Max 11 char. Will be generated by system if not specified.</entry>
+            </row>
+            <row>
+              <entry>Code</entry>
+              <entry>No</entry>
+              <entry/>
+              <entry>Stable code. Max 50 char.</entry>
+            </row>
+            <row>
+              <entry>Short name</entry>
+              <entry>No</entry>
+              <entry>50 first char of name</entry>
+              <entry>Will fall back to first 50 characters of name if unspecified. Max 50 char. Unique.</entry>
+            </row>
+            <row>
+              <entry>Description</entry>
+              <entry>No</entry>
+              <entry/>
+              <entry>Free text description.</entry>
+            </row>
+            <row>
+              <entry>Form name</entry>
+              <entry>No</entry>
+              <entry/>
+              <entry>Max 230 char.</entry>
+            </row>
+            <row>
+              <entry>Domain type</entry>
+              <entry>No</entry>
+              <entry>aggregate</entry>
+              <entry>Domain type for data element, can be aggreate or patient. Max 16 char.</entry>
+            </row>
+            <row>
+              <entry>Value type</entry>
+              <entry>No</entry>
+              <entry>int</entry>
+              <entry>Value type. Max 16 char.</entry>
+            </row>
+            <row>
+              <entry>Number type</entry>
+              <entry>No</entry>
+              <entry>number</entry>
+              <entry>Only relevant if type is int. Max 16 char.</entry>
+            </row>
+            <row>
+              <entry>Text type</entry>
+              <entry>No</entry>
+              <entry>text</entry>
+              <entry>Only relevant if type is string. Max 16 char.</entry>
+            </row>
+            <row>
+              <entry>Aggregation operator</entry>
+              <entry>No</entry>
+              <entry>sum</entry>
+              <entry>Operator indicating how to aggreate data in the time dimension. Max 16 char.</entry>
+            </row>
+            <row>
+              <entry>Url</entry>
+              <entry>No</entry>
+              <entry/>
+              <entry>URL to data element resource. Max 255 char.</entry>
+            </row>
+            <row>
+              <entry>Zero is significant</entry>
+              <entry>No</entry>
+              <entry>false</entry>
+              <entry>Indicates whether zero values will be stored for this data element.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <table frame="all">
+        <title>Organisation Unit CSV Format</title>
+        <tgroup cols="4">
+          <colspec colnum="1" colname="c1" colwidth="1.33*"/>
+          <colspec colnum="2" colname="c2" colwidth="1*"/>
+          <colspec colnum="3" colname="c3" colwidth="1.34*"/>
+          <colspec colnum="4" colname="c4" colwidth="5.85*"/>
+          <thead>
+            <row>
+              <entry>Column</entry>
+              <entry>Required</entry>
+              <entry>Default value</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Name</entry>
+              <entry>Yes</entry>
+              <entry/>
+              <entry>Name. Max 230 characters. Unique.</entry>
+            </row>
+            <row>
+              <entry>UID</entry>
+              <entry>No</entry>
+              <entry>System generated</entry>
+              <entry>Stable identifier. Max 11 char. Will be generated by system if not specified.</entry>
+            </row>
+            <row>
+              <entry>Code</entry>
+              <entry>No</entry>
+              <entry/>
+              <entry>Stable code. Max 50 char.</entry>
+            </row>
+            <row>
+              <entry>Short name</entry>
+              <entry>No</entry>
+              <entry>50 first char of name</entry>
+              <entry>Will fall back to first 50 characters of name if unspecified. Max 50 characters. Unique.</entry>
+            </row>
+            <row>
+              <entry>Description</entry>
+              <entry>No</entry>
+              <entry/>
+              <entry>Free text description.</entry>
+            </row>
+            <row>
+              <entry>UUID</entry>
+              <entry>No</entry>
+              <entry/>
+              <entry>UUID. Max 36 char.</entry>
+            </row>
+            <row>
+              <entry>Opening date</entry>
+              <entry>No</entry>
+              <entry>1970-01-01</entry>
+              <entry>Opening date of organisation unit in YYYY-MM-DD format.</entry>
+            </row>
+            <row>
+              <entry>Closed date</entry>
+              <entry>No</entry>
+              <entry/>
+              <entry>Closed date of organisation unit in YYYY-MM-DD format, skip if currently open.</entry>
+            </row>
+            <row>
+              <entry>Comment</entry>
+              <entry>No</entry>
+              <entry/>
+              <entry>Free text comment for organisation unit.</entry>
+            </row>
+            <row>
+              <entry>Feature type</entry>
+              <entry>No</entry>
+              <entry/>
+              <entry>Can be Point, Polygon, MultiPolygon. Max 50 char.</entry>
+            </row>
+            <row>
+              <entry>Coordinates</entry>
+              <entry>No</entry>
+              <entry/>
+              <entry>Coordinates used for geospatial analysis in Geo JSON format.</entry>
+            </row>
+            <row>
+              <entry>URL</entry>
+              <entry>No</entry>
+              <entry/>
+              <entry>URL to organisation unit resource. Max 255 char.</entry>
+            </row>
+            <row>
+              <entry>Contact person</entry>
+              <entry>No</entry>
+              <entry/>
+              <entry>Contact person for organisation unit. Max 255 char.</entry>
+            </row>
+            <row>
+              <entry>Address</entry>
+              <entry>No</entry>
+              <entry/>
+              <entry>Address for organisation unit. Max 255 char.</entry>
+            </row>
+            <row>
+              <entry>Email</entry>
+              <entry>No</entry>
+              <entry/>
+              <entry>Email for organisation unit. Max 150 char.</entry>
+            </row>
+            <row>
+              <entry>Phone number</entry>
+              <entry>No</entry>
+              <entry/>
+              <entry>Phone number for organisation unit. Max 150 char.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <table frame="all">
+        <title>Category Option and Category Option Group CSV Format</title>
+        <tgroup cols="4">
+          <colspec colnum="1" colname="c1" colwidth="1.33*"/>
+          <colspec colnum="2" colname="c2" colwidth="1*"/>
+          <colspec colnum="3" colname="c3" colwidth="1.28*"/>
+          <colspec colnum="4" colname="c4" colwidth="5.72*"/>
+          <thead>
+            <row>
+              <entry>Column</entry>
+              <entry>Required</entry>
+              <entry>Default value</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Name</entry>
+              <entry>Yes</entry>
+              <entry/>
+              <entry>Name. Max 230 characters. Unique.</entry>
+            </row>
+            <row>
+              <entry>UID</entry>
+              <entry>No</entry>
+              <entry>System generated</entry>
+              <entry>Stable identifier. Max 11 char. Will be generated by system if not specified.</entry>
+            </row>
+            <row>
+              <entry>Code</entry>
+              <entry>No</entry>
+              <entry/>
+              <entry>Stable code. Max 50 char.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>An example of a CSV file for data elements can be seen below. The first row will always be
+      ignored. Notice how you can skip columns and rely on default values or simply leave columns
+      blank.</para>
+      <screen>name,uid,code,shortname,description,formname,domaintype,type,numbertype,texttype,aggregationoperator,url,zero
+&quot;Women participated in skill development training&quot;,&quot;&quot;,&quot;D0001&quot;,&quot;Women participated development training&quot;
+&quot;Women participated in community organizations&quot;,&quot;&quot;,&quot;D0002&quot;,&quot;Women participated community organizations&quot;</screen>
+    </section>
+    <section>
+      <title>GML data import</title>
+      <para>The GML import function can be used to import data prepared in the Geography Markup Language (GML). GML can be used to update the coordinates (both polygons and points). Once you have prepared your GML file as detailed in the chapter on &quot;Importing coordinates&quot;, you can load the file with this function. </para>
+      <warning>
+        <para>Currently, it is only possible to import GML data by matching on the name of the organisation unit itself. Therefore, if you have organisation units with the same name in your organisation unit hierarchy (e.g. two clinics with exactly the same name), you will need to distinguish them before importing GML. Otherwise, both organisation units may be updated with the same set of coordinates. <note>
+            <para>It is currently not possible to import an organisation unit hierarchy with GML. Therefore, you should create the organisation unit hierarchy separately, and then use GML to update the coordinates once the hierarchy has been created. </para>
+          </note></para>
+      </warning>
+    </section>
+  </section>
+  <section id="import">
+    <title>Importing data</title>
+    <para>The import option allows different instance of DHIS 2 to receive standardised sets of data in the absence of a networked system. The functionality can also be used to import data produced by another system (perhaps on a regular basis) or to import legacy data which has been transformed into a format which DHIS2 can understand. Typically, a data set is exported from one DHIS2 instance (e.g. a district level system) to another system (e.g. a provincial level system).  DHIS 2 is also capable of importing data directly from a DHIS 1.4 Access database. Each of these options will be discussed in the following sections. </para>
+    <section id="import_another_instance">
+      <title>XML data import</title>
+      <para>To import data in XML format, simply select Services-&gt;Import-export-&gt;XML data import. Similar options to the XML meta-data import facility are available. Refer to the section in the Web API on XML data import for details on the XML format which is used by DHIS2 for aggregate data import. </para>
+    </section>
+    <section id="importCSVdata">
+      <title>Importing CSV data</title>
+      <para>DHIS2 supports import of data in the CSV (Comma Separated Values)  format. This can be used to import exchange file produced by DHIS2 itself. It also comes in handy when you want to import data from a third-party system as CSV is widely supported in applications and is easy to produce manually.</para>
+      <para>To import a CSV data exchange file navigate to the <emphasis role="italic">CSV Data Import </emphasis>item in the left-side menu. Upload the exchange file and click <emphasis role="italic">Import</emphasis>.</para>
+      <para>The following section describes the CSV format used in DHIS2. The first row is assumed to be a header row and will be ignored during import.</para>
+      <para><table>
+          <title>CSV format of DHIS 2</title>
+          <tgroup cols="3">
+            <tbody>
+              <row>
+                <entry>Column</entry>
+                <entry>Required</entry>
+                <entry>Description</entry>
+              </row>
+              <row>
+                <entry>Data element</entry>
+                <entry>Yes</entry>
+                <entry>Refers to id by default, can also be name and code based on selected id scheme</entry>
+              </row>
+              <row>
+                <entry>Period</entry>
+                <entry>Yes</entry>
+                <entry>In ISO format</entry>
+              </row>
+              <row>
+                <entry>Org unit</entry>
+                <entry>Yes</entry>
+                <entry>Refers to id by default, can also be name and code based on selected id scheme</entry>
+              </row>
+              <row>
+                <entry>Category option combo</entry>
+                <entry>No</entry>
+                <entry>Refers to id</entry>
+              </row>
+              <row>
+                <entry>Value</entry>
+                <entry>No</entry>
+                <entry>Data value</entry>
+              </row>
+              <row>
+                <entry>Stored by</entry>
+                <entry>No</entry>
+                <entry>Refers to username of user who entered the value</entry>
+              </row>
+              <row>
+                <entry>Timestamp</entry>
+                <entry>No</entry>
+                <entry>Date in ISO format</entry>
+              </row>
+              <row>
+                <entry>Comment</entry>
+                <entry>No</entry>
+                <entry>Free text comment</entry>
+              </row>
+              <row>
+                <entry>Follow up</entry>
+                <entry>No</entry>
+                <entry>true or false</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table></para>
+      <para>The following is an example CSV file which can be imported into DHIS 2. It  can be imported both as plain text file or as compressed ZIP file archive.</para>
+      <screen>&quot;dataelement&quot;,&quot;period&quot;,&quot;orgunit&quot;,&quot;categoryoptioncombo&quot;,&quot;value&quot;,&quot;storedby&quot;,&quot;timestamp&quot;,&quot;comment&quot;,&quot;followup&quot;
+&quot;DUSpd8Jq3M7&quot;,&quot;201202&quot;,&quot;gP6hn503KUX&quot;,&quot;Prlt0C1RF0s&quot;,&quot;7&quot;,&quot;bombali&quot;,&quot;2010-04-17&quot;,,&quot;false&quot;
+&quot;DUSpd8Jq3M7&quot;,&quot;201202&quot;,&quot;gP6hn503KUX&quot;,&quot;V6L425pT3A0&quot;,&quot;10&quot;,&quot;bombali&quot;,&quot;2010-04-17&quot;,,&quot;false&quot;
+&quot;DUSpd8Jq3M7&quot;,&quot;201202&quot;,&quot;OjTS752GbZE&quot;,&quot;V6L425pT3A0&quot;,&quot;9&quot;,&quot;bombali&quot;,&quot;2010-04-06&quot;,,&quot;false&quot;</screen>
+    </section>
+    <section>
+      <title>Event data import</title>
+      <para>Event data can also be easily imported with the &quot;Event data import&quot; function. Refer to the section in the WebAPI for more information on the format used for importing events. Otherwise, the functionality is the same as the XML data import used for aggregate data. </para>
+    </section>
+    <section id="importPDFdata">
+      <title>Importing PDF data</title>
+      <para>DHIS2 supports import of data in the PDF format. This can be used to import data produced by off-line PDF data entry forms. Please refer to the section &quot;Data set management&quot; for details on how to produce a PDF form which can be used for off-line data entry. </para>
+      <para>To import a PDF data file, navigate to the <emphasis role="italic">PDF Data Import </emphasis>item in the left-side menu. Upload the completed PDF file and click <emphasis role="italic">Import</emphasis>.</para>
+      <para>After the import process is finished, you can follow the link to the import summary, which will inform you about the outcome of the import process in terms of number of records imported, updated and ignored and potential conflicts.</para>
+    </section>
+    <section id="dhis14import">
       <title>Importing data from DHIS 1.4</title>
       <para>There are two ways to import data from a DHIS 1.4 database; 1) through the 1.4 XML-based export files, or 2) directly from the DHIS 1.4 data file (.mdb). Both are accessible from the DHIS 1.4 Import menu under Import in the Import-Export module.</para>
       <para>It is critical that all data integrity violations which are present in the DHIS 1.4
-        database be fully resolved before attempting an import into DHIS 2. You can check the data
+        database be fully resolved before attempting an import into DHIS2. You can check the data
         integrity of DHIS 1.4 through the CORE Module-&gt;Advanced-&gt;Data integrity checks. A
         report will be generated of all data integrity violations which should be resolved prior to
-        importing into DHIS 2.</para>
+        importing into DHIS2.</para>
+      <warning>
+        <para>When data is imported from DHIS 1.4, both the meta-data as well as data are imported. You should therefore be exceedingly careful that the meta-data present in DHIS 1.4 is compatible with your DHIS2 data, otherwise during a DHIS 1.4 data import, the meta-data in the DHIS2 system will be potentially overwritten by the i</para>
+      </warning>
       <section>
         <title>DHIS 1.4 File (database) Import</title>
-        <para>This method is recommend when doing large imports from 1.4, and especially when importing into a new  DHIS 2 database.</para>
+        <para>This method is recommend when doing large imports from 1.4, and especially when importing into a new  DHIS2 database.</para>
         <para><emphasis role="bold">DHIS 1.4 File Configuration</emphasis> </para>
         <para>Before you can start the 1.4 file import you need to provide a  few details about the 1.4 database:</para>
         <para><emphasis role="italic">Datafile(#):</emphasis> Here you put the full path to the DHIS 1.4 data file you want to import from, e.g. C:\DHIS14\DHIS_#LR_LIBERIA.mdb. </para>
@@ -238,7 +502,7 @@ If there are no datasets defined for an organisation unit, it indicates that no 
         <title>DHIS 1.4 XML Import</title>
         <para>Import though XML data from DHIS 1.4 is also possible using the standard DHIS 1.4
           export format. Just be sure that the DHIS 1.4 export format has been set to &quot;DHIS
-          2.0&quot; as illustrated in the screen shot below. After the data has been exported by
+          2&quot; as illustrated in the screen shot below. After the data has been exported by
           DHIS 1.4, you can import the data by choosing &quot;Services-&gt;Import-Export-&gt;DHIS
           1.4 Import-&gt;DHIS 1.4 XML Import&quot; and proceeding via the procedure outline in the
             <link linkend="import_another_instance">previous section</link>. </para>
@@ -257,9 +521,6 @@ If there are no datasets defined for an organisation unit, it indicates that no 
           supported from DHIS 1.4 to DHIS 2. This includes:</para>
         <itemizedlist>
           <listitem>
-            <para>Validation rules</para>
-          </listitem>
-          <listitem>
             <para>Organisational unit alternate names</para>
           </listitem>
           <listitem>
@@ -272,373 +533,145 @@ If there are no datasets defined for an organisation unit, it indicates that no 
             <para>Dataset data entry levels</para>
           </listitem>
         </itemizedlist>
-        <para>It is also important that the aggregation operator defined in DHIS 1.4 be set to the correct value. Some data, such as population, should have their aggregation operator set to &quot;Average&quot; in DHIS 2, as this controls how the aggregation of data is handled over time (but not within the organisational unit hierarchy). </para>
+        <para>It is also important that the aggregation operator defined in DHIS 1.4 be set to the correct value. Some data, such as population, should have their aggregation operator set to &quot;Average&quot; in DHIS2, as this controls how the aggregation of data is handled over time (but not within the organisational unit hierarchy). </para>
       </section>
     </section>
   </section>
-  <section id="importCSVdata">
-    <title>Importing CSV data</title>
-    <para>DHIS 2 supports import of data in the CSV format. This can be used to import exchange file produced by DHIS 2 itself. It also comes in handy when you want to import data from a third-party system as CSV is widely supported in applications and is easy to produce manually.</para>
-    <para>To import a CSV data exchange file navigate to the <emphasis role="italic">CSV Data Import
-      </emphasis>item in the left-side menu. Upload the exchange file and click <emphasis
-        role="italic">Import</emphasis>.</para>
-    <para>The following section describes the CSV format used in DHIS 2. The first row is assumed to be a header row and will be ignored during import.</para>
-    <para><table>
-        <title>CSV format of DHIS 2</title>
-        <tgroup cols="3">
-          <tbody>
-            <row>
-              <entry>Column</entry>
-              <entry>Required</entry>
-              <entry>Description</entry>
-            </row>
-            <row>
-              <entry>Data element</entry>
-              <entry>Yes</entry>
-              <entry>Refers to id by default, can also be name and code based on selected id
-                scheme</entry>
-            </row>
-            <row>
-              <entry>Period</entry>
-              <entry>Yes</entry>
-              <entry>In ISO format</entry>
-            </row>
-            <row>
-              <entry>Org unit</entry>
-              <entry>Yes</entry>
-              <entry>Refers to id by default, can also be name and code based on selected id
-                scheme</entry>
-            </row>
-            <row>
-              <entry>Category option combo</entry>
-              <entry>No</entry>
-              <entry>Refers to id</entry>
-            </row>
-            <row>
-              <entry>Value</entry>
-              <entry>No</entry>
-              <entry>Data value</entry>
-            </row>
-            <row>
-              <entry>Stored by</entry>
-              <entry>No</entry>
-              <entry>Refers to username of user who entered the value</entry>
-            </row>
-            <row>
-              <entry>Timestamp</entry>
-              <entry>No</entry>
-              <entry>Date in ISO format</entry>
-            </row>
-            <row>
-              <entry>Comment</entry>
-              <entry>No</entry>
-              <entry>Free text comment</entry>
-            </row>
-            <row>
-              <entry>Follow up</entry>
-              <entry>No</entry>
-              <entry>true or false</entry>
-            </row>
-          </tbody>
-        </tgroup>
-      </table></para>
-    <para>The following is an example CSV file which can be imported into DHIS 2. It  can be imported both as plain text file or as compressed ZIP file archive.</para>
-    <screen>&quot;dataelement&quot;,&quot;period&quot;,&quot;orgunit&quot;,&quot;categoryoptioncombo&quot;,&quot;value&quot;,&quot;storedby&quot;,&quot;timestamp&quot;,&quot;comment&quot;,&quot;followup&quot;
-&quot;DUSpd8Jq3M7&quot;,&quot;201202&quot;,&quot;gP6hn503KUX&quot;,&quot;Prlt0C1RF0s&quot;,&quot;7&quot;,&quot;bombali&quot;,&quot;2010-04-17&quot;,,&quot;false&quot;
-&quot;DUSpd8Jq3M7&quot;,&quot;201202&quot;,&quot;gP6hn503KUX&quot;,&quot;V6L425pT3A0&quot;,&quot;10&quot;,&quot;bombali&quot;,&quot;2010-04-17&quot;,,&quot;false&quot;
-&quot;DUSpd8Jq3M7&quot;,&quot;201202&quot;,&quot;OjTS752GbZE&quot;,&quot;V6L425pT3A0&quot;,&quot;9&quot;,&quot;bombali&quot;,&quot;2010-04-06&quot;,,&quot;false&quot;</screen>
-  </section>
-  <section>
-    <title>Importing CSV meta-data</title>
-    <para>DHIS 2 supports import of meta-data in the CSV format. Currently data elements are
-      supported. You can import data elements from <emphasis role="italic">CSV Meta-data
-        Import</emphasis> in the import-export module. Columns which are not required can be omitted
-      in the CSV file, but the order will be affected. If you would like to specify columns which
-      appear late in the order but not specify columns which appear early in the order you can
-      include empty columns ("") for them.</para>
-    <para>To import CV meta-data go to import-export module and select CSV Meta-Data Import form the
-      left side menu. You must select the object type which your CSV file contains. You can only
-      upload one type of objects at the time. Upload your file and click update.</para>
-    <para>The formats for the currently supported object types for CSV import are listed
-      below.</para>
-    <table frame="all">
-      <title>Data Element CSV Format</title>
-      <tgroup cols="4">
-        <colspec colname="c1" colnum="1" colwidth="1.33*"/>
-        <colspec colname="c2" colnum="2" colwidth="1*"/>
-        <colspec colname="newCol3" colnum="3" colwidth="1.33*"/>
-        <colspec colname="c3" colnum="4" colwidth="5.84*"/>
-        <thead>
-          <row>
-            <entry>Column</entry>
-            <entry>Required</entry>
-            <entry>Default value</entry>
-            <entry>Description</entry>
-          </row>
-        </thead>
-        <tbody>
-          <row>
-            <entry>Name</entry>
-            <entry>Yes</entry>
-            <entry/>
-            <entry>Name. Max 230 char. Unique.</entry>
-          </row>
-          <row>
-            <entry>UID</entry>
-            <entry>No</entry>
-            <entry>System generated</entry>
-            <entry>Stable identifier. Max 11 char. Will be generated by system if not
-              specified.</entry>
-          </row>
-          <row>
-            <entry>Code</entry>
-            <entry>No</entry>
-            <entry/>
-            <entry>Stable code. Max 50 char.</entry>
-          </row>
-          <row>
-            <entry>Short name</entry>
-            <entry>No</entry>
-            <entry>50 first char of name</entry>
-            <entry>Will fall back to first 50 characters of name if unspecified. Max 50 char.
-              Unique.</entry>
-          </row>
-          <row>
-            <entry>Description</entry>
-            <entry>No</entry>
-            <entry/>
-            <entry>Free text description.</entry>
-          </row>
-          <row>
-            <entry>Form name</entry>
-            <entry>No</entry>
-            <entry/>
-            <entry>Max 230 char.</entry>
-          </row>
-          <row>
-            <entry>Domain type</entry>
-            <entry>No</entry>
-            <entry>aggregate</entry>
-            <entry>Domain type for data element, can be aggreate or patient. Max 16 char.</entry>
-          </row>
-          <row>
-            <entry>Value type</entry>
-            <entry>No</entry>
-            <entry>int</entry>
-            <entry>Value type. Max 16 char.</entry>
-          </row>
-          <row>
-            <entry>Number type</entry>
-            <entry>No</entry>
-            <entry>number</entry>
-            <entry>Only relevant if type is int. Max 16 char.</entry>
-          </row>
-          <row>
-            <entry>Text type</entry>
-            <entry>No</entry>
-            <entry>text</entry>
-            <entry>Only relevant if type is string. Max 16 char.</entry>
-          </row>
-          <row>
-            <entry>Aggregation operator</entry>
-            <entry>No</entry>
-            <entry>sum</entry>
-            <entry>Operator indicating how to aggreate data in the time dimension. Max 16
-              char.</entry>
-          </row>
-          <row>
-            <entry>Url</entry>
-            <entry>No</entry>
-            <entry/>
-            <entry>URL to data element resource. Max 255 char.</entry>
-          </row>
-          <row>
-            <entry>Zero is significant</entry>
-            <entry>No</entry>
-            <entry>false</entry>
-            <entry>Indicates whether zero values will be stored for this data element.</entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </table>
-    <table frame="all">
-      <title>Organisation Unit CSV Format</title>
-      <tgroup cols="4">
-        <colspec colname="c1" colnum="1" colwidth="1.33*"/>
-        <colspec colname="c2" colnum="2" colwidth="1*"/>
-        <colspec colname="c3" colnum="3" colwidth="1.34*"/>
-        <colspec colname="c4" colnum="4" colwidth="5.85*"/>
-        <thead>
-          <row>
-            <entry>Column</entry>
-            <entry>Required</entry>
-            <entry>Default value</entry>
-            <entry>Description</entry>
-          </row>
-        </thead>
-        <tbody>
-          <row>
-            <entry>Name</entry>
-            <entry>Yes</entry>
-            <entry/>
-            <entry>Name. Max 230 characters. Unique.</entry>
-          </row>
-          <row>
-            <entry>UID</entry>
-            <entry>No</entry>
-            <entry>System generated</entry>
-            <entry>Stable identifier. Max 11 char. Will be generated by system if not
-              specified.</entry>
-          </row>
-          <row>
-            <entry>Code</entry>
-            <entry>No</entry>
-            <entry/>
-            <entry>Stable code. Max 50 char.</entry>
-          </row>
-          <row>
-            <entry>Short name</entry>
-            <entry>No</entry>
-            <entry>50 first char of name</entry>
-            <entry>Will fall back to first 50 characters of name if unspecified. Max 50 characters.
-              Unique.</entry>
-          </row>
-          <row>
-            <entry>Description</entry>
-            <entry>No</entry>
-            <entry/>
-            <entry>Free text description.</entry>
-          </row>
-          <row>
-            <entry>UUID</entry>
-            <entry>No</entry>
-            <entry/>
-            <entry>UUID. Max 36 char.</entry>
-          </row>
-          <row>
-            <entry>Opening date</entry>
-            <entry>No</entry>
-            <entry>1970-01-01</entry>
-            <entry>Opening date of organisation unit in YYYY-MM-DD format.</entry>
-          </row>
-          <row>
-            <entry>Closed date</entry>
-            <entry>No</entry>
-            <entry/>
-            <entry>Closed date of organisation unit in YYYY-MM-DD format, skip if currently
-              open.</entry>
-          </row>
-          <row>
-            <entry>Comment</entry>
-            <entry>No</entry>
-            <entry/>
-            <entry>Free text comment for organisation unit.</entry>
-          </row>
-          <row>
-            <entry>Feature type</entry>
-            <entry>No</entry>
-            <entry/>
-            <entry>Can be Point, Polygon, MultiPolygon. Max 50 char.</entry>
-          </row>
-          <row>
-            <entry>Coordinates</entry>
-            <entry>No</entry>
-            <entry/>
-            <entry>Coordinates used for geospatial analysis in Geo JSON format.</entry>
-          </row>
-          <row>
-            <entry>URL</entry>
-            <entry>No</entry>
-            <entry/>
-            <entry>URL to organisation unit resource. Max 255 char.</entry>
-          </row>
-          <row>
-            <entry>Contact person</entry>
-            <entry>No</entry>
-            <entry/>
-            <entry>Contact person for organisation unit. Max 255 char.</entry>
-          </row>
-          <row>
-            <entry>Address</entry>
-            <entry>No</entry>
-            <entry/>
-            <entry>Address for organisation unit. Max 255 char.</entry>
-          </row>
-          <row>
-            <entry>Email</entry>
-            <entry>No</entry>
-            <entry/>
-            <entry>Email for organisation unit. Max 150 char.</entry>
-          </row>
-          <row>
-            <entry>Phone number</entry>
-            <entry>No</entry>
-            <entry/>
-            <entry>Phone number for organisation unit. Max 150 char.</entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </table>
-    <table frame="all">
-      <title>Category Option and Category Option Group CSV Format</title>
-      <tgroup cols="4">
-        <colspec colname="c1" colnum="1" colwidth="1.33*"/>
-        <colspec colname="c2" colnum="2" colwidth="1*"/>
-        <colspec colname="c3" colnum="3" colwidth="1.28*"/>
-        <colspec colname="c4" colnum="4" colwidth="5.72*"/>
-        <thead>
-          <row>
-            <entry>Column</entry>
-            <entry>Required</entry>
-            <entry>Default value</entry>
-            <entry>Description</entry>
-          </row>
-        </thead>
-        <tbody>
-          <row>
-            <entry>Name</entry>
-            <entry>Yes</entry>
-            <entry/>
-            <entry>Name. Max 230 characters. Unique.</entry>
-          </row>
-          <row>
-            <entry>UID</entry>
-            <entry>No</entry>
-            <entry>System generated</entry>
-            <entry>Stable identifier. Max 11 char. Will be generated by system if not
-              specified.</entry>
-          </row>
-          <row>
-            <entry>Code</entry>
-            <entry>No</entry>
-            <entry/>
-            <entry>Stable code. Max 50 char.</entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </table>
-    <para>An example of a CSV file for data elements can be seen below. The first row will always be
-      ignored. Notice how you can skip columns and rely on default values or simply leave columns
-      blank.</para>
-    <screen>name,uid,code,shortname,description,formname,domaintype,type,numbertype,texttype,aggregationoperator,url,zero
-"Women participated in skill development training","","D0001","Women participated development training"
-"Women participated in community organizations","","D0002","Women participated community organizations"</screen>
-  </section>
-  <section id="importXMLdata">
-    <title>Importing XML data</title>
-    <para>DHIS 2 supports import of data in XML format. The format is called DXF (DHIS Exchange
-      Format). To import an XML file navigate to the XML Data Import item in the left side menu.
-      Upload the exchange file and click <emphasis role="italic">Import</emphasis>. After the import
-      process is finished you can follow the link to the import summary, which will inform you about
-      the outcome of the import process in terms of number of records imported, updated and ignored
-      and potential conflicts.</para>
-    <para>If you need to manually produce such XML files please refer to the Web API chapter where you can find detailed documentation of the DXF format.</para>
-  </section>
-    <section id="importPDFdata">
-    <title>Importing PDF data</title>
-    <para>DHIS 2 supports import of data in the PDF format. This can be used to import data produced by offline PDF data entry forms. Please refer to the section "Data set management" for details on how to produce a PDF form which can be used for offline data entry. </para>
-    <para>To import a PDF data file, navigate to the <emphasis role="italic">PDF Data Import </emphasis>item in the left-side menu. Upload the completed PDF file and click <emphasis role="italic">Import</emphasis>.</para>
-    <para>After the import process is finished, you can follow the link to the import summary, which will inform you about the outcome of the import process in terms of number of records imported, updated and ignored and potential conflicts.</para>
+  <section id="export">
+    <title>Exporting data and meta-data</title>
+    <para>DHIS2 makes it possible to export various types of data in multiple data formats. You can
+      export your data, also referred to as measures or facts; and your meta-data, which refers to
+      the information describing your data. Data can be exported both in raw, non-aggregated format
+      and in aggregated format. It is also possible to export a combination of data and meta-data in
+      case you have special requirements. This chapter covers mainly how to export data and
+      meta-data through the user interface of the import-export DHIS 2 module. Data can also be
+      exported programmatically through the DHIS 2 Web API, and it is useful to be aware of the
+      various options available:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Export raw, non-aggregated data through the user interface: Covered in this
+          chapter.</para>
+      </listitem>
+      <listitem>
+        <para>Export aggregated data programmatically through the Web API: Please refer to the Web
+          API chapter, section on Analytics.</para>
+      </listitem>
+      <listitem>
+        <para>Export a combination of data and meta-data: Please refer to the SQL view sections in
+          the Data administration chapter and Web API chapter.</para>
+      </listitem>
+      <listitem>
+        <para>Export meta-data through the user interface: Covered in this chapter.</para>
+      </listitem>
+      <listitem>
+        <para>Export meta-data programmatically through the Web API: Please refer to the Web API
+          chapter, section on meta data.</para>
+      </listitem>
+    </itemizedlist>
+    <para>Data can be exported on various formats, including DXF 2 (the DHIS 2 meta-data and data
+      exchange format based on XML), CSV, PDF, MS Excel and the DHIS 1.4 XML format. </para>
+    <para>Another aspect of data export is the type of DHIS 2 deployment. In the case of online
+      deployment, all data is saved into a single database only. In an offline deployment, each
+      instance will store data in a separate database in their local system. In an offline
+      deployment, after the data entry is finished, data will have to be manually sent to the next
+      level in the organizational hierarchy. In an on-line application this is not required, as all
+      data is captured over an Internet connection and stored in a central location.</para>
+    <section>
+      <title>Metadata export</title>
+      <para>Meta-data is &quot;data about data&quot;. In the context of DHIS 2, meta-data consists
+          of definitions of data elements, indicators, the structure and names contained in the
+          organizational hierarchy, and other options. Click on the &quot;Meta-data export&quot; link
+          from the main &quot;Data export&quot; screen in order to access this. Just select the
+          features, format, and the compression that you want and click &quot;Export&quot;. This
+          metadata file can then be transmitted just like a data file, except it will contain
+          information on the definitions of the various features, as opposed to the values of the
+          data themselves. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="100%" fileref="resources/images/import_export/metadata_export.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Simply choose the objects which you would like to export, and click <guibutton>&quot;Export&quot;</guibutton>. </para>
+    </section>
+    <section>
+      <title>Meta-data detailed export</title>
+      <para>In certain implementations, it may be useful to create groups of metadata objects which should always be exported together. To access this feature, click &quot; Meta-data detailed export&quot; from the left side menu of the &quot;Import-export&quot; dialog. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata align="center" width="40%" fileref="resources/images/import_export/metadata_detailed_export_main.png"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>A list of available metadata export filters will be shown. Click on the name of the filter you would like to edit and then select &quot;Edit&quot; from the context menu. An example of the dialog is shown below. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata align="center" width="40%" fileref="resources/images/import_export/metadata_detail_export_select.png"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>In this example, we have created a metadata export filter, to export all &quot;Constants&quot; from the system. If any meta-data objects have been selected to be part of the filter, they will be highlighted in green. Click on the name of the objects you would like to export, and add them to the right side to be selected to be part of the export. Once you have composed the filter as needed, click &quot;Save&quot; (when editing) or &quot;Add&quot; (when adding a new metadata filter). </para>
+      <para>To export the filter, click on the name from the main &quot;Meta-data detailed export&quot; menu, and choose &quot;Export&quot; from the context menu. The following dialog will appear. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata align="center" width="30%" fileref="resources/images/import_export/metadata_detail_export_dialog.png"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>You can choose to export the data as XML or JSON format. You can also specify whether or not the result should be zipped or unzipped. Lastly, if you click check &quot;Export with dependencies&quot;, all dependent meta-data objects which the ones you have selected depend upon, will also be exported. </para>
+    </section>
+    <section>
+      <title>Data export</title>
+      <para>To export  raw data from DHIS2, choose &quot;Services-&gt;Import-export-&gt;Data export&quot;. Select the organisation unit(s), the start and end date,  and dataset or data sets for which data export should be selected. Click &quot;Export as XML&quot; to export data as XML and &quot;Export as CSV&quot; to export data in CSV format. </para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="100%" fileref="resources/images/import_export/export_to_dhis2.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>A pop-up save option will appear on the displayed screen (see picture below) prompting the saving of the exported data. You may save the export folder on your desktop or any other folder by selecting the ‘Save to Disk’ option from the pop-up prompt.
+</para>
+    </section>
+    <section>
+      <title>Event data export</title>
+      <para>Event (or tracker) data can be exported by accessing the &quot;Event data export&quot; function by choosing &quot;Services-&gt;Import-export-&gt;Event data export&quot; from the main menu. Choose the organisation unit of interest, along with the Programs and Program stages and start and end dates. The &quot;Inclusion&quot; option has three options.</para>
+      <itemizedlist>
+        <listitem>
+          <para>Selected organisation unit: Export event data only for the selected organisation unit</para>
+        </listitem>
+        <listitem>
+          <para>Include children of organisation unit: Export event data for the children of the organisation unit as well as the selected organisation unit itself.</para>
+        </listitem>
+        <listitem>
+          <para>Include descendants of organisation unit:  Export event data for the descendants  of the organisation unit as well as the selected organisation unit itself.</para>
+        </listitem>
+      </itemizedlist>
+      <para>Event data can be exported either as XML or JSON, and either compressed or uncompressed in a ZIP file. Once you have set all options, press <guibutton>&quot;Export&quot;</guibutton> . The export file will now by downloaded to your local computer. </para>
+    </section>
+    <section>
+      <title>Exporting data to other systems</title>
+      <section>
+        <title>DHIS 1.4 Meta-data export</title>
+        <para>The DHIS 1.4 Meta-data export functionality provides the same functionality as the standard DHIS2 meta-data export, except that the resulting file can be used to transmit meta-data information to DHIS 1.4 systems. </para>
+      </section>
+      <section>
+        <title>DHIS 1.4 Detailed Metadata Export</title>
+        <para>The DHIS 1.4 Metadata export functionality provides the same functionality as the detailed DHIS 2 metadata export, except that the resulting file can be used to transmit meta-data information to DHIS 1.4 systems. Simply select the data elements and indicators that you want and click &quot;Export&quot; to begin the export process.</para>
+      </section>
+      <section>
+        <title>PDF Metadata Export</title>
+        <para>The PDF export functionality lets you export the meta-data definitions to the Portable
+        Document Format (PDF).</para>
+      </section>
+      <section>
+        <title>XLS metadata export</title>
+        <para>Meta-data can be exported directly to the XLS format with this function. Currently, it is only possible to export data elements, indicators, organisation units and the organisation unit hierarhcy. </para>
+      </section>
+    </section>
   </section>
 </chapter>
-
