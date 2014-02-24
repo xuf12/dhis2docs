@@ -164,31 +164,21 @@
       <para>An error exists in the left-side validation rule definition. Go to <command>Services-&gt;Data quality-&gt;Validation rule</command> and click the &quot;Edit&quot; icon on the offending rule. Press &quot;Edit right side&quot; and make the corrections that are required.</para>
     </section>
   </section>
-  <section id="dataArchive">
-    <title>Data Archive</title>
-    <para>The purpose of the data archive function is to move data which is currently not being used for analysis to a secondary storage location in order to improve performance of the application. Data can be both archived and unarchived. When archiving data one moves it from the primary storage to the secondary storage location, while unarchiving moves it from the secondary storage location to the primary. Analysis functionality in DHIS 2 heavily utilizes queries to the data value database table, and by reducing the size of this table these operations will be significantly faster. Typically one would want to archive data that is older than two years.</para>
-    <para>To archive data, first enter a start date and an end date for the time span of the data which should be archived. Then press the archive button. The operation might take a few minutes.</para>
-    <para>To unarchive data, first enter a start date and an end date for the time span of the data which should be unarchived. Then press the unarchive button. The operation might take a few minutes.</para>
-    <para>In some cases you might end up with overlapping data. For instance one might archive data for a given timespan, then later enter data for a period in that timespan. In such cases the system will automatically overwrite the oldest of the overlapping values with the newest during the archive or unarchive operation.</para>
-  </section>
-  <section id="patientDataArchive">
-    <title>Beneficiary Data Archive</title>
-    <para>The purpose of the beneficiary data archive function is to move beneficiary data value which is currently not being used for analysis to a secondary storage location in order to improve performance of the application. Data can be both archived and unarchived. When archiving data one moves it from the primary storage to the secondary storage location, while unarchiving moves it from the secondary storage location to the primary. Analysis functionality in DHIS 2 heavily utilizes queries to the data value database table, and by reducing the size of this table these operations will be significantly faster. Typically one would want to archive beneficiary data that is older than two years.</para>
-    <para>To archive beneficiary data, first enter a start date and an end date for the time span of the data which should be archived. Then press the archive button. The operation might take a few minutes.</para>
-    <para>To unarchive beneficiary data, first enter a start date and an end date for the time span of the data which should be unarchived. Then press the unarchive button. The operation might take a few minutes.</para>
-    <para>In some cases you might end up with overlapping data. For instance one might archive beneficiary data for a given timespan, then later enter data for a period in that timespan. In such cases the system will automatically overwrite the oldest of the overlapping values with the newest during the archive or unarchive operation.</para>
-  </section>
   <section id="maintenance">
     <title>Maintenance</title>
     <para>The data maintenance module has five options, each described below. </para>
     <itemizedlist>
       <listitem>
-        <para>Clear data mart (aggregated datavalues)</para>
-        <para>The data mart is where DHIS 2 stores aggregated data produced during the export to data mart process. This function clears the database table which contains aggregated data element values.</para>
+        <para>Clear analytics tables</para>
+        <para>Completely deletes the analytics tables, used to generate aggregate data for the pivot tables, GIS and reports. </para>
       </listitem>
       <listitem>
-        <para>Clear data mart (aggregated indicatorvalues)</para>
-        <para>The data mart is where DHIS 2 stores aggregated data produced during the export to data mart process. This function clears the database table which contains aggregated indicator  values.</para>
+        <para>Clear data mart (aggregated indicator and data value values)</para>
+        <para>The data mart is where DHIS 2 stores aggregated data produced during the export to data mart process. This function clears the database table which contains aggregated indicator  and data element values.</para>
+      </listitem>
+      <listitem>
+        <para>Rebuild data mart index</para>
+        <para>Rebuilds the database indices on the aggregated data generated during a data mart process. </para>
       </listitem>
       <listitem>
         <para>Clear zero values</para>
@@ -202,15 +192,18 @@
         <para>Prune periods</para>
         <para>This function removes all periods which have no registered data values. Reducing the number of periods will improve system performance.</para>
       </listitem>
+      <listitem>
+        <para>Update category option combinations</para>
+        <para>Rebuilds the category option combinations. This may be required after altering the category options which belong to a given category. </para>
+      </listitem>
     </itemizedlist>
   </section>
   <section id="resourceTables">
     <title>Resource tables</title>
     <para>Resource tables are supporting tables that are used during analysis of data. One would
       typically join the contents of these tables with the data value table when doing queries from
-      third-party applications like Microsoft Excel. Simply select the tables that should be
-      regenerated and press &quot;Generate tables&quot;. Regeneration of the resource tables should
-      only be done once all data integrity issues are resolved.</para>
+      third-party applications like Microsoft Excel. They are also used extensively by the analysis modules of DHIS2. Regeneration of the resource tables should
+      only be done once all data integrity issues are resolved. The resource tables are also generated automatically, every time the analytics process is run by the system. </para>
     <itemizedlist>
       <listitem>
         <para>Organisation unit structure (_orgunitstructure)</para>
@@ -246,10 +239,14 @@
           types to have a defined behavior.</para>
       </listitem>
       <listitem>
-        <para>Period structure (_periodstructure)</para>
+        <para>Period structure (_dataperiodstructure)</para>
         <para>This table provides information about all periods and which period type they are
           associated with. For each period type with lower frequency than itself, it contains
           information about which period if will fall within.</para>
+      </listitem>
+      <listitem>
+        <para>Data element category option combinations (_dataelementcategoryoptioncombo)</para>
+        <para>This table provides a mapping between data elements and all possible category option combinations. </para>
       </listitem>
     </itemizedlist>
   </section>
@@ -263,7 +260,7 @@
     <para>The SQL views are dropped in reverse alphabetical order based on their names in DHIS 2,
       and created in regular alphabetical order. This allows you to have dependencies between SQL
       views, given that views only depend on other views which come earlier in the alphabetical
-      order. For instance, "ViewB" can safely depend on "ViewA". Otherwise, having views depending
+      order. For instance, &quot;ViewB&quot; can safely depend on &quot;ViewA&quot;. Otherwise, having views depending
       on other view result in an integrity violation error.</para>
     <para/>
     <section>
@@ -319,19 +316,11 @@
     <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata align="center" width="50%" fileref="resources/images/maintainence/create_lock_exception.png"/>
+          <imagedata width="50%" align="center" fileref="resources/images/maintainence/create_lock_exception.png"/>
         </imageobject>
       </mediaobject>
     </screenshot>
     <para>In the example above, a data lock exception would be created for &quot;ab Abundant Life Organization&quot; and &quot;ab Seventh Day Hospital&quot; for the &quot;Care and Support&quot; dataset for &quot;February 2012&quot;. </para>
-  </section>
-  <section id="zeroValueStorage">
-    <title>Zero value storage</title>
-    <para>The zero value storage function makes it possible to define for which data elements the system should store zero values. In most cases zeros are significant only for a subset of the data elements in the database. Any zeroes entered during data entry will be ignored by default, except for data elements where the zero value storage has been enabled. </para>
-  </section>
-  <section>
-    <title>Organisation unit pruning</title>
-    <para>If you need to prune out branches of the organisational unit hierarchy, you can use the  organisational unit pruning function. Keep in mind that the only selected organisational (and its children) will be kept. All other orgunits  (and any data associated with them) will be deleted from the database. </para>
   </section>
   <section id="minMaxValueGeneration">
     <title>Min-Max Value Generation</title>
@@ -370,7 +359,7 @@ as drop-down lists with auto-completion support.
     <para>This option is for system administrators only to use. The cache statistics shows the status of the application level cache. The application level cache refers to the objects and query results that the application is caching in order to speed up performance. If the database has been modified directly the application cache needs to be cleared for it to take effect.</para>
   </section>
   <section id="attribute">
-    <title>Dynamic attributes</title>
+    <title>Attributes</title>
     <para>Dynamic attributes can be used to add additional information to certain objects (namely
       data elements, indicators, organisation units and users). In addition to the standard
       attributes each of these objects have, it may be required in certain installations to have
@@ -390,11 +379,12 @@ as drop-down lists with auto-completion support.
   </section>
   <section id="scheduling">
     <title>Scheduling</title>
-    <para>Data mart jobs can be automatically scheduled to run on regular intervals. Simply select the aggregation period types, organisation unit group set aggregation level, and strategy to configure how the scheduled job should run. Pressing &quot;Start&quot; will enable the scheduled job to run at a pre-determined time or can be run immediately by pressing &quot;Execute now&quot;</para>
+    <para>The analytics, resource tables and data mart can be automatically scheduled to run on regular intervals. Simply select the aggregation period types, organisation unit group set aggregation level, and strategy to configure how the scheduled job should run. If you are using surveillance rules, you can choose to run them &quot;All daily&quot; by selcting this option. </para>
+    <para>Pressing &quot;Start&quot; will enable the scheduled job to run at a pre-determined time (always at midnight based on the server time). </para>
     <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata align="center" width="50%" fileref="resources/images/maintainence/scheduling.png"/>
+          <imagedata width="50%" align="center" fileref="resources/images/maintainence/scheduling.png"/>
         </imageobject>
       </mediaobject>
     </screenshot>
