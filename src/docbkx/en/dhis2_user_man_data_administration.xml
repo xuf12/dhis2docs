@@ -250,6 +250,18 @@
       </listitem>
     </itemizedlist>
   </section>
+  <section>
+    <title>Locale Management</title>
+    <para>It is posible to create custom locales in DHIS2. In addition to the locales available through the system, you might want to add a custom locale such as &quot;English&quot; and &quot;Zambia&quot; to the system. This would allow you to translate metadata objects to local languages, or to account for slight variants between countries which use a common metadata definition. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata align="center" fileref="resources/images/maintainence/locale_management.png" width="30%"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>The locale is composed of a language along with a country. Select the desired values and press &quot;Add&quot;. This custom locale will now be available as one of the translation locales in the system. </para>
+  </section>
   <section id="sqlView">
     <title>SQL View</title>
     <para>The SQL View functionality of DHIS2 will store the SQL view definition internally, and then materialize the view when requested. </para>
