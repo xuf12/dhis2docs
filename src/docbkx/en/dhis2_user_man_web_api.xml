@@ -1470,6 +1470,29 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
         </tbody>
       </tgroup>
     </table>
+    <table frame="all">
+      <title>Query parameters for png / image types (charts, maps)</title>
+      <tgroup cols="2">
+        <colspec colname="c1" colnum="1" colwidth="1*"/>
+        <colspec colname="c2" colnum="2" colwidth="3.65*"/>
+        <thead>
+          <row>
+            <entry>Query parameter</entry>
+            <entry>Description</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>width</entry>
+            <entry>Width of image in pixels</entry>
+          </row>
+          <row>
+            <entry>height</entry>
+            <entry>Height of image in pixels</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
     <para>Some examples of valid URLs for retrieving various analytical representations are listed
       below.</para>
     <screen>api/charts/R0DVGvXDUNP/data
