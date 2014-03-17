@@ -1445,7 +1445,7 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
         </tbody>
       </tgroup>
     </table>
-    <para>The data content of the analytical represantations can be modified by providing a
+    <para>The data content of the analytical representations can be modified by providing a
         <emphasis role="italic">date</emphasis> query parameter. This requires that the analytical
       resource is set up for relative periods for the period dimension.</para>
     <table frame="all">
@@ -3102,9 +3102,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <table frame="all">
       <title>Event dimensions</title>
       <tgroup cols="3">
-        <colspec colname="c1" colnum="1" colwidth="2.49*"/>
+        <colspec colname="c1" colnum="1" colwidth="2.46*"/>
         <colspec colname="c2" colnum="2" colwidth="1*"/>
-        <colspec colname="c3" colnum="3" colwidth="5.42*"/>
+        <colspec colname="c3" colnum="3" colwidth="5.37*"/>
         <thead>
           <row>
             <entry>Dimension</entry>
@@ -3189,7 +3189,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
             <entry>Yes</entry>
             <entry>Dimension identifier including data elements, person attributes, person
                 identifiers, periods and organisation units. Parameter can be repeated any number of
-                times. Item filtes can be applied to a dimension on the format
+                times. Item filters can be applied to a dimension on the format
                 &lt;item-id>:&lt;operator>:&lt;filter>. Filter values are case-insensitive.</entry>
             <entry>Operators can be EQ | GT | GE | LT | LE | NE | LIKE | IN</entry>
           </row>
@@ -3259,14 +3259,13 @@ ORDER BY oul.level, par.name, ou.name</screen>
             <row>
               <entry>page</entry>
               <entry>No</entry>
-              <entry>The page number. Page size of 50 will be used if no page size parameter is
-                specified.</entry>
+              <entry>The page number. Default page is 1.</entry>
               <entry>Numeric positive value</entry>
             </row>
             <row>
               <entry>pageSize</entry>
               <entry>No</entry>
-              <entry>The page size. Unlimited if not specified.</entry>
+              <entry>The page size. Default size is 50 items per page.</entry>
               <entry>Numeric zero or positive value</entry>
             </row>
           </tbody>
@@ -4123,6 +4122,134 @@ ORDER BY oul.level, par.name, ou.name</screen>
           >PUT</emphasis> request to the following
         URL:<screen>/api/enrollments/&lt;enrollment-id>/completed</screen></para>
     </section>
+  </section>
+  <section>
+    <title>Tracked Entity Instances</title>
+    <para>To query for tracked entity instances you can interact with the <emphasis role="italic"
+        >/trackedEntityInstances</emphasis> resource. This resource supports JSON, JSONP, XLS and
+      CSV resource representations.</para>
+    <table frame="all">
+      <title>Tracked entity instances query parameters</title>
+      <tgroup cols="3">
+        <colspec colname="c1" colnum="1" colwidth="1.41*"/>
+        <colspec colname="c2" colnum="2" colwidth="1*"/>
+        <colspec colname="c3" colnum="3" colwidth="7.42*"/>
+        <thead>
+          <row>
+            <entry>Query parameter</entry>
+            <entry>Required</entry>
+            <entry>Description</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>item</entry>
+            <entry>Yes</entry>
+            <entry>Query items referring to attributes. Param can be repeated any number of items.
+              Filters can be applied to a dimension on the format
+              &lt;attribute-id>:&lt;operator>:&lt;filter>. Filter values are case-insensitive.
+              Operators can be EQ | GT | GE | LT | LE | NE | LIKE | IN. Filters can be omitted in
+              order to simply include the attribute in the response without any constraints.</entry>
+          </row>
+          <row>
+            <entry>ou</entry>
+            <entry>Yes</entry>
+            <entry>Organisation unit idenfiers, separated by ";".</entry>
+          </row>
+          <row>
+            <entry>ouMode</entry>
+            <entry>No</entry>
+            <entry>The mode of selecting organisation units, can be SELECTED | CHILDREN |
+              DESCENDANTS. Default is SELECTED, which refers to the selected organisation units
+              only. CHILDREN refers to immediate children in the hierarchy of the specified org
+              units. DESCENDANTS refers to all units in the sub-hierarchy of the specified org
+              units. </entry>
+          </row>
+          <row>
+            <entry>program</entry>
+            <entry>No</entry>
+            <entry>Program identifier. Restricts instances to being enrolled in the given
+              program.</entry>
+          </row>
+          <row>
+            <entry>trackedEntity</entry>
+            <entry>No</entry>
+            <entry>Tracked entity identifer. Restricts instances to the given tracked instance
+              type.</entry>
+          </row>
+          <row>
+            <entry>page</entry>
+            <entry>No</entry>
+            <entry>The page number. Default page is 1.</entry>
+          </row>
+          <row>
+            <entry>pageSize</entry>
+            <entry>No</entry>
+            <entry>The page size. Default size is 50 items per page.</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>Note that you can specify items with filters for constraining the instances to return, or
+      items without filters in order to include the attribute in the response without any
+      constraints. To query for instances using one attribute with a filter and one attribute
+      without a filter, with one organisation unit using the descendants organisation unit query
+      mode, you can issue a query like this:</para>
+    <screen>api/trackedEntityInstances.json?item=zHXD5Ve1Efw:EQ:A&amp;item=AMpUYgxuCaE&amp;ou=DiszpKrYNg8;yMCshbaVExv</screen>
+    <para>To constrain the response to instances which are part of a specific program you can
+      include a program query parameter like this:</para>
+    <screen>api/trackedEntityInstances.json?item=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;program=uy2gU8kT1jF</screen>
+    <para>By default the instances are returned in pages of size 50, to change this you can use the
+      page and pageSize query parameters like this:</para>
+    <screen>api/trackedEntityInstances.json?item=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;page=2&amp;pageSize=3</screen>
+    <para>You can use a range of operators for the filtering:</para>
+    <table frame="all">
+      <title>Filter operators</title>
+      <tgroup cols="2">
+        <colspec colname="c1" colnum="1" colwidth="87.75pt"/>
+        <colspec colname="c2" colnum="2" colwidth="368.25pt"/>
+        <thead>
+          <row>
+            <entry><emphasis role="italic">Operator</emphasis></entry>
+            <entry><emphasis role="italic">Description</emphasis></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>EQ</entry>
+            <entry>Equal to</entry>
+          </row>
+          <row>
+            <entry>GT</entry>
+            <entry>Greater than</entry>
+          </row>
+          <row>
+            <entry>GE</entry>
+            <entry>Greater than or equal to</entry>
+          </row>
+          <row>
+            <entry>LT</entry>
+            <entry>Less than</entry>
+          </row>
+          <row>
+            <entry>LE</entry>
+            <entry>Less than or equal to</entry>
+          </row>
+          <row>
+            <entry>NE</entry>
+            <entry>Not equal to</entry>
+          </row>
+          <row>
+            <entry>LIKE</entry>
+            <entry>Like (free text match)</entry>
+          </row>
+          <row>
+            <entry>IN</entry>
+            <entry>Equal to one of multiple values separated by ":"</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
   </section>
   <section>
     <title>FRED API</title>
