@@ -4143,8 +4143,13 @@ ORDER BY oul.level, par.name, ou.name</screen>
         </thead>
         <tbody>
           <row>
+            <entry>query</entry>
+            <entry>No</entry>
+            <entry>Query string.</entry>
+          </row>
+          <row>
             <entry>item</entry>
-            <entry>Yes</entry>
+            <entry>No</entry>
             <entry>Query items referring to attributes. Param can be repeated any number of items.
               Filters can be applied to a dimension on the format
               &lt;attribute-id>:&lt;operator>:&lt;filter>. Filter values are case-insensitive.
@@ -4192,9 +4197,21 @@ ORDER BY oul.level, par.name, ou.name</screen>
     </table>
     <para>Note that you can specify items with filters for constraining the instances to return, or
       items without filters in order to include the attribute in the response without any
-      constraints. To query for instances using one attribute with a filter and one attribute
-      without a filter, with one organisation unit using the descendants organisation unit query
-      mode, you can issue a query like this:</para>
+      constraints. The following rules apply to the query parameters.</para>
+    <itemizedlist>
+      <listitem>
+        <para>Exactly one of the <emphasis role="italic">query</emphasis> and <emphasis
+            role="italic">item</emphasis> parameters must be specified in a query (not both).</para>
+      </listitem>
+      <listitem>
+        <para>Only one of the <emphasis role="italic">program</emphasis> and <emphasis role="italic"
+            >trackedEntity</emphasis> parameters can be specified in the same query (none or one,
+          not both).</para>
+      </listitem>
+    </itemizedlist>
+    <para>To query for instances using one attribute with a filter and one attribute without a
+      filter, with one organisation unit using the descendants organisation unit query mode, you can
+      issue a query like this:</para>
     <screen>api/trackedEntityInstances.json?item=zHXD5Ve1Efw:EQ:A&amp;item=AMpUYgxuCaE&amp;ou=DiszpKrYNg8;yMCshbaVExv</screen>
     <para>To constrain the response to instances which are part of a specific program you can
       include a program query parameter like this:</para>
