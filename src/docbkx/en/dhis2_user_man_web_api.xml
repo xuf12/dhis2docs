@@ -4130,40 +4130,45 @@ ORDER BY oul.level, par.name, ou.name</screen>
       CSV resource representations.</para>
     <table frame="all">
       <title>Tracked entity instances query parameters</title>
-      <tgroup cols="3">
-        <colspec colname="c1" colnum="1" colwidth="1.41*"/>
-        <colspec colname="c2" colnum="2" colwidth="1*"/>
-        <colspec colname="c3" colnum="3" colwidth="7.42*"/>
+      <tgroup cols="2">
+        <colspec colname="c1" colnum="1" colwidth="1.38*"/>
+        <colspec colname="c3" colnum="2" colwidth="7.25*"/>
         <thead>
           <row>
             <entry>Query parameter</entry>
-            <entry>Required</entry>
             <entry>Description</entry>
           </row>
         </thead>
         <tbody>
           <row>
             <entry>query</entry>
-            <entry>No</entry>
-            <entry>Query string.</entry>
+            <entry>Query string. Attribute query parameter can be used to define which attributes to
+              include in the response. If no attributes but a program is defined, the attributes
+              from the program will be used. If no program is defined, all attributes will be
+              used.</entry>
           </row>
           <row>
-            <entry>item</entry>
-            <entry>No</entry>
-            <entry>Query items referring to attributes. Param can be repeated any number of items.
-              Filters can be applied to a dimension on the format
+            <entry>attribute</entry>
+            <entry>Attributes to be included in the response. Can also be used a filter for the
+              query. Param can be repeated any number of times. Filters can be applied to a
+              dimension on the format &lt;attribute-id>:&lt;operator>:&lt;filter>. Filter values are
+              case-insensitive. Operators can be EQ | GT | GE | LT | LE | NE | LIKE | IN. Filters
+              can be omitted in order to simply include the attribute in the response without any
+              constraints.</entry>
+          </row>
+          <row>
+            <entry>filter</entry>
+            <entry>Attributes to use as a filter for the query. Param can be repeated any number of
+              times. Filters can be applied to a dimension on the format
               &lt;attribute-id>:&lt;operator>:&lt;filter>. Filter values are case-insensitive.
-              Operators can be EQ | GT | GE | LT | LE | NE | LIKE | IN. Filters can be omitted in
-              order to simply include the attribute in the response without any constraints.</entry>
+              Operators can be EQ | GT | GE | LT | LE | NE | LIKE | IN.</entry>
           </row>
           <row>
             <entry>ou</entry>
-            <entry>Yes</entry>
             <entry>Organisation unit idenfiers, separated by ";".</entry>
           </row>
           <row>
             <entry>ouMode</entry>
-            <entry>No</entry>
             <entry>The mode of selecting organisation units, can be SELECTED | CHILDREN |
               DESCENDANTS. Default is SELECTED, which refers to the selected organisation units
               only. CHILDREN refers to immediate children in the hierarchy of the specified org
@@ -4172,53 +4177,65 @@ ORDER BY oul.level, par.name, ou.name</screen>
           </row>
           <row>
             <entry>program</entry>
-            <entry>No</entry>
             <entry>Program identifier. Restricts instances to being enrolled in the given
               program.</entry>
           </row>
           <row>
             <entry>trackedEntity</entry>
-            <entry>No</entry>
             <entry>Tracked entity identifer. Restricts instances to the given tracked instance
               type.</entry>
           </row>
           <row>
             <entry>page</entry>
-            <entry>No</entry>
             <entry>The page number. Default page is 1.</entry>
           </row>
           <row>
             <entry>pageSize</entry>
-            <entry>No</entry>
-            <entry>The page size. Default size is 50 items per page.</entry>
+            <entry>The page size. Default size is 50 rows per page.</entry>
           </row>
         </tbody>
       </tgroup>
     </table>
-    <para>Note that you can specify items with filters for constraining the instances to return, or
-      items without filters in order to include the attribute in the response without any
-      constraints. The following rules apply to the query parameters.</para>
+    <para>Note that you can specify attributes with filters for constraining the instances to
+      return, or attributes without filters in order to include the attribute in the response
+      without any constraints. Attributes will be included in the response, while filters will only
+      be used as criteria. The following rules apply to the query parameters.</para>
     <itemizedlist>
       <listitem>
-        <para>Exactly one of the <emphasis role="italic">query</emphasis> and <emphasis
-            role="italic">item</emphasis> parameters must be specified in a query (not both).</para>
+        <para>At least one organisation unit must be specified using the <emphasis role="italic"
+            >ou</emphasis> parameter (one or many).</para>
+      </listitem>
+      <listitem>
+        <para>At least one of <emphasis role="italic">query</emphasis> and <emphasis role="italic"
+            >attribute</emphasis> parameters must be specified (one or both).</para>
       </listitem>
       <listitem>
         <para>Only one of the <emphasis role="italic">program</emphasis> and <emphasis role="italic"
-            >trackedEntity</emphasis> parameters can be specified in the same query (none or one,
-          not both).</para>
+            >trackedEntity</emphasis> parameters can be specified (zero or one).</para>
       </listitem>
     </itemizedlist>
+    <para>A query in its simplest form which will return all attributes in the response looks like
+      this:</para>
+    <screen>api/trackedEntityInstances.json?query=wakiki&amp;ou=DiszpKrYNg8</screen>
+    <para>A query where the attributes to include in th response are specified looks like
+      this:</para>
+    <screen>api/trackedEntityInstances.json?query=wakiki&amp;attribute=dv3nChNSIxy&amp;attribute=AMpUYgxuCaE</screen>
     <para>To query for instances using one attribute with a filter and one attribute without a
       filter, with one organisation unit using the descendants organisation unit query mode, you can
       issue a query like this:</para>
-    <screen>api/trackedEntityInstances.json?item=zHXD5Ve1Efw:EQ:A&amp;item=AMpUYgxuCaE&amp;ou=DiszpKrYNg8;yMCshbaVExv</screen>
+    <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;attribute=AMpUYgxuCaE&amp;ou=DiszpKrYNg8;yMCshbaVExv</screen>
+    <para>A query for instances where one attribute is included in the response and one attribute us
+      used as a filter can look like this:</para>
+    <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;filter=AMpUYgxuCaE:LIKE:Road&amp;ou=DiszpKrYNg8</screen>
     <para>To constrain the response to instances which are part of a specific program you can
       include a program query parameter like this:</para>
-    <screen>api/trackedEntityInstances.json?item=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;program=uy2gU8kT1jF</screen>
+    <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;program=uy2gU8kT1jF</screen>
+    <para>To constrain the response to instances of a specific tracked entity you can include a
+      tracked entity query parameter like this:</para>
+    <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;trackedEntity=cyl5vuJ5ETQ</screen>
     <para>By default the instances are returned in pages of size 50, to change this you can use the
       page and pageSize query parameters like this:</para>
-    <screen>api/trackedEntityInstances.json?item=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;page=2&amp;pageSize=3</screen>
+    <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;page=2&amp;pageSize=3</screen>
     <para>You can use a range of operators for the filtering:</para>
     <table frame="all">
       <title>Filter operators</title>
