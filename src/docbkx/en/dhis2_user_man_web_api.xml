@@ -712,23 +712,18 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
     <para>This section is about sending and reading events.</para>
   <section>
     <title>Sending event data values</title>
-    <para>DHIS 2 supports three kinds of events: single events with no registration (also referred
-      to as anonymous events), single event with registration and multiple events with registration.
-      Registration implies that the data is linked to a person which is identified using some sort
-      of identifier.</para>
-    <para>To send events to DHIS 2 you must interact with the <emphasis role="italic"
-        >events</emphasis> resource. The approach to sending events is similar to sending aggregate
-      data values. You will need a <emphasis role="italic">program</emphasis> which can be looked up
-      using the <emphasis role="italic">programs</emphasis> resource, an <emphasis role="italic"
-        >orgUnit</emphasis> which can be looked up using the <emphasis role="italic"
-        >organisationUnits</emphasis> resource, and a list of valid data element identifiers which
-      can be looked up using the <emphasis role="italic">dataElements</emphasis> resource. For
-      events with registration, a <emphasis role="italic">person</emphasis> identifier is required,
-      read about how to get this in the section about the <emphasis role="italic">person</emphasis>
-      resource. For sending events to programs with multiple stages, you will need to also include
-      the <emphasis role="italic">programStage</emphasis> identifier, the identifiers for
-      programStages can be found in the <emphasis role="italic">programStages</emphasis>
-      resource.</para>
+    <para>DHIS 2 supports three kinds of events: single events with no registration (also referred to as anonymous events), single event
+        with registration and multiple events with registration. Registration implies that the data is linked to a tracked entity instance
+        which is identified using some sort of identifier.</para>
+    <para>To send events to DHIS 2 you must interact with the <emphasis role="italic">events</emphasis> resource. The approach to sending
+        events is similar to sending aggregate data values. You will need a <emphasis role="italic">program</emphasis> which can be looked
+        up using the <emphasis role="italic">programs</emphasis> resource, an <emphasis role="italic">orgUnit</emphasis> which can be looked
+        up using the <emphasis role="italic">organisationUnits</emphasis> resource, and a list of valid data element identifiers which can
+        be looked up using the <emphasis role="italic">dataElements</emphasis> resource. For events with registration, a <emphasis
+          role="italic">tracked entity instance</emphasis> identifier is required, read about how to get this in the section about the
+          <emphasis role="italic">trackedEntityInstances</emphasis> resource. For sending events to programs with multiple stages, you will
+        need to also include the <emphasis role="italic">programStage</emphasis> identifier, the identifiers for programStages can be found
+        in the <emphasis role="italic">programStages</emphasis> resource.</para>
     <para>A simple single event with no registration example payload in XML format where we send
       events from the "Inpatient morbidity and mortality" program for the "Ngelehun CHC" facility in
       the demo database can be seen below:</para>
@@ -4025,88 +4020,47 @@ ORDER BY oul.level, par.name, ou.name</screen>
     </table>
   </section>
   <section>
-    <title>Person management</title>
-    <para>Persons have full CRUD (create, read, update, delete) support in the Web-API. Together
-      with the API for enrollment most operations needed for working with persons and programs are
-      supported.</para>
+    <title>Tracked entity instance management</title>
+    <para>Persons have full CRUD (create, read, update, delete) support in the Web-API. Together with the API for enrollment most operations
+      needed for working with tracked entity instances and programs are supported.</para>
     <section>
-      <title>Creating a new person</title>
-      <para>For creating a new person in the system, you will be working with the <emphasis
-          role="italic">persons</emphasis> resource. An template payload can be seen
+      <title>Creating a new tracked entity instance</title>
+      <para>For creating a new person in the system, you will be working with the <emphasis role="italic">trackedEntityInstances</emphasis>
+        resource. A template payload can be seen
         below:<screen>{
+    "trackedEntity": "Tracked Entity UID",
     "orgUnit": "Organisation unit identifier",
-    "name": "Name of Person",
-    "gender": "MALE | FEMALE | TRANSGENDER",
-    "dateOfBirth": {
-        "type": "VERIFIED | DECLARED | APPROXIMATE",
-        "age": "30", // years, relevant for APPROXIMATE
-        "date": "2081-03-04" // date, relevant for VERIFIED and DECLARED
-    },
-    "dateOfRegistration": "2013-04-01", // Optional, current date is default
-    "contact": {
-        "phoneNumber": "Phone number"
-    },
-    "relationships": [ {
-        "type": "Relationship type identifier",
-        "person": "Person identifier"
-    } ],
-    "identifiers": [ {
-        "type": "Person id identifier",
-        "value": "1234"
-    } ],
     "attributes": [ {
-        "type": "Person attribute identifier",
-        "value": "My address"
+        "type": "Name attribute UID",
+        "value": "My Name"
     } ]
 }</screen></para>
-      <para>For getting the identifiers for <emphasis role="italic">relationship</emphasis>,
-          <emphasis role="italic">identifiers</emphasis>, <emphasis role="italic"
-          >attributes</emphasis> you can have a look at the respective resources <emphasis
-          role="italic">relationshipTypes</emphasis>, <emphasis role="italic"
-          >personIdentifiers</emphasis>, <emphasis role="italic">personAttributes</emphasis>. To
-        create a person you must use the HTTP <emphasis role="bold">POST</emphasis> method. You can
-        post the payload the the following URL:</para>
-      <screen>/api/persons</screen>
+      <para>For getting the IDs for <emphasis role="italic">relationship</emphasis>, <emphasis role="italic">attributes</emphasis> you can
+        have a look at the respective resources <emphasis role="italic">relationshipTypes</emphasis>,, <emphasis role="italic"
+          >trackedEntityAttributes</emphasis>. To create a person you must use the HTTP <emphasis role="bold">POST</emphasis> method. You
+        can post the payload the the following URL:</para>
+      <screen>/api/trackedEntityInstances</screen>
     </section>
     <section>
-      <title>Updating a person</title>
-      <para>For updating a person, the payload is the equal to the previous section. The difference
-        is that you must use the HTTP <emphasis role="bold">PUT</emphasis> method for the request
-        when sending the payload. You will also need to append the person identifier to the
-          <emphasis role="italic">persons</emphasis> resource in the URL like this, where
-        &lt;person-identifier> should be replaced by the identifier of the person:</para>
-      <screen>/api/persons/&lt;person-id></screen>
+      <title>Updating a tracked entity instance</title>
+      <para>For updating a tracked entity instance, the payload is the equal to the previous section. The difference is that you must use
+        the HTTP <emphasis role="bold">PUT</emphasis> method for the request when sending the payload. You will also need to append the
+        person identifier to the <emphasis role="italic">trackedEntityInstances</emphasis> resource in the URL like this, where
+        &lt;tracked-entity-instance-identifier> should be replaced by the identifier of the tracked entity instance:</para>
+      <screen>/api/trackedEntityInstances/&lt;tracked-entity-instance-id></screen>
     </section>
     <section>
-      <title>Deleting a person</title>
-      <para>To delete a person you can make a request to the URL identifiying the person with the
-        HTTP <emphasis role="bold">DELETE</emphasis> method. The URL is equal to the one above used
-        for update.</para>
+      <title>Deleting a tracked entity instance</title>
+      <para>To delete a tracked entity instance you can make a request to the URL identifiying the tracked entity instance with the HTTP
+          <emphasis role="bold">DELETE</emphasis> method. The URL is equal to the one above used for update.</para>
     </section>
     <section>
-      <title>Querying for persons</title>
-      <para>There are several parameter available on the <emphasis role="italic">persons</emphasis>
-        resource for querying for persons, <emphasis role="italic">orgUnit</emphasis> paramter is
-        always required (unless querying for identifiers, please see below).</para>
-      <para>Query for persons can be done in these ways. All requests should use the HTTP <emphasis
-          role="bold">GET</emphasis>
-        method:<screen>/api/persons?orgUnit=&lt;orgunit-id></screen></para>
-      <para>Query for org unit and like
-        name:<screen>/api/persons?orgUnit=&lt;orgunit-id>&amp;nameLike=&lt;name></screen></para>
-      <para>Query for org unit and
-        program:<screen>/api/persons?orgUnit=&lt;orgunit-id>&amp;program=&lt;program-id></screen></para>
-      <para>Query for system identifier:<screen>/api/persons?identifier=SYSTEM_ID</screen></para>
-      <para>Query for specific identifier
-        type:<screen>/api/persons?identifierType=&lt;id-type-id>&amp;identifier=&lt;person-id></screen></para>
-    </section>
-    <section>
-      <title>Enrolling a person into a program</title>
-      <para>For enrolling persons into a program, you will need to first get the identifier of the
-        person from the <emphasis role="italic">persons</emphasis> resource. Then, you will need to
-        get the program identifier from the <emphasis role="italic">programs</emphasis> resource. A
-        template payload can be seen
+      <title>Enrolling a tracked entity instance into a program</title>
+      <para>For enrolling persons into a program, you will need to first get the identifier of the person from the <emphasis role="italic"
+          >trackedEntityInstances</emphasis> resource. Then, you will need to get the program identifier from the <emphasis role="italic"
+          >programs</emphasis> resource. A template payload can be seen
         below:<screen>{
-    "person": "ZRyCnJ1qUXS",
+    "trackedEntityInstance": "ZRyCnJ1qUXS",
     "program": "S8uo8AlvYMz",
     "dateOfEnrollment": "2013-09-17",
     "dateOfIncident": "2013-09-17"
@@ -4114,20 +4068,19 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <para>This payload should be used in a <emphasis role="bold">POST</emphasis> request to the
         enrollments resource identified by the following URL:</para>
       <screen>/api/enrollments</screen>
-      <para>For cancelling or completing an enrollment, you can make a <emphasis role="bold"
-          >PUT</emphasis> request to the <emphasis role="italic">enrollments</emphasis> resource,
-        including the identifier and the action you want to perform. For cancelling an enrollment
-        for a person:<screen>/api/enrollments/&lt;enrollment-id>/cancelled</screen></para>
-      <para>For completing a program for a person you can make a <emphasis role="bold"
-          >PUT</emphasis> request to the following
-        URL:<screen>/api/enrollments/&lt;enrollment-id>/completed</screen></para>
+      <para>For cancelling or completing an enrollment, you can make a <emphasis role="bold">PUT</emphasis> request to the <emphasis
+          role="italic">enrollments</emphasis> resource, including the identifier and the action you want to perform. For cancelling an
+        enrollment for a tracked entity instance:<screen>/api/enrollments/&lt;enrollment-id>/cancelled</screen></para>
+      <para>For completing a enrollment for a tracked entity instance you can make a <emphasis role="bold">PUT</emphasis> request to the
+        following URL:<screen>/api/enrollments/&lt;enrollment-id>/completed</screen></para>
+      <para>For deleting a enrollment, you can make a <emphasis role="bold">DELETE</emphasis> request to the following
+        URL:<screen>/api/enrollments/&lt;enrollment-id></screen></para>
     </section>
   </section>
   <section>
     <title>Tracked Entity Instances</title>
-    <para>To query for tracked entity instances you can interact with the <emphasis role="italic"
-        >/trackedEntityInstances</emphasis> resource. This resource supports JSON, JSONP, XLS and
-      CSV resource representations.</para>
+    <para>To query for tracked entity instances you can interact with the <emphasis role="italic">/api/trackedEntityInstances</emphasis>
+      resource. This resource supports JSON, JSONP, XLS and CSV resource representations.</para>
     <table frame="all">
       <title>Tracked entity instances query parameters</title>
       <tgroup cols="2">
