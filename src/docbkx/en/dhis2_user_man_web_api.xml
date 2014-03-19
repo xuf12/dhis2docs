@@ -4020,8 +4020,22 @@ ORDER BY oul.level, par.name, ou.name</screen>
     </table>
   </section>
   <section>
+    <title>Tracked entity management</title>
+    <para>Tracked entity have full CRUD (create, read, update, delete) support in the Web-API. A tracked entity only have two required
+      property, <emphasis role="italic">name</emphasis> and <emphasis role="italic">description</emphasis>.</para>
+    <para>
+      <screen>{
+  "name": "Name of tracked entity",
+  "description": "Description of tracked entity"
+}</screen>
+    </para>
+    <para>This payload can be sent to the <emphasis role="italic">trackedEntities</emphasis> resource, both <emphasis role="bold"
+        >POST</emphasis> and <emphasis role="bold">PUT</emphasis> are supported. For deleting a tracked entity you must use the <emphasis
+        role="bold">DELETE</emphasis> method at the <emphasis role="italic">/api/trackedEntities/UID</emphasis> resource.</para>
+  </section>
+  <section>
     <title>Tracked entity instance management</title>
-    <para>Persons have full CRUD (create, read, update, delete) support in the Web-API. Together with the API for enrollment most operations
+    <para>Tracked entity instances have full CRUD (create, read, update, delete) support in the Web-API. Together with the API for enrollment most operations
       needed for working with tracked entity instances and programs are supported.</para>
     <section>
       <title>Creating a new tracked entity instance</title>
