@@ -4092,7 +4092,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
     </section>
   </section>
   <section>
-    <title>Tracked Entity Instances</title>
+    <title>Tracked entity instance query</title>
     <para>To query for tracked entity instances you can interact with the <emphasis role="italic">/api/trackedEntityInstances</emphasis>
       resource. This resource supports JSON, JSONP, XLS and CSV resource representations.</para>
     <table frame="all">
@@ -4166,23 +4166,24 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>Note that you can specify attributes with filters for constraining the instances to
       return, or attributes without filters in order to include the attribute in the response
       without any constraints. Attributes will be included in the response, while filters will only
-      be used as criteria. The following rules apply to the query parameters.</para>
+      be used as criteria. </para>
+    <para>If specifying a query with no attributes or program, the attributes defined to be
+      displayed in lists with no program will be included in the response. The following rules apply
+      to the query parameters.</para>
     <itemizedlist>
       <listitem>
         <para>At least one organisation unit must be specified using the <emphasis role="italic"
             >ou</emphasis> parameter (one or many).</para>
       </listitem>
       <listitem>
-        <para>At least one of <emphasis role="italic">query</emphasis> and <emphasis role="italic"
-            >attribute</emphasis> parameters must be specified (one or both).</para>
-      </listitem>
-      <listitem>
         <para>Only one of the <emphasis role="italic">program</emphasis> and <emphasis role="italic"
             >trackedEntity</emphasis> parameters can be specified (zero or one).</para>
       </listitem>
     </itemizedlist>
-    <para>A query in its simplest form which will return all attributes in the response looks like
+    <para>A query for all instances associated with a specific organisation unit can look like
       this:</para>
+    <screen>api/trackedEntityInstances.json?ou=DiszpKrYNg8</screen>
+    <para>A query on all attributes for a specific value and organisation unit:</para>
     <screen>api/trackedEntityInstances.json?query=wakiki&amp;ou=DiszpKrYNg8</screen>
     <para>A query where the attributes to include in th response are specified looks like
       this:</para>
