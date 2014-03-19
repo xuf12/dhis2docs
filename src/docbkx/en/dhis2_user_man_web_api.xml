@@ -4186,7 +4186,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <screen>api/trackedEntityInstances.json?query=wakiki&amp;ou=DiszpKrYNg8</screen>
     <para>A query where the attributes to include in th response are specified looks like
       this:</para>
-    <screen>api/trackedEntityInstances.json?query=wakiki&amp;attribute=dv3nChNSIxy&amp;attribute=AMpUYgxuCaE</screen>
+    <screen>api/trackedEntityInstances.json?query=wakiki&amp;attribute=dv3nChNSIxy&amp;attribute=AMpUYgxuCaE&amp;ou=DiszpKrYNg8</screen>
     <para>To query for instances using one attribute with a filter and one attribute without a
       filter, with one organisation unit using the descendants organisation unit query mode, you can
       issue a query like this:</para>
