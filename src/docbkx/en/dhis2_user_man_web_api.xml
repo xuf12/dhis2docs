@@ -4094,7 +4094,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
   <section>
     <title>Tracked entity instance query</title>
     <para>To query for tracked entity instances you can interact with the <emphasis role="italic">/api/trackedEntityInstances</emphasis>
-      resource. This resource supports JSON, JSONP, XLS and CSV resource representations.</para>
+      resource.</para>
+    <section>
+    <title>Request syntax</title>
     <table frame="all">
       <title>Tracked entity instances query parameters</title>
       <tgroup cols="2">
@@ -4252,6 +4254,72 @@ ORDER BY oul.level, par.name, ou.name</screen>
         </tbody>
       </tgroup>
     </table>
+    </section>
+    <section>
+    <title>Response format</title>
+      <para>This resource supports JSON, JSONP, XLS and CSV resource representations.</para>
+      <itemizedlist>
+        <listitem>
+          <para>json (application/json)</para>
+        </listitem>
+        <listitem>
+          <para>jsonp (application/javascript)</para>
+        </listitem>
+        <listitem>
+          <para>csv (application/csv)</para>
+        </listitem>
+        <listitem>
+          <para>xls (application/vnd.ms-excel)</para>
+        </listitem>
+      </itemizedlist>
+      <para>The response in JSON comes is in a tabular format and can look like the following. The
+          <emphasis role="italic">headers</emphasis> section describes the content of each column.
+        The instance, created, last updated, org unit and tracked entity columns are always present.
+        The following columns correspond to attributes specified in the query. The <emphasis
+          role="italic">rows</emphasis> section contains one row per instance.</para>
+      <screen>{
+    "headers": [{
+        "name": "instance",
+        "column": "Instance",
+        "type": "java.lang.String"
+    }, {
+        "name": "created",
+        "column": "Created",
+        "type": "java.lang.String"
+    }, {
+        "name": "lastupdated",
+        "column": "Last updated",
+        "type": "java.lang.String"
+    }, {
+        "name": "ou",
+        "column": "Org unit",
+        "type": "java.lang.String"
+    }, {
+        "name": "te",
+        "column": "Tracked entity",
+        "type": "java.lang.String"
+    }, {
+        "name": "zHXD5Ve1Efw",
+        "column": "Date of birth type",
+        "type": "java.lang.String"
+    }, {
+        "name": "AMpUYgxuCaE",
+        "column": "Address",
+        "type": "java.lang.String"
+    }],
+    "width": 7,
+    "height": 7,
+    "rows": [
+        ["yNCtJ6vhRJu", "2013-09-08 21:40:28.0", "2014-01-09 19:39:32.19", "DiszpKrYNg8", "cyl5vuJ5ETQ", "A", "21 Kenyatta Road"],
+        ["fSofnQR6lAU", "2013-09-08 21:40:28.0", "2014-01-09 19:40:19.62", "DiszpKrYNg8", "cyl5vuJ5ETQ", "A", "56 Upper Road"],
+        ["X5wZwS5lgm2", "2013-09-08 21:40:28.0", "2014-01-09 19:40:31.11", "DiszpKrYNg8", "cyl5vuJ5ETQ", "A", "56 Main Road"],
+        ["pCbogmlIXga", "2013-09-08 21:40:28.0", "2014-01-09 19:40:45.02", "DiszpKrYNg8", "cyl5vuJ5ETQ", "A", "12 Lower Main Road"],
+        ["WnUXrY4XBMM", "2013-09-08 21:40:28.0", "2014-01-09 19:41:06.97", "DiszpKrYNg8", "cyl5vuJ5ETQ", "A", "13 Main Road"],
+        ["xLNXbDs9uDF", "2013-09-08 21:40:28.0", "2014-01-09 19:42:25.66", "DiszpKrYNg8", "cyl5vuJ5ETQ", "A", "14 Mombasa Road"],
+        ["foc5zag6gbE", "2013-09-08 21:40:28.0", "2014-01-09 19:42:36.93", "DiszpKrYNg8", "cyl5vuJ5ETQ", "A", "15 Upper Hill"]
+    ]
+}</screen>
+    </section>
   </section>
   <section>
     <title>FRED API</title>
