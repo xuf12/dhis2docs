@@ -3317,21 +3317,21 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>For example, to retrieve events from the "Inpatient morbidity and mortality" program
         between January and October 2012, where the "Gender" and "Age" data elements are included
         and the "Age" dimension is filtered on "18", you can use the following query:</para>
-    <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:O6uvpzGd5pu;fdc6uOvgoji&amp;dimension=oZg33kd9taw&amp;dimension=qrur9Dvnyt5:EQ:18</screen>
+    <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2014-01-01&amp;endDate=2014-10-31&amp;dimension=ou:O6uvpzGd5pu;fdc6uOvgoji&amp;dimension=oZg33kd9taw&amp;dimension=qrur9Dvnyt5:EQ:18</screen>
     <para>To retrieve events for the "Birth" program stage of the "Child programme" program between
         March and December 2012, where the "Weight" data element, filtered for values larger than
         2000:</para>
-    <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2012-03-01&amp;endDate=2012-12-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=UXz7xuGCEhU:GT:2000</screen>
+    <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2014-03-01&amp;endDate=2014-12-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=UXz7xuGCEhU:GT:2000</screen>
       <para>Sorting can be applied to the query for the event date of the event and any dimensions.
         To sort descending on the event date and ascending on the "Age" data element dimension you
         can use:</para>
-      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=qrur9Dvnyt5&amp;desc=EVENTDATE&amp;asc=qrur9Dvnyt5</screen>
+      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2014-01-01&amp;endDate=2014-10-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=qrur9Dvnyt5&amp;desc=EVENTDATE&amp;asc=qrur9Dvnyt5</screen>
       <para>Paging can be applied to the query by specifying the page number and the page size
         parameters. If page number is specified but page size is not, a page size of 50 will be
         used. If page size is specified but page number is not, a page number of 1 will be used. To
         get the third page of the response with a page size of 20 you can use a query like
         this:</para>
-      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=qrur9Dvnyt5&amp;page=3&amp;pageSize=20</screen>
+      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2014-01-01&amp;endDate=2014-10-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=qrur9Dvnyt5&amp;page=3&amp;pageSize=20</screen>
     <section>
       <title>Filtering</title>
       <para>Filters can be applied to data elements, person attributes and person identifiers. The
@@ -3409,10 +3409,10 @@ ORDER BY oul.level, par.name, ou.name</screen>
       </itemizedlist>
       <para>As an example, to get a response in Excel format you can use a file extension in the
         request URL like this:</para>
-      <screen>api/analytics/events/query/eBAyeGv0exc.xls?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=oZg33kd9taw&amp;dimension=qrur9Dvnyt5</screen>
+      <screen>api/analytics/events/query/eBAyeGv0exc.xls?startDate=2014-01-01&amp;endDate=2014-10-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=oZg33kd9taw&amp;dimension=qrur9Dvnyt5</screen>
       <para>You can set the hierarchyMeta query parameter to true in order to include names of all
           ancestor organisation units in the meta-section of the response:</para>
-        <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:YuQRtpLP10I&amp;dimension=oZg33kd9taw&amp;dimension=qrur9Dvnyt5:EQ:50&amp;hierarchyMeta=true</screen>
+        <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2014-01-01&amp;endDate=2014-10-31&amp;dimension=ou:YuQRtpLP10I&amp;dimension=oZg33kd9taw&amp;dimension=qrur9Dvnyt5:EQ:50&amp;hierarchyMeta=true</screen>
         <para>The default response JSON format will look similar to this:</para>
       <screen>{
     "headers": [
@@ -3535,22 +3535,22 @@ ORDER BY oul.level, par.name, ou.name</screen>
         mortality" program between January and October 2012, where the "Gender" and "Age" data
         elements are included, the "Age" dimension item is filtered on "18" and the "Gender" item is
         filtered on "Female", you can use the following query:</para>
-    <screen>api/analytics/events/aggregate/eBAyeGv0exc?startDate=2012-01-01&amp;endDate=2012-10-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=oZg33kd9taw:EQ:Female&amp;dimension=qrur9Dvnyt5:GT:50</screen>
+    <screen>api/analytics/events/aggregate/eBAyeGv0exc?startDate=2014-01-01&amp;endDate=2014-10-31&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=oZg33kd9taw:EQ:Female&amp;dimension=qrur9Dvnyt5:GT:50</screen>
       <para>To retrieve data for fixed and relative periods instead of start and end date, in this
         case May 2012 and last 12 months, and the organisation unit associated with the current
         user, you can use the following query:</para>
-      <screen>api/analytics/events/aggregate/eBAyeGv0exc?dimension=pe:201205;LAST_12_MONTHS&amp;dimension=ou:USER_ORGUNIT;fdc6uOvgo7ji&amp;dimension=oZg33kd9taw</screen>
+      <screen>api/analytics/events/aggregate/eBAyeGv0exc?dimension=pe:201405;LAST_12_MONTHS&amp;dimension=ou:USER_ORGUNIT;fdc6uOvgo7ji&amp;dimension=oZg33kd9taw</screen>
       <para>In order to specify "Female" as a filter for "Gender" for the data response, meaning
         "Gender" will not be part of the response but will filter the aggregate numbers in it, you
         can use the following syntax:</para>
-      <screen>api/analytics/events/aggregate/eBAyeGv0exc?dimension=pe:2012;&amp;dimension=ou:O6uvpzGd5pu&amp;filter=oZg33kd9taw:EQ:Female</screen>
+      <screen>api/analytics/events/aggregate/eBAyeGv0exc?dimension=pe:2014;&amp;dimension=ou:O6uvpzGd5pu&amp;filter=oZg33kd9taw:EQ:Female</screen>
       <para>To specify the "Bo" organisation unit and the period "2012" as filters, and the "Mode of
         discharge" and Gender" as dimensions, where "Gender" is filtered on the "Male" item, you can
         use a query like this:</para>
-      <screen>api/analytics/events/aggregate/eBAyeGv0exc?filter=pe:2012&amp;filter=ou:O6uvpzGd5pu&amp;dimension=fWIAEtYVEGk&amp;dimension=oZg33kd9taw:EQ:Male</screen>
+      <screen>api/analytics/events/aggregate/eBAyeGv0exc?filter=pe:2014&amp;filter=ou:O6uvpzGd5pu&amp;dimension=fWIAEtYVEGk&amp;dimension=oZg33kd9taw:EQ:Male</screen>
       <para>To create a "Top 3 report" for "Mode of discharge" you can use the limit and sortOrder
         query parameters similar to this:</para>
-      <screen>api/analytics/events/aggregate/eBAyeGv0exc?filter=pe:2012&amp;filter=ou:O6uvpzGd5pu&amp;dimension=fWIAEtYVEGk&amp;limit=3&amp;sortOrder=DESC</screen>
+      <screen>api/analytics/events/aggregate/eBAyeGv0exc?filter=pe:2014&amp;filter=ou:O6uvpzGd5pu&amp;dimension=fWIAEtYVEGk&amp;limit=3&amp;sortOrder=DESC</screen>
     <section>
 	<title>Response formats</title>
     <para>The default response representation format is JSON. The requests must be using the HTTP
