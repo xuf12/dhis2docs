@@ -3285,7 +3285,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
             <row>
               <entry>limit</entry>
               <entry>No</entry>
-              <entry>The maximum number of records to return</entry>
+              <entry>The maximum number of records to return. Cannot be larger than 10 000.</entry>
               <entry>Numeric positive value</entry>
             </row>
             <row>
@@ -3641,6 +3641,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
         ],
     ]
 }</screen>
+        <para>Note that the max limit for rows to return in a single response is 10 000. If the
+          query produces more than the max limit, a <emphasis role="italic">409 Conflict</emphasis>
+          status code will be returned.</para>
   </section>
   </section>
   </section>
