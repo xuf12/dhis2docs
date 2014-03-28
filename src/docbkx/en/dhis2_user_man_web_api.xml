@@ -896,25 +896,37 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
               <entry>program</entry>
               <entry>identifier</entry>
               <entry>true (unless programStage is provided)</entry>
-              <entry>Identifier of wanted program.</entry>
+              <entry>Identifier of program.</entry>
             </row>
             <row>
               <entry>programStage</entry>
               <entry>identifier</entry>
               <entry>false</entry>
-              <entry>Identifier of wanted program stage</entry>
+              <entry>Identifier of program stage</entry>
             </row>
+              <row>
+                <entry>trackedEntityInstance</entry>
+                <entry>identifier</entry>
+                <entry>false</entry>
+                <entry>Identifier of tracked entity instance</entry>
+              </row>
             <row>
               <entry>orgUnit</entry>
               <entry>identifier</entry>
               <entry>true</entry>
-              <entry>Identifier of wanted organisation unit</entry>
+              <entry>Identifier of organisation unit</entry>
             </row>
+              <row>
+                <entry>ouMode</entry>
+                <entry>enum</entry>
+                <entry>false</entry>
+                <entry>Can be SELECTED | CHILDREN | DESCENDANTS </entry>
+              </row>
             <row>
               <entry>person</entry>
               <entry>identifier</entry>
               <entry>false</entry>
-              <entry>Identifier of wanted person</entry>
+              <entry>Identifier of  person</entry>
             </row>
             <row>
               <entry>startDate</entry>
@@ -928,36 +940,28 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
               <entry>false</entry>
               <entry>Only events older than this date</entry>
             </row>
-            <row>
-              <entry>includeChildren</entry>
-              <entry>boolean</entry>
-              <entry>false</entry>
-              <entry>Include direct children of orgUnit</entry>
-            </row>
-            <row>
-              <entry>includeDescendants</entry>
-              <entry>boolean</entry>
-              <entry>false</entry>
-              <entry>Include all descendants of orgUnit</entry>
-            </row>
           </tbody>
         </tgroup>
       </table>
     </para>
     <section>
       <title>Examples</title>
-      <para>Query for all events with a certain orgUnit + children:
-        <screen>/api/events?orgUnit=ID&amp;includeChildren=true</screen></para>
-      <para>Query for all events with a certain orgUnit + descendants:
-        <screen>/api/events?orgUnit=ID&amp;includeDescendants=true</screen></para>
-      <para>Query for all events with a certain program/orgUnit:
-        <screen>/api/events?program=ID&amp;orgUnit=ID</screen></para>
-      <para>Query for all events with a certain program/orgUnit for a specific person:
-        <screen>/api/events?program=ID&amp;orgUnit=ID&amp;person=ID</screen></para>
-      <para>Query for all events with a certain program/orgUnit older or equal to 2012-02-03:
-        <screen>/api/events?program=ID&amp;orgUnit=ID&amp;endDate=2012-02-03</screen></para>
-      <para>Query for all events with a certain programStage/orgUnit/person in the year 2012:
-        <screen>/api/events?program=ID&amp;orgUnit=ID&amp;person=ID&amp;startDate=2012-01-01&amp;endDate=2012-12-31</screen></para>
+      <para>Query for all events with children of a certain organisation unit:
+          <screen>/api/events?orgUnit=YuQRtpLP10I&amp;ouMode=CHILDREN</screen></para>
+      <para>Query for all events with all descendants of a certain organisation unit, implying all
+          organisation units in the
+          sub-hierarchy:<screen>/api/events?orgUnit=O6uvpzGd5pu&amp;ouMode=DESCENDANTS</screen></para>
+      <para>Query for all events with a certain program and organisation unit:
+          <screen>/api/events?orgUnit=DiszpKrYNg8&amp;program=eBAyeGv0exc</screen></para>
+      <para>Query for all events with a certain program and organisation unit for a specific tracked
+          entity instance:
+          <screen>/api/events?orgUnit=DiszpKrYNg8&amp;program=eBAyeGv0exc&amp;trackedEntityInstance=ID</screen></para>
+      <para>Query for all events with a certain program and organisation unit older or equal to
+          2014-02-03:
+          <screen>/api/events?orgUnit=DiszpKrYNg8&amp;program=eBAyeGv0exc&amp;endDate=2014-02-03</screen></para>
+      <para>Query for all events with a certain program stage, organisation unit and tracked entity
+          instance in the year 2014:
+          <screen>/api/events?orgUnit=DiszpKrYNg8&amp;program=eBAyeGv0exc&amp;trackedEntityInstance=ID&amp;startDate=2014-01-01&amp;endDate=2014-12-31</screen></para>
     </section>
   </section>
   </section>
