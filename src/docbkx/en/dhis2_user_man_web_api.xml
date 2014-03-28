@@ -4069,6 +4069,11 @@ ORDER BY oul.level, par.name, ou.name</screen>
             <entry>Program identifier. Restricts instances to being enrolled in the given
               program.</entry>
           </row>
+            <row>
+              <entry>programStatus</entry>
+              <entry>Status of the instance for the given program. Can be ACTIVE | COMPLETED |
+                CANCELLED.</entry>
+            </row>
           <row>
             <entry>trackedEntity</entry>
             <entry>Tracked entity identifer. Restricts instances to the given tracked instance
@@ -4098,9 +4103,14 @@ ORDER BY oul.level, par.name, ou.name</screen>
             >ou</emphasis> parameter (one or many).</para>
       </listitem>
       <listitem>
-        <para>Only one of the <emphasis role="italic">program</emphasis> and <emphasis role="italic"
-            >trackedEntity</emphasis> parameters can be specified (zero or one).</para>
-      </listitem>
+          <para>Only one of the <emphasis role="italic">program</emphasis> and <emphasis
+              role="italic">trackedEntity</emphasis> parameters can be specified (zero or
+            one).</para>
+        </listitem>
+        <listitem>
+          <para>If <emphasis role="italic">programStatus</emphasis> is specified then <emphasis
+              role="italic">program</emphasis> must also be specified.</para>
+        </listitem>
     </itemizedlist>
     <para>A query for all instances associated with a specific organisation unit can look like
       this:</para>
@@ -4119,7 +4129,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;filter=AMpUYgxuCaE:LIKE:Road&amp;ou=DiszpKrYNg8</screen>
     <para>To constrain the response to instances which are part of a specific program you can
       include a program query parameter like this:</para>
-    <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;program=uy2gU8kT1jF</screen>
+    <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;program=ur1Edk5Oe2n</screen>
     <para>To constrain the response to instances of a specific tracked entity you can include a
       tracked entity query parameter like this:</para>
     <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;trackedEntity=cyl5vuJ5ETQ</screen>
@@ -4184,6 +4194,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
         </listitem>
         <listitem>
           <para>jsonp (application/javascript)</para>
+        </listitem>
+        <listitem>
+          <para>xml (application/xml)</para>
         </listitem>
         <listitem>
           <para>csv (application/csv)</para>
