@@ -947,21 +947,21 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
     <section>
       <title>Examples</title>
       <para>Query for all events with children of a certain organisation unit:
-          <screen>/api/events?orgUnit=YuQRtpLP10I&amp;ouMode=CHILDREN</screen></para>
+          <screen>api/events.json?orgUnit=YuQRtpLP10I&amp;ouMode=CHILDREN</screen></para>
       <para>Query for all events with all descendants of a certain organisation unit, implying all
           organisation units in the
-          sub-hierarchy:<screen>/api/events?orgUnit=O6uvpzGd5pu&amp;ouMode=DESCENDANTS</screen></para>
+          sub-hierarchy:<screen>api/events.json?orgUnit=O6uvpzGd5pu&amp;ouMode=DESCENDANTS</screen></para>
       <para>Query for all events with a certain program and organisation unit:
-          <screen>/api/events?orgUnit=DiszpKrYNg8&amp;program=eBAyeGv0exc</screen></para>
+          <screen>api/events.json?orgUnit=DiszpKrYNg8&amp;program=eBAyeGv0exc</screen></para>
       <para>Query for all events with a certain program and organisation unit for a specific tracked
           entity instance:
-          <screen>/api/events?orgUnit=DiszpKrYNg8&amp;program=eBAyeGv0exc&amp;trackedEntityInstance=ID</screen></para>
+          <screen>api/events.json?orgUnit=DiszpKrYNg8&amp;program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
       <para>Query for all events with a certain program and organisation unit older or equal to
           2014-02-03:
-          <screen>/api/events?orgUnit=DiszpKrYNg8&amp;program=eBAyeGv0exc&amp;endDate=2014-02-03</screen></para>
+          <screen>api/events.json?orgUnit=DiszpKrYNg8&amp;program=eBAyeGv0exc&amp;endDate=2014-02-03</screen></para>
       <para>Query for all events with a certain program stage, organisation unit and tracked entity
           instance in the year 2014:
-          <screen>/api/events?orgUnit=DiszpKrYNg8&amp;program=eBAyeGv0exc&amp;trackedEntityInstance=ID&amp;startDate=2014-01-01&amp;endDate=2014-12-31</screen></para>
+          <screen>api/events.json?orgUnit=DiszpKrYNg8&amp;program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m&amp;startDate=2014-01-01&amp;endDate=2014-12-31</screen></para>
     </section>
   </section>
   </section>
