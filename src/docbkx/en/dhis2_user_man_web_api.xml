@@ -3300,7 +3300,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
             </row>
             <row>
               <entry>IN</entry>
-              <entry>Equal to one of multiple values separated by ":"</entry>
+              <entry>Equal to one of multiple values separated by ";"</entry>
             </row>
           </tbody>
         </tgroup>
@@ -4129,6 +4129,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>A query for instances where one attribute is included in the response and one attribute us
       used as a filter can look like this:</para>
     <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;filter=AMpUYgxuCaE:LIKE:Road&amp;ou=DiszpKrYNg8</screen>
+      <para>To query on an attribute using multiple values in an IN filter you can do like
+        this:</para>
+      <screen>api/trackedEntityInstances.json?ou=DiszpKrYNg8&amp;attribute=dv3nChNSIxy:IN:Scott;Jimmy;Santiago</screen>
     <para>To constrain the response to instances which are part of a specific program you can
       include a program query parameter like this:</para>
     <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;program=ur1Edk5Oe2n</screen>
@@ -4181,7 +4184,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
           </row>
           <row>
             <entry>IN</entry>
-            <entry>Equal to one of multiple values separated by ":"</entry>
+            <entry>Equal to one of multiple values separated by ";"</entry>
           </row>
         </tbody>
       </tgroup>
