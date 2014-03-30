@@ -4077,6 +4077,10 @@ ORDER BY oul.level, par.name, ou.name</screen>
             <entry>Tracked entity identifer. Restricts instances to the given tracked instance
               type.</entry>
           </row>
+            <row>
+              <entry>skipMeta</entry>
+              <entry>Indicates whether meta data for the response should be included.</entry>
+            </row>
           <row>
             <entry>page</entry>
             <entry>The page number. Default page is 1.</entry>
@@ -4238,6 +4242,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
         "column": "Address",
         "type": "java.lang.String"
     }],
+    "metaData": {
+        "cyl5vuJ5ETQ": "Person"
+    },
     "width": 7,
     "height": 7,
     "rows": [
