@@ -783,6 +783,10 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
     <para>(From 2.13) As part of the import summary you will also get the identifier <emphasis
         role="italic">reference</emphasis> to the event you just sent, together with a <emphasis
         role="italic">href</emphasis> element which points to the server location of this event. </para>
+      <para><emphasis role="bold">OrgUnit matching</emphasis>: By default the orgUnit parameter will match on the ID of the orgUnit, but
+        from 2.15 you can also select the orgUnit id matching scheme by using the parameter orgUnitIdScheme=SCHEME, where the options are:
+          <emphasis role="italic">UID</emphasis>, <emphasis role="italic">UUID</emphasis>, <emphasis role="italic">CODE</emphasis>, and
+          <emphasis role="italic">NAME</emphasis>.</para>
     <para><emphasis role="bold">Update</emphasis>: To update an existing event, the format of the
       payload is the same, but the URL you are posting to must add the identifier to the end of the
       URL string and the request must be PUT.
