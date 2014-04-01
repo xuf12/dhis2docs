@@ -675,7 +675,7 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
     <title>Events</title>
     <para>This section is about sending and reading events.</para>
   <section>
-    <title>Sending event data values</title>
+    <title>Sending events</title>
     <para>DHIS 2 supports three kinds of events: single events with no registration (also referred to as anonymous events), single event
         with registration and multiple events with registration. Registration implies that the data is linked to a tracked entity instance
         which is identified using some sort of identifier.</para>
@@ -878,7 +878,7 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
     </para>
   </section>
   <section>
-    <title>Reading event data values</title>
+    <title>Querying and reading events</title>
     <para>This section explains how to read out the events that have been stored in the DHIS2 instance. For more advanced uses of the event
       data, please see the section on event analytics. The output format from the <emphasis role="italic">/api/events</emphasis> endpoint
       will match the format that is used to send events to it (which the analytics event api does not support). Both XML and JSON are
