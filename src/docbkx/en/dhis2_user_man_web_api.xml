@@ -194,13 +194,9 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para>An example of how these parameters can be used to get a full list of data element groups
       in XML response format is:</para>
     <screen>/api/dataElementGroups.xml?viewClass=detailed&amp;links=false&amp;paging=false</screen>
-    <para>You can query for elements on the name property instead of returning full list of elements
-      using the <emphasis role="italic">query</emphasis> path variable. In this example we query for
-      all data elements with the word "anaemia" in the name:</para>
-    <screen>/api/dataElements/query/anaemia</screen>
-    <para>You can search for elements through the id, name and code property using the <emphasis role="italic">search</emphasis> path variable. In this example we search for a data element
-      with the word "DE_34" as id, name or
-      code:<screen>/api/dataElements/search/DE_34</screen></para>
+    <para>You can query for elements on the name property instead of returning full list of elements using the <emphasis role="italic"
+        >query</emphasis> query variable. In this example we query for all data elements with the word "anaemia" in the name:</para>
+    <screen>/api/dataElements?query=anaemia</screen>
   </section>
   <section>
     <title>Working with the meta-data API</title>
