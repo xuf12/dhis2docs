@@ -4269,6 +4269,15 @@ ORDER BY oul.level, par.name, ou.name</screen>
     </section>
   </section>
   <section>
+    <title>Schema Resource</title>
+    <para>A new resource was included in DHIS 2.15 which can be used to introspect all available DXF2 classes, this resource can be found on
+        <emphasis role="italic">/api/schemas</emphasis> and for a specific resource, you can have a look at <emphasis role="italic"
+        >/api/schemas/TYPE</emphasis>.</para>
+    <para>Example 1: Get all available schemas in XML:<screen>GET /api/schemas.xml</screen></para>
+    <para>Example 2: Get all available schemas in JSON:<screen>GET /api/schemas.json</screen></para>
+    <para>Example 3: Get JSON schema for a specific class:<screen>GET /api/schemas/dataElement.json</screen></para>
+  </section>
+  <section>
     <title>FRED API</title>
     <para>DHIS 2 from version 2.11 implements support for the current draft
       of the FRED API version 1.0. The project defines itself as <quote>open standard for sharing and updating
