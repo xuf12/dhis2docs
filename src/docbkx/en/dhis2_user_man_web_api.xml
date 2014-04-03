@@ -447,14 +447,30 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       </table></para>
     <para>Different operators will be taken as <emphasis role="bold">and</emphasis>, and multiple of the same will be taken as <emphasis
         role="bold">or</emphasis>, the filtering mechanism also allows for recursion (please see below for an example).</para>
-    <para><emphasis role="bold">Example 1</emphasis>: Get dataElements with UID1 and
-      UID2<screen>/api/dataElements?filter=id:eq:UID1&amp;filter=id:eq:UID2</screen></para>
+    <para><emphasis role="bold">Example 1</emphasis>: Get dataElements with ID1 and
+      ID2<screen>/api/dataElements?filter=id:eq:ID1&amp;filter=id:eq:ID2</screen></para>
     <para><emphasis role="bold">Example 2</emphasis>: Get all dataElements which has the dataSet with id
-      UID1<screen>/api/dataElements?filter=dataSets.id:eq:UID1</screen></para>
+      ID1<screen>/api/dataElements?filter=dataSets.id:eq:ID1</screen></para>
   </section>
   <section>
-    <title>Meta-data inclusion/exclusion</title>
-    <para></para>
+    <title>Meta-data property inclusion/exclusion</title>
+    <para>Sometimes the default views of the meta-data can be a bit much, and it doesn't make sense to include everything if all you need is
+      the id and name. For a long time, we have now had <emphasis role="italic">viewClass</emphasis> (<emphasis role="bold">basic</emphasis>
+      | <emphasis role="bold">detailed</emphasis> | <emphasis role="bold">export</emphasis>) which allowed to hide some of the properties.
+      When this is not enough, we now include a more sophisticated system for including and excluding properties (to see what properties are
+      available, please see the <emphasis role="italic">schema</emphasis> section).</para>
+    <para>The format for include/exclude is very simple, and allows for infinite recursion, to filter at the "root" level, you can just use
+      the name of the property, i.e. <emphasis role="italic">?include=id,name</emphasis> which would only display the <emphasis
+        role="italic">id</emphasis> and <emphasis role="italic">name</emphasis> for every object. For object that are either collections, or
+      is a complex object which have properties on their own, you can use the format <emphasis role="italic"
+        >?include=id,name,dataSets[id,name]</emphasis> which would return <emphasis role="italic">id</emphasis>, <emphasis role="italic"
+        >name</emphasis> of the root, and the <emphasis role="italic">id</emphasis> and <emphasis role="italic">name</emphasis> of every
+      dataSet on that object.</para>
+    <para><emphasis role="bold">Example 1</emphasis>: Get <emphasis role="italic">id</emphasis> and <emphasis role="italic">name</emphasis>
+      on the indicators resource<screen>/api/indicators?include=id,name</screen></para>
+    <para><emphasis role="bold">Example 2</emphasis>: Get <emphasis role="italic">id</emphasis>, <emphasis role="italic">name</emphasis>
+      from dataElements, and also <emphasis role="italic">id</emphasis> and <emphasis role="italic">name</emphasis> from the dataSets on
+      dataElements<screen>/api/dataElements?include=id,name,dataSets[id,name]</screen></para>
   </section>  <section>
     <title>Data values</title>
     <para>This section is about sending and reading data values.</para>
