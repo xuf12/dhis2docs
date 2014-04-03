@@ -369,6 +369,93 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
   </section>
   </section>
   <section>
+    <title>Meta-data filtering</title>
+    <para>To furhter filter the meta-data, we are now (in 2.15) providing several filter operations that can be applied to the returned
+      meta-data list. The format of the filter itself is very easy, and follows the pattern <emphasis role="italic"
+        >property:operator:value</emphasis>, where <emphasis role="italic">property</emphasis> is which property on the meta-data you want
+      to filter on (please see the <emphasis role="italic">schema</emphasis> section to find out what properties are available), <emphasis
+        role="italic">operator</emphasis> is the comparison action you want to perform, and <emphasis role="italic">value</emphasis> is the
+      value to check against (not all operators require value).
+      <table>
+        <title>Available Operators</title>
+        <tgroup cols="5">
+          <thead>
+            <row>
+              <entry>Operator</entry>
+              <entry>Types</entry>
+              <entry>Value required</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>eq</entry>
+              <entry> string | boolean | integer | float | collection (checks for size) | date </entry>
+              <entry>true</entry>
+              <entry>Equality</entry>
+            </row>
+            <row>
+              <entry>neq</entry>
+              <entry> string | boolean | integer | float | collection (checks for size) | date </entry>
+              <entry>true</entry>
+              <entry>Inequality</entry>
+            </row>
+            <row>
+              <entry>like</entry>
+              <entry> string</entry>
+              <entry>true</entry>
+              <entry>Case insensitive string matching</entry>
+            </row>
+            <row>
+              <entry>gt</entry>
+              <entry> string | boolean | integer | float | collection (checks for size) | date </entry>
+              <entry>true</entry>
+              <entry>Greater than</entry>
+            </row>
+            <row>
+              <entry>gte</entry>
+              <entry> string | boolean | integer | float | collection (checks for size) | date </entry>
+              <entry>true</entry>
+              <entry>Greater than or equal</entry>
+            </row>
+            <row>
+              <entry>lt</entry>
+              <entry> string | boolean | integer | float | collection (checks for size) | date </entry>
+              <entry>true</entry>
+              <entry>Less than</entry>
+            </row>
+            <row>
+              <entry>lte</entry>
+              <entry> string | boolean | integer | float | collection (checks for size) | date </entry>
+              <entry>true</entry>
+              <entry>Less than or equal</entry>
+            </row>
+            <row>
+              <entry>null</entry>
+              <entry> all</entry>
+              <entry>false</entry>
+              <entry>Property is null</entry>
+            </row>
+            <row>
+              <entry>empty</entry>
+              <entry> collection</entry>
+              <entry>false</entry>
+              <entry>Collection is empty</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table></para>
+    <para>Different operators will be taken as <emphasis role="bold">and</emphasis>, and multiple of the same will be taken as <emphasis
+        role="bold">or</emphasis>, the filtering mechanism also allows for recursion (please see below for an example).</para>
+    <para><emphasis role="bold">Example 1</emphasis>: Get dataElements with UID1 and
+      UID2<screen>/api/dataElements?filter=id:eq:UID1&amp;filter=id:eq:UID2</screen></para>
+    <para><emphasis role="bold">Example 2</emphasis>: Get all dataElements which has the dataSet with id
+      UID1<screen>/api/dataElements?filter=dataSets.id:eq:UID1</screen></para>
+  </section>
+  <section>
+    <title>Meta-data inclusion/exclusion</title>
+    <para></para>
+  </section>  <section>
     <title>Data values</title>
     <para>This section is about sending and reading data values.</para>
   <section>
