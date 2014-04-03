@@ -104,13 +104,20 @@
       <title>Email settings</title>
       <itemizedlist>
         <listitem>
-          <para>Host name: Refers to the host name of the SMTP server. For instance when using Google SMTP services this should be smtp.gmail.com.</para>
+          <para>Host name: Refers to the host name of the SMTP server. For instance when using
+            Google SMTP services this should be smtp.gmail.com.</para>
+        </listitem>
+        <listitem>
+          <para>Port: The port to connect to the SMTP server.</para>
         </listitem>
         <listitem>
           <para>User name: The user name of the user account with the SMTP server. For instance mail@dhis2.org.</para>
         </listitem>
         <listitem>
           <para>Password: The password of the user account with the SMTP server.</para>
+        </listitem>
+        <listitem>
+          <para>TLS: Refers to whether the SMPT server requires TLS for connections.</para>
         </listitem>
       </itemizedlist>
     </section>
