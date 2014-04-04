@@ -1011,8 +1011,14 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
                 <entry>programStatus</entry>
                 <entry>enum</entry>
                 <entry>false</entry>
-                <entry>Status of event in the given program, ca be ACTIVE | COMPLETED |
-                  CANCELLED</entry>
+                <entry>Status of event in program, ca be ACTIVE | COMPLETED | CANCELLED</entry>
+              </row>
+              <row>
+                <entry>followUp</entry>
+                <entry>boolean</entry>
+                <entry>false</entry>
+                <entry>Whether event is considered for follow up in program, can be true | false or
+                  omitted.</entry>
               </row>
               <row>
                 <entry>trackedEntityInstance</entry>
