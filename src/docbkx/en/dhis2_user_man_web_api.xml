@@ -1008,6 +1008,13 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
               <entry>Identifier of program stage</entry>
             </row>
               <row>
+                <entry>programStatus</entry>
+                <entry>enum</entry>
+                <entry>false</entry>
+                <entry>Status of event in the given program, ca be ACTIVE | COMPLETED |
+                  CANCELLED</entry>
+              </row>
+              <row>
                 <entry>trackedEntityInstance</entry>
                 <entry>identifier</entry>
                 <entry>false</entry>
@@ -1041,8 +1048,8 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
                 <entry>status</entry>
                 <entry>enum</entry>
                 <entry>false</entry>
-                <entry>Status of event in program, can be ACTIVE | COMPLETED | VISITED |
-                  FUTURE_VISIT | LATE_VISIT | SKIPPED</entry>
+                <entry>Status of event, can be ACTIVE | COMPLETED | VISITED | FUTURE_VISIT |
+                  LATE_VISIT | SKIPPED</entry>
               </row>
           </tbody>
         </tgroup>
