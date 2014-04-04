@@ -998,7 +998,7 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
             <row>
               <entry>program</entry>
               <entry>identifier</entry>
-              <entry>true (unless programStage is provided)</entry>
+              <entry>true (if not programStage is provided)</entry>
               <entry>Identifier of program.</entry>
             </row>
             <row>
@@ -1023,7 +1023,7 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
                 <entry>ouMode</entry>
                 <entry>enum</entry>
                 <entry>false</entry>
-                <entry>Can be SELECTED | CHILDREN | DESCENDANTS </entry>
+                <entry>Org unit selection mode, can be SELECTED | CHILDREN | DESCENDANTS </entry>
               </row>
             <row>
               <entry>startDate</entry>
@@ -1037,6 +1037,13 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
               <entry>false</entry>
               <entry>Only events older than this date</entry>
             </row>
+              <row>
+                <entry>status</entry>
+                <entry>enum</entry>
+                <entry>false</entry>
+                <entry>Status of event in program, can be ACTIVE | COMPLETED | VISITED |
+                  FUTURE_VISIT | LATE_VISIT | SKIPPED</entry>
+              </row>
           </tbody>
         </tgroup>
       </table>
