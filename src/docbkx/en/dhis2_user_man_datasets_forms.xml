@@ -30,6 +30,9 @@
           number of days has expired, the data set will be locked for further entry. You can set
           manual exceptions to this using the lock exception functionality in data administration
           module.</para>
+        <note>
+          <para>If the number of expiry days is set to zero, this will  allow data entry into all possible historical time periods. </para>
+        </note>
       </listitem>
       <listitem>
         <para>Complete notification recipients: Sets which users should receive a message with a
@@ -85,55 +88,57 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata align="center" fileref="resources/images/datasets/datasets_0.png"
-            />
+            <imagedata align="center" fileref="resources/images/datasets/datasets_0.png" width="80%"/>
           </imageobject>
         </mediaobject>
       </screenshot>
       <itemizedlist>
-        <para>Each of the functions is described below.</para>
+        <para>Click on the name of the dataset you would like to alter, and a context menu will be displayed. Each of the available functions are described below. </para>
         <listitem>
           <para>Sort: This controls the custom sort order. Depending on the systems settings, users
             will see the data sets ordered in the specific order which you provide. </para>
         </listitem>
         <listitem>
           <para>Add new: Adds a new data set. When pressing this button, you can create a new data
-            set. You need to provide a name, shortname and frequency. The &quot;Code&quot; attribute
+            set. You need to provide a name, short name and frequency. The &quot;Code&quot; attribute
             is optional. Data elements can be added to the &quot;Selected data element&quot; list by
-            selecting them individually. and pressing the <inlinegraphic
-              fileref="resources/images/dhis2_images/move_right.png"/> button. Indicators can also
+            selecting them individually. and pressing the <inlinegraphic fileref="resources/images/dhis2_images/move_right.png"/> button. Indicators can also
             be added to data sets and will be available to be placed in custom data entry forms when
             they need to be shown along with data elements on the same data entry form. Press
             &quot;Save&quot; to add the new data set. </para>
         </listitem>
         <listitem>
-          <para><inlinegraphic fileref="resources/images/dhis2_images/assign.png"/> Assign
+          <para> Assign
             organisation units to data sets: This function will allow you to assign individual
             organisational units to a data set. Only organisational units which have been assigned
             to a data set will be allowed to enter data into the data set. </para>
         </listitem>
         <listitem>
-          <para><inlinegraphic fileref="resources/images/dhis2_images/edit.png"/> Edit data set:
+          <para>Sharing settings: Assign different rights to the dataset based on user groups and user roles.</para>
+        </listitem>
+        <listitem>
+          <para> Edit data set:
             This will allow you to edit existing data sets, for instance when you need to add or
             remove data elements and indicators to a given data set.</para>
         </listitem>
         <listitem>
-          <para><inlinegraphic fileref="resources/images/dhis2_images/i18n.png"/> Translate: Allows
+          <para> Translate: Allows
             you to translate the name of a data set to a different language.</para>
         </listitem>
         <listitem>
-          <para><inlinegraphic fileref="resources/images/dhis2_images/edit_layout.png"/> Create or
-            edit a custom data entry form. Refer to the section on custom data entry forms for
+          <para> Design data entry form. Refer to the section on custom data entry forms for
             detailed information of how to use this function. </para>
         </listitem>
         <listitem>
-          <para><inlinegraphic
-              fileref="resources/images/dhis2_images/edit_compulsory_data_elements.png"/> Edit
+          <para>Get PDF for Data Entry: Download a PDF file which can be used for offline data entry.</para>
+        </listitem>
+        <listitem>
+          <para> Edit
             compulsory data elements: This dialog will allow you to add or remove data elements
             which will be marked as compulsory during data entry. </para>
         </listitem>
         <listitem>
-          <para><inlinegraphic fileref="resources/images/dhis2_images/delete.png"/> Delete:
+          <para> Delete:
             Completely removes a data set from the system. </para>
           <warning>
             <para>Any data set which is deleted from the system is irrevocably lost. All data entry
@@ -143,8 +148,8 @@
           </warning>
         </listitem>
         <listitem>
-          <para><inlinegraphic fileref="resources/images/dhis2_images/information.png"/>
-            Information: Display some informative information about the data set, including the
+          <para>
+Show details: Display some informative information about the data set, including the
             number of data elements, the frequency, and which data entry form has been assigned to
             the data set.</para>
         </listitem>
@@ -158,9 +163,9 @@
         information which is common to an entire form.</para>
       <para>To set up categories for data set, start by creating category options, categories and
         category combinations like described in the data element chapter. Make sure that you set the
-        type of categories and category combinations to "Attribute". To assign a category
+        type of categories and category combinations to &quot;Attribute&quot;. To assign a category
         combination to a data set, you can select it while creating or updating the data set from
-        the "Combination of categories" drop-down box.</para>
+        the &quot;Combination of categories&quot; drop-down box.</para>
       <para>When a data set is linked to a category combination, those categories will be displayed
         as drop-down boxes in the data entry module. Data captured in the form will then be linked
         to the selected category options from those drop-down boxes.</para>
@@ -175,8 +180,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata align="center" fileref="resources/images/datasets/dataset-categories.png"
-            />
+            <imagedata align="center" fileref="resources/images/datasets/dataset-categories.png" width="80%"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -233,11 +237,11 @@
             forms will automatically display the section form.</para>
         </listitem>
         <listitem>
-          <para>Certain data elements may need to be disabled for data entry. Clicking on the <inlinegraphic fileref="resources/images/dhis2_images/edit_layout.png"/> &quot;Section grey field management&quot; icon will allow you to disable specific data element category options as seen below. Pressing the &quot;Disable&quot; button will prevent data from being entered into this specific data element/category option during data entry. Be sure to press &quot;Done&quot; to save your changes.</para>
+          <para>Certain data elements may need to be disabled for data entry. Clicking on the  &quot;Section grey field management&quot; menu item will allow you to disable specific data element category options as seen below. Pressing the &quot;Disable&quot; button will prevent data from being entered into this specific data element/category option during data entry. Be sure to press &quot;Done&quot; to save your changes.</para>
           <screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata align="center" fileref="resources/images/datasets/grey_field_management.png"/>
+                <imagedata align="center" fileref="resources/images/datasets/grey_field_management.png" width="80%"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -252,7 +256,7 @@
         <screeninfo>Section form example</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/dhis2UserManual/section_form.png" format="PNG"/>
+            <imagedata fileref="resources/images/dhis2UserManual/section_form.png" format="PNG" align="center" width="80%"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -278,7 +282,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata align="center" fileref="resources/images/datasets/custom_forms_data_elements.png"/>
+            <imagedata align="center" fileref="resources/images/datasets/custom_forms_data_elements.png" width="50%"/>
           </imageobject>
         </mediaobject>
       </screenshot>
