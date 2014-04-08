@@ -4230,8 +4230,10 @@ ORDER BY oul.level, par.name, ou.name</screen>
       without any constraints. Attributes will be included in the response, while filters will only
       be used as criteria. </para>
     <para>If specifying a query with no attributes or program, the attributes defined to be
-      displayed in lists with no program will be included in the response. The following rules apply
-      to the query parameters.</para>
+        displayed in lists with no program will be included in the response. You can specify queries
+        with words separated by space - in that situation the system will query for each word
+        independently and return records where each word is contained in any attribute. The query is
+        case insensitive. The following rules apply to the query parameters.</para>
     <itemizedlist>
       <listitem>
         <para>At least one organisation unit must be specified using the <emphasis role="italic"
@@ -4246,12 +4248,21 @@ ORDER BY oul.level, par.name, ou.name</screen>
           <para>If <emphasis role="italic">programStatus</emphasis> is specified then <emphasis
               role="italic">program</emphasis> must also be specified.</para>
         </listitem>
+        <listitem>
+          <para>Attributes and filters can only be specified once.</para>
+        </listitem>
+        <listitem>
+          <para>An item cannot be specified as attribute and filter.</para>
+        </listitem>
     </itemizedlist>
     <para>A query for all instances associated with a specific organisation unit can look like
       this:</para>
     <screen>api/trackedEntityInstances.json?ou=DiszpKrYNg8</screen>
     <para>A query on all attributes for a specific value and organisation unit:</para>
-    <screen>api/trackedEntityInstances.json?query=wakiki&amp;ou=DiszpKrYNg8</screen>
+    <screen>api/trackedEntityInstances.json?query=scott&amp;ou=DiszpKrYNg8</screen>
+      <para>You can query on multiple words separated by the the URL character for space which is
+        %20:</para>
+      <screen>api/trackedEntityInstances.json?query=isabel%20may&amp;ou=ImspTQPwCqd</screen>
     <para>A query where the attributes to include in th response are specified looks like
       this:</para>
     <screen>api/trackedEntityInstances.json?query=wakiki&amp;attribute=dv3nChNSIxy&amp;attribute=AMpUYgxuCaE&amp;ou=DiszpKrYNg8</screen>
