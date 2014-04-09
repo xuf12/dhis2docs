@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<chapter>
+  <title>Using Event Capture</title>
+  <section>    
+    <title>Overview</title>
+    <para>The event capture module allows users to register events that occurred at a particular
+      time and place. In DHIS2,time and place correspond, respectively, to period and organisation
+      units. However, since events are treated as random occurrences there is no such thing as
+      period for them, rather a date the event has occurred.
+    </para>
+    </section>
+  <section>
+    <title>Program definition</title>    
+    <para>In order to capture events, it is mandatory for users to first define the nature of the
+      event using the Program/Attribute module. Below is a guiding step for this:<orderedlist>
+        <listitem>
+          <para>Go to Programs/Attributes module</para>
+        </listitem>
+        <listitem>
+          <para>Select Program</para>
+        </listitem>
+        <listitem>
+          <para>Click Add new and fill in the necessary details. Under <emphasis role="bold">Program
+              details</emphasis> make sure <emphasis role="bold">Type</emphasis> is <emphasis
+              role="bold"><emphasis role="italic">"Single event without
+              registration"</emphasis></emphasis>. Below is a snapshot to depict this.</para>
+        </listitem>
+      </orderedlist>
+      <screenshot>
+        <screeninfo>Example single event program creation</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resources/images/event_capture/create_program.png" format="JPG"
+              width="70%"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>Once a single event program is created, the system automatically creates a single
+      program stage. The stage can be accessed from the context menu of the program created.
+      Clicking <emphasis role="bold">"Edit"</emphasis> from the context menu of the program stage
+      takes to the detail view of the program stage, similar to the one shown below. 
+      <screenshot>
+        <screeninfo>Example single event program stage creation</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resources/images/event_capture/edit_program_stage.png" format="JPG"
+              width="70%"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>As can be seen from the program stage screen shot above, users have the chance to
+      define what to collect during event capture. This is possible by selecting a list of data
+      elements from <emphasis role="bold">"Available data elements" </emphasis>to <emphasis
+        role="bold">"Selected data elements"</emphasis>. Under selected data elements, please pay
+      attention for the following check boxes:<itemizedlist>
+        <listitem>
+          <para><emphasis role="italic">Compulsory: </emphasis>whether it is mandatory or not to
+            collect the element during event capture</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="italic">Allow provided elsewhere: </emphasis>this is to define if
+            the data element can be collected by the selected organisation unit while it has
+            occurred elsewhere. For example, from the figure, it is possible for "mnch Blood
+            pressure" to be measured in another facility but reported in the selected facility where
+            these is no blood pressure measuring device.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="italic">Display in reports:</emphasis> this decides if the data
+            element can appear in reports or not. If there are many data elements to be collected
+            during event capture, it makes more sense to prioritize which ones to show in report by
+            default.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="italic">Date in future: </emphasis>this is only for those date type
+            data elements and to decide if it is possible to allow collect future dates or
+            not.</para>
+        </listitem>
+      </itemizedlist></para>
+    <para>In addition to defining program and program stage, another important step to complete
+      before event capturing is associating programs with organization units. This can be done
+      through <emphasis role="bold">"Assign program to organisation units"</emphasis> button from
+      the context menu of the selected program.</para>
+  </section>
+  <section>
+    <title>Operations</title>
+    <para>Event capturing is possible by selecting an organisation unit and a program. The moment a
+      program is selected the system displays existing events. Events are displayed in a tabular
+      fashion as shown in the figure below. From the figure, each row corresponds to an event and
+      the columns are event details (data elements).</para>
+    <screenshot>
+      <screeninfo>Example event list</screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resources/images/event_capture/event_list.png" format="JPG"
+            width="70%"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>All event related operations are accessible from the screen shown above. The operations
+      currently available are: <orderedlist>
+        <listitem>
+          <para>Capturing - this available by clicking the "Register New Event" button.</para>
+        </listitem>
+        <listitem>
+          <para>Column show/hide - this is to allow users decide which columns to show/hide. This
+            feature is especially important when we have a long list of data elements assigned to a
+            program stage.</para>
+        </listitem>
+        <listitem>
+          <para>Editing - the rows in the table are clickable. Clicking them shows three menus -
+              <emphasis role="bold">Edit</emphasis>, <emphasis role="bold">Edit in grid</emphasis>
+            and <emphasis role="bold">Remove.</emphasis> The difference between edit and edit in
+            grid is that, Edit takes to a new page with an opportunity to edit all the data elements
+            of the selected event. However, edit in grid allows to edit the selected event within
+            the table but only those columns (data elements) visible in the grid. If more columns
+            are required, it is possible to add using the "Show/Hide columns" button.</para>
+        </listitem>
+        <listitem>
+          <para>Sorting - this is possible by clicking the text of each column header.</para>
+        </listitem>
+        <listitem>
+          <para>Filtering - this is possible by clicking the small search icon shown to the right of
+            each column header. Clicking them provides an input field to type a filtering criteria.
+            The moment a user types a filter, the system starts applying. During filtering it is
+            possible to define start and end dates for date type data elements and lower and upper
+            limits for number types. For the rest, it is just a text.</para>
+        </listitem>
+        <listitem>
+          <para>Paging - using the links at the bottom of the table, it is possible to have some
+            paging interactions.</para>
+        </listitem>
+      </orderedlist></para>
+  </section>
+</chapter>
