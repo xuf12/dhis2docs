@@ -376,6 +376,13 @@ sudo /etc/init.d/nginx stop</screen></para>
 }
 
 </screen>
+      <important>
+        <para>Be aware that a server side cache shortcuts the DHIS 2 security features in the sense
+          that requests which hit the server side cache will be served directly from the cache
+          outside the control of DHIS 2 and the servlet container. This implies that request URLs
+          can be guessed and reports retrieved from the cache by unauthorized users. Hence, if you
+          capture sensitive information, setting up a server side cahce is not recommended.</para>
+      </important>
     </section>
     <section>
       <title>Starting tomcat and nginx on boot-time</title>
