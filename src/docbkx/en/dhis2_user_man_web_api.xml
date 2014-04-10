@@ -3830,6 +3830,19 @@ ORDER BY oul.level, par.name, ou.name</screen>
     "WI0VHXuWQuV",
     "BRJNBBpu4ki"
 ]   </screen>
+      <para>The DHIS 2 UID format has these requirements:</para>
+      <itemizedlist>
+        <listitem>
+          <para>11 characters long.</para>
+        </listitem>
+        <listitem>
+          <para>Alphanumeric characters only, ie. alphabetic or numeric characters
+            (A-Za-z0-9).</para>
+        </listitem>
+        <listitem>
+          <para>Start with an alphabetic character (A-Za-z).</para>
+        </listitem>
+      </itemizedlist>
     </section>
     <section>
     <title>View system information</title>
