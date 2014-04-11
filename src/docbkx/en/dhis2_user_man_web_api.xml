@@ -590,6 +590,53 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       hence need to reference the code property instead of the identfier property, and can do so
       using the dataElementIScheme and orgUnitIdScheme paramaters.</para>
   </section>
+    <section>
+      <title>Generating template XML for bulk sending of data values</title>
+      <para>To generate the XML for a certain dataSet, you can use the new <emphasis role="italic">/api/dataSets/ID/dvs</emphasis> resource,
+        which will generate the XML for you, there are also some parameters you can use to further adjust the output.</para>
+      <table frame="all">
+        <title>Data values query parameters</title>
+        <tgroup cols="3">
+          <colspec colname="c1" colnum="1" colwidth="1*"/>
+          <colspec colname="c2" colnum="2" colwidth="1.23*"/>
+          <colspec colname="c3" colnum="3" colwidth="4.08*"/>
+          <thead>
+            <row>
+              <entry>Query parameter</entry>
+              <entry>Required</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>period</entry>
+              <entry>No</entry>
+              <entry>Period to use, will be included without any checks.</entry>
+            </row>
+            <row>
+              <entry>orgUnit</entry>
+              <entry>No</entry>
+              <entry>Organisation unit to use, supports multiple orgUnits, both id and code can be used.</entry>
+            </row>
+            <row>
+              <entry>comment</entry>
+              <entry>No</entry>
+              <entry>Should comments be include, default: Yes.</entry>
+            </row>
+            <row>
+              <entry>orgUnitIdScheme</entry>
+              <entry>No</entry>
+              <entry>Organisation unit scheme to use, supports id | code.</entry>
+            </row>
+            <row>
+              <entry>dataElementIdScheme</entry>
+              <entry>No</entry>
+              <entry>Data-element scheme to use, supports id | code.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
   <section>
     <title>Sending individual data values</title>
     <para>This example will show how to send individual data values to be saved in a request. This
