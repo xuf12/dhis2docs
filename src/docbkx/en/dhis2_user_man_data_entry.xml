@@ -45,7 +45,7 @@
       <title>Entering data</title>
       <para>Start entering data by clicking inside the first field and type in the value. Move to
         the next field using the Tab button. Shift+Tab will take you back one step. You can also use
-        the "up" and "down" arrow keys to navigate between the form cells. The values are saved
+        the &quot;up&quot; and &quot;down&quot; arrow keys to navigate between the form cells. The values are saved
         immediately and do not require to be saved at a later stage. A green field indicates that
         the value has been saved in the system (on the server).</para>
       <para><emphasis role="bold">Input validation:</emphasis> If you type in an invalid value, e.g.
@@ -68,6 +68,11 @@
         </mediaobject>
       </screenshot>
       <para><emphasis role="bold">Follow Up:</emphasis>  In the data history window there is also a feature to tag or star a value. E.g. a suspicious value that needs further investigation can be kept in the system, but marked for Follow-Up. In the Data Quality module you can run a Follow-Up analysis and view all values marked for Follow-Up, and then later edit the values if proved incorrect.  </para>
+    </section>
+    <section>
+      <title>Editing and deleting data</title>
+      <para>If you wish to enter data which has already been entered, simply replace the data entry value with the update values. </para>
+      <para>If you want to delete a data value completely, you should select the value of interest, and press &quot;Delete&quot; on your keyboard. If you enter a zero and the data element has been configured to not store zeros, the previous data value (i.e. the one you wish to modify) will not be overwritten with the new value. Therefore, it is better practice to delete the data value completely (waiting for the cell to turn green) and then to enter the new value. </para>
     </section>
     <section id="dataEntry_1">
       <title>Validating data in the form</title>
@@ -132,10 +137,10 @@
       <para>In some scenarios it is beneficial to enter data for multiple organisation units in the
         same data entry form, for instance if there are few data elements in the form and a huge
         number of organisation units in the hierarchy. In that case you can enable
-        multi-organisation unit data entry by going to "System settings" and tick the "Enable multi
-        organisation unit forms" setting. Then, in data entry, select the organisation unit
+        multi-organisation unit data entry by going to &quot;System settings&quot; and tick the &quot;Enable multi
+        organisation unit forms&quot; setting. Then, in data entry, select the organisation unit
         immediately above the organisation unit you want to enter for in the hierarchy. Note that
-        this only work for the "section" based forms. You should now see the data elements appearing
+        this only work for the &quot;section&quot; based forms. You should now see the data elements appearing
         as columns and the organisation units appearing as rows in the form. Note that the data
         entry forms should still be assigned to the facilities that you actually enter data for,
         i.e. the organisation units now appearing in the form.</para>
