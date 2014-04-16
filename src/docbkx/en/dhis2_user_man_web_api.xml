@@ -3867,6 +3867,21 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>These requests will return immediately and initiate a server-side process.</para>
   </section>
   <section>
+    <title>Maintenance</title>
+    <para>To perform maintenance you can interact with the <emphasis role="italic"
+        >maintenance</emphasis> resource. You should use <emphasis role="italic">POST</emphasis> or
+        <emphasis role="italic">PUT</emphasis> as method for requests. The following requests are
+      available. </para>
+    <para>Period pruning will remove periods which are not linked to any data values:</para>
+    <screen>api/maintenance/periodPruning</screen>
+    <para>Zero data value removal will delete zero data values linked to data elements where zero
+      data is defined as not significant:</para>
+    <screen>api/maintenance/zeroDataValueRemoval</screen>
+    <para>Category option combo update will remove obsolete and generate missing category option
+      combos for all category combinations:</para>
+    <screen>api/maintenance/categoryOptionComboUpdate</screen>
+  </section>
+  <section>
     <title>System resource</title>
     <para>The system resource provides you with convenient information and functions. The system
       resource can be found at <emphasis role="italic">/api/system</emphasis>. </para>
