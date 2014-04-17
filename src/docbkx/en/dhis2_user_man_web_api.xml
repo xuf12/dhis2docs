@@ -4284,6 +4284,11 @@ ORDER BY oul.level, par.name, ou.name</screen>
                 CANCELLED.</entry>
             </row>
             <row>
+              <entry>followUp</entry>
+              <entry>Follow up status of the instance for the given program. Can be true | false or
+                omitted.</entry>
+            </row>
+            <row>
               <entry>programDate</entry>
               <entry>Date of enrollment into the given program for the tracked entity instance.
                 Param can be repeated any number of times. Specified on the format
