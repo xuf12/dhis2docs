@@ -4289,11 +4289,14 @@ ORDER BY oul.level, par.name, ou.name</screen>
                 omitted.</entry>
             </row>
             <row>
-              <entry>programDate</entry>
-              <entry>Date of enrollment into the given program for the tracked entity instance.
-                Param can be repeated any number of times. Specified on the format
-                &lt;operator>:&lt;date>. See section on date format. Operators can be EQ | GT | GE |
-                LT | LE | NE.</entry>
+              <entry>programStartDate</entry>
+              <entry>Start date of enrollment in the given program for the tracked entity
+                instance.</entry>
+            </row>
+            <row>
+              <entry>programEndDate</entry>
+              <entry>End date of enrollment in the given program for the tracked entity
+                instance.</entry>
             </row>
           <row>
             <entry>trackedEntity</entry>
@@ -4385,7 +4388,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
       include a program query parameter like this:</para>
     <screen>api/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;program=ur1Edk5Oe2n</screen>
       <para>To specify program enrollment dates as part of the query you can use this syntax:</para>
-      <screen>api/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;program=ur1Edk5Oe2n&amp;programDate=GT:2013-01-01&amp;programDate=LT:2013-09-01</screen>
+      <screen>api/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;program=ur1Edk5Oe2n&amp;programStartDate=2013-01-01&amp;programEndDate=013-09-01</screen>
     <para>To constrain the response to instances of a specific tracked entity you can include a
       tracked entity query parameter like this:</para>
     <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;trackedEntity=cyl5vuJ5ETQ</screen>
