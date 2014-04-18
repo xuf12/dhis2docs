@@ -4304,6 +4304,19 @@ ORDER BY oul.level, par.name, ou.name</screen>
               type.</entry>
           </row>
             <row>
+              <entry>eventStatus</entry>
+              <entry>Status of any event associated with the given program and the tracked entity
+                instance. Can be COMPLETED | VISITED | FUTURE_VISIT | LATE_VISIT | SKIPPED.</entry>
+            </row>
+            <row>
+              <entry>eventStartDate</entry>
+              <entry>Start date of event associated with the given program and event status.</entry>
+            </row>
+            <row>
+              <entry>eventEndDate</entry>
+              <entry>End date of event associated with the given program and event status.</entry>
+            </row>
+            <row>
               <entry>skipMeta</entry>
               <entry>Indicates whether meta data for the response should be included.</entry>
             </row>
@@ -4354,6 +4367,20 @@ ORDER BY oul.level, par.name, ou.name</screen>
               role="italic">program</emphasis> must also be specified.</para>
         </listitem>
         <listitem>
+          <para>If <emphasis role="italic">followUp</emphasis> is specified then <emphasis
+              role="italic">program</emphasis> must also be specified.</para>
+        </listitem>
+        <listitem>
+          <para>If <emphasis role="italic">programStartDate</emphasis> or <emphasis role="italic"
+              >programEndDate</emphasis> is specified then <emphasis role="italic"
+              >program</emphasis> must also be specified.</para>
+        </listitem>
+        <listitem>
+          <para>If <emphasis role="italic">eventStatus</emphasis> is specified then <emphasis
+              role="italic">eventStartDate</emphasis> and <emphasis role="italic"
+              >eventEndDate</emphasis> must also be specified.</para>
+        </listitem>
+        <listitem>
           <para>A query cannot be specified together with filters.</para>
         </listitem>
         <listitem>
@@ -4395,6 +4422,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>By default the instances are returned in pages of size 50, to change this you can use the
       page and pageSize query parameters like this:</para>
     <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;page=2&amp;pageSize=3</screen>
+      <para>To query for instances which have events of a given status within a given time span you
+        can use this syntax:</para>
+      <screen>api/trackedEntityInstances.json?ou=O6uvpzGd5pu&amp;program=ur1Edk5Oe2n&amp;eventStatus=LATE_VISIT&amp;eventStartDate=2014-01-01&amp;eventEndDate=2014-09-01</screen>
     <para>You can use a range of operators for the filtering:</para>
     <table frame="all">
       <title>Filter operators</title>
