@@ -4,6 +4,23 @@
   <title>Cold Chain Equipment Inventory (CCEI) System</title>
   <section>
     <title>Cold Chain Equipment Inventory (CCEI) System</title>
-    <para>The Cold Chain Equipment Inventory (CCEI) System...</para>
+    <para>The Cold Chain Equipment Inventory (CCEI) System can be used to manage the cold chain equipment requirements from health facilities and to monitor the working status of the equipments by tracking, thereby timely action can be taken in cold chain supply management.</para>
   </section>
+  <section>
+    <title>Conceptual Framework</title>
+    <para>The CCEI application is developed to manage cold chain equipment in health facilities through routine data form equipments and a timely reporting of working condition of the equipment which plays a crucial role in cold chain management.</para>
+  </section>
+  <section>
+    <title>CCEI Architecture</title>
+    <para>The system is built on the two inputs data forms namely model data, equipment type/equipment data and two output data forms namely periodic and non-periodic data.</para>
+	<para>In the model data, the initial step is to define model type attributes, model type. This enables the system to provide fields to enter required data for model. Each model type will have its own model data. In other terms model data is attached to its model type. The definition of model type attributes, model type can be modified/updated when the actual model type is introduced or a new model comes in the market in future at any facility.</para>
+	<para>There are equipment type/equipment data with or without having model data. In order to capture equipment type data, define equipment type attributes and then add equipment type with its attributes. If the equipment type has model data, select the appropriate model type while adding equipment type and this enable to pull the data from the selected model type along with the data from equipment type. If the equipment type has no model data, then just define attributes and add equipment type with its attributes.</para>
+	<para>There are data related to equipment which need to be collected, processed and used for action. Every facility has some number of equipments and data needs to be captured from equipment. In order to monitor the working status of the equipment and its location (facility), periodic/non-periodic data is to be collected.</para>
+	<para>When it is periodic, equipment/facility wise dataset is designed and assigned to corresponding facilities. When it is non-periodic (for say, working status) data needs to be captured when there is any change in the process and this can be done using equipment type attributes. The user has to select the facility as the registering unit and the appropriate equipment type and the required data can be filled in equipment type attributes.</para>
+	</section>
+	<section>
+    <title>Data types in CCEI</title>
+    <para>Non-periodic data which is data recorded only when there is any change in the process. For example, working condition of the equipment in a facility will be recorded, when it is working well or Not working or under repair condition. These data are recorded using equipment type attributes.</para>
+	<para>Periodic data are data recorded periodically to monitor the equipment function, performance and its efficiency and to monitor for any requirements of equipments in health facilities.</para>
+  </section>	
 </chapter>

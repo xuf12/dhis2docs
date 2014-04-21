@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<chapter>
+  <title>Cold Chain Equipment Inventory (CCEI) System - Model</title>
+  <section>
+	<section>
+	  <title>Model</title>
+	  <para>Model consists of geometry and properties of each equipment model type. To define model, the super user has to create attributes for model and then add the attributes with its model. The model here for say refrigerator and freezers and the attributes are capacity, dimension etc. The model indicates the model name, for say Electrolux FG 432.</para>
+	  <para>To access the model, user needs to click on the 'Model option' as seen on the extreme top left corner of the screen and user will get following screen</para>
+	  <screenshot>
+		<screeninfo>Model</screeninfo>
+			<mediaobject>
+			 <imageobject> 
+			   <imagedata fileref="resources/images/ccei/Model.PNG" format="PNG" width="100%"/>
+			 </imageobject>
+			</mediaobject> 
+		</screenshot>
+	</section>
+	<section>
+		<title>Operations on Model</title>
+		<para>Filter Clear - Quick search and list the model type with edit and show details options</para>
+		<para>Add new - Add new model attribute</para>
+		<para>To upload an image for the Model click on following button</para>
+		<screenshot>
+		<screeninfo>Upload Image</screeninfo>
+			<mediaobject>
+			 <imageobject> 
+			   <imagedata fileref="resources/images/ccei/upload_default_image.PNG" format="PNG" width="10%"/>
+			 </imageobject>
+			</mediaobject> 
+		</screenshot>
+		<para>Once user has clicked the Image, following screen will appear. User has to browse for the image of particular Model and click on Upload button, once the image is uploaded it will b edisplayed on the screen. The image uploaded once can later be updated by the same procedure.</para>
+		<screenshot>
+		<screeninfo>Uploading Image</screeninfo>
+			<mediaobject>
+			 <imageobject> 
+			   <imagedata fileref="resources/images/ccei/upload_image.PNG" format="PNG" width="100%"/>
+			 </imageobject>
+			</mediaobject> 
+		</screenshot>
+		<para>Edit - To edit model attribute</para>
+		<screenshot>
+		<screeninfo>Edit - To edit model attribute</screeninfo>
+		  <mediaobject>
+		   <imageobject> 
+			<imagedata fileref="resources/images/ccei/edit.png" format="PNG" width="10%"/>
+		   </imageobject>
+		  </mediaobject> 
+		</screenshot>
+		<para>Delete - To remove model attribute</para>
+		<screenshot>
+		<screeninfo>Delete - To remove model attribute</screeninfo>
+		  <mediaobject>
+		   <imageobject> 
+			<imagedata fileref="resources/images/ccei/delete.png" format="PNG" width="10%"/>
+		   </imageobject>
+		  </mediaobject> 
+		</screenshot>
+		<para>Design Data Entry Screen - Data needs to be entered against the model attribute for particular model, user can design data entry screen for data entry by clicking on following icon.</para>
+		<screenshot>
+		<screeninfo>Design Data Entry screen</screeninfo>
+		  <mediaobject>
+		   <imageobject> 
+			<imagedata fileref="resources/images/ccei/data_entry_screen.PNG" format="PNG" width="10%"/>
+		   </imageobject>
+		  </mediaobject> 
+		</screenshot>
+		<para>Once data entry screen design button is clicked follwing screen will appear to design data entry screen. User will get the list of all model attribute of selected Model by clicking on "Model Attributr" button on Top right corner</para>
+		<screenshot>
+		<screeninfo>Design Data Entry screen</screeninfo>
+		  <mediaobject>
+		   <imageobject> 
+			<imagedata fileref="resources/images/ccei/design_data_entry_screen_model.PNG" format="PNG" width="10%"/>
+		   </imageobject>
+		  </mediaobject> 
+		</screenshot>
+		<para>Model attributes can be grouped as sections. To make a group list, the user should click on the required icon</para>
+		<screenshot>
+		<screeninfo>Group List</screeninfo>
+		  <mediaobject>
+		   <imageobject> 
+			<imagedata fileref="resources/images/ccei/group_list.PNG" format="PNG" width="10%"/>
+		   </imageobject>
+		  </mediaobject> 
+		</screenshot>
+		<para>Show details - List shows name, description etc</para>
+		<screenshot>
+		<screeninfo>Show details - List shows name, description etc </screeninfo>
+		  <mediaobject>
+		   <imageobject> 
+			<imagedata fileref="resources/images/ccei/detail.png" format="PNG" width="10%"/>
+		   </imageobject>
+		  </mediaobject> 
+		</screenshot>
+	</section>
+	<section>
+	<title>Add New Model</title>
+	<para>To add new Model, user has to click on "Add new" button in model management page, once user has clicked on button he/she will be redirected to following page where user can fill detail to add new model.</para>
+	<screenshot>
+		<screeninfo>Show details - List shows name, description etc </screeninfo>
+		  <mediaobject>
+		   <imageobject> 
+			<imagedata fileref="resources/images/ccei/add_model.PNG" format="PNG" width="100%"/>
+		   </imageobject>
+		  </mediaobject> 
+	</screenshot>
+	<para>User will get the list of all available model attributes, user can select the model attribute from the list which he/she wants to use for the model.</para>
+	</section>
+</section>
+</chapter>
+	
+		
+		
+		
+  

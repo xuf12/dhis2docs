@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<chapter>
+  <title>Cold Chain Equipment Inventory (CCEI) System - Model Attribute</title>
+  <section>
+    <title>Model Attribute: Cold Chain Equipment Inventory (CCEI)</title>
+    <section>
+		<title>Model Attribute</title>
+		<para>To specify the model geometry and properties the user has to create model attributes where properties of each model defined.</para>
+		<para>To access Model Attribute user has to go to Maintenance -> dhis-web-maintenance-ccei -> Model attributes</para>
+		<screenshot>
+		<screeninfo>Periodic Data Flow</screeninfo>
+		  <mediaobject>
+		   <imageobject> 
+			<imagedata fileref="resources/images/ccei/ModelAttribute.png" format="PNG" width="100%"/>
+		   </imageobject>
+		  </mediaobject> 
+		</screenshot>
+	</section>
+	<section>
+		<title>Operations on Model Attribute</title>
+		<para>
+		<screenshot>
+		<screeninfo>Operations on Model Attribute</screeninfo>
+		  <mediaobject>
+		   <imageobject> 
+			<imagedata fileref="resources/images/ccei/OperationsOnModelAttribute.png" format="PNG" width="100%"/>
+		   </imageobject>
+		  </mediaobject> 
+		</screenshot>
+		</para>
+		<para>Filter Clear - Quick search and list the model type with edit and show details options</para>
+		<para>Add new - Add new model attribute</para>
+		<para>Edit - To edit model attribute</para>
+		<screenshot>
+		<screeninfo>Edit - To edit model attribute</screeninfo>
+		  <mediaobject>
+		   <imageobject> 
+			<imagedata fileref="resources/images/ccei/edit.png" format="PNG" width="10%"/>
+		   </imageobject>
+		  </mediaobject> 
+		</screenshot>
+		<para>Delete - To remove model attribute</para>
+		<screenshot>
+		<screeninfo>Delete - To remove model attribute</screeninfo>
+		  <mediaobject>
+		   <imageobject> 
+			<imagedata fileref="resources/images/ccei/delete.png" format="PNG" width="10%"/>
+		   </imageobject>
+		  </mediaobject> 
+		</screenshot>
+		<para>Show details - List shows name, description etc</para>
+		<screenshot>
+		<screeninfo>Show details - List shows name, description etc </screeninfo>
+		  <mediaobject>
+		   <imageobject> 
+			<imagedata fileref="resources/images/ccei/detail.png" format="PNG" width="10%"/>
+		   </imageobject>
+		  </mediaobject> 
+		</screenshot>	
+	</section>
+	<section>
+	<title>Add a new model attribute</title>
+	<para>To add a new model attribute, the user has to click on "Add new" button in the model type management page, user will be directed to the following screen as show below, where he/she can fill the details to add a new model attribute</para>
+	<screenshot>
+		<screeninfo>Add Model Attribute</screeninfo>
+		  <mediaobject>
+		   <imageobject> 
+			<imagedata fileref="resources/images/ccei/Add_model_attr.png" format="PNG" width="100%"/>
+		   </imageobject>
+		  </mediaobject> 
+		</screenshot>	
+    </section>
+  </section>
+ </chapter>
+		
+		
+			
