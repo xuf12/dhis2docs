@@ -3433,6 +3433,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <screen>&amp;dimension=UXz7xuGCEhU:GT:2000&amp;dimension=UXz7xuGCEhU:LT:4000</screen>
       <para>You can filter the "Age" data element for multiple, specific ages using the IN operator
           like this:<screen>&amp;dimension=qrur9Dvnyt5:IN:18;19;20</screen></para>
+        <para>You can specify multiple filters for a given item by repeating the operator and filter
+          components:</para>
+        <screen>&amp;dimension=qrur9Dvnyt5:GT:5;LT;15</screen>
       <para>The available operators are listed below.</para>
       <table frame="all">
         <title>Filter operators</title>
@@ -3823,11 +3826,11 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>The resource tables are used internally by the DHIS 2 application for various analysis
       functions. These tables are also valuable for users writing advanced SQL reports. They can be
       generated with a POST or PUT request to the following URL:</para>
-    <screen>http://&lt;server-url>/api/resourceTables</screen>
+    <screen>api/resourceTables</screen>
     <para>The analytics tables are optimized for data aggregation and used currently in DHIS 2 for
       the pivot table module. The analytics tables can be generated with a POST or PUT request
       to:</para>
-    <screen>http://&lt;server-url>/api/resourceTables/analytics</screen>
+    <screen>api/resourceTables/analytics</screen>
     <table frame="all">
       <title>Analytics tables optional query parameters</title>
       <tgroup cols="3">
@@ -3863,7 +3866,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>The data mart is tables containing pre-calculated aggregated data which are used by DHIS 2
       analysis modules and can be used directly by SQL reports. The data mart tables can be
       generated with a POST or PUT request to:</para>
-    <screen>http://&lt;server-url>/api/resourceTables/dataMart</screen>
+    <screen>api/resourceTables/dataMart</screen>
     <para>These requests will return immediately and initiate a server-side process.</para>
   </section>
   <section>
