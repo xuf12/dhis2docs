@@ -274,6 +274,24 @@
       </screenshot>
       <para>Note that when data is entered, an &quot;Implementing partner&quot; and &quot;Project&quot; can be selected. Each data value recorded in this data entry screen, would be assigned a specific combination of these categories as an attribute. These attributes (when specified as a dimension) can be used in the analysis modules similar to other dimensions, such as the period and orgunit.  In summary, when category combinations are used as attribute, they effectively serve as another dimension (similar to &quot;Period&quot; and &quot;Organisationion unit&quot;) which can be used for analysis. </para>
     </section>
+    <section>
+      <title>Category option groups and group sets</title>
+      <para>Category options can be groups and classified using category option groups. Category
+        option groups can be created from "Category option group" > "Add new", and contains a set of
+        category options.</para>
+      <para>Category option groups can be included in category option group sets. Category option
+        group sets can be created from "Category option group set" > "Add new", and contains a set
+        of category option groups.</para>
+      <para>The main purpose of the these entities is to be able to add more dimensionality to your
+        captured data for analysis in apps such as pivot table and data visualizer. An example of
+        where this becomes useful: In a system, data is collected by "projects", where projects is
+        modelled as category options. The system is required to do data analysis according to which
+        donor supports the project. In this case, a category option group set called "Donor" can be
+        created. Each donor can be created as a category option group, where each category option /
+        project is put in the appropriate group. In data analysis apps, the "Donor" group set will
+        appear as a data dimension, while each donor appear as dimemsion items, ready for inclusing
+        in reports.</para>
+    </section>
     <section id="translation">
       <title>Translations</title>
       <para>DHIS 2 provides functionality for translations of database content like data elements, data element groups, indicators, indicator groups, validation rules and more.  These elements can be translated to any number of locales. A locale  represents a specific geographical, political, or cultural region. </para>
