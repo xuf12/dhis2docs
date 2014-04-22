@@ -130,12 +130,15 @@
     <para>You can set various chart options by clicking on the &quot;Options&quot; button the chart toolbar.</para>
     <itemizedlist>
       <listitem>
-        <para>Show trend line: The trend line will visualize how your data evolves over time - e.g.
-          is performance improving or deteriorating. Makes sense when periods are selected as
-          category. </para>
+        <para>Show values: Shows the values above the series in the chart.</para>
       </listitem>
       <listitem>
-        <para>Show series data: Displays the corresponding value next to columns and bars in the chart.</para>
+        <para>Hide empty category items: Hides category items with no data from the chart.</para>
+      </listitem>
+      <listitem>
+        <para>Show trend lines: The trend line will visualize how your data evolves over time - e.g.
+          is performance improving or deteriorating. Makes sense when periods are selected as
+          category. </para>
       </listitem>
       <listitem>
         <para>Target line value/title: Displays a horizontal line at the given domain value. Useful e.g. when you want to compare your performance to the current target.</para>
@@ -144,7 +147,26 @@
         <para>Base line value/title: Displays a horizontal line at the given domain value. Useful e.g. when you want to visualize how your performance has evolved since the beginning of a process.</para>
       </listitem>
       <listitem>
-        <para>Show values: Shows the values above the series in the chart.</para>
+        <para>Range axis max/min: Defines the maximum and minium value which will be visible on the
+          range axis.</para>
+      </listitem>
+      <listitem>
+        <para>Range axis tick steps: Defines the number of ticks which will be visible on the range
+          axis.</para>
+      </listitem>
+      <listitem>
+        <para>Range axis decimals: Defines the number of decimals which will be used for range axis
+          values.</para>
+      </listitem>
+      <listitem>
+        <para>Domain axis label: Displays a label below the domain axis (also referred to as the X
+          axis). Can give context information to the chart, e.g. the type of periods being
+          listed.</para>
+      </listitem>
+      <listitem>
+        <para>Range axis label: Displays a label next to the range axis (also referred to as the Y
+          axis). Can give context information to the chart, e.g. the unit of measure being
+          used.</para>
       </listitem>
       <listitem>
         <para>Hide chart legend: Hides the legend and leaves more room for the chart itself.</para>
@@ -154,12 +176,6 @@
       </listitem>
       <listitem>
         <para>Chart title: Type any title you like and it will appear above the chart.</para>
-      </listitem>
-      <listitem>
-        <para>Domain axis label: Displays a label below the domain axis (also referred to as the X axis). Can give context information to the chart, e.g. the type of periods being listed.</para>
-      </listitem>
-      <listitem>
-        <para>Range axis label: Displays a label next to the range axis (also referred to as the Y axis). Can give context information to the chart, e.g. the unit of measure being used.</para>
       </listitem>
     </itemizedlist>
   </section>
