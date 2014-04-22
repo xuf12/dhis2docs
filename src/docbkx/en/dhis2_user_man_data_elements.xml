@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
+<!--reat
+ This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <chapter>
   <title>Data elements</title>
   <para>When the ‘Data Elements and Indicators’ options is chosen from the main Maintenance menu, the following screen appears:</para>
@@ -86,7 +87,7 @@
           </listitem>
           <listitem>
             <para><emphasis role="bold">Number type:</emphasis> In order to increase the robustness of data entry, DHIS2 supports several different number types. During data entry, users will be restricted to enter the defined number types only.  Each of the available options are described below. </para>
-            <orderedlist>
+            <itemizedlist>
               <listitem>
                 <para>Number: This number type supports any real value with a single decimal point, an optional negative sign, and no thousands separators. </para>
               </listitem>
@@ -99,10 +100,34 @@
               <listitem>
                 <para>Negative integer: Any whole number less than (but not including) zero.</para>
               </listitem>
-            </orderedlist>
+            </itemizedlist>
           </listitem>
           <listitem>
-            <para><emphasis role="bold">Aggregation operator: </emphasis>Defines the default aggregation operation that will be used on this data element. Most data elements should have the &quot;SUM&quot; option set. This includes all  data elements which should be added together. Other data elements, such as staffing levels, should be set to use the &quot;AVERAGE&quot; operator, when values along the time dimension should not be added together, but rather averaged.</para>
+            <para><emphasis role="bold">Aggregation operator: </emphasis>Defines the default
+              aggregation operation that will be used on this data element. Most data elements
+              should have the &quot;SUM&quot; option set. This includes all data elements which
+              should be added together. Other data elements, such as staffing levels, should be set
+              to use the &quot;AVERAGE&quot; operator, when values along the time dimension should
+              not be added together, but rather averaged. The complete list of aggregation
+              operators:</para>
+            <itemizedlist>
+              <listitem>
+                <para>Sum: Sum of data values in the period and organisation unit dimension</para>
+              </listitem>
+              <listitem>
+                <para>Average: Average of data values in the period dimension, sum in the
+                  organisation unit dimensions.</para>
+              </listitem>
+              <listitem>
+                <para>Count: Count of data values.</para>
+              </listitem>
+              <listitem>
+                <para>Std dev: Standard deviation (population-based) of data values.</para>
+              </listitem>
+              <listitem>
+                <para>Variance: Variance (population-based) of data values.</para>
+              </listitem>
+            </itemizedlist>
           </listitem>
           <listitem>
             <para><emphasis role="bold">Store Zero Data Value</emphasis>: By default, DHIS2 will not store zeros which are entered in the data entry module. If zeros need to be saved for a particular reason, this option can be set to &quot;Yes&quot;. </para>
