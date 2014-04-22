@@ -592,7 +592,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
   </section>
     <section>
       <title>Generating template XML for bulk sending of data values</title>
-      <para>To generate the XML for a certain dataSet, you can use the new <emphasis role="italic">/api/dataSets/ID/dvs</emphasis> resource,
+      <para>To generate the XML for a certain dataSet, you can use the new <emphasis role="italic">/api/dataSets/ID/dataValueSet</emphasis> resource,
         which will generate the XML for you, there are also some parameters you can use to further adjust the output.</para>
       <table frame="all">
         <title>Data values query parameters</title>
