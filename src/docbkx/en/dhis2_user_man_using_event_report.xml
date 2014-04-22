@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<chapter>
+  <title>Using Event Report</title>
+  <section>
+    <title>Event Report overview</title>
+    <para>The event report app enables analysis of events in two fashions.</para>
+    <itemizedlist>
+      <listitem>
+        <para>Pivot table-style analysis with aggregated values of events</para>
+      </listitem>
+      <listitem>
+        <para>Lists of events based on queries / filters</para>
+      </listitem>
+    </itemizedlist>
+    <section>
+      <title>Pivot tables with aggregated values</title>
+      <para>By selecting "Aggregated values" from the top-left menu you can use the event reports
+        app to create pivot tables with aggregated numbers of events. An event report is always
+        based on a program. You can do analysis based on a range of dimensions. Each dimension can
+        have a corresponding filter. Dimensions can be selected from the left-side menu and includes
+        the following:</para>
+      <itemizedlist>
+        <listitem>
+          <para><emphasis role="bold">Data elements</emphasis>: Start by selecting the program and
+            program stage for the event report. The data elements associated with the selected
+            program will be listed under available items. Each data element acts as a dimension, and
+            can be selected by double-clicking on it. After selecting a data element, it will be
+            visible under "selected data items". Here you can specify a filter for each data
+            element, with operators such as "greater than", "in" or "equal" together with a filter
+            value.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Periods</emphasis>: For the period dimension you have three
+            options: relative periods, fixed periods and start/end dates. Relative periods can e.g.
+            be "last 12 months", and has the advantage that it keeps the data in the report up to
+            date as time goes. Fixed periods can e.g. be "January 2014". You can swith to start/end
+            dates by selecting from the drop-down menu under the periods tab, which lets you specify
+            flexible dates for the time span in the report.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Organisation units</emphasis>: The organisation unit dimension
+            lets you select any org unit from the hierarchy. You can use the org unit mode selector
+            to select org units explicitly, by org unit hierarchy levels and by org unit
+            groups.</para>
+        </listitem>
+      </itemizedlist>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="70%" fileref="resources/images/event_report/event_report.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>By clicking <emphasis role="bold">Layout</emphasis> from the top menu you can control
+        which dimensions should appear as columns, rows and filters in the pivot table. Note that
+        each data element appears as individual dimensions and can each be placed on any of the
+        axis.</para>
+      <para>Note as data elements of continuous value types (real numbers/decimal numbers) can only
+        be used as filters, and will automatically be positioned as filters in the layout dialog.
+        The reason for this is that continuous number cannot be grouped into sensible ranges and
+        used on columns and rows.</para>
+      <para>Event reports can be saved as favorites by clicking on "Favorites" in the top menu.
+        Favorites can later be restored by clicking on them in the list of favorites.</para>
+      <para>Event reports can be downloaded in various popular formats by clicking on the "Download"
+        button on the top menu.</para>
+    </section>
+    <section>
+      <title>Event queries</title>
+      <para>By selecting "Individual cases" fromt the top-left menu you can use the event reports
+        app to make searches or queries for events based on a flexible set of criteria. The report
+        will be displayed as a table with one row per event. Each dimension can be used as a column
+        in the table or as a filter. Each dimension can have a criteria (filter). Data elements of
+        type option set allows for "in" criteria, where multiple options can be selected. Numeric
+        values can be compared to filter values using greater than, equal or less than
+        operators.</para>
+    </section>
+    <section>
+      <title>Options</title>
+      <para>An event report can be customized using a range of options, which can be accessed by
+        clicking on "Options" in the top menu. The following options apply to aggregated values-type
+        reports only:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Show totals: Show totals at the end of each column and row in the pivot
+            table.</para>
+        </listitem>
+        <listitem>
+          <para>Show sub-totals: Show sub-totals for each column and row in the pivot table.</para>
+        </listitem>
+        <listitem>
+          <para>Hide empty rows: Hide empty rows in the pivot table.</para>
+        </listitem>
+        <listitem>
+          <para>Limit: Set a limit on the max number of rows to display in the table, combined with
+            a setting for showing top or bottom values.</para>
+        </listitem>
+        <listitem>
+          <para>Show hierarchy: Include the names of all parents of each organisation unit in
+            labels.</para>
+        </listitem>
+      </itemizedlist>
+      <para>These style-related options apply to both types of reports:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Display density: Control padding around values inside cells.</para>
+        </listitem>
+        <listitem>
+          <para>Font size: Control font size of values.</para>
+        </listitem>
+        <listitem>
+          <para>Digit group separator: Control character to use for splitting digit groups.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+  </section>
+</chapter>
