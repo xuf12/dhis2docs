@@ -799,6 +799,23 @@ Content-Type: application/xml
   categoryOptionCombo=&quot;bRowv6yZOF2&quot; value=&quot;10001&quot;/&gt;
 &lt;/dataValueSet&gt;</screen>
     <para>The header tells us that the request was processed successfully and that we are receiving a response in XML format. The XML message looks familiar - it is the data values we sent in the previous section.</para>
+      <para>You can also request the same data with a JSON
+        payload:<screen>curl &quot;http://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;period=201201&amp;orgUnit=DiszpKrYNg8&quot; -H &quot;Accept:application/json&quot; -u admin:district -v</screen></para>
+      <para>The response will look something like
+        this:<screen>{
+  "dataSet": "pBOMPrpg1QX",
+  "completeData": "2012-02-03",
+  "period": "201201",
+  "orgUnit": "DiszpKrYNg8",
+  "dataValues": [
+    { "dataElement": "eY5ehpbEsB7", "categoryOptionCombo": "bRowv6yZOF2", "period": "201201",
+      "orgUnit": "DiszpKrYNg8", "value": "10003" },
+    { "dataElement": "Ix2HsbDMLea", "categoryOptionCombo": "bRowv6yZOF2", "period": "201201", 
+      "orgUnit": "DiszpKrYNg8", "value": "10002" },
+    { "dataElement": "f7n9E0hX8qk", "categoryOptionCombo": "bRowv6yZOF2", "period": "201201", 
+      "orgUnit": "DiszpKrYNg8", "value": "10001" }
+  ]
+}</screen></para>
   </section>
   <section>
     <title>Reading large bulks of data values</title>
