@@ -471,6 +471,49 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para><emphasis role="bold">Example 2</emphasis>: Get <emphasis role="italic">id</emphasis>, <emphasis role="italic">name</emphasis>
       from dataElements, and also <emphasis role="italic">id</emphasis> and <emphasis role="italic">name</emphasis> from the dataSets on
       dataElements<screen>/api/dataElements?include=id,name,dataSets[id,name]</screen></para>
+  </section>
+  <section>
+    <title>Meta-data create, read, update, delete</title>
+    <para>While some of the web-api endpoints already contains support for CRUD (create, read, update, delete), from version 2.15 this is
+      now supported on all endpoints. It should work as you expect, and the subsections will give more detailed information about create,
+      update, and delete (read is already covered elsewhere, and have been supported for a long time).</para>
+    <section>
+      <title>Creating and updating objects</title>
+      <para>For creating new objects you will need to know the endpoint, the type format, and make sure that you have the required
+        authorities. As an example , we will create and update an <emphasis role="italic">constant</emphasis>. To figure out the format, we
+        can use the new <emphasis role="italic">schema</emphasis> endpoint for getting format description (this will be further improved in
+        2.16). So we will start with getting that info:<screen>http://server/api/schemas/constant.json</screen> From the output, you can see
+        that the required authorities for create are F_CONSTANT_ADD (which can be found in user role mgmt section), and the important
+        properties (for our purpose) available are: <emphasis role="italic">name</emphasis>, <emphasis role="italic">value</emphasis>. So
+        lets create a JSON payload and send this to the server:<screen>{
+  "name": "PI",
+  "value": "3.14159265359"
+}</screen></para>
+      <para>Or as an XML
+        payload:<screen>&lt;constant name="PI" xmlns="http://dhis2.org/schema/dxf/2.0">
+  &lt;value>3.14159265359&lt;/value>
+&lt;/constant></screen></para>
+      <para>We are now ready create this new <emphasis role="italic">constant</emphasis> by sending a POST request to the <emphasis
+          role="italic">constant </emphasis>endpoint, let's use JSON as the example (for XML you will need to change the content-type
+        header):<screen>curl -X POST -d @pi.json -H "Content-Type: application/json" -u user:password http://server/api/constants</screen></para>
+      <para>If everything went well, you should see an output similar
+        to:<screen>{
+  "status":"SUCCESS",
+  "importCount":{"imported":1,"updated":0,"ignored":0,"deleted":0},
+  "type":"Constant"
+}</screen></para>
+      <para>The process will be exactly the same for updating, you make your changes to the JSON/XML payload, find out the <emphasis
+          role="italic">ID</emphasis> of the constant, and then send a PUT request to the endpoint including
+        ID:<screen>curl -X PUT -d @pi.json -H "Content-Type: application/json" -u user:password http://server/api/constants/ID</screen></para>
+    </section>
+    <section>
+      <title>Deleting objects</title>
+      <para>Deleting objects are very straight forward, you will need to know the <emphasis role="italic">ID</emphasis> and the endpoint of
+        the type you want delete, let's continue our example from the last section and use a <emphasis role="italic">constant</emphasis>.
+        Let's assume that the id is <emphasis role="italic">abc123</emphasis>, then all you need to do is the send the DELETE request to the
+        endpoint + id:<screen>curl -X DELETE -u user:password http://server/api/constants/ID</screen></para>
+      <para>A successful delete should return HTTP status 204 (no content).</para>
+    </section>
   </section>  <section>
     <title>Data values</title>
     <para>This section is about sending and reading data values.</para>
