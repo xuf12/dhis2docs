@@ -113,8 +113,22 @@
           </screenshot>
         </listitem>
         <listitem>
-          <para>Users must be assigned to at least one organisational unit. Users are able to have access to all children of the organisational unit(s) which have been assigned to them. For instance, if a user has been assigned to &quot;District X&quot; which has several facilities contained in the district, the user would have access to the district&apos;s data, as well as all of the facilities contained within the district. </para>
-          <para>In order for users to be able to enter data for specific organisational units, they must be assigned these units. If a user is responsible for entering data for all facilities for a given district, they should typically be assigned the district, and all of the facilities contained within the district.</para>
+          <para>Users must be assigned to at least one data capture organisation unit. Users will
+            have access to all children of the organisational units which have been assigned to
+            them. For instance, if a user has been assigned to a district which has several
+            facilities contained in the district, the user would have access to the district's data,
+            as well as all of the facilities contained within the district. The data approval org
+            units control for which org units the user can do data entry.</para>
+        </listitem>
+        <listitem>
+          <para>Users can be assigned to any number of data view organisation units. This controls
+            which org units the user can view aggregated data for in analysis modules. Giving access
+            to an org unit implicitly gives access to all org unit below it in the org unit
+            hierarchy.</para>
+          <para>In order for users to be able to enter data for specific organisational units, they
+            must be assigned these units. If a user is responsible for entering data for all
+            facilities for a given district, they should typically be assigned the district, and all
+            of the facilities contained within the district.</para>
         </listitem>
       </itemizedlist>
     </section>
