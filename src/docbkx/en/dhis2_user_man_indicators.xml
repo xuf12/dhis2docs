@@ -6,7 +6,7 @@
   <screenshot>
     <mediaobject>
       <imageobject>
-        <imagedata width="100%" fileref="resources/images/maintainence/data_element_main.png" format="PNG"/>
+        <imagedata fileref="resources/images/maintainence/data_element_main.png" format="PNG"/>
       </imageobject>
     </mediaobject>
   </screenshot>
@@ -25,7 +25,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="80%" fileref="resources/images/maintainence/indicator_maintenance_main.png" format="PNG"/>
+            <imagedata fileref="resources/images/maintainence/indicator_maintenance_main.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -51,7 +51,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="70%" fileref="resources/images/maintainence/indicator_add.png" format="PNG"/>
+            <imagedata fileref="resources/images/maintainence/indicator_add.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -86,11 +86,13 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="80%" fileref="resources/images/maintainence/indicator_numerator_denominator.png" format="PNG"/>
+            <imagedata fileref="resources/images/maintainence/indicator_numerator_denominator.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>Essentially, an indicator is a formula that can be composed of multiple data elements, constant factors, and mathematical operators. In order to define a new indicator proceed with the following steps.  </para>
+      <para>Essentially, an indicator is a formula that can be composed of multiple data elements,
+        constants, organisation unit group counts and mathematical operators. In order to define a
+        new indicator proceed with the following steps. </para>
       <orderedlist>
         <listitem>
           <para>A description of the numerator/denominator must be provided in the &quot;Description field&quot;. This should provide a clear description of the numerator/denominator. This field is required.</para>
@@ -105,9 +107,40 @@
           <para>Follow the same procedure in order to define the denominator. </para>
         </listitem>
       </orderedlist>
+      <para>The components of an indicator formula are listed below.</para>
+      <itemizedlist>
+        <listitem>
+          <para>Data elements: Will be substituted by the data value captured for the data
+            element.</para>
+        </listitem>
+        <listitem>
+          <para>Constants: Constants are numerical values which will remain the same for all
+            indicator calculations. This is useful in order to have a single place to change values
+            that might change over time.</para>
+        </listitem>
+        <listitem>
+          <para>Days: A special operator &quot;D&quot; is available in formulas. This operator will
+            always provide the number of days for a given indicator calculation. As an example, if
+            you wish to calculate the &quot;Percentage of time vaccine refrigerator was
+            non-functional&quot;, you could define the numerator as (&quot;D-&quot;Number of days
+            vaccine refrigerator was available&quot;&quot;)/&quot;D&quot;. For example, if the
+            fridge was available 25 days in June, the indicator would be calculated as
+            (30-25/25)*100=17%. If you were however to calculate the total for Quarter 1, the number
+            of days (&quot;D&quot;) would be equal to 31+28+31=90. Thus, the &quot;D&quot; paramater
+            will always be the number of days in the period of interest.</para>
+        </listitem>
+        <listitem>
+          <para>Org unit group counts: Org unit groups can be utilized in formulas and will be
+            substitued by the number of organisation units in the group. During aggregation, the org
+            units in the group will be intersected with the part of the org unit hierarchy being
+            requested. As an example, this lets you use the number of public facilities in a
+            specific district in indicators. This is useful e.g. when creating facility
+            infrastructure surveys and reports.</para>
+        </listitem>
+      </itemizedlist>
       <note>
-        <para>Indicators may make use of constants. Constants are numerical values which will remain the same for all indicator calculations.</para>
-        <para>A special operator &quot;D&quot; is also available. This operator will always provide the number of days for a given indicator calculation. As an example, if you wish to calculate the &quot;Percentage of time vaccine refrigerator was non-functional&quot;, you could define the numerator as (&quot;D-&quot;Number of days vaccine refrigerator was available&quot;&quot;)/&quot;D&quot;. For example, if the fridge was available 25 days in June, the indicator would be calculated as (30-25/25)*100=17%. If you were however to calculate the total for Quarter 1, the number of days (&quot;D&quot;) would be equal to 31+28+31=90. Thus, the &quot;D&quot; paramater will always be the number of days in the period of interest. </para>
+        <para>Indicators may make use of constants. </para>
+        <para/>
       </note>
     </section>
     <section id="indicatorType">
@@ -118,7 +151,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="50%" fileref="resources/images/maintainence/indicator_type.png" format="PNG"/>
+            <imagedata fileref="resources/images/maintainence/indicator_type.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -140,7 +173,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="80%" fileref="resources/images/maintainence/indicator_group_sets.png" format="PNG"/>
+            <imagedata fileref="resources/images/maintainence/indicator_group_sets.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
