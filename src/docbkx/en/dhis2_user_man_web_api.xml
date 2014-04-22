@@ -491,6 +491,18 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
   &lt;dataValue dataElement=&quot;dataElementID&quot; value=&quot;2&quot;/&gt;
   &lt;dataValue dataElement=&quot;dataElementID&quot; value=&quot;3&quot;/&gt;
 &lt;/dataValueSet&gt;</screen>
+      <para>We also support sending JSON payloads using this
+        format:<screen>{
+  "dataSet": "dataSetID",
+  "completeData": "date",
+  "period": "period",
+  "orgUnit": "orgUnitID",
+  "dataValues": [
+    { "dataElement": "dataElementID", "value": "1" },
+    { "dataElement": "dataElementID", "value": "2" },
+    { "dataElement": "dataElementID", "value": "3" }
+  ]
+}</screen></para>
     <para><emphasis role="italic">Note:</emphasis> We have omitted the <emphasis role="italic">categoryOptionCombo</emphasis> attribute as it is optional and not needed for this example. Please refer to the date and period section above for time formats.</para>
     <para>From the example we can see that we need to identify the period,  the data set, the org unit (facility) and the data elements for which to report. The <emphasis role="italic">dataValueSets</emphasis> resource description tells us that the identifier for monthly periods should be on the format <emphasis role="italic">yyyyMM</emphasis> which means that we will use <emphasis role="italic">201201</emphasis> for January 2012.</para>
     <para>To obtain the identifier for the data set we return to the entry point at <ulink url="http://apps.dhis2.org/demo/api"/> and follow the embedded link pointing at the
@@ -513,6 +525,18 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
   &lt;dataValue dataElement=&quot;Ix2HsbDMLea&quot; value=&quot;14&quot;/&gt;
   &lt;dataValue dataElement=&quot;eY5ehpbEsB7&quot; value=&quot;16&quot;/&gt;
 &lt;/dataValueSet&gt;</screen>
+      <para>Or we can use
+        JSON:<screen>{
+  "dataSet": "pBOMPrpg1QX",
+  "completeData": "2012-02-03",
+  "period": "201201",
+  "orgUnit": "DiszpKrYNg8",
+  "dataValues": [
+    { "dataElement": "f7n9E0hX8qk", "value": "1" },
+    { "dataElement": "Ix2HsbDMLea", "value": "2" },
+    { "dataElement": "eY5ehpbEsB7", "value": "3" }
+  ]
+}</screen></para>
     <para>To perform functional testing we will use the cURL tool (<ulink url="http://curl.haxx.se"/>) which provides an easy way of transferring data using HTTP. First we save the data value
       set XML content in a file called <emphasis role="italic">datavalueset.xml</emphasis> . From
       the directory where this file resides we invoke the following from the command line:</para>
@@ -532,6 +556,15 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
   &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201202&quot; orgUnit=&quot;DiszpKrYNg8&quot; value=&quot;16&quot;/&gt;
   &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201202&quot; orgUnit=&quot;Jkhdsf8sdf4&quot; value=&quot;18&quot;/&gt;
 &lt;/dataValueSet&gt;</screen>
+      <para>Or we can use
+        JSON:<screen>{
+  "dataValues": [
+    { "dataElement": "f7n9E0hX8qk", "period": "201201", "orgUnit": "DiszpKrYNg8", "value": "12" },
+    { "dataElement": "f7n9E0hX8qk", "period": "201201", "orgUnit": "FNnj3jKGS7i", "value": "14" },
+    { "dataElement": "f7n9E0hX8qk", "period": "201202", "orgUnit": "DiszpKrYNg8", "value": "16" },
+    { "dataElement": "f7n9E0hX8qk", "period": "201202", "orgUnit": "Jkhdsf8sdf4", "value": "18" }
+  ]
+}</screen></para>
     <para>We test by using cURL  to send the data values:</para>
     <screen>curl -d @datavalueset.xml &quot;http://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</screen>
     <para>The data value set resource provides an XML response which is useful when you want to verify the impact your request had. The first time we send the data value set request above the server will respond with the following<emphasis role="italic"> import summary</emphasis>:</para>
