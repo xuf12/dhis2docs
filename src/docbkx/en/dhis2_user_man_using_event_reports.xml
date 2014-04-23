@@ -54,9 +54,9 @@
       </screenshot>
       <para>By clicking <emphasis role="bold">Layout</emphasis> from the top menu you can control
         which dimensions should appear as columns, rows and filters in the pivot table. Note that
-        each data element appears as individual dimensions and can each be placed on any of the
-        axis.</para>
-      <para>Note as data elements of continuous value types (real numbers/decimal numbers) can only
+        each data element appears as individual dimensions and can be placed on any of the
+        axes.</para>
+      <para>Note that data elements of continuous value types (real numbers/decimal numbers) can only
         be used as filters, and will automatically be positioned as filters in the layout dialog.
         The reason for this is that continuous number cannot be grouped into sensible ranges and
         used on columns and rows.</para>
@@ -67,7 +67,7 @@
     </section>
     <section>
       <title>Event queries</title>
-      <para>By selecting "Individual cases" fromt the top-left menu you can use the event reports
+      <para>By selecting "Individual cases" from the top-left menu you can use the event reports
         app to make searches or queries for events based on a flexible set of criteria. The report
         will be displayed as a table with one row per event. Each dimension can be used as a column
         in the table or as a filter. Each dimension can have a criteria (filter). Data elements of
