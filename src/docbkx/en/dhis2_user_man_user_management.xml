@@ -196,5 +196,24 @@
       <title>User by organisation unit</title>
       <para>The <emphasis role="italic">User by organisation unit</emphasis> function allows you see which users have been assigned to a particular organisation unit. Simply select the organisation unit from the tree on the left, and a list of users which have been assigned to this particular organisation unit will be displayed</para>
     </section>
+    <section>
+      <title>OpenID Support</title>
+      <para>DHIS 2 supports the OpenID standard, which can be described as "OpenID is an open standard that allows users to be authenticated
+        by certain co-operating sites (known as Relying Parties or RP) using a third party service, eliminating the need for webmasters to
+        provide their own ad hoc systems and allowing users to consolidate their digital identities." (from WikiPedia).</para>
+      <para>To enable support for this in DHIS 2, two steps must be done:<itemizedlist>
+          <listitem>
+            <para><emphasis role="bold">Set your OpenID provider</emphasis>: This can be done inside system settings, under "Approval". Here
+              you can set both the OpenID provider, and also the label to display on the login page to login with this provider (defaults to
+              Login with OpenID).</para>
+          </listitem>
+          <listitem>
+            <para><emphasis role="bold">Set the OpenID identifier on the user</emphasis>: For every user that should be able to login with
+              his openid identifier, you will need to set this on the user itself. This can be done in user management, under the email
+              field, there is noe a field called <emphasis role="italic">OpenID</emphasis> which can be used to fill in the OpenID
+              identifier. </para>
+          </listitem>
+        </itemizedlist></para>
+    </section>
   </section>
 </chapter>
