@@ -18,7 +18,7 @@
   <screenshot>
     <mediaobject>
       <imageobject>
-        <imagedata width="80%" align="center" fileref="resources/images/import_export/import_export_overview.png"/>
+        <imagedata align="center" fileref="resources/images/import_export/import_export_overview.png"/>
       </imageobject>
     </mediaobject>
   </screenshot>
@@ -31,7 +31,7 @@
         <screeninfo>Default import screen</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" fileref="resources/images/import_export/import_default.png" format="PNG"/>
+            <imagedata fileref="resources/images/import_export/import_default.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -63,14 +63,14 @@
           be greeted by this window.</para>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" fileref="resources/images/import_export/display_import_summary.png"/>
+            <imagedata fileref="resources/images/import_export/display_import_summary.png"/>
           </imageobject>
         </mediaobject>
         <para>Here you can see a short summary of what was contained in your import file. To see
           further details, please click on the &quot;display import summary&quot; link.</para>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" fileref="resources/images/import_export/import_summary.png"/>
+            <imagedata fileref="resources/images/import_export/import_summary.png"/>
           </imageobject>
         </mediaobject>
         <para>Here you can see that the import dry run was successful and the import contained
@@ -79,7 +79,7 @@
         <para>Below you can see another example.</para>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" fileref="resources/images/import_export/import_summary_conflicts.png"/>
+            <imagedata fileref="resources/images/import_export/import_summary_conflicts.png"/>
           </imageobject>
         </mediaobject>
         <para>Here you can see that the organisation unit Nduvuibu MCHP had a unknown reference to
@@ -138,13 +138,13 @@
         <tgroup cols="4">
           <colspec colnum="1" colname="c1" colwidth="1.33*"/>
           <colspec colnum="2" colname="c2" colwidth="1*"/>
-          <colspec colnum="3" colname="newCol3" colwidth="1.33*"/>
-          <colspec colnum="4" colname="c3" colwidth="5.84*"/>
+          <colspec colnum="3" colname="newCol3" colwidth="2.06*"/>
+          <colspec colnum="4" colname="c3" colwidth="5.11*"/>
           <thead>
             <row>
               <entry>Column</entry>
               <entry>Required</entry>
-              <entry>Default value</entry>
+              <entry>Value</entry>
               <entry>Description</entry>
             </row>
           </thead>
@@ -188,31 +188,31 @@
             <row>
               <entry>Domain type</entry>
               <entry>No</entry>
-              <entry>aggregate</entry>
+              <entry>aggregate | patient</entry>
               <entry>Domain type for data element, can be aggreate or patient. Max 16 char.</entry>
             </row>
             <row>
               <entry>Value type</entry>
               <entry>No</entry>
-              <entry>int</entry>
+              <entry>int | string | bool | trueOnly | date | unitInterval</entry>
               <entry>Value type. Max 16 char.</entry>
             </row>
             <row>
               <entry>Number type</entry>
               <entry>No</entry>
-              <entry>number</entry>
+              <entry>int | posInt | negInt | number | zeroPositiveInt</entry>
               <entry>Only relevant if type is int. Max 16 char.</entry>
             </row>
             <row>
               <entry>Text type</entry>
               <entry>No</entry>
-              <entry>text</entry>
+              <entry>text | longText</entry>
               <entry>Only relevant if type is string. Max 16 char.</entry>
             </row>
             <row>
               <entry>Aggregation operator</entry>
               <entry>No</entry>
-              <entry>sum</entry>
+              <entry>sum | average | count | stddev | variance</entry>
               <entry>Operator indicating how to aggreate data in the time dimension. Max 16 char.</entry>
             </row>
             <row>
@@ -224,7 +224,7 @@
             <row>
               <entry>Zero is significant</entry>
               <entry>No</entry>
-              <entry>false</entry>
+              <entry>false | true</entry>
               <entry>Indicates whether zero values will be stored for this data element.</entry>
             </row>
           </tbody>
@@ -235,13 +235,13 @@
         <tgroup cols="4">
           <colspec colnum="1" colname="c1" colwidth="1.33*"/>
           <colspec colnum="2" colname="c2" colwidth="1*"/>
-          <colspec colnum="3" colname="c3" colwidth="1.34*"/>
-          <colspec colnum="4" colname="c4" colwidth="5.85*"/>
+          <colspec colnum="3" colname="c3" colwidth="2.05*"/>
+          <colspec colnum="4" colname="c4" colwidth="5.1*"/>
           <thead>
             <row>
               <entry>Column</entry>
               <entry>Required</entry>
-              <entry>Default value</entry>
+              <entry>Value</entry>
               <entry>Description</entry>
             </row>
           </thead>
@@ -357,7 +357,7 @@
             <row>
               <entry>Column</entry>
               <entry>Required</entry>
-              <entry>Default value</entry>
+              <entry>Value</entry>
               <entry>Description</entry>
             </row>
           </thead>
@@ -535,7 +535,7 @@
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata width="40%" align="center" fileref="resources/images/import_export/dhis14_export.png"/>
+              <imagedata align="center" fileref="resources/images/import_export/dhis14_export.png"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -615,7 +615,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" fileref="resources/images/import_export/metadata_export.png" format="PNG"/>
+            <imagedata fileref="resources/images/import_export/metadata_export.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -627,7 +627,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata align="center" width="40%" fileref="resources/images/import_export/metadata_detailed_export_main.png"/>
+            <imagedata align="center" fileref="resources/images/import_export/metadata_detailed_export_main.png"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -635,7 +635,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata align="center" width="40%" fileref="resources/images/import_export/metadata_detail_export_select.png"/>
+            <imagedata align="center" fileref="resources/images/import_export/metadata_detail_export_select.png"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -644,7 +644,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata align="center" width="30%" fileref="resources/images/import_export/metadata_detail_export_dialog.png"/>
+            <imagedata align="center" fileref="resources/images/import_export/metadata_detail_export_dialog.png"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -656,7 +656,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" fileref="resources/images/import_export/export_to_dhis2.png" format="PNG"/>
+            <imagedata fileref="resources/images/import_export/export_to_dhis2.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
