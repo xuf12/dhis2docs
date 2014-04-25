@@ -146,13 +146,15 @@
         </listitem>
         <listitem>
           <para>Users can be assigned to any number of data view organisation units. This controls
-            which organisation units the user can view aggregated data for in analysis modules. Giving access
-            to an organisation unit implicitly gives access to all organisation unit below it in the organisation unit
-            hierarchy.</para>
-          <para>In order for users to be able to enter data for specific organisation units, they
-            must be assigned these units. If a user is responsible for entering data for all
-            facilities for a given district, they should typically be assigned the district, and all
-            of the facilities contained within the district.</para>
+            which organisation units the user can view aggregated data for in analysis modules.
+            Giving access to an organisation unit implicitly gives access to all organisation unit
+            below it in the organisation unit hierarchy. Note that data view organisation units are
+            optional. If you do not specify any, the user will have access to the full organisation
+            unit hierarchy for viewing aggregated data.</para>
+          <para>In several places in the analysis modules one can select "user organisation unit"
+            for the organisation unit dimension. This mechanism will first attempt to use the data
+            view organisation units linked to the current user. If not found, it will use the data
+            capture organisation units.</para>
           <screenshot>
             <screeninfo>User management screen</screeninfo>
             <mediaobject>
