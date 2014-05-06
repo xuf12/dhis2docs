@@ -314,7 +314,10 @@ sudo /etc/init.d/nginx stop</screen></para>
     }
   }
 }</screen>
-      <para>In order for tomcat to properly produce Location uris using https you also need to add two other parameters to the Connector in tomcat&apos;s server.xml file:</para>
+      <para>Note the last "https" header value which is required to inform the servlet container
+        that the request is coming over HTTPS. In order for tomcat to properly produce Location uris
+        using https you also need to add two other parameters to the Connector in tomcat&apos;s
+        server.xml file:</para>
       <para><screen>&lt;Connector scheme=&quot;https&quot; proxyPort=&quot;443&quot; ... &gt;</screen></para>
     </section>
     <section>

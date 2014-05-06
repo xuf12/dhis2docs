@@ -4066,7 +4066,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
         <thead>
           <row>
             <entry>Query parameter</entry>
-            <entry>Options value</entry>
+            <entry>Options</entry>
             <entry>Description</entry>
           </row>
         </thead>
@@ -4074,17 +4074,22 @@ ORDER BY oul.level, par.name, ou.name</screen>
           <row>
             <entry>skipResourceTables</entry>
             <entry>false | true</entry>
-            <entry>Skips generation of resource tables</entry>
+            <entry>Skip generation of resource tables</entry>
           </row>
           <row>
             <entry>skipAggregate</entry>
             <entry>false | true</entry>
-            <entry>Skips generation of aggregate data and completeness data</entry>
+            <entry>Skip generation of aggregate data and completeness data</entry>
           </row>
           <row>
             <entry>skipEvents</entry>
             <entry>false | true</entry>
-            <entry>Skips generation of event data</entry>
+            <entry>Skip generation of event data</entry>
+          </row>
+          <row>
+            <entry>lastYears</entry>
+            <entry>integer</entry>
+            <entry>Number of last years of data to include</entry>
           </row>
         </tbody>
       </tgroup>
