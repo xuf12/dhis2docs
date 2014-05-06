@@ -58,6 +58,7 @@
 				<configuration>
 					<xincludeSupported>true</xincludeSupported>
 				</configuration>
+				<!-- Chunked HTML -->
 				<executions>
 					<execution>
 						<id>chunked-html-docs-user</id>
@@ -75,13 +76,11 @@
 							<sectionAutolabel>1</sectionAutolabel>
 							<sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
 							<chunkedOutput>true</chunkedOutput>
-							<useEmbedForSvg>1</useEmbedForSvg>
-							
+							<useEmbedForSvg>1</useEmbedForSvg>							
 							<collectXrefTargets>yes</collectXrefTargets> 
 							<targetsFilename>${docbook.target}/en/user/html/dhis2_user_manual_en.html.target.db</targetsFilename>
 							<olinkBaseUri>dhis2_user_manual_en.html</olinkBaseUri>
-							<targetDatabaseDocument>olinkdb.xml</targetDatabaseDocument>
-							
+							<targetDatabaseDocument>olinkdb.xml</targetDatabaseDocument>							
 							<includes>dhis2_user_manual_en.xml</includes>
 							<postProcess>
 								<copy todir="${docbook.target}/en/user/html/resources/images">
@@ -171,6 +170,7 @@
 							</postProcess>
 						</configuration>
 					</execution>
+					<!-- Single page HTML -->
 					<execution>
 						<id>html-docs-en</id>
 						<phase>package</phase>
@@ -194,6 +194,7 @@
 							</postProcess>
 						</configuration>
 					</execution>
+					<!-- PDF -->
 					<execution>
 						<id>pdf-docs-en-user</id>
 						<phase>package</phase>
@@ -230,7 +231,6 @@
 							</postProcess>
 						</configuration>
 					</execution>
-
 					<execution>
 						<id>pdf-docs-en-end-user</id>
 						<phase>package</phase>
