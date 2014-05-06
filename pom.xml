@@ -135,6 +135,48 @@
 							</postProcess>
 						</configuration>
 					</execution>
+					
+					<execution>
+						<id>chunked-html-docs-ccei-user</id>
+						<phase>package</phase>
+						<goals>
+							<goal>generate-html</goal>
+						</goals>
+						<configuration>
+							<sourceDirectory>${docbook.source}/en/</sourceDirectory>
+							<targetDirectory>${docbook.target}/en/user/html/</targetDirectory>
+							<admonGraphics>1</admonGraphics>
+							<admonGraphicsPath>resources/images/admon/</admonGraphicsPath>
+							<htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
+							<glossaryCollection>resources/glossary_en.xml</glossaryCollection>
+							<sectionAutolabel>1</sectionAutolabel>
+							<sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
+							<chunkedOutput>true</chunkedOutput>
+							<useEmbedForSvg>1</useEmbedForSvg>							
+							<collectXrefTargets>yes</collectXrefTargets> 
+							<targetsFilename>${docbook.target}/en/user/html/ccei_user_manual_en.html.target.db</targetsFilename>
+							<olinkBaseUri>ccei_user_manual_en.html</olinkBaseUri>
+							<targetDatabaseDocument>olinkdb.xml</targetDatabaseDocument>							
+							<includes>ccei_user_manual_en.xml</includes>
+							<postProcess>
+								<copy todir="${docbook.target}/en/user/html/resources/images">
+									<fileset dir="src/docbkx/en/resources/images">
+										<include name="**/*.png" />
+										<include name="**/*.PNG" />
+										<include name="**/*.gif" />
+										<include name="**/*.jpg" />
+										<include name="**/*.svg" />
+									</fileset>
+								</copy>
+								<copy todir="${docbook.target}/en/user/html/resources/css">
+									<fileset dir="src/docbkx/en/resources/css">
+										<include name="**/*.css" />
+									</fileset>
+								</copy>
+							</postProcess>
+						</configuration>
+					</execution>
+					
 					<execution>
 						<id>chunked-html-docs-implementer</id>
 						<phase>package</phase>
@@ -170,6 +212,7 @@
 							</postProcess>
 						</configuration>
 					</execution>
+					
 					<!-- Single page HTML -->
 					<execution>
 						<id>html-docs-en</id>
@@ -185,15 +228,17 @@
 							<sectionAutolabel>1</sectionAutolabel>
 							<sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
 							<chunkedOutput>false</chunkedOutput>
-							<includes>dhis2_user_manual_en.xml,dhis2_end_user_manual.xml,dhis2_implementation_guide_en.xml</includes>
+							<includes>dhis2_user_manual_en.xml,dhis2_end_user_manual.xml,dhis2_implementation_guide_en.xml,ccei_user_manual_en.xml</includes>
 							<sourceDirectory>${docbook.source}/en/</sourceDirectory>
 							<postProcess>
-								<copy file="target/docbkx/html/dhis2_user_manual_en.html" tofile="${docbook.target}/en/user/html/dhis2_user_manual_en_full.html" />
+								<copy file="target/docbkx/html/dhis2_user_manual_en.html" tofile="${docbook.target}/en/user/html/dhis2_user_manual_en_full.html" />								
 								<copy file="target/docbkx/html/dhis2_end_user_manual.html" tofile="${docbook.target}/en/end-user/html/dhis2_end_user_manual_full.html" />
 								<copy file="target/docbkx/html/dhis2_implementation_guide_en.html" tofile="${docbook.target}/en/implementer/html/dhis2_implementation_guide_en_full.html" />
+								<copy file="target/docbkx/html/ccei_user_manual_en.html" tofile="${docbook.target}/en/user/html/ccei_user_manual_en.html" />
 							</postProcess>
 						</configuration>
 					</execution>
+					
 					<!-- PDF -->
 					<execution>
 						<id>pdf-docs-en-user</id>
@@ -213,6 +258,26 @@
 							</postProcess>
 						</configuration>
 					</execution>
+
+					<execution>
+						<id>pdf-docs-en-ccei-user</id>
+						<phase>package</phase>
+						<goals>
+							<goal>generate-pdf</goal>
+						</goals>
+						<configuration>
+							<argLine>-Xmx1024m</argLine>
+							<foCustomization>${docbook.source}/en/resources/xsl/fop-cust.xsl</foCustomization>
+							<doubleSided>1</doubleSided>
+							<paperType>A4</paperType>
+							<includes>ccei_user_manual_en.xml</includes>
+							<sourceDirectory>${docbook.source}/en/</sourceDirectory>
+							<postProcess>
+								<copy file="target/docbkx/pdf/ccei_user_manual_en.pdf" todir="${docbook.target}/en/user" />
+							</postProcess>
+						</configuration>
+					</execution>
+					
 					<execution>
 						<id>pdf-docs-en-implementer</id>
 						<phase>package</phase>
