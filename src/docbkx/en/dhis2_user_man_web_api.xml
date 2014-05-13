@@ -197,6 +197,9 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para>You can query for elements on the name property instead of returning full list of elements using the <emphasis role="italic"
         >query</emphasis> query variable. In this example we query for all data elements with the word "anaemia" in the name:</para>
     <screen>/api/dataElements?query=anaemia</screen>
+    <para>You can find an object based on its ID across all object types through the <emphasis
+        role="italic">identifiableObjects</emphasis> resource:</para>
+    <screen>/api/identifiableObjects/&lt;id></screen>
   </section>
   <section>
     <title>Working with the meta-data API</title>
