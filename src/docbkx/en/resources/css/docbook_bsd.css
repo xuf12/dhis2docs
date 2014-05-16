@@ -38,7 +38,7 @@ BODY BLOCKQUOTE {
 }  
   
 HTML BODY {  
-	margin: 1em 8% 1em 10%;  
+	margin: 1em 15% 1em 15%;  
 	line-height: 1.5;
 	font-family: Arial, Sans-serif;
 	color: #333;
@@ -67,7 +67,6 @@ DIV.EXAMPLE P B,
 DIV.TABLE P B,  
 DIV.PROCEDURE P B {  
 	color: #222;
-	font-weight: lighter;
 }  
 
 TABLE {
@@ -89,19 +88,19 @@ BODY H1, BODY H2, BODY H3, BODY H4, BODY H5, BODY H6 {
 }  
   
 BODY H1, BODY H2 {  
-	margin: 1.2em 0 0 -4%;  
+	margin: 2em 0 0 0;  
 }  
   
 BODY H3, BODY H4 {  
-	margin: 1.2em 0 0 -3%;  
+	margin: 2em 0 0 0;  
 }  
   
 BODY H5 {  
-	margin: 1.2em 0 0 -2%;  
+	margin: 2em 0 0 0;  
 }  
   
 BODY H6 {  
-	margin: 1.2em 0 0 -1%;  
+	margin: 2em 0 0 0;  
 }  
   
 BODY HR {  
