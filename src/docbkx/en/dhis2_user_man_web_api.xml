@@ -373,13 +373,14 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
   </section>
   <section>
     <title>Meta-data filtering</title>
-    <para>To furhter filter the meta-data, we are now (in 2.15) providing several filter operations that can be applied to the returned
-      meta-data list. The format of the filter itself is very easy, and follows the pattern <emphasis role="italic"
-        >property:operator:value</emphasis>, where <emphasis role="italic">property</emphasis> is which property on the meta-data you want
-      to filter on (please see the <emphasis role="italic">schema</emphasis> section to find out what properties are available), <emphasis
-        role="italic">operator</emphasis> is the comparison action you want to perform, and <emphasis role="italic">value</emphasis> is the
-      value to check against (not all operators require value).
-      <table>
+    <para>To further filter the meta-data there are several filter operations that can be applied to
+      the returned list of meta-data. The format of the filter itself is straight-forward and
+      follows the pattern <emphasis role="italic">property:operator:value</emphasis>, where
+        <emphasis role="italic">property</emphasis> is the property on the meta-data you want to
+      filter on (please see the <emphasis role="italic">schema</emphasis> section to find out which
+      properties are available), <emphasis role="italic">operator</emphasis> is the comparison
+      action you want to perform and <emphasis role="italic">value</emphasis> is the value to check
+      against (not all operators require value). <table>
         <title>Available Operators</title>
         <tgroup cols="5">
           <thead>
@@ -448,8 +449,9 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
           </tbody>
         </tgroup>
       </table></para>
-    <para>Different operators will be taken as <emphasis role="bold">and</emphasis>, and multiple of the same will be taken as <emphasis
-        role="bold">or</emphasis>, the filtering mechanism also allows for recursion (please see below for an example).</para>
+    <para>Different operators will be applied as <emphasis role="bold">and</emphasis>, and equal
+      operators will be applied as <emphasis role="bold">or</emphasis>. The filtering mechanism also
+      allows for recursion - see below for an example:</para>
     <para><emphasis role="bold">Example 1</emphasis>: Get dataElements with ID1 and
       ID2<screen>/api/dataElements?filter=id:eq:ID1&amp;filter=id:eq:ID2</screen></para>
     <para><emphasis role="bold">Example 2</emphasis>: Get all dataElements which has the dataSet with id
