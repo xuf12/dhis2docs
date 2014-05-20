@@ -4133,7 +4133,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
       resource can be found at <emphasis role="italic">/api/system</emphasis>. </para>
     <section>
 	<title>Generate identifiers</title>
-    <para>To genereate valid, random DHIS 2 identifiers you can do a GET request to this
+    <para>To generate valid, random DHIS 2 identifiers you can do a GET request to this
         resource:</para>
     <screen>http://&lt;server-url>/api/system/id?n=3</screen>
     <para>The <emphasis role="italic">n</emphasis> query parameter is optional and indicates how
