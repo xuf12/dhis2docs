@@ -945,9 +945,9 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
   &lt;/dataValues>
 &lt;/event></screen>
     <para>To perform some testing we can save the XML payload as a file called<emphasis
-        role="italic"> events.xml</emphasis> and send it as a POST request to the events resource in
-      the API using curl with the following command:</para>
-    <screen>curl -d @events.xml "http://apps.dhis2.org/demo/api/events" -H "Content-Type:application/xml" -u admin:district -v</screen>
+          role="italic"> event.xml</emphasis> and send it as a POST request to the events resource
+        in the API using curl with the following command:</para>
+    <screen>curl -d @event.xml "http://apps.dhis2.org/demo/api/events" -H "Content-Type:application/xml" -u admin:district -v</screen>
     <para>The same payload in JSON format looks like this:</para>
     <screen>{
   "program": "eBAyeGv0exc",
@@ -966,8 +966,8 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
   ]
 }</screen>
     <para>To send this you can save it to a file called <emphasis role="italic"
-        >events.json</emphasis> and use curl like this:</para>
-    <screen>curl -d @events.xml "localhost:8080/api/events" -H "Content-Type:application/json" -u admin:district -v</screen>
+          >event.json</emphasis> and use curl like this:</para>
+    <screen>curl -d @event.json "localhost:8080/api/events" -H "Content-Type:application/json" -u admin:district -v</screen>
     <para>We also support sending multiple events at the same time. A payload in XML format might
       look like this: </para>
     <screen>&lt;?xml version="1.0" encoding="utf-8"?>
