@@ -200,19 +200,24 @@
     </section>
     <section>
       <title>OpenID Support</title>
-      <para>DHIS 2 supports the OpenID standard, which allows third party login using a OpenID provider, please see <ulink
-          url="http://openid.net">http://openid.net</ulink> for more information.</para>
+      <para>DHIS 2 supports the OpenID standard, which allows third party login using a OpenID
+        provider, please see <ulink url="http://openid.net">http://openid.net</ulink> for more
+        information. To create a custom OpenID URL for a username you can visit this URL and log in
+        with your OpenID provider: <ulink url="http://openid-provider.appspot.com"
+          >http://openid-provider.appspot.com</ulink>.</para>
       <para>To enable support for this in DHIS 2, two steps must be done:<itemizedlist>
           <listitem>
-            <para><emphasis role="bold">Set your OpenID provider</emphasis>: This can be done inside system settings, under "Access". Here
-              you can set both the OpenID provider, and also the label to display on the login page to login with this provider (defaults to
-              Login with OpenID).</para>
+            <para><emphasis role="bold">Set your OpenID provider</emphasis>: This can be done inside
+              system settings, under "Access". Here you can set both the OpenID provider, and also
+              the label to display on the login page to login with this provider (defaults to Login
+              with OpenID).</para>
           </listitem>
           <listitem>
-            <para><emphasis role="bold">Set the OpenID identifier on the user</emphasis>: For every user that should be able to login with
-              his openid identifier, you will need to set this on the user itself. This can be done in user management, under the email
-              field, there is noe a field called <emphasis role="italic">OpenID</emphasis> which can be used to fill in the OpenID
-              identifier. </para>
+            <para><emphasis role="bold">Set the OpenID identifier on the user</emphasis>: For every
+              user that should be able to login with his openid identifier, you will need to set
+              this on the user itself. This can be done in user management, under the email field,
+              there is noe a field called <emphasis role="italic">OpenID</emphasis> which can be
+              used to fill in the OpenID identifier. </para>
           </listitem>
         </itemizedlist></para>
     </section>
