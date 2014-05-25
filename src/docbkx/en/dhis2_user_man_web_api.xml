@@ -4427,6 +4427,21 @@ ORDER BY oul.level, par.name, ou.name</screen>
         HTTP <emphasis role="bold">POST</emphasis> method. You can post the payload the the
         following URL:</para>
       <screen>/api/trackedEntityInstances</screen>
+      <para> For example, let's create a new instance of a Person and setting the age to 30 (using
+        our demo
+        server):<screen>{
+  "trackedEntity": "cyl5vuJ5ETQ",
+  "orgUnit": "ImspTQPwCqd",
+  "attributes": [
+    {
+      "attribute": "spFvx9FndA4",
+      "value": "30"
+    }
+  ]
+}</screen></para>
+      <para>To push this to the server, you can use the cURL
+        command:<screen>curl -X POST -d @data.json -H "Content-Type: application/json" -u admin:district
+  http://apps.dhis2.org/demo/api/trackedEntityInstances -v</screen></para>
     </section>
     <section>
       <title>Updating a tracked entity instance</title>
