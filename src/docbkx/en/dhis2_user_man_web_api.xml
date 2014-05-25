@@ -4410,20 +4410,22 @@ ORDER BY oul.level, par.name, ou.name</screen>
       needed for working with tracked entity instances and programs are supported.</para>
     <section>
       <title>Creating a new tracked entity instance</title>
-      <para>For creating a new person in the system, you will be working with the <emphasis role="italic">trackedEntityInstances</emphasis>
-        resource. A template payload can be seen
+      <para>For creating a new person in the system, you will be working with the <emphasis
+          role="italic">trackedEntityInstances</emphasis> resource. A template payload can be seen
         below:<screen>{
-    "trackedEntity": "Tracked Entity UID",
-    "orgUnit": "Organisation unit identifier",
+    "trackedEntity": "tracked-entity-id",
+    "orgUnit": "org-unit-id",
     "attributes": [ {
-        "type": "Name attribute UID",
-        "value": "My Name"
+        "attribute": "attribute-id",
+        "value": "attribute-value"
     } ]
 }</screen></para>
-      <para>For getting the IDs for <emphasis role="italic">relationship</emphasis>, <emphasis role="italic">attributes</emphasis> you can
-        have a look at the respective resources <emphasis role="italic">relationshipTypes</emphasis>,, <emphasis role="italic"
-          >trackedEntityAttributes</emphasis>. To create a person you must use the HTTP <emphasis role="bold">POST</emphasis> method. You
-        can post the payload the the following URL:</para>
+      <para>For getting the IDs for <emphasis role="italic">relationship</emphasis>, <emphasis
+          role="italic">attributes</emphasis> you can have a look at the respective resources
+          <emphasis role="italic">relationshipTypes</emphasis>,, <emphasis role="italic"
+          >trackedEntityAttributes</emphasis>. To create a tracked entity instance you must use the
+        HTTP <emphasis role="bold">POST</emphasis> method. You can post the payload the the
+        following URL:</para>
       <screen>/api/trackedEntityInstances</screen>
     </section>
     <section>
