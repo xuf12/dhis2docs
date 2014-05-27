@@ -3413,9 +3413,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>The event analytics API lets you query <emphasis role="italic">events</emphasis> captured
       in DHIS 2. This resource lets you retrieve events based on a program and optionally a program
       stage, and lets you retrieve and filter events on any event dimensions. Event dimensions
-      include data elements, person attributes, person identifiers, organisation units and periods.
-      The query analytics resource will simply return events matching a set of criteria and does not
-      perform any aggregation. The event dimensions are listed in the table below.</para>
+      include data elements, attributes, organisation units and periods. The query analytics
+      resource will simply return events matching a set of criteria and does not perform any
+      aggregation. The event dimensions are listed in the table below.</para>
     <table frame="all">
       <title>Event dimensions</title>
       <tgroup cols="3">
@@ -3436,14 +3436,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
             <entry>Data element identifiers</entry>
           </row>
           <row>
-            <entry>Person attributes</entry>
+            <entry>Attributes</entry>
             <entry>&lt;id></entry>
-            <entry>Person attribute identifiers</entry>
-          </row>
-          <row>
-            <entry>Person identifiers</entry>
-            <entry>&lt;id></entry>
-            <entry>Person identifier identifiers</entry>
+            <entry>Attribute identifiers</entry>
           </row>
           <row>
             <entry>Organisation units</entry>
