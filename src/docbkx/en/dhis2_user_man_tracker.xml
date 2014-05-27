@@ -219,7 +219,7 @@ A program must have one tracked entity. And entity registered must be specified 
 </para>
         <para>
 A program must have one tracked entity. And the entity registered must be specified an tracked entity. To enrol an entity  into a program, the tracked entity of an entity and tracked entity of program must be the same.</para>
-        <para>To access the tracked entity maintenance module, from <emphasis role="italic">Apps</emphasis> menu, go to <emphasis role="italic">Programs / Attributes</emphasis> option and click on it and select <emphasis role="italic">Tracked Entity</emphasis> option.</para>
+        <para>To access the tracked entity maintenance module, from <emphasis role="italic">Apps</emphasis> menu, go to <emphasis role="italic">Programs / Attributes</emphasis> option and click on it and select <emphasis role="italic">Tracked Entity</emphasis> menu.</para>
       </section>
       <section id="person_registration_form">
         <title>Tracked entity form</title>
@@ -852,7 +852,7 @@ entities in the selected organisation unit. If a program in list on the right si
             </mediaobject>
           </screenshot>
           <para>Click on the<emphasis role="italic"> View access log link </emphasis>in the top-right of the dashboard to open history of access log to this entity.</para>
-          <para>The <emphasis role="italic">Demographics</emphasis> section provides links for editing profile  and changing other location of the entity. Click on <emphasis role="italic">Edit profile</emphasis> link to update individual information of entity. Click on <emphasis role="italic">Change location</emphasis> link to change other location for the entity.</para>
+          <para>The <emphasis role="italic">Tracked entity instance profile</emphasis> section provides links for editing profile  and changing other location of the entity. Click on <emphasis role="italic">Edit profile</emphasis> link to update individual information of entity. Click on <emphasis role="italic">Change location</emphasis> link to change other location for the entity.</para>
           <para>Click on a program link in <emphasis role="italic">Active programs</emphasis> section to open the data entry form for the next visit of the selected program. A form is opened below with five tab - </para>
           <orderedlist>
             <listitem>
@@ -876,13 +876,13 @@ entities in the selected organisation unit. If a program in list on the right si
               <para>Click <emphasis role="italic">Quit</emphasis> button to quite the active program. At that time, the status of over-due events are set as skipped. And events scheduled in the future are removed.</para>
               <para>Click <emphasis role="italic">Re-enroll </emphasis>button to re-enroll a completed program.</para>
               <para>If the program enrollment which no stage has data values, you can see  button <emphasis role="italic">Remove</emphasis> next to <emphasis role="italic">Re-enroll</emphasis> button. Click on it to delete this program enrollment.</para>
-              <para>After entering a  message in the field, click <emphasis role="italic">Post comment</emphasis> icon, the <emphasis role="italic">first icon</emphasis> under <emphasis role="italic">Message</emphasis> column, next to message text field to add a comment for the event. For sending a reminder message, click on <emphasis role="italic">Send message</emphasis> icon, the <emphasis role="italic">second icon</emphasis> under <emphasis role="italic">Message</emphasis> column.</para>
+              <para>After entering a comment in the Comment field, click <emphasis role="italic">Save</emphasis> button to save a comment for the event. For sending a reminder message, click on <emphasis role="italic">Send message</emphasis> icon, the <emphasis role="italic">first icon</emphasis> under <emphasis role="italic">Operations</emphasis> column.</para>
               <note>
                 <para>Only allow to edit due dates of events with status as overdue or scheduled in future.</para>
               </note>
             </listitem>
             <listitem>
-              <para><emphasis role="italic">Comments and messages</emphasis> tab - Displays a comment/message list of the program.</para>
+              <para><emphasis role="italic">Messages</emphasis> tab - Displays a comment/message list of the program.</para>
             </listitem>
             <listitem>
               <para><emphasis role="italic">Program report </emphasis>tab - Summary report for the program.</para>
@@ -891,7 +891,7 @@ entities in the selected organisation unit. If a program in list on the right si
           <note>
             <para>Belong to the authorities of the user logged, some tabs can be hidden.</para>
           </note>
-          <para>The <emphasis role="italic">Active programs</emphasis> section consists of active programs of the entity. Click on a program to show detail information below. Besides, there are two link in this tab - </para>
+          <para>The <emphasis role="italic">Active programs</emphasis> section in Dashboard consists of active programs of the entity. Click on a program to show detail information below. Besides, there are two link in this tab - </para>
           <orderedlist>
             <listitem>
               <para>The <emphasis role="italic">Active programs</emphasis> section provides links for  activity program and the next visit of entity for this program. </para>
@@ -906,13 +906,13 @@ entities in the selected organisation unit. If a program in list on the right si
           <para>The <emphasis role="italic">Relationship</emphasis> section consists of relationships of the entity. Click on an entity in list to open his/her dashboard. Besides, there are two link in this tab - </para>
           <orderedlist>
             <listitem>
-              <para>To open <emphasis role="italic">Relationship management</emphasis> section, click <emphasis role="italic">Management</emphasis> link.</para>
+              <para>To open <emphasis role="italic">Relationship management</emphasis> section, click <emphasis role="italic">Add relative</emphasis> link.</para>
             </listitem>
             <listitem>
-              <para>To register new entity for relationship, click <emphasis role="italic">Register new entity</emphasis> link.</para>
+              <para>If the selected program in <emphasis role="italic">Program</emphasis> section has a related program defined, the link name of this related program is displayed next to Add relative link. Click on this link to register a entity who/which has relationship of the entity we are working on and enrol the new entity into the related program.</para>
             </listitem>
           </orderedlist>
-          <para>Besides, the system audits user&apos;s information who accessed on the dashboard. Click on the <emphasis role="italic">History</emphasis> link in the header to  display this information.</para>
+          <para>Besides, the system audits user&apos;s information who accessed on the dashboard. Click on the <emphasis role="italic">View access log</emphasis> link on the top right of Dashboard.</para>
         </section>
         <section>
           <title>Enrollment</title>
@@ -958,12 +958,15 @@ The case update  is designed in the same manner so that services which are recei
               <para>Click the second icon under <emphasis>Operations</emphasis>, corresponding to the entity you would like to edit. Or click the <emphasis>Edit profile</emphasis> link in Dashboard of entity.</para>
             </listitem>
             <listitem>
-              <para>Then a dialog box may appear to require you verify the date of birth if it is not verified. Click <emphasis>OK</emphasis> to go to the edit page.</para>
+              <para>Fill data into the fields.</para>
             </listitem>
             <listitem>
-              <para>Click <emphasis role="italic">Update</emphasis> button to update data and go to his/her dashboard.</para>
+              <para>Click <emphasis role="italic">Update</emphasis> button to update data and go to the entity&apos;s dashboard.</para>
             </listitem>
           </orderedlist>
+          <note>
+            <para>If a program in list is selected, the registration form with attributes belongs to the selected program will be displayed. If no program is selected, a common form will be displayed with attributes which are configured in <emphasis role="italic">Attribute management</emphasis> will be display.</para>
+          </note>
         </section>
         <section>
           <title>Adding relationship</title>
@@ -1043,8 +1046,8 @@ The case update  is designed in the same manner so that services which are recei
             </imageobject>
           </mediaobject>
         </screenshot>
-        <para>Click  <emphasis role="italic">Events <emphasis role="italic">icon</emphasis>,</emphasis> <emphasis role="italic">first icon</emphasis> under <emphasis role="italic">Operations</emphasis>, corresponding to the entity which you would like to open event list according to the search event criteria. Then click on a date in event list to open the data entry screen.</para>
-        <para>Click <emphasis role="italic">Dashboard</emphasis> icon, the <emphasis role="italic">secord icon</emphasis> under <emphasis role="italic">Operations</emphasis>, corresponding to the entity which you would like to open dashboard of the entity corresponding to the event.</para>
+        <para>Click  <emphasis role="italic">Events <emphasis role="italic">icon</emphasis>,</emphasis> <emphasis role="italic">first icon</emphasis> under <emphasis role="italic">Operations</emphasis>, corresponding to the entity which you would like to open event list according to the search  criteria. Then click on a date in event list to open the data entry screen.</para>
+        <para>Click <emphasis role="italic">Dashboard</emphasis> icon, the <emphasis role="italic">secord icon</emphasis> under <emphasis role="italic">Operations</emphasis>, corresponding to the entity which you would like to open dashboard of the entity.</para>
         <para>Click <emphasis role="italic">Tracked entity instance details and history</emphasis> icon, the <emphasis role="italic">third icon</emphasis> under <emphasis role="italic">Operations</emphasis>, corresponding to the entity which you would like to open the entity history.</para>
       </section>
       <section id="program_tracking">
@@ -1076,11 +1079,11 @@ The case update  is designed in the same manner so that services which are recei
             </imageobject>
           </mediaobject>
         </screenshot>
-        <para>Click <emphasis role="italic">Events</emphasis> icon, <emphasis role="italic">first icon</emphasis> under <emphasis role="italic">Operations</emphasis>, corresponding to the entity which you would like to open event list according to the search event criteria. Then click on a date in event list to open the data entry screen.</para>
+        <para>Click <emphasis role="italic">Events</emphasis> icon, <emphasis role="italic">first icon</emphasis> under <emphasis role="italic">Operations</emphasis>, corresponding to the entity which you would like to open event list according to the search  criteria. Then click on a date in event list to open the data entry screen.</para>
         <para>Click on <emphasis role="italic">Dashboard</emphasis> icon, the<emphasis role="italic"> second ico</emphasis>n under <emphasis role="italic">Operations</emphasis> to open his/her dashboard.</para>
         <para>Click on Edit icon, the <emphasis role="italic">third icon</emphasis> under <emphasis role="italic">Operations</emphasis> to edit program tracking information.</para>
         <para>Click <emphasis role="italic">Tracked entity instance details and history</emphasis> icon, the <emphasis role="italic">forth icon</emphasis> under <emphasis role="italic">Operations</emphasis>, corresponding to the event which you would like to open the entity history.</para>
-        <para>To search events by status and  some attributes, click on <emphasis role="italic">Advanced Search</emphasis> button. A advanced search criteria is shown. After filling search key values, click on <emphasis role="italic">Search</emphasis> button on this form to display result.</para>
+        <para>To search events by due date, click on <emphasis role="italic">Advanced Search</emphasis> button. A advanced search criteria is shown. After selecting the organisation unit type and filling the due date range which you would like, click on <emphasis role="italic">Search</emphasis> button on this form to display result.</para>
         <screenshot>
           <mediaobject>
             <imageobject>
@@ -1096,7 +1099,7 @@ The case update  is designed in the same manner so that services which are recei
           <para>The data to register is defined by a single event with registration program. The functionality supports health providers to register entity information and input data values for a program into one form.</para>
           <para>In order to register an event, from the <emphasis role="italic">Apps</emphasis> option, go to the <emphasis role="italic">Individual Records</emphasis> and click it. Then select <emphasis role="italic">Single event with registration</emphasis> option on left menu to proceed.</para>
           <para>To list all entities in the selected facility, click <emphasis role="italic">List All entities</emphasis> button.</para>
-          <para>To add new event, select a program in the combo box. And then click <emphasis role="italic">Add new</emphasis> button.</para>
+          <para>To register  new entity, enroll this entity into the program and fill data values for the event of the entity and the selected program, select a program in the combo box. And then click <emphasis role="italic">Add new</emphasis> button.</para>
           <screenshot>
             <mediaobject>
               <imageobject>
