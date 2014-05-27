@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
 <!ENTITY version '2.X'>
-<!ENTITY title 'DHIS2 User Manual'>
+<!ENTITY title 'DHIS 2 User Manual'>
  ]>
 <book>
   <title>&title;</title>
@@ -39,7 +39,7 @@
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_web_api.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_user_man_apps.xml"/>
   <appendix>
-    <title> DHIS 2 Documentation Guide</title>
+    <title>DHIS 2 Documentation Guide</title>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" encoding="UTF-8" xpointer="docs_1"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" encoding="UTF-8" xpointer="docs_2"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_documentation_guide.xml" encoding="UTF-8" xpointer="docs_3"/>
@@ -68,7 +68,7 @@
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_r.xml" encoding="UTF-8" xpointer="dhis2_r_web_api"/>
   </appendix>
   <appendix>
-    <title> DHIS Technical Architecture Guide</title>
+    <title>DHIS 2 Technical Architecture Guide</title>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_technical_architechture_guide.xml" encoding="UTF-8" xpointer="technicalOverview"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_technical_architechture_guide.xml" encoding="UTF-8" xpointer="technicalRequirements"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dhis2_technical_architechture_guide.xml" encoding="UTF-8" xpointer="technicalStructure"/>
