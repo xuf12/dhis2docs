@@ -215,11 +215,21 @@
       other client modules based on the DHIS 2 Web API.</para>
   </section>
   <section>
-    <title>Share interpretations</title>
-    <para>After saving or loading a favorite the "Share" button on the toolbar is enabled. Clicking it will
-    open up a window where you can write your interpretation of the favorite and share it with other users.
-    Below the textarea there are links to the favorite, as pivot table and in the api respectively.</para>
+    <title>Sharing interpretations</title>
+    <para>For certain analysis-related resources in DHIS, like pivot tables, charts and maps, one can
+      share a data interpretation. An interpretation is simply a link to the relevant resource
+      together with a text expressing some insight about the data. If you want to share a pivot table
+      interpretation you need to first save the table you want to share as a favorite. Then, without
+      making any changes to the table, click the &quot;Share&quot; button the toolbar. A window will
+      open up and this is where you write your interpretation. When you are done, click share button
+      in the bottom right corner of the window. The window will close automatically and if the
+      interpretation was shared successfully you will find a notification on the bottom
+      toolbar.</para>
   </section>
+  <section>
+    <title>Embed tables in any web page</title>
+    <para>Certain analysis-related resources in DHIS, like pivot tables, charts and maps, can be embeded in any web page by using a plugin. If you have created a table in the Pivot Table app you will get the plugin configuration for this table by clicking the &quot;Share&quot; button the toolbar and then &quot;Embed as plugin&quot;. You will find more information about the plugins in the web api chapter.</para>
+  </section>  
   <section>
     <title>Constraints</title>
     <para>When selecting and arranging dimensions there are a few constraints that apply. All of

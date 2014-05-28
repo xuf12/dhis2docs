@@ -205,7 +205,7 @@
   </section>
   <section id="dvInterpretations">
     <title>Sharing interpretations</title>
-    <para>For certain analysis-related resources in DHIS, like charts and report tables, one can
+    <para>For certain analysis-related resources in DHIS, like pivot tables, charts and maps, one can
       share a data interpretation. An interpretation is simply a link to the relevant resource
       together with a text expressing some insight about the data. If you want to share a chart
       interpretation you need to first save the chart you want to share as a favorite. Then, without
@@ -214,6 +214,10 @@
       in the bottom right corner of the window. The window will close automatically and if the
       interpretation was shared successfully you will find a notification on the bottom
       toolbar.</para>
+  </section>
+  <section id="dvEmbed">
+    <title>Embed charts in any web page</title>
+    <para>Certain analysis-related resources in DHIS, like pivot tables, charts and maps, can be embeded in any web page by using a plugin. If you have created a chart in the Data Visualizer you will get the plugin configuration for this chart by clicking the &quot;Share&quot; button the toolbar and then &quot;Embed as plugin&quot;. You will find more information about the plugins in the web api chapter.</para>
   </section>
   <section>
     <title>Analysis integration</title>
