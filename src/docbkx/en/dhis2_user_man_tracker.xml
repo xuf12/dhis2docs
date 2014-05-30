@@ -138,63 +138,68 @@ A program must have one tracked entity. And entity registered must be specified 
           <para>Schedule an automated tracked entity aggregation process, e.g. to run all pre-defined aggregation queries every midnight. </para>
         </listitem>
       </itemizedlist>
-      <section id="tracked">
-        <title id="tracked_entity_attribute">Attribute</title>
+      <section id="tracked_entity_atribute">
+        <title id="tracked_entity_atribute_title">Attribute</title>
         <para>Create, modify and view entity attributes. An attribute can be used to register extra private information for a entity or information when that entity enrolled into a certain program.</para>
-        <para>From <emphasis role="italic">App</emphasis> menu, go to <emphasis role="italic">Programs / Attributes</emphasis> option and click on it. Select <emphasis role="italic">Attribute</emphasis> option to create a new attribute for entities. </para>
         <para>After, click on <emphasis role="italic">Add new </emphasis>button into <emphasis role="italic">Tracked entity attribute management</emphasis> window to go to <emphasis role="italic">Create new tracked entity attribute</emphasis> window.</para>
-        <para>Basic information</para>
-        <itemizedlist>
-          <listitem>
-            <para><emphasis role="italic">Name</emphasis> - Name of  attribute.</para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="italic">Short name</emphasis> - Short name of  attribute.</para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="italic">Code</emphasis> - Code of attribute.</para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="italic">Description</emphasis> - Description of  attribute.</para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="italic">Unique</emphasis> - Specify the values of this attribute is unique. There are four options for unique property:
+        <para>From <emphasis role="italic">App</emphasis> menu, go to <emphasis role="italic">Programs / Attributes</emphasis> option and click on it. Select <emphasis role="italic">Attribute</emphasis> option to create a new attribute for entities. </para>
+        <section id="tracked_entity_atribute_information">
+          <title id="tracked_entity_attribute">Basic information</title>
+          <itemizedlist>
+            <listitem>
+              <para><emphasis role="italic">Name</emphasis> - Name of  attribute.</para>
+            </listitem>
+            <listitem>
+              <para><emphasis role="italic">Short name</emphasis> - Short name of  attribute.</para>
+            </listitem>
+            <listitem>
+              <para><emphasis role="italic">Code</emphasis> - Code of attribute.</para>
+            </listitem>
+            <listitem>
+              <para><emphasis role="italic">Description</emphasis> - Description of  attribute.</para>
+            </listitem>
+            <listitem>
+              <para><emphasis role="italic">Unique</emphasis> - Specify the values of this attribute is unique. There are four options for unique property:
 </para>
-            <para>- “Whole system” : The values of this attribute can duplicate with values which belong to other attributes. But the values in this attribute must not duplicate.</para>
-            <para>- “Organisation unit” : The values of this attribute must not duplicate in the same orgunit.</para>
-            <para>- “Program” : The values of this attribute must not duplicate in the same program.
+              <para>- “Whole system” : The values of this attribute can duplicate with values which belong to other attributes. But the values in this attribute must not duplicate.</para>
+              <para>- “Organisation unit” : The values of this attribute must not duplicate in the same orgunit.</para>
+              <para>- “Program” : The values of this attribute must not duplicate in the same program.
 </para>
-            <para>- “Program within Organisation unit” : The values of this attribute must not duplicate in the same program in the same orgunit.
+              <para>- “Program within Organisation unit” : The values of this attribute must not duplicate in the same program in the same orgunit.
 
 </para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="italic">Inherit</emphasis> - When to registry a new entity for relationship with an available entity, all inherit entity attribute values of the entity will be pre-filled in the registration form. </para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="italic">Value Type</emphasis> - There are value types as follows : </para>
-            <para>- “<emphasis role="italic">Date</emphasis>”
+            </listitem>
+            <listitem>
+              <para><emphasis role="italic">Inherit</emphasis> - When to registry a new entity for relationship with an available entity, all inherit entity attribute values of the entity will be pre-filled in the registration form. </para>
+            </listitem>
+            <listitem>
+              <para><emphasis role="italic">Value Type</emphasis> - There are value types as follows : </para>
+              <para>- “<emphasis role="italic">Date</emphasis>”
 </para>
-            <para>- “<emphasis role="italic">String</emphasis>”
+              <para>- “<emphasis role="italic">String</emphasis>”
 </para>
-            <para>- “<emphasis role="italic">Number</emphasis>”
+              <para>- “<emphasis role="italic">Number</emphasis>”
 </para>
-            <para>- “<emphasis role="italic">Letter</emphasis>” - Just accept values with alphabet only ( a-z ) </para>
-            <para>- “<emphasis role="italic">Yes/No</emphasis>” - There are three options, include null, false, true.</para>
-            <para>- “<emphasis role="italic">Yes Only</emphasis>” - There are only one true value.
+              <para>- “<emphasis role="italic">Letter</emphasis>” - Just accept values with alphabet only ( a-z ) </para>
+              <para>- “<emphasis role="italic">Yes/No</emphasis>” - There are three options, include null, false, true.</para>
+              <para>- “<emphasis role="italic">Yes Only</emphasis>” - There are only one true value.
 </para>
-            <para>- “<emphasis role="italic">Option Set</emphasis>” - Link to a optionset. The options of the optionset will be displayed on registration form. User can select only one option in option-set list as attribute value.
+              <para>- “<emphasis role="italic">Option Set</emphasis>” - Link to a optionset. The options of the optionset will be displayed on registration form. User can select only one option in option-set list as attribute value.
 </para>
-            <para>- “<emphasis role="italic">Phone number</emphasis>”
+              <para>- “<emphasis role="italic">Phone number</emphasis>”
 - To make it more flexible to define new recipients to reminders and other messages in Tracker we will add a new Attribute Type called &quot;Phone Number&quot;. Here the user can put any recipient name (attribute name) and collect the phone number (the value). All attributes of this type &quot;phone number&quot; will be available in the recipient lists for reminder templates or manual reminders/messages in Tracker.</para>
-            <para>- “<emphasis role="italic">Tracker associate</emphasis>”- A checkbox will be displayed on data entry form. When user checks this chekcbox, a form will be shown, user can seach an TEI existed or add new TEI. The id of TEI searched/added will be saved as value of this attribute. </para>
-            <para>
+              <para>- “<emphasis role="italic">Tracker associate</emphasis>”- A checkbox will be displayed on data entry form. When user checks this chekcbox, a form will be shown, user can seach an TEI existed or add new TEI. The id of TEI searched/added will be saved as value of this attribute. </para>
+              <para>
 - ”<emphasis role="italic">Users</emphasis>” : In theTEI registration form,this attribute is rendered as a dropdown box with option as user-list who belongs to the selected orgunit. The id of user selected will be saved into database as value of this attribue. </para>
-          </listitem>
-        </itemizedlist>
-        <para>An attribute can be set to display values of its in entity list search result by configuring in <emphasis role="italic">Manage attributes with no program</emphasis> function.</para>
-        <para>The <emphasis role="italic">Manage attributes for visit schedule</emphasis> supports configuration for entity attributes that are added to the visit schedule.This is very useful when the list is printed and used for tracking in the community. </para>
-        <para>Select patient attributes on the left section and move them to the right section and click <emphasis role="italic">Save</emphasis> button.</para>
+            </listitem>
+          </itemizedlist>
+        </section>
+        <section id="tracked_entity_attribute_configuration">
+          <title>Some configuration</title>
+          <para>An attribute can be set to display values of its in entity list search result by configuring in <emphasis role="italic">Manage attributes with no program</emphasis> function.</para>
+          <para>The <emphasis role="italic">Manage attributes for visit schedule</emphasis> supports configuration for entity attributes that are added to the visit schedule.This is very useful when the list is printed and used for tracking in the community. </para>
+          <para>Select patient attributes on the left section and move them to the right section and click <emphasis role="italic">Save</emphasis> button.</para>
+        </section>
       </section>
       <section id="tracked_entity_attribute_group">
         <title>Attribute group</title>
@@ -221,7 +226,7 @@ A program must have one tracked entity. And entity registered must be specified 
 A program must have one tracked entity. And the entity registered must be specified an tracked entity. To enrol an entity  into a program, the tracked entity of an entity and tracked entity of program must be the same.</para>
         <para>To access the tracked entity maintenance module, from <emphasis role="italic">Apps</emphasis> menu, go to <emphasis role="italic">Programs / Attributes</emphasis> option and click on it and select <emphasis role="italic">Tracked Entity</emphasis> menu.</para>
       </section>
-      <section id="person_registration_form">
+      <section id="tracked_entity_form_management">
         <title>Tracked entity form</title>
         <para>The tracked entity form section provides a mechanism for defining custom registration form for each available program in system or for normal registration form which is used to register any entity without having program information and this entity can enroll into a certain program after that.</para>
         <para>To access the entity registration form maintenance module, from <emphasis role="italic">Apps</emphasis> menu, go to <emphasis role="italic">Programs / Attributes</emphasis> option and click on it and select <emphasis role="italic">Tracked Entity Form</emphasis> option.</para>
@@ -234,7 +239,7 @@ A program must have one tracked entity. And the entity registered must be specif
         <title>Program and Program stage</title>
         <para>The section provides a mechanism for defining health programmes and action for each stage  of the programme. </para>
         <section id="program">
-          <title id="program_title">Program</title>
+          <title>Program</title>
           <para>A program must be specified with only one tracked entity. And just entities what/who have the tracked entity as same as the tracked entity of program can enroll into that program.</para>
           <para>There are three type of program, include -</para>
           <orderedlist>
@@ -251,304 +256,356 @@ A program must have one tracked entity. And the entity registered must be specif
           </orderedlist>
           <para>To access the program maintenance module, from <emphasis role="italic">Apps</emphasis> menu, go to <emphasis role="italic">Programs / Attributes</emphasis> option and click on it. Select <emphasis role="italic">Program</emphasis> menu.</para>
           <para>To define a new program, click the <emphasis role="italic">Add new</emphasis> button on the main page. Fill all fields with read asterisk, and then click the <emphasis role="italic">Add</emphasis> button.</para>
-          <para>Basic information -</para>
-          <para><emphasis role="italic">Program details<emphasis role="italic"> section</emphasis></emphasis> - </para>
-          <itemizedlist>
-            <listitem>
-              <para><emphasis role="italic">Name</emphasis> - The name of the program</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Description</emphasis> - Descriptions, meanings, explanation, etc. of/about the program.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Type</emphasis> - There are three types of program: multi events with registration, single event with registration and single event without registration.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Data entry method</emphasis> - Used for displaying option-set data elements in case entry form as drop down list or radio buttons. If this option is selected as radio buttons, just option-set  data elements which  the number of option values is less then 8 are displayed as radio buttons. Others are displayed as drop down lists</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Tracked Entity</emphasis> - Specify an tracked entity for the program.</para>
-            </listitem>
-          </itemizedlist>
-          <para><emphasis role="italic">Enrollment details </emphasis>section - </para>
-          <itemizedlist>
-            <listitem>
-              <para><emphasis role="italic">Allow future enrollment dates</emphasis></para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Allow future incidence dates</emphasis></para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Only enroll once (per tracked entity instance lifetime)</emphasis> - Check on it if a entity only can enroll the program one time. For example, Child Vaccination Program, Post-mortem examination, PSI&apos;s IPC process. This will avoid a entity enrolling more than one into a program when it doesn&apos;t make sense.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Show incident date</emphasis> - Set show/hide incident date field when a entity enroll in this program.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Description of incident date</emphasis> - The date when the entity got the disease or he/she has just been committed to an equivalent program for being followed-up. E.g. In the Immunization program for child under 1yr old, the incident date is the birthday; in the maternal program, the incident date is the date of last menstrual period (LMP).</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Description of enrollment date</emphasis> - The date in which a entity is registered to the system.
+          <section id="program_information">
+            <title id="program_title">Basic information</title>
+            <para><emphasis role="italic">Program details<emphasis role="italic"> section</emphasis></emphasis> - </para>
+            <itemizedlist>
+              <listitem>
+                <para><emphasis role="italic">Name</emphasis> - The name of the program</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Description</emphasis> - Descriptions, meanings, explanation, etc. of/about the program.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Type</emphasis> - There are three types of program: multi events with registration, single event with registration and single event without registration.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Data entry method</emphasis> - Used for displaying option-set data elements in case entry form as drop down list or radio buttons. If this option is selected as radio buttons, just option-set  data elements which  the number of option values is less then 8 are displayed as radio buttons. Others are displayed as drop down lists</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Tracked Entity</emphasis> - Specify an tracked entity for the program.</para>
+              </listitem>
+            </itemizedlist>
+            <para><emphasis role="italic">Enrollment details </emphasis>section - </para>
+            <itemizedlist>
+              <listitem>
+                <para><emphasis role="italic">Allow future enrollment dates</emphasis></para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Allow future incidence dates</emphasis></para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Only enroll once (per tracked entity instance lifetime)</emphasis> - Check on it if a entity only can enroll the program one time. For example, Child Vaccination Program, Post-mortem examination, PSI&apos;s IPC process. This will avoid a entity enrolling more than one into a program when it doesn&apos;t make sense.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Show incident date</emphasis> - Set show/hide incident date field when a entity enroll in this program.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Description of incident date</emphasis> - The date when the entity got the disease or he/she has just been committed to an equivalent program for being followed-up. E.g. In the Immunization program for child under 1yr old, the incident date is the birthday; in the maternal program, the incident date is the date of last menstrual period (LMP).</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Description of enrollment date</emphasis> - The date in which a entity is registered to the system.
 For example: the date in which a entity enrolls to the system.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Allow enrollment at all orgunits </emphasis>- Check on it if user want to use  the program on all  organisation units no mater what the program is assigned to the organisation unit or not. Unchecnk if the program is only used on organisation units assigned.</para>
-            </listitem>
-          </itemizedlist>
-          <para><emphasis role="italic">Dashboard shortcut to add relative</emphasis> section - Define a program and a relationship type which has related to the program. It&apos;s used for registering a new entity,  enroll into an other program and create relationship between entity who user is working on and the new entity. E.g after delivery, a baby is born, then in the Delivery  event of  the mother, user can register this baby and enroll him/her into the Child program. After that, create a relationship as Mother/Child for this mother and her baby.</para>
-          <itemizedlist>
-            <listitem>
-              <para><emphasis role="italic">Shortcut link label (e.g. Add Child)</emphasis> - The label for this shortcut link which is displayed in Relation tab of entity dashboard.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Relationship</emphasis> - Select a relationship type defined, e.g Mother/Child, ...</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Who is the new relative to the existing entity? </emphasis></para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Program for new relative to be enrolled in</emphasis> - Specify a program that  new relatives of the entity who was enrolled in the program will be enrolled into this program when this relative registers the information.</para>
-            </listitem>
-          </itemizedlist>
-          <para><emphasis role="italic">Scheduling of events</emphasis> section - </para>
-          <itemizedlist>
-            <listitem>
-              <para><emphasis role="italic">Skip generation of events that are overdue (before enrollment date)</emphasis> - When a entity enrolls into the program, the  events corresponding to the program-stages are created. If this field is checked, the system will ignore to generate overdue events.</para>
-            </listitem>
-          </itemizedlist>
-          <para><emphasis role="italic">Attributes <emphasis role="italic">section</emphasis></emphasis> - Specify the dynamic attributes need for the program.
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Allow enrollment at all orgunits </emphasis>- Check on it if user want to use  the program on all  organisation units no mater what the program is assigned to the organisation unit or not. Unchecnk if the program is only used on organisation units assigned.</para>
+              </listitem>
+            </itemizedlist>
+            <para><emphasis role="italic">Dashboard shortcut to add relative</emphasis> section - Define a program and a relationship type which has related to the program. It&apos;s used for registering a new entity,  enroll into an other program and create relationship between entity who user is working on and the new entity. E.g after delivery, a baby is born, then in the Delivery  event of  the mother, user can register this baby and enroll him/her into the Child program. After that, create a relationship as Mother/Child for this mother and her baby.</para>
+            <itemizedlist>
+              <listitem>
+                <para><emphasis role="italic">Shortcut link label (e.g. Add Child)</emphasis> - The label for this shortcut link which is displayed in Relation tab of entity dashboard.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Relationship</emphasis> - Select a relationship type defined, e.g Mother/Child, ...</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Who is the new relative to the existing entity? </emphasis></para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Program for new relative to be enrolled in</emphasis> - Specify a program that  new relatives of the entity who was enrolled in the program will be enrolled into this program when this relative registers the information.</para>
+              </listitem>
+            </itemizedlist>
+            <para><emphasis role="italic">Scheduling of events</emphasis> section - </para>
+            <itemizedlist>
+              <listitem>
+                <para><emphasis role="italic">Skip generation of events that are overdue (before enrollment date)</emphasis> - When a entity enrolls into the program, the  events corresponding to the program-stages are created. If this field is checked, the system will ignore to generate overdue events.</para>
+              </listitem>
+            </itemizedlist>
+            <para><emphasis role="italic">Attributes <emphasis role="italic">section</emphasis></emphasis> - Specify the dynamic attributes need for the program.
 
 There is a column in Select attribute section called Display in list. This is the required field. So please make sure that at least one attribute is set this property. 
 
 For the attributes set Display in list, the values of these attributes are displayed in entity list in functionalities of Individual records module ( such as Find/Add Instance, Visit Schedule, Lost to follow up, … ).</para>
-          <para>This module also supports to define template message reminders which are sent to users/entities. To access to this function, click on the program which you would like to define template message reminder and select <emphasis role="italic"> View template reminder message</emphasis> link.   </para>
-          <itemizedlist>
-            <listitem>
-              <para>Name - Name of description</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Send base on</emphasis> - There are three options, include :</para>
-              <para>1) <emphasis role="italic">Days scheduled</emphasis> - The message is sent in day ( datesToCompare + daysAllowedSendMessage ).
+            <para>To assign a program for organisation units, click on the program which you would like and select<emphasis role="italic"> Assign program to organisation units</emphasis> menu. Then select organisation units where provide the program.</para>
+            <para>To assign a program for user roles, click on the program which you would like and select <emphasis role="italic">Assign program to userroles</emphasis> menu. Then select user roles which you want in <emphasis role="italic">Available</emphasis> section and click <emphasis role="italic">Move selected items</emphasis> button or double click on the user role to move to <emphasis role="italic">Selected</emphasis> section. Finally, click <emphasis role="italic">OK</emphasis> to finish.</para>
+            <para>Besides, you can search user groups by typing a key in text field to set authorities. The result will loaded and you can select the group you want. Then click (+) button and the selected one will be displayed in below.</para>
+            <para>To translate the name of a program, click <emphasis role="italic">Translation</emphasis> icon, the seventh icon under Operations, corresponding to the program you would like.</para>
+          </section>
+          <section id="program_validation_rule">
+            <title>Program validation rule</title>
+            <para>To create validation rules for programs, click on the program which you would like and select <emphasis role="italic">Program validation rule management</emphasis> menu. Then click <emphasis role="italic">Add</emphasis> button and enter values for the fields in form to create a new one. A validation rule is based on an expression which defines a relationship between data element values. The expression has a left side and a right side and an operator  which defines whether the former must be less than, equal to or greater than the latter. The expression forms a condition which should assert that certain logical criteria are met. For instance, a validation rule could  assert that an  admitted date  given is before the discharged date. </para>
+          </section>
+          <section>
+            <title>Program Indicator</title>
+            <para>To define a program indicator, click on the program which you would like and select <emphasis role="italic">Program Indicator management </emphasis>menu. </para>
+            <para>Basic information-</para>
+            <itemizedlist>
+              <listitem>
+                <para><emphasis role="italic">Name</emphasis> - Name of program indicator</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Short name</emphasis> - Short name of program indicator</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Code</emphasis> - Code of program indicator</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Description</emphasis> - Description of program indicator</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Value Type</emphasis> - The value type of indicator. It specifies the value of  the indicator as a Number or Date.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Program Stage</emphasis> - Select an program stage to load the data elements which belong to the program selected. These data elements are used to define an indicator formula.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Data element</emphasis> tab - The data elements which belongs to the selected program. They are used to define an formula. By double clicking on the data element you want in the box, the formula of the selected data element will be displayed into Expression field.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Program</emphasis> tab - Includes three parameters for the program:</para>
+                <para>1) <emphasis role="italic">Incident date</emphasis> - The incident date of an entity ( the entity registered this date when this entity enrols into the program ).</para>
+                <para>2) <emphasis role="italic">Date of enrollment</emphasis> - The enrollment date of an entity ( the entity registered this date when this entity enrols into the program ).</para>
+                <para>3) <emphasis role="italic">Current date</emphasis> - The system date when this indicator is run.</para>
+              </listitem>
+            </itemizedlist>
+          </section>
+          <section id="program_templete_reminder">
+            <title>Program template reminder</title>
+            <para>This module also supports to define template message reminders which are sent to users/entities for multi events registration and single event with registration programs. To access to this function, click on the program which you would like to define template message reminder and select <emphasis role="italic"> View template reminder message</emphasis> link.   </para>
+            <itemizedlist>
+              <listitem>
+                <para><emphasis role="italic">Name</emphasis> - Name of description</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Send base on</emphasis> - There are three options, include :</para>
+                <para>1) <emphasis role="italic">Days scheduled</emphasis> - The message is sent in day.
 </para>
-              <para>2) <emphasis role="italic">Complete program</emphasis> - The message is sent when the program of TEI is completed.
+                <para>2) <emphasis role="italic">Complete program</emphasis> - The message is sent when the program of TEI is completed.
 </para>
-              <para>3) <emphasis role="italic">Program enrollment</emphasis> - The message is sent when TEI enrols into the program.
+                <para>3) <emphasis role="italic">Program enrollment</emphasis> - The message is sent when TEI enrols into the program.
 </para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Date to compare</emphasis> - This is the date used for calculating the date to send the message. There are 2 options, include - </para>
-              <para>1) Enrollment Date</para>
-              <para>2) Incident Date </para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Send message X days before/after scheduled date </emphasis>- The number of days needs to calculate the date for sending the message by scheduled. Just enter a number for this field in the case <emphasis role="italic">Send base on</emphasis> with value as Days schedule.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Recipients</emphasis> - Specify the kind of persons who  will receive the message. There are 5 options, include
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Date to compare</emphasis> - This is the date used for calculating the date to send the message. There are 2 options, include - </para>
+                <para>1) Enrollment Date</para>
+                <para>2) Incident Date </para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Send message X days before/after scheduled date </emphasis>- The number of days needs to calculate the date for sending the message by scheduled. Just enter a number for this field in the case <emphasis role="italic">Send base on</emphasis> with value as Days schedule.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Recipients</emphasis> - Specify the kind of persons who  will receive the message. There are 5 options, include
 - </para>
-              <para>1) Tracked entity instance (SMS only)</para>
-              <para>2) Attribute users </para>
-              <para>3) Organisation unit phone number (SMS only)</para>
-              <para>4) All users in organisation unit</para>
-              <para>5) User group</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">User group</emphasis> - Select one user group if <emphasis role="italic">Recipients</emphasis> field is selected as User group.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Message type</emphasis> - This is the types of message. There are 3 options, include - </para>
-              <para>1) Direct SMS - This kind of SMS message is linked to the program of an entity after sending to recipients.</para>
-              <para>2) Message</para>
-              <para>3) Both</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Parameters</emphasis> - Provide parameters  which are used for generating a message for each entity. The parameters include <emphasis role="italic">entity name</emphasis>,<emphasis role="italic"> program name</emphasis>, <emphasis role="italic">incident date, days since incident date, enrollment date, days since enrollment date, organisation unit name</emphasis>. Double-click on an option to insert it into template message field below.
+                <para>1) Tracked entity instance (SMS only)</para>
+                <para>2) Attribute users </para>
+                <para>3) Organisation unit phone number (SMS only)</para>
+                <para>4) All users in organisation unit</para>
+                <para>5) User group</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">User group</emphasis> - Select one user group if <emphasis role="italic">Recipients</emphasis> field is selected as User group.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Message type</emphasis> - This is the types of message. There are 3 options, include - </para>
+                <para>1) Direct SMS - This kind of SMS message is linked to the program of an entity after sending to recipients.</para>
+                <para>2) Message</para>
+                <para>3) Both</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Parameters</emphasis> - Provide parameters  which are used for generating a message for each entity. The parameters include <emphasis role="italic">entity name</emphasis>,<emphasis role="italic"> program name</emphasis>, <emphasis role="italic">incident date, days since incident date, enrollment date, days since enrollment date, organisation unit name</emphasis>. Double-click on an option to insert it into template message field below.
 </para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Message</emphasis> - Content of template message. E.g.
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Message</emphasis> - Content of template message. E.g.
             Dear {patient-name}, please come to your appointment at {due-date}.
 </para>
-            </listitem>
-          </itemizedlist>
-          <para>To assign a program for organisation units, click on the program which you would like and select<emphasis role="italic"> Assign program to organisation units</emphasis> menu. Then select organisation units where provide the program.</para>
-          <para>To assign a program for user roles, click on the program which you would like and select <emphasis role="italic">Assign program to userroles</emphasis> menu. Then select user roles which you want in <emphasis role="italic">Available</emphasis> section and click <emphasis role="italic">Move selected items</emphasis> button or double click on the user role to move to <emphasis role="italic">Selected</emphasis> section. Finally, click <emphasis role="italic">OK</emphasis> to finish.</para>
-          <para>To create validation rules for programs, click on the program which you would like and select <emphasis role="italic">Program validation rule management</emphasis> menu. Then click <emphasis role="italic">Add</emphasis> button and enter values for the fields in form to create a new one. A validation rule is based on an expression which defines a relationship between data element values. The expression has a left side and a right side and an operator  which defines whether the former must be less than, equal to or greater than the latter. The expression forms a condition which should assert that certain logical criteria are met. For instance, a validation rule could  assert that an  admitted date  given is before the discharged date. </para>
-          <para>To define a program indicator, click on the program which you would like and select <emphasis role="italic">Program Indicator management </emphasis>menu. </para>
-          <para>To set authority for sharing the program, click on the program which you would like and select Sharing Settings menu. You can see  two parametters for authority, include <emphasis role="italic">External access (without login)</emphasis> and <emphasis role="italic">Public Access</emphasis> in the form with three authorities. There are three options for the public access as follows -</para>
-          <itemizedlist>
-            <listitem>
-              <para><emphasis role="italic">None</emphasis> - The program is private one. Just the user who created it can see and use it.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Read Only </emphasis>- The user who are not owner of this program only can see it, not edit and delete it. </para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Read and Write</emphasis> - All users can edit and delete it.</para>
-            </listitem>
-          </itemizedlist>
-          <para>Besides, you can search user groups by typing a key in text field to set authorities. The result will loaded and you can select the group you want. Then click (+) button and the selected one will be displayed in below.</para>
-          <para>To translate the name of a program, click <emphasis role="italic">Translation</emphasis> icon, the seventh icon under Operations, corresponding to the program you would like.</para>
+              </listitem>
+            </itemizedlist>
+          </section>
+          <section id="program_sharing">
+            <title>Program sharing</title>
+            <para>To set authority for sharing the program, click on the program which you would like and select Sharing Settings menu. You can see  two parameters for authority, include <emphasis role="italic">External access (without login)</emphasis> and <emphasis role="italic">Public Access</emphasis> in the form with three authorities. There are three options for the public access as follows -</para>
+            <itemizedlist>
+              <listitem>
+                <para><emphasis role="italic">None</emphasis> - The program is private one. Just the user who created it can see and use it.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Read Only </emphasis>- The user who are not owner of this program only can see it, not edit and delete it. </para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Read and Write</emphasis> - All users can edit and delete it.</para>
+              </listitem>
+            </itemizedlist>
+          </section>
+          <section id="validation_criteria">
+            <title>Validation criteria</title>
+            <para>Validation criteria section provides a mechanism for defining criteria which validate if an entity can  enrol into the program.</para>
+            <para>To access the validation criteria maintenance module, click on the program  which you would like and select <emphasis role="italic">View validation criteria</emphasis> link on context menu to open <emphasis role="italic">Validation criteria management</emphasis> form.</para>
+            <para>To create a new validation criterion, click the <emphasis role="italic">Add new</emphasis> button. Fill all fields with read asterisk, and click <emphasis role="italic">Add</emphasis> button.</para>
+            <para>To translate the name of a validate criteria, click on the program stage which you would like and select <emphasis role="italic">Translation</emphasis> link.</para>
+          </section>
         </section>
         <section id="program_stage">
           <title>Program stage</title>
           <para>To define a program stage, click the row corresponding to the program you would like, then <emphasis role="italic">View program stages</emphasis> link in context menu. In <emphasis role="italic">Program stage management</emphasis> form, click <emphasis role="italic">Add new</emphasis> button.</para>
-          <para>Basic information -</para>
-          <para><emphasis role="italic">Program stage details</emphasis> section - </para>
-          <itemizedlist>
-            <listitem>
-              <para><emphasis role="italic">Name</emphasis> - Name of the program stage</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Description</emphasis> - The description of the program stage</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Scheduled days from start</emphasis> - The minimum number of days to wait for starting the program stage.</para>
-            </listitem>
-          </itemizedlist>
-          <para><emphasis role="italic">Repeatable program stage details</emphasis> section - </para>
-          <itemizedlist>
-            <listitem>
-              <para><emphasis role="italic">Repeatable</emphasis> - specify the program stage as repeatable or not.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Display generate event box after completed</emphasis> -
+          <para>To sort program stages by scheduled days, click <emphasis role="italic">Sort by scheduled</emphasis> days button.</para>
+          <section>
+            <title>Base information</title>
+            <para><emphasis role="italic">Program stage details</emphasis> section - </para>
+            <itemizedlist>
+              <listitem>
+                <para><emphasis role="italic">Name</emphasis> - Name of the program stage</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Description</emphasis> - The description of the program stage</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Scheduled days from start</emphasis> - The minimum number of days to wait for starting the program stage.</para>
+              </listitem>
+            </itemizedlist>
+            <para><emphasis role="italic">Repeatable program stage details</emphasis> section - </para>
+            <itemizedlist>
+              <listitem>
+                <para><emphasis role="italic">Repeatable</emphasis> - specify the program stage as repeatable or not.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Display generate event box after completed</emphasis> -
                 Uncheck on it if you don&apos;t want to display <emphasis role="italic">Create new event box </emphasis>to create new event for a repeatable stage after clicking
                   <emphasis role="italic">Complete</emphasis> button for an event of the stage in
                 data entry form. This field is checked as default.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Standard interval days</emphasis> - Specify the number of days to repeat the repeatable program stage.</para>
-            </listitem>
-          </itemizedlist>
-          <para><emphasis role="italic">Form details</emphasis> section - </para>
-          <itemizedlist>
-            <listitem>
-              <para><emphasis role="italic">Auto-generate event</emphasis> - Uncheck this to prevent
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Standard interval days</emphasis> - Specify the number of days to repeat the repeatable program stage.</para>
+              </listitem>
+            </itemizedlist>
+            <para><emphasis role="italic">Form details</emphasis> section - </para>
+            <itemizedlist>
+              <listitem>
+                <para><emphasis role="italic">Auto-generate event</emphasis> - Uncheck this to prevent
                 for creating an event of this program stage automatically when a entity enroll into
                 the program.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Open data entry form after enrollment</emphasis>  - Automatically open the event of this stage as soon as the entity has enrolled into the program.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Report Date to use</emphasis> - The date is used for report date of the event opened automatically. There are two options , include <emphasis role="italic">Incident date</emphasis> or <emphasis role="italic">Enrollment date</emphasis>. </para>
-              <para>If the Report date to use is selected as one of those two(&apos;incident date&apos;/&apos;enrollment date&apos;), in Dashboard, the &apos;Report date&apos; of the event will be set as one of those two.
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Open data entry form after enrollment</emphasis>  - Automatically open the event of this stage as soon as the entity has enrolled into the program.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Report Date to use</emphasis> - The date is used for report date of the event opened automatically. There are two options , include <emphasis role="italic">Incident date</emphasis> or <emphasis role="italic">Enrollment date</emphasis>. </para>
+                <para>If the Report date to use is selected as one of those two(&apos;incident date&apos;/&apos;enrollment date&apos;), in Dashboard, the &apos;Report date&apos; of the event will be set as one of those two.
 </para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Block entry form after completed</emphasis> - Check on it for blocking entry form after completed the event of this stage. The data values in the entry form cannot be changed until the status of the event is reset as incomplete.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Ask user to complete program when stage is completed</emphasis> - If this property is set, a popup will come up to ask if user wants to create the event of next stage.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Ask user to create new event when stage is complete</emphasis> - If this property is set, a popup will come up to ask if user wants to create a new event of this stage when an event of this stage completed. This property is active only when Repeatable field is set.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Generate events by enrollment date</emphasis> - Check on it for auto-generating due dates of events from program-stages of this program    based on the enrollment date. If it is not checked, the due dates are generated based on incident date.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Capture coordinates</emphasis> - Many types of events may be recorded at a facility or be <emphasis role="italic">owned-by</emphasis> a health worker at a facility, but actually take place somewhere in the community. This field is checked to get coordinates of the place.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Complete allowed only if validation passes</emphasis> - The event created by this program stage is completed only when all validation rules are passed.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Description of report date</emphasis> - The description for report date which is displayed in case entry form.</para>
-            </listitem>
-          </itemizedlist>
-          <para><emphasis role="italic">Data elements <emphasis role="italic">section</emphasis></emphasis> - Select entity data elements which belong to the program stage. There are four properties for each data element selected-</para>
-          <orderedlist>
-            <listitem>
-              <para><emphasis role="italic">Compulsory</emphasis> - The value of this data element must be filled into data entry form before completing the event.
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Block entry form after completed</emphasis> - Check on it for blocking entry form after completed the event of this stage. The data values in the entry form cannot be changed until the status of the event is reset as incomplete.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Ask user to complete program when stage is completed</emphasis> - If this property is set, a popup will come up to ask if user wants to create the event of next stage.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Ask user to create new event when stage is complete</emphasis> - If this property is set, a popup will come up to ask if user wants to create a new event of this stage when an event of this stage completed. This property is active only when Repeatable field is set.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Generate events by enrollment date</emphasis> - Check on it for auto-generating due dates of events from program-stages of this program    based on the enrollment date. If it is not checked, the due dates are generated based on incident date.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Capture coordinates</emphasis> - Many types of events may be recorded at a facility or be <emphasis role="italic">owned-by</emphasis> a health worker at a facility, but actually take place somewhere in the community. This field is checked to get coordinates of the place.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Complete allowed only if validation passes</emphasis> - The event created by this program stage is completed only when all validation rules are passed.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Description of report date</emphasis> - The description for report date which is displayed in case entry form.</para>
+              </listitem>
+            </itemizedlist>
+            <para><emphasis role="italic">Data elements <emphasis role="italic">section</emphasis></emphasis> - Select entity data elements which belong to the program stage. There are four properties for each data element selected-</para>
+            <orderedlist>
+              <listitem>
+                <para><emphasis role="italic">Compulsory</emphasis> - The value of this data element must be filled into data entry form before completing the event.
 </para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Allow provided elsewhere</emphasis> - Specify if the value of this data element comes from other facility, not in the facility where this data is entered.
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Allow provided elsewhere</emphasis> - Specify if the value of this data element comes from other facility, not in the facility where this data is entered.
 </para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Display in reports </emphasis>- Display the value of this data element into the SEWoR data entry function.
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Display in reports </emphasis>- Display the value of this data element into the SEWoR data entry function.
 </para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Date in future</emphasis> - Allow to select a date in future for date data elements.</para>
-            </listitem>
-          </orderedlist>
-          <para>This module also supports to define template message reminders which are sent to users/entities. To access to this function, click on the program stage which you would like to define template message reminder and select <emphasis role="italic"> View template reminder message</emphasis> link.   </para>
-          <itemizedlist>
-            <listitem>
-              <para><emphasis role="italic">Name</emphasis> - Name of description</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Send base on</emphasis> - There are two options, include :</para>
-              <para>1) <emphasis role="italic">Days scheduled</emphasis> - The message is sent in day ( datesToCompare + daysAllowedSendMessage ).
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Date in future</emphasis> - Allow to select a date in future for date data elements.</para>
+              </listitem>
+            </orderedlist>
+          </section>
+          <section>
+            <title>Program stage entry form</title>
+            <para>A program stage has  three types of  data entry form - </para>
+            <orderedlist>
+              <listitem>
+                <para><emphasis role="italic">Custom data entry form</emphasis> - Define a data entry form as HTML page. click on the program stage which you would like and select  to define custom data entry form. The system supports to define a custom entry form with multi stages. So this form can be re-used in other stages of the same program.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Section data entry form</emphasis> - Group some data elements which belong to the program stage as sections and display data elements by each section. Click on the program stage which you would like and select  <emphasis role="italic">Section management</emphasis> link to define section data entry form.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Default data entry form</emphasis> - List all data elements which belong to the program stage.</para>
+              </listitem>
+            </orderedlist>
+          </section>
+          <section>
+            <title>Program stage template reminder</title>
+            <para>This module also supports to define template message reminders which are sent to users/entities. To access to this function, click on the program stage which you would like to define template message reminder and select <emphasis role="italic"> View template reminder message</emphasis> link.   </para>
+            <itemizedlist>
+              <listitem>
+                <para><emphasis role="italic">Name</emphasis> - Name of description</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Send base on</emphasis> - There are two options, include :</para>
+                <para>1) <emphasis role="italic">Days scheduled</emphasis> - The message is sent in day.
 </para>
-              <para>2) Complete event -  The message is sent when the event of an entity is completed.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Date to compare</emphasis> - This is the date used for calculating the date to send the message. There are 2 options, include:</para>
-              <para>1) Enrollment Date</para>
-              <para>2) Incident Date </para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Send message X days before/after scheduled date </emphasis>- The number of days needs to calculate the date for sending the message by scheduled. Just enter a number for this field in the case <emphasis role="italic">Send base on</emphasis> with value as Days schedule.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Recipients</emphasis> - Specify the kind of persons who  will receive the message. There are 5 options, include
+                <para>2) <emphasis role="italic">Complete event </emphasis>-  The message is sent when the event of an entity is completed.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Date to compare</emphasis> - This is the date used for calculating the date to send the message. There are 2 options, include:</para>
+                <para>1) Enrollment Date</para>
+                <para>2) Incident Date </para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Send message X days before/after scheduled date </emphasis>- The number of days needs to calculate the date for sending the message by scheduled. Just enter a number for this field in the case <emphasis role="italic">Send base on</emphasis> with value as Days schedule.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Recipients</emphasis> - Specify the kind of persons who  will receive the message. There are 5 options, include
 - </para>
-              <para>1) Tracked entity instance (SMS only)</para>
-              <para>2) Attribute users </para>
-              <para>3) Organisation unit phone number (SMS only)</para>
-              <para>4) All users in organisation unit</para>
-              <para>5) User group</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">User group</emphasis> - Select one user group if <emphasis role="italic">Recipients</emphasis> field is selected as User group.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Message type</emphasis> - This is the types of message. There are 3 options, include - </para>
-              <para>1) Direct SMS - This kind of SMS message is linked to the program of an entity after sending to recipients.</para>
-              <para>2) Message</para>
-              <para>3) Both</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Parameters</emphasis> - Provide parameters  which are used for generating a message for each entity. The parameters include <emphasis role="italic">entity name</emphasis>,<emphasis role="italic"> program name</emphasis>, <emphasis role="italic">incident date, days since incident date, enrollment date, days since enrollment date, organisation unit name</emphasis>. Double-click on an option to insert it into template message field below.
+                <para>1) Tracked entity instance (SMS only)</para>
+                <para>2) Attribute users </para>
+                <para>3) Organisation unit phone number (SMS only)</para>
+                <para>4) All users in organisation unit</para>
+                <para>5) User group</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">User group</emphasis> - Select one user group if <emphasis role="italic">Recipients</emphasis> field is selected as User group.</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Message type</emphasis> - This is the types of message. There are 3 options, include - </para>
+                <para>1) Direct SMS - This kind of SMS message is linked to the program of an entity after sending to recipients.</para>
+                <para>2) Message</para>
+                <para>3) Both</para>
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Parameters</emphasis> - Provide parameters  which are used for generating a message for each entity. The parameters include <emphasis role="italic">entity name</emphasis>,<emphasis role="italic"> program name</emphasis>, <emphasis role="italic">incident date, days since incident date, enrollment date, days since enrollment date, organisation unit name</emphasis>. Double-click on an option to insert it into template message field below.
 </para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Message</emphasis> - Content of template message. E.g.
+              </listitem>
+              <listitem>
+                <para><emphasis role="italic">Message</emphasis> - Content of template message. E.g.
             Dear {patient-name}, please come to your appointment at {due-date}.
 </para>
-            </listitem>
-          </itemizedlist>
-          <para>A program stage has  three types of  data entry form - </para>
-          <orderedlist>
-            <listitem>
-              <para><emphasis role="italic">Custom data entry form</emphasis> - Define a data entry form as HTML page. click on the program stage which you would like and select  to define custom data entry form. The system supports to define a custom entry form with multi stages. So this form can be re-used in other stages of the same program.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Section data entry form</emphasis> - Group some data elements which belong to the program stage as sections and display data elements by each section. Click on the program stage which you would like and select  <emphasis role="italic">Section management</emphasis> link to define section data entry form.</para>
-            </listitem>
-            <listitem>
-              <para><emphasis role="italic">Default data entry form</emphasis> - List all data elements which belong to the program stage.</para>
-            </listitem>
-          </orderedlist>
-          <note>
-            <para>A custom data entry form can have data elements which belong to other stages of the program. This form can be reused for the stages of program. When the form is opened to enter data, the data values which belong to other events will be displayed if any, but user can not modify them. Just only data values with data elements which belong to the stage selected are editable.</para>
-          </note>
-          <para>To sort program stages by scheduled days, click <emphasis role="italic">Sort by scheduled</emphasis> days button.</para>
-        </section>
-        <section id="validation_criteria">
-          <title>Validation criteria</title>
-          <para>Validation criteria section provides a mechanism for defining criteria which validate if an entity can  enrol into the program.</para>
-          <para>To access the validation criteria maintenance module, click on the program  which you would like and select <emphasis role="italic">View validation criteria</emphasis> link on context menu to open <emphasis role="italic">Validation criteria management</emphasis> form.</para>
-          <para>To create a new validation criterion, click the <emphasis role="italic">Add new</emphasis> button. Fill all fields with read asterisk, and click <emphasis role="italic">Add</emphasis> button.</para>
-          <para>To translate the name of a validate criteria, click on the program stage which you would like and select <emphasis role="italic">Translation</emphasis> link.</para>
+              </listitem>
+            </itemizedlist>
+            <note>
+              <para>A custom data entry form can have data elements which belong to other stages of the program. This form can be reused for the stages of program. When the form is opened to enter data, the data values which belong to other events will be displayed if any, but user can not modify them. Just only data values with data elements which belong to the stage selected are editable.</para>
+            </note>
+          </section>
         </section>
       </section>
-      <section id="patient_aggregation_query_builder">
+      <section id="tracked_entity_aggregation_query_builder">
         <title>Aggregation query builder</title>
         <para>This is the core functionality for linking data between tracker module and aggregate management module by defining the linking/aggregating rules. The purpose  is to produce aggregated data / statistics based on the low-level case based data. It is based around flexible aggregation query definitions which maps the data elements used for case based data management to data elements used for aggregate data.</para>
         <para>This provides two functions - </para>
@@ -560,8 +617,8 @@ For the attributes set Display in list, the values of these attributes are displ
             <para><emphasis role="italic">Apps &gt; Individual Records &gt; Manual Aggregation</emphasis> is used for generating routine data values from individual data by period and organization unit.</para>
           </listitem>
         </itemizedlist>
-        <section>
-          <title>Aggregation Query Builder </title>
+        <section id="tracked_entity_aggregation_query_builder_information">
+          <title>Basic information </title>
           <para>To access <emphasis role="italic">Aggregation Query Builder</emphasis> module, from the <emphasis role="italic">Apps</emphasis> menu, go to the <emphasis role="italic">Programs / Attributes</emphasis> option. Select <emphasis role="italic">Aggregation Query Builder</emphasis> option on left menu to proceed.</para>
           <para>To define a formula, click the <emphasis role="italic">Add new</emphasis> button.</para>
           <screenshot>
