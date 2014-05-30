@@ -138,13 +138,13 @@ A program must have one tracked entity. And entity registered must be specified 
           <para>Schedule an automated tracked entity aggregation process, e.g. to run all pre-defined aggregation queries every midnight. </para>
         </listitem>
       </itemizedlist>
-      <section id="tracked_entity_atribute">
-        <title id="tracked_entity_atribute_title">Attribute</title>
+      <section id="tracked_entity_attribute">
+        <title>Attribute</title>
         <para>Create, modify and view entity attributes. An attribute can be used to register extra private information for a entity or information when that entity enrolled into a certain program.</para>
         <para>After, click on <emphasis role="italic">Add new </emphasis>button into <emphasis role="italic">Tracked entity attribute management</emphasis> window to go to <emphasis role="italic">Create new tracked entity attribute</emphasis> window.</para>
         <para>From <emphasis role="italic">App</emphasis> menu, go to <emphasis role="italic">Programs / Attributes</emphasis> option and click on it. Select <emphasis role="italic">Attribute</emphasis> option to create a new attribute for entities. </para>
-        <section id="tracked_entity_atribute_information">
-          <title id="tracked_entity_attribute">Basic information</title>
+        <section id="tracked_entity_attribute_information">
+          <title>Basic information</title>
           <itemizedlist>
             <listitem>
               <para><emphasis role="italic">Name</emphasis> - Name of  attribute.</para>
@@ -257,7 +257,7 @@ A program must have one tracked entity. And the entity registered must be specif
           <para>To access the program maintenance module, from <emphasis role="italic">Apps</emphasis> menu, go to <emphasis role="italic">Programs / Attributes</emphasis> option and click on it. Select <emphasis role="italic">Program</emphasis> menu.</para>
           <para>To define a new program, click the <emphasis role="italic">Add new</emphasis> button on the main page. Fill all fields with read asterisk, and then click the <emphasis role="italic">Add</emphasis> button.</para>
           <section id="program_information">
-            <title id="program_title">Basic information</title>
+            <title>Basic information</title>
             <para><emphasis role="italic">Program details<emphasis role="italic"> section</emphasis></emphasis> - </para>
             <itemizedlist>
               <listitem>
@@ -336,7 +336,7 @@ For the attributes set Display in list, the values of these attributes are displ
             <title>Program validation rule</title>
             <para>To create validation rules for programs, click on the program which you would like and select <emphasis role="italic">Program validation rule management</emphasis> menu. Then click <emphasis role="italic">Add</emphasis> button and enter values for the fields in form to create a new one. A validation rule is based on an expression which defines a relationship between data element values. The expression has a left side and a right side and an operator  which defines whether the former must be less than, equal to or greater than the latter. The expression forms a condition which should assert that certain logical criteria are met. For instance, a validation rule could  assert that an  admitted date  given is before the discharged date. </para>
           </section>
-          <section>
+          <section id='program_indicator'>
             <title>Program Indicator</title>
             <para>To define a program indicator, click on the program which you would like and select <emphasis role="italic">Program Indicator management </emphasis>menu. </para>
             <para>Basic information-</para>
@@ -370,7 +370,7 @@ For the attributes set Display in list, the values of these attributes are displ
               </listitem>
             </itemizedlist>
           </section>
-          <section id="program_templete_reminder">
+          <section id="program_template_reminder">
             <title>Program template reminder</title>
             <para>This module also supports to define template message reminders which are sent to users/entities for multi events registration and single event with registration programs. To access to this function, click on the program which you would like to define template message reminder and select <emphasis role="italic"> View template reminder message</emphasis> link.   </para>
             <itemizedlist>
@@ -450,7 +450,7 @@ For the attributes set Display in list, the values of these attributes are displ
           <title>Program stage</title>
           <para>To define a program stage, click the row corresponding to the program you would like, then <emphasis role="italic">View program stages</emphasis> link in context menu. In <emphasis role="italic">Program stage management</emphasis> form, click <emphasis role="italic">Add new</emphasis> button.</para>
           <para>To sort program stages by scheduled days, click <emphasis role="italic">Sort by scheduled</emphasis> days button.</para>
-          <section>
+          <section id='program_stage_information'>
             <title>Base information</title>
             <para><emphasis role="italic">Program stage details</emphasis> section - </para>
             <itemizedlist>
@@ -535,7 +535,7 @@ For the attributes set Display in list, the values of these attributes are displ
               </listitem>
             </orderedlist>
           </section>
-          <section>
+          <section id='program_stage_entry_form'>
             <title>Program stage entry form</title>
             <para>A program stage has  three types of  data entry form - </para>
             <orderedlist>
@@ -550,7 +550,7 @@ For the attributes set Display in list, the values of these attributes are displ
               </listitem>
             </orderedlist>
           </section>
-          <section>
+          <section id='program_stage_template_reminder'>
             <title>Program stage template reminder</title>
             <para>This module also supports to define template message reminders which are sent to users/entities. To access to this function, click on the program stage which you would like to define template message reminder and select <emphasis role="italic"> View template reminder message</emphasis> link.   </para>
             <itemizedlist>
