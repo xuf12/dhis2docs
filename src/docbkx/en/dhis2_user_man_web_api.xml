@@ -1620,6 +1620,31 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
 &lt;/message&gt;</screen>
     <para>To test this we save the XML content into a file called <emphasis role="italic">message.xml</emphasis>. We use cURL to dispatch the message the the DHIS 2 demo instance where we indicate that the content-type is XML and authenticate as the <emphasis role="italic">admin</emphasis> user:</para>
     <screen>curl -d @message.xml &quot;http://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -X POST -v</screen>
+    <para>A corresponding payload in JSON and POST command look like this:</para>
+    <screen>{
+  "subject": "Hey",
+  "text": "How are you?",
+  "users": [
+    {
+      "id": "OYLGMiazHtW"
+    },
+    {
+      "id": "N3PZBUlN8vq"
+    }
+  ],
+  "userGroups": [
+    {
+      "id": "ZoHNWQajIoe"
+    }
+  ],
+  "organisationUnits": [
+    {
+      "id": "DiszpKrYNg8"
+    }
+  ]
+}
+</screen>
+    <screen>curl -d @message.json &quot;http://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Content-Type:application/json&quot; -u admin:district -X POST -v</screen>
     <para>If all is well we receive a <emphasis role="italic">201 Created</emphasis> HTTP status code. Also note that we receive a <emphasis role="italic">Location </emphasis>HTTP header which value  informs us of the URL of the newly  created message conversation resource - this can be used by a consumer to perform further action.</para>
     <para>We will now pretend to be the mobile user and read the message which was just sent by dispatching a GET request to the <emphasis role="italic">messageConversations</emphasis> resource. We supply an <emphasis role="italic">Accept</emphasis> header with <emphasis role="italic">application/xml</emphasis> as the value to indicate that we are interested in the XML resource representation and we authenticate as the <emphasis role="italic">mobile</emphasis> user:</para>
     <screen>curl &quot;http://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Accept:application/xml&quot; -u mobile:district -X GET -v</screen>
