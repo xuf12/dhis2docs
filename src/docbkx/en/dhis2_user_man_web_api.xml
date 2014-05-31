@@ -968,7 +968,7 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
 }</screen>
     <para>To send this you can save it to a file called <emphasis role="italic"
           >event.json</emphasis> and use curl like this:</para>
-    <screen>curl -d @event.json "localhost:8080/api/events" -H "Content-Type:application/json" -u admin:district -v</screen>
+    <screen>curl -d @event.json "localhost/api/events" -H "Content-Type:application/json" -u admin:district -v</screen>
     <para>We also support sending multiple events at the same time. A payload in XML format might
       look like this: </para>
     <screen>&lt;?xml version="1.0" encoding="utf-8"?>
@@ -1022,7 +1022,7 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
     "dataValues": [
       { "dataElement": "qrur9Dvnyt5", "value": "26" },
       { "dataElement": "oZg33kd9taw", "value": "Female" }
-	] }
+    ] }
   ]
 }</screen>
     <para>(From 2.13) As part of the import summary you will also get the identifier <emphasis
@@ -1033,28 +1033,27 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
           <emphasis role="italic">ID</emphasis>, <emphasis role="italic">UID</emphasis>, <emphasis role="italic">UUID</emphasis>, <emphasis
           role="italic">CODE</emphasis>, and <emphasis role="italic">NAME</emphasis> (ID and UID will both matchUIDs).</para>
     <para><emphasis role="bold">Update</emphasis>: To update an existing event, the format of the
-      payload is the same, but the URL you are posting to must add the identifier to the end of the
-      URL string and the request must be PUT.
-      <screen>curl -X PUT -d @updated_event.xml "localhost:8080/api/events/Abcas12322" -H "Content-Type:application/xml" -u admin:district -v</screen><screen>curl -X PUT -d @updated_event.json "localhost:8080/api/events/Abcas12322" -H "Content-Type:application/json" -u admin:district -v</screen></para>
+        payload is the same, but the URL you are posting to must add the identifier to the end of
+        the URL string and the request must be PUT.
+        <screen>curl -X PUT -d @updated_event.xml "localhost/api/events/Abcas12322" -H "Content-Type:application/xml" -u admin:district -v</screen><screen>curl -X PUT -d @updated_event.json "localhost/api/events/Abcas12322" -H "Content-Type:application/json" -u admin:district -v</screen></para>
     <para><emphasis role="bold">Delete</emphasis>: To delete an existing event, all you need is to
-      send a DELETE request with a identifier reference to the server you are
-      using.<screen>curl -X DELETE "localhost:8080/api/events/Abcas12322" -u admin:district -v</screen></para>
+        send a DELETE request with a identifier reference to the server you are
+        using.<screen>curl -X DELETE "localhost/api/events/Abcas12322" -u admin:district -v</screen></para>
     <para><emphasis role="bold">Get</emphasis>: To get an existing event you can issue a GET request
-      including the identifier like
-      this:<screen>curl "localhost:8080/api/events/Abcas12322" -H "Content-Type:application/xml" -u admin:district -v</screen></para>
+        including the identifier like
+        this:<screen>curl "localhost/api/events/Abcas12322" -H "Content-Type:application/xml" -u admin:district -v</screen></para>
     <para>The table below describes the meaning of each element. Most elements should be fairly
       self-explanatory.</para>
     <para>
       <table>
-        <title>XML/JSON element/key description</title>
+        <title>Events resource format</title>
         <tgroup cols="5">
           <thead>
             <row>
-              <entry> Key </entry>
+              <entry> Parameter </entry>
               <entry> Type </entry>
               <entry> Required </entry>
-              <entry> Options<emphasis role="italic"> (default first)</emphasis>
-                </entry>
+              <entry> Options (default first)</entry>
               <entry> Description </entry>
             </row>
           </thead>
@@ -1130,7 +1129,7 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
       supported, either through adding .json/.xml or by setting the appropriate <emphasis role="italic">Accept</emphasis> header.</para>
     <para>
       <table>
-        <title>Events endpoint query parameters</title>
+        <title>Events resource query parameters</title>
         <tgroup cols="4">
           <thead>
             <row>
@@ -4043,12 +4042,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
           <row>
             <entry>hcd</entry>
             <entry>Has coordinates down, indicating whether one or more children organisation units
-              exist with coordinates (below in the hierarchy).</entry>
+              exist with coordinates (below in the hierarchy)</entry>
           </row>
           <row>
             <entry>hcu</entry>
             <entry>Has coordinates up, indicating whether the parent organisation unit has
-              coordinates (above in the hierarchy).</entry>
+              coordinates (above in the hierarchy)</entry>
           </row>
           <row>
             <entry>le</entry>
@@ -4057,24 +4056,23 @@ ORDER BY oul.level, par.name, ou.name</screen>
           <row>
             <entry>pg</entry>
             <entry>Parent graph, the graph of parent organisation unit identifiers up to the root in
-              the hierarchy.</entry>
+              the hierarchy</entry>
           </row>
           <row>
             <entry>pi</entry>
-            <entry>Parent identifier, the identifier of the parent of this organisation
-              unit.</entry>
+            <entry>Parent identifier, the identifier of the parent of this organisation unit</entry>
           </row>
           <row>
             <entry>pn</entry>
-            <entry>Parent name, the name of the parent of this organisation unit.</entry>
+            <entry>Parent name, the name of the parent of this organisation unit</entry>
           </row>
           <row>
             <entry>ty</entry>
-            <entry>Geo feature type, 1 = point and 2 = polygon or multi-polygon.</entry>
+            <entry>Geo feature type, 1 = point and 2 = polygon or multi-polygon</entry>
           </row>
           <row>
             <entry>co</entry>
-            <entry>Coordinates of this geo feature.</entry>
+            <entry>Coordinates of this geo feature</entry>
           </row>
         </tbody>
       </tgroup>
@@ -4273,31 +4271,39 @@ ORDER BY oul.level, par.name, ou.name</screen>
         role="italic">me</emphasis> resource (you can also refer to it by its old name <emphasis role="italic">currentUser</emphasis>). The current user related
       resources gives your information which is useful when building clients for instance for data entry and user management. The following describes these
       resources and their purpose.</para>
-    <para><emphasis role="bold">/api/me</emphasis> Gives basic information about the user that you
-      are currently logged in as, including username, user credentials, assigned organisation
-      units.</para>
-    <para><emphasis role="bold">/api/me/dashboard</emphasis> Gives information about currently
+    <para>Provides basic information about the user that you are
+      currently logged in as, including username, user credentials, assigned organisation
+      units:</para>
+    <screen>/api/me</screen>
+    <para>Gives information about currently
       unread messages and interpretations.</para>
-    <para><emphasis role="bold">/api/me/inbox</emphasis> Lists all messages and interpretations in
+    <screen>/api/me/dashboard</screen>
+    <para>Lists all messages and interpretations in
       the inbox (including replies).</para>
-    <para><emphasis role="bold">/api/me/user-account</emphasis> Gives the full profile information
+    <screen>/api/me/inbox</screen>
+    <para>Gives the full profile information
       for current user. This endpoint support both <emphasis role="italic">GET</emphasis> to
       retrieve profile and <emphasis role="italic">POST</emphasis> to update profile (the exact same
       format is used).</para>
-    <para><emphasis role="bold">/api/me/authorization/&lt;auth></emphasis> Returns true or false,
+    <screen>/api/me/user-account</screen>
+    <para>Returns true or false,
       indicating whether the current user has been granted the given &lt;auth> authorization.</para>
-    <para><emphasis role="bold">/api/me/organisationUnits</emphasis> Lists all organisation units
+    <screen>/api/me/authorization/&lt;auth></screen>
+    <para>Lists all organisation units
       directly assigned to the user.</para>
-    <para><emphasis role="bold">/api/me/dataSets</emphasis> Gives all the datasets assigned to the
+    <screen>/api/me/organisationUnits</screen>
+    <para>Gives all the datasets assigned to the
       users organisation units, and their direct children. This endpoint contains all required
       information to build a form based on one of our datasets. If you want all descendants of your
       assigned organisation units, you can use the query parameter <emphasis role="italic"
         >includeDescendants=true</emphasis>.</para>
-    <para><emphasis role="bold">/api/me/programs</emphasis> Gives all the programs assigned to the
+    <screen>/api/me/dataSets</screen>
+    <para>Gives all the programs assigned to the
       users organisation units, and their direct children. This endpoint contains all required
       information to build a form based on one of our datasets. If you want all descendants of your
       assigned organisation units, you can use the query parameter <emphasis role="italic"
         >includeDescendants=true</emphasis>.</para>
+    <screen>/api/me/programs</screen>
   </section>
   <section>
     <title>System settings</title>
