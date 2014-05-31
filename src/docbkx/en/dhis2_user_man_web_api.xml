@@ -4350,13 +4350,13 @@ ORDER BY oul.level, par.name, ou.name</screen>
       requests to the following sub-resources. You can get XML and JSON responses through the
         <emphasis role="italic">Accept</emphasis> header or by using the .json or .xml
       extensions.</para>
-    <screen>/api/configuration/systemId
-/api/configuration/feedbackRecipients
-/api/configuration/offlineOrganisationUnitLevel
-/api/configuration/infrastructuralDataElements
-/api/configuration/infrastructuralPeriodType
-/api/configuration/selfRegistrationRole
-/api/configuration/selfRegistrationOrgUnit</screen>
+    <screen>/api/configuration/systemId</screen>
+    <screen>/api/configuration/feedbackRecipients</screen>
+    <screen>/api/configuration/offlineOrganisationUnitLevel</screen>
+    <screen>/api/configuration/infrastructuralDataElements</screen>
+    <screen>/api/configuration/infrastructuralPeriodType</screen>
+    <screen>/api/configuration/selfRegistrationRole</screen>
+    <screen>/api/configuration/selfRegistrationOrgUnit</screen>
   </section>
   <section>
     <title>Translations</title>
@@ -4459,9 +4459,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
         HTTP <emphasis role="bold">POST</emphasis> method. You can post the payload the the
         following URL:</para>
       <screen>/api/trackedEntityInstances</screen>
-      <para> For example, let's create a new instance of a Person and setting the age to 30 (using
-        our demo
-        server):<screen>{
+      <para> For example, let us create a new instance of a Person and setting the age to
+        30:<screen>{
   "trackedEntity": "cyl5vuJ5ETQ",
   "orgUnit": "ImspTQPwCqd",
   "attributes": [
