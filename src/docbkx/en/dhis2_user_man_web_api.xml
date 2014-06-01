@@ -4150,6 +4150,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>Category option combo update will remove obsolete and generate missing category option
       combos for all category combinations:</para>
     <screen>api/maintenance/categoryOptionComboUpdate</screen>
+    <para>Cache clearing will clear the application Hibernate cache and the analytics partition
+      caches:</para>
+    <screen>api/maintenance/cacheClearing</screen>
   </section>
   <section>
     <title>System resource</title>
@@ -4275,34 +4278,28 @@ ORDER BY oul.level, par.name, ou.name</screen>
       currently logged in as, including username, user credentials, assigned organisation
       units:</para>
     <screen>/api/me</screen>
-    <para>Gives information about currently
-      unread messages and interpretations.</para>
+    <para>Gives information about currently unread messages and interpretations:</para>
     <screen>/api/me/dashboard</screen>
-    <para>Lists all messages and interpretations in
-      the inbox (including replies).</para>
+    <para>Lists all messages and interpretations in the inbox (including replies):</para>
     <screen>/api/me/inbox</screen>
-    <para>Gives the full profile information
-      for current user. This endpoint support both <emphasis role="italic">GET</emphasis> to
-      retrieve profile and <emphasis role="italic">POST</emphasis> to update profile (the exact same
-      format is used).</para>
+    <para>Gives the full profile information for current user. This endpoint support both <emphasis
+        role="italic">GET</emphasis> to retrieve profile and <emphasis role="italic">POST</emphasis>
+      to update profile (the exact same format is used):</para>
     <screen>/api/me/user-account</screen>
-    <para>Returns true or false,
-      indicating whether the current user has been granted the given &lt;auth> authorization.</para>
+    <para>Returns true or false, indicating whether the current user has been granted the given
+      &lt;auth> authorization:</para>
     <screen>/api/me/authorization/&lt;auth></screen>
-    <para>Lists all organisation units
-      directly assigned to the user.</para>
+    <para>Lists all organisation units directly assigned to the user:</para>
     <screen>/api/me/organisationUnits</screen>
-    <para>Gives all the datasets assigned to the
-      users organisation units, and their direct children. This endpoint contains all required
-      information to build a form based on one of our datasets. If you want all descendants of your
-      assigned organisation units, you can use the query parameter <emphasis role="italic"
-        >includeDescendants=true</emphasis>.</para>
+    <para>Gives all the datasets assigned to the users organisation units, and their direct
+      children. This endpoint contains all required information to build a form based on one of our
+      datasets. If you want all descendants of your assigned organisation units, you can use the
+      query parameter <emphasis role="italic">includeDescendants=true</emphasis> :</para>
     <screen>/api/me/dataSets</screen>
-    <para>Gives all the programs assigned to the
-      users organisation units, and their direct children. This endpoint contains all required
-      information to build a form based on one of our datasets. If you want all descendants of your
-      assigned organisation units, you can use the query parameter <emphasis role="italic"
-        >includeDescendants=true</emphasis>.</para>
+    <para>Gives all the programs assigned to the users organisation units, and their direct
+      children. This endpoint contains all required information to build a form based on one of our
+      datasets. If you want all descendants of your assigned organisation units, you can use the
+      query parameter <emphasis role="italic">includeDescendants=true</emphasis> :</para>
     <screen>/api/me/programs</screen>
   </section>
   <section>
@@ -4459,20 +4456,24 @@ ORDER BY oul.level, par.name, ou.name</screen>
         HTTP <emphasis role="bold">POST</emphasis> method. You can post the payload the the
         following URL:</para>
       <screen>/api/trackedEntityInstances</screen>
-      <para> For example, let us create a new instance of a Person and setting the age to
-        30:<screen>{
+      <para> For example, let us create a new instance of a person tracked entity and specify its
+        first name and last name
+        attributes:<screen>{
   "trackedEntity": "cyl5vuJ5ETQ",
-  "orgUnit": "ImspTQPwCqd",
+  "orgUnit": "DiszpKrYNg8",
   "attributes": [
     {
-      "attribute": "spFvx9FndA4",
-      "value": "30"
+      "attribute": "dv3nChNSIxy",
+      "value": "Joe"
+    },
+    {
+      "attribute": "hwlRTFIFSUq",
+      "value": "Smith"
     }
   ]
 }</screen></para>
-      <para>To push this to the server, you can use the cURL
-        command:<screen>curl -X POST -d @data.json -H "Content-Type: application/json" -u admin:district
-  http://apps.dhis2.org/demo/api/trackedEntityInstances -v</screen></para>
+      <para>To push this to the server you can use the cURL command like
+        this:<screen>curl -d @tei.json "apps.dhis2.org/demo/api/trackedEntityInstances" -X POST -H "Content-Type: application/json" -u admin:district -v</screen></para>
     </section>
     <section>
       <title>Updating a tracked entity instance</title>
