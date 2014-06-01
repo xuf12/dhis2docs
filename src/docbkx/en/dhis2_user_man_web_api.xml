@@ -4165,12 +4165,15 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <screen>http://&lt;server-url>/api/system/id?n=3</screen>
     <para>The <emphasis role="italic">n</emphasis> query parameter is optional and indicates how
         many identifiers you want to be returned with the response. The default is to return one
-        identifier. The response will contain a JSON array similar to this:</para>
-    <screen>[
+        identifier. The response will contain a JSON object with a array named codes, similar to
+        this:</para>
+    <screen>{
+  "codes": [
     "Y0moqFplrX4",
     "WI0VHXuWQuV",
     "BRJNBBpu4ki"
-]   </screen>
+  ]
+}</screen>
       <para>The DHIS 2 UID format has these requirements:</para>
       <itemizedlist>
         <listitem>
