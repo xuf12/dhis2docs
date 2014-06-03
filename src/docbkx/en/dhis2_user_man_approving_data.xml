@@ -32,14 +32,6 @@
     <para>The two-step process is not required by DHIS2. It is an optional step for a user reviewing data at the next higher level. It has the benefit of locking the acceptance from the level below, so reviewer does not have to worry that the data could be changing from below while it is being reviewed. It can also be used by the higher-level user to keep track of which lower-level data has already been reviewed.</para>
   </section>
   <section>
-    <title>Configure approving data</title>
-    <para>When you add or edit a data set, you specify whether or not data entered for that data set
-      will be available for approval. This is done with the <emphasis role="italic">Approve data</emphasis> option when adding or editing a data set.</para>
-    <para>You can configure the organisation unit levels at which you want to approve data in these data sets. This is done in the <emphasis role="italic">Settings</emphasis> section, under <emphasis role="italic">System Approval Settings</emphasis>. Click the Add new button on this page and select the organisation unit level at which you want approvals. It will be added to the list of approval settings. You may configure the system for approving data at every organisation unit level, or only at selected organisation unit levels.</para>
-    <para>Note that when you add a new approval level, you may optionally choose a Category option group set. This feature is discussed later in this chapter.</para>
-    <para>On the <emphasis role="italic">System Approval Settings</emphasis> page, you may  select the option <emphasis role="italic">Hide unapproved data in analytics</emphasis>. If this option is checked, unapproved data will not be shown in DHIS2 analytics such as reporting, pivot table, data visualizer and GIS (except in the data approval report for users who are authorized to approve the data.) If this option is not checked, then all data is shown whether approved or not.</para>
-  </section>
-  <section>
     <title>Authorities for approving data</title>
     <para>To approve data, you must be assigned a role containing one of these  authorities:</para>
     <itemizedlist>
@@ -53,6 +45,14 @@
         <para><emphasis role="bold">Accept data at lower levels</emphasis> - Allows you to accept data  for the level just below the organisation unit(s) assigned to you. This authority can be given to the same users as approve data. Or it may be given to different users, if you want to have some users who accept data from the level below, and a different set of users who approve data to go up to the next level above.</para>
       </listitem>
     </itemizedlist>
+  </section>
+  <section>
+    <title>Configure approving data</title>
+    <para>When you add or edit a data set, you specify whether or not data entered for that data set
+      will be available for approval. This is done with the <emphasis role="italic">Approve data</emphasis> option when adding or editing a data set.</para>
+    <para>You can configure the organisation unit levels at which you want to approve data in these data sets. This is done in the <emphasis role="italic">Settings</emphasis> section, under <emphasis role="italic">System Approval Settings</emphasis>. Click the Add new button on this page and select the organisation unit level at which you want approvals. It will be added to the list of approval settings. You may configure the system for approving data at every organisation unit level, or only at selected organisation unit levels.</para>
+    <para>Note that when you add a new approval level, you may optionally choose a Category option group set. This feature is discussed later in this chapter.</para>
+    <para>On the <emphasis role="italic">System Approval Settings</emphasis> page, you may select the option <emphasis role="italic">Hide unapproved data in analytics</emphasis> to hide unapproved data in reports, pivot table, data visualizer and GIS. If this option is checked, unapproved data will be hidden from users assigned to higher-level organisation units than where approval is needed. Users who are assigned to organisation units where data is ready for approval can still view the data, as can users assigned to higher-level organisation units if they have the <emphasis role="italic">Approve data at lower levels</emphasis> authority. If this option is not checked, then all data is shown whether approved or not.</para>
   </section>
   <section>
     <title>Approving data</title>
