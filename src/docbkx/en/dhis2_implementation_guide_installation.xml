@@ -445,6 +445,41 @@ sudo /usr/sbin/update-rc.d -f tomcat defaults 81</screen>
 }</screen>
     </section>
     <section>
+      <title>App setup with nginx</title>
+      <para>DHIS 2 supports installation of apps. To avoid having to re-install your apps every time
+        you update and replace DHIS 2, it is beneficial to deploy apps on the server file system
+        outside the DHIS 2 webapp directory. To install apps directly in nginx you can follow the
+        following steps. First create a directory which will be used as the app installation
+        folder.</para>
+      <screen>sudo mkdir /usr/share/nginx/apps</screen>
+      <para>Make sure that the directory is owned by the user which runs Tomcat, in order to allow
+        the Tomcat process to save apps to this directory when they are uploaded. If the user
+        running Tomcat is <emphasis role="italic">dhis</emphasis> you can use the below
+        command.</para>
+      <screen>sudo chown dhis:dhis /usr/share/nginx/apps</screen>
+      <para>You must add an <emphasis role="italic">apps</emphasis> location in the nginx.conf
+        configuration file like below. Note that we omit the apps directory itself in the root
+        directive. </para>
+      <screen>server {
+  ...
+  location /apps/ {
+    root      /usr/share/nginx;
+    expires   max;
+  }
+  ...
+}  </screen>
+      <para>Finally navigate to the app configuration screen in your DHIS 2 instance by going to App
+        management > Settings and adjust the settings accordingly.</para>
+      <para>The app installation folder should point to the path on the server file system to the
+        base directory:</para>
+      <screen>/usr/share/nginx/apps</screen>
+      <para>The app base URL should point to the URL where DHIS 2 can find the apps. Replace
+        www.domain.com with your real domain and according to how you have deployed DHIS 2.</para>
+      <screen>http://www.domain.com/apps</screen>
+      <para>You should now be ready to upload apps from the App management screen. Remember to
+        reload the nginx configuration. </para>
+    </section>
+    <section>
       <title>Basic reverse proxy setup with Apache</title>
       <para>The Apache HTTP server is the most common </para>
       <important>
