@@ -533,7 +533,6 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para>For a dataSet with ID <emphasis role="italic">abc123</emphasis> give me only the
       organisationUnits collection (assignments), but exclude the id from the orgUnit
       collection<screen>/api/dataSets/abc123?fields=organisationUnits[:all,!id]</screen></para>
-    <para/>
   </section>
   <section>
     <title>Meta-data create, read, update, delete</title>
