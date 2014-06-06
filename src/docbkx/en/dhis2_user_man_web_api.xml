@@ -459,24 +459,81 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       ID1<screen>/api/dataElements?filter=dataSets.id:eq:ID1</screen></para>
   </section>
   <section>
-    <title>Meta-data property inclusion/exclusion</title>
+    <title>Meta-data field filtering</title>
     <para>Sometimes the default views of the meta-data can be a bit much, and it doesn't make sense to include everything if all you need is
       the id and name. For a long time, we have now had <emphasis role="italic">viewClass</emphasis> (<emphasis role="bold">basic</emphasis>
       | <emphasis role="bold">detailed</emphasis> | <emphasis role="bold">export</emphasis>) which allowed to hide some of the properties.
       When this is not enough, we now include a more sophisticated system for including and excluding properties (to see what properties are
       available, please see the <emphasis role="italic">schema</emphasis> section).</para>
-    <para>The format for include/exclude is very simple, and allows for infinite recursion, to filter at the "root" level, you can just use
-      the name of the property, i.e. <emphasis role="italic">?include=id,name</emphasis> which would only display the <emphasis
-        role="italic">id</emphasis> and <emphasis role="italic">name</emphasis> for every object. For object that are either collections, or
-      is a complex object which have properties on their own, you can use the format <emphasis role="italic"
-        >?include=id,name,dataSets[id,name]</emphasis> which would return <emphasis role="italic">id</emphasis>, <emphasis role="italic"
-        >name</emphasis> of the root, and the <emphasis role="italic">id</emphasis> and <emphasis role="italic">name</emphasis> of every
-      dataSet on that object.</para>
-    <para><emphasis role="bold">Example 1</emphasis>: Get <emphasis role="italic">id</emphasis> and <emphasis role="italic">name</emphasis>
-      on the indicators resource<screen>/api/indicators?include=id,name</screen></para>
-    <para><emphasis role="bold">Example 2</emphasis>: Get <emphasis role="italic">id</emphasis>, <emphasis role="italic">name</emphasis>
-      from dataElements, and also <emphasis role="italic">id</emphasis> and <emphasis role="italic">name</emphasis> from the dataSets on
-      dataElements<screen>/api/dataElements?include=id,name,dataSets[id,name]</screen></para>
+    <para>The format for include/exclude is very simple, and allows for infinite recursion, to
+      filter at the "root" level, you can just use the name of the property, i.e. <emphasis
+        role="italic">?include=id,name</emphasis> which would only display the <emphasis
+        role="italic">id</emphasis> and <emphasis role="italic">name</emphasis> for every object.
+      For object that are either collections, or is a complex object which have properties on their
+      own, you can use the format <emphasis role="italic"
+        >?field=id,name,dataSets[id,name]</emphasis> which would return <emphasis role="italic"
+        >id</emphasis>, <emphasis role="italic">name</emphasis> of the root, and the <emphasis
+        role="italic">id</emphasis> and <emphasis role="italic">name</emphasis> of every dataSet on
+      that object. Negation can be done with the exclamation operator, and we have a set of presets
+      of field select (see below).</para>
+    <para><emphasis role="bold">Example 1</emphasis>: Get <emphasis role="italic">id</emphasis> and
+        <emphasis role="italic">name</emphasis> on the indicators
+      resource<screen>/api/indicators?field=id,name</screen></para>
+    <para><emphasis role="bold">Example 2</emphasis>: Get <emphasis role="italic">id</emphasis>,
+        <emphasis role="italic">name</emphasis> from dataElements, and also <emphasis role="italic"
+        >id</emphasis> and <emphasis role="italic">name</emphasis> from the dataSets on
+      dataElements<screen>/api/dataElements?field=id,name,dataSets[id,name]</screen></para>
+    <para>To exclude a property from the output, you can use the '!' operator, this is allowed
+      anywhere in the query, and will simply not include that property (as it might have been
+      inserted in some of the presets).</para>
+    <para>We have a few selected (presets) fields groups already available, and they can be applied
+      by using the ':' operator.<table frame="all">
+        <title>Field operators</title>
+        <tgroup cols="2">
+          <colspec colname="c1" colnum="1" colwidth="1*"/>
+          <colspec colname="c2" colnum="2" colwidth="3.54*"/>
+          <thead>
+            <row>
+              <entry>Operator</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>&lt;field-name></entry>
+              <entry>Include property with name, if it exists</entry>
+            </row>
+            <row>
+              <entry>&lt;object>[&lt;field-name>, ...]</entry>
+              <entry>Includes a field within either a collection (will be applied to every object in
+                that collection), or just on a single object.</entry>
+            </row>
+            <row>
+              <entry>!&lt;field-name>, &lt;object>[!&lt;field-name></entry>
+              <entry>Do not include this field name, also works inside objects/collections. Useful
+                when you use a preset to inlude fields.</entry>
+            </row>
+            <row>
+              <entry>*, &lt;object>[*]</entry>
+              <entry>Include all fields on a certain object, if applied to a collection, it will
+                include all fields on all objects on that collection.</entry>
+            </row>
+            <row>
+              <entry>:&lt;preset></entry>
+              <entry>Alias to select multiple fields. Only 3 presets are currently available: all
+                (just an alias for *), identifiable (includes id,name,code,created,lastUpdated),
+                nameable (includes id,name,shortName,code,description,created,lastUpdated)</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table></para>
+    <para><emphasis role="bold">Examples</emphasis>:</para>
+    <para>Include all fields on on dataSets except
+      organisationUnits<screen>/api/dataSets?fields=:all,!organisationUnits</screen></para>
+    <para>For a dataSet with ID <emphasis role="italic">abc123</emphasis> give me only the
+      organisationUnits collection (assignments), but exclude the id from the orgUnit
+      collection<screen>/api/dataSets/abc123?fields=organisationUnits[:all,!id]</screen></para>
+    <para/>
   </section>
   <section>
     <title>Meta-data create, read, update, delete</title>
