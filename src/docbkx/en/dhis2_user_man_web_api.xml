@@ -4595,9 +4595,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
           <row>
             <entry>query</entry>
             <entry>Query string. Attribute query parameter can be used to define which attributes to
-              include in the response. If no attributes but a program is defined, the attributes
-              from the program will be used. If no program is defined, all attributes will be
-              used.</entry>
+                include in the response. If no attributes but a program is defined, the attributes
+                from the program will be used. If no program is defined, all attributes will be
+                used. There are two formats. The first is a plan query string. The second is on the
+                format &lt;operator>:&lt;query>. Operators can be EQ | LIKE. EQ implies exact
+                matches on words, LIKE implies partial matches on words. The query will be split on
+                space, where each word will form a logical AND query.</entry>
           </row>
           <row>
             <entry>attribute</entry>
@@ -4747,10 +4750,13 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>A query for all instances associated with a specific organisation unit can look like
       this:</para>
     <screen>api/trackedEntityInstances.json?ou=DiszpKrYNg8</screen>
-    <para>A query on all attributes for a specific value and organisation unit:</para>
+    <para>A query on all attributes for a specific value and organisation unit, using an exact word
+        match:</para>
     <screen>api/trackedEntityInstances.json?query=scott&amp;ou=DiszpKrYNg8</screen>
+      <para>A query on all attributes for a specif value, using a partial word match:</para>
+      <screen>api/trackedEntityInstances.json?query=LIKE:scott&amp;ou=DiszpKrYNg8</screen>
       <para>You can query on multiple words separated by the the URL character for space which is
-        %20:</para>
+        %20, will use a logical AND query for each word:</para>
       <screen>api/trackedEntityInstances.json?query=isabel%20may&amp;ou=DiszpKrYNg8</screen>
     <para>A query where the attributes to include in th response are specified looks like
       this:</para>
