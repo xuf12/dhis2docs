@@ -776,7 +776,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       </table>
     </section>
   <section>
-    <title>Sending individual data values</title>
+    <title>Sending, reading and deleting individual data values</title>
     <para>This example will show how to send individual data values to be saved in a request. This
       can be achieved by sending a <emphasis role="italic">POST</emphasis> request to the <emphasis
         role="italic">dataValues</emphasis> resource:</para>
@@ -855,9 +855,12 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       together with the identifier(s) of the attribute option(s) which the value represents within
       the combination. An example looks like this:</para>
     <screen>curl "http://apps.dhis2.org/demo/api/dataValues?de=s46m5MS0hxu&amp;ou=DiszpKrYNg8&amp;pe=201308&amp;cc=dzjKKQq0cSO&amp;cp=wbrDrL2aYEc;btOyqprQ9e8&amp;value=26" -X POST -u admin:district -v</screen>
+      <para>You can retrieve a data value with a request using the <emphasis role="italic"
+          >GET</emphasis> method. The value, comment and followUp params are not applicable in this
+        regard:</para>
+      <screen>curl "http://apps.dhis2.org/demo/api/dataValues?de=s46m5MS0hxu&amp;pe=201301&amp;ou=DiszpKrYNg8&amp;co=Prlt0C1RF0s" -X GET -u admin:district -v</screen>
       <para>You can delete a data value with a request using the <emphasis role="italic"
-          >DELETE</emphasis> method. You can retrieve a data value with a request using the
-          <emphasis role="italic">GET</emphasis> method.</para>
+          >DELETE</emphasis> method. </para>
   </section>
   <section>
     <title>Reading data values</title>
