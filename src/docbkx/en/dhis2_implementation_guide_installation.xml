@@ -174,18 +174,28 @@ export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
   connectionTimeout="20000"
   redirectPort="8443"
   URIEncoding="UTF-8" /></screen>
-      <para>To monitor the behavior of Tomcat the log is the primary source of information. The log
-        can be easily viewed with the command <command>tail -f
-          tomcat-dhis/logs/catalina.out</command></para>
+      <para>The next step is to download the DHIS 2 WAR file and place it into the webapps directory
+        of Tomcat. You can download the DHIS version 2.15 WAR release like this (replace 2.15 with
+        your preferred version if necessary):</para>
+      <screen>wget https://www.dhis2.org/download/releases/2.15/dhis.war</screen>
+      <para>Move the WAR file into the Tomcat webapps directory. We want to call the WAR file
+        ROOT.war in order to make it available at localhost directly without a context path:</para>
+      <screen>mv dhis.war tomcat-dhis/webapps/ROOT.war</screen>
     </section>
     <section>
       <title>Running DHIS2</title>
-      <para>Make the startup script executable by invoking <code>chmod 755 tomcat-dhis/bin/*</code>
-        DHIS 2 can now be started by invoking <code>tomcat-dhis/bin/startup.sh</code> The log can be
-        monitored by invoking <code>tail -f tomcat-dhis/logs/catalina.out</code> DHIS 2 can be
-        stopped by invoking <code>tomcat-dhis/bin/shutdown.sh</code> Assuming that the WAR file is
-        called ROOT.war, you can now access your DHIS instance at <emphasis role="italic"
-          >http://localhost:8080</emphasis>.</para>
+      <para>Make the Tomcat startup script executable by invoking:</para>
+      <screen>chmod +x tomcat-dhis/bin/*.sh</screen>
+      <para>DHIS 2 can now be started by invoking:</para>
+      <screen>tomcat-dhis/bin/startup.sh</screen>
+      <para>DHIS 2 can be stopped by invoking:</para>
+      <screen>tomcat-dhis/bin/shutdown.sh</screen>
+      <para>To monitor the behavior of Tomcat the log is the primary source of information. The log
+        can be viewed with the following command:</para>
+      <screen>tail -f tomcat-dhis/logs/catalina.out</screen>
+      <para>Assuming that the WAR file is called ROOT.war, you can now access your DHIS instance at
+        the following URL:</para>
+      <screen>http://localhost:8080</screen>
     </section>
   </section>
   <section>
