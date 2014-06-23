@@ -144,7 +144,7 @@
 						</goals>
 						<configuration>
 							<sourceDirectory>${docbook.source}/en/</sourceDirectory>
-							<targetDirectory>${docbook.target}/en/ccei/user/html/</targetDirectory>
+							<targetDirectory>${docbook.target}/en/ccei-user/html/</targetDirectory>
 							<admonGraphics>1</admonGraphics>
 							<admonGraphicsPath>resources/images/admon/</admonGraphicsPath>
 							<htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
@@ -154,12 +154,12 @@
 							<chunkedOutput>true</chunkedOutput>
 							<useEmbedForSvg>1</useEmbedForSvg>							
 							<collectXrefTargets>yes</collectXrefTargets> 
-							<targetsFilename>${docbook.target}/en/ccei/user/html/ccei_user_manual_en.html.target.db</targetsFilename>
+							<targetsFilename>${docbook.target}/en/ccei-user/html/ccei_user_manual_en.html.target.db</targetsFilename>
 							<olinkBaseUri>ccei_user_manual_en.html</olinkBaseUri>
 							<targetDatabaseDocument>olinkdb.xml</targetDatabaseDocument>							
 							<includes>ccei_user_manual_en.xml</includes>
 							<postProcess>
-								<copy todir="${docbook.target}/en/ccei/user/html/resources/images">
+								<copy todir="${docbook.target}/en/ccei-user/html/resources/images">
 									<fileset dir="src/docbkx/en/resources/images">
 										<include name="**/*.png" />
 										<include name="**/*.PNG" />
@@ -168,7 +168,7 @@
 										<include name="**/*.svg" />
 									</fileset>
 								</copy>
-								<copy todir="${docbook.target}/en/ccei/user/html/resources/css">
+								<copy todir="${docbook.target}/en/ccei-user/html/resources/css">
 									<fileset dir="src/docbkx/en/resources/css">
 										<include name="**/*.css" />
 									</fileset>
@@ -234,7 +234,7 @@
 								<copy file="target/docbkx/html/dhis2_user_manual_en.html" tofile="${docbook.target}/en/user/html/dhis2_user_manual_en_full.html" />								
 								<copy file="target/docbkx/html/dhis2_end_user_manual.html" tofile="${docbook.target}/en/end-user/html/dhis2_end_user_manual_full.html" />
 								<copy file="target/docbkx/html/dhis2_implementation_guide_en.html" tofile="${docbook.target}/en/implementer/html/dhis2_implementation_guide_en_full.html" />
-								<copy file="target/docbkx/html/ccei_user_manual_en.html" tofile="${docbook.target}/en/user/html/ccei_user_manual_en.html" />
+								<copy file="target/docbkx/html/ccei_user_manual_en.html" tofile="${docbook.target}/en/ccei-user/html/ccei_user_manual_en.html" />
 							</postProcess>
 						</configuration>
 					</execution>
@@ -273,7 +273,7 @@
 							<includes>ccei_user_manual_en.xml</includes>
 							<sourceDirectory>${docbook.source}/en/</sourceDirectory>
 							<postProcess>
-								<copy file="target/docbkx/pdf/ccei_user_manual_en.pdf" todir="${docbook.target}/en/ccei/user" />
+								<copy file="target/docbkx/pdf/ccei_user_manual_en.pdf" todir="${docbook.target}/en/ccei-user" />
 							</postProcess>
 						</configuration>
 					</execution>
