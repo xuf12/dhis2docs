@@ -4374,10 +4374,24 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>Alternatively, you can submit the setting value as the request body, where content type is
       set to "text/plain". As an example, you can use curl like this:</para>
     <screen>curl "apps.dhis2.org/demo/api/systemSettings/my-key" -d "My long value" -H "Content-Type: text/plain" -u admin:district -v</screen>
+    <para>To set system settings in bulk you can send a JSON object with a property -value pair for
+      each system setting key-value pair using a POST request:</para>
+    <screen>{
+  "keyApplicationNotification": "Welcome",
+  "keyApplicationIntro": "DHIS 2",
+  "keyApplicationFooter": "Read more at dhis2.org"
+}  </screen>
     <para>You should replace my-key with your real key and my-val with your real value. To retrieve
       the value for a given key in plain text you can make a <emphasis role="italic">GET</emphasis>
       request to the following URL:</para>
     <screen>/api/systemSettings/my-key</screen>
+    <para>Alternatively, you can specify the key as a query parameter:</para>
+    <screen>/api/systemSettings?key=my-key</screen>
+    <para>You can retrieve specific system settings as JSON by repeating the key query
+      parameter:</para>
+    <screen>curl "apps.dhis2.org/demo/api/systemSettings?key=keyApplicationNotification&amp;key=keyApplicationIntro" -H "Content-Type: application/json" -u admin:district -v</screen>
+    <para>You can retrieve all system settings with a GET request:</para>
+    <screen>/api/systemSettings</screen>
     <para>To delete a system setting, you can make a <emphasis role="italic">DELETE</emphasis>
       request to the URL similar to the one used above for retrieval.</para>
   </section>
