@@ -4624,18 +4624,21 @@ ORDER BY oul.level, par.name, ou.name</screen>
           <row>
             <entry>attribute</entry>
             <entry>Attributes to be included in the response. Can also be used a filter for the
-              query. Param can be repeated any number of times. Filters can be applied to a
-              dimension on the format &lt;attribute-id>:&lt;operator>:&lt;filter>. Filter values are
-              case-insensitive. Operators can be EQ | GT | GE | LT | LE | NE | LIKE | IN. Filters
-              can be omitted in order to simply include the attribute in the response without any
-              constraints.</entry>
+                query. Param can be repeated any number of times. Filters can be applied to a
+                dimension on the format
+                &lt;attribute-id>:&lt;operator>:&lt;filter>[:&lt;operator>:&lt;filter>]. Filter
+                values are case-insensitive and can be repeated together with operator any number of
+                times. Operators can be EQ | GT | GE | LT | LE | NE | LIKE | IN. Filters can be
+                omitted in order to simply include the attribute in the response without any
+                constraints.</entry>
           </row>
           <row>
             <entry>filter</entry>
             <entry>Attributes to use as a filter for the query. Param can be repeated any number of
-              times. Filters can be applied to a dimension on the format
-              &lt;attribute-id>:&lt;operator>:&lt;filter>. Filter values are case-insensitive.
-              Operators can be EQ | GT | GE | LT | LE | NE | LIKE | IN.</entry>
+                times. Filters can be applied to a dimension on the format
+                &lt;attribute-id>:&lt;operator>:&lt;filter>[:&lt;operator>:&lt;filter>]. Filter
+                values are case-insensitive and can be repeated together with operator any number of
+                times. Operators can be EQ | GT | GE | LT | LE | NE | LIKE | IN.</entry>
           </row>
           <row>
             <entry>ou</entry>
@@ -4786,6 +4789,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>A query for instances where one attribute is included in the response and one attribute us
         used as a filter:</para>
     <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;filter=AMpUYgxuCaE:LIKE:Road&amp;ou=DiszpKrYNg8</screen>
+      <para>A query where multiple operand and filters are specified for a filter item:</para>
+      <screen>api/trackedEntityInstances.json?ou=DiszpKrYNg8&amp;program=ur1Edk5Oe2n&amp;filter=lw1SqmMlnfh:GT:150:LT:190</screen>
       <para>To query on an attribute using multiple values in an IN filter:</para>
       <screen>api/trackedEntityInstances.json?ou=DiszpKrYNg8&amp;attribute=dv3nChNSIxy:IN:Scott;Jimmy;Santiago</screen>
     <para>To constrain the response to instances which are part of a specific program you can
