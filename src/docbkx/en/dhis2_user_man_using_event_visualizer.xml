@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<chapter>
+  <title>Using Event Visualizer</title>
+  <section>
+    <title>Event Visualizer overview</title>
+    <para>The event visualizer app enables chart analysis of events.</para>
+    <section>
+      <title>Charts with aggregated values</title>
+      <para>An event report is always based on a program. You can do analysis based on a range of
+        dimensions. Each dimension can have a corresponding filter. Dimensions can be selected from
+        the left-side menu and includes the following:</para>
+      <itemizedlist>
+        <listitem>
+          <para><emphasis role="bold">Data elements</emphasis>: Start by selecting the program and
+            program stage for the event report. The data elements associated with the selected
+            program will be listed under available items. Each data element acts as a dimension, and
+            can be selected by double-clicking on it. After selecting a data element, it will be
+            visible under "selected data items". Here you can specify a filter for each data
+            element, with operators such as "greater than", "in" or "equal" together with a filter
+            value.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Periods</emphasis>: For the period dimension you have three
+            options: relative periods, fixed periods and start/end dates. Relative periods can e.g.
+            be "last 12 months", and has the advantage that it keeps the data in the report up to
+            date as time goes. Fixed periods can e.g. be "January 2014". You can swith to start/end
+            dates by selecting from the drop-down menu under the periods tab, which lets you specify
+            flexible dates for the time span in the report.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Organisation units</emphasis>: The organisation unit dimension
+            lets you select any org unit from the hierarchy. You can use the org unit mode selector
+            to select org units explicitly, by org unit hierarchy levels and by org unit
+            groups.</para>
+        </listitem>
+      </itemizedlist>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resources/images/event_report/event_visualizer.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>By clicking <emphasis role="bold">Layout</emphasis> from the top menu you can control
+        which dimensions should appear as columns, rows and filters in the pivot table. Each data element
+        appears as individual dimensions and can be placed on any of the axes. Note that the series and
+        category panels can only have one dimension at the time.</para>
+      <para>Note that data elements of continuous value types (real numbers/decimal numbers) can only
+        be used as filters, and will automatically be positioned as filters in the layout dialog.
+        The reason for this is that continuous number cannot be grouped into sensible ranges and
+        used on columns and rows.</para>
+      <para>Event charts can be saved as favorites by clicking on "Favorites" in the top menu.
+        Favorites can later be restored by clicking on them in the list of favorites.</para>
+      <para>Event charts can be downloaded in various popular formats by clicking on the "Download"
+        button on the top menu.</para>
+    </section>
+    <section>
+      <title>Options</title>
+      <para>An event report can be customized using a range of options, which can be accessed by
+        clicking on "Options" in the top menu. The following options apply to aggregated values-type
+        reports only:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Show values: Show values as numbers on top of each series.</para>
+        </listitem>
+        <listitem>
+        <para>Hide empty category items: Hides category items with no data from the chart.</para>
+        </listitem>
+        <listitem>
+        <para>Show trend lines: The trend line will visualize how your data evolves over time - e.g.
+          is performance improving or deteriorating. Makes sense when periods are selected as
+          category. </para>
+      </listitem>
+      <listitem>
+        <para>Target line value/title: Displays a horizontal line at the given domain value. Useful e.g. when you want to compare your performance to the current target.</para>
+      </listitem>
+      <listitem>
+        <para>Base line value/title: Displays a horizontal line at the given domain value. Useful e.g. when you want to visualize how your performance has evolved since the beginning of a process.</para>
+      </listitem>
+      <listitem>
+        <para>Range axis max/min: Defines the maximum and minium value which will be visible on the
+          range axis.</para>
+      </listitem>
+      <listitem>
+        <para>Range axis tick steps: Defines the number of ticks which will be visible on the range
+          axis.</para>
+      </listitem>
+      <listitem>
+        <para>Range axis decimals: Defines the number of decimals which will be used for range axis
+          values.</para>
+      </listitem>
+      <listitem>
+        <para>Range axis title: Displays a label next to the range axis (also referred to as the Y
+          axis). Can give context information to the chart, e.g. the unit of measure being
+          used.</para>
+      </listitem>
+      <listitem>
+        <para>Domain axis title: Displays a label below the domain axis (also referred to as the X
+          axis). Can give context information to the chart, e.g. the type of periods being
+          listed.</para>
+      </listitem>
+      <listitem>
+        <para>Hide chart legend: Hides the legend and leaves more room for the chart itself.</para>
+      </listitem>
+      <listitem>
+        <para>Hide chart title: Hides the title of your chart.</para>
+      </listitem>
+      <listitem>
+        <para>Chart title: Type any title you like and it will appear above the chart.</para>
+      </listitem>
+      </itemizedlist>
+    </section>
+  </section>
+</chapter>
