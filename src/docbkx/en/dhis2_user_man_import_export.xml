@@ -440,13 +440,13 @@
         be ignored. Notice how you can skip columns and rely on default values or simply leave
         columns blank:</para>
       <screen>name,uid,code,shortname,description,formname,domaintype,type,numbertype,texttype,aggregationoperator,url,zero
-&quot;Women participated in skill development training&quot;,&quot;&quot;,&quot;D0001&quot;,&quot;Women participated development training&quot;
-&quot;Women participated in community organizations&quot;,&quot;&quot;,&quot;D0002&quot;,&quot;Women participated community organizations&quot;</screen>
+"Women participated in skill development training",,"D0001","Women participated development training"
+"Women participated in community organizations",,"D0002","Women participated community organizations"</screen>
       <para>A minimal example for importing organisation units with a parent unit looks like
         this:</para>
       <screen>name,uid,code,parent
-"West province","","WESTP","ImspTQPwCqd"
-"East province","","EASTP","ImspTQPwCqd"</screen>
+"West province",,"WESTP","ImspTQPwCqd"
+"East province",,"EASTP","ImspTQPwCqd"</screen>
       <para>The format for option sets is special. One record represents an option, and the three
         first values representing the option set should be repeated for each option (record):</para>
       <screen>name,uid,code,option
