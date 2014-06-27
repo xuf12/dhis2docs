@@ -4772,37 +4772,35 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>A query on all attributes for a specific value and organisation unit, using an exact word
         match:</para>
     <screen>api/trackedEntityInstances.json?query=scott&amp;ou=DiszpKrYNg8</screen>
-      <para>A query on all attributes for a specif value, using a partial word match:</para>
+      <para>A query on all attributes for a specific value, using a partial word match:</para>
       <screen>api/trackedEntityInstances.json?query=LIKE:scott&amp;ou=DiszpKrYNg8</screen>
       <para>You can query on multiple words separated by the the URL character for space which is
         %20, will use a logical AND query for each word:</para>
       <screen>api/trackedEntityInstances.json?query=isabel%20may&amp;ou=DiszpKrYNg8</screen>
-    <para>A query where the attributes to include in th response are specified looks like
-      this:</para>
+    <para>A query where the attributes to include in the response are specified:</para>
     <screen>api/trackedEntityInstances.json?query=isabel&amp;attribute=dv3nChNSIxy&amp;attribute=AMpUYgxuCaE&amp;ou=DiszpKrYNg8</screen>
     <para>To query for instances using one attribute with a filter and one attribute without a
-      filter, with one organisation unit using the descendants organisation unit query mode, you can
-      issue a query like this:</para>
+        filter, with one organisation unit using the descendants organisation unit query
+        mode:</para>
     <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;attribute=AMpUYgxuCaE&amp;ou=DiszpKrYNg8;yMCshbaVExv</screen>
     <para>A query for instances where one attribute is included in the response and one attribute us
-      used as a filter can look like this:</para>
+        used as a filter:</para>
     <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;filter=AMpUYgxuCaE:LIKE:Road&amp;ou=DiszpKrYNg8</screen>
-      <para>To query on an attribute using multiple values in an IN filter you can do like
-        this:</para>
+      <para>To query on an attribute using multiple values in an IN filter:</para>
       <screen>api/trackedEntityInstances.json?ou=DiszpKrYNg8&amp;attribute=dv3nChNSIxy:IN:Scott;Jimmy;Santiago</screen>
     <para>To constrain the response to instances which are part of a specific program you can
-      include a program query parameter like this:</para>
+        include a program query parameter:</para>
     <screen>api/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;program=ur1Edk5Oe2n</screen>
-      <para>To specify program enrollment dates as part of the query you can use this syntax:</para>
+      <para>To specify program enrollment dates as part of the query:</para>
       <screen>api/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;program=ur1Edk5Oe2n&amp;programStartDate=2013-01-01&amp;programEndDate=2013-09-01</screen>
     <para>To constrain the response to instances of a specific tracked entity you can include a
-      tracked entity query parameter like this:</para>
+        tracked entity query parameter:</para>
     <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;trackedEntity=cyl5vuJ5ETQ</screen>
     <para>By default the instances are returned in pages of size 50, to change this you can use the
-      page and pageSize query parameters like this:</para>
+        page and pageSize query parameters:</para>
     <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;page=2&amp;pageSize=3</screen>
-      <para>To query for instances which have events of a given status within a given time span you
-        can use this syntax:</para>
+      <para>To query for instances which have events of a given status within a given time
+        span:</para>
       <screen>api/trackedEntityInstances.json?ou=O6uvpzGd5pu&amp;program=ur1Edk5Oe2n&amp;eventStatus=LATE_VISIT&amp;eventStartDate=2014-01-01&amp;eventEndDate=2014-09-01</screen>
     <para>You can use a range of operators for the filtering:</para>
     <table frame="all">
