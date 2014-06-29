@@ -382,7 +382,8 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
         <emphasis role="italic">operator</emphasis> is the comparison operator you want to perform
       and <emphasis role="italic">value</emphasis> is the value to check against (not all operators
       require value).  Please see the <emphasis role="italic">schema</emphasis> section to discover
-      which properties are available.<table>
+      which properties are available. Recursive filtering, ie. filtering on associated objects or
+      collection of objects, are supported as well.<table>
         <title>Available Operators</title>
         <tgroup cols="5">
           <thead>
@@ -451,13 +452,15 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
           </tbody>
         </tgroup>
       </table></para>
-    <para>Different operators will be applied as <emphasis role="bold">and</emphasis>, and equal
-      operators will be applied as <emphasis role="bold">or</emphasis>. The filtering mechanism
-      allows for recursion. See below for an example:</para>
-    <para><emphasis role="bold">Example 1</emphasis>: Get dataElements with ID1 and
+    <para>Different operators will be applied as logical <emphasis role="bold">and</emphasis> query,
+      and equal operators will be applied as logical <emphasis role="bold">or</emphasis> query. The
+      filtering mechanism allows for recursion. See below for an example:</para>
+    <para><emphasis role="bold">Example 1</emphasis>: Get data elements with id property ID1 or
       ID2:<screen>/api/dataElements?filter=id:eq:ID1&amp;filter=id:eq:ID2</screen></para>
-    <para><emphasis role="bold">Example 2</emphasis>: Get all dataElements which has the dataSet
+    <para><emphasis role="bold">Example 2</emphasis>: Get all data elements which has the dataSet
       with id ID1:<screen>/api/dataElements?filter=dataSets.id:eq:ID1</screen></para>
+    <para>Example 3: Get all data elements with aggregation operator "sum" and value type
+      "int":<screen>/api/dataElements.json?filter=aggregationOperator:eq:sum&amp;type:eq:int</screen></para>
   </section>
   <section>
     <title>Meta-data field inclusion / exclusion</title>
@@ -500,7 +503,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
           <tbody>
             <row>
               <entry>&lt;field-name></entry>
-              <entry>Include property with name, if it exists</entry>
+              <entry>Include property with name, if it exists.</entry>
             </row>
             <row>
               <entry>&lt;object>[&lt;field-name>, ...]</entry>
@@ -560,9 +563,10 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para><emphasis role="bold">Examples</emphasis>:</para>
     <para>Include all fields on on dataSets except
       organisationUnits:<screen>/api/dataSets?fields=:all,!organisationUnits</screen></para>
-    <para>For a dataSet with ID <emphasis role="italic">abc123</emphasis> give me only the
-      organisationUnits collection, but exclude the id from the orgUnit
-      collection:<screen>/api/dataSets/abc123?fields=organisationUnits[:all,!id]</screen></para>
+    <para>Include only id, name and the collection of organisation units from a data set, but
+      exclude the id from organisation
+      units:<screen>/api/dataSets/BfMAe6Itzgt?fields=id,name,organisationUnits[:all,!id]</screen></para>
+    <para>Include only </para>
   </section>
   <section>
     <title>Meta-data create, read, update, delete</title>
