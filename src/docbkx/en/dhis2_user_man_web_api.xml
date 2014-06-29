@@ -455,10 +455,10 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para>Different operators will be applied as logical <emphasis role="bold">and</emphasis> query,
       and equal operators will be applied as logical <emphasis role="bold">or</emphasis> query. The
       filtering mechanism allows for recursion. See below for an example:</para>
-    <para><emphasis role="bold">Example 1</emphasis>: Get data elements with id property ID1 or
+    <para><emphasis role="bold">Example</emphasis>: Get data elements with id property ID1 or
       ID2:<screen>/api/dataElements?filter=id:eq:ID1&amp;filter=id:eq:ID2</screen></para>
-    <para><emphasis role="bold">Example 2</emphasis>: Get all data elements which has the dataSet
-      with id ID1:<screen>/api/dataElements?filter=dataSets.id:eq:ID1</screen></para>
+    <para><emphasis role="bold">Example</emphasis>: Get all data elements which has the dataSet with
+      id ID1:<screen>/api/dataElements?filter=dataSets.id:eq:ID1</screen></para>
     <para>Example 3: Get all data elements with aggregation operator "sum" and value type
       "int":<screen>/api/dataElements.json?filter=aggregationOperator:eq:sum&amp;type:eq:int</screen></para>
   </section>
@@ -478,10 +478,10 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       and the <emphasis role="italic">id</emphasis> and <emphasis role="italic">name</emphasis> of
       every dataSet on that object. Negation can be done with the exclamation operator, and we have
       a set of presets of field select (see below).</para>
-    <para><emphasis role="bold">Example 1</emphasis>: Get <emphasis role="italic">id</emphasis> and
+    <para><emphasis role="bold">Example</emphasis>: Get <emphasis role="italic">id</emphasis> and
         <emphasis role="italic">name</emphasis> on the indicators
       resource:<screen>/api/indicators?fields=id,name</screen></para>
-    <para><emphasis role="bold">Example 2</emphasis>: Get <emphasis role="italic">id</emphasis> and
+    <para><emphasis role="bold">Example</emphasis>: Get <emphasis role="italic">id</emphasis> and
         <emphasis role="italic">name</emphasis> from dataElements, and <emphasis role="italic"
         >id</emphasis> and <emphasis role="italic">name</emphasis> from the dataSets on
       dataElements:<screen>/api/dataElements?fields=id,name,dataSets[id,name]</screen></para>
@@ -560,13 +560,13 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
         </tbody>
       </tgroup>
     </table>
-    <para><emphasis role="bold">Examples</emphasis>:</para>
-    <para>Include all fields on on dataSets except
+    <para><emphasis role="bold">Example</emphasis>: Include all fields from dataSets except
       organisationUnits:<screen>/api/dataSets?fields=:all,!organisationUnits</screen></para>
-    <para>Include only id, name and the collection of organisation units from a data set, but
-      exclude the id from organisation
+    <para><emphasis role="bold">Example</emphasis>: Include only id, name and the collection of
+      organisation units from a data set, but exclude the id from organisation
       units:<screen>/api/dataSets/BfMAe6Itzgt?fields=id,name,organisationUnits[:all,!id]</screen></para>
-    <para>Include only </para>
+    <para><emphasis role="bold">Example</emphasis>: Include nameable properties from all
+      indicators:<screen>/api/indicators.json?fields=:nameable</screen></para>
   </section>
   <section>
     <title>Meta-data create, read, update, delete</title>
