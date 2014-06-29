@@ -216,6 +216,13 @@
               <entry>Operator indicating how to aggreate data in the time dimension. Max 16 char.</entry>
             </row>
             <row>
+              <entry>Category combination UID</entry>
+              <entry>No</entry>
+              <entry>UID</entry>
+              <entry>Stable identifier. Max 11 char. Will default to default category combination if
+                not specified.</entry>
+            </row>
+            <row>
               <entry>Url</entry>
               <entry>No</entry>
               <entry/>
@@ -439,7 +446,7 @@
       <para>An example of a CSV file for data elements can be seen below. The first row will always
         be ignored. Notice how you can skip columns and rely on default values or simply leave
         columns blank:</para>
-      <screen>name,uid,code,shortname,description,formname,domaintype,type,numbertype,texttype,aggregationoperator,url,zero
+      <screen>name,uid,code,shortname,description,formname,domaintype,type,numbertype,texttype,aggregationoperator,categorycombo,url,zero
 "Women participated in skill development training",,"D0001","Women participated development training"
 "Women participated in community organizations",,"D0002","Women participated community organizations"</screen>
       <para>A minimal example for importing organisation units with a parent unit looks like
