@@ -348,17 +348,18 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       <emphasis role="bold">Example: Get a filtered set of meta-data that was updated since August 1
         2012</emphasis>
     </para>
-    <para>As described in the last section, there is a number of options you can apply to <emphasis role="italic">/api/metaData</emphasis>
-        to give you a filtered view. The use-case we will be looking into here is where you want a nightly job that synchronizes
-        organisation units. We will be using <emphasis role="italic">cURL</emphasis> as the HTTP
+    <para>As described in the last section, there is a number of options you can apply to <emphasis
+          role="italic">/api/metaData</emphasis> to give you a filtered view. The use-case we will
+        be looking into here is where you want a nightly job that synchronizes organisation units.
+        We will be using <emphasis role="italic">cURL</emphasis> as the HTTP
         client.<screen>curl -H &quot;Accept: application/xml&quot; -u admin:district
-  &quot;http://apps.dhis2.org/demo/api/metaData?assumeTrue=false&amp;organisationUnits=true&amp;lastUpdated=2012-08-01&quot;</screen></para>
+  &quot;https://apps.dhis2.org/demo/api/metaData?assumeTrue=false&amp;organisationUnits=true&amp;lastUpdated=2012-08-01&quot;</screen></para>
     <para><emphasis role="bold">Example: Get meta-data that was updated since February
         2012</emphasis></para>
     <para>This example will just the default <emphasis role="italic">assumeTrue</emphasis> setting,
-      along with getting the last updates from February 2012. This means that every single type that
-      has been updated will be
-      retrieved.<screen>curl -H &quot;Accept: application/xml&quot; -u admin:district "http://apps.dhis2.org/demo/api/metaData?lastUpdated=2012-02"</screen></para>
+        along with getting the last updates from February 2012. This means that every single type
+        that has been updated will be
+        retrieved.<screen>curl -H &quot;Accept: application/xml&quot; -u admin:district "https://apps.dhis2.org/demo/api/metaData?lastUpdated=2012-02"</screen></para>
     <para><emphasis role="bold">Example: Create meta-data</emphasis></para>
     <para>The meta-data resource can also be used to create or update meta-data by using the POST
       HTTP method. The meta-data content can be both XML and JSON, using "application/xml" and
@@ -366,7 +367,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       several formats, including plain text, zipped and gzipped. POSTing a meta-data payload can be
       done for example like this, where metaData.xml is a file in the same directory with the
       meta-data content:</para>
-    <screen>curl -H "Content-Type: application/xml" -u admin:district -d @metaData.xml "http://apps.dhis2.org/demo/api/metaData" -X POST -v</screen>
+    <screen>curl -H "Content-Type: application/xml" -u admin:district -d @metaData.xml "https://apps.dhis2.org/demo/api/metaData" -X POST -v</screen>
     <para>The import will happen in a asyncronous process which implies that the response will
       return as soon as the process is started. The response status code to be expected is 204 No
       Content.</para>
@@ -541,23 +542,29 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       update, and delete (read is already covered elsewhere, and have been supported for a long time).</para>
     <section>
       <title>Creating and updating objects</title>
-      <para>For creating new objects you will need to know the endpoint, the type format, and make sure that you have the required
-        authorities. As an example , we will create and update an <emphasis role="italic">constant</emphasis>. To figure out the format, we
-        can use the new <emphasis role="italic">schema</emphasis> endpoint for getting format description (this will be further improved in
-        2.16). So we will start with getting that info:<screen>http://server/api/schemas/constant.json</screen> From the output, you can see
-        that the required authorities for create are F_CONSTANT_ADD (which can be found in user role mgmt section), and the important
-        properties (for our purpose) available are: <emphasis role="italic">name</emphasis>, <emphasis role="italic">value</emphasis>. So
-        lets create a JSON payload and send this to the server:<screen>{
+      <para>For creating new objects you will need to know the endpoint, the type format, and make
+        sure that you have the required authorities. As an example , we will create and update an
+          <emphasis role="italic">constant</emphasis>. To figure out the format, we can use the new
+          <emphasis role="italic">schema</emphasis> endpoint for getting format description (this
+        will be further improved in 2.16). So we will start with getting that
+        info:<screen>http://server/api/schemas/constant.json</screen> From the output, you can see
+        that the required authorities for create are F_CONSTANT_ADD, and the important properties
+        are: <emphasis role="italic">name</emphasis> and <emphasis role="italic">value</emphasis>.
+        From this we can create a JSON payload and save it as a file called
+        constant.json:<screen>{
   "name": "PI",
   "value": "3.14159265359"
 }</screen></para>
-      <para>Or as an XML
+      <para>The same content as an XML
         payload:<screen>&lt;constant name="PI" xmlns="http://dhis2.org/schema/dxf/2.0">
   &lt;value>3.14159265359&lt;/value>
 &lt;/constant></screen></para>
-      <para>We are now ready create this new <emphasis role="italic">constant</emphasis> by sending a POST request to the <emphasis
-          role="italic">constant </emphasis>endpoint, let's use JSON as the example (for XML you will need to change the content-type
-        header):<screen>curl -X POST -d @pi.json -H "Content-Type: application/json" -u user:password http://server/api/constants</screen></para>
+      <para>We are now ready create the new <emphasis role="italic">constant</emphasis> by sending a
+        POST request to the <emphasis role="italic">constants </emphasis>endpoint with the JSON
+        payload using
+        curl:<screen>curl -d @constant.json "http://server/api/constants" -X POST -H "Content-Type: application/json" -u user:password</screen></para>
+      <para>A specific example of posting the constant to the demo
+        server:<screen>curl -d @constant.json "https://apps.dhis2.org/api/constants" -X POST -H "Content-Type: application/json" -u admin:district</screen></para>
       <para>If everything went well, you should see an output similar
         to:<screen>{
   "status":"SUCCESS",
@@ -645,7 +652,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para>To perform functional testing we will use the cURL tool (<ulink url="http://curl.haxx.se"/>) which provides an easy way of transferring data using HTTP. First we save the data value
       set XML content in a file called <emphasis role="italic">datavalueset.xml</emphasis> . From
       the directory where this file resides we invoke the following from the command line:</para>
-    <screen>curl -d @datavalueset.xml &quot;http://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</screen>
+    <screen>curl -d @datavalueset.xml &quot;https://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</screen>
     <para>The command will dispatch a request to the demo Web API,  set <emphasis role="italic">application/xml</emphasis> as the content-type and  authenticate using admin/district as username/password.   If all goes well this will return a <emphasis role="italic">200 OK</emphasis> HTTP status code. You can verify that the data has been received by opening the data entry module in DHIS 2 and select the org unit, data set and period used in this example.</para>
     <para>The API follows normal semantics for error handling and HTTP status codes. If you supply an invalid username or password, <emphasis role="italic">401 Unauthorized</emphasis> is returned. If you supply a content-type other than application/xml, <emphasis role="italic">415 Unsupported Media Type</emphasis> is returned. If the XML content is invalid according to the DXF namespace, <emphasis role="italic">400 Bad Request</emphasis> is returned. If you provide an invalid identifier in the XML content, <emphasis role="italic">409 Conflict</emphasis> is returned together with a descriptive message.</para>
     <para>In this example, cURL will authenticate to the server through  Basic authentication using our supplied username and password as credentials through the <emphasis role="italic">-u</emphasis> flag. </para>
@@ -671,7 +678,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
   ]
 }</screen></para>
     <para>We test by using cURL  to send the data values:</para>
-    <screen>curl -d @datavalueset.xml &quot;http://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</screen>
+    <screen>curl -d @datavalueset.xml &quot;https://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</screen>
     <para>The data value set resource provides an XML response which is useful when you want to verify the impact your request had. The first time we send the data value set request above the server will respond with the following<emphasis role="italic"> import summary</emphasis>:</para>
     <screen>&lt;importSummary&gt;
   &lt;dataValueCount imported=&quot;2&quot; updated=&quot;1&quot; ignored=&quot;1&quot;/&gt;
@@ -714,7 +721,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       </tgroup>
     </table>
     <para>All parameters are optional and can be supplied as query parameters in the request URL like this:</para>
-    <screen>http://apps.dhis2.org/demo/api/dataValueSets?dataElementIdScheme=code&amp;orgUnitIdScheme=name&amp;dryRun=true&amp;importStrategy=new</screen>
+    <screen>https://apps.dhis2.org/demo/api/dataValueSets?dataElementIdScheme=code&amp;orgUnitIdScheme=name&amp;dryRun=true&amp;importStrategy=new</screen>
     <para>They can also be supplied as XML attributes on the data value set element like below. XML attributes will override query string parameters.</para>
     <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataElementIdScheme=&quot;code&quot;
   orgUnitIdScheme=&quot;name&quot; dryRun=&quot;true&quot; importStrategy=&quot;new&quot;&gt;
@@ -780,7 +787,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para>This example will show how to send individual data values to be saved in a request. This
       can be achieved by sending a <emphasis role="italic">POST</emphasis> request to the <emphasis
         role="italic">dataValues</emphasis> resource:</para>
-    <screen>http://apps.dhis2.org/demo/api/dataValues</screen>
+    <screen>https://apps.dhis2.org/demo/api/dataValues</screen>
     <para>The following query parameters are supported for this resource:</para>
     <table frame="all">
       <title>Data values query parameters</title>
@@ -849,16 +856,16 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
         Conflict</emphasis> status code and descriptive text message. If the operation lead to a
       saved or updated value, <emphasis role="italic">200 OK</emphasis> will be returned. An example
       of a request looks like this:</para>
-    <screen>curl "http://apps.dhis2.org/demo/api/dataValues?de=s46m5MS0hxu&amp;pe=201301&amp;ou=DiszpKrYNg8&amp;co=Prlt0C1RF0s&amp;value=12" -X POST -u admin:district -v</screen>
+    <screen>curl "https://apps.dhis2.org/demo/api/dataValues?de=s46m5MS0hxu&amp;pe=201301&amp;ou=DiszpKrYNg8&amp;co=Prlt0C1RF0s&amp;value=12" -X POST -u admin:district -v</screen>
     <para>This resource also allows a special syntax for associating the value to an attribute
       option combination. This can be done by sending the identifier of the attribute combination,
       together with the identifier(s) of the attribute option(s) which the value represents within
       the combination. An example looks like this:</para>
-    <screen>curl "http://apps.dhis2.org/demo/api/dataValues?de=s46m5MS0hxu&amp;ou=DiszpKrYNg8&amp;pe=201308&amp;cc=dzjKKQq0cSO&amp;cp=wbrDrL2aYEc;btOyqprQ9e8&amp;value=26" -X POST -u admin:district -v</screen>
+    <screen>curl "https://apps.dhis2.org/demo/api/dataValues?de=s46m5MS0hxu&amp;ou=DiszpKrYNg8&amp;pe=201308&amp;cc=dzjKKQq0cSO&amp;cp=wbrDrL2aYEc;btOyqprQ9e8&amp;value=26" -X POST -u admin:district -v</screen>
       <para>You can retrieve a data value with a request using the <emphasis role="italic"
           >GET</emphasis> method. The value, comment and followUp params are not applicable in this
         regard:</para>
-      <screen>curl "http://apps.dhis2.org/demo/api/dataValues?de=s46m5MS0hxu&amp;pe=201301&amp;ou=DiszpKrYNg8&amp;co=Prlt0C1RF0s" -X GET -u admin:district -v</screen>
+      <screen>curl "https://apps.dhis2.org/demo/api/dataValues?de=s46m5MS0hxu&amp;pe=201301&amp;ou=DiszpKrYNg8&amp;co=Prlt0C1RF0s" -X GET -u admin:district -v</screen>
       <para>You can delete a data value with a request using the <emphasis role="italic"
           >DELETE</emphasis> method. </para>
   </section>
@@ -891,7 +898,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       </tgroup>
     </table>
     <para>It is assumed that we have posted data values to DHIS according to the previous section called &quot;Sending data values&quot;. We can now put together our request and send it using cURL:</para>
-    <screen>curl &quot;http://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;period=201201&amp;orgUnit=DiszpKrYNg8&quot; -H &quot;Accept:application/xml&quot; -u admin:district -v</screen>
+    <screen>curl &quot;https://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;period=201201&amp;orgUnit=DiszpKrYNg8&quot; -H &quot;Accept:application/xml&quot; -u admin:district -v</screen>
     <para>The  response will look something like this:</para>
     <screen>HTTP/1.1 200 OK
 Content-Type: application/xml
@@ -908,7 +915,7 @@ Content-Type: application/xml
 &lt;/dataValueSet&gt;</screen>
     <para>The header tells us that the request was processed successfully and that we are receiving a response in XML format. The XML message looks familiar - it is the data values we sent in the previous section.</para>
       <para>You can also request the same data with a JSON
-        payload:<screen>curl &quot;http://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;period=201201&amp;orgUnit=DiszpKrYNg8&quot; -H &quot;Accept:application/json&quot; -u admin:district -v</screen></para>
+        payload:<screen>curl &quot;https://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;period=201201&amp;orgUnit=DiszpKrYNg8&quot; -H &quot;Accept:application/json&quot; -u admin:district -v</screen></para>
       <para>The response will look something like
         this:<screen>{
   "dataSet": "pBOMPrpg1QX",
@@ -968,7 +975,7 @@ Content-Type: application/xml
     </table>
     <para>The dataSet and orgUnit parameters can be repeated in order to include multiple data sets
       and organisation units. An example request looks like this:</para>
-    <screen>curl "http://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;dataSet=BfMAe6Itzgt&amp;startDate=2013-01-01&amp;endDate=2013-01-31&amp;
+    <screen>curl "https://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;dataSet=BfMAe6Itzgt&amp;startDate=2013-01-01&amp;endDate=2013-01-31&amp;
 orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:application/xml" -u admin:district -v</screen>
     <para>You can get the response in <emphasis role="italic">xml</emphasis> and <emphasis role="italic">csv</emphasis> format. You can indicate which response format you prefer
       through the <emphasis role="italic">Accept</emphasis> HTTP header like in the example above.
@@ -1007,7 +1014,7 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
     <para>To perform some testing we can save the XML payload as a file called<emphasis
           role="italic"> event.xml</emphasis> and send it as a POST request to the events resource
         in the API using curl with the following command:</para>
-    <screen>curl -d @event.xml "http://apps.dhis2.org/demo/api/events" -H "Content-Type:application/xml" -u admin:district -v</screen>
+    <screen>curl -d @event.xml "https://apps.dhis2.org/demo/api/events" -H "Content-Type:application/xml" -u admin:district -v</screen>
     <para>The same payload in JSON format looks like this:</para>
     <screen>{
   "program": "eBAyeGv0exc",
@@ -1338,7 +1345,7 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
     </table>
     <para>The dataSet and orgUnit parameters can be repeated in order to include multiple data sets
       and organisation units. An example request looks like
-      this:<screen>curl "http://apps.dhis2.org/dev/api/completeDataSetRegistrations?dataSet=pBOMPrpg1QX&amp;dataSet=BfMAe6Itzgt&amp;startDate=2013-01-01&amp;endDate=2013-01-31
+      this:<screen>curl "https://apps.dhis2.org/dev/api/completeDataSetRegistrations?dataSet=pBOMPrpg1QX&amp;dataSet=BfMAe6Itzgt&amp;startDate=2013-01-01&amp;endDate=2013-01-31
 &amp;orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:application/xml" -u admin:district -v</screen></para>
     <para>You can get the response in <emphasis role="italic">xml</emphasis> and <emphasis
         role="italic">json</emphasis> format. You can indicate which response format you prefer
@@ -1677,7 +1684,7 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
   &lt;/users&gt;
 &lt;/message&gt;</screen>
     <para>To test this we save the XML content into a file called <emphasis role="italic">message.xml</emphasis>. We use cURL to dispatch the message the the DHIS 2 demo instance where we indicate that the content-type is XML and authenticate as the <emphasis role="italic">admin</emphasis> user:</para>
-    <screen>curl -d @message.xml &quot;http://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -X POST -v</screen>
+    <screen>curl -d @message.xml &quot;https://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -X POST -v</screen>
     <para>A corresponding payload in JSON and POST command look like this:</para>
     <screen>{
   "subject": "Hey",
@@ -1702,20 +1709,20 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
   ]
 }
 </screen>
-    <screen>curl -d @message.json &quot;http://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Content-Type:application/json&quot; -u admin:district -X POST -v</screen>
+    <screen>curl -d @message.json &quot;https://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Content-Type:application/json&quot; -u admin:district -X POST -v</screen>
     <para>If all is well we receive a <emphasis role="italic">201 Created</emphasis> HTTP status code. Also note that we receive a <emphasis role="italic">Location </emphasis>HTTP header which value  informs us of the URL of the newly  created message conversation resource - this can be used by a consumer to perform further action.</para>
     <para>We will now pretend to be the mobile user and read the message which was just sent by dispatching a GET request to the <emphasis role="italic">messageConversations</emphasis> resource. We supply an <emphasis role="italic">Accept</emphasis> header with <emphasis role="italic">application/xml</emphasis> as the value to indicate that we are interested in the XML resource representation and we authenticate as the <emphasis role="italic">mobile</emphasis> user:</para>
-    <screen>curl &quot;http://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Accept:application/xml&quot; -u mobile:district -X GET -v</screen>
+    <screen>curl &quot;https://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Accept:application/xml&quot; -u mobile:district -X GET -v</screen>
     <para>In response we get the following XML:</para>
     <screen>&lt;messageConversations xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;
-  link=&quot;http://apps.dhis2.org/demo/api/messageConversations&quot;&gt;
+  link=&quot;https://apps.dhis2.org/demo/api/messageConversations&quot;&gt;
   &lt;messageConversation name=&quot;Mortality data reporting&quot; id=&quot;ZjHHSjyyeJ2&quot;
-    link=&quot;http://apps.dhis2.org/demo/api/messageConversations/ZjHHSjyyeJ2&quot;/&gt;
+    link=&quot;https://apps.dhis2.org/demo/api/messageConversations/ZjHHSjyyeJ2&quot;/&gt;
   &lt;messageConversation name=&quot;DHIS version 2.7 is deployed&quot; id=&quot;GDBqVfkmnp2&quot;
-    link=&quot;http://apps.dhis2.org/demo/api/messageConversations/GDBqVfkmnp2&quot;/&gt;
+    link=&quot;https://apps.dhis2.org/demo/api/messageConversations/GDBqVfkmnp2&quot;/&gt;
 &lt;/messageConversations&gt;</screen>
     <para>From the response we are able to read the identifier of the newly sent message which is <emphasis role="italic">ZjHHSjyyeJ2</emphasis>. Note that the link to the specific resource is embedded and can be followed in order to read the full message. From the description at <ulink url="http://apps.dhis2.org/demo/api/messageConversations"/> we learned that we can reply directly to an existing message conversation once we know the URL by including the message text as the  request payload (body). We are now able to construct a URL for sending our reply:</para>
-    <screen>curl -d &quot;Yes the Mortality data set has been reported&quot; &quot;http://apps.dhis2.org/demo/api/messageConversations/ZjHHSjyyeJ2&quot; -H &quot;Content-Type:text/plain&quot; -u mobile:district -X POST -v</screen>
+    <screen>curl -d &quot;Yes the Mortality data set has been reported&quot; &quot;https://apps.dhis2.org/demo/api/messageConversations/ZjHHSjyyeJ2&quot; -H &quot;Content-Type:text/plain&quot; -u mobile:district -X POST -v</screen>
     <para>If all went according to plan you will receive a <emphasis role="italic">200 OK</emphasis> status code.</para>
   </section>
   <section>
@@ -1734,19 +1741,19 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
         "created": "2013-10-07T11:37:19.273+0000",
         "lastUpdated": "2013-10-07T12:08:58.028+0000",
         "type": "map",
-        "href": "http://apps.dhis2.org/demo/api/interpretations/d3BukolfFZI",
+        "href": "https://apps.dhis2.org/demo/api/interpretations/d3BukolfFZI",
         "id": "d3BukolfFZI"
     }, {
         "created": "2013-05-30T10:24:06.181+0000",
         "lastUpdated": "2013-05-30T10:25:08.066+0000",
         "type": "reportTable",
-        "href": "http://apps.dhis2.org/demo/api/interpretations/XSHiFlHAhhh",
+        "href": "https://apps.dhis2.org/demo/api/interpretations/XSHiFlHAhhh",
         "id": "XSHiFlHAhhh"
     }, {
         "created": "2013-05-29T14:47:13.081+0000",
         "lastUpdated": "2013-05-29T14:47:13.081+0000",
         "type": "chart",
-        "href": "http://apps.dhis2.org/demo/api/interpretations/kr4AnZmYL43",
+        "href": "https://apps.dhis2.org/demo/api/interpretations/kr4AnZmYL43",
         "id": "kr4AnZmYL43"
     }]
 }</screen>
@@ -1763,7 +1770,7 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
         "name": "ANC: ANC 2 Coverage",
         "created": "2012-11-13T12:01:21.918+0000",
         "lastUpdated": "2012-11-13T12:01:21.918+0000",
-        "href": "http://apps.dhis2.org/demo/api/maps/bhmHJ4ZCdCd",
+        "href": "https://apps.dhis2.org/demo/api/maps/bhmHJ4ZCdCd",
         "id": "bhmHJ4ZCdCd"
     },
     "text": "We can see that the ANC 2 coverage of Kasonko and Lei districts are under 40 %. What could be the cause for this?",
@@ -1771,11 +1778,11 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
         "created": "2013-10-07T12:08:58.026+0000",
         "lastUpdated": "2013-10-07T12:08:58.026+0000",
         "text": "Due to the rural environment, getting women to the facilities is a challenge. Outreach campaigns might be helpful.",
-        "href": "http://apps.dhis2.org/demo/api/null/iB4Etq8yTE6",
+        "href": "https://apps.dhis2.org/demo/api/null/iB4Etq8yTE6",
         "id": "iB4Etq8yTE6"
     }],
     "type": "map",
-    "href": "http://apps.dhis2.org/demo/api/interpretations/d3BukolfFZI",
+    "href": "https://apps.dhis2.org/demo/api/interpretations/d3BukolfFZI",
     "id": "d3BukolfFZI"
 }</screen>
       <para>The map interpretation contains identifier and type information in the "id" and "type"
@@ -1787,16 +1794,16 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
         resource, as apposed to the meta-data. As an example, by following the map link and
         appending /data one can retrieve a PNG (image) representation of the thematic map through
         the following URL:</para>
-      <screen>http://apps.dhis2.org/demo/api/maps/bhmHJ4ZCdCd/data</screen>
+      <screen>https://apps.dhis2.org/demo/api/maps/bhmHJ4ZCdCd/data</screen>
     </section>
     <section>
     <title>Writing interpretations</title>
     <para>We will start by writing an interpretation for the chart with identifier <emphasis role="italic">EbRN2VIbPdV</emphasis>. To write chart interpretations we will interact with the <ulink url="http://apps.dhis2.org/demo/api/interpretations/chart/{chartId}"/> resource. The interpretation will be the request body. Based on this we can put together the following request using cURL:</para>
-    <screen>curl -d &quot;This chart shows a significant ANC 1-3 dropout&quot; &quot;http://apps.dhis2.org/demo/api/interpretations/chart/EbRN2VIbPdV&quot; -H &quot;Content-Type:text/plain&quot; -u admin:district -v</screen>
+    <screen>curl -d &quot;This chart shows a significant ANC 1-3 dropout&quot; &quot;https://apps.dhis2.org/demo/api/interpretations/chart/EbRN2VIbPdV&quot; -H &quot;Content-Type:text/plain&quot; -u admin:district -v</screen>
     <para>Second we will write a comment on the interpretation we just wrote. By looking at the interpretation response you will see that a <emphasis role="italic">Location</emphasis> header is returned. This header tells us the URL of the newly created interpretation and from that we can read its identifier. This identifier is randomly generated so you will have to replace the one in the command below with your own. To write a comment we can interact with the <ulink url="http://apps.dhis2.org/demo/api/interpretations/{interpretationId}/comment"/> like this:</para>
-    <screen>curl -d &quot;An intervention is needed&quot; &quot;http://apps.dhis2.org/demo/api/interpretations/j8sjHLkK8uY/comment&quot; -H &quot;Content-Type:text/plain&quot; -u admin:district -v</screen>
+    <screen>curl -d &quot;An intervention is needed&quot; &quot;https://apps.dhis2.org/demo/api/interpretations/j8sjHLkK8uY/comment&quot; -H &quot;Content-Type:text/plain&quot; -u admin:district -v</screen>
     <para>You can also write interpretations for report tables in a similar way by interacting with the <ulink url="http://app.dhis2.org/demo/api/interpretations/reportTable/{reportTableId}"/>. For report tables you can also provide an optional <emphasis role="italic">ou</emphasis> query parameter to supply an organisation unit identifier in the case where the report table has an organisation unit report parameter:</para>
-    <screen>curl -d &quot;This table reveals poor data quality&quot; &quot;http://apps.dhis2.org/demo/api/interpretations/reportTable/xIWpSo5jjT1?ou=O6uvpzGd5pu&quot; -H &quot;Content-Type:text/plain&quot; -u admin:district -v</screen>
+    <screen>curl -d &quot;This table reveals poor data quality&quot; &quot;https://apps.dhis2.org/demo/api/interpretations/reportTable/xIWpSo5jjT1?ou=O6uvpzGd5pu&quot; -H &quot;Content-Type:text/plain&quot; -u admin:district -v</screen>
     </section>
     <section>
       <title>Creating, updating and removing interpretation comments</title>
@@ -1950,16 +1957,18 @@ api/reports/OeJsA6K1Otx/data.pdf?date=2012-01-01</screen>
     
     <para>In this example we will see how we can embed good-looking, light-weight html pivot tables with data served from a DHIS back-end into a Web page. To accomplish this we will use the Pivot table plug-in. The plug-in is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/table.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
 
-	<para>We start by having a look at what the complete html file could look like. This setup puts two tables in our web page. The first one is referring to an existing table. The second is configured inline.
-	<screen>&lt;!DOCTYPE html&gt;
+	<para>We start by having a look at what the complete html file could look like. This setup puts two
+        tables in our web page. The first one is referring to an existing table. The second is
+        configured inline.
+        <screen>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://dhis2-cdn.org/v215/ext/resources/css/ext-plugin-gray.css&quot; /&gt;
-  &lt;script src=&quot;http://dhis2-cdn.org/v215/ext/ext-all.js&quot;&gt;&lt;/script&gt;
-  &lt;script src=&quot;http://dhis2-cdn.org/v215/plugin/table.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://dhis2-cdn.org/v215/ext/ext-all.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://dhis2-cdn.org/v215/plugin/table.js&quot;&gt;&lt;/script&gt;
 
   &lt;script&gt;
-    var base = &quot;http://apps.dhis2.org/demo&quot;;
+    var base = &quot;https://apps.dhis2.org/demo&quot;;
 
     // Login - if OK, call the setLinks function
     
@@ -2011,7 +2020,7 @@ api/reports/OeJsA6K1Otx/data.pdf?date=2012-01-01</screen>
   &lt;div id=&quot;table2&quot;&gt;&lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;</screen>
-    </para>
+      </para>
     
     <para>Three files are included in the header section of the HTML document. The first
       two files are the Ext JS javascript library (we use the DHIS 2 content delivery network in
@@ -2021,7 +2030,7 @@ api/reports/OeJsA6K1Otx/data.pdf?date=2012-01-01</screen>
 &lt;script src=&quot;http://dhis2-cdn.org/v215/ext/ext-all.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;http://dhis2-cdn.org/v215/plugin/table.js&quot;&gt;&lt;/script&gt;</screen>
     <para>To authenticate with the DHIS server we use the same approach as in the previous section. In the header of the HTML document we include the following Javascript inside a script element. The <emphasis role="italic">setLinks</emphasis> method will be implemented later. Make sure the <emphasis role="italic">base</emphasis> variable is pointing to your DHIS installation.</para>
-    <screen>var base = &quot;http://apps.dhis2.org/demo/&quot;;
+    <screen>var base = &quot;https://apps.dhis2.org/demo/&quot;;
 
 Ext.onReady( function() {
   Ext.Ajax.request({
@@ -2196,8 +2205,10 @@ Ext.onReady( function() {
     <title>Embedding charts with the Visualizer chart plug-in</title>
     <para>In this example we will see how we can embed good-looking Ext JS charts (<ulink url="http://www.sencha.com/products/extjs"/>) with data served from a DHIS back-end into a Web page. To accomplish this we will use the DHIS Visualizer plug-in. The plug-in is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/chart.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
 
-	<para>We start by having a look at what the complete html file could look like. This setup puts two charts in our web page. The first one is referring to an existing chart. The second is configured inline.
-	<screen>&lt;!DOCTYPE html&gt;
+	<para>We start by having a look at what the complete html file could look like. This setup puts two
+        charts in our web page. The first one is referring to an existing chart. The second is
+        configured inline.
+        <screen>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://dhis2-cdn.org/v215/ext/resources/css/ext-plugin-gray.css&quot; /&gt;
@@ -2205,7 +2216,7 @@ Ext.onReady( function() {
   &lt;script src=&quot;http://dhis2-cdn.org/v215/plugin/chart.js&quot;&gt;&lt;/script&gt;
 
   &lt;script&gt;
-    var base = &quot;http://apps.dhis2.org/demo&quot;;
+    var base = &quot;https://apps.dhis2.org/demo&quot;;
 
     // Login - if OK, call the setLinks function
     
@@ -2258,7 +2269,7 @@ Ext.onReady( function() {
   &lt;div id=&quot;chart2&quot;&gt;&lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;</screen>
-    </para>
+      </para>
     
     <para>Three files are included in the header section of the HTML document. The first
         two files are the Ext JS javascript library (we use the DHIS 2 content delivery network in
@@ -2268,7 +2279,7 @@ Ext.onReady( function() {
 &lt;script src=&quot;http://dhis2-cdn.org/v215/ext/ext-all.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;http://dhis2-cdn.org/v215/plugin/chart.js&quot;&gt;&lt;/script&gt;</screen>
     <para>To authenticate with the DHIS server we use the same approach as in the previous section. In the header of the HTML document we include the following Javascript inside a script element. The <emphasis role="italic">setLinks</emphasis> method will be implemented later. Make sure the <emphasis role="italic">base</emphasis> variable is pointing to your DHIS installation.</para>
-    <screen>var base = &quot;http://apps.dhis2.org/demo/&quot;;
+    <screen>var base = &quot;https://apps.dhis2.org/demo/&quot;;
 
 Ext.onReady( function() {
   Ext.Ajax.request({
@@ -2479,9 +2490,10 @@ Ext.onReady( function() {
   <section>
     <title>Embedding maps with the GIS map plug-in</title>
     <para>In this example we will see how we can embed maps with data served from a DHIS back-end into a Web page. To accomplish this we will use the GIS map plug-in. The plug-in is written in Javascript and depends on the Ext JS library only. A complete working example can be found at <ulink url="http://apps.dhis2.org/portal/map.html"/>. Open the page in a web browser and view the source to see how it is set up.</para>
-	<para>We start by having a look at what the complete html file could look like. This setup puts two maps in our web page. The first one is referring to an existing map. The second is configured inline.
-    
-    <screen>&lt;!DOCTYPE html&gt;
+	<para>We start by having a look at what the complete html file could look like. This setup puts two
+        maps in our web page. The first one is referring to an existing map. The second is
+        configured inline.
+        <screen>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://dhis2-cdn.org/v215/ext/resources/css/ext-plugin-gray.css&quot; /&gt;
@@ -2491,7 +2503,7 @@ Ext.onReady( function() {
   &lt;script src=&quot;http://dhis2-cdn.org/v215/plugin/map.js&quot;&gt;&lt;/script&gt;
 
   &lt;script&gt;
-    var base = &quot;http://apps.dhis2.org/demo&quot;;
+    var base = &quot;https://apps.dhis2.org/demo&quot;;
 
     // Login - if OK, call the setLinks function
     
@@ -2772,10 +2784,10 @@ Ext.onReady( function() {
     <para>The chart plug-in also makes it possible to create a chart carousel which for instance can be used to create an attractive front page on a Web portal. To use the carousel we need to import a few  files in the head section of our HTML page:</para>
     <screen>
 &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://dhis2-cdn.org/v213/ext/resources/css/ext-plugin-gray.css&quot; /&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/ext-ux/carousel/css/carousel.css&quot; /&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;http://extjs-public.googlecode.com/svn/tags/extjs-4.0.7/release/ext-all.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/ext-ux/carousel/Carousel.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;http://apps.dhis2.org/demo/dhis-web-commons/javascripts/plugin/plugin.js&quot;&gt;&lt;/script&gt;</screen>
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://apps.dhis2.org/demo/dhis-web-commons/javascripts/ext-ux/carousel/css/carousel.css&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://extjs-public.googlecode.com/svn/tags/extjs-4.0.7/release/ext-all.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://apps.dhis2.org/demo/dhis-web-commons/javascripts/ext-ux/carousel/Carousel.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://apps.dhis2.org/demo/dhis-web-commons/javascripts/plugin/plugin.js&quot;&gt;&lt;/script&gt;</screen>
     <para>The first file is the CSS stylesheet for the chart plug-in. The second file is the CSS stylesheet for the carousel widget. The third file is the Ext JavaScript framework which this plug-in depends on. The fourth file is the carousel plug-in JavaScript file. The fifth file is the chart plug-in JavaScript file. The paths in this example points at the DHIS 2 demo site, make sure you update them to point to your own DHIS 2 installation.</para>
     <para>Please refer to the section about the chart plug-in on how to do authentication.</para>
     <para>To create a chart carousel we will first render the charts we want to include in the carousel using the method described in the chart plug-in section. Then we create the chart carousel itself. The charts will be rendered into <emphasis role="italic">div</emphasis> elements which all have a CSS class called <emphasis role="italic">chart</emphasis>. In the carousel configuration we can then define a <emphasis role="italic">selector</emphasis> expression which refers to those div elements like this:</para>
@@ -2817,7 +2829,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
       is essentially a materialization process, and ensures that we have the most recent data
       available through the SQL view when it is retrieved from the server. You can first look up the
       SQL view from the api/sqlViews resource, then POST using the following command:</para>
-    <screen>curl &quot;http://apps.dhis2.org/demo/api/sqlViews/dI68mLkP1wN/execute&quot; -X POST -u admin:district -v</screen>
+    <screen>curl &quot;https://apps.dhis2.org/demo/api/sqlViews/dI68mLkP1wN/execute&quot; -X POST -u admin:district -v</screen>
     <para>The next step in the process is the retrieval of the data.The basic structure of the URL is as follows</para>
     <screen>http://{server}/api/sqlViews/{id}/data(.csv)</screen>
     <para>The <parameter>{server}</parameter> parameter should be replaced with your own server. The
@@ -2826,13 +2838,13 @@ ORDER BY oul.level, par.name, ou.name</screen>
         <parameter>data</parameter> for XML data or <parameter>data.csv</parameter> for comma
       delimited values. As an example, the following command would retrieve XML data for the SQL
       view defined
-      above.<screen>curl &quot;http://apps.dhis2.org/dev/api/sqlViews/dI68mLkP1wN/data.csv&quot; -u admin:district -v</screen></para>
+      above.<screen>curl &quot;https://apps.dhis2.org/demo/api/sqlViews/dI68mLkP1wN/data.csv&quot; -u admin:district -v</screen></para>
     <para>You can do simple filtering on the columns in the result set by appending <emphasis role="italic">criteria</emphasis> query parameters to the URL, using the column names and
       filter values separated by columns as parameter values, on the following format:</para>
     <screen>/data?criteria=col1:value1&amp;criteria=col2:value2</screen>
     <para>As an example, to filter the SQL view result set above to only return organisation units
       at level 4 you can use the following URL:</para>
-    <screen>http://apps.dhis2.org/dev/api/sqlViews/dI68mLkP1wN/data.csv?criteria=level:4</screen>
+    <screen>https://apps.dhis2.org/demo/api/sqlViews/dI68mLkP1wN/data.csv?criteria=level:4</screen>
   </section>
   <section>
     <title>Dashboard</title>
@@ -2867,7 +2879,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
     "chart": {
       "name": "ANC: Visits by facility type",
       "created": "2013-05-30T09:58:42.023+0000",
-      "href": "http://apps.dhis2.org/demo/api/charts/iRCGbznvyG8",
+      "href": "https://apps.dhis2.org/demo/api/charts/iRCGbznvyG8",
       "id": "iRCGbznvyG8"
     },
     "map": null,
@@ -2885,12 +2897,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
     "reports": [{
       "name": "ANC: 1st Visit Cumulative Chart",
       "created": "2012-11-13T13:49:45.007+0000",
-      "href": "http://apps.dhis2.org/demo/api/reports/Kvg1AhYHM8Q",
+      "href": "https://apps.dhis2.org/demo/api/reports/Kvg1AhYHM8Q",
       "id": "Kvg1AhYHM8Q"
     }, {
       "name": "ANC: Coverages This Year",
       "created": "2012-11-13T13:52:01.630+0000",
-      "href": "http://apps.dhis2.org/demo/api/reports/qYVNH1wkZR0",
+      "href": "https://apps.dhis2.org/demo/api/reports/qYVNH1wkZR0",
       "id": "qYVNH1wkZR0"
     }],
     "type": "reports",
