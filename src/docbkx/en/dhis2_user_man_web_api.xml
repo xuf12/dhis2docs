@@ -4692,10 +4692,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
           <row>
             <entry>ouMode</entry>
             <entry>The mode of selecting organisation units, can be SELECTED | CHILDREN |
-              DESCENDANTS. Default is SELECTED, which refers to the selected organisation units
-              only. CHILDREN refers to immediate children in the hierarchy of the specified org
-              units. DESCENDANTS refers to all units in the sub-hierarchy of the specified org
-              units. </entry>
+                DESCENDANTS | ACCESSIBLE | ALL. Default is SELECTED, which refers to the selected
+                organisation units only. See table below for explanations.</entry>
           </row>
           <row>
             <entry>program</entry>
@@ -4760,6 +4758,47 @@ ORDER BY oul.level, par.name, ou.name</screen>
         </tbody>
       </tgroup>
     </table>
+      <para>The available organisation unit selection modes are explained in the following
+        table.</para>
+      <table frame="all">
+        <title>Organisation unit selection modes</title>
+        <tgroup cols="2">
+          <colspec colname="c1" colnum="1" colwidth="1*"/>
+          <colspec colname="c2" colnum="2" colwidth="3.88*"/>
+          <thead>
+            <row>
+              <entry>Mode</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>SELECTED</entry>
+              <entry>Organisation units defined in the request.</entry>
+            </row>
+            <row>
+              <entry>CHILDREN</entry>
+              <entry>Immediate children, i.e. only the first level below, of the organisation units
+                defined in the request.</entry>
+            </row>
+            <row>
+              <entry>DESCENDANTS</entry>
+              <entry>All children, i.e. at only levels below, e.g. including children of children,
+                of the organisation units defined in the request.</entry>
+            </row>
+            <row>
+              <entry>ACCESSIBLE</entry>
+              <entry>All descendants of the data view organisation units associated with the current
+                user. Will fall back to data capture organisation units associated with the current
+                user if the former is not defined.</entry>
+            </row>
+            <row>
+              <entry>ALL</entry>
+              <entry>All organisation units in the system. Requires authority.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
     <para>Note that you can specify attributes with filters for constraining the instances to
       return, or attributes without filters in order to include the attribute in the response
       without any constraints. Attributes will be included in the response, while filters will only
