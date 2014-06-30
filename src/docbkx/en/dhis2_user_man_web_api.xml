@@ -4752,6 +4752,11 @@ ORDER BY oul.level, par.name, ou.name</screen>
             <entry>pageSize</entry>
             <entry>The page size. Default size is 50 rows per page.</entry>
           </row>
+            <row>
+              <entry>skipPaging</entry>
+              <entry>Indicates whether paging should be ignored and all rows should be
+                returned.</entry>
+            </row>
         </tbody>
       </tgroup>
     </table>
