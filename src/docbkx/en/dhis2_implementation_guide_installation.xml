@@ -8,7 +8,7 @@
     and Mac. DHIS 2 also runs on many relational database systems such as PostgreSQL, MySQL, H2 and
     Derby. DHIS 2 is packaged as a standard Java Web Archive (WAR-file) and thus runs on any Servlet
     containers such as Tomcat and Jetty.</para>
-  <para>The DHIS 2 team recommends Ubuntu 12.04 LTS operating system, PostgreSQL database system and
+  <para>The DHIS 2 team recommends Ubuntu 14.04 LTS operating system, PostgreSQL database system and
     Tomcat Servlet container as the preferred environment for server installations. The mentioned
     frameworks can be regarded as market leaders within their domain and is heavily field tested
     over many years.</para>
@@ -37,11 +37,15 @@
   </section>
   <section>
     <title>Server setup</title>
-    <para>This section describes how to set up a server instance of DHIS 2 on Ubuntu 12.04 64 bit
-      with PostgreSQL as database system and Tomcat as Servlet container. This guide is not meant to be a step-by-step guide per se, but rather to serve as a reference to how DHIS2 can be deployed on a server. There are many possible deployment strategies, which will differ depending on the operating system and database you are using, and other factors. The term <emphasis role="italic">invoke</emphasis> refers to executing a given command in a terminal. </para>
+    <para>This section describes how to set up a server instance of DHIS 2 on Ubuntu 14.04 64 bit
+      with PostgreSQL as database system and Tomcat as Servlet container. This guide is not meant to
+      be a step-by-step guide per se, but rather to serve as a reference to how DHIS2 can be
+      deployed on a server. There are many possible deployment strategies, which will differ
+      depending on the operating system and database you are using, and other factors. The term
+        <emphasis role="italic">invoke</emphasis> refers to executing a given command in a terminal. </para>
     <para>For a national server the recommended configuration is a quad-core 2 Ghz processor or
       higher and 12 Gb RAM or higher. Note that a 64 bit operating system is required for utilizing
-      more than 4 Gb of RAM, the Ubuntu 12.04 64 bit edition is thus recommended. </para>
+      more than 4 Gb of RAM. </para>
     <para>For this guide we assume that 8 Gb RAM is allocated for PostgreSQL and 8 GB RAM is
       allocated for Tomcat/JVM, and that a 64-bit operating system is used. <emphasis role="italic">If you are running a different configuration please adjust the suggested values accordingly!</emphasis> We recommend that the available memory is split roughly equally
       between the database and the JVM. Remember to leave some of the physical memory to the
@@ -59,7 +63,9 @@
     </section>
     <section>
       <title>Operating system kernel tuning</title>
-      <para>These settings are optional except for the shared memory setting which is required for PostgreSQL memory allocation. Open the kernel configuration file by invoking <code>sudo nano /etc/sysctl.conf</code> At the end of the file add the following lines and save.</para>
+      <para>These settings are completely optional and does not have to be changed for normal-sized
+        servers. Open the kernel configuration file by invoking <code>sudo nano
+          /etc/sysctl.conf</code> At the end of the file add the following lines and save.</para>
       <screen>kernel.shmmax = 4294967296
 net.core.rmem_max = 8388608
 net.core.wmem_max = 8388608</screen>
@@ -74,12 +80,8 @@ net.core.wmem_max = 8388608</screen>
     </section>
     <section>
       <title>Postgresql installation and tuning</title>
-      <para>To install PostgreSQL version 9.2 we first need to add a Ubuntu package repository to our system.</para>
-      <screen>sudo apt-get install python-software-properties
-sudo add-apt-repository ppa:pitti/postgresql
-sudo apt-get update</screen>
-      <para>Now install PostgreSQL by invoking:</para>
-      <screen>sudo apt-get install postgresql-9.2</screen>
+      <para>Install PostgreSQL 9.3 by invoking:</para>
+      <screen>sudo apt-get install postgresql-9.3</screen>
       <para>Switch to the postgres user by invoking <code>sudo su postgres</code></para>
       <para>Create a non-privileged user called <emphasis role="italic">dhis</emphasis> by invoking
         <code>createuser -SDRP dhis</code>. Enter a secure password at the prompt. Create a database by invoking
