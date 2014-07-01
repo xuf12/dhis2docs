@@ -54,12 +54,17 @@
       done at a later stage.</para>
     <section>
       <title>Creating a user to run DHIS2</title>
-      <para>You should create a dedicated user for running DHIS - it is not recommended to run
-      as the root user. Create a new user called dhis by invoking <code>useradd -d /home/dhis -m dhis -s /bin/bash</code> Then make the user able to perform operations temporarily as root
-      user by invoking <code>usermod -G sudo dhis</code>. Then invoke <code>passwd dhis</code> to
-      set the password for your account. Make sure you set a strong password with at least 15 random
-      characters. You might want to disable remote login for the root account for improved security
-      by invoking <code>sudo passwd -l root</code></para>
+      <para>You should create a dedicated user for running DHIS - it is not recommended to run as
+        the root user. Create a new user called dhis by invoking:</para>
+      <screen>useradd -d /home/dhis -m dhis -s /bin/bash</screen>
+      <para>Then make the user able to perform operations temporarily as root user by
+        invoking:</para>
+      <screen>usermod -G sudo dhis</screen>
+      <para>Then to set the password for your account invoke:</para>
+      <screen>passwd dhis</screen>
+      <para>Make sure you set a strong password with at least 15 random characters. You might want
+        to disable remote login for the root account for improved security by invoking:</para>
+      <screen>sudo passwd -l root</screen>
     </section>
     <section>
       <title>Operating system kernel tuning</title>
@@ -73,20 +78,32 @@ net.core.wmem_max = 8388608</screen>
       <screen>sudo sysctl -p</screen>
     </section>
     <section>
-      <title>Setting the server time</title>
-      <para>Remember to set the server date correctly according to the time zone of which the main part of the users of the system are located. This will affect e.g. when scheduled tasks are executed. For instance, to the set time to 22:45, October 17, 2012, invoke <command>sudo date 101722452012</command>.</para>
-      <para>It may be necessary to reconfigure the time zone of the server to match the time zone of the location which the DHIS2 server will be covering. If you are using a virtual private server, the default time zone may not correspond to the time zone of your DHIS2 location. You can easily reconfigure the time zone by invoking <command>sudo dpkg-reconfigure tzdata</command> and following the instructions. </para>
-      <para>It is easy to keep your server very accurate  by using the NTP package. You can install it by simply invoking <command>sudo apt-get install ntp</command>. NTP will automatically syncronize your server time on a regular basis. </para>
+      <title>Setting the server time zone</title>
+      <para>It may be necessary to reconfigure the time zone of the server to match the time zone of
+        the location which the DHIS2 server will be covering. If you are using a virtual private
+        server, the default time zone may not correspond to the time zone of your DHIS2 location.
+        You can easily reconfigure the time zone by invoking the below and following the
+        instructions.</para>
+      <screen>sudo dpkg-reconfigure tzdata</screen>
+      <para>It is easy to keep your server very accurate by using the NTP package. NTP will
+        automatically syncronize your server time on a regular basis. You can install it by simply
+        invoking:</para>
+      <screen>sudo apt-get install ntp</screen>
     </section>
     <section>
       <title>Postgresql installation and tuning</title>
       <para>Install PostgreSQL 9.3 by invoking:</para>
       <screen>sudo apt-get install postgresql-9.3</screen>
-      <para>Switch to the postgres user by invoking <code>sudo su postgres</code></para>
-      <para>Create a non-privileged user called <emphasis role="italic">dhis</emphasis> by invoking
-        <code>createuser -SDRP dhis</code>. Enter a secure password at the prompt. Create a database by invoking
-        <code>createdb -O dhis dhis2</code>.  Return to your session by invoking <code>exit</code> You now have a
-      PostgreSQL user called <emphasis role="italic">dhis</emphasis> and a database called <emphasis role="italic">dhis2</emphasis>.</para>
+      <para>Switch to the postgres user by invoking:</para>
+      <screen>sudo su postgres</screen>
+      <para>Create a non-privileged user called <emphasis role="italic">dhis</emphasis> by
+        invoking:</para>
+      <screen>createuser -SDRP dhis</screen>
+      <para>Enter a secure password at the prompt. Create a database by invoking:</para>
+      <screen>createdb -O dhis dhis2</screen>
+      <para>Return to your session by invoking <code>exit</code> You now have a PostgreSQL user
+        called <emphasis role="italic">dhis</emphasis> and a database called <emphasis role="italic"
+          >dhis2</emphasis>.</para>
       <para>Do performance tuning by opening the following  file by invoking </para>
       <para><screen>sudo nano /etc/postgresql/9.2/main/postgresql.conf</screen></para>
       <para>and set the following properties:</para>
