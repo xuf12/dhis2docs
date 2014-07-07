@@ -3569,14 +3569,19 @@ ORDER BY oul.level, par.name, ou.name</screen>
             <entry>Attribute identifiers</entry>
           </row>
           <row>
+            <entry>Periods</entry>
+            <entry>pe</entry>
+            <entry>ISO periods and relative periods, see "date and period format"</entry>
+          </row>
+          <row>
             <entry>Organisation units</entry>
             <entry>ou</entry>
             <entry>Organisation unit identifiers</entry>
           </row>
           <row>
-            <entry>Periods</entry>
-            <entry>pe</entry>
-            <entry>ISO periods and relative periods, see "date and period format"</entry>
+            <entry>Organisation unit group sets</entry>
+            <entry>&lt;id></entry>
+            <entry>Organisation unit group set identifiers</entry>
           </row>
         </tbody>
       </tgroup>
@@ -3627,8 +3632,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
           <row>
             <entry>dimension</entry>
             <entry>Yes</entry>
-            <entry>Dimension identifier including data elements, person attributes, person
-                identifiers, periods and organisation units. Parameter can be repeated any number of
+            <entry>Dimension identifier including data elements, attributes, periods, organisation
+                units and organisation unit group sets. Parameter can be repeated any number of
                 times. Item filters can be applied to a dimension on the format
                 &lt;item-id>:&lt;operator>:&lt;filter>. Filter values are case-insensitive.</entry>
             <entry>Operators can be EQ | GT | GE | LT | LE | NE | LIKE | IN</entry>
@@ -3636,8 +3641,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
             <row>
               <entry>filter</entry>
               <entry>No</entry>
-              <entry>Dimension identifier including data elements, person attributes, person
-                identifiers, periods and organisation units. Parameter can be repeated any number of
+              <entry>Dimension identifier including data elements, attributes, periods, organisation
+                units and organisation unit group sets. Parameter can be repeated any number of
                 times. Item filters can be applied to a dimension on the format
                 &lt;item-id>:&lt;operator>:&lt;filter>. Filter values are case-insensitive.</entry>
               <entry/>
@@ -4360,9 +4365,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
             </row>
             <row>
               <entry>401</entry>
-              <entry>Bad credentials</entry>
-              <entry>The username and password combination was incorrect - authentication not
-                successful</entry>
+              <entry>Unauthorized</entry>
+              <entry>The username and password combination was incorrect - authentication
+                failed</entry>
             </row>
           </tbody>
         </tgroup>
