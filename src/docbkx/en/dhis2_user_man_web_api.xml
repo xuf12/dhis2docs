@@ -5028,6 +5028,37 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>Example 3: Get JSON schema for a specific class:<screen>GET /api/schemas/dataElement.json</screen></para>
   </section>
   <section>
+    <title>UI Customization</title>
+    <para>To customize the UI of the DHIS 2 application you can insert custom Javascript and CSS
+      styles through the <emphasis role="italic">files</emphasis> resource. The Javascript and CSS
+      content inserted through this resource will be loaded by the DHIS 2 web application. This can
+      be particularly useful in certain situations:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Overriding the CSS styles of the DHIS 2 application, such as the login page or main
+          page.</para>
+      </listitem>
+      <listitem>
+        <para>Defining Javascript functions which are common to several custom data entry forms and
+          HTML-based reports.</para>
+      </listitem>
+      <listitem>
+        <para>Including CSS styles which are used in custom data entry forms and HTML-based
+          reports.</para>
+      </listitem>
+    </itemizedlist>
+    <para>To insert Javascript from a file called <emphasis role="italic">script.js</emphasis> you
+      can interact with the <emphasis role="italic">files/script</emphasis> resource:</para>
+    <screen>curl -d @script.js "localhost/api/files/script" -H "Content-Type:application/javascript" -u system:System123 -v</screen>
+    <para>You can fetch the Javascript content with a GET-request:</para>
+    <screen>localhost/api/files/script</screen>
+    <para>To insert CSS from a file called <emphasis role="italic">style.css</emphasis> you can
+      interact with the <emphasis role="italic">files/style</emphasis> resource:</para>
+    <screen>curl -d @style.css "localhost/api/files/style" -H "Content-Type:text/css" -u system:System123 -v</screen>
+    <para>You can fetch the CSS content with a GET-request:</para>
+    <screen>localhost/api/files/style</screen>
+  </section>
+  <section>
     <title>FRED API</title>
     <para>DHIS 2 from version 2.11 implements support for the current draft
       of the FRED API version 1.0. The project defines itself as <quote>open standard for sharing and updating
