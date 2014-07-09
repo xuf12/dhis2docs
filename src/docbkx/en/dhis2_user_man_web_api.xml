@@ -4255,7 +4255,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <screen>api/maintenance/categoryOptionComboUpdate</screen>
     <para>Cache clearing will clear the application Hibernate cache and the analytics partition
       caches:</para>
-    <screen>api/maintenance/cacheClearing</screen>
+    <screen>api/maintenance/cache</screen>
   </section>
   <section>
     <title>System resource</title>
@@ -5048,12 +5048,14 @@ ORDER BY oul.level, par.name, ou.name</screen>
       </listitem>
     </itemizedlist>
     <para>To insert Javascript from a file called <emphasis role="italic">script.js</emphasis> you
-      can interact with the <emphasis role="italic">files/script</emphasis> resource:</para>
+      can interact with the <emphasis role="italic">files/script</emphasis> resource with a
+      POST-request:</para>
     <screen>curl -d @script.js "localhost/api/files/script" -H "Content-Type:application/javascript" -u system:System123 -v</screen>
     <para>You can fetch the Javascript content with a GET-request:</para>
     <screen>localhost/api/files/script</screen>
     <para>To insert CSS from a file called <emphasis role="italic">style.css</emphasis> you can
-      interact with the <emphasis role="italic">files/style</emphasis> resource:</para>
+      interact with the <emphasis role="italic">files/style</emphasis> resource with a
+      POST-request:</para>
     <screen>curl -d @style.css "localhost/api/files/style" -H "Content-Type:text/css" -u system:System123 -v</screen>
     <para>You can fetch the CSS content with a GET-request:</para>
     <screen>localhost/api/files/style</screen>
