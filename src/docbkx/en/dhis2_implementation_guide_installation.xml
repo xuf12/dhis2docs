@@ -86,12 +86,12 @@ net.core.wmem_max = 8388608</screen>
         instructions.</para>
       <screen>sudo dpkg-reconfigure tzdata</screen>
       <para>It is easy to keep your server very accurate by using the NTP package. NTP will
-        automatically syncronize your server time on a regular basis. You can install it by simply
+        automatically syncronize your server time on a regular basis. You can install it by
         invoking:</para>
       <screen>sudo apt-get install ntp</screen>
     </section>
     <section>
-      <title>Postgresql installation and tuning</title>
+      <title>PostgreSQL installation</title>
       <para>Install PostgreSQL 9.3 by invoking:</para>
       <screen>sudo apt-get install postgresql-9.3</screen>
       <para>Switch to the postgres user by invoking:</para>
@@ -104,8 +104,13 @@ net.core.wmem_max = 8388608</screen>
       <para>Return to your session by invoking <code>exit</code> You now have a PostgreSQL user
         called <emphasis role="italic">dhis</emphasis> and a database called <emphasis role="italic"
           >dhis2</emphasis>.</para>
-      <para>Do performance tuning by opening the following  file by invoking </para>
-      <para><screen>sudo nano /etc/postgresql/9.2/main/postgresql.conf</screen></para>
+    </section>
+    <section>
+      <title>PostgreSQL performance tuning</title>
+      <para>Tuning PostgreSQL is necessary to achieve a high-performing system but is optional in
+        terms of getting DHIS 2 to run. PostgreSQL is configured and tuned through the
+        postgresql.conf filel which can be opened like this:</para>
+      <para><screen>sudo nano /etc/postgresql/9.3/main/postgresql.conf</screen></para>
       <para>and set the following properties:</para>
       <para><screen>shared_buffers = 3200MB</screen></para>
       <para>Determines how much memory should be allocated exclusively for PostgreSQL caching. This
