@@ -3527,8 +3527,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
             query.</para>
         </listitem>
         <listitem>
-          <para>A table cannot potentially contain more than 5000 cells for performance
-            reasons.</para>
+          <para>A table cannot contain more than 50 000 cells by default, this can be configured
+            under system settings.</para>
         </listitem>
       </itemizedlist>
       <para>When a query request violates any of these constraints the server will return a response
