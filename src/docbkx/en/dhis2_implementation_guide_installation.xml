@@ -108,8 +108,8 @@ net.core.wmem_max = 8388608</screen>
     <section>
       <title>PostgreSQL performance tuning</title>
       <para>Tuning PostgreSQL is necessary to achieve a high-performing system but is optional in
-        terms of getting DHIS 2 to run. PostgreSQL is configured and tuned through the
-        postgresql.conf filel which can be opened like this:</para>
+        terms of getting DHIS 2 to run. PostgreSQL is configured and tuned through the <emphasis
+          role="italic">postgresql.conf</emphasis> file which can be edited like this:</para>
       <para><screen>sudo nano /etc/postgresql/9.3/main/postgresql.conf</screen></para>
       <para>and set the following properties:</para>
       <para><screen>shared_buffers = 3200MB</screen></para>
