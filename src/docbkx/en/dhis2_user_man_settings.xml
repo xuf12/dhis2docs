@@ -138,13 +138,65 @@
             order to enable self registration.</para>
         </listitem>
         <listitem>
-          <para>Enable user account recovery: Defines whether users are allowed to restore the password of their account if they forgotten
-            it. When enabled, a link to the account recovery form will be displayed on the front page. User account recovery requires that
+          <para>Enable user account recovery: Defines whether users are allowed to restore the
+            password of their account if they forgotten it. When enabled, a link to the account
+            recovery form will be displayed on the front page. User account recovery requires that
             you have configured email settings (SMTP).</para>
         </listitem>
         <listitem>
-          <para>Require user account password change: Require that users change their password every 3,6,12 months. Please note that for
-            2.14 release, they will have to login through the desktop to change passwords.</para>
+          <para>Enable user account invite: Defines user account invites can be sent. Account
+            invites let you invite new users to create their own accounts by sending an email
+            invitation.</para>
+        </listitem>
+        <listitem>
+          <para>Allow users to grant own user roles: Defines whether users should be allowed to
+            grant the user roles they are granted themselves to others.</para>
+        </listitem>
+        <listitem>
+          <para>Users must belong to a group controlled by the user manager:</para>
+        </listitem>
+        <listitem>
+          <para>Require user account password change: Require that users change their password every
+            3,6,12 months. Please note that for 2.14 release, they will have to login through the
+            desktop to change passwords.</para>
+        </listitem>
+        <listitem>
+          <para>OpenID provider: Defines the OpenId provider.</para>
+        </listitem>
+        <listitem>
+          <para>OpenID provider label: Defines the label to display for the specified OpenID
+            provider.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section>
+      <title>Calendar settings</title>
+      <itemizedlist>
+        <listitem>
+          <para>Calendar: Defines which calendar system should be used throughout the system.</para>
+        </listitem>
+        <listitem>
+          <para>Date format: Defines which date format should be used throughout the system.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section>
+      <title>Synchronization settings</title>
+      <itemizedlist>
+        <listitem>
+          <para>Remote server URL: The URL of the remote server running DHIS 2 to upload data values
+            to. Use of SSL/HTTPS is recommended since username and password is sent with the request
+            (using basic authentication). The system will attempt to synchronize data once every
+            minute. Note that you must enable data synch from Data administration >
+            Scheduling.</para>
+        </listitem>
+        <listitem>
+          <para>Remote server username: The username of the DHIS 2 user account on the remote server
+            to use for data synchronization.</para>
+        </listitem>
+        <listitem>
+          <para>Remote server password: The password of the DHIS 2 user account on the remote
+            server. The password will be stored encrypted.</para>
         </listitem>
       </itemizedlist>
     </section>
