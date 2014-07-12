@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <chapter>
   <title>Settings</title>
@@ -130,7 +130,7 @@
             enabled, a link to the self-registration form will be displayed on the login page.</para>
         </listitem>
         <listitem>
-          <para>Do not use recaptcha for self registration: Whether or not to use reCAPTCHA for user registration.</para>
+          <para>Do not require recaptcha for self registration: Whether or not to use reCAPTCHA for user registration.</para>
         </listitem>
         <listitem>
           <para>Self registration account organisation unit: Defines which organisation unit should
@@ -153,7 +153,10 @@
             grant the user roles they are granted themselves to others.</para>
         </listitem>
         <listitem>
-          <para>Users must belong to a group controlled by the user manager:</para>
+          <para>Users must belong to a group controlled by the user manager: This allows user groups
+            to play a role in user management. When checked, user A can manage user B only if user
+            B belongs to a user group to which user A has read/write access. When user A creates a
+            new user, she or he must assign the new user to such a user group.</para>
         </listitem>
         <listitem>
           <para>Require user account password change: Require that users change their password every
