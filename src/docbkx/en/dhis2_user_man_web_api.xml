@@ -567,6 +567,16 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       units:<screen>/api/dataSets/BfMAe6Itzgt?fields=id,name,organisationUnits[:all,!id]</screen></para>
     <para><emphasis role="bold">Example</emphasis>: Include nameable properties from all
       indicators:<screen>/api/indicators.json?fields=:nameable</screen></para>
+    <section>
+      <title>Field transformers</title>
+      <para>In DHIS 2.17 we introduced field transformers, the idea is to allow further
+        customization of the properties on the server side. For 2.17 we only supports one
+        transformer called <emphasis role="bold">rename</emphasis>, it can be used like
+        this:<screen>/api/dataElements/ID?fields=id|rename(i),name|rename(n)</screen></para>
+      <para>This will rename the <emphasis role="italic">id</emphasis> property to <emphasis
+          role="italic">i</emphasis> and <emphasis role="italic">name</emphasis> property to
+          <emphasis role="italic">n</emphasis>.</para>
+    </section>
   </section>
   <section>
     <title>Meta-data create, read, update, delete</title>
