@@ -579,7 +579,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
         sure that you have the required authorities. As an example , we will create and update an
           <emphasis role="italic">constant</emphasis>. To figure out the format, we can use the new
           <emphasis role="italic">schema</emphasis> endpoint for getting format description (this
-        will be further improved in 2.16). So we will start with getting that
+        will be further improved in 2.17). So we will start with getting that
         info:<screen>http://server/api/schemas/constant.json</screen> From the output, you can see
         that the required authorities for create are F_CONSTANT_ADD, and the important properties
         are: <emphasis role="italic">name</emphasis> and <emphasis role="italic">value</emphasis>.
