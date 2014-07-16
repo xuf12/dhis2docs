@@ -575,7 +575,48 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
         this:<screen>/api/dataElements/ID?fields=id|rename(i),name|rename(n)</screen></para>
       <para>This will rename the <emphasis role="italic">id</emphasis> property to <emphasis
           role="italic">i</emphasis> and <emphasis role="italic">name</emphasis> property to
-          <emphasis role="italic">n</emphasis>.</para>
+          <emphasis role="italic">n</emphasis>. <emphasis role="italic">Please note that the format
+          should be considered beta in 2.17, and the format might be changed in
+        2.18.</emphasis></para>
+    </section>
+    <section>
+      <title>Field converters</title>
+      <para>In DHIS 2.17 alongside transformers we also introduced field converters, while field
+        transformers usually do minor changes to the data stream (name changes etc), field
+        converters can completely change the output of the data. For 2.17 we are including 3 field
+          converters:<table frame="all">
+          <title>Field converters</title>
+          <tgroup cols="2">
+            <colspec colname="c1" colnum="1" colwidth="1*"/>
+            <colspec colname="c2" colnum="2" colwidth="3.76*"/>
+            <thead>
+              <row>
+                <entry>Name</entry>
+                <entry>Description</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>size</entry>
+                <entry>Gives sizes of strings (length) and collections, i.e.
+                  /api/dataElements?fields=dataSets::size</entry>
+              </row>
+              <row>
+                <entry>isEmpty</entry>
+                <entry>Is string or collection empty, i.e.
+                  /api/dataElements?fields=dataSets::isEmpty</entry>
+              </row>
+              <row>
+                <entry>isNotEmpty</entry>
+                <entry>Is string or collection not empty, i.e.
+                  /api/dataElements?fields=dataSets::isNotEmpty</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table></para>
+      <para><emphasis role="italic">Please note that the format should be considered beta in 2.17,
+          and the format might be changed in 2.18.</emphasis>
+      </para>
     </section>
   </section>
   <section>
