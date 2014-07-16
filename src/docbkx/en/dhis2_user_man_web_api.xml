@@ -1147,13 +1147,13 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
     <para><emphasis role="bold">Update</emphasis>: To update an existing event, the format of the
         payload is the same, but the URL you are posting to must add the identifier to the end of
         the URL string and the request must be PUT.
-        <screen>curl -X PUT -d @updated_event.xml "localhost/api/events/Abcas12322" -H "Content-Type:application/xml" -u admin:district -v</screen><screen>curl -X PUT -d @updated_event.json "localhost/api/events/Abcas12322" -H "Content-Type:application/json" -u admin:district -v</screen></para>
+        <screen>curl -X PUT -d @updated_event.xml "localhost/api/events/ID" -H "Content-Type:application/xml" -u admin:district -v</screen><screen>curl -X PUT -d @updated_event.json "localhost/api/events/ID" -H "Content-Type:application/json" -u admin:district -v</screen></para>
     <para><emphasis role="bold">Delete</emphasis>: To delete an existing event, all you need is to
         send a DELETE request with a identifier reference to the server you are
-        using.<screen>curl -X DELETE "localhost/api/events/Abcas12322" -u admin:district -v</screen></para>
+        using.<screen>curl -X DELETE "localhost/api/events/ID" -u admin:district -v</screen></para>
     <para><emphasis role="bold">Get</emphasis>: To get an existing event you can issue a GET request
         including the identifier like
-        this:<screen>curl "localhost/api/events/Abcas12322" -H "Content-Type:application/xml" -u admin:district -v</screen></para>
+        this:<screen>curl "localhost/api/events/ID" -H "Content-Type:application/xml" -u admin:district -v</screen></para>
     <para>The table below describes the meaning of each element. Most elements should be fairly
       self-explanatory.</para>
     <para>
