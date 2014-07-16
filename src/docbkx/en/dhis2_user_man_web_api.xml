@@ -463,7 +463,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       "int":<screen>/api/dataElements.json?filter=aggregationOperator:eq:sum&amp;type:eq:int</screen></para>
   </section>
   <section>
-    <title>Meta-data field inclusion / exclusion</title>
+    <title>Meta-data field filter</title>
     <para>In certain situations the default views of the meta-data can be too verbose. E.g. the
       client might want only need a few fields from each object and want to remove unnecessary ones.
       To discover which fields are available for each object please see the <emphasis role="italic"
