@@ -78,17 +78,17 @@ net.core.wmem_max = 8388608</screen>
       <screen>sudo sysctl -p</screen>
     </section>
     <section>
-      <title>Setting the server time zone</title>
+      <title>Setting server time zone and locale</title>
       <para>It may be necessary to reconfigure the time zone of the server to match the time zone of
         the location which the DHIS2 server will be covering. If you are using a virtual private
         server, the default time zone may not correspond to the time zone of your DHIS2 location.
         You can easily reconfigure the time zone by invoking the below and following the
         instructions.</para>
       <screen>sudo dpkg-reconfigure tzdata</screen>
-      <para>It is easy to keep your server very accurate by using the NTP package. NTP will
-        automatically syncronize your server time on a regular basis. You can install it by
-        invoking:</para>
-      <screen>sudo apt-get install ntp</screen>
+      <para>PostgreSQL is sensitive to locales so you might have to install your locale first. To
+        check existing locales and install new ones (e.g. Russian):</para>
+      <screen>locale -a
+sudo locale-gen ru_RU.UTF-8</screen>
     </section>
     <section>
       <title>PostgreSQL installation</title>
