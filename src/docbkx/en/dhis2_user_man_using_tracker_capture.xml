@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd"[]>
+<chapter>
+  <title>Using Tracker Capture</title>
+  <section>
+    <title>Overview</title>
+    <para>Tracker capture is an advanced version of the event capture app. While the event capture
+      deals with single event without registration, tracker capture deals with multiple events
+      (including single event) with registration. The implication of this is that, any event
+      capturing has to be for a registered tracked entity. This makes registration/searching of a
+      tracked entity a key component of tracker capture. </para>
+  </section>
+  <section>
+    <title>Registering/searching tracked entity</title>
+    <para>To proceed with the tracker capture one needs to have a tracked entity. As shown in the
+      screenshot below, the first page of the app provides two features for this - searching an
+      existing one or registering a new one.</para>
+    <para/>
+    <screenshot>
+      <screeninfo>Example searching/registration</screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resources/images/tracker_capture/search_register.png" format="JPG"
+            width="90%"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>All searching and registration operations are accessible from the screen shown above.<orderedlist>
+        <listitem>
+          <para>Searching: there are two modes of searching - simple and advanced. The simple one
+            works when by typing a free text on the provided area. The advanced one works when
+            various search criteria are provided in the drop down window. Both search modes return
+            matching list of tracked entity displayed in a table. Clicking on any row takes to the
+            selected tracked entity dashboard.</para>
+        </listitem>
+        <listitem>
+          <para>Registration: this is accessible through the "Register" button. The label for this
+            button changes according to a program selected in the first drop down select box. Since
+            "TB program" is selected and this program is assigned a tracked entity of type "Person",
+            the label has changed to "Register Person". During registration, it is possible to stay
+            on the same page and keep doing more registration or go straight to the dashboard of the
+            registered entity. Selecting a program and doing registration also performs enrollment
+            at the background. If a tracked entity is registered without a program, then enrollment
+            is possible from the tracked entity's dashboard.</para>
+        </listitem>
+      </orderedlist></para>
+    <para/>
+    <para>Both search and registration are dictated by a selected program. It is program attributes
+      which are being used as search criteria, registration attributes and also as columns names for
+      tracked entity list. If no program is selected, the system picks default attributes. If no
+      search criteria is assigned for an attribute, then the attribute has no effect on searching.
+      However to control the appearance or not of an attribute as a column list, one has to go
+      through a menu available under the small gear icon. </para>
+    <para>Once a tracked entity is obtained - either through searching or registration - the app
+      presents the selected tracked entity's dashboard.</para>
+  </section>
+  <section>
+    <title>Tracked entity dashboard</title>
+    <para>All operations on a tracked entity are available from this dashboard. Anticipating
+      multiple usecases or operations on registered tracked entity, we have structured the dashboard
+      as a collection of widgets - more widgets can be added. This helps to scale and handle
+      complexity while staying simple and clean. </para>
+    <screenshot>
+      <screeninfo>Example tracked entity dashboard</screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="resources/images/tracker_capture/tei_dashboard.png" format="JPG"
+            width="90%"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>As shown in the figure above, the dashboard starts with three menus at the top: <itemizedlist>
+        <listitem>
+          <para>back button - this helps to go back to the search and registration page</para>
+        </listitem>
+        <listitem>
+          <para>program selection menu - this is to dictate what kind of data to record and track
+            for the selected entity. This also affects the contents of the widgets.</para>
+        </listitem>
+        <listitem>
+          <para>a small gear icon at the right corner - currently this helps to control which
+            widgets to display. From the figure above, there are six widgets on display. The widgets
+            are collapsible, responsive and draggable - this helps to acquire optimal view area as
+            per user needs.</para>
+        </listitem>
+      </itemizedlist></para>
+    <para> The widgets:- <orderedlist>
+        <listitem>
+          <para><emphasis role="bold">Enrollment widget</emphasis> - this helps to enroll the
+            tracked entity for the selected program. If an active enrollment already exists, the
+            widget automatically displays it with some details about it. The widget also helps to do
+            some operations on active enrollment - for example terminate/complete.</para>
+        </listitem>
+         <listitem>
+          <para><emphasis role="bold">Dataentry widget</emphasis> - this is for doing data entry
+            using either default or custom forms (the small black icon helps for switching).
+            Depending on program definition, in particular program stages, events will be displayed
+            in a timely fashion. Clicking on any of them displays the corresponding data entry. It
+            is also possible to create new events. To proceed with data entry, it is mandatory to
+            have event date. Once an event date is specified it is not possible to change due date.
+            The assumption is that by specifying event date, the event has already taken place. If
+            the event hasn't yet occurred, it is possible to change due date - this is effectively
+            doing nothing but rescheduling. The buttons at the bottom help to change the status of a
+            selected event. Another key feature from this widget is addition of multiple notes for
+            an event. Normally data recording is through datalements, however there are cases where
+            it is necessary to record additional information or comments. This is where the notes
+            section comes handy. However, a interesting feature here is - it is not possible to
+            delete a note. The idea is notes are more like log books. </para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Profile widget</emphasis> - this is to edit tracked entity's
+            profile.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Relationship widget</emphasis> - this helps to relate the
+            selected tracked entity (the one whose dashboard is shown) to another tracked entity.
+            Adding a relative is possible by either searching from existing or registering a new
+            one.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Notes widget</emphasis> - this is the same as event notes. The
+            difference between the two is that, here notes are attached not to events but to
+            enrollments. This helps to record some notes based on enrollment - for example why is an
+            enrollment terminated or what is the overall observation of the tracked entity
+            throughout the enrollment.</para>
+        </listitem>
+      <listitem>
+        <para><emphasis role="bold">Report widget</emphasis> - this is to provide a "journal" of the
+            tracked entity per program. A report row is provided for each program the tracked entity
+            is/was associated.</para>
+      </listitem>
+      </orderedlist>
+    </para>
+  </section>
+</chapter>
