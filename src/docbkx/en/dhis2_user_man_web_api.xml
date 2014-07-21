@@ -1397,6 +1397,56 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
   </section>
   </section>
   <section>
+    <title>Forms</title>
+    <para>To retrieve information about a form, which corresponds to a data set and its sections,
+      you can interact with the <emphasis role="italic">forms</emphasis> resource. The form response
+      is accessible as XML and JSON and will provide information about each section (group) in the
+      form as well as each field in the sections, including label and identifiers. By suppying
+      period and organisation unit identifiers the form response will be populated with data values. </para>
+    <table frame="all">
+      <title>Form query parameters</title>
+      <tgroup cols="3">
+        <colspec colname="c1" colnum="1" colwidth="1*"/>
+        <colspec colname="newCol2" colnum="2" colwidth="1*"/>
+        <colspec colname="c2" colnum="3" colwidth="5.9*"/>
+        <thead>
+          <row>
+            <entry>Parameter</entry>
+            <entry>Option</entry>
+            <entry>Description</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>pe</entry>
+            <entry>ISO period</entry>
+            <entry>Period for which to populate form data values.</entry>
+          </row>
+          <row>
+            <entry>ou</entry>
+            <entry>UID</entry>
+            <entry>Organisation unit for which to populate form data values.</entry>
+          </row>
+          <row>
+            <entry>metaData</entry>
+            <entry>false | true</entry>
+            <entry>Whether to include meta-data about each data element and indicator in the data
+              set in the response. </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>To retrieve the form for a data set you can do a GET request like this:</para>
+    <screen>api/dataSets/&lt;dataset-id>/form.json</screen>
+    <para>To retrieve the form for the data set with identifier "BfMAe6Itzgt" in XML:</para>
+    <screen>api/dataSets/BfMAe6Itzgt/form</screen>
+    <para>To retrieve the form including meta-data in JSON:</para>
+    <screen>api/dataSets/BfMAe6Itzgt/form.json?metaData=true</screen>
+    <para>To retrieve the form filled with data values for a specific period and organisation unit
+      in XML:</para>
+    <screen>api/dataSets/BfMAe6Itzgt/form.xml?ou=DiszpKrYNg8&amp;pe=201401</screen>
+  </section>
+  <section>
     <title>Reading complete data set registrations</title>
     <para>This section explains how to retrieve data set completeness registrations. We will be using
       the completeDataSetRegistrations resource. The query parameters to use are these:</para>
