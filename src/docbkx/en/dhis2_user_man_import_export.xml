@@ -606,7 +606,8 @@
               <row>
                 <entry>Data element</entry>
                 <entry>Yes</entry>
-                <entry>Refers to id by default, can also be name and code based on selected id scheme</entry>
+                <entry>Refers to ID by default, can also be name and code based on selected id
+                  scheme</entry>
               </row>
               <row>
                 <entry>Period</entry>
@@ -616,12 +617,18 @@
               <row>
                 <entry>Org unit</entry>
                 <entry>Yes</entry>
-                <entry>Refers to id by default, can also be name and code based on selected id scheme</entry>
+                <entry>Refers to ID by default, can also be name and code based on selected id
+                  scheme</entry>
               </row>
               <row>
                 <entry>Category option combo</entry>
                 <entry>No</entry>
-                <entry>Refers to id</entry>
+                <entry>Refers to ID</entry>
+              </row>
+              <row>
+                <entry>Attribute option combo</entry>
+                <entry>No</entry>
+                <entry>Refers to ID (from version 2.16)</entry>
               </row>
               <row>
                 <entry>Value</entry>
@@ -652,14 +659,14 @@
           </tgroup>
         </table></para>
       <para>The following is an example CSV file which can be imported into DHIS 2. It  can be imported both as plain text file or as compressed ZIP file archive.</para>
-      <screen>&quot;dataelement&quot;,&quot;period&quot;,&quot;orgunit&quot;,&quot;categoryoptioncombo&quot;,&quot;value&quot;,&quot;storedby&quot;,&quot;timestamp&quot;,&quot;comment&quot;,&quot;followup&quot;
-&quot;DUSpd8Jq3M7&quot;,&quot;201202&quot;,&quot;gP6hn503KUX&quot;,&quot;Prlt0C1RF0s&quot;,&quot;7&quot;,&quot;bombali&quot;,&quot;2010-04-17&quot;,,&quot;false&quot;
-&quot;DUSpd8Jq3M7&quot;,&quot;201202&quot;,&quot;gP6hn503KUX&quot;,&quot;V6L425pT3A0&quot;,&quot;10&quot;,&quot;bombali&quot;,&quot;2010-04-17&quot;,,&quot;false&quot;
-&quot;DUSpd8Jq3M7&quot;,&quot;201202&quot;,&quot;OjTS752GbZE&quot;,&quot;V6L425pT3A0&quot;,&quot;9&quot;,&quot;bombali&quot;,&quot;2010-04-06&quot;,,&quot;false&quot;</screen>
+      <screen>"dataelement","period","orgunit","categoryoptioncombo","attributeoptioncombo","value","storedby","timestamp","comment","followup"
+"DUSpd8Jq3M7","201202","gP6hn503KUX","Prlt0C1RF0s",,"7","bombali","2010-04-17",,"false"
+"DUSpd8Jq3M7","201202","gP6hn503KUX","V6L425pT3A0",,"10","bombali","2010-04-17",,"false"
+"DUSpd8Jq3M7","201202","OjTS752GbZE","V6L425pT3A0",,"9","bombali","2010-04-06",,"false"</screen>
     </section>
     <section>
       <title>Event data import</title>
-      <para>Event data can also be easily imported with the &quot;Event data import&quot; function. Refer to the section in the WebAPI for more information on the format used for importing events. Otherwise, the functionality is the same as the XML data import used for aggregate data. </para>
+      <para>Event data can also be easily imported with the "Event data import" function. Refer to the section in the WebAPI for more information on the format used for importing events. Otherwise, the functionality is the same as the XML data import used for aggregate data. </para>
     </section>
     <section id="importPDFdata">
       <title>Importing PDF data</title>

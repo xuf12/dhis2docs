@@ -682,7 +682,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       that data to the national DHIS 2 instance.</para>
     <para>The entry point for the Web API running on the demo instance is <ulink url="http://apps.dhis2.org/demo/api"/>. The entry point provides a convenient HTML page with links to all of the available resources in the Web API. The resource which is most appropriate for our purpose of sending data values is the <emphasis role="italic">dataValueSets</emphasis> resource. A data value set represents a set of data values which have a logical relationship, usually from being captured off  the same data entry form. We follow the link to the HTML representation which will take us to <ulink url="http://apps.dhis2.org/demo/api/dataValueSets"/>. The default representation is a HTML page which provides us with  useful instructions on how to interact with this resources. It tells us that we can use the POST verb to send values using a XML format defined by the <emphasis role="italic">http://dhis2.org/schema/dxf/2.0</emphasis> namespace:</para>
     <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;dataSetID&quot;
-  completeDate=&quot;date&quot; period=&quot;period&quot; orgUnit=&quot;orgUnitID&quot;&gt;
+  completeDate=&quot;date&quot; period=&quot;period&quot; orgUnit=&quot;orgUnitID&quot; attributeOptionCombo=&quot;aocID&quot;&gt;
   &lt;dataValue dataElement=&quot;dataElementID&quot; value=&quot;1&quot;/&gt;
   &lt;dataValue dataElement=&quot;dataElementID&quot; value=&quot;2&quot;/&gt;
   &lt;dataValue dataElement=&quot;dataElementID&quot; value=&quot;3&quot;/&gt;
@@ -693,6 +693,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
   "completeData": "date",
   "period": "period",
   "orgUnit": "orgUnitID",
+  "attributeOptionCombo", "aocID",
   "dataValues": [
     { "dataElement": "dataElementID", "value": "1" },
     { "dataElement": "dataElementID", "value": "2" },
@@ -1399,7 +1400,7 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
   <section>
     <title>Forms</title>
     <para>To retrieve information about a form (which corresponds to a data set and its sections)
-      you can interact with the <emphasis role="italic">forms</emphasis> resource. The form response
+      you can interact with the <emphasis role="italic">form</emphasis> resource. The form response
       is accessible as XML and JSON and will provide information about each section (group) in the
       form as well as each field in the sections, including label and identifiers. By supplying
       period and organisation unit identifiers the form response will be populated with data values. </para>
