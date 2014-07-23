@@ -5142,6 +5142,18 @@ ORDER BY oul.level, par.name, ou.name</screen>
     </section>
   </section>
   <section>
+    <title>User account invitations</title>
+    <para>The Web API supports inviting people to create user accounts through the <emphasis
+        role="italic">invite</emphasis> resource. To create an invitation you shoudl POST a user in
+      XML or JSON format to the invite resource. A specific username can be forced by defining the
+      username in the posted entity. By omitting the username, the person will be able to specify it
+      herself. The system will send out an invitation through email. This requires that email
+      settings have been properly configured. The invite resource is useful in order to securely
+      allow people to create accounts without anyone else knowing the password or by transferring
+      the password in plain text. The user entity can be posted like this:</para>
+    <screen>curl -d @user.json "localhost/api/users/invite" -H "Content-Type:application/json" -u admin:district -v</screen>
+  </section>
+  <section>
     <title>Schema Resource</title>
     <para>A new resource was included in DHIS 2.15 which can be used to introspect all available DXF2 classes, this resource can be found on
         <emphasis role="italic">/api/schemas</emphasis> and for a specific resource, you can have a look at <emphasis role="italic"
