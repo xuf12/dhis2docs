@@ -104,14 +104,13 @@
             </itemizedlist>
           </listitem>
           <listitem>
-            <para><emphasis role="bold">Number type:</emphasis> In order to increase the robustness of data entry, DHIS2 supports several different number types. During data entry, users will be restricted to enter the defined number types only.  Each of the available options are described below. </para>
+            <para><emphasis role="bold">Number type:</emphasis> DHIS 2 supports several different
+              number types. During data entry, users will be restricted to enter the defined number
+              types only. Each of the available options are described below. </para>
             <itemizedlist>
               <listitem>
                 <para>Number: This number type supports any real value with a single decimal point,
                   an optional negative sign, and no thousands separators. </para>
-              </listitem>
-              <listitem>
-                <para>Unit interval: Continuous number between 0 and 1.</para>
               </listitem>
               <listitem>
                 <para>Integer: Any whole number (positive and negative), including zero.</para>
@@ -125,6 +124,24 @@
               <listitem>
                 <para>Positive or zero integer: Any whole number greater than or equal to
                   zero.</para>
+              </listitem>
+              <listitem>
+                <para>Unit interval: Continuous number between 0 and 1.</para>
+              </listitem>
+              <listitem>
+                <para>Percentage: Whole number inclusive between 0 and 100.</para>
+              </listitem>
+            </itemizedlist>
+          </listitem>
+          <listitem>
+            <para><emphasis role="bold">Text type:</emphasis> The detailed type relevant to text
+              value type.</para>
+            <itemizedlist>
+              <listitem>
+                <para>Text: Free text, rendered as standard input field.</para>
+              </listitem>
+              <listitem>
+                <para>Long text: Free text, rendered as text area in data entry.</para>
               </listitem>
             </itemizedlist>
           </listitem>
