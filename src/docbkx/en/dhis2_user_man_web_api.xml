@@ -381,7 +381,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
         role="italic">property</emphasis> is the property on the meta-data you want to filter on,
         <emphasis role="italic">operator</emphasis> is the comparison operator you want to perform
       and <emphasis role="italic">value</emphasis> is the value to check against (not all operators
-      require value).  Please see the <emphasis role="italic">schema</emphasis> section to discover
+      require value). Please see the <emphasis role="italic">schema</emphasis> section to discover
       which properties are available. Recursive filtering, ie. filtering on associated objects or
       collection of objects, are supported as well.<table>
         <title>Available Operators</title>
@@ -476,8 +476,8 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       format <emphasis role="italic">?fields=id,name,dataSets[id,name]</emphasis> which would return
         <emphasis role="italic">id</emphasis>, <emphasis role="italic">name</emphasis> of the root,
       and the <emphasis role="italic">id</emphasis> and <emphasis role="italic">name</emphasis> of
-      every dataSet on that object. Negation can be done with the exclamation operator, and we have
-      a set of presets of field select (see below).</para>
+      every data set on that object. Negation can be done with the exclamation operator, and we have
+      a set of presets of field select (see below). Both XML and JSON are supported.</para>
     <para><emphasis role="bold">Example</emphasis>: Get <emphasis role="italic">id</emphasis> and
         <emphasis role="italic">name</emphasis> on the indicators
       resource:<screen>/api/indicators?fields=id,name</screen></para>
