@@ -834,9 +834,12 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       using the dataElementIScheme and orgUnitIdScheme paramaters.</para>
   </section>
     <section>
-      <title>Generating template XML for bulk sending of data values</title>
-      <para>To generate the XML for a certain dataSet, you can use the new <emphasis role="italic">/api/dataSets/ID/dataValueSet</emphasis> resource,
-        which will generate the XML for you, there are also some parameters you can use to further adjust the output.</para>
+      <title>Generating data value set template</title>
+      <para>To generate a data value set template for a certain data set you can use the <emphasis
+          role="italic">/api/dataSets/&lt;id>/dataValueSet</emphasis> resource. XML and JSON
+        response formats are supported. Example:</para>
+      <screen>api/dataSets/BfMAe6Itzgt/dataValueSet.json</screen>
+      <para>The parameters you can use to further adjust the output are described below:</para>
       <table frame="all">
         <title>Data values query parameters</title>
         <tgroup cols="3">
