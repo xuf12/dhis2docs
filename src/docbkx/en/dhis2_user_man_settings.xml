@@ -62,16 +62,27 @@
               .</para>
         </listitem>
         <listitem>
-          <para>Omit indicator values with zero numerator value in data mart: Defines whether aggregated indicator values with zero as the
-            numerator value should be written to the indicator data mart table. Having such values written is required for instance when
-            connecting Excel pivot tables to the data mart as Excel will need the numerator data to correctly aggregate up in the
-            organisation unit hierarchy. If third-party tools like Excel are not used with the application this will reduce the total number
-            of values written to the data mart (which again will improve performance) and could safely be set to omit.</para>
+          <para>Enable multi-organisation unit forms: Enable support for entering data forms for
+            multiple organisation units at the same time, in data entry, click on the parent
+            organisation unit for the children that you want to enter data for, and the dataset list
+            will include datasets that are assigned to the children of that parent.</para>
         </listitem>
         <listitem>
-          <para>Enable multi-organisation unit forms: Enable support for entering data forms for multiple organisation units at the same
-            time, in data entry, click on the parent organisation unit for the children that you want to enter data for, and the dataset
-            list will include datasets that are assigned to the children of that parent.</para>
+          <para>Omit indicator values with zero numerator value in data mart: Defines whether
+            aggregated indicator values with zero as the numerator value should be written to the
+            indicator data mart table. Having such values written is required for instance when
+            connecting Excel pivot tables to the data mart as Excel will need the numerator data to
+            correctly aggregate up in the organisation unit hierarchy. If third-party tools like
+            Excel are not used with the application this will reduce the total number of values
+            written to the data mart (which again will improve performance) and could safely be set
+            to omit.</para>
+        </listitem>
+        <listitem>
+          <para>Put analytics in maintenance mode: Puts the analytics engine / Web API resource in
+            maintenance mode, implying that 503 Service Unavailable will be returned for all
+            requests. This is useful when you need to perform maintenance on the server like
+            rebuilding indexes while the server is running in production, in order to reduce load
+            and more efficiently carry out the maintenanec.</para>
         </listitem>
       </itemizedlist>
     </section>
