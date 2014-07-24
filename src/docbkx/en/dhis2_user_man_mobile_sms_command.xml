@@ -87,6 +87,14 @@ form: reporting data from phones or j2me apps, alerting users, registering patie
           <emphasis role="bold">report vo.2|vn.5|a.2|b.6|z.3|x.1</emphasis>
         </emphasis></para>
       <para>With the J2ME_PARSER, you don&apos;t need to prepare those SMS text, because the J2ME will do this job</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="resources/images/dhis2_mobile_sms/mobile_sms_custom_message.PNG" contentwidth="45%" align="center"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot></para>
+      <para>User  can set the custom response message for &quot;Wrong format message&quot;, &quot;No User Message&quot;, &quot;User belong to more than one OrgUnit message&quot; and &quot;Success message&quot;. If no custom message is being set, system will use the default message.</para>
     </section>
     <section>
       <title>SMS Command for Alerting, Registering</title>
