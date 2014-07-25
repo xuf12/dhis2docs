@@ -426,6 +426,11 @@ as drop-down lists with auto-completion support.
             configuration parameter to a strong password.</para>
         </listitem>
         <listitem>
+          <para>Deploying the remote server on SSL/HTTPS is strongly recommended, as the username
+            and password are sent in clear text using basic authentication and could be intercepted
+            by an attacker.</para>
+        </listitem>
+        <listitem>
           <para>The data synchronization uses the UID property of data elements, category option
             combos and organisation units to match the meta-data. Hence the synchronization is
             dependent on these three meta-data objects being harmonized on the local and remote
