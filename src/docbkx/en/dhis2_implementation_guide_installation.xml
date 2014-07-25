@@ -151,7 +151,14 @@ hibernate.connection.driver_class = org.postgresql.Driver
 hibernate.connection.url = jdbc:postgresql:dhis2
 hibernate.connection.username = dhis
 hibernate.connection.password = xxxx
-hibernate.hbm2ddl.auto = update</screen></para>
+hibernate.hbm2ddl.auto = update
+encryption.password = xxxxxxxx</screen></para>
+      <para>The <emphasis role="italic">encryption.password</emphasis> property is the password used
+        when encrypting and decrypting data in the database. It applies for version 2.16 and later.
+        Note that the password must not be changed once it has been set and data has been encrypted
+        as the data can then no longer be decrypted. If the database is copied to another server the
+        encryption password must be identical. A system-provided password will be used if not set in
+        the configuration file, this can however not be considered secure.</para>
       <para>A common mistake is to have a white-space after the last property value - make sure there
       is no white-space at the end of any line.  Also remember that this file contains the clear text
       password for your dhis2 database so needs to be protected from unauthorized access.  To do this
