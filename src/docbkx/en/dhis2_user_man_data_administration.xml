@@ -401,4 +401,46 @@ as drop-down lists with auto-completion support.
       </mediaobject>
     </screenshot>
   </section>
+  <section>
+    <title>Data synchronization</title>
+    <para>DHIS 2 provides a feature for synchronizing data being captured on the local instance with
+      a another, remote instance of DHIS 2. This can be useful e.g. when you have deployed multiple
+      stand-alone instances of DHIS 2 which are required to submit data values to a central DHIS 2
+      instance.</para>
+    <para>These are the steps to enable data synchronziation:<itemizedlist>
+        <listitem>
+          <para>Go to Settings > Synchronization, enter the remote server URL, username and password
+            and click Save. You can test your settings by clicking on the "Tes settings"
+            link.</para>
+        </listitem>
+        <listitem>
+          <para>Go to Data administration > Scheduling. Under Data synchronization set strategy to
+            Enabled, and click Start.</para>
+        </listitem>
+      </itemizedlist></para>
+    <para>Some aspects of the data synchronization feature to be aware of:<itemizedlist>
+        <listitem>
+          <para>The local DHIS 2 instance will store the password to the user account on the remote
+            instance encrypted in the database. The remote account is used for authencating when
+            transferring data. For security purposes make sure you set the "enryption.password"
+            configuration parameter to a strong password.</para>
+        </listitem>
+        <listitem>
+          <para>The very first time DHIS 2 attempts to synchronize data, the system will include
+            data entered during the last three days. For the subsequent times the system will store
+            the time stamp of the last successful data synchronization, and only include data saved
+            or edited since that time. A synchronization job is considered successful only if data
+            was submitted to the remote server, authenticated and saved successfully.</para>
+        </listitem>
+        <listitem>
+          <para>The system will attempt a synchronization every minute. If the local server does not
+            have an Internet connection, the synchronization will be silenly aborted and
+            re-attempted after a minute.</para>
+        </listitem>
+        <listitem>
+          <para>You can see the time of last successful synchronization with remote server in the
+            scheduling screen next to the "Last success" label.</para>
+        </listitem>
+      </itemizedlist></para>
+  </section>
 </chapter>
