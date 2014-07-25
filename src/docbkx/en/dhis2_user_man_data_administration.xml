@@ -410,7 +410,7 @@ as drop-down lists with auto-completion support.
     <para>These are the steps to enable data synchronziation:<itemizedlist>
         <listitem>
           <para>Go to Settings > Synchronization, enter the remote server URL, username and password
-            and click Save. You can test your settings by clicking on the "Tes settings"
+            and click Save. You can test your settings by clicking on the "Test settings"
             link.</para>
         </listitem>
         <listitem>
@@ -420,15 +420,15 @@ as drop-down lists with auto-completion support.
       </itemizedlist></para>
     <para>Some aspects of the data synchronization feature to be aware of:<itemizedlist>
         <listitem>
-          <para>The local DHIS 2 instance will store the password to the user account on the remote
-            instance encrypted in the database. The remote account is used for authencating when
-            transferring data. For security purposes make sure you set the "enryption.password"
-            configuration parameter to a strong password.</para>
+          <para>The local DHIS 2 instance will store the password of the user account on the remote
+            instance encrypted in the local database. The remote account is used for authencation
+            when transferring data. For security purposes make sure you set the "enryption.password"
+            configuration parameter in hibernate.properties to a strong password.</para>
         </listitem>
         <listitem>
-          <para>Deploying the remote server on SSL/HTTPS is strongly recommended, as the username
-            and password are sent in clear text using basic authentication and could be intercepted
-            by an attacker.</para>
+          <para>Deploying the remote server on SSL/HTTPS is strongly recommended as the username and
+            password are sent in clear text using basic authentication and could be intercepted by
+            an attacker.</para>
         </listitem>
         <listitem>
           <para>The data synchronization uses the UID property of data elements, category option
@@ -437,16 +437,16 @@ as drop-down lists with auto-completion support.
             instance in order to work appropriately.</para>
         </listitem>
         <listitem>
-          <para>The very first time DHIS 2 attempts to synchronize data, the system will include
-            data entered during the last three days. For the subsequent times the system will store
-            the time stamp of the last successful data synchronization, and only include data saved
-            or edited since that time. A synchronization job is considered successful only if data
-            was submitted to the remote server, authenticated and saved successfully.</para>
+          <para>The very first time DHIS 2 attempts to synchronize data the system will include data
+            entered during the last three days. For the subsequent attempts the system will store
+            the time of the last successful data synchronization and only include data saved or
+            edited since that time. A synchronization job is considered successful only if data was
+            submitted, authenticated and saved successfully on the remote server,.</para>
         </listitem>
         <listitem>
           <para>The system will attempt a synchronization every minute. If the local server does not
-            have an Internet connection, the synchronization will be silenly aborted and
-            re-attempted after a minute.</para>
+            have a working Internet connection at the time, the synchronization will be silenly
+            aborted and re-attempted after a minute.</para>
         </listitem>
         <listitem>
           <para>You can see the time of last successful synchronization with remote server in the
