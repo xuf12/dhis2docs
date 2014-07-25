@@ -426,6 +426,12 @@ as drop-down lists with auto-completion support.
             configuration parameter to a strong password.</para>
         </listitem>
         <listitem>
+          <para>The data synchronization uses the UID property of data elements, category option
+            combos and organisation units to match the meta-data. Hence the synchronization is
+            dependent on these three meta-data objects being harmonized on the local and remote
+            instance in order to work appropriately.</para>
+        </listitem>
+        <listitem>
           <para>The very first time DHIS 2 attempts to synchronize data, the system will include
             data entered during the last three days. For the subsequent times the system will store
             the time stamp of the last successful data synchronization, and only include data saved
