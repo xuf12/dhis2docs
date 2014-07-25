@@ -144,8 +144,13 @@ sudo locale-gen ru_RU.UTF-8</screen>
       <para><screen>wal_writer_delay = 10000ms</screen></para>
       <para>Specifies the delay between WAL write operations. Setting this to a high value will improve performance on write-heavy systems since potentially many write operations can be executed within a single flush to disk.</para>
       <para>Restart PostgreSQL by invoking <code>sudo /etc/init.d/postgresql restart</code></para>
-      <para><emphasis role="bold">Set the database configuration</emphasis></para>
-      <para>The database connection information is provided to DHIS 2 through a configuration file called <emphasis role="italic">hibernate.properties</emphasis>. Create this file and save it in a convenient location. A  file corresponding to the above setup has these properties: </para>
+    </section>
+    <section>
+      <title>Database configuration</title>
+      <para>The database connection information is provided to DHIS 2 through a configuration file
+        called <emphasis role="italic">hibernate.properties</emphasis>. Create this file and save it
+        in a convenient location. A configuration file for PostgreSQL corresponding to the above
+        setup has these properties: </para>
       <para><screen>hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
 hibernate.connection.driver_class = org.postgresql.Driver
 hibernate.connection.url = jdbc:postgresql:dhis2
@@ -159,11 +164,11 @@ encryption.password = xxxxxxxx</screen></para>
         as the data can then no longer be decrypted. If the database is copied to another server the
         encryption password must be identical. A system-provided password will be used if not set in
         the configuration file, this can however not be considered secure.</para>
-      <para>A common mistake is to have a white-space after the last property value - make sure there
-      is no white-space at the end of any line.  Also remember that this file contains the clear text
-      password for your dhis2 database so needs to be protected from unauthorized access.  To do this
-    invoke <code>chmod 0600 hibernate.properties</code> which ensures that only the dhis user which owns the
-    file is allowed to read or write to it.</para>
+      <para>A common mistake is to have a white-space after the last property value so make sure
+        there is no white-space at the end of any line. Also remember that this file contains the
+        clear text password for your dhis2 database so needs to be protected from unauthorized
+        access. To do this invoke <code>chmod 0600 hibernate.properties</code> which ensures that
+        only the dhis user which owns the file is allowed to read or write to it.</para>
     </section>
     <section>
       <title>Install Java</title>
