@@ -409,7 +409,7 @@
               <entry>Instruction</entry>
               <entry>No</entry>
               <entry/>
-              <entry/>
+              <entry>Free text instruction.</entry>
             </row>
             <row>
               <entry>Importance</entry>
@@ -444,9 +444,15 @@
             </row>
             <row>
               <entry>Left side expression description</entry>
+              <entry>Yes</entry>
+              <entry/>
+              <entry>Free text.</entry>
+            </row>
+            <row>
+              <entry>Left side null if blank</entry>
               <entry>No</entry>
-              <entry/>
-              <entry/>
+              <entry>false | true</entry>
+              <entry>Boolean.</entry>
             </row>
             <row>
               <entry>Right side expression</entry>
@@ -456,9 +462,15 @@
             </row>
             <row>
               <entry>Right side expression description</entry>
+              <entry>Yes</entry>
+              <entry/>
+              <entry>Free text.</entry>
+            </row>
+            <row>
+              <entry>Right side null if blank</entry>
               <entry>No</entry>
-              <entry/>
-              <entry/>
+              <entry>false | true</entry>
+              <entry>Boolean.</entry>
             </row>
           </tbody>
         </tgroup>
