@@ -167,9 +167,10 @@ encryption.password = xxxx</screen></para>
         this can however not be considered secure.</para>
       <para>A common mistake is to have a white-space after the last property value so make sure
         there is no white-space at the end of any line. Also remember that this file contains the
-        clear text password for your dhis2 database so needs to be protected from unauthorized
-        access. To do this invoke <code>chmod 0600 hibernate.properties</code> which ensures that
-        only the dhis user which owns the file is allowed to read or write to it.</para>
+        clear text password for your DHIS 2 database so it needs to be protected from unauthorized
+        access. To do this invoke the following command which ensures that only the dhis user which
+        owns the file is allowed to read it:</para>
+      <screen>chmod 0600 hibernate.properties</screen>
     </section>
     <section>
       <title>Install Java</title>
@@ -435,8 +436,11 @@ sudo /etc/init.d/nginx stop</screen></para>
       </important>
     </section>
     <section>
-      <title>Starting tomcat and nginx on boot-time</title>
-      <para>In certain situations a server might reboot unexpectedly. It is hence preferable to have Tomcat and nginx start automatically when the server starts. To achieve that the first step is to create init scripts. Create a new file called <code>tomcat</code> and paste the below content into it (adjust the HOME variable to your environment):</para>
+      <title>Starting tomcat on boot-time</title>
+      <para>In certain situations a server might reboot unexpectedly. It is hence preferable to have
+        Tomcat start automatically when the server starts. To achieve that the first step is to
+        create init scripts. Create a new file called <code>tomcat</code> and paste the below
+        content into it (adjust the HOME variable to your environment):</para>
       <screen>#!/bin/sh
 #Tomcat init script
 
@@ -460,11 +464,12 @@ exit 0</screen>
         invoking:</para>
       <screen>sudo mv tomcat /etc/init.d
 sudo chmod +x /etc/init.d/tomcat</screen>
-      <para>Next make sure the tomcat and nginx init scripts will be invoked during system startup
-        and shutdown:</para>
-      <screen>sudo /usr/sbin/update-rc.d -f nginx defaults 80
-sudo /usr/sbin/update-rc.d -f tomcat defaults 81</screen>
-      <para>Tomcat and nginx will now be started at system startup and stopped at system shutdown. If you later need to revert this you can replace <code>defaults</code> with  <code>remove</code> and invoke the above commands again.</para>
+      <para>Next make sure the tomcat init script will be invoked during system startup and
+        shutdown:</para>
+      <screen>sudo /usr/sbin/update-rc.d -f tomcat defaults 81</screen>
+      <para>Tomcat will now be started at system startup and stopped at system shutdown. If you
+        later need to revert this you can replace <code>defaults</code> with <code>remove</code> and
+        invoke the above commands again.</para>
     </section>
     <section>
       <title>Making resources available with nginx</title>
