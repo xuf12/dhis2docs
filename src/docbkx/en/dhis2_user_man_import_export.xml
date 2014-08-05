@@ -194,8 +194,8 @@
             <row>
               <entry>Domain type</entry>
               <entry>No</entry>
-              <entry>aggregate | patient</entry>
-              <entry>Domain type for data element, can be aggreate or patient. Max 16 char.</entry>
+              <entry>aggregate | tracker</entry>
+              <entry>Domain type for data element, can be aggregate or tracker. Max 16 char.</entry>
             </row>
             <row>
               <entry>Value type</entry>
@@ -219,7 +219,8 @@
               <entry>Aggregation operator</entry>
               <entry>No</entry>
               <entry>sum | average | count | stddev | variance</entry>
-              <entry>Operator indicating how to aggreate data in the time dimension. Max 16 char.</entry>
+              <entry>Operator indicating how to aggregate data in the time dimension. Max 16
+                char.</entry>
             </row>
             <row>
               <entry>Category combination UID</entry>
