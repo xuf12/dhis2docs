@@ -291,30 +291,69 @@ Show details: Display some informative information about the data set, including
     </section>
     <section>
       <title>Scripting in custom forms</title>
-      <para>With custom data entry forms it is possible to use Javascript to create dynamic behavior
-        of the form. There are two methods which can be used to hook into events in the data entry
-        module. To have your code invoked when a data entry form has been loaded you can add a
-        Javascript tag in your custom form like this:</para>
+      <para>In custom data entry form you can use javascript to create dynamic behavior and
+        customziations. The DHIS 2 data entry module provides a range of events which you can
+        register for and use to perform actions at certain times. The events are registered on the
+        document element. The table below provides an overview of the events and when they are
+        triggered.</para>
+      <table frame="all">
+        <title>Data entry events</title>
+        <tgroup cols="3">
+          <colspec colname="c1" colnum="1" colwidth="1*"/>
+          <colspec colname="c2" colnum="2" colwidth="1.92*"/>
+          <colspec colname="newCol3" colnum="3" colwidth="1.55*"/>
+          <thead>
+            <row>
+              <entry>Key</entry>
+              <entry>Description</entry>
+              <entry>Argument</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>dhis2.de.event.formLoaded</entry>
+              <entry>Triggered after the data entry form is rendered,. but before data values are
+                set in entry fields</entry>
+              <entry>-</entry>
+            </row>
+            <row>
+              <entry>dhis2.de.event.dataValuesLoaded</entry>
+              <entry>Triggered after data values are set in entry fields.</entry>
+              <entry>-</entry>
+            </row>
+            <row>
+              <entry>dhis2.de.event.formReady</entry>
+              <entry>Triggered when the data entry form is completely rendered and loaded with all
+                elements.</entry>
+              <entry>-</entry>
+            </row>
+            <row>
+              <entry>dhis2.de.event.dataValueSaved</entry>
+              <entry>Triggered when a data value is saved successfully.</entry>
+              <entry>The data value object.</entry>
+            </row>
+            <row>
+              <entry>dhis2.de.event.completed</entry>
+              <entry>Triggered when a data set is successfully marked as complete.</entry>
+              <entry>The complete registration object.</entry>
+            </row>
+            <row>
+              <entry>dhis2.de.event.uncompleted</entry>
+              <entry>Triggered when a data set is successfully marked as incomplete.</entry>
+              <entry>-</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>To register for such an event:</para>
       <screen>&lt;script type=&quot;text/javascript&quot;&gt;
 
-onFormLoad( function() {
-  // Do your javascript stuff here
+dhis2.de.on( "dhis2.de.event.formReady", function() {
+  console.log( "The form is loaded!" );
 } );
 
-&lt;/script&gt;</screen>
-      <para>To have your code invoked when any data value is successfully saved in the form you can
-        add a Javascript tag like the example below. Note that you can access all properties for the
-        data value being saved through your callback function; the first parameter is the event
-        object while the second argument is the data value object being saved:</para>
-      <screen>&lt;script type=&quot;text/javascript&quot;&gt;
-
-onValueSave( function( event, dataValue ) {
-  var de = dataValue.dataElementId;
-  var co = dataValue.optionComboId;
-  var ou = dataValue.organisationUnitId;
-  var va = dataValue.value;
-
-  // Do stuff like modifying the form based on the data element and value being saved
+dhis2.de.on( "dhis2.de.event.dataValueSaved", function( dv ) {
+  console.log( "Data value was saved with data element: " + dv.de );
 } );
 
 &lt;/script&gt;</screen>
