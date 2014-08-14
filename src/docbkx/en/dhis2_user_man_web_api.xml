@@ -1463,6 +1463,10 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true" -H "Accept:applic
     <para>To retrieve the form filled with data values for a specific period and organisation unit
       in XML:</para>
     <screen>api/dataSets/BfMAe6Itzgt/form.xml?ou=DiszpKrYNg8&amp;pe=201401</screen>
+    <para>When it comes to custom data entry forms, this resource also allows for creating such
+      forms directly for a data set. This can be done through a POST or PUT request with content
+      type text/html where the payload is the custom form markup such as:</para>
+    <screen>curl -d @form.html "localhost/api/dataSets/BfMAe6Itzgt/form" -H "Content-Type:text/html" -u admin:district -X PUT -v</screen>
   </section>
   <section>
     <title>Reading complete data set registrations</title>
