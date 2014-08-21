@@ -58,7 +58,7 @@
 				<configuration>
 					<xincludeSupported>true</xincludeSupported>
 				</configuration>
-				<!-- Chunked HTML -->
+				<!-- Chunked HTML User docs-->
 				<executions>
 					<execution>
 						<id>chunked-html-docs-user</id>
@@ -100,6 +100,7 @@
 							</postProcess>
 						</configuration>
 					</execution>
+					<!-- Chunked HTML End User docs-->
 					<execution>
 						<id>chunked-html-docs-end-user</id>
 						<phase>package</phase>
@@ -135,7 +136,7 @@
 							</postProcess>
 						</configuration>
 					</execution>
-					
+					<!-- Chunked HTML CCEI User docs-->
 					<execution>
 						<id>chunked-html-docs-ccei-user</id>
 						<phase>package</phase>
@@ -176,7 +177,7 @@
 							</postProcess>
 						</configuration>
 					</execution>
-					
+					<!-- Chunked HTML Implementer docs-->
 					<execution>
 						<id>chunked-html-docs-implementer</id>
 						<phase>package</phase>
@@ -212,7 +213,40 @@
 							</postProcess>
 						</configuration>
 					</execution>
-					
+					<execution>
+						<id>chunked-html-docs-developer</id>
+						<phase>package</phase>
+						<goals>
+							<goal>generate-html</goal>
+						</goals>
+						<configuration>
+							<admonGraphics>1</admonGraphics>
+							<admonGraphicsPath>resources/images/admon/</admonGraphicsPath>
+							<htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
+							<sectionAutolabel>1</sectionAutolabel>
+							<sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
+							<chunkedOutput>true</chunkedOutput>
+							<includes>dhis2_developer_manual.xml</includes>
+							<sourceDirectory>${docbook.source}/en/</sourceDirectory>
+							<targetDirectory>${docbook.target}/en/developer/html</targetDirectory>
+							<postProcess>
+								<copy todir="${docbook.target}/en/developer/html/resources/images">
+									<fileset dir="src/docbkx/en/resources/images">
+										<include name="**/*.png" />
+										<include name="**/*.PNG" />
+										<include name="**/*.gif" />
+										<include name="**/*.jpg" />
+										<include name="**/*.svg" />
+									</fileset>
+								</copy>
+								<copy todir="${docbook.target}/en/developer/html/resources/css">
+									<fileset dir="src/docbkx/en/resources/css">
+										<include name="**/*.css" />
+									</fileset>
+								</copy>
+							</postProcess>
+						</configuration>
+					</execution>
 					<!-- Single page HTML -->
 					<execution>
 						<id>html-docs-en</id>
@@ -239,7 +273,7 @@
 						</configuration>
 					</execution>
 					
-					<!-- PDF -->
+					<!-- PDF User docs-->
 					<execution>
 						<id>pdf-docs-en-user</id>
 						<phase>package</phase>
@@ -258,7 +292,8 @@
 							</postProcess>
 						</configuration>
 					</execution>
-
+					
+					<!-- PDF CCEI User docs-->
 					<execution>
 						<id>pdf-docs-en-ccei-user</id>
 						<phase>package</phase>
@@ -277,7 +312,7 @@
 							</postProcess>
 						</configuration>
 					</execution>
-					
+					<!-- PDF Implementer docs-->
 					<execution>
 						<id>pdf-docs-en-implementer</id>
 						<phase>package</phase>
@@ -296,6 +331,7 @@
 							</postProcess>
 						</configuration>
 					</execution>
+					<!-- PDF End User docs-->
 					<execution>
 						<id>pdf-docs-en-end-user</id>
 						<phase>package</phase>
@@ -314,6 +350,7 @@
 							</postProcess>
 						</configuration>
 					</execution>
+					<!-- PDF Documentation docs-->
 					<execution>
 						<id>pdf-documentation-guide</id>
 						<phase>package</phase>
