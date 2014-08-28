@@ -36,7 +36,7 @@
       <screeninfo>Standard reports</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata width="100%" fileref="resources/images/dhis2UserManual/standard_reports_ke.png" format="PNG"/>
+          <imagedata fileref="resources/images/dhis2UserManual/standard_reports_ke.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -56,7 +56,7 @@
       <screeninfo>Report table parameters</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata width="100%" fileref="resources/images/dhis2UserManual/report_parameters.png" format="PNG"/>
+          <imagedata fileref="resources/images/dhis2UserManual/report_parameters.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -70,7 +70,7 @@
       <screeninfo>Report table view</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata width="100%" fileref="resources/images/dhis2UserManual/report_table_view.png" format="PNG"/>
+          <imagedata fileref="resources/images/dhis2UserManual/report_table_view.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -99,47 +99,76 @@
     <title>Using data visualizer</title>
     <para>The data visualizer module can be accessed under &quot;Services&quot; in the top menu. See the chapter called &quot;Using data visualizer&quot; for a thorough explanation of this module.</para>
   </section>
-  <section id="reporting_dashboard">
-    <title>Using the dashboard</title>
-    <para>The dashboard is your first view into the data every time you log on to the system. Every user has its own dashboard, and a dashboard consists of 4 chart areas to the right and 3 short cut areas to the left.</para>
-    <screenshot>
-      <screeninfo>Dashboard</screeninfo>
-      <mediaobject>
-        <imageobject>
-          <imagedata width="100%" fileref="resources/images/dhis2UserManual/dashboard_kenya.png" format="PNG"/>
-        </imageobject>
-      </mediaobject>
-    </screenshot>
-    <para><emphasis role="bold">Customise shortcut areas:</emphasis> Each of the three short cut areas can hold a list of items from one of the following objects; Reports (standard), Documents, Data mart exports, Report tables, Map views, RSS Health. To add a new object type to a shortcut area click on the Insert link just above the area. Then to populate the list you need to add items one by one from the Services-&gt;Reports menus. From the various lists of reports, report tables, charts etc. you can add an item by clicking on the pie chart icon next to the item you want to add to the dashboard. </para>
-    <para>E.g. to add your three favourite standard reports to the dashboard, first Insert Reports to one of the shortcut areas in the dashboard, then go to Services-&gt;Reports and click on Standard reports. From the list of standard reports you locate the reports you want and click on the pie chart icon next to each of the reports you want to add to the dashboard. When you go back to the dashboard you will see the three reports listed in the shortcut area where you inserted Reports.</para>
-    <para>Use the Clear link above the shortcut area to empty an area. The Close link closes the insert menu without inserting a new object type.  </para>
-    <para><emphasis role="bold">Customise chart areas:</emphasis> There are four chart areas. To insert a chart simply click on insert and click on one of the charts in the list. Use Close to close the list without adding a new chart, and use Clear to empty a chart area. These charts will be updated every time you open the dashboard,  will automatically show data for the orgunit assigned to the current user, and will update the data when new periods are available. </para>
-    <screenshot>
-      <screeninfo>Adding charts to the dashboard</screeninfo>
-      <mediaobject>
-        <imageobject>
-          <imagedata width="100%" fileref="resources/images/dhis2UserManual/dashboard_add_chart.png" format="PNG"/>
-        </imageobject>
-      </mediaobject>
-    </screenshot>
-  </section>
   <section id="reporting_reporting_rate_summary">
     <title>Using reporting rate summary</title>
-    <para>Access the reporting rate summary from the Services-&gt;Reports menu. Reporting rate summaries will show how many datasets (forms) that have been submitted by organisation unit and period. You an use one of three different methods to calculate completeness; 1) based on complete button in data entry, 2) based on a set of defined compulsory data elements, or 3) based on the total registered data values for a dataset.  </para>
-    <para><emphasis role="bold">To run the report do the following:</emphasis></para>
-    <para>Select an orgunit from the tree.</para>
-    <para>Select one of the completeness methods.</para>
-    <para>Select all or one dataset (All will give you a report with all datasets for the selected
-      orgunit. One dataset will give you a report with completeness for all the children of the
-      selected orgunit.</para>
-    <para>Select a period type and a period from the list of available periods for that period type. Move back/forward one year by using the Prev/Next buttons.</para>
-    <para>Then the report will be shown automatically.</para>
-    <para>Change any of the parameters above and the report will be updated automatically.</para>
+    <para>Access the reporting rate summary from the Services-&gt;Reports menu. Reporting rate
+      summaries will show how many datasets (forms) that have been submitted by organisation unit
+      and period. There are two methods available to calculate reporting rates
+      (completeness):</para>
+    <itemizedlist>
+      <listitem>
+        <para>Based on complete data set registrations. A complete data set registration refers to a
+          user marking a data entry form as complete, typically by clicking the complete button in
+          the data entry screen, hereby indicating to the system that she considers the form to be
+          complete. This is i.e. a subjective approach to calculating completeness.</para>
+      </listitem>
+      <listitem>
+        <para>Based on compulsory data element: You can define any number of data elements in a data
+          set to be compulsory. This imples that data values must be captured for all data elements
+          which have been marked as compulsory in order for the data set to be considered complete.
+          This is i.e. an objective approach to calcuating completeness.</para>
+      </listitem>
+    </itemizedlist>
+    <para>The reporting rate summary willl for each row show a range of measures:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Actual reports: Indicates the number of data entry complete registrations for the
+          relevant data set.</para>
+      </listitem>
+      <listitem>
+        <para>Expected reports: Indicates how many data entry complete registrations are expected.
+          This number is based on the number of organisation units the relevant data set has been
+          assigned to (enabled for data entry).</para>
+      </listitem>
+      <listitem>
+        <para>Percent: The percentage of reports registered as complete based on the number
+          expected.</para>
+      </listitem>
+      <listitem>
+        <para>Reports on time: Same as actual reports, only reports registered as complete within
+          the maximum number of days after the end of the reporting period. This number of days
+          after reporting period can be defined per data set in the data set management.</para>
+      </listitem>
+      <listitem>
+        <para>Percent on time: Same as percentage, only reports registered as complete on time used
+          as numerator.</para>
+      </listitem>
+    </itemizedlist>
+    <para>To run the report you can follow these steps:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Select an orgunit from the tree.</para>
+      </listitem>
+      <listitem>
+        <para>Select one of the completeness methods to use to calcuate the reportin rates.</para>
+        <para>Select all or one data set. All will give you a report with all data sets for the
+          selected organisation unit. A single data set will give you a report with completeness for
+          all children of the selected organisation unit.</para>
+      </listitem>
+      <listitem>
+        <para>Select a period type and a period from the list of available periods for that period
+          type. Move back/forward one year by using the prev/next buttons.</para>
+      </listitem>
+      <listitem>
+        <para>The report will then be rendered. Change any of the parameters above and the report
+          will be updated automatically.</para>
+      </listitem>
+    </itemizedlist>
     <screenshot>
-      <screeninfo>Completeness report</screeninfo>
+      <screeninfo>Reporting rate summary</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata width="100%" fileref="resources/images/dhis2UserManual/completeness_report.png" format="PNG"/>
+          <imagedata fileref="resources/images/dhis2UserManual/completeness_report.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -155,34 +184,9 @@
       <screeninfo>Orgunit distribution report</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata width="100%" fileref="resources/images/dhis2UserManual/orgunit_report.png" format="PNG"/>
+          <imagedata fileref="resources/images/dhis2UserManual/orgunit_report.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
-  </section>
-  <section id="web_pivot_table">
-    <title>Using web pivot table</title>
-    <para>The web pivot table is a tool for displaying and pivoting indicator and data element data
-      in an easy way. From the open data selection box start by selecting data type which can be
-      data elements or indicators. Select the a group as a filter or leave it on &quot;All&quot;.
-      Select start date, end date and period type to indicate which periods you want to include in
-      the pivot table. Continue by selecting an organisation unit from the selection tree. The
-      children at the level below the selected organisation unit will be included in the pivot
-      table. Then click &quot;Get data&quot;.</para>
-    <para>After loading a pivot table you will see that indicators (or data elements) will appear on
-      top as columns, while periods and organisation units are combined as rows. If you want to
-      pivot the table click on the &quot;Pivot&quot; button and select new dimensions. These
-      dimensions will be displayed as columns in the table when clicking &quot;Pivot&quot;.</para>
-    <para>In the pivot table you can click on any cell in order to show a menu. From this menu you can choose to visualize the relevant indicator, org unit and period as various chart variants.</para>
-    <para>To save the pivot table data to your local computer click the &quot;Download as excel&quot; button. The Excel workbook will show each period as a sheet.</para>
-  </section>
-  <section id="data_mart">
-    <title>Using data mart management</title>
-    <para>The data mart is a set of tables in the DHIS database which is used by all reporting and
-      analysis tools to retrieve data from. The data mart is populated based on the collected data.
-      This management user interface allows you to control that process of converting collected data
-      into aggregated data and write to the data mart.</para>
-    <para>The data mart management screen allows you to select period types, start date and end date which will control which periods are included in the data mart process. By default all data elements, indicators and organisation units will be included.</para>
-    <para>The data mart process might take a long time and heavily utilize the resources of your server so make sure you start such processes at a feasible time in production environments. Data mart processes can be scheduled as regular tasks in the data administration module.</para>
   </section>
 </chapter>
