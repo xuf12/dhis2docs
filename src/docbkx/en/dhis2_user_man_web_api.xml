@@ -5176,6 +5176,43 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <screen>curl -d @user.json "localhost/api/users/invite" -H "Content-Type:application/json" -u admin:district -v</screen>
   </section>
   <section>
+    <title>Sharing</title>
+    <para>The sharing solution allows you to share most objects in the system with specific user
+      groups and to define whether objects should be public and private. To get and set sharing for
+      objects you can interact with the <emphasis role="italic">sharing</emphasis> resource. To
+      request the sharing status for an object use a GET request to:</para>
+    <screen>api/sharing?type=dataElement&amp;id=fbfJHSPpUQD</screen>
+    <para>You can define the sharing status for an object using the same URL with a POST request,
+      where the payload in JSON format looks like this:</para>
+    <screen>{
+    "meta": {
+        "allowPublicAccess": true,
+        "allowExternalAccess": false
+    },
+    "object": {
+        "id": "fbfJHSPpUQD",
+        "name": "ANC 1st visit",
+        "publicAccess": "rw------",
+        "externalAccess": false,
+        "user": {},
+        "userGroupAccesses": [
+            {
+                "id": "hj0nnsVsPLU",
+                "access": "rw------"
+            },
+            {
+                "id": "qMjBflJMOfB",
+                "access": "r-------"
+            }
+        ]
+    }
+}</screen>
+    <para>In this example, the payload defines the object to have read-write public access, no
+      external access (without login), read-write access to one user group and read-only access to
+      another user group. You can submit this to the sharing resource using curl:</para>
+    <screen>curl -d @sharing.json "localhost/api/sharing?type=dataElement&amp;id=fbfJHSPpUQD" -H "Content-Type:application/json" -u admin:district -v</screen>
+  </section>
+  <section>
     <title>Schema Resource</title>
     <para>A new resource was included in DHIS 2.15 which can be used to introspect all available DXF2 classes, this resource can be found on
         <emphasis role="italic">/api/schemas</emphasis> and for a specific resource, you can have a look at <emphasis role="italic"
