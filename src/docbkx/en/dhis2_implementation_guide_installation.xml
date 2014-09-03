@@ -259,8 +259,11 @@ export DHIS2_HOME=&apos;/home/dhis/config&apos;</screen></para>
       <para><screen>sudo /etc/init.d/nginx start
 sudo /etc/init.d/nginx reload
 sudo /etc/init.d/nginx stop</screen></para>
-      <para>Now that we have installed nginx we will now continue to configure regular proxying of requests to our Tomcat instance, which we assume runs at <emphasis role="italic">http://localhost:8080</emphasis>. To configure nginx you can open the configuration file by invoking</para>
-      <para><code>sudo nano /etc/nginx/nginx.conf</code></para>
+      <para>Now that we have installed nginx we will now continue to configure regular proxying of
+        requests to our Tomcat instance, which we assume runs at <emphasis role="italic"
+          >http://localhost:8080</emphasis>. To configure nginx you can open the configuration file
+        by invoking:</para>
+      <screen>sudo nano /etc/nginx/nginx.conf</screen>
       <para>nginx configuration is built around a hierarchy of blocks representing http, server and location, where each block inherit settings from parent blocks. The following snippet will configure nginx to proxy pass (redirect) requests from port 80 (which is the port nginx will listen on by default) to our Tomcat instance. It will also make nginx serve requests for static content such as Javascript, stylesheets and images and instruct clients to cache it for 4 days which will reduce the load on Tomcat and improve overall performance. Include the following configuration in nginx.conf:</para>
       <para><screen>http {
   gzip on; # Enables compression
