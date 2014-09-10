@@ -314,18 +314,18 @@ Show details: Display some informative information about the data set, including
               <entry>dhis2.de.event.formLoaded</entry>
               <entry>Triggered after the data entry form is rendered, but before data values are set
                 in entry fields.</entry>
-              <entry>-</entry>
+              <entry/>
             </row>
             <row>
               <entry>dhis2.de.event.dataValuesLoaded</entry>
               <entry>Triggered after data values are set in entry fields.</entry>
-              <entry>-</entry>
+              <entry/>
             </row>
             <row>
               <entry>dhis2.de.event.formReady</entry>
               <entry>Triggered when the data entry form is completely rendered and loaded with all
                 elements.</entry>
-              <entry>-</entry>
+              <entry/>
             </row>
             <row>
               <entry>dhis2.de.event.dataValueSaved</entry>
@@ -340,7 +340,18 @@ Show details: Display some informative information about the data set, including
             <row>
               <entry>dhis2.de.event.uncompleted</entry>
               <entry>Triggered when a data set is successfully marked as incomplete.</entry>
-              <entry>-</entry>
+              <entry/>
+            </row>
+            <row>
+              <entry>dhis2.de.event.validationSuccess</entry>
+              <entry>Triggered when validation is done and there were no violations.</entry>
+              <entry/>
+            </row>
+            <row>
+              <entry>dhis2.de.event.validationError</entry>
+              <entry>Triggered when validation is done and there were one or more
+                violations.</entry>
+              <entry/>
             </row>
           </tbody>
         </tgroup>
