@@ -39,8 +39,8 @@
 								<tstamp>
 									<format property="now" pattern="yyyy-MM-dd HH:mm:ss"/>
 								</tstamp>
-								<exec executable="bzr" outputproperty="revision" failifexecutionfails="false">
-									<arg line="revno -q"/>
+								<exec executable="git" outputproperty="revision" failifexecutionfails="false">
+									<arg line="rev-list --count HEAD"/>
 								</exec>
 								<echo file="${project.basedir}/src/docbkx/build.properties" message="&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;&lt;revhistory&gt;&lt;revision&gt;&lt;revnumber&gt; ${revision}&lt;/revnumber&gt;&lt;revremark&gt;Version ${project.version} ${now}&lt;/revremark&gt;&lt;/revision&gt;&lt;/revhistory&gt;" />
 							</tasks>
