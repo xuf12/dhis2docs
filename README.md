@@ -1,12 +1,12 @@
 This is the DHIS2 documentation project. 
 
-To build the documents, consult the DHIS2 documentation guide for details. 
+To build the documents, consult the <a href="https://www.dhis2.org/doc/snapshot/en/implementer/dhis2_documentation_guide.pdf">DHIS2 documentation guide</a> for details. 
 
 Otherwise, just execute
 
-mvn package
+mvn clean package
 
-to build the documentation
+to build the documentation.
 
 If you want to build your own custom documentation, just modify the main pom.xml to suit your needs and then execute
 
