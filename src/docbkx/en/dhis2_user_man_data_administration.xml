@@ -256,7 +256,7 @@
     <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata align="center" fileref="resources/images/maintainence/locale_management.png" width="30%"/>
+          <imagedata width="30%" align="center" fileref="resources/images/maintainence/locale_management.png"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -351,7 +351,7 @@
     <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata width="60%" align="center" fileref="resources/images/maintainence/add_new_constant.PNG"/>
+          <imagedata width="40%" align="center" fileref="resources/images/maintainence/add_new_constant.PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -391,7 +391,7 @@ as drop-down lists with auto-completion support.
   </section>
   <section id="scheduling">
     <title>Scheduling</title>
-    <para>The analytics, resource tables and data mart can be automatically scheduled to run on regular intervals. Simply select the aggregation period types, organisation unit group set aggregation level, and strategy to configure how the scheduled job should run. If you are using surveillance rules, you can choose to run them &quot;All daily&quot; by selcting this option. </para>
+    <para>The analytics, resource tables and data mart can be automatically scheduled to run on regular intervals. Simply select the aggregation period types, organisation unit group set aggregation level, and strategy to configure how the scheduled job should run. If you are using surveillance rules, you can choose to run them &quot;All daily&quot; by selecting this option. </para>
     <para>Pressing &quot;Start&quot; will enable the scheduled job to run at a pre-determined time (always at midnight based on the server time). </para>
     <screenshot>
       <mediaobject>
@@ -409,12 +409,12 @@ as drop-down lists with auto-completion support.
       instance.</para>
     <para>These are the steps to enable data synchronziation:<itemizedlist>
         <listitem>
-          <para>Go to Settings > Synchronization, enter the remote server URL, username and password
-            and click Save. You can test your settings by clicking on the "Test settings"
+          <para>Go to Settings &gt; Synchronization, enter the remote server URL, username and password
+            and click Save. You can test your settings by clicking on the &quot;Test settings&quot;
             link.</para>
         </listitem>
         <listitem>
-          <para>Go to Data administration > Scheduling. Under Data synchronization set strategy to
+          <para>Go to Data administration &gt; Scheduling. Under Data synchronization set strategy to
             Enabled, and click Start.</para>
         </listitem>
       </itemizedlist></para>
@@ -422,7 +422,7 @@ as drop-down lists with auto-completion support.
         <listitem>
           <para>The local DHIS 2 instance will store the password of the user account on the remote
             instance encrypted in the local database. The remote account is used for authencation
-            when transferring data. For security purposes make sure you set the "enryption.password"
+            when transferring data. For security purposes make sure you set the &quot;enryption.password&quot;
             configuration parameter in hibernate.properties to a strong password.</para>
         </listitem>
         <listitem>
@@ -450,7 +450,7 @@ as drop-down lists with auto-completion support.
         </listitem>
         <listitem>
           <para>You can see the time of last successful synchronization with remote server in the
-            scheduling screen next to the "Last success" label.</para>
+            scheduling screen next to the &quot;Last success&quot; label.</para>
         </listitem>
       </itemizedlist></para>
   </section>
