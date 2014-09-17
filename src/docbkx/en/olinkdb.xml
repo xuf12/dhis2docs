@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE targetset
+       SYSTEM "./targetdatabase.dtd" [
+<!ENTITY user_man SYSTEM "../../../target/site/en/user/html/dhis2_user_manual_en.html.target.db">
+]>
+
+<targetset>
+  <targetsetinfo>Target DB for chunked HTML</targetsetinfo>
+  <sitemap>
+    <dir name="html">
+	<dir name ="index">
+      <document targetdoc="dhis2_user_man_en">
+         &user_man;
+      </document>
+	  </dir>
+    </dir>
+  </sitemap>
+</targetset>
