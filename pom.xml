@@ -4,7 +4,7 @@
 	<groupId>org.hisp.dhis</groupId>
 	<artifactId>dhis-documentation-docbook</artifactId>
 	<name>DHIS2 Documentation</name>
-	<version>2.15</version>
+	<version>2.16</version>
 	<description>DHIS 2 Documentation</description>
 	<packaging>pom</packaging>
 	<pluginRepositories>
@@ -42,7 +42,7 @@
 								<exec executable="git" outputproperty="revision" failifexecutionfails="false">
 									<arg line="rev-list --count HEAD"/>
 								</exec>
-								<echo file="${project.basedir}/src/docbkx/build.properties" message="&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;&lt;revhistory&gt;&lt;revision&gt;&lt;revnumber&gt; ${revision}&lt;/revnumber&gt;&lt;revremark&gt;Version ${project.version} ${now}&lt;/revremark&gt;&lt;/revision&gt;&lt;/revhistory&gt;" />
+								<echo file="${project.basedir}/src/docbkx/build.properties" message="&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;&lt;revhistory&gt;&lt;revision&gt;&lt;revnumber&gt;Revision  ${revision}&lt;/revnumber&gt;&lt;revremark&gt;Version ${project.version} ${now}&lt;/revremark&gt;&lt;/revision&gt;&lt;/revhistory&gt;" />
 							</tasks>
 						</configuration>
 						<goals>
@@ -271,13 +271,14 @@
 							<sectionAutolabel>1</sectionAutolabel>
 							<sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
 							<chunkedOutput>false</chunkedOutput>
-							<includes>dhis2_user_manual_en.xml,dhis2_end_user_manual.xml,dhis2_implementation_guide_en.xml,ccei_user_manual_en.xml</includes>
+							<includes>dhis2_user_manual_en.xml,dhis2_end_user_manual.xml,dhis2_implementation_guide_en.xml,ccei_user_manual_en.xml,dhis2_developer_manual.xml</includes>
 							<sourceDirectory>${docbook.source}/en/</sourceDirectory>
 							<postProcess>
 								<copy file="target/docbkx/html/dhis2_user_manual_en.html" tofile="${docbook.target}/en/user/html/dhis2_user_manual_en_full.html" />								
 								<copy file="target/docbkx/html/dhis2_end_user_manual.html" tofile="${docbook.target}/en/end-user/html/dhis2_end_user_manual_full.html" />
 								<copy file="target/docbkx/html/dhis2_implementation_guide_en.html" tofile="${docbook.target}/en/implementer/html/dhis2_implementation_guide_en_full.html" />
-								<copy file="target/docbkx/html/ccei_user_manual_en.html" tofile="${docbook.target}/en/ccei-user/html/ccei_user_manual_en.html" />
+								<copy file="target/docbkx/html/ccei_user_manual_en.html" tofile="${docbook.target}/en/ccei-user/html/ccei_user_manual_en_full.html" />
+								<copy file="target/docbkx/html/dhis2_developer_manual.html" tofile="${docbook.target}/en/developer/html/dhis2_developer_manual_full.html" />
 							</postProcess>
 						</configuration>
 					</execution>
@@ -375,6 +376,25 @@
 							<sourceDirectory>${docbook.source}/en/</sourceDirectory>
 							<postProcess>
 								<copy file="target/docbkx/pdf/dhis2_documentation_guide_book.pdf" tofile="${docbook.target}/en/implementer/dhis2_documentation_guide.pdf" />
+							</postProcess>
+						</configuration>
+					</execution>
+					<!-- PDF Developer docs-->
+					<execution>
+						<id>pdf-developer-guide</id>
+						<phase>package</phase>
+						<goals>
+							<goal>generate-pdf</goal>
+						</goals>
+						<configuration>
+							<argLine>-Xmx1024m</argLine>
+							<foCustomization>${docbook.source}/en/resources/xsl/fop-cust.xsl</foCustomization>
+							<doubleSided>1</doubleSided>
+							<paperType>A4</paperType>
+							<includes>dhis2_developer_manual.xml</includes>
+							<sourceDirectory>${docbook.source}/en/</sourceDirectory>
+							<postProcess>
+								<copy file="target/docbkx/pdf/dhis2_developer_manual.pdf" tofile="${docbook.target}/en/developer/dhis2_developer_manual.pdf" />
 							</postProcess>
 						</configuration>
 					</execution>

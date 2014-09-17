@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!--reat
- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
+ This document was created with Syntext Serna Free. --><!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <chapter>
   <title>Data elements</title>
   <para>When the ‘Data Elements and Indicators’ options is chosen from the main Maintenance menu, the following screen appears:</para>
   <screenshot>
     <mediaobject>
       <imageobject>
-        <imagedata fileref="resources/images/maintainence/data_element_main.png" format="PNG"/>
+        <imagedata width="80%" fileref="resources/images/maintainence/data_element_main.png" format="PNG"/>
       </imageobject>
     </mediaobject>
   </screenshot>
@@ -48,7 +48,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/maintainence/data_element_main2.png" format="PNG"/>
+            <imagedata width="80%" fileref="resources/images/maintainence/data_element_main2.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -214,18 +214,6 @@
         <para>After making all the required changes, click ‘Save’. The ‘Cancel’ button aborts all changes made.</para>
       </section>
       <section>
-        <title>Data element translation</title>
-        <para>DHIS2 provides functionality to translate existing data elements into other languages. Click the name of the data element you wish to translate, and select &quot;Translate&quot; from the context menu which will appear.. The following dialogue will be displayed.</para>
-        <screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="resources/images/maintainence/data_element_translate.png" format="PNG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-        <para>The reference language is displayed in the upper right portion of the dialogue. Choose a locale to translate the data element into by selecting an option from the locale drop-down menu. Specify the name, short-name, description and form name in the target language. Press &quot;Save&quot; to save your changes. </para>
-      </section>
-      <section>
         <title>Deleting a data element</title>
         <para>In order to delete a data element, click the name of the data element you wish to delete, and then select &quot;Remove&quot; from the context menu. Note that this operation is only possible if there is no data attached to the data element itself.  The user will be prompted to ensure that the data element should be deleted.</para>
       </section>
@@ -242,7 +230,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/maintainence/data_element_group_add.png" format="PNG"/>
+            <imagedata width="80%" fileref="resources/images/maintainence/data_element_group_add.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -259,7 +247,7 @@
       <para>Existing data element group  set members can be edited by clicking the name  and selecting &quot;Edit&quot; from the context menu of the desired data element group set as seen below.</para>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/maintainence/data_element_group_set.png" format="PNG"/>
+          <imagedata width="80%" fileref="resources/images/maintainence/data_element_group_set.png" format="PNG"/>
         </imageobject>
       </mediaobject>
       <para>Available data element groups are displayed in the left panel. They can be moved into the selected data element group set by pressing the &quot;Move right&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/> button. Data element groups that are currently members of the data element group set are displayed in the right hand panel. They can be removed from the data element group set by clicking the desired data element group and pressing the &quot;Move left&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_left.png" align="center"/> button.  The ordering of the data element groups can be set with the &quot;Move Up&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_up.png" align="center"/> and &quot;Move Down&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_down.png" align="center"/>arrows. This ordering will be used in the datamart and reports to order the data element groups.  Press the <guibutton>&quot;Update&quot;</guibutton> button to save any changes and the <guibutton>&quot;Cancel&quot;</guibutton> button to discard all changes. </para>
@@ -300,7 +288,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata align="center" fileref="resources/images/maintainence/data_element_category_options.PNG"/>
+            <imagedata width="50%" align="center" fileref="resources/images/maintainence/data_element_category_options.PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -308,7 +296,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/maintainence/data_element_categories_add_new.png" format="PNG"/>
+            <imagedata width="80%" fileref="resources/images/maintainence/data_element_categories_add_new.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -333,7 +321,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/maintainence/data_element_category_combo_add_new.png" format="PNG"/>
+            <imagedata fileref="resources/images/maintainence/data_element_category_combo_add_new.png" format="PNG" width="80%"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -348,7 +336,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata align="center" fileref="resources/images/maintainence/categories_dataset_attributes.png"/>
+            <imagedata align="center" fileref="resources/images/maintainence/categories_dataset_attributes.png" width="80%"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -357,26 +345,38 @@
     <section>
       <title>Category option groups and group sets</title>
       <para>Category options can be groups and classified using category option groups. Category
-        option groups can be created from "Category option group" > "Add new", and contains a set of
+        option groups can be created from &quot;Category option group&quot; &gt; &quot;Add new&quot;, and contains a set of
         category options.</para>
       <para>Category option groups can be included in category option group sets. Category option
-        group sets can be created from "Category option group set" > "Add new", and contains a set
+        group sets can be created from &quot;Category option group set&quot; &gt; &quot;Add new&quot;, and contains a set
         of category option groups.</para>
       <para>The main purpose of the these entities is to be able to add more dimensionality to your
         captured data for analysis in apps such as pivot table and data visualizer. An example of
-        where this becomes useful: In a system, data is collected by "projects", where projects is
-        modelled as category options. The system is required to do data analysis according to which
-        donor supports the project. In this case, a category option group set called "Donor" can be
+        where this becomes useful: In a system, data is collected by &quot;projects&quot;, where projects is
+        modeled as category options. The system is required to do data analysis according to which
+        donor supports the project. In this case, a category option group set called &quot;Donor&quot; can be
         created. Each donor can be created as a category option group, where each category option /
-        project is put in the appropriate group. In data analysis apps, the "Donor" group set will
-        appear as a data dimension, while each donor appear as dimemsion items, ready for inclusing
+        project is put in the appropriate group. In data analysis apps, the &quot;Donor&quot; group set will
+        appear as a data dimension, while each donor appear as dimension items, ready for inclusion
         in reports.</para>
     </section>
     <section id="translation">
-      <title>Translations</title>
+      <title>Translations of data elements and other objects</title>
       <para>DHIS 2 provides functionality for translations of database content like data elements, data element groups, indicators, indicator groups, validation rules and more.  These elements can be translated to any number of locales. A locale  represents a specific geographical, political, or cultural region. </para>
       <para>To add a translation click the Translate icon next to the element you would like to translate. Start by selecting the desired locale from the Locale select box. In the Translate screen, select your locale and enter values for the available element properties. The reference property values are shown on the right. These values are the values which have been entered in the regular add or update user interface for the current object.</para>
       <para>Translations can be enabled by selecting the desired locale under Database Language under User General Settings in the Settings module.</para>
+      <section>
+        <title>Data element translation</title>
+        <para>DHIS2 provides functionality to translate existing data elements into other languages. Click the name of the data element you wish to translate, and select &quot;Translate&quot; from the context menu which will appear.. The following dialogue will be displayed.</para>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="resources/images/maintainence/data_element_translate.png" format="PNG" width="80%"/>
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+        <para>The reference language is displayed in the upper right portion of the dialogue. Choose a locale to translate the data element into by selecting an option from the locale drop-down menu. Specify the name, short-name, description and form name in the target language. Press &quot;Save&quot; to save your changes. </para>
+      </section>
     </section>
   </section>
 </chapter>
