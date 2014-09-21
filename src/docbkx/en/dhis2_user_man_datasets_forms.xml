@@ -301,8 +301,8 @@ Show details: Display some informative information about the data set, including
         <title>Data entry events</title>
         <tgroup cols="3">
           <colspec colname="c1" colnum="1" colwidth="1*"/>
-          <colspec colname="c2" colnum="2" colwidth="1.92*"/>
-          <colspec colname="newCol3" colnum="3" colwidth="1.55*"/>
+          <colspec colname="c2" colnum="2" colwidth="1.66*"/>
+          <colspec colname="newCol3" colnum="3" colwidth="1.81*"/>
           <thead>
             <row>
               <entry>Key</entry>
@@ -360,23 +360,27 @@ Show details: Display some informative information about the data set, including
       <para>To register for such an event:</para>
       <screen>&lt;script type=&quot;text/javascript&quot;&gt;
 
-dhis2.de.on( "dhis2.de.event.formReady", function( event, ds ) {
-  console.log( "The form with id: " + ds + " is loaded!" );
+dhis2.de.on( 'dhis2.de.event.formReady', function( event, ds ) {
+  console.log( 'The form with id: ' + ds + ' is loaded!' );
 } );
 
-dhis2.de.on( "dhis2.de.event.dataValueSaved", function( event, ds, dv ) {
-  console.log( "Data value: " + dv.value + " was saved with data element: " + dv.de );
+dhis2.de.on( 'dhis2.de.event.dataValueSaved', function( event, ds, dv ) {
+  console.log( 'Data value: ' + dv.value + ' was saved with data element: ' + dv.de );
 } );
 
-dhis2.de.on( "dhis2.de.event.completed", function( event, ds, cr ) {
-  console.log( "Form was completed for org unit: " + cr.ou );
-} );
-
-dhis2.de.on( "dhis2.de.event.validationSuccess", function( event, ds ) {
-  console.log( "Form with id: " + ds + " validated successfully!" );
+dhis2.de.on( 'dhis2.de.event.completed', function( event, ds, cr ) {
+  console.log( 'Form was completed for org unit: ' + cr.ou );
 } );
 
 &lt;/script&gt;</screen>
+      <para>If your function only applies to certain data sets you can use the supplied data set
+        identifier and shortcut your function for unwanted data sets like this:</para>
+      <screen>dhis2.de.on( 'dhis2.de.event.validationSuccess', function( event, ds ) {
+  if ( $.inArray( ds, ['utXOiGbEj14', 'Re7qzHEThSC'] ) == -1 ) {
+    return false;
+  }
+  console.log( 'Form with id: ' + ds + ' validated successfully!' );
+} );</screen>
       <para>The identifiers of the input fields in the data entry form is on the format described
         below. This format can be used to select the input fields in your script and perform actions
         on them:<screen>&lt;dataelementid&gt;-&lt;optioncomboid&gt;-val</screen></para>
