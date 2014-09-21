@@ -5,14 +5,14 @@
   <para>DHIS2 allows for multiple users to access the system simultaneously, each with a defined set of permissions. These permissions can be finely tuned so that certain users can only enter data, while others may generate reports. Multiple user roles can be created, each with their own set of permissions, and then assigned to users which grant them certain privileges within the system. This chapter describes how to manage users and user roles.</para>
   <section id="creating_new_users">
     <title>Creating new users and roles</title>
-    <para>This section will describe how to add new users and manage existing users to the DHIS2 application. You can create as many user names as you need. Each user can be assigned certain privileges, and can be assigned to certain organisation units for which they will be enabled to enter data on behalf of. To access the user module, choose <emphasis role="italic">Users</emphasis> from the Apps menu.</para>
+    <para>This section will describe how to add new users and manage existing users to the DHIS2 application. You can create as many user names as you need. Each user can be assigned certain privileges, and can be assigned to certain organisation units for which they will be enabled to enter data on behalf of. To access the user module, choose <emphasis role="italic">Users</emphasis> from the Apps menu and then click &quot;User&quot; from the menu items on the left-hand pane.</para>
     <section id="user_maintenance">
       <title>User maintenance</title>
       <screenshot>
         <screeninfo>Select Users menu item</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/dhis2UserManual/select_user_menu.png" format="PNG"/>
+            <imagedata fileref="resources/images/dhis2UserManual/select_user_menu.png" format="PNG" align="center" width="80%"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -21,7 +21,7 @@
         <screeninfo>Search by user name</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/dhis2UserManual/search_user_by_name.png" format="PNG"/>
+            <imagedata fileref="resources/images/dhis2UserManual/search_user_by_name.png" format="PNG" align="center" width="80%"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -39,7 +39,7 @@
         <screeninfo>Add new user role</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/dhis2UserManual/add_user_role.png" format="PNG"/>
+            <imagedata fileref="resources/images/dhis2UserManual/add_user_role.png" format="PNG" width="80%" align="center"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -52,7 +52,7 @@
         <screeninfo>Role maintenance page</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/dhis2UserManual/role_maintenance_page.png" format="PNG"/>
+            <imagedata fileref="resources/images/dhis2UserManual/role_maintenance_page.png" format="PNG" wordsize="" width="80%" align="center"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -98,7 +98,7 @@
                 <screeninfo>Select Users menu item</screeninfo>
                 <mediaobject>
                   <imageobject>
-                    <imagedata fileref="resources/images/dhis2UserManual/user_management_details.png" format="PNG"/>
+                    <imagedata fileref="resources/images/dhis2UserManual/user_management_details.png" format="PNG" align="center" width="80%"/>
                   </imageobject>
                 </mediaobject>
               </screenshot>
@@ -121,7 +121,7 @@
                 <screeninfo>Select Users menu item</screeninfo>
                 <mediaobject>
                   <imageobject>
-                    <imagedata fileref="resources/images/dhis2UserManual/user_management_invite.png" format="PNG"/>
+                    <imagedata fileref="resources/images/dhis2UserManual/user_management_invite.png" format="PNG" width="80%" align="center"/>
                   </imageobject>
                 </mediaobject>
               </screenshot>
@@ -151,7 +151,7 @@
             below it in the organisation unit hierarchy. Note that data view organisation units are
             optional. If you do not specify any, the user will have access to the full organisation
             unit hierarchy for viewing aggregated data.</para>
-          <para>In several places in the analysis modules one can select "user organisation unit"
+          <para>In several places in the analysis modules one can select &quot;user organisation unit&quot;
             for the organisation unit dimension. This mechanism will first attempt to use the data
             view organisation units linked to the current user. If not found, it will use the data
             capture organisation units.</para>
@@ -159,7 +159,7 @@
             <screeninfo>User management screen</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2UserManual/user_management_fewer_options.png" format="PNG"/>
+                <imagedata fileref="resources/images/dhis2UserManual/user_management_fewer_options.png" format="PNG" align="center" width="80%"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -179,7 +179,7 @@
             <screeninfo>User management screen</screeninfo>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="resources/images/dhis2UserManual/user_management_more_options.png" format="PNG"/>
+                <imagedata fileref="resources/images/dhis2UserManual/user_management_more_options.png" format="PNG" align="center" width="80%"/>
               </imageobject>
             </mediaobject>
           </screenshot>
@@ -203,12 +203,11 @@
       <para>DHIS 2 supports the OpenID standard, which allows third party login using a OpenID
         provider, please see <ulink url="http://openid.net">http://openid.net</ulink> for more
         information. To create a custom OpenID URL for a username you can visit this URL and log in
-        with your OpenID provider: <ulink url="http://openid-provider.appspot.com"
-          >http://openid-provider.appspot.com</ulink>.</para>
+        with your OpenID provider: <ulink url="http://openid-provider.appspot.com">http://openid-provider.appspot.com</ulink>.</para>
       <para>To enable support for this in DHIS 2, two steps must be done:<itemizedlist>
           <listitem>
             <para><emphasis role="bold">Set your OpenID provider</emphasis>: This can be done inside
-              system settings, under "Access". Here you can set both the OpenID provider, and also
+              system settings, under &quot;Access&quot;. Here you can set both the OpenID provider, and also
               the label to display on the login page to login with this provider (defaults to Login
               with OpenID).</para>
           </listitem>
