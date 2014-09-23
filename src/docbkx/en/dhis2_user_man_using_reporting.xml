@@ -36,45 +36,44 @@
       <screeninfo>Standard reports</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/dhis2UserManual/standard_reports_ke.png" format="PNG"/>
+          <imagedata fileref="resources/images/dhis2UserManual/standard_reports_ke.png" format="PNG" align="center" width="50%"/>
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>You run/view a report by clicking on the white and green arrow next to the report you
-      want. You will then see a report parameter window where you must fill in the values needed for
+    <para>You run/view a report by clicking on the name of the report and then selecting &quot;Create&quot; from the contextual menu. If there are any pre-define paramaters, you will see a report parameter window where you must fill in the values needed for
       orgunit and/or reporting month, depending on what has been defined in the underlying report
       table(s). Click on &quot;Get Report&quot; when you are ready. The report will either appear
-      directly in your browser or be available as a .pdf file for download, depending on your
+      directly in your browser or be available as a PDF file for download, depending on your
       browser settings for handling PDF files. You can save the file and keep it locally on your
       computer for later use. </para>
   </section>
   <section id="report_tables">
     <title>Using report tables</title>
-    <para>Report tables is a simple-to-use tool for creating tabular analysis. To run a report table first navigate to the list of available report tables in Services-&gt;Reports-&gt;Report Tables and the click on the Green and white  arrow (the first symbol in the operations list) next to the report table you want to view. </para>
+    <para>Report tables are a simple-to-use tool for creating tabular analysis. To run a report table first navigate to the list of available report tables in Services-&gt;Reports-&gt;Report Tables and then the name of the report table you wish to use. Select &quot;Create&quot; from the contextual menu. If the report table has any pre-defined paramaters, you will need to select them in the next screen. Finally, press &quot;Get report&quot; to view the report table. </para>
     <para><emphasis role="bold">Report parameters:</emphasis> Most report tables have parameters, which means that you can filter which orgunits and/or periods you want in the report. This makes the reports much more reusable. When you run the report table a Report parameter window will open and ask the user to input values for the selected parameters. The possible parameters are Reporting Month and Organisation Unit, and either one of these or both will show in the window.    After selecting the values click on the Get Report button.</para>
     <screenshot>
       <screeninfo>Report table parameters</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/dhis2UserManual/report_parameters.png" format="PNG"/>
+          <imagedata fileref="resources/images/dhis2UserManual/report_parameters.png" format="PNG" align="center" width="40%"/>
         </imageobject>
       </mediaobject>
     </screenshot>
     <para><emphasis role="bold">Export/view options:</emphasis> When the report table is ready it
-      will be displayed in a html view. The report table can be exported to PDF (for better printing
-      and easier saving), excel, CSV, and also to a standard report format (Jasper) with a nicer
-      table and a chart shown in PDF, or as a jasper design file for further improvements and
+      will be displayed in a HTML view. The report table can be exported to PDF (for better printing
+      and easier saving), Excel, CSV, and also to a standard report format (Jasper) with a nicer
+      table and a chart shown in PDF, or as a Jasper design file (JRXML) for further improvements and
       changes to the report design before uploading it as a standard report (see the Creating
-      standard reports section).</para>
+      standard reports section in the Developers Guide for more detail information).</para>
     <screenshot>
       <screeninfo>Report table view</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/dhis2UserManual/report_table_view.png" format="PNG"/>
+          <imagedata fileref="resources/images/dhis2UserManual/report_table_view.png" format="PNG" align="center" width="80%"/>
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para> </para>
+    <para> You can also share a comment or intepretation about this report table from the report table view, by simply writing a comment in the box and pressing &quot;Share&quot;.</para>
   </section>
   <section id="dataset_reports">
     <title>Using dataset reports</title>
@@ -91,13 +90,9 @@
     <title>Using resources</title>
     <para>The resource tool allows you to upload both files from your local computer to the DHIS
       server and to add links to other resources on the Internet through URLs. If you want to share
-      the direct link to the DHIS resource you can right click on the "view resource" button and
+      the direct link to the DHIS resource you can right click on the &quot;view resource&quot; button and
       copy the link address.</para>
     <para>The create a resource click on the &quot;Add new&quot; button. Enter a name for the resource, then choose between uploading a file or external URL. If you chose file upload click &quot;Choose file&quot; and select your file your local computer. If you chose URL enter the link to the resource on the Internet. Then click &quot;Save&quot;.</para>
-  </section>
-  <section id="data_visualizer">
-    <title>Using data visualizer</title>
-    <para>The data visualizer module can be accessed under &quot;Services&quot; in the top menu. See the chapter called &quot;Using data visualizer&quot; for a thorough explanation of this module.</para>
   </section>
   <section id="reporting_reporting_rate_summary">
     <title>Using reporting rate summary</title>
@@ -114,12 +109,12 @@
       </listitem>
       <listitem>
         <para>Based on compulsory data element: You can define any number of data elements in a data
-          set to be compulsory. This imples that data values must be captured for all data elements
+          set to be compulsory. This implies that data values must be captured for all data elements
           which have been marked as compulsory in order for the data set to be considered complete.
-          This is i.e. an objective approach to calcuating completeness.</para>
+          This is i.e. an objective approach to calculating completeness.</para>
       </listitem>
     </itemizedlist>
-    <para>The reporting rate summary willl for each row show a range of measures:</para>
+    <para>The reporting rate summary will for each row show a range of measures:</para>
     <itemizedlist>
       <listitem>
         <para>Actual reports: Indicates the number of data entry complete registrations for the
@@ -150,7 +145,7 @@
         <para>Select an orgunit from the tree.</para>
       </listitem>
       <listitem>
-        <para>Select one of the completeness methods to use to calcuate the reportin rates.</para>
+        <para>Select one of the completeness methods to use to calcuate the reporting rates.</para>
         <para>Select all or one data set. All will give you a report with all data sets for the
           selected organisation unit. A single data set will give you a report with completeness for
           all children of the selected organisation unit.</para>
@@ -179,12 +174,12 @@
     <para>Orgunit distribution reports are reports that show how the orgunits are distributed on various properties like type and ownership, and by geographical areas.</para>
     <para>The result can be presented in a table-based report or in a chart.</para>
     <para><emphasis role="bold">Running a report:</emphasis></para>
-    <para>To run a report first select an orgunit in the upper left side orgunit tree. The report will be based on orgunits located under the selected orgunit. The select the orgunit group set that you want to use, typically these are Type, Ownership, Rural/Urban, but can be any user-defined orgunit group set. The you can click on either Get Report to get the table-based presentation or Get chart to get the same result in a chart.</para>
+    <para>To run a report first select an orgunit in the upper left side orgunit tree. The report will be based on orgunits located under the selected orgunit. The select the orgunit group set that you want to use, typically these are Type, Ownership, Rural/Urban, but can be any user-defined orgunit group set. The you can click on either Get Report to get the table-based presentation or Get chart to get the same result in a chart. You can also download other format such as PDF, Excel and CSV. </para>
     <screenshot>
       <screeninfo>Orgunit distribution report</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/dhis2UserManual/orgunit_report.png" format="PNG"/>
+          <imagedata fileref="resources/images/dhis2UserManual/orgunit_report.png" format="PNG" align="center" width="60%"/>
         </imageobject>
       </mediaobject>
     </screenshot>
