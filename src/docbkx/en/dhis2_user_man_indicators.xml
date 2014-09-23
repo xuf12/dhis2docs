@@ -6,7 +6,7 @@
   <screenshot>
     <mediaobject>
       <imageobject>
-        <imagedata fileref="resources/images/maintainence/data_element_main.png" format="PNG"/>
+        <imagedata fileref="resources/images/maintainence/data_element_main.png" format="PNG" align="center" width="80%"/>
       </imageobject>
     </mediaobject>
   </screenshot>
@@ -25,7 +25,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/maintainence/indicator_maintenance_main.png" format="PNG"/>
+            <imagedata fileref="resources/images/maintainence/indicator_maintenance_main.png" format="PNG" align="center" width="70%"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -51,7 +51,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/maintainence/indicator_add.png" format="PNG"/>
+            <imagedata fileref="resources/images/maintainence/indicator_add.png" format="PNG" align="center" width="60%"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -86,7 +86,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/maintainence/indicator_numerator_denominator.png" format="PNG"/>
+            <imagedata fileref="resources/images/maintainence/indicator_numerator_denominator.png" format="PNG" align="center" width="70%"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -126,32 +126,31 @@
             vaccine refrigerator was available&quot;&quot;)/&quot;D&quot;. For example, if the
             fridge was available 25 days in June, the indicator would be calculated as
             (30-25/25)*100=17%. If you were however to calculate the total for Quarter 1, the number
-            of days (&quot;D&quot;) would be equal to 31+28+31=90. Thus, the &quot;D&quot; paramater
+            of days (&quot;D&quot;) would be equal to 31+28+31=90. Thus, the &quot;D&quot; parameter
             will always be the number of days in the period of interest.</para>
         </listitem>
         <listitem>
           <para>Org unit group counts: Org unit groups can be utilized in formulas and will be
-            substitued by the number of organisation units in the group. During aggregation, the org
+            substituted by the number of organisation units in the group. During aggregation, the org
             units in the group will be intersected with the part of the org unit hierarchy being
             requested. As an example, this lets you use the number of public facilities in a
             specific district in indicators. This is useful e.g. when creating facility
             infrastructure surveys and reports.</para>
         </listitem>
+        <listitem>
+          <para>Constants:  Indicators may make use of constants. Constants are static values which will be applied uniformly to the indicator formula. Constants are applied AFTER data element values have been aggregated.</para>
+        </listitem>
       </itemizedlist>
-      <note>
-        <para>Indicators may make use of constants. </para>
-        <para/>
-      </note>
     </section>
     <section id="indicatorType">
       <title>Indicator types</title>
       <para>Indicator types simply define a factor that will be applied during aggregation. Indicator values that are calculate during a data mart export or report table generation process will appear properly formatted, and will therefore not require an additional multiplier (e.g. 100 in the case of percents) for the values to appear correctly formatted. </para>
       <para>The indicator type maintenance panel has all of the same functions (Add new, Edit, Translate, Delete, and Information) as the Indicator maintenance section. </para>
-      <para>There are only two fields that need to be filled-in to create an indicator type, Name and Factor, as seen below. Name refers to the Indicator type (e.g. Per cent, Per thousand, Per ten thousand, etc). The factor is the numeric factor that will be multipled to the indicator formula during the calculation of the indicator. </para>
+      <para>There are only two fields that need to be filled-in to create an indicator type, Name and Factor, as seen below. Name refers to the Indicator type (e.g. Per cent, Per thousand, Per ten thousand, etc). The factor is the numeric factor that will be multiplied to the indicator formula during the calculation of the indicator. </para>
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/maintainence/indicator_type.png" format="PNG"/>
+            <imagedata fileref="resources/images/maintainence/indicator_type.png" format="PNG" align="center" width="50%"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -173,13 +172,13 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/maintainence/indicator_group_sets.png" format="PNG"/>
+            <imagedata fileref="resources/images/maintainence/indicator_group_sets.png" format="PNG" align="center" width="50%"/>
           </imageobject>
         </mediaobject>
       </screenshot>
       <para>Supply a name for the indicator group set, and then move the desired members from the &quot;Available Indicator Groups&quot; to the &quot;Group members&quot;. Click &quot;Add&quot; to save your changes and &quot;Cancel&quot; to discard any changes. </para>
       <note>
-        <para>Similar to data elemement and indicator group sets, typically, indicator groups should be exclusive, meaning that one indicator group should not belong to multiple indicator group sets.</para>
+        <para>Similar to data element and indicator group sets, typically, indicator groups should be exclusive, meaning that one indicator group should not belong to multiple indicator group sets.</para>
       </note>
     </section>
   </section>
