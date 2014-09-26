@@ -695,7 +695,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       <para>We also support sending JSON payloads using this
         format:<screen>{
   "dataSet": "dataSetID",
-  "completeData": "date",
+  "completeDate": "date",
   "period": "period",
   "orgUnit": "orgUnitID",
   "attributeOptionCombo", "aocID",
