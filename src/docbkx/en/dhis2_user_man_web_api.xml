@@ -3884,6 +3884,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
           </thead>
           <tbody>
             <row>
+              <entry>displayProperty</entry>
+              <entry>No</entry>
+              <entry>Property to display for meta-data.</entry>
+              <entry>NAME | SHORTNAME</entry>
+            </row>
+            <row>
               <entry>sortOrder</entry>
               <entry>No</entry>
               <entry>Sort the records on the value column in ascending or descending order.</entry>
