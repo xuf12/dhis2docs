@@ -599,7 +599,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
           <emphasis role="italic">constant</emphasis>. To figure out the format, we can use the new
           <emphasis role="italic">schema</emphasis> endpoint for getting format description (this
         will be further improved in 2.17). So we will start with getting that
-        info:<screen>http://server/api/schemas/constant.json</screen> From the output, you can see
+        info:<screen>http://&lt;&lt;server&gt;&gt;/api/schemas/constant.json</screen> From the output, you can see
         that the required authorities for create are F_CONSTANT_ADD, and the important properties
         are: <emphasis role="italic">name</emphasis> and <emphasis role="italic">value</emphasis>.
         From this we can create a JSON payload and save it as a file called
@@ -614,24 +614,25 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       <para>We are now ready create the new <emphasis role="italic">constant</emphasis> by sending a
         POST request to the <emphasis role="italic">constants </emphasis>endpoint with the JSON
         payload using
-        curl:<screen>curl -d @constant.json &quot;http://server/api/constants&quot; -X POST -H &quot;Content-Type: application/json&quot; -u user:password</screen></para>
+        curl:<programlisting language="bash">curl -d @constant.json &quot;http://server/api/constants&quot; -X POST -H &quot;Content-Type: application/json&quot; -u user:password</programlisting></para>
       <para>A specific example of posting the constant to the demo
-        server:<screen>curl -d @constant.json &quot;https://apps.dhis2.org/api/constants&quot; -X POST -H &quot;Content-Type: application/json&quot; -u admin:district</screen></para>
+        server:<programlisting language="bash">curl -d @constant.json &quot;https://apps.dhis2.org/api/constants&quot; -X POST -H &quot;Content-Type: application/json&quot; -u admin:district</programlisting></para>
       <para>If everything went well, you should see an output similar
-        to:<screen>{
+        to:<screen language="json">{
   &quot;status&quot;:&quot;SUCCESS&quot;,
   &quot;importCount&quot;:{&quot;imported&quot;:1,&quot;updated&quot;:0,&quot;ignored&quot;:0,&quot;deleted&quot;:0},
   &quot;type&quot;:&quot;Constant&quot;
 }</screen></para>
       <para>The process will be exactly the same for updating, you make your changes to the JSON/XML payload, find out the <emphasis role="italic">ID</emphasis> of the constant, and then send a PUT request to the endpoint including
-        ID:<screen>curl -X PUT -d @pi.json -H &quot;Content-Type: application/json&quot; -u user:password http://server/api/constants/ID</screen></para>
+        ID:<screen language="bash">curl -X PUT -d @pi.json -H &quot;Content-Type: application/json&quot; -u user:password http://server/api/constants/ID</screen></para>
     </section>
     <section>
       <title>Deleting objects</title>
       <para>Deleting objects are very straight forward, you will need to know the <emphasis role="italic">ID</emphasis> and the endpoint of
         the type you want delete, let&apos;s continue our example from the last section and use a <emphasis role="italic">constant</emphasis>.
         Let&apos;s assume that the id is <emphasis role="italic">abc123</emphasis>, then all you need to do is the send the DELETE request to the
-        endpoint + id:<screen>curl -X DELETE -u user:password http://server/api/constants/ID</screen></para>
+        endpoint + id:<screen>curl -X DELETE -u user:password
+http://server/api/constants/ID</screen></para>
       <para>A successful delete should return HTTP status 204 (no content).</para>
     </section>
   </section>
@@ -654,7 +655,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
         same data entry form. We follow the link to the HTML representation which will take us to
           <ulink url="http://apps.dhis2.org/demo/api/dataValueSets"/>. The format looks like
         this:</para>
-      <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;dataSetID&quot;
+      <screen language="xml">&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;dataSetID&quot;
   completeDate=&quot;date&quot; period=&quot;period&quot; orgUnit=&quot;orgUnitID&quot; attributeOptionCombo=&quot;aocID&quot;&gt;
   &lt;dataValue dataElement=&quot;dataElementID&quot; categoryOptionCombo=&quot;cocID&quot; value=&quot;1&quot;/&gt;
   &lt;dataValue dataElement=&quot;dataElementID&quot; categoryOptionCombo=&quot;cocID&quot; value=&quot;2&quot;/&gt;
@@ -691,14 +692,14 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
         follow the link to the HTML representation at <ulink url="http://apps.dhis2.org/demo/api/organisationUnits/DiszpKrYNg8"/>, which tells us that
         the identifier of this org unit is <emphasis role="italic">DiszpKrYNg8</emphasis>.</para>
       <para>From our case-based data we assume that we have 12 cases of measles, 14 cases of dysentery and 16 cases of cholera. We have now gathered enough information to be able to put together the XML data value set message:</para>
-      <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;pBOMPrpg1QX&quot;
+      <screen language="xml">&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;pBOMPrpg1QX&quot;
   completeDate=&quot;2012-02-03&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot;&gt;
   &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; value=&quot;12&quot;/&gt;
   &lt;dataValue dataElement=&quot;Ix2HsbDMLea&quot; value=&quot;14&quot;/&gt;
   &lt;dataValue dataElement=&quot;eY5ehpbEsB7&quot; value=&quot;16&quot;/&gt;
 &lt;/dataValueSet&gt;</screen>
       <para>Or we can use
-        JSON:<screen>{
+        JSON:<screen language="json">{
   &quot;dataSet&quot;: &quot;pBOMPrpg1QX&quot;,
   &quot;completeData&quot;: &quot;2012-02-03&quot;,
   &quot;period&quot;: &quot;201201&quot;,
@@ -1043,11 +1044,11 @@ Content-Type: application/xml
       </table>
       <para>The dataSet and orgUnit parameters can be repeated in order to include multiple data sets
       and organisation units. An example request looks like this:</para>
-      <screen>curl &quot;https://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;dataSet=BfMAe6Itzgt&amp;startDate=2013-01-01&amp;endDate=2013-01-31&amp;
-orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Accept:application/xml&quot; -u admin:district -v</screen>
+      <programlisting>curl &quot;https://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;dataSet=BfMAe6Itzgt&amp;startDate=2013-01-01&amp;endDate=2013-01-31&amp;
+orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Accept:application/xml&quot; -u admin:district -v</programlisting>
       <para>You can get the response in <emphasis role="italic">xml</emphasis> and <emphasis role="italic">csv</emphasis> format. You can indicate which response format you prefer
       through the <emphasis role="italic">Accept</emphasis> HTTP header like in the example above.
-      For xml you use <emphasis role="italic">application/xml</emphasis>; for csv you use <emphasis role="italic">application/csv</emphasis>.</para>
+      For XML you use <emphasis role="italic">application/xml</emphasis>; for CSV you use <emphasis role="italic">application/csv</emphasis>.</para>
     </section>
   </section>
   <section>
@@ -1348,13 +1349,16 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Acc
           <screen>api/events.json?orgUnit=DiszpKrYNg8&amp;program=eBAyeGv0exc</screen></para>
         <para>Query for all events with a certain program and organisation unit for a specific tracked
           entity instance:
-          <screen>api/events.json?orgUnit=DiszpKrYNg8&amp;program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
+          <screen>api/events.json?orgUnit=DiszpKrYNg8&amp;
+program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
         <para>Query for all events with a certain program and organisation unit older or equal to
           2014-02-03:
           <screen>api/events.json?orgUnit=DiszpKrYNg8&amp;program=eBAyeGv0exc&amp;endDate=2014-02-03</screen></para>
         <para>Query for all events with a certain program stage, organisation unit and tracked entity
           instance in the year 2014:
-          <screen>api/events.json?orgUnit=DiszpKrYNg8&amp;program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m&amp;startDate=2014-01-01&amp;endDate=2014-12-31</screen></para>
+          <screen>api/events.json?orgUnit=DiszpKrYNg8
+&amp;program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m
+&amp;startDate=2014-01-01&amp;endDate=2014-12-31</screen></para>
       </section>
     </section>
   </section>
@@ -1418,8 +1422,8 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Acc
     <table frame="all">
       <title>Data value set query parameters</title>
       <tgroup cols="2">
-        <colspec colnum="1" colname="c1" colwidth="195pt"/>
-        <colspec colnum="2" colname="c2" colwidth="605.25pt"/>
+        <colspec colnum="1" colname="c1" colwidth="95pt"/>
+        <colspec colnum="2" colname="c2" colwidth="305.25pt"/>
         <thead>
           <row>
             <entry>Parameter</entry>
@@ -3211,35 +3215,49 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>As illustrated above, the dimension identifier is followed by a colon while the dimension
       items are separated by semi-colons. As an example, a query for two data elements, two periods
       and two organisation units can be done with the following URL:</para>
-    <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;dimension=pe:2012Q1;2012Q2&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU
+&amp;dimension=pe:2012Q1;2012Q2
+&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
     <para>To query for data broken down by category option combinations instead of data element
       totals you can include the category dimension in the query string, for instance like
       this:</para>
-    <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;dimension=co&amp;dimension=pe:201201&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU
+&amp;dimension=co&amp;dimension=pe:201201
+&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
     <para>To query for organisation unit group sets and data elements you can use the following URL
       - notice how the group set identifier is used as dimension identifier and the groups as
       dimension items:</para>
-    <screen>api/analytics?dimension=Bpx0589u8y0:oRVt7g429ZO;MAs88nJc9nL&amp;dimension=pe:2012&amp;dimension=ou:ImspTQPwCqd</screen>
+    <screen>api/analytics?dimension=Bpx0589u8y0:oRVt7g429ZO;MAs88nJc9nL
+&amp;dimension=pe:2012&amp;dimension=ou:ImspTQPwCqd</screen>
     <para>To query for data elements and categories you can use this URL - use the category
       identifier as dimension identifier and the category options as dimension items:</para>
-    <screen>api/analytics?dimension=dx:s46m5MS0hxu;fClA2Erf6IO&amp;dimension=pe:2012&amp;dimension=YNZyaJHiHYq:btOyqprQ9e8;GEqzEKCHoGA&amp;filter=ou:ImspTQPwCqd</screen>
+    <screen>api/analytics?dimension=dx:s46m5MS0hxu;fClA2Erf6IO
+&amp;dimension=pe:2012
+&amp;dimension=YNZyaJHiHYq:btOyqprQ9e8;GEqzEKCHoGA
+&amp;filter=ou:ImspTQPwCqd</screen>
     <para>To query using relative periods and organisation units associated with the current user
       you can use a URL like this:</para>
-    <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;dimension=pe:LAST_12_MONTHS&amp;dimension=ou:USER_ORGUNIT</screen>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU
+&amp;dimension=pe:LAST_12_MONTHS&amp;dimension=ou:USER_ORGUNIT</screen>
     <para>When selecting organisation units for a dimension you can select an entire level
       optionally constrained by any number of boundary organisation units with the LEVEL-&lt;level&gt;
       syntax. Boundary refers to a top node in a sub-hierarchy, meaning that all organisation units
       at the given level below the given boundary organisation unit in the hierarchy will be
       included in the response, and is provided as regular organisation unit dimension items:</para>
-    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012&amp;dimension=ou:LEVEL-3</screen>
-    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012&amp;dimension=ou:LEVEL-3;LEVEL-4;O6uvpzGd5pu;lc3eMKXaEf</screen>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012
+&amp;dimension=ou:LEVEL-3</screen>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012
+&amp;dimension=ou:LEVEL-3;LEVEL-4;O6uvpzGd5pu;lc3eMKXaEf</screen>
     <para>When selecting organisation units you can also select all organisation units in an
       organisation unit group to be included as dimension items using the OU_GROUP-&lt;id&gt; syntax.
       The organisation units in the groups can optionally be constrained by any number of boundary
       organisation units. Both the level and the group items can be repeated any number of
       times:</para>
-    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012&amp;dimension=ou:OU_GROUP-w0gFTTmsUcF;O6uvpzGd5pu</screen>
-    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012&amp;dimension=ou:OU_GROUP-w0gFTTmsUcF;OU_GROUP-EYbopBOJWsW;O6uvpzGd5pu;lc3eMKXaEf</screen>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012
+&amp;dimension=ou:OU_GROUP-w0gFTTmsUcF;O6uvpzGd5pu</screen>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012
+&amp;dimension=ou:OU_GROUP-w0gFTTmsUcF;OU_GROUP-EYbopBOJWsW;
+O6uvpzGd5pu;lc3eMKXaEf</screen>
     <para>A few things to be aware of when using the analytics resource are listed below.</para>
     <itemizedlist>
       <listitem>
@@ -3417,7 +3435,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <screen>api/analytics?measureCriteria=criteria:value;criteria:value</screen>
       <para>As an example, the following query will return only records where the data value is
         greater or equal to 6500 and less than 33000:</para>
-      <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;dimension=pe:2012&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw&amp;measureCriteria=GE:6500;LT:33000</screen>
+      <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU
+&amp;dimension=pe:2012&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw
+&amp;measureCriteria=GE:6500;LT:33000</screen>
       <para>In order to have the analytics resource generate the data in the shape of a ready-made
         table, you can provide the <emphasis role="italic">tableLayout</emphasis> parameter with
         true as value. Instead of generating a plain, normalized data source, the analytics resource
@@ -3425,7 +3445,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
         identifiers separated by semi-colons as values to indicate which ones to use as table
         columns and rows. The column and rows dimensions must be present as a data dimension in the
         query (not a filter). Such a request can look like this:</para>
-      <screen>api/analytics.html?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;dimension=pe:2012Q1;2012Q2&amp;dimension=ou:O6uvpzGd5pu&amp;tableLayout=true&amp;columns=dx;ou&amp;rows=pe</screen>
+      <screen>api/analytics.html?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU
+&amp;dimension=pe:2012Q1;2012Q2&amp;dimension=ou:O6uvpzGd5pu
+&amp;tableLayout=true&amp;columns=dx;ou&amp;rows=pe</screen>
     </section>
     <section>
       <title>Response formats</title>
@@ -3456,7 +3478,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
       </itemizedlist>
       <para>As an example, to request an analytics response in XML format you can use the following
         URL:</para>
-      <screen>api/analytics.xml?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
+      <screen>api/analytics.xml?dimension=dx:fbfJHSPpUQD
+&amp;dimension=pe:2012&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
       <para>The analytics responses must be retrieved using the HTTP <emphasis role="italic">GET</emphasis> method. This allows for direct linking to analytics responses from Web
         pages as well as other HTTP-enabled clients. To do functional testing we can use the cURL
         library. By executing this command against the demo database you will get an analytics
@@ -4072,7 +4095,8 @@ startDate=2014-01-01&amp;endDate=2014-10-31
       <para>To specify the &quot;Bo&quot; organisation unit and the period &quot;2012&quot; as filters, and the &quot;Mode of
         discharge&quot; and Gender&quot; as dimensions, where &quot;Gender&quot; is filtered on the &quot;Male&quot; item, you can
         use a query like this:</para>
-      <screen>api/analytics/events/aggregate/eBAyeGv0exc?filter=pe:2014&amp;filter=ou:O6uvpzGd5pu&amp;dimension=fWIAEtYVEGk&amp;dimension=oZg33kd9taw:EQ:Male</screen>
+      <screen>api/analytics/events/aggregate/eBAyeGv0exc?filter=pe:2014&amp;filter=ou:O6uvpzGd5pu&amp;dimension=fWIAEtYVEGk
+&amp;dimension=oZg33kd9taw:EQ:Male</screen>
       <para>To create a &quot;Top 3 report&quot; for &quot;Mode of discharge&quot; you can use the limit and sortOrder
         query parameters similar to this:</para>
       <screen>api/analytics/events/aggregate/eBAyeGv0exc
@@ -4883,16 +4907,23 @@ startDate=2014-01-01&amp;endDate=2014-10-31
         include a program query parameter:</para>
       <screen>api/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;program=ur1Edk5Oe2n</screen>
       <para>To specify program enrollment dates as part of the query:</para>
-      <screen>api/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;program=ur1Edk5Oe2n&amp;programStartDate=2013-01-01&amp;programEndDate=2013-09-01</screen>
+      <screen>api/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A
+&amp;ou=O6uvpzGd5pu&amp;program=ur1Edk5Oe2n
+&amp;programStartDate=2013-01-01&amp;programEndDate=2013-09-01</screen>
       <para>To constrain the response to instances of a specific tracked entity you can include a
         tracked entity query parameter:</para>
-      <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;trackedEntity=cyl5vuJ5ETQ</screen>
+      <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A
+&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS
+&amp;trackedEntity=cyl5vuJ5ETQ</screen>
       <para>By default the instances are returned in pages of size 50, to change this you can use the
         page and pageSize query parameters:</para>
-      <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;page=2&amp;pageSize=3</screen>
+      <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A
+&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;page=2&amp;pageSize=3</screen>
       <para>To query for instances which have events of a given status within a given time
         span:</para>
-      <screen>api/trackedEntityInstances.json?ou=O6uvpzGd5pu&amp;program=ur1Edk5Oe2n&amp;eventStatus=LATE_VISIT&amp;eventStartDate=2014-01-01&amp;eventEndDate=2014-09-01</screen>
+      <screen>api/trackedEntityInstances.json?ou=O6uvpzGd5pu
+&amp;program=ur1Edk5Oe2n&amp;eventStatus=LATE_VISIT
+&amp;eventStartDate=2014-01-01&amp;eventEndDate=2014-09-01</screen>
       <para>You can use a range of operators for the filtering:</para>
       <table frame="all">
         <title>Filter operators</title>
