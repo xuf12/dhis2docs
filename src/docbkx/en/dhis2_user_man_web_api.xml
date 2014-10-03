@@ -44,10 +44,10 @@
     <table>
       <title>Period format</title>
       <tgroup cols="4">
-        <colspec colnum="1" colname="c1" colwidth="162.75pt"/>
-        <colspec colnum="2" colname="c2" colwidth="108.75pt"/>
-        <colspec colnum="3" colname="c3" colwidth="108pt"/>
-        <colspec colnum="4" colname="c4" colwidth="173.25pt"/>
+        <colspec colnum="1" colname="c1" colwidth="60pt"/>
+        <colspec colnum="2" colname="c2" colwidth="80pt"/>
+        <colspec colnum="3" colname="c3" colwidth="80pt"/>
+        <colspec colnum="4" colname="c4" colwidth="200pt"/>
         <thead>
           <row>
             <entry> Interval </entry>
@@ -59,37 +59,41 @@
         <tbody>
           <row>
             <entry>Day</entry>
-            <entry>yyyyMMdd</entry>
+            <entry>
+              <emphasis>yyyyMMdd</emphasis>
+            </entry>
             <entry>20040315</entry>
             <entry>March 15 2004</entry>
           </row>
           <row>
             <entry>Week</entry>
-            <entry>yyyyWn</entry>
+            <entry><emphasis>yyyy</emphasis>W<emphasis>n</emphasis></entry>
             <entry>2004W10</entry>
             <entry>Week 10 2004</entry>
           </row>
           <row>
             <entry>Month</entry>
-            <entry>yyyyMM</entry>
+            <entry>
+              <emphasis>yyyyMM</emphasis>
+            </entry>
             <entry>200403</entry>
             <entry>March 2004</entry>
           </row>
           <row>
             <entry>Quarter</entry>
-            <entry>yyyyQn</entry>
+            <entry><emphasis>yyyy</emphasis>Q<emphasis>n</emphasis></entry>
             <entry>2004Q1</entry>
             <entry>January-March 2004</entry>
           </row>
           <row>
             <entry>Six-month</entry>
-            <entry>yyyySn</entry>
+            <entry><emphasis>yyyy</emphasis>S<emphasis>n</emphasis></entry>
             <entry>2004S1</entry>
-            <entry>Janary-June 2004</entry>
+            <entry>January-June 2004</entry>
           </row>
           <row>
             <entry>Six-month April</entry>
-            <entry>yyyyAprilSn</entry>
+            <entry><emphasis>yyyy</emphasis>AprilSn</entry>
             <entry>2004AprilS1</entry>
             <entry>April-September 2004</entry>
           </row>
