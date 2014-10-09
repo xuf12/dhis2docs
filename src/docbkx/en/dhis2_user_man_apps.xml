@@ -1,10 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>Apps</title>
-  <para>A packaged app is an <ulink
-      url="https://developer.mozilla.org/en-US/docs/Open_Web_apps_and_Web_standards">Open Web
-      App</ulink> that has all of its resources (HTML, CSS, JavaScript, app manifest, and so on)
+  <para>A packaged app is an <ulink url="https://developer.mozilla.org/en-US/docs/Open_Web_apps_and_Web_standards">Open Web App</ulink> that has all of its resources (HTML, CSS, JavaScript, app manifest, and so on)
     contained in a zip file and can be uploaded to a DHIS 2 installation at runtime. A packaged app
     is a zip file with an <ulink url="http://www.w3.org/2008/webapps/manifest/">app manifest</ulink>
     in its root directory. The manifest must be named manifest.webapp. Since DHIS 2.12, an
@@ -22,56 +20,51 @@
   <section>
     <title>Creating Apps</title>
     <para>Creating apps is simple: You can create HTML, JavaScript and CSS files similar to any
-      other web application. Then one needs to create a file called <emphasis role="italic"
-        >manifest.webapp</emphasis> which describes the contents of the app. This file should be in
-      the format specified by the <ulink url="http://www.w3.org/2008/webapps/manifest/">W3C Manifest
-        for Web Applications</ulink>. A basic example of the <emphasis role="italic"
-        >manifest.webapp</emphasis> is shown below:</para>
+      other web application. Then one needs to create a file called <emphasis role="italic">manifest.webapp</emphasis> which describes the contents of the app. This file should be in
+      the format specified by the <ulink url="http://www.w3.org/2008/webapps/manifest/">W3C Manifest for Web Applications</ulink>. A basic example of the <emphasis role="italic">manifest.webapp</emphasis> is shown below:</para>
     <para>
       <screen>{
-    "version": "0.1",
-    "name": "My App",
-    "description": "My App is a Packaged App",
-    "launch_path": "/index.html",
-    "icons": {
-        "16": "/img/icons/mortar-16.png",
-        "48": "/img/icons/mortar-48.png",
-        "128": "/img/icons/mortar-128.png"
+    &quot;version&quot;: &quot;0.1&quot;,
+    &quot;name&quot;: &quot;My App&quot;,
+    &quot;description&quot;: &quot;My App is a Packaged App&quot;,
+    &quot;launch_path&quot;: &quot;/index.html&quot;,
+    &quot;icons&quot;: {
+        &quot;16&quot;: &quot;/img/icons/mortar-16.png&quot;,
+        &quot;48&quot;: &quot;/img/icons/mortar-48.png&quot;,
+        &quot;128&quot;: &quot;/img/icons/mortar-128.png&quot;
     },
-    "developer": {
-        "name": "Me",
-        "url": "http://me.com"
+    &quot;developer&quot;: {
+        &quot;name&quot;: &quot;Me&quot;,
+        &quot;url&quot;: &quot;http://me.com&quot;
     },
-    "default_locale": "en",
-    "activities": {
-        "dhis": {
-            "href": "*"
+    &quot;default_locale&quot;: &quot;en&quot;,
+    &quot;activities&quot;: {
+        &quot;dhis&quot;: {
+            &quot;href&quot;: &quot;*&quot;
         }
     }
 }</screen>
     </para>
     <para>The <emphasis role="italic">manifest.webapp</emphasis> file must be located at the root of
-      the project. Among the properties, the <emphasis role="italic">icons&#x2192;48</emphasis>
+      the project. Among the properties, the <emphasis role="italic">icons→48</emphasis>
       property is used for the icon that is displayed on the list of apps that are installed on a
       DHIS 2 instance. The <emphasis role="italic">activities</emphasis> property is an
       dhis-specific extension meant to differentiate between a standard Open Web App and an App that
-      can be installed in DHIS 2. The <emphasis role="italic">*</emphasis> value for <emphasis
-        role="italic">href</emphasis> is converted to the appropriate URL when the App is uploaded
-      and installed in DHIS 2. This value can then be used by the application's JavaScript and HTML
+      can be installed in DHIS 2. The <emphasis role="italic">*</emphasis> value for <emphasis role="italic">href</emphasis> is converted to the appropriate URL when the App is uploaded
+      and installed in DHIS 2. This value can then be used by the application&apos;s JavaScript and HTML
       files to make calls to the DHIS 2 Web API and identify the correct location of DHIS 2 server
-      on which the App has been installed. To clarify, the <emphasis role="italic"
-        >activities</emphasis> part will look similar to this after the App has been
+      on which the App has been installed. To clarify, the <emphasis role="italic">activities</emphasis> part will look similar to this after the App has been
       installed:</para>
-    <screen>"activities": {
-    "dhis": {
-        "href": "http://apps.dhis2.org/demo"
+    <screen>&quot;activities&quot;: {
+    &quot;dhis&quot;: {
+        &quot;href&quot;: &quot;http://apps.dhis2.org/demo&quot;
     }
  }</screen>
     <para>To read the JSON structure into Javascript you can use a regular AJAX request and parse
       the JSON into an object. Most Javascript libraries provide some support, for instance with
       jQuery it can be done like this:</para>
-    <screen>$.getJSON( "manifest.webapp", function( json ) {
-    var apiBaseUrl = json.activities.dhis.href + "/api";
+    <screen>$.getJSON( &quot;manifest.webapp&quot;, function( json ) {
+    var apiBaseUrl = json.activities.dhis.href + &quot;/api&quot;;
 } );</screen>
     <para>The App can contain HTML, Javascript, CSS and image files. The file structure could look
       something like this:</para>
@@ -79,7 +72,7 @@
 /manifest.webapp    #manifest file (mandatory)
 /css/               #css stylesheets (optional)
 /img/               #images (optional)
-/js/                #javascripts (optional)</screen>
+/js/&#160;               #javascripts (optional)</screen>
     <para>Note that it is only the manifest.webapp file which must be placed in the root. It is up
       the developer to organize CSS, images and Javascript files inside the app.</para>
     <para>All the files in the project should be compressed into a standard zip archive. Note that
@@ -89,9 +82,9 @@
   </section>
   <section>
     <title>Configuring DHIS 2 for Apps Installation</title>
-    <para>The App manager is found under Services &#x2192; Apps. If your logged in user has
+    <para>The App manager is found under Services → Apps. If your logged in user has
       permissions to view and edit settings you will see the Settings link in the left menu.</para>
-    <para><inlinegraphic fileref="resources/images/apps/appSettings.png"/></para>
+    <para><inlinegraphic fileref="resources/images/apps/appSettings.png" format="PNG" width="75%" align="center"/></para>
     <para>The following settings can be configured:</para>
     <orderedlist>
       <listitem>
@@ -110,16 +103,15 @@
       <listitem>
         <para><emphasis role="italic">App store URL:</emphasis> The app repository through which new
           apps can be downloaded and installed. Each deployment can host their own, approved set of
-          apps that can be installed in DHIS 2. The DHIS 2 App store can be found at <ulink
-            url="http://www.dhis2.org/appstore">http://www.dhis2.org/appstore</ulink></para>
+          apps that can be installed in DHIS 2. The DHIS 2 App store can be found at <ulink url="http://www.dhis2.org/appstore">http://www.dhis2.org/appstore</ulink></para>
       </listitem>
     </orderedlist>
   </section>
   <section>
     <title>Installing Apps into DHIS 2</title>
-    <para>Apps can be installed by uploading zip file into the App manager. In, Services &#x2192;
+    <para>Apps can be installed by uploading zip file into the App manager. In, Services →
       Apps, click on the <emphasis role="italic">App Store</emphasis> menu item.</para>
-    <para><inlinegraphic fileref="resources/images/apps/appStore.png"/></para>
+    <para><inlinegraphic fileref="resources/images/apps/appStore.png" format="PNG" width="75%" align="center"/></para>
     <para>The app can be uploaded by pressing the Browse button and after selecting the zip package,
       the file is uploaded automatically and installed in DHIS 2. You can also browse through apps
       in the app store and download apps from there. The app store allows for app searching,
@@ -135,78 +127,82 @@
     <title>Web-API for Apps</title>
     <para>From DHIS 2.14 there is also additional support for apps through the web-api. The <emphasis role="italic">/api/apps</emphasis>
       endpoint can be used for installing, deleting, listing apps.</para>
-    <para><emphasis role="bold">To list all installed apps (mediatypes works as usual, accept header or file extension, xml and
-        json):</emphasis><screen>curl -X GET -u user:pass -H "Accept: application/json" http://server/api/apps</screen></para>
-    <para><emphasis role="bold">To install an
-      app:</emphasis><screen>curl -X POST -u user:pass -F file=@app.zip http://server/api/apps</screen></para>
-    <para><emphasis role="bold">To delete an
-      app:</emphasis><screen>curl -X DELETE -u user:pass http://server/api/apps/&lt;app-name></screen></para>
-    <para><emphasis role="bold">Force reload of installed apps (useful if you added a file manually in the
-      file-system):</emphasis><screen>curl -X PUT -u user:pass http://server/api/apps</screen></para>
+    <para>To list all installed apps (mediatypes works as usual, accept header or file extension, xml and json):<programlisting language="bash">curl -X GET -u user:pass -H &quot;Accept: application/json&quot; http://server/api/apps</programlisting></para>
+    <para>To install an app, the following command can be issued: <programlisting language="bash">curl -X POST -u user:pass -F file=@app.zip http://server/api/apps</programlisting></para>
+    <para>To delete an app, you can issue the following command: <programlisting language="bash">curl -X DELETE -u user:pass http://server/api/apps/&lt;app-name&gt;</programlisting></para>
+    <para>To force a reload of currently installed apps , you can issue the following command. This is useful if you added a file manually directly to the file system, instead of uploading through the DHIS2 user interface. <programlisting>curl -X PUT -u user:pass http://server/api/apps</programlisting></para>
   </section>
   <section>
-    <title>Adding the DHIS menu to your App</title>
-    <para>To keep a uniform look within DHIS it is (from DHIS 2.16) possible to add the top menu to your own app. In this section we will explain how to do this. The following will explain how to get both the Apps and the Profile menu into your app.<inlinegraphic fileref="resources/images/apps/profileMenu.png"/></para>
-    <para>The first step is to adding the menu is including the stylesheets and scripts that are required. All javascript files are found in <emphasis role="italic">/dhis-web-commons/javascripts/dhis2/</emphasis> while the css files are found in <emphasis role="italic">/dhis-web-commons/font-awesome/css/font-awesome.min.css</emphasis> and <emphasis role="italic">/dhis-web-commons/css/menu.css</emphasis>
-    The following list gives a small discription of what these files do.
+    <title>Adding the DHIS2 menu to your app</title>
+    <para>In order to maintain a uniform appearance withing  DHIS2 it is  possible to add your app&apos;s icon to the top menu of DHIS2. This function is supported from version 2.16 of DHIS2. The following section will describe how to achieve this. To begin, we start with a screen-shot of the top-menu from the DHIS2 user interface, where your app&apos;s icon will be placed. <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="50%" align="center" fileref="resources/images/apps/profileMenu.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot></para>
+    <para>The first step is to adding the menu is including the style-sheets and scripts that are required. All JavaScript files are found in <filename role="italic">/dhis-web-commons/javascripts/dhis2/</filename> while the CSS files are found in <filename role="italic">/dhis-web-commons/font-awesome/css/font-awesome.min.css</filename> and <filename role="italic">/dhis-web-commons/css/menu.css</filename>
+</para>
+    <para>    The following list provides a description of each files functionality. 
   </para>
-  <para>
+    <para>
       <emphasis role="bold">Scripts:</emphasis>
       <itemizedlist>
         <listitem>
-          <para><emphasis role="italic">jquery.min.js / jqLite / angular.element</emphasis> : One of the mentioned libraries needs to be present. We use the stripped down version of jqLite that is present in angular for the menu. This makes it compatible with jqLite and jQuery. </para>
+          <para><filename role="italic">jquery.min.js / jqLite / angular.element</filename> : One of the mentioned libraries needs to be present. DHIS2 employs a  stripped-down version of <classname>jqLite</classname>   that is present in <emphasis>Angular</emphasis> for the menu. This makes it compatible with jqLite and jQuery. </para>
         </listitem>
         <listitem>
-          <para><emphasis role="italic">dhis2.translate.js</emphasis> : Translate script that translates menu text to your current dhis language setting</para>
+          <para><filename role="italic">dhis2.translate.js</filename> : Translate script that translates menu text to your current dhis language setting</para>
         </listitem>
         <listitem>
-          <para><emphasis role="italic">dhis2.menu.js</emphasis> : Menu logic that deals with all the ordering, searching of menu items etc.</para>
+          <para><filename role="italic">dhis2.menu.js</filename> : Menu logic that deals with all the ordering, searching of menu items etc.</para>
         </listitem>
         <listitem>
-          <para><emphasis role="italic">dhis2/dhis2.menu.ui.js</emphasis> : Menu ui code that has all the menu ui related code for scolling, shortcuts, HTML markup etc.</para>
+          <para><emphasis role="italic">dhis2/dhis2.menu.ui.js</emphasis> : Menu ui code that has all the menu user interface related code for scrolling, shortcuts, HTML markup etc.</para>
         </listitem>
       </itemizedlist>
       <emphasis role="bold">Stylesheets:</emphasis>
       <itemizedlist>
         <listitem>
-          <para><emphasis role="italic">font-awesome.min.css</emphasis> : Used for various icons in the menu.</para>
+          <para><filename role="italic">font-awesome.min.css</filename> : Used for various icons in the menu.</para>
         </listitem>
         <listitem>
-          <para><emphasis role="italic">menu.css</emphasis> : The CSS used for the menu.</para>
+          <para><filename role="italic">menu.css</filename> : The CSS used for the menu.</para>
         </listitem>
         <listitem>
-          <para><emphasis role="italic">dhis2.translate.js</emphasis> : Translate script that translates menu text to your current dhis language setting</para>
+          <para><filename role="italic">dhis2.translate.js</filename> : Translate script that translates menu text to your current DHIS2 language setting</para>
         </listitem>
       </itemizedlist>
     </para>
     <para>
-      For a app that will run using the same url structure as the normal DHIS apps the scripts and the stylesheets are the only thing you need. If your app is running using a different url structure than the default one, you will need to specify a <emphasis role="italic">base url</emphasis> before including the menu scripts. Including the scripts and stylesheets would look something like the following:
-    <screen>
-        &lt;!-- DHIS2 Settings initialization for a baseUrl that is used for the menu --&gt;
-        &lt;script&gt;
-            window.dhis2 = window.dhis2 || {};
-            dhis2.settings = dhis2.settings || {};
-            dhis2.settings.baseUrl = &#39;dhis&#39;;
-        &lt;/script&gt;
+      For a app that will run using the same URL structure as the normal DHIS2 apps, only the JavaScript files and style-sheets are required. If your app is running using a different URL structure than the default one, you will need to specify a <parameter>base URL</parameter>before including the menu scripts. Including the scripts and style-sheets would look something like the following:
+    <screen>&lt;!-- DHIS2 Settings initialization for a baseUrl that is used for the menu --&gt;
+&lt;script&gt;
+ window.dhis2 = window.dhis2 || {};
+ dhis2.settings = dhis2.settings || {};
+ dhis2.settings.baseUrl = &apos;dhis&apos;;
+&lt;/script&gt;
 
-        &lt;!-- Menu scripts --&gt;
-        &lt;script type=&quot;text/javascript&quot; src=&quot;./dhis-web-commons/javascripts/dhis2/dhis2.translate.js&quot;&gt;&lt;/script&gt;
-        &lt;script type=&quot;text/javascript&quot; src=&quot;./dhis-web-commons/javascripts/dhis2/dhis2.menu.js&quot;&gt;&lt;/script&gt;
-        &lt;script type=&quot;text/javascript&quot; src=&quot;./dhis-web-commons/javascripts/dhis2/dhis2.menu.ui.js&quot;&gt;&lt;/script&gt;
+&lt;!-- Menu scripts --&gt;
+ &lt;script type=&quot;text/javascript&quot; src=&quot;./dhis-web-commons/javascripts/dhis2/dhis2.translate.js&quot;&gt;
+&lt;/script&gt;
+ &lt;script type=&quot;text/javascript&quot; src=&quot;./dhis-web-commons/javascripts/dhis2/dhis2.menu.js&quot;&gt;
+&lt;/script&gt;
+ &lt;script type=&quot;text/javascript&quot; src=&quot;./dhis-web-commons/javascripts/dhis2/dhis2.menu.ui.js&quot;&gt;&lt;/script&gt;
 
-        &lt;!-- Stylesheets related to the menu --&gt;
-        &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;./dhis-web-commons/font-awesome/css/font-awesome.min.css&quot;/&gt;
-        &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; media=&quot;screen&quot; href=&quot;./dhis-web-commons/css/menu.css&quot;&gt;
+&lt;!-- Stylesheets related to the menu --&gt;
+ &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;./dhis-web-commons/font-awesome/css/font-awesome.min.css&quot;/&gt;
+ &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; media=&quot;screen&quot; href=&quot;./dhis-web-commons/css/menu.css&quot;&gt;
     </screen>
   </para>
     <para>
-      To make the above a bit more clear. The following part will initialize some variables. If you do not use any other dhis libraries these will not be set and therefore will have to be set by you first. After that the 3rd line specifies a baseUrl of where your dhis instance is running on your webserver. For example: <emphasis role="italic">dhis</emphasis> in this case means the server is running at <emphasis role="italic">http://localhost:8080/dhis/</emphasis>. Note that you will only have to specify the part after the web address. So if your instance is running at <emphasis role="italic">http://www.example.com/myInstance/</emphasis> you would only specify <emphasis role="italic">myInstance</emphasis>
+      To make the above a bit more clear. The following part will initialize some variables. If you do not use any other DHIS libraries these will not be set and therefore will have to be set by you first. After that the third line specifies a base URL of where your DHIS2 instance is running on your web server. For example: <emphasis role="italic">dhis</emphasis> in this case means the server is running at <emphasis role="italic">http://localhost:8080/dhis/</emphasis>. Note that you will only have to specify the part after the web address. So if your instance is running at <emphasis role="italic">http://www.example.com/myInstance/</emphasis> you would only specify <emphasis role="italic">myInstance</emphasis>
       <screen>
         &lt;!-- Example setting for myInstance --&gt;
         &lt;script&gt;
             window.dhis2 = window.dhis2 || {};
             dhis2.settings = dhis2.settings || {};
-            dhis2.settings.baseUrl = &#39;myInstance&#39;;
+            dhis2.settings.baseUrl = &apos;myInstance&apos;;
         &lt;/script&gt;
       </screen>
     </para>
@@ -221,15 +217,15 @@
       </screen>
       The element type in this case does not really matter. As long as you include the <emphasis role="italic">d2-menu</emphasis> directive. To be able to use the menu directive you would also have to include the directive in your angular app. The angular module containing the directive is called <emphasis role="italic">d2Menu</emphasis>.
       <screen>
-        'use strict';
+        &apos;use strict&apos;;
 
-var appMenu = angular.module('appMenu',
-         ['ngRoute', 
-          'ngCookies',
-          'd2Menu']);
+var appMenu = angular.module(&apos;appMenu&apos;,
+         [&apos;ngRoute&apos;, 
+          &apos;ngCookies&apos;,
+          &apos;d2Menu&apos;]);
       </screen>
     </para>
-      <para>
+    <para>
         The minimum amount of code to show the menu is shown below. You could use this as a starting reference.
       <screen>
         &lt;!DOCTYPE html&gt;
@@ -239,7 +235,9 @@ var appMenu = angular.module('appMenu',
 
         &lt;!-- Stylesheets related to the menu --&gt;
         &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;./dhis-web-commons/font-awesome/css/font-awesome.min.css&quot;/&gt;
-        &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; media=&quot;screen&quot; href=&quot;./dhis-web-commons/css/menu.css&quot;&gt;
+        &lt;link type=&quot;text/css&quot; 
+rel=&quot;stylesheet&quot; media=&quot;screen&quot; 
+href=&quot;./dhis-web-commons/css/menu.css&quot;&gt;
     &lt;/head&gt;
 
     &lt;body style=&quot;background-color: black;&quot;&gt;
@@ -250,13 +248,15 @@ var appMenu = angular.module('appMenu',
         &lt;script&gt;
             window.dhis2 = window.dhis2 || {};
             dhis2.settings = dhis2.settings || {};
-            dhis2.settings.baseUrl = &#39;dhis&#39;;
+            dhis2.settings.baseUrl = &apos;dhis&apos;;
         &lt;/script&gt;
 
         &lt;!-- Menu scripts --&gt;
-        &lt;script type=&quot;text/javascript&quot; src=&quot;./dhis-web-commons/javascripts/jQuery/jquery.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;./dhis-web-commons/javascripts/jQuery/jquery.min.js&quot;&gt;
+&lt;/script&gt;
         &lt;script type=&quot;text/javascript&quot; src=&quot;./dhis-web-commons/javascripts/dhis2/dhis2.translate.js&quot;&gt;&lt;/script&gt;
-        &lt;script type=&quot;text/javascript&quot; src=&quot;./dhis-web-commons/javascripts/dhis2/dhis2.menu.js&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;./dhis-web-commons/javascripts/dhis2/dhis2.menu.js&quot;&gt;
+&lt;/script&gt;
         &lt;script type=&quot;text/javascript&quot; src=&quot;./dhis-web-commons/javascripts/dhis2/dhis2.menu.ui.js&quot;&gt;&lt;/script&gt;
 
     &lt;/body&gt;
