@@ -332,7 +332,7 @@ sudo /etc/init.d/nginx stop</screen></para>
   # HTTPS server
 
   server {
-    listen               443;
+    listen               443 ssl;
     root  /home/dhis/tomcat/webapps/ROOT; # Update path!
     client_max_body_size 10M;
 
@@ -395,7 +395,7 @@ sudo /etc/init.d/nginx stop</screen></para>
   # HTTPS server
 
   server {
-    listen               443;
+    listen               443 ssl;
     client_max_body_size 10M;
 
     ssl                  on;
