@@ -354,6 +354,12 @@ Show details: Display some informative information about the data set, including
                 violations.</entry>
               <entry>Event | Data set ID</entry>
             </row>
+            <row>
+              <entry>dhis2.ou.event.orgUnitSelected</entry>
+              <entry>Triggered when one or more organisation units are selected in the org unit web
+                tree.</entry>
+              <entry>Event | Org unit IDs | Org unit names | Sub org unit IDs</entry>
+            </row>
           </tbody>
         </tgroup>
       </table>
