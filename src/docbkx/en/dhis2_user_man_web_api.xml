@@ -4550,10 +4550,13 @@ startDate=2014-01-01&amp;endDate=2014-10-31
   </section>
   <section>
     <title>Configuration</title>
-    <para>To access configuration you can interact with the <emphasis role="italic">configuration</emphasis> resource. You can send <emphasis role="italic">GET</emphasis>
-      requests to the following sub-resources. You can get XML and JSON responses through the
-        <emphasis role="italic">Accept</emphasis> header or by using the .json or .xml
-      extensions.</para>
+    <para>To access configuration you can interact with the <emphasis role="italic"
+        >configuration</emphasis> resource. You can get XML and JSON responses through the <emphasis
+        role="italic">Accept</emphasis> header or by using the .json or .xml extensions. You can
+        <emphasis role="italic">GET</emphasis> the configuration from:</para>
+    <screen>/api/configuration</screen>
+    <para>You can send <emphasis role="italic">GET</emphasis> requests to the following
+      sub-resources:</para>
     <screen>/api/configuration/systemId</screen>
     <screen>/api/configuration/feedbackRecipients</screen>
     <screen>/api/configuration/offlineOrganisationUnitLevel</screen>
