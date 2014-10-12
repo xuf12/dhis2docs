@@ -160,12 +160,6 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
           </thead>
           <tbody>
             <row>
-              <entry>viewClass</entry>
-              <entry>basic | export | detailed </entry>
-              <entry>basic for lists, detailed for objects</entry>
-              <entry>Defines how much information to display for each element.</entry>
-            </row>
-            <row>
               <entry>links</entry>
               <entry>true | false</entry>
               <entry>true</entry>
@@ -195,7 +189,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     </para>
     <para>An example of how these parameters can be used to get a full list of data element groups
       in XML response format is:</para>
-    <screen>/api/dataElementGroups.xml?viewClass=detailed&amp;links=false&amp;paging=false</screen>
+    <screen>/api/dataElementGroups.xml?links=false&amp;paging=false</screen>
     <para>You can query for elements on the name property instead of returning full list of elements using the <emphasis role="italic">query</emphasis> query variable. In this example we query for all data elements with the word &quot;anaemia&quot; in the name:</para>
     <screen>/api/dataElements?query=anaemia</screen>
     <para>You can find an object based on its ID across all object types through the <emphasis role="italic">identifiableObjects</emphasis> resource:</para>
