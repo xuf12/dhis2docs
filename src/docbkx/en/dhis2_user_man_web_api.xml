@@ -5172,6 +5172,22 @@ startDate=2014-01-01&amp;endDate=2014-10-31
       allow people to create accounts without anyone else knowing the password or by transferring
       the password in plain text. The user entity can be posted like this:</para>
     <screen>curl -d @user.json &quot;localhost/api/users/invite&quot; -H &quot;Content-Type:application/json&quot; -u admin:district -v</screen>
+    <para>To send out invites for multiple users at the same time, you must use a slight different
+      format.</para>
+    <para>For
+      JSON:<screen>{
+  "users": [
+    { user payload as normal },
+    { user payload as normal }
+  ]
+}</screen></para>
+    <para>For XML:</para>
+    <screen>&lt;users xmlns="http://dhis2.org/schema/dxf/2.0">
+  &lt;user> ... user payload as normal &lt;/user>
+  &lt;user> ... user payload as normal &lt;/user>
+&lt;/users></screen>
+    <para>And then use the endpoint <emphasis role="italic">/api/users/invites</emphasis>
+      instead.</para>
   </section>
   <section>
     <title>Sharing</title>
