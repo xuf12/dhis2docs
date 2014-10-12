@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd"[]>
 <chapter>
   <title>Web API</title>
   <para>The Web API is a component which makes it possible for external systems  to access and manipulate  data stored in an instance of DHIS 2. More precisely, it provides a   programmatic interface to a wide range of exposed data and service methods for applications such as third-party software clients, web portals and  internal DHIS 2 modules.</para>
@@ -1246,6 +1246,119 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Acc
           </tgroup>
         </table>
     </para>
+    </section>
+    <section>
+      <title>CSV Import / Export</title>
+      <para>In addition to XML and JSON for event import/export, in DHIS 2.17 we introduced support
+        for the CSV format. Support for this format builds on what was described in the last
+        section, so here we will only write about what the CSV specific parts are.</para>
+      <para>To use the CSV format you must either use the <emphasis role="italic">/api/events.csv</emphasis> endpoint, or add <emphasis role="italic">content-type:
+          text/csv</emphasis> for import, and <emphasis role="italic">accept: text/csv</emphasis>
+        for export when using the <emphasis role="italic">/api/events</emphasis> endpoint.</para>
+      <para>The order of column in the CSV which are used for both export and import is as
+        follows:</para>
+      <para>
+        <table>
+          <title>CSV column</title>
+          <tgroup cols="4">
+            <thead>
+              <row>
+                <entry>Index</entry>
+                <entry> Key</entry>
+                <entry> Type </entry>
+                <entry> Description </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>1</entry>
+                <entry>event</entry>
+                <entry>identifier</entry>
+                <entry>Identifier of event</entry>
+              </row>
+              <row>
+                <entry>2</entry>
+                <entry>status</entry>
+                <entry>enum</entry>
+                <entry>Status of event, can be ACTIVE | COMPLETED | VISITED | FUTURE_VISIT |
+                  LATE_VISIT | SKIPPED</entry>
+              </row>
+              <row>
+                <entry>3</entry>
+                <entry>program</entry>
+                <entry>identifier</entry>
+                <entry>Identifier of program</entry>
+              </row>
+              <row>
+                <entry>4</entry>
+                <entry>programStage</entry>
+                <entry>identifier</entry>
+                <entry>Identifier of program stage</entry>
+              </row>
+              <row>
+                <entry>5</entry>
+                <entry>enrollment</entry>
+                <entry>identifier</entry>
+                <entry>Identifier of enrollment (program stage instance)</entry>
+              </row>
+              <row>
+                <entry>6</entry>
+                <entry>orgUnit</entry>
+                <entry>identifier</entry>
+                <entry>Identifier of organisation unit</entry>
+              </row>
+              <row>
+                <entry>7</entry>
+                <entry>eventDate</entry>
+                <entry>date</entry>
+                <entry>Event date</entry>
+              </row>
+              <row>
+                <entry>8</entry>
+                <entry>dueDate</entry>
+                <entry>date</entry>
+                <entry>Due Date</entry>
+              </row>
+              <row>
+                <entry>9</entry>
+                <entry>latitude</entry>
+                <entry>double</entry>
+                <entry>Latitude where event happened</entry>
+              </row>
+              <row>
+                <entry>10</entry>
+                <entry>longitude</entry>
+                <entry>double</entry>
+                <entry>Longitude where event happened</entry>
+              </row>
+              <row>
+                <entry>11</entry>
+                <entry>dataElement</entry>
+                <entry>identifier</entry>
+                <entry>Identifier of data element</entry>
+              </row>
+              <row>
+                <entry>12</entry>
+                <entry>value</entry>
+                <entry>string</entry>
+                <entry>Value / measure of event</entry>
+              </row>
+              <row>
+                <entry>13</entry>
+                <entry>storedBy</entry>
+                <entry>string</entry>
+                <entry>Event was stored by (defaults to current user)</entry>
+              </row>
+              <row>
+                <entry>14</entry>
+                <entry>providedElsewhere</entry>
+                <entry>boolean</entry>
+                <entry>Was this value collected somewhere else</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </para>
     </section>
     <section>
       <title>Querying and reading events</title>
@@ -4544,9 +4657,7 @@ startDate=2014-01-01&amp;endDate=2014-10-31
   </section>
   <section>
     <title>Configuration</title>
-    <para>To access configuration you can interact with the <emphasis role="italic"
-        >configuration</emphasis> resource. You can get XML and JSON responses through the <emphasis
-        role="italic">Accept</emphasis> header or by using the .json or .xml extensions. You can
+    <para>To access configuration you can interact with the <emphasis role="italic">configuration</emphasis> resource. You can get XML and JSON responses through the <emphasis role="italic">Accept</emphasis> header or by using the .json or .xml extensions. You can
         <emphasis role="italic">GET</emphasis> the configuration from:</para>
     <screen>/api/configuration</screen>
     <para>You can send <emphasis role="italic">GET</emphasis> requests to the following
