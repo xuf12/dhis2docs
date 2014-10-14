@@ -1042,8 +1042,8 @@ Content-Type: application/xml
       </table>
       <para>The dataSet and orgUnit parameters can be repeated in order to include multiple data sets
       and organisation units. An example request looks like this:</para>
-      <programlisting>curl &quot;https://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;dataSet=BfMAe6Itzgt&amp;startDate=2013-01-01&amp;endDate=2013-01-31&amp;
-orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Accept:application/xml&quot; -u admin:district -v</programlisting>
+      <screen>curl &quot;https://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;dataSet=BfMAe6Itzgt&amp;startDate=2013-01-01&amp;endDate=2013-01-31&amp;
+orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Accept:application/xml&quot; -u admin:district -v</screen>
       <para>You can get the response in <emphasis role="italic">xml</emphasis> and <emphasis role="italic">csv</emphasis> format. You can indicate which response format you prefer
       through the <emphasis role="italic">Accept</emphasis> HTTP header like in the example above.
       For XML you use <emphasis role="italic">application/xml</emphasis>; for CSV you use <emphasis role="italic">application/csv</emphasis>.</para>
