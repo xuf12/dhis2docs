@@ -343,7 +343,7 @@ sudo /etc/init.d/nginx stop</screen></para>
     ssl_session_cache    shared:SSL:20m;
     ssl_session_timeout  10m;
 
-    ssl_protocols              SSLv2 SSLv3 TLSv1;
+    ssl_protocols              TLSv1 TLSv1.1 TLSv1.2;
     ssl_ciphers                HIGH:!aNULL:!MD5;
     ssl_prefer_server_ciphers  on;
 
@@ -367,7 +367,7 @@ sudo /etc/init.d/nginx stop</screen></para>
   }
 }</screen>
       <para>Note the last "https" header value which is required to inform the servlet container
-        that the request is coming over HTTPS. In order for tomcat to properly produce Location uris
+        that the request is coming over HTTPS. In order for tomcat to properly produce Location URLs
         using https you also need to add two other parameters to the Connector in tomcat&apos;s
         server.xml file:</para>
       <para><screen>&lt;Connector scheme=&quot;https&quot; proxyPort=&quot;443&quot; ... &gt;</screen></para>
