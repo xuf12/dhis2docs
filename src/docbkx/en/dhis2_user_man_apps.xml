@@ -2,11 +2,15 @@
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
   <title>Apps</title>
-  <para>A packaged app is an <ulink url="https://developer.mozilla.org/en-US/docs/Open_Web_apps_and_Web_standards">Open Web App</ulink> that has all of its resources (HTML, CSS, JavaScript, app manifest, and so on)
+  <para>A packaged app is an <ulink
+      url="https://developer.mozilla.org/en-US/docs/Open_Web_apps_and_Web_standards">Open Web
+      App</ulink> that has all of its resources (HTML, CSS, JavaScript, app manifest, and so on)
     contained in a zip file and can be uploaded to a DHIS 2 installation at runtime. A packaged app
     is a zip file with an <ulink url="http://www.w3.org/2008/webapps/manifest/">app manifest</ulink>
     in its root directory. The manifest must be named manifest.webapp. Since DHIS 2.12, an
-    implementer can install packaged apps in DHIS 2 and extend the web interface of DHIS2.</para>
+    implementer can install packaged apps in DHIS 2 and extend the web interface of DHIS2. Mozilla
+    has written a nice quick-start article <ulink
+      url="https://developer.mozilla.org/en-US/Apps/Quickstart">here</ulink>.</para>
   <section>
     <title>Purpose of Packaged Apps</title>
     <para>The purpose of packaged apps is to extend the web interface of DHIS 2. A system deployment
