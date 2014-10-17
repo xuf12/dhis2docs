@@ -264,7 +264,11 @@ sudo /etc/init.d/nginx stop</screen></para>
           >http://localhost:8080</emphasis>. To configure nginx you can open the configuration file
         by invoking:</para>
       <screen>sudo nano /etc/nginx/nginx.conf</screen>
-      <para>nginx configuration is built around a hierarchy of blocks representing http, server and location, where each block inherit settings from parent blocks. The following snippet will configure nginx to proxy pass (redirect) requests from port 80 (which is the port nginx will listen on by default) to our Tomcat instance. It will also make nginx serve requests for static content such as Javascript, stylesheets and images and instruct clients to cache it for 4 days which will reduce the load on Tomcat and improve overall performance. Include the following configuration in nginx.conf:</para>
+      <para>nginx configuration is built around a hierarchy of blocks representing http, server and
+        location, where each block inherit settings from parent blocks. The following snippet will
+        configure nginx to proxy pass (redirect) requests from port 80 (which is the port nginx will
+        listen on by default) to our Tomcat instance. Include the following configuration in
+        nginx.conf:</para>
       <para><screen>http {
   gzip on; # Enables compression
 
@@ -272,13 +276,6 @@ sudo /etc/init.d/nginx stop</screen></para>
     listen               80;
     root  /home/dhis/tomcat/webapps/ROOT; # Update path!
     client_max_body_size 10M;
-
-    # Serve static content
-
-    location ~ (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|\.ico$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
-      add_header  Cache-Control  public;
-      expires  7d;
-    } 
 
     # Proxy pass to servlet container
 
@@ -297,13 +294,6 @@ sudo /etc/init.d/nginx stop</screen></para>
         attribute with the value <emphasis role="italic">localhost</emphasis> to the Connector
         element for HTTP 1.1 like this:</para>
       <para><screen>&lt;Connector address=&quot;localhost&quot; protocol=&quot;HTTP/1.1&quot; ... &gt;</screen></para>
-      <important>
-        <para>The location block for static content is essential as web browsers will not cache
-          static content by default over SSL. It will only cache such content on the client side if
-          told explicitly by the web server. It is also useful to enable compression of data which
-          is returned by nginx in order to reduce the size of data that has to be transferred over
-          the network through the gzip directive.</para>
-      </important>
     </section>
     <section>
       <title>Enabling SSL on nginx</title>
@@ -346,13 +336,6 @@ sudo /etc/init.d/nginx stop</screen></para>
     ssl_protocols              TLSv1 TLSv1.1 TLSv1.2;
     ssl_ciphers                HIGH:!aNULL:!MD5;
     ssl_prefer_server_ciphers  on;
-
-    # Serve static content
-
-    location ~ (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|\.ico$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
-      add_header  Cache-Control  public;
-      expires  7d;
-    } 
 
     # Proxy pass to servlet container
 
@@ -408,13 +391,6 @@ sudo /etc/init.d/nginx stop</screen></para>
     ssl_protocols              SSLv2 SSLv3 TLSv1;
     ssl_ciphers                HIGH:!aNULL:!MD5;
     ssl_prefer_server_ciphers  on;
-
-    # Serve static content
-
-    location ~ (\.js$|\.css$|\.gif$|\.woff$|\.ttf$|\.eot$|\.ico$|^/images/|^/icons/|^/dhis-web-commons/.*\.png$) {
-      add_header  Cache-Control  public;
-      expires  7d;
-    } 
 
     # Proxy pass to servlet container and potentially cache response
 
