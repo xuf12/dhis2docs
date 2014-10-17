@@ -45,7 +45,7 @@ Just follow this procedure:</para>
 downloaded to the folder that you specified.</para>
       </listitem>
       <listitem>
-        <para>The DHIS2 documents depend on other branches for their documentation. Be sure to keep these these up to date as well. You should invoke <command>git submodule init</command> followed by <command>git submodule update</command> from the top of the source tree (i.e. /dhis2docs) in order for the necessary dependent documents to be copied to your local file system.</para>
+        <para>The DHIS2 documents depend on other branches for their documentation. Be sure to keep these these up to date as well. When you build the documentation, the necessary submodules will be downloaded automatically as part of the build process ,if you have not already done so. </para>
       </listitem>
     </orderedlist>
   </section>
