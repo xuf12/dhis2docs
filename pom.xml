@@ -1,5 +1,5 @@
 ﻿<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.hisp.dhis</groupId>
 	<artifactId>dhis-documentation-docbook</artifactId>
@@ -33,6 +33,7 @@
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
 					<execution>
+						<id>revision</id>
 						<phase>package</phase>
 						<configuration>
 							<tasks>
@@ -43,6 +44,20 @@
 									<arg line="rev-list --count HEAD"/>
 								</exec>
 								<echo file="${project.basedir}/src/docbkx/build.properties" message="&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;&lt;revhistory&gt;&lt;revision&gt;&lt;revnumber&gt;Revision  ${revision}&lt;/revnumber&gt;&lt;revremark&gt;Version ${project.version} ${now}&lt;/revremark&gt;&lt;/revision&gt;&lt;/revhistory&gt;" />
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>submodules</id>
+						<phase>package</phase>
+						<configuration>
+							<tasks>
+								<exec executable ="git" failifexecutionfails="true">
+									<arg line="submodule update --init --recursive"/>
+								</exec>
 							</tasks>
 						</configuration>
 						<goals>
@@ -205,6 +220,15 @@
 										<include name="**/*.svg" />
 									</fileset>
 								</copy>
+								<copy todir="${docbook.target}/en/implementer/html/">
+									<fileset dir="src/docbkx/en/dhis2tools/docs">
+										<include name="**/*.png" />
+										<include name="**/*.PNG" />
+										<include name="**/*.gif" />
+										<include name="**/*.jpg" />
+										<include name="**/*.svg" />
+									</fileset>
+								</copy>
 								<copy todir="${docbook.target}/en/implementer/html/resources/css">
 									<fileset dir="src/docbkx/en/resources/css">
 										<include name="**/*.css" />
@@ -273,7 +297,7 @@
 							</postProcess>
 						</configuration>
 					</execution>
-					
+
 					<!-- PDF User docs-->
 					<execution>
 						<id>pdf-docs-en-user</id>
@@ -293,7 +317,7 @@
 							</postProcess>
 						</configuration>
 					</execution>
-					
+
 					<!-- PDF CCEI User docs-->
 					<execution>
 						<id>pdf-docs-en-ccei-user</id>
