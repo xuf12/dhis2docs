@@ -1,0 +1,512 @@
+<?xml version="1.0"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta content="Loggerhead/1.18.2 Python/2.7.3 Bazaar/2.6.0 Paste/1.7.5.1 PasteDeploy/1.3.4 SimpleTAL/4.3 Pygments/1.6 simplejson/3.1.3" name="generator" />
+<title>~dhis2-documenters/dhis2/dhis2-docbook-docs : revision 1181</title>
+<link href="/static/css/global.css" rel="stylesheet" />
+<link href="/static/images/favicon.png" rel="shortcut icon" />
+
+<script type="text/javascript">
+var global_path = '/~dhis2-documenters/dhis2/dhis2-docbook-docs/';
+var collapsed_icon_path = '/static/images/treeCollapsed.png';
+var expanded_icon_path = '/static/images/treeExpanded.png';
+</script>
+<script src="/static/javascript/yui/build/yui/yui-min.js" type="text/javascript"></script>
+<script src="/static/javascript/yui/build/oop/oop-min.js" type="text/javascript"></script>
+<script src="/static/javascript/yui/build/event/event-min.js" type="text/javascript"></script>
+<script src="/static/javascript/yui/build/attribute/attribute-min.js" type="text/javascript"></script>
+<script src="/static/javascript/yui/build/base/base-min.js" type="text/javascript"></script>
+<script src="/static/javascript/yui/build/dom/dom-min.js" type="text/javascript"></script>
+<script src="/static/javascript/yui/build/node/node-min.js" type="text/javascript"></script>
+<script src="/static/javascript/yui/build/anim/anim-min.js" type="text/javascript"></script>
+<script src="/static/javascript/yui/build/io/io-base-min.js" type="text/javascript"></script>
+<script src="/static/javascript/custom.js" type="text/javascript"></script>
+
+<link href="/static/css/diff.css" media="all" type="text/css" rel="stylesheet" />
+<script src="/static/javascript/diff.js" type="text/javascript"></script>
+<script type="text/javascript">
+var link_data = {};
+var specific_path = "src/docbkx/fr/dhis2_user_man_getting_started_enduser.xml";
+var path_to_id = {};
+</script>
+
+</head>
+<body class="public">
+
+
+
+<div class="black-link">
+<a href="https://code.launchpad.net/~dhis2-documenters/dhis2/dhis2-docbook-docs">
+← Back to branch summary
+</a>
+</div>
+
+
+<h1 class="branch-name">
+~dhis2-documenters/dhis2/dhis2-docbook-docs
+</h1>
+
+<ul id="menuTabs">
+
+<li><a href="/~dhis2-documenters/dhis2/dhis2-docbook-docs/changes" title="Changes" id="on">Changes</a></li>
+<li><a href="/~dhis2-documenters/dhis2/dhis2-docbook-docs/files" title="Files">Files</a></li>
+
+
+</ul>
+
+<div id="loggerheadCont">
+<div id="search_terms"></div>
+
+<div id="breadcrumbs">
+
+<a href="https://code.launchpad.net/~dhis2-documenters/dhis2/dhis2-docbook-docs">~dhis2-documenters/dhis2/dhis2-docbook-docs</a>
+
+
+<span class="breadcrumb">» Revision
+
+<a href="/~dhis2-documenters/dhis2/dhis2-docbook-docs/revision/1181" title="View changes to all files">1181</a>
+
+</span>
+<span class="breadcrumb">
+: <a href="/~dhis2-documenters/dhis2/dhis2-docbook-docs/view/1181/src/docbkx/fr/dhis2_user_man_getting_started_enduser.xml" title="Annotate src/docbkx/fr/dhis2_user_man_getting_started_enduser.xml">src/docbkx/fr/dhis2_user_man_getting_started_enduser.xml</a>
+</span>
+</div>
+
+
+<p>
+<a href="/~dhis2-documenters/dhis2/dhis2-docbook-docs/revision/1181">
+« back to all changes in this revision
+</a>
+</p>
+<p>
+Viewing changes to <a href="/~dhis2-documenters/dhis2/dhis2-docbook-docs/view/1181/src/docbkx/fr/dhis2_user_man_getting_started_enduser.xml" title="Annotate src/docbkx/fr/dhis2_user_man_getting_started_enduser.xml">src/docbkx/fr/dhis2_user_man_getting_started_enduser.xml</a>
+</p>
+<ul id="submenuTabs">
+<li id="first"><a href="/~dhis2-documenters/dhis2/dhis2-docbook-docs/files/1181" title="browse files at revision 1181">browse files at revision 1181</a></li>
+<li>
+<a href="/~dhis2-documenters/dhis2/dhis2-docbook-docs/revision/1181?remember=1181" title="compare with another revision">compare with another revision</a></li>
+
+<li>
+<a href="/~dhis2-documenters/dhis2/dhis2-docbook-docs/diff/1181">download diff</a>
+
+</li>
+<li>
+<a href="/~dhis2-documenters/dhis2/dhis2-docbook-docs/tarball/1181">download tarball</a>
+</li>
+<li id="last"><a href="/~dhis2-documenters/dhis2/dhis2-docbook-docs/changes/1181" title="view history from revision 1181">view history from revision 1181</a></li>
+</ul>
+
+<div class="infoContainer">
+<div id="infTxt">
+<ul>
+<li class="committer">
+<strong>Committer:</strong>
+<span>kaderb777 at gmail</span>
+</li>
+
+<li class="timer">
+<strong>Date:</strong>
+<span>2014-10-18 11:30:46 UTC</span>
+</li>
+
+
+
+<li class="revid">
+<strong>Revision ID:</strong>
+<span>kaderb777@gmail.com-20141018113046-qpwkmttt5s6txfkw</span>
+</li>
+</ul>
+
+
+<div class="clear"></div>
+
+<div class="information">End-user documentation (Fr) - getting_started</div>
+</div>
+<ul id="list-files">
+
+<ul>
+
+<li class="desc">files added:</li>
+
+<li id="file" class="files">
+<b><a href="#src/docbkx/fr/dhis2_user_man_getting_started_enduser.xml">src/docbkx/fr/dhis2_user_man_getting_started_enduser.xml</a></b>
+
+</li>
+</ul>
+
+
+
+
+</ul>
+<div class="clear"></div>
+</div>
+
+
+<p class="expand show_if_js"><a href="#" id="toggle_unified_sbs">Show diffs side-by-side</a></p>
+<p class="codin"><img src="/static/images/newCode.gif" alt="added" /> added</p>
+<p class="codin"><img src="/static/images/deleteCode.gif" alt="removed" /> removed</p>
+<div class="clear"></div>
+
+<div>
+
+<div class="diff">
+<div class="diffBox">
+<a href="/~dhis2-documenters/dhis2/dhis2-docbook-docs/revision/1181/src/docbkx/fr/dhis2_user_man_getting_started_enduser.xml" id="src/docbkx/fr/dhis2_user_man_getting_started_enduser.xml" title="View changes to src/docbkx/fr/dhis2_user_man_getting_started_enduser.xml only" class="the-link">
+<img src="/static/images/treeExpanded.png" class="expand_diff" />
+src/docbkx/fr/dhis2_user_man_getting_started_enduser.xml
+</a>
+</div>
+<div style="overflow: hidden">
+<div class="container">
+<div style="display:none" class="loading">
+<img src="/static/images/spinner.gif" />
+</div>
+<div class="diffinfo">
+<div class="pseudotable unified">
+
+<div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">1</div>
+<div class="code insert">&lt;?xml&nbsp;version=&#39;1.0&#39;&nbsp;encoding=&#39;UTF-8&#39;?&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">2</div>
+<div class="code insert">&lt;!--&nbsp;This&nbsp;document&nbsp;was&nbsp;created&nbsp;with&nbsp;Syntext&nbsp;Serna&nbsp;Free.&nbsp;--&gt;&lt;!DOCTYPE&nbsp;chapter&nbsp;PUBLIC&nbsp;&quot;-//OASIS//DTD&nbsp;DocBook&nbsp;XML&nbsp;V4.4//EN&quot;&nbsp;&quot;http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd&quot;&nbsp;[]&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">3</div>
+<div class="code insert">&lt;chapter&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">4</div>
+<div class="code insert">&nbsp;&nbsp;&lt;title&gt;Débuter&nbsp;avec&nbsp;DHIS&nbsp;2&nbsp;en&nbsp;tant&nbsp;quutilisateur&nbsp;final&lt;/title&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">5</div>
+<div class="code insert">&nbsp;&nbsp;&lt;section&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">6</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Débuter&nbsp;avec&nbsp;DHIS&nbsp;2&lt;/title&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">7</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;Après&nbsp;avoir&nbsp;lu&nbsp;ce&nbsp;chapitre,&nbsp;vous&nbsp;serez&nbsp;en&nbsp;mesure&nbsp;de&nbsp;comprendre:&lt;/para&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">8</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;itemizedlist&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">9</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;listitem&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">10</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;Comment&nbsp;accéder&nbsp;à&nbsp;DHIS&nbsp;2&lt;/para&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">11</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/listitem&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">12</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;listitem&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">13</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;Comment&nbsp;se&nbsp;connecter&nbsp;et&nbsp;se&nbsp;déconnecter&nbsp;de&nbsp;l&#39;application&lt;/para&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">14</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/listitem&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">15</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;listitem&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">16</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;Comment&nbsp;naviguer&nbsp;à&nbsp;travers&nbsp;l&#39;application&nbsp;et&nbsp;accéder&nbsp;à&nbsp;ses&nbsp;fonctionnalités&lt;/para&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">17</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/listitem&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">18</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/itemizedlist&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">19</div>
+<div class="code insert">&nbsp;&nbsp;&lt;/section&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">20</div>
+<div class="code insert">&nbsp;&nbsp;&lt;section&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">21</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Accéder&nbsp;à&nbsp;DHIS&nbsp;2&lt;/title&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">22</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;DHIS&nbsp;2&nbsp;est&nbsp;une&nbsp;application&nbsp;basée&nbsp;sur&nbsp;le&nbsp;Web&nbsp;et&nbsp;est&nbsp;accessible&nbsp;à&nbsp;travers&nbsp;un&nbsp;navigateur&nbsp;lorsque&nbsp;vous&nbsp;disposez&nbsp;dune&nbsp;connexion&nbsp;Internet.&lt;/para&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">23</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;Lancez&nbsp;un&nbsp;navigateur,&nbsp;nous&nbsp;recommandons&nbsp;Google&nbsp;Chrome&nbsp;(télécharger&nbsp;le&nbsp;fichier&nbsp;dinstallation&nbsp;sur&nbsp;ce&nbsp;lien&nbsp;:&nbsp;http://www.google.com/chrome)&nbsp;et&nbsp;tapez&nbsp;dans&nbsp;la&nbsp;barre&nbsp;d&#39;adresse&nbsp;l&#39;URL&nbsp;de&nbsp;DHIS&nbsp;2&nbsp;(demandez&nbsp;à&nbsp;votre&nbsp;équipe&nbsp;de&nbsp;technique&nbsp;cette&nbsp;URL).&lt;/para&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">24</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;Vous&nbsp;accédez&nbsp;alors&nbsp;à&nbsp;l&#39;écran&nbsp;de&nbsp;connexion&nbsp;de&nbsp;DHIS&nbsp;2.&lt;/para&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">25</div>
+<div class="code insert">&nbsp;&nbsp;&lt;/section&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">26</div>
+<div class="code insert">&nbsp;&nbsp;&lt;section&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">27</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Connexion&nbsp;et&nbsp;déconnexion&nbsp;de&nbsp;l&#39;application&lt;/title&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">28</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;Une&nbsp;fois&nbsp;que&nbsp;vous&nbsp;avez&nbsp;l&#39;écran&nbsp;de&nbsp;connexion&nbsp;bleu&nbsp;de&nbsp;DHIS&nbsp;2,&nbsp;vous&nbsp;devez&nbsp;saisir&nbsp;votre&nbsp;nom&nbsp;d&#39;utilisateur&nbsp;et&nbsp;votre&nbsp;mot&nbsp;de&nbsp;passe&nbsp;pour&nbsp;vous&nbsp;connecter&nbsp;à&nbsp;l&#39;application.&nbsp;Si&nbsp;la&nbsp;connexion&nbsp;échoue,&nbsp;vous&nbsp;serez&nbsp;averti&nbsp;par&nbsp;un&nbsp;message&nbsp;selon&nbsp;lequel&nbsp;le&nbsp;nom&nbsp;d&#39;utilisateur&nbsp;ou&nbsp;le&nbsp;mot&nbsp;de&nbsp;passe&nbsp;est&nbsp;incorrect,&nbsp;et&nbsp;serez&nbsp;invité&nbsp;à&nbsp;saisir&nbsp;de&nbsp;nouveau&nbsp;ces&nbsp;informations&nbsp;d&#39;identification.&nbsp;Une&nbsp;fois&nbsp;que&nbsp;vous&nbsp;serez&nbsp;connecté,&nbsp;vous&nbsp;obtiendrez&nbsp;le&nbsp;tableau&nbsp;de&nbsp;bord&nbsp;DHIS&nbsp;2&nbsp;à&nbsp;partir&nbsp;duquel&nbsp;vous&nbsp;pourrez&nbsp;demblée&nbsp;suivre&nbsp;les&nbsp;dernières&nbsp;données&nbsp;sur&nbsp;vos&nbsp;graphiques&nbsp;présélectionnées&nbsp;et&nbsp;accéder&nbsp;à&nbsp;vos&nbsp;pages&nbsp;préférées&nbsp;de&nbsp;DHIS&nbsp;2&nbsp;(rapports,&nbsp;cartes,&nbsp;etc).&lt;/para&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">29</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;Une&nbsp;fois&nbsp;que&nbsp;vous&nbsp;avez&nbsp;terminé&nbsp;votre&nbsp;session&nbsp;DHIS&nbsp;2,&nbsp;nous&nbsp;vous&nbsp;recommandons&nbsp;de&nbsp;vous&nbsp;déconnecter&nbsp;avant&nbsp;de&nbsp;fermer&nbsp;le&nbsp;navigateur.&nbsp;Utilisez&nbsp;le&nbsp;lien&nbsp;de&nbsp;déconnexion&nbsp;accessible&nbsp;depuis&nbsp;le&nbsp;coin&nbsp;supérieur&nbsp;droit&nbsp;de&nbsp;votre&nbsp;écran&nbsp;pour&nbsp;être&nbsp;déconnecté&nbsp;et&nbsp;renvoyé&nbsp;à&nbsp;l&#39;écran&nbsp;de&nbsp;connexion&nbsp;de&nbsp;lapplication.&lt;/para&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">30</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;screenshot&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">31</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;screeninfo&gt;Ecran&nbsp;de&nbsp;connexion&lt;/screeninfo&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">32</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mediaobject&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">33</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;imageobject&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">34</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;imagedata&nbsp;width=&quot;100%&quot;&nbsp;fileref=&quot;resources/images/dhis2UserManual/login_screen.png&quot;&nbsp;format=&quot;PNG&quot;/&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">35</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/imageobject&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">36</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/mediaobject&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">37</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/screenshot&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">38</div>
+<div class="code insert">&nbsp;&nbsp;&lt;/section&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">39</div>
+<div class="code insert">&nbsp;&nbsp;&lt;section&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">40</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Naviguer&nbsp;à&nbsp;travers&nbsp;l&#39;application&lt;/title&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">41</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;DHIS&nbsp;2&nbsp;dispose&nbsp;de&nbsp;deux&nbsp;types&nbsp;de&nbsp;menu;&nbsp;le&nbsp;menu&nbsp;du&nbsp;haut&nbsp;qui&nbsp;mène&nbsp;aux&nbsp;différents&nbsp;modules,&nbsp;et&nbsp;le&nbsp;menu&nbsp;de&nbsp;gauche&nbsp;à&nbsp;l&#39;intérieur&nbsp;de&nbsp;la&nbsp;plupart&nbsp;des&nbsp;modules&nbsp;qui&nbsp;permet&nbsp;de&nbsp;naviguer&nbsp;entre&nbsp;les&nbsp;éléments&nbsp;à&nbsp;l&#39;intérieur&nbsp;de&nbsp;chaque&nbsp;module.&lt;/para&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">42</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;Licône&nbsp;de&nbsp;DHIS&nbsp;2&nbsp;visible&nbsp;dans&nbsp;le&nbsp;coin&nbsp;supérieur&nbsp;gauche&nbsp;est&nbsp;un&nbsp;lien&nbsp;rapide&nbsp;vers&nbsp;la&nbsp;page&nbsp;de&nbsp;démarrage&nbsp;définie&nbsp;par&nbsp;l&#39;utilisateur,&nbsp;la&nbsp;page&nbsp;d&#39;accueil.&nbsp;Souvent,&nbsp;cette&nbsp;page&nbsp;de&nbsp;démarrage&nbsp;correspond&nbsp;au&nbsp;module&nbsp;tableau&nbsp;de&nbsp;bord.&lt;/para&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">43</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;Le&nbsp;bouton&nbsp;de&nbsp;déconnexion&nbsp;est&nbsp;situé&nbsp;à&nbsp;lextrémité&nbsp;droite&nbsp;de&nbsp;la&nbsp;barre&nbsp;de&nbsp;menu.&lt;/para&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">44</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;section&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">45</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Le&nbsp;menu&nbsp;principal&nbsp;-&nbsp;accès&nbsp;aux&nbsp;différents&nbsp;modules&lt;/title&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">46</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;DHIS&nbsp;2&nbsp;se&nbsp;compose&nbsp;de&nbsp;différents&nbsp;modules&nbsp;(les&nbsp;principaux&nbsp;composants)&nbsp;qui&nbsp;ont&nbsp;chacun&nbsp;des&nbsp;fonctionnalités&nbsp;spécifiques,&nbsp;comme&nbsp;la&nbsp;saisie&nbsp;de&nbsp;données,&nbsp;le&nbsp;reporting,&nbsp;laffichage&nbsp;du&nbsp;tableau&nbsp;de&nbsp;bord.&nbsp;Vous&nbsp;pouvez&nbsp;accéder&nbsp;à&nbsp;ces&nbsp;modules&nbsp;à&nbsp;partir&nbsp;du&nbsp;menu&nbsp;du&nbsp;haut,&nbsp;soit&nbsp;sous&nbsp;Maintenance&nbsp;ou&nbsp;Services.&nbsp;Maintenance&nbsp;est&nbsp;surtout&nbsp;utilisé&nbsp;par&nbsp;les&nbsp;administrateurs&nbsp;système&nbsp;qui&nbsp;maintiennent&nbsp;l&#39;application&nbsp;et&nbsp;pourrait&nbsp;par&nbsp;conséquent&nbsp;ne&nbsp;pas&nbsp;être&nbsp;visible.&nbsp;Services&nbsp;est&nbsp;l&#39;endroit&nbsp;où&nbsp;vous&nbsp;trouverez&nbsp;les&nbsp;fonctionnalités&nbsp;plus&nbsp;opérationnelles&nbsp;comme&nbsp;la&nbsp;saisie&nbsp;de&nbsp;données,&nbsp;la&nbsp;qualité&nbsp;des&nbsp;données&nbsp;et&nbsp;les&nbsp;rapports.&nbsp;Sous&nbsp;le&nbsp;menu&nbsp;Aide&nbsp;du&nbsp;haut&nbsp;vous&nbsp;pouvez&nbsp;accéder&nbsp;à&nbsp;la&nbsp;notice&nbsp;intégrée,&nbsp;mettre&nbsp;à&nbsp;jour&nbsp;vos&nbsp;informations&nbsp;utilisateur,&nbsp;ou&nbsp;afficher&nbsp;des&nbsp;informations&nbsp;sur&nbsp;l&#39;instance&nbsp;courante&nbsp;de&nbsp;DHIS&nbsp;2.&lt;/para&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">47</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;Pour&nbsp;passer&nbsp;dun&nbsp;module&nbsp;à&nbsp;un&nbsp;autre,&nbsp;vous&nbsp;devez&nbsp;déplacer&nbsp;le&nbsp;pointeur&nbsp;de&nbsp;la&nbsp;souris&nbsp;sur&nbsp;l&#39;un&nbsp;des&nbsp;éléments&nbsp;du&nbsp;menu&nbsp;du&nbsp;haut&nbsp;:&nbsp;Maintenance,&nbsp;Services,&nbsp;ou&nbsp;Aide.&nbsp;Un&nbsp;sous-menu&nbsp;contenant&nbsp;une&nbsp;liste&nbsp;de&nbsp;modules&nbsp;apparaît&nbsp;alors.&nbsp;Cliquez&nbsp;à&nbsp;présent&nbsp;sur&nbsp;le&nbsp;module&nbsp;que&nbsp;vous&nbsp;souhaitez&nbsp;accéder.&lt;/para&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">48</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/section&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">49</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;section&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">50</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Navigation&nbsp;à&nbsp;lintérieur&nbsp;dun&nbsp;module&lt;/title&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">51</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;Lorsque&nbsp;vous&nbsp;accédez&nbsp;la&nbsp;plupart&nbsp;des&nbsp;modules,&nbsp;vous&nbsp;verrez&nbsp;la&nbsp;page&nbsp;principale&nbsp;du&nbsp;module&nbsp;qui&nbsp;énumère&nbsp;au&nbsp;milieu&nbsp;de&nbsp;lécran&nbsp;les&nbsp;principaux&nbsp;sous-modules&nbsp;ou&nbsp;fonctionnalités&nbsp;quil&nbsp;couvre&nbsp;avec&nbsp;une&nbsp;courte&nbsp;description.&nbsp;Il&nbsp;suffit&nbsp;de&nbsp;cliquer&nbsp;sur&nbsp;la&nbsp;fonctionnalité&nbsp;que&nbsp;vous&nbsp;souhaitez&nbsp;accéder&nbsp;pour&nbsp;la&nbsp;faire&nbsp;apparaître.&lt;/para&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">52</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;Lorsque&nbsp;vous&nbsp;vous&nbsp;trouvez&nbsp;à&nbsp;l&#39;intérieur&nbsp;d&#39;un&nbsp;module,&nbsp;vous&nbsp;verrez&nbsp;toujours&nbsp;un&nbsp;menu&nbsp;de&nbsp;gauche&nbsp;contenant&nbsp;des&nbsp;liens&nbsp;vers&nbsp;les&nbsp;fonctionnalités&nbsp;de&nbsp;ce&nbsp;module.&nbsp;Utilisez&nbsp;dès&nbsp;lors&nbsp;ce&nbsp;menu&nbsp;pour&nbsp;naviguer&nbsp;entre&nbsp;les&nbsp;différentes&nbsp;fonctionnalités&nbsp;du&nbsp;module.&lt;/para&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">53</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;para&gt;Les&nbsp;modules&nbsp;de&nbsp;saisie&nbsp;de&nbsp;données&nbsp;et&nbsp;du&nbsp;tableau&nbsp;de&nbsp;bord&nbsp;ne&nbsp;disposent&nbsp;par&nbsp;contre&nbsp;pas&nbsp;dun&nbsp;système&nbsp;de&nbsp;menu,&nbsp;car&nbsp;ils&nbsp;ne&nbsp;contiennent&nbsp;quune&nbsp;seule&nbsp;fonctionnalité&nbsp;(la&nbsp;leur).&nbsp;Toutes&nbsp;les&nbsp;informations&nbsp;de&nbsp;ces&nbsp;modules&nbsp;pouvant&nbsp;contenir&nbsp;sur&nbsp;une&nbsp;seule&nbsp;page,&nbsp;il&nbsp;nest&nbsp;donc&nbsp;pas&nbsp;nécessaire&nbsp;dy&nbsp;avoir&nbsp;un&nbsp;menu.&nbsp;&lt;/para&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">54</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;screenshot&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">55</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;screeninfo&gt;Menu&nbsp;Système&lt;/screeninfo&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">56</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mediaobject&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">57</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;imageobject&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">58</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;imagedata&nbsp;width=&quot;100%&quot;&nbsp;fileref=&quot;resources/images/dhis2UserManual/menu_system.png&quot;&nbsp;format=&quot;PNG&quot;/&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">59</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/imageobject&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">60</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/mediaobject&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">61</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/screenshot&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">62</div>
+<div class="code insert">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/section&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">63</div>
+<div class="code insert">&nbsp;&nbsp;&lt;/section&gt;</div>
+<div class="clear"></div>
+</div><div class="pseudorow insert-row">
+<div class="lineNumber first">&nbsp;</div>
+<div class="lineNumber second">64</div>
+<div class="code insert">&lt;/chapter&gt;</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<ul id="pages">
+
+
+<li class="next">
+<a href="/~dhis2-documenters/dhis2/dhis2-docbook-docs/revision/1180?start_revid=1181">Older »</a>
+</li>
+</ul>
+</div>
+<p id="footer" class="fl">
+Loggerhead is a web-based interface for <a href="http://bazaar-vcs.org/">Bazaar</a> branches
+<br />
+Version: 1.18.2<span>, Revision: 17196</span>
+</p>
+</div>
+</body>
+</html>
