@@ -634,6 +634,28 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
 http://server/api/constants/ID</screen></para>
       <para>A successful delete should return HTTP status 204 (no content).</para>
     </section>
+    <section>
+      <title>Generic support for CRUD in collections</title>
+      <para>Adding or removing items from a collection in DHIS used to be a chore, since it required
+        you to get the full payload, then add just the item you wanted, and then send it back with a
+        PUT request. From 2.17 we now have a simpler way of doing this, we have generic support for
+        adding and deleting items from  a colletion, it follow the
+        pattern:<screen>/api/type/id/collection/{id}</screen></para>
+      <para>Where <emphasis role="italic">type</emphasis> is the type of object you want, <emphasis
+          role="italic">id</emphasis> is the id of the object, <emphasis role="italic"
+          >collection</emphasis> is the collection property you want to modify, and <emphasis
+          role="italic">id</emphasis> is the id of item to be added (this will change according to
+        what kind of colletction is it).</para>
+      <para><emphasis role="bold">Remove dataElement with id ID1 from dataElements collection on
+          dataElementGroup with id
+        ID1:</emphasis><screen>DELETE /api/dataElementGroups/ID1/dataElements/ID1</screen></para>
+      <para><emphasis role="bold">Add dataElement with id ID1 from dataElements collection on
+          dataElementGroup with
+        ID1:</emphasis><screen>POST /api/dataElementGroups/ID1/dataElements/ID1</screen></para>
+      <para>Please be aware that the type must be the owner of that relationship, this can be
+        checked at the <emphasis role="italic">/api/schemas</emphasis> or <emphasis role="italic"
+          >/api/schemas/type</emphasis> endpoint.</para>
+    </section>
   </section>
   <section>
     <title>Data values</title>
@@ -4384,6 +4406,21 @@ startDate=2014-01-01&amp;endDate=2014-10-31
         </tbody>
       </tgroup>
     </table>
+    <section>
+      <title>GeoJSON</title>
+      <para>Support for GeoJSON output was added in 2.17, to export GeoJSON, you can simple add
+          <emphasis role="italic">.geosjon</emphasis> as an extension to the endpoint <emphasis
+          role="italic">/api/organisationUnits</emphasis>, or you can use the <emphasis
+          role="italic">Accept</emphasis> header <emphasis role="italic"
+          >application/json+geojson</emphasis>.</para>
+      <para>Two parameters are supported <emphasis role="bold">level</emphasis> (defaults to 1) and
+          <emphasis role="bold">parent</emphasis> (defaults to root organisation units), both can be
+        added multiple times, some examples follow.</para>
+      <para><emphasis role="bold">Get all features at level 2 and
+        4:</emphasis><screen>http://server/api/organisationUnits.geojson?level=2&amp;level=4</screen></para>
+      <para><emphasis role="bold">Get all features at level 3 and 4, having parent
+        ID1:</emphasis><screen>http://server/api/organisationUnits.geojson?parent=ID1&amp;level=3&amp;level=4</screen></para>
+    </section>
   </section>
   <section>
     <title>Generating resource, analytics and data mart tables</title>
