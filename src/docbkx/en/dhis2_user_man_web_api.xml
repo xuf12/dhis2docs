@@ -635,26 +635,37 @@ http://server/api/constants/ID</screen></para>
       <para>A successful delete should return HTTP status 204 (no content).</para>
     </section>
     <section>
-      <title>Generic support for CRUD in collections</title>
-      <para>Adding or removing items from a collection in DHIS used to be a chore, since it required
-        you to get the full payload, then add just the item you wanted, and then send it back with a
-        PUT request. From 2.17 we now have a simpler way of doing this, we have generic support for
-        adding and deleting items from  a colletion, it follow the
-        pattern:<screen>/api/type/id/collection/{id}</screen></para>
-      <para>Where <emphasis role="italic">type</emphasis> is the type of object you want, <emphasis
-          role="italic">id</emphasis> is the id of the object, <emphasis role="italic"
-          >collection</emphasis> is the collection property you want to modify, and <emphasis
-          role="italic">id</emphasis> is the id of item to be added (this will change according to
-        what kind of colletction is it).</para>
-      <para><emphasis role="bold">Remove dataElement with id ID1 from dataElements collection on
-          dataElementGroup with id
-        ID1:</emphasis><screen>DELETE /api/dataElementGroups/ID1/dataElements/ID1</screen></para>
-      <para><emphasis role="bold">Add dataElement with id ID1 from dataElements collection on
-          dataElementGroup with
-        ID1:</emphasis><screen>POST /api/dataElementGroups/ID1/dataElements/ID1</screen></para>
-      <para>Please be aware that the type must be the owner of that relationship, this can be
-        checked at the <emphasis role="italic">/api/schemas</emphasis> or <emphasis role="italic"
-          >/api/schemas/type</emphasis> endpoint.</para>
+      <title>Adding and removing objects to/from collections</title>
+      <para>In order to add or remove objects to or from a collection of objects you can use the
+        following
+        pattern:<screen>/api/{collection-object}/{collection-object-id}/{collection-name}/{object-id}</screen></para>
+      <para>You should use the POST method to add, and the DELETE method to remove an object. The
+        components of the patterns is as follows:</para>
+      <itemizedlist>
+        <listitem>
+          <para>collection object: The type of objects that owns the collection you want to
+            modify.</para>
+        </listitem>
+        <listitem>
+          <para>collection object id: The identifier of the object that owns the collection you want
+            to modify.</para>
+        </listitem>
+        <listitem>
+          <para>collection nam: The name of the collection you want to modify.</para>
+        </listitem>
+        <listitem>
+          <para>object id: The identifier of the object you want to add or remove from the
+            collection.</para>
+        </listitem>
+      </itemizedlist>
+      <para>As an example, in order to remove a data element with identifier IDB from a data element
+        group with identifier IDA you can do a DELETE
+        request:<screen>DELETE /api/dataElementGroups/IDA/dataElements/IDB</screen></para>
+      <para>To add a category option with identifier IDB to a category with identifier IDA you can
+        do a POST request:<screen>POST /api/categories/IDA/categoryOptions/IDB</screen></para>
+      <para>Please be aware that the collection object must be the owner of that relationship. This
+        can be checked at the <emphasis role="italic">/api/schemas</emphasis> or <emphasis
+          role="italic">/api/schemas/type</emphasis> endpoint.</para>
     </section>
   </section>
   <section>
