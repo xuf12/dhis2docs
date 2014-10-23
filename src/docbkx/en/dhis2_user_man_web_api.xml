@@ -611,10 +611,11 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
 &lt;/constant&gt;</screen></para>
       <para>We are now ready create the new <emphasis role="italic">constant</emphasis> by sending a
         POST request to the <emphasis role="italic">constants </emphasis>endpoint with the JSON
-        payload using
-        curl:<programlisting language="bash">curl -d @constant.json &quot;http://server/api/constants&quot; -X POST -H &quot;Content-Type: application/json&quot; -u user:password</programlisting></para>
+        payload using curl:
+        <screen>curl -d @constant.json &quot;http://server/api/constants&quot; -X POST -H &quot;Content-Type: application/json&quot; -u user:password</screen></para>
       <para>A specific example of posting the constant to the demo
-        server:<programlisting language="bash">curl -d @constant.json &quot;https://apps.dhis2.org/api/constants&quot; -X POST -H &quot;Content-Type: application/json&quot; -u admin:district</programlisting></para>
+        server:
+        <screen>curl -d @constant.json &quot;https://apps.dhis2.org/api/constants&quot; -X POST -H &quot;Content-Type: application/json&quot; -u admin:district</screen></para>
       <para>If everything went well, you should see an output similar
         to:<screen language="json">{
   &quot;status&quot;:&quot;SUCCESS&quot;,
