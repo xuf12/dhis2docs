@@ -640,7 +640,7 @@ http://server/api/constants/ID</screen></para>
         following
         pattern:<screen>/api/{collection-object}/{collection-object-id}/{collection-name}/{object-id}</screen></para>
       <para>You should use the POST method to add, and the DELETE method to remove an object. The
-        components of the patterns is as follows:</para>
+        components of the pattern are:</para>
       <itemizedlist>
         <listitem>
           <para>collection object: The type of objects that owns the collection you want to
@@ -651,7 +651,7 @@ http://server/api/constants/ID</screen></para>
             to modify.</para>
         </listitem>
         <listitem>
-          <para>collection nam: The name of the collection you want to modify.</para>
+          <para>collection name: The name of the collection you want to modify.</para>
         </listitem>
         <listitem>
           <para>object id: The identifier of the object you want to add or remove from the
