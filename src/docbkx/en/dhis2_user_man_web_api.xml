@@ -1905,7 +1905,6 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
       message to the <emphasis role="italic">Mobile</emphasis> user. We will then pretend to be the
       mobile user and read our new message. Following this we will manage the admin user inbox by
       marking and removing messages.</para>
-    <para/>
     <section>
       <title>Writing and reading messages</title>
       <para>The resource we need to interact with when sending and reading messages is the <emphasis role="italic">messageConversations</emphasis> resource. We start by visiting the Web API
@@ -2006,6 +2005,8 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
     </section>
     <section>
       <title>Managing messages</title>
+      <para><emphasis>Note: the Web-API calls discussed in this section were introduced in DHIS
+          2.17</emphasis></para>
       <para>As users receive and send messages, conversations will start to pile up in their
         inboxes, eventually becoming laborious to track. We will now have a look at managing a users
         message inbox by removing and marking conversations through the Web-API. We will do so by
