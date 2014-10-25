@@ -4654,6 +4654,8 @@ startDate=2014-01-01&amp;endDate=2014-10-31
       datasets. If you want all descendants of your assigned organisation units, you can use the
       query parameter <emphasis role="italic">includeDescendants=true</emphasis> :</para>
     <screen>/api/me/programs</screen>
+    <para>Gives the data approval levels which are relenvant to the current user:</para>
+    <screen>/api/me/dataApprovalLevels</screen>
   </section>
   <section>
     <title>System settings</title>
