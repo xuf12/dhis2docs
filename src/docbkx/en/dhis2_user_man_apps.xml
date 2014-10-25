@@ -1,30 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<!-- This document was created with Syntext Serna Free. -->
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
-  <title>Apps</title>
-  <para>A packaged app is an <ulink
-      url="https://developer.mozilla.org/en-US/docs/Open_Web_apps_and_Web_standards">Open Web
-      App</ulink> that has all of its resources (HTML, CSS, JavaScript, app manifest, and so on)
-    contained in a zip file and can be uploaded to a DHIS 2 installation at runtime. A packaged app
-    is a zip file with an <ulink url="http://www.w3.org/2008/webapps/manifest/">app manifest</ulink>
-    in its root directory. The manifest must be named manifest.webapp. Since DHIS 2.12, an
-    implementer can install packaged apps in DHIS 2 and extend the web interface of DHIS2. Mozilla
-    has written a nice quick-start article <ulink
-      url="https://developer.mozilla.org/en-US/Apps/Quickstart">here</ulink>.</para>
+  <title>Apps in DHIS2</title>
+  <para>A packaged app is an <ulink url="https://developer.mozilla.org/en-US/docs/Open_Web_apps_and_Web_standards">Open Web App</ulink> that has all of its resources (HTML, CSS, JavaScript, app manifest, and so on)
+    contained in a zip file.  It can be uploaded to a DHIS2 installation directly through the user interface at runtime. A packaged app
+    is a ZIP file  with an <ulink url="http://www.w3.org/2008/webapps/manifest/">app manifest</ulink>
+    in its root directory. The manifest must be named <filename>manifest.webapp</filename>. A throrough description of apps can be obtained <ulink url="https://developer.mozilla.org/en-US/Apps/Quickstart">here</ulink>.</para>
   <section>
     <title>Purpose of Packaged Apps</title>
-    <para>The purpose of packaged apps is to extend the web interface of DHIS 2. A system deployment
+    <para>The purpose of packaged apps is to extend the web interface of DHIS2, without the need to modify the source code of DHIS2 itself. A system deployment
       will often have custom and unique requirements. The apps provide a convenient extension point
       to the user interface. Through apps, you can complement and customize the DHIS 2 core
       functionality with custom solutions in a loosely coupled and clean manner.</para>
-    <para>Apps do not have permissions to interact directly with DHIS 2 Java API. Instead, apps are
-      expected to use functionality and interact with the DHIS 2 services and data by utilizing the
-      DHIS 2 Web API.</para>
+    <para>Apps do not have permissions to interact directly with DHIS2 Java API. Instead, apps are
+      expected to use functionality and interact with the DHIS2 services and data by utilizing the
+      DHIS2 Web API.</para>
   </section>
   <section>
     <title>Creating Apps</title>
-    <para>Creating apps is simple: You can create HTML, JavaScript and CSS files similar to any
-      other web application. Then one needs to create a file called <emphasis role="italic">manifest.webapp</emphasis> which describes the contents of the app. This file should be in
+    <para>DHIS2 apps are constructed with  HTML, JavaScript and CSS files, similar to any
+      other web application. Apps also need  a  special file called <emphasis role="italic">manifest.webapp</emphasis> which describes the contents of the app. This file should be in
       the format specified by the <ulink url="http://www.w3.org/2008/webapps/manifest/">W3C Manifest for Web Applications</ulink>. A basic example of the <emphasis role="italic">manifest.webapp</emphasis> is shown below:</para>
     <para>
       <screen>{
@@ -53,48 +49,48 @@
       the project. Among the properties, the <emphasis role="italic">icons→48</emphasis>
       property is used for the icon that is displayed on the list of apps that are installed on a
       DHIS 2 instance. The <emphasis role="italic">activities</emphasis> property is an
-      dhis-specific extension meant to differentiate between a standard Open Web App and an App that
-      can be installed in DHIS 2. The <emphasis role="italic">*</emphasis> value for <emphasis role="italic">href</emphasis> is converted to the appropriate URL when the App is uploaded
+      dhis-specific extension meant to differentiate between a standard Open Web App and an app that
+      can be installed in DHIS 2. The <emphasis role="italic">*</emphasis> value for <emphasis role="italic">href</emphasis> is converted to the appropriate URL when the app is uploaded
       and installed in DHIS 2. This value can then be used by the application&apos;s JavaScript and HTML
       files to make calls to the DHIS 2 Web API and identify the correct location of DHIS 2 server
-      on which the App has been installed. To clarify, the <emphasis role="italic">activities</emphasis> part will look similar to this after the App has been
+      on which the app has been installed. To clarify, the <emphasis role="italic">activities</emphasis> part will look similar to this after the app has been
       installed:</para>
     <screen>&quot;activities&quot;: {
     &quot;dhis&quot;: {
         &quot;href&quot;: &quot;http://apps.dhis2.org/demo&quot;
     }
  }</screen>
-    <para>To read the JSON structure into Javascript you can use a regular AJAX request and parse
+    <para>To read the JSON structure into Javascript, you can use a regular AJAX request and parse
       the JSON into an object. Most Javascript libraries provide some support, for instance with
       jQuery it can be done like this:</para>
     <screen>$.getJSON( &quot;manifest.webapp&quot;, function( json ) {
     var apiBaseUrl = json.activities.dhis.href + &quot;/api&quot;;
 } );</screen>
-    <para>The App can contain HTML, Javascript, CSS and image files. The file structure could look
+    <para>The app can contain HTML, Javascript, CSS, images and other files whic may be required to support it . The file structure could look
       something like this:</para>
     <screen>/
 /manifest.webapp    #manifest file (mandatory)
 /css/               #css stylesheets (optional)
 /img/               #images (optional)
 /js/&#160;               #javascripts (optional)</screen>
-    <para>Note that it is only the manifest.webapp file which must be placed in the root. It is up
-      the developer to organize CSS, images and Javascript files inside the app.</para>
+    <para>Note that it is only the <filename>manifest.webapp</filename> file which must be placed in the root. It is up
+      the developer to organize CSS, images and Javascript files inside the app as needed.</para>
     <para>All the files in the project should be compressed into a standard zip archive. Note that
       the manifest.webapp file must be located on the root of the zip archive (do not include a
-      parent directory in the archive). The zip archive can then be installed into DHIS 2 as you
+      parent directory in the archive). The zip archive can then be installed into DHIS2 as you
       will see in the next section.</para>
   </section>
   <section>
-    <title>Configuring DHIS 2 for Apps Installation</title>
-    <para>The App manager is found under Services → Apps. If your logged in user has
+    <title>Configuring DHIS2 for Apps Installation</title>
+    <para>The <emphasis>App Manager</emphasis> is found under Services → Apps. If your logged in user has
       permissions to view and edit settings you will see the Settings link in the left menu.</para>
-    <para><inlinegraphic fileref="resources/images/apps/app-settings.png" format="PNG" align="center"/></para>
+    <para><inlinegraphic fileref="resources/images/apps/app-settings.png" format="PNG" align="center" width="70%"/></para>
     <para>The following settings can be configured:</para>
     <orderedlist>
       <listitem>
         <para><emphasis role="italic">App Installation Folder:</emphasis> The folder on the file
           system where apps are unpacked. By default this is under the expanded DHIS folder suffixed
-          by /apps. If you like to install your apps in another location, say www folder of Apache
+          by /apps. If you like to install your apps in another location, say <filename>www</filename> folder of Apache
           2, you can specify the absolute path to that directory on the server, making your apps to
           be unpacked at that location.</para>
       </listitem>
@@ -108,23 +104,23 @@
   </section>
   <section>
     <title>Installing Apps into DHIS 2</title>
-    <para>Apps can be installed by uploading zip file into the App manager. In, Services →
+    <para>Apps can be installed by uploading zip file into the App Manager. In, Services →
       Apps, click on the <emphasis role="italic">App Store</emphasis> menu item.</para>
     <para><inlinegraphic fileref="resources/images/apps/app-management.png" format="PNG" align="center"/></para>
     <para>The app can be uploaded by pressing the Browse button and after selecting the zip package,
       the file is uploaded automatically and installed in DHIS 2. You can also browse through apps
-      in the app store and download apps from there. The app store allows for app searching,
+      in the DHIS2 <ulink url="https://www.dhis2.org/appstore">app store</ulink> and download apps from there. The DHIS2 app store allows for app searching,
       reviewing, commenting, requesting features, rating on the apps by the community.</para>
   </section>
   <section>
     <title>Launching Apps</title>
-    <para>After installation your apps will be integrated with the menu system and can be accessed
+    <para>After installation, your apps will be integrated with the menu system and can be accessed
       under services and from the module overview page. It can also be accessed from the home page
       of the apps module.  Click on an app in the list in order to launch it.</para>
   </section>
   <section>
     <title>Web-API for Apps</title>
-    <para>From DHIS 2.14 there is also additional support for apps through the web-api. The <emphasis role="italic">/api/apps</emphasis>
+    <para>From version 2.14 there is also additional support for apps through the web-api. The <emphasis role="italic">/api/apps</emphasis>
       endpoint can be used for installing, deleting, listing apps.</para>
     <para>To list all installed apps (mediatypes works as usual, accept header or file extension,
       xml and json):
@@ -142,7 +138,7 @@
       DHIS 2 user interface, where your app&apos;s icon will be placed. <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/apps/top-menu.png" format="PNG"/>
+            <imagedata fileref="resources/images/apps/top-menu.png" format="PNG" width="80%"/>
           </imageobject>
         </mediaobject>
       </screenshot></para>
@@ -188,8 +184,7 @@
       </itemizedlist></para>
     <para>For a app that will run using the same URL structure as the normal DHIS2 apps, only the
       JavaScript files and style-sheets are required. If your app is running using a different URL
-      structure than the default one, you will need to specify a <parameter>base
-      URL</parameter>before including the menu scripts. Including the scripts and style-sheets would
+      structure than the default one, you will need to specify a <parameter>base URL </parameter>before including the menu scripts. Including the scripts and style-sheets would
       look something like the following:
       <screen>&lt;!-- DHIS2 Settings initialization for a baseUrl that is used for the menu --&gt;
 &lt;script&gt;
@@ -209,8 +204,8 @@
 &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;./dhis-web-commons/font-awesome/css/font-awesome.min.css&quot;/&gt;
 &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; media=&quot;screen&quot; href=&quot;./dhis-web-commons/css/menu.css&quot;&gt;
     </screen></para>
-    <para>To clarfiy, the following part will initialize some variables. If you do not use any other
-      DHIS 2 libraries these will not be set and therefore will have to be set by you first. After
+    <para>To clarify, the following part will initialize some variables. If you do not use any other
+      DHIS2 libraries these will not be set and therefore will have to be set by you first. After
       that the third line specifies a base URL of where your DHIS 2 instance is running on your web
       server. For example: <emphasis role="italic">dhis</emphasis> in this case means the server is
       running at <emphasis role="italic">http://localhost:8080/dhis/</emphasis>. Note that you will
@@ -223,17 +218,15 @@ window.dhis2 = window.dhis2 || {};
 dhis2.settings = dhis2.settings || {};
 dhis2.settings.baseUrl = &apos;myInstance&apos;;
 &lt;/script&gt;</screen></para>
-    <para>The above will only include the neccesary scripts to be able to show the menu. To actually
+    <para>The above will only include the necessary scripts to be able to show the menu. To actually
       make it show up we have two possibilities. The first one is using a basic &lt;div&gt; element
       with an id attribute.
       <screen>&lt;div id=&quot;dhisDropDownMenu&quot;&gt;&lt;/div&gt;      </screen>An alternative
       is available when your application uses angular. We have included a directive to show the
       menu. This would be used as follows: <screen>&lt;div d2-menu&gt;&lt;/div&gt;      </screen>The
-      element type in this case does not really matter. As long as you include the <emphasis
-        role="italic">d2-menu</emphasis> directive. To be able to use the menu directive you would
+      element type in this case does not really matter. As long as you include the <emphasis role="italic">d2-menu</emphasis> directive. To be able to use the menu directive you would
       also have to include the directive in your angular app. The angular module containing the
-      directive is called <emphasis role="italic"
-      >d2Menu</emphasis>.<screen>&apos;use strict&apos;;
+      directive is called <emphasis role="italic">d2Menu</emphasis>.<screen>&apos;use strict&apos;;
 
 var appMenu = angular.module(&apos;appMenu&apos;,
   [&apos;ngRoute&apos;, 

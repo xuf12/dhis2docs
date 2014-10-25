@@ -1896,14 +1896,23 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
     </itemizedlist>
   </section>
   <section>
-    <title>Writing and reading messages</title>
-    <para>DHIS 2 features a mechanism for sending messages for purposes such as user feedback, notifications and general information to  users. Messages are delivered to the DHIS 2 message inbox but can also be sent to the user&apos;s email addresses and mobile phones as SMS. In this example we will see how we can utilize the Web API to send and read messages. We will pretend to be the <emphasis role="italic">DHIS Administrator</emphasis>   user  and  send a message to the  <emphasis role="italic">Mobile</emphasis> user. We will then pretend to be the  mobile user and read our new message.</para>
-    <para>The resource we need to interact with when sending and reading messages is the <emphasis role="italic">messageConversations</emphasis> resource. We start by visiting the Web API
+    <title>Messages</title>
+    <para>DHIS 2 features a mechanism for sending messages for purposes such as user feedback,
+      notifications and general information to users. Messages are delivered to the DHIS 2 message
+      inbox but can also be sent to the user's email addresses and mobile phones as SMS. In this
+      example we will see how we can utilize the Web API to send, read and manage messages. We will
+      pretend to be the <emphasis role="italic">DHIS Administrator</emphasis> user and send a
+      message to the <emphasis role="italic">Mobile</emphasis> user. We will then pretend to be the
+      mobile user and read our new message. Following this we will manage the admin user inbox by
+      marking and removing messages.</para>
+    <section>
+      <title>Writing and reading messages</title>
+      <para>The resource we need to interact with when sending and reading messages is the <emphasis role="italic">messageConversations</emphasis> resource. We start by visiting the Web API
       entry point at <ulink url="http://apps.dhis2.org/demo/api"/> where we find and follow the link
       to the <emphasis role="italic">messageConversations</emphasis> resource at <ulink url="http://apps.dhis2.org/demo/api/messageConversations"/>. The description tells us that
       we can use a POST request to create a new message using the following XML format for sending
       to multiple users:</para>
-    <para><screen>&lt;message xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
+      <para><screen>&lt;message xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
   &lt;subject&gt;This is the subject&lt;/subject&gt;
   &lt;text&gt;This is the text&lt;/text&gt;
   &lt;users&gt;
@@ -1912,8 +1921,8 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
     &lt;user id=&quot;user3ID&quot; /&gt;
   &lt;/users&gt;
 &lt;/message&gt;</screen></para>
-    <para>For sending to all users contained in one or more user groups, we can use:</para>
-    <para><screen>&lt;message xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
+      <para>For sending to all users contained in one or more user groups, we can use:</para>
+      <para><screen>&lt;message xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
   &lt;subject&gt;This is the subject&lt;/subject&gt;
   &lt;text&gt;This is the text&lt;/text&gt;
   &lt;userGroups&gt;
@@ -1922,8 +1931,8 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
     &lt;userGroup id=&quot;userGroup3ID&quot; /&gt;
   &lt;/userGroups&gt;
 &lt;/message&gt;</screen></para>
-    <para>For sending to all users connected to one or more organisation units, we can use:</para>
-    <para><screen>&lt;message xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
+      <para>For sending to all users connected to one or more organisation units, we can use:</para>
+      <para><screen>&lt;message xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
   &lt;subject&gt;This is the subject&lt;/subject&gt;
   &lt;text&gt;This is the text&lt;/text&gt;
   &lt;organisationUnits&gt;
@@ -1932,18 +1941,25 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
     &lt;organisationUnit id=&quot;ou3ID&quot; /&gt;
   &lt;/organisationUnits&gt;
 &lt;/message&gt;</screen></para>
-    <para>Since we want to send a message to our friend the mobile user we need to look up her identifier. We do so by going to the  Web API entry point and follow the link to the <emphasis role="italic">users</emphasis> resource at <ulink url="http://apps.dhis2.org/demo/api/users"/>. We continue by following link to the mobile user at <ulink url="http://apps.dhis2.org/demo/api/users/PhzytPW3g2J"/> where we learn that her identifier is <emphasis role="italic">PhzytPW3g2J</emphasis>. We are now ready to put our XML message together to form a message where we want to ask the mobile user whether she has reported data for January 2012:</para>
-    <screen>&lt;message xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
+      <para>Since we want to send a message to our friend the mobile user we need to look up her
+        identifier. We do so by going to the Web API entry point and follow the link to the
+          <emphasis role="italic">users</emphasis> resource at <ulink
+          url="http://apps.dhis2.org/demo/api/users"/>. We continue by following link to the mobile
+        user at <ulink url="http://apps.dhis2.org/demo/api/users/PhzytPW3g2J"/> where we learn that
+        her identifier is <emphasis role="italic">PhzytPW3g2J</emphasis>. We are now ready to put
+        our XML message together to form a message where we want to ask the mobile user whether she
+        has reported data for January 2012:</para>
+      <screen>&lt;message xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
   &lt;subject&gt;Mortality data reporting&lt;/subject&gt;
   &lt;text&gt;Have you reported data for the Mortality data set for January 2012?&lt;/text&gt;
   &lt;users&gt;
     &lt;user id=&quot;PhzytPW3g2J&quot; /&gt;
   &lt;/users&gt;
 &lt;/message&gt;</screen>
-    <para>To test this we save the XML content into a file called <emphasis role="italic">message.xml</emphasis>. We use cURL to dispatch the message the the DHIS 2 demo instance where we indicate that the content-type is XML and authenticate as the <emphasis role="italic">admin</emphasis> user:</para>
-    <screen>curl -d @message.xml &quot;https://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -X POST -v</screen>
-    <para>A corresponding payload in JSON and POST command look like this:</para>
-    <screen>{
+      <para>To test this we save the XML content into a file called <emphasis role="italic">message.xml</emphasis>. We use cURL to dispatch the message the the DHIS 2 demo instance where we indicate that the content-type is XML and authenticate as the <emphasis role="italic">admin</emphasis> user:</para>
+      <screen>curl -d @message.xml &quot;https://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -X POST -v</screen>
+      <para>A corresponding payload in JSON and POST command look like this:</para>
+      <screen>{
   &quot;subject&quot;: &quot;Hey&quot;,
   &quot;text&quot;: &quot;How are you?&quot;,
   &quot;users&quot;: [
@@ -1965,22 +1981,86 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
     }
   ]
 }
-</screen>
-    <screen>curl -d @message.json &quot;https://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Content-Type:application/json&quot; -u admin:district -X POST -v</screen>
-    <para>If all is well we receive a <emphasis role="italic">201 Created</emphasis> HTTP status code. Also note that we receive a <emphasis role="italic">Location </emphasis>HTTP header which value  informs us of the URL of the newly  created message conversation resource - this can be used by a consumer to perform further action.</para>
-    <para>We will now pretend to be the mobile user and read the message which was just sent by dispatching a GET request to the <emphasis role="italic">messageConversations</emphasis> resource. We supply an <emphasis role="italic">Accept</emphasis> header with <emphasis role="italic">application/xml</emphasis> as the value to indicate that we are interested in the XML resource representation and we authenticate as the <emphasis role="italic">mobile</emphasis> user:</para>
-    <screen>curl &quot;https://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Accept:application/xml&quot; -u mobile:district -X GET -v</screen>
-    <para>In response we get the following XML:</para>
-    <screen>&lt;messageConversations xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;
+      </screen>
+      <screen>curl -d @message.json &quot;https://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Content-Type:application/json&quot; -u admin:district -X POST -v</screen>
+      <para>If all is well we receive a <emphasis role="italic">201 Created</emphasis> HTTP status code. Also note that we receive a <emphasis role="italic">Location </emphasis>HTTP header which value  informs us of the URL of the newly  created message conversation resource - this can be used by a consumer to perform further action.</para>
+      <para>We will now pretend to be the mobile user and read te message which was just sent by
+      dispatching a GET request to the <emphasis role="italic">messageConversations</emphasis>
+      resource. We supply an <emphasis role="italic">Accept</emphasis> header with <emphasis
+        role="italic">application/xml</emphasis> as the value to indicate that we are interested in
+      the XML resource representation and we authenticate as the <emphasis role="italic"
+        >mobile</emphasis> user:</para>
+      <screen>curl &quot;https://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Accept:application/xml&quot; -u mobile:district -X GET -v</screen>
+      <para>In response we get the following XML:</para>
+      <screen>&lt;messageConversations xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;
   link=&quot;https://apps.dhis2.org/demo/api/messageConversations&quot;&gt;
   &lt;messageConversation name=&quot;Mortality data reporting&quot; id=&quot;ZjHHSjyyeJ2&quot;
     link=&quot;https://apps.dhis2.org/demo/api/messageConversations/ZjHHSjyyeJ2&quot;/&gt;
   &lt;messageConversation name=&quot;DHIS version 2.7 is deployed&quot; id=&quot;GDBqVfkmnp2&quot;
     link=&quot;https://apps.dhis2.org/demo/api/messageConversations/GDBqVfkmnp2&quot;/&gt;
 &lt;/messageConversations&gt;</screen>
-    <para>From the response we are able to read the identifier of the newly sent message which is <emphasis role="italic">ZjHHSjyyeJ2</emphasis>. Note that the link to the specific resource is embedded and can be followed in order to read the full message. From the description at <ulink url="http://apps.dhis2.org/demo/api/messageConversations"/> we learned that we can reply directly to an existing message conversation once we know the URL by including the message text as the  request payload (body). We are now able to construct a URL for sending our reply:</para>
-    <screen>curl -d &quot;Yes the Mortality data set has been reported&quot; &quot;https://apps.dhis2.org/demo/api/messageConversations/ZjHHSjyyeJ2&quot; -H &quot;Content-Type:text/plain&quot; -u mobile:district -X POST -v</screen>
-    <para>If all went according to plan you will receive a <emphasis role="italic">200 OK</emphasis> status code.</para>
+      <para>From the response we are able to read the identifier of the newly sent message which is <emphasis role="italic">ZjHHSjyyeJ2</emphasis>. Note that the link to the specific resource is embedded and can be followed in order to read the full message. From the description at <ulink url="http://apps.dhis2.org/demo/api/messageConversations"/> we learned that we can reply directly to an existing message conversation once we know the URL by including the message text as the  request payload (body). We are now able to construct a URL for sending our reply:</para>
+      <screen>curl -d &quot;Yes the Mortality data set has been reported&quot; &quot;https://apps.dhis2.org/demo/api/messageConversations/ZjHHSjyyeJ2&quot; -H &quot;Content-Type:text/plain&quot; -u mobile:district -X POST -v</screen>
+      <para>If all went according to plan you will receive a <emphasis role="italic">200 OK</emphasis> status code.</para>
+    </section>
+    <section>
+      <title>Managing messages</title>
+      <para><emphasis>Note: the Web-API calls discussed in this section were introduced in DHIS
+          2.17</emphasis></para>
+      <para>As users receive and send messages, conversations will start to pile up in their
+        inboxes, eventually becoming laborious to track. We will now have a look at managing a users
+        message inbox by removing and marking conversations through the Web-API. We will do so by
+        performing some maintenance in the inbox of the <emphasis role="italic">DHIS
+          Administrator</emphasis> user.</para>
+      <para>First, let's have a look at removing a few messages from the inbox. Be sure to note that
+        all removal operations described here only remove the relation between a user and a message
+        conversation. In practical terms this means that we are not deleting the messages themselves
+        (or any content for that matter) but are simply removing the message thread from the user
+        such that it is not longer listed in the <emphasis role="italic"
+          >/api/messageConversations</emphasis> resource.</para>
+      <para>To remove a message conversation from a users inbox we need to issue a <emphasis
+          role="italic">DELETE</emphasis> request to the resource identified by the id of the
+        message conversation and the participating user. For example, to remove the user with id
+          <emphasis role="italic">xE7jOejl9FI</emphasis> from the conversation with id <emphasis
+          role="italic"
+        >jMe43trzrdi</emphasis>:<screen>curl https://apps.dhis2.org/demo/api/messageConversations/jMe43</screen></para>
+      <para>If the request was successful the server will reply with a <emphasis role="italic">200
+          OK</emphasis>. The response body contains an XML or JSON object (according to the accept
+        header of the request) containing the id of the removed
+        user.<screen>{ "removed" : ["xE7jOejl9FI"] }</screen></para>
+      <para>On failure the returned object will contain a message payload which describes the
+        error.<screen>{ "message" : "No user with uid: dMV6G0tPAEa" }</screen></para>
+      <para>The observant reader will already have noticed that the object returned on success in
+        our example is actually a list of ids (containing a single entry). This is due to the
+        endpoint also supporting batch removals. The request is made to the same <emphasis
+          role="italic">messageConversations</emphasis> resource but follows slightly different
+        semantics. For batch operations the conversation ids are given as query string parameters.
+        The following example removes two separate message conversations for the current
+        user:<screen>curl "https://apps.dhis2.org/demo/api/messageConversations?mc=WzMRrCosqc0&amp;mc=lxCjiigqrJm" -X DELETE -u admin:district -v</screen></para>
+      <para>If you have sufficient permissions, conversations can be removed on behalf of another
+        user by giving an optional user id
+        parameter.<screen>curl "https://apps.dhis2.org/demo/api/messageConversations?mc=WzMRrCosqc0&amp;mc=lxCjiigqrJm&amp;user=PhzytPW3g2J" -X DELETE -u admin:district -v</screen></para>
+      <para>As indicated, batch removals will return the same message format as for single
+        operations. The list of removed objects will reflect successful removals performed.
+        Partially errorenous requests (i.e. non-existing id) will therefore not cancel the entire
+        batch operation.</para>
+      <para>Messages carry a boolean <emphasis role="italic">read</emphasis> property. This allows
+        tracking whether a user has seen (opened) a message or not. In a typical application
+        scenario (e.g. the DHIS 2 web portal) a message will be marked read as soon as the user
+        opens it for the first time. However, users might want to manage the read or unread status
+        of their messages in order to keep track of certains conversations.</para>
+      <para>Marking messages read or unread follows similar semantics as batch removals, and also
+        supports batch operations. To mark messages as read we issue a <emphasis role="italic"
+          >POST</emphasis> to the <emphasis role="italic">messageConversations/read</emphasis>
+        resource with a request body containing one or more message ids. To mark messages as unread
+        we issue an identical request to the <emphasis role="italic"
+          >messageConversations/unread</emphasis> resource. As is the case for removals, an optional
+          <emphasis role="italic">user</emphasis> request parameter can be given.</para>
+      <para>Let's mark a couple of messages as read by the current
+        user:<screen>curl "https://apps.dhis2.org/dev/api/messageConversations/read" -d '["ZrKML5WiyFm","Gc03smoTm6q"]'  -X POST -H "Content-Type: application/json" -u admin:district -v</screen></para>
+      <para>The response is a <emphasis role="italic">200 OK</emphasis> with the following JSON
+        body:<screen>{ "markedRead" : [ "ZrKML5WiyFm", "Gc03smoTm6q" ] }</screen></para>
+    </section>
   </section>
   <section>
     <title>Interpretations</title>
