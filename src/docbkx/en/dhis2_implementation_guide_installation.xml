@@ -277,6 +277,13 @@ sudo /etc/init.d/nginx stop</screen></para>
     root  /home/dhis/tomcat/webapps/ROOT; # Update path!
     client_max_body_size 10M;
 
+    # Serve static files
+
+    location ~ (\.js|\.css|\.gif|\.woff|\.ttf|\.eot|\.ico|(/dhis-web-commons/|/images/|/icons/).*\.png)$ {
+      add_header  Cache-Control public;
+      expires     14d;
+    }
+
     # Proxy pass to servlet container
 
     location / {
@@ -337,6 +344,13 @@ sudo /etc/init.d/nginx stop</screen></para>
     ssl_ciphers                HIGH:!aNULL:!MD5;
     ssl_prefer_server_ciphers  on;
 
+    # Serve static files
+
+    location ~ (\.js|\.css|\.gif|\.woff|\.ttf|\.eot|\.ico|(/dhis-web-commons/|/images/|/icons/).*\.png)$ {
+      add_header  Cache-Control public;
+      expires     14d;
+    }
+
     # Proxy pass to servlet container
 
     location / {
@@ -391,6 +405,13 @@ sudo /etc/init.d/nginx stop</screen></para>
     ssl_protocols              SSLv2 SSLv3 TLSv1;
     ssl_ciphers                HIGH:!aNULL:!MD5;
     ssl_prefer_server_ciphers  on;
+
+    # Serve static files
+
+    location ~ (\.js|\.css|\.gif|\.woff|\.ttf|\.eot|\.ico|(/dhis-web-commons/|/images/|/icons/).*\.png)$ {
+      add_header  Cache-Control public;
+      expires     14d;
+    }
 
     # Proxy pass to servlet container and potentially cache response
 
