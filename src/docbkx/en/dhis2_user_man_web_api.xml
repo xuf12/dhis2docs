@@ -786,7 +786,7 @@ http://server/api/constants/ID</screen></para>
   ]
 }</screen></para>
       <para>In CSV
-        format:<screen>"dataelement","period","orgunit","categoryoptioncombo","attributeoptioncombo","value","storedby","timestamp","comment","followup"
+        format:<screen>"dataelement","period","orgunit","categoryoptioncombo","attributeoptioncombo","value"
 "f7n9E0hX8qk","201401","DiszpKrYNg8","bRowv6yZOF2","bRowv6yZOF2","1"
 "Ix2HsbDMLea","201401","DiszpKrYNg8","bRowv6yZOF2","bRowv6yZOF2","2"
 "eY5ehpbEsB7","201401","DiszpKrYNg8","bRowv6yZOF2","bRowv6yZOF2","3"</screen></para>
@@ -1599,9 +1599,48 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
     <screen>curl -d @form.html &quot;localhost/api/dataSets/BfMAe6Itzgt/form&quot; -H &quot;Content-Type:text/html&quot; -u admin:district -X PUT -v</screen>
   </section>
   <section>
+    <title>Complete data set registrations</title>
+    <para>This section is about complete data set registrations for data sets. A registration marks
+      as a data set as completely captured.</para>
+    <section>
+      <title>Sending complete data set registrations</title>
+      <para>This section explains how to send complete data set registrations. To send registrations
+        you can issue a POST request to the <emphasis role="italic"
+          >completeDataSetRegistrations</emphasis> resource. Completing a data set is per data set,
+        period and organisation unit. You can optionally specify attribute option combo. You must
+        specify the date of when the data set was completed. The format is as
+        follows:<screen>&lt;?xml version='1.0' encoding='UTF-8'?>
+&lt;completeDataSetRegistrations xmlns="http://dhis2.org/schema/dxf/2.0">
+    &lt;completeDataSetRegistration>
+        &lt;dataSet id="pBOMPrpg1QX" />
+        &lt;period id="201401" />
+        &lt;attributeOptionCombo id="bRowv6yZOF2" />
+        &lt;date>2014-01-01&lt;/date>
+        &lt;organisationUnit id="DiszpKrYNg8" />
+    &lt;/completeDataSetRegistration>
+    &lt;completeDataSetRegistration>
+        &lt;dataSet id="pBOMPrpg1QX" />
+        &lt;period id="201401" />
+        &lt;attributeOptionCombo id="bRowv6yZOF2" />
+        &lt;date>2014-01-01&lt;/date>
+        &lt;organisationUnit id="g8upMTyEZGZ" />
+    &lt;/completeDataSetRegistration>
+    &lt;completeDataSetRegistration>
+        &lt;dataSet id="pBOMPrpg1QX" />
+        &lt;period id="201401" />
+        &lt;attributeOptionCombo id="bRowv6yZOF2" />
+        &lt;date>2010-01-01&lt;/date>
+        &lt;organisationUnit id="jNb63DIHuwU" />
+    &lt;/completeDataSetRegistration>
+&lt;/completeDataSetRegistrations></screen></para>
+      <para>To test the resource you can issue a request using
+        curl:<screen>curl -d @completereg.xml "https://apps.dhis2.org/demo/api/completeDataSetRegistrations" -H "Content-Type:application/xml" -u admin:district -v</screen></para>
+    </section>
+  <section>
     <title>Reading complete data set registrations</title>
-    <para>This section explains how to retrieve data set completeness registrations. We will be using
-      the completeDataSetRegistrations resource. The query parameters to use are these:</para>
+    <para>This section explains how to retrieve data set completeness registrations. We will be
+        using the <emphasis role="italic">completeDataSetRegistrations</emphasis> resource. The
+        query parameters to use are these:</para>
     <table frame="all">
       <title>Data value set query parameters</title>
       <tgroup cols="2">
@@ -1643,12 +1682,13 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
       </tgroup>
     </table>
     <para>The dataSet and orgUnit parameters can be repeated in order to include multiple data sets
-      and organisation units. An example request looks like
-      this:<screen>curl &quot;https://apps.dhis2.org/dev/api/completeDataSetRegistrations?dataSet=pBOMPrpg1QX&amp;dataSet=BfMAe6Itzgt&amp;startDate=2013-01-01&amp;endDate=2013-01-31
+        and organisation units. An example request looks like
+        this:<screen>curl &quot;https://apps.dhis2.org/demo/api/completeDataSetRegistrations?dataSet=pBOMPrpg1QX&amp;dataSet=pBOMPrpg1QX&amp;startDate=2014-01-01&amp;endDate=2014-01-31
 &amp;orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Accept:application/xml&quot; -u admin:district -v</screen></para>
     <para>You can get the response in <emphasis role="italic">xml</emphasis> and <emphasis role="italic">json</emphasis> format. You can indicate which response format you prefer
       through the <emphasis role="italic">Accept</emphasis> HTTP header like in the example above.
       For xml you use <emphasis role="italic">application/xml</emphasis>; for json you use <emphasis role="italic">application/json</emphasis>.</para>
+  </section>
   </section>
   <section>
     <title>Completing and un-completing data sets</title>
