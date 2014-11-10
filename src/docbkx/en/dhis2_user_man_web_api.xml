@@ -5388,13 +5388,14 @@ startDate=2014-01-01&amp;endDate=2014-10-31
     <para>To insert Javascript from a file called <emphasis role="italic">script.js</emphasis> you
       can interact with the <emphasis role="italic">files/script</emphasis> resource with a
       POST-request:</para>
-    <screen>curl -d @script.js &quot;localhost/api/files/script&quot; -H &quot;Content-Type:application/javascript&quot; -u admin:district -v</screen>
-    <para>You can fetch the Javascript content with a GET-request:</para>
+    <screen>curl --data-binary @script.js &quot;localhost/api/files/script&quot; -H &quot;Content-Type:application/javascript&quot; -u admin:district -v</screen>
+    <para>Note that we use the --data-binary option to preserve formatting of the file content. You
+      can fetch the Javascript content with a GET-request:</para>
     <screen>localhost/api/files/script</screen>
     <para>To insert CSS from a file called <emphasis role="italic">style.css</emphasis> you can
       interact with the <emphasis role="italic">files/style</emphasis> resource with a
       POST-request:</para>
-    <screen>curl -d @style.css &quot;localhost/api/files/style&quot; -H &quot;Content-Type:text/css&quot; -u admin:district -v</screen>
+    <screen>curl --data-binary @style.css &quot;localhost/api/files/style&quot; -H &quot;Content-Type:text/css&quot; -u admin:district -v</screen>
     <para>You can fetch the CSS content with a GET-request:</para>
     <screen>localhost/api/files/style</screen>
   </section>
