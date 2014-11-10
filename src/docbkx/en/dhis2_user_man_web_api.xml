@@ -4507,10 +4507,10 @@ startDate=2014-01-01&amp;endDate=2014-10-31
       <para>Two parameters are supported <emphasis role="bold">level</emphasis> (defaults to 1) and
           <emphasis role="bold">parent</emphasis> (defaults to root organisation units), both can be
         added multiple times, some examples follow.</para>
-      <para><emphasis role="bold">Get all features at level 2 and
-        4:</emphasis><screen>http://server/api/organisationUnits.geojson?level=2&amp;level=4</screen></para>
-      <para><emphasis role="bold">Get all features at level 3 and 4, having parent
-        ID1:</emphasis><screen>http://server/api/organisationUnits.geojson?parent=ID1&amp;level=3&amp;level=4</screen></para>
+      <para>Get all features at level 2 and 4:
+        <screen>api/organisationUnits.geojson?level=2&amp;level=4</screen></para>
+      <para>Get all features at level 3 with a boundary organisation
+        unit:<screen>api/organisationUnits.geojson?parent=fdc6uOvgoji&amp;level=3</screen></para>
     </section>
   </section>
   <section>
