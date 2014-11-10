@@ -39,7 +39,8 @@
     <title>Date and period format</title>
     <para>Throughout the Web API we refer to dates and periods. The date format  is:</para>
     <screen>yyyy-MM-dd</screen>
-    <para>For instance, if you want to express March 20, 2012 you must use <emphasis role="italic">2012-03-20</emphasis>.</para>
+    <para>For instance, if you want to express March 20, 2014 you must use <emphasis role="italic"
+        >2014-03-20</emphasis>.</para>
     <para>The period format is described in the following table. </para>
     <table>
       <title>Period format</title>
@@ -331,18 +332,21 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <section>
       <title>Examples</title>
       <para>
-      <emphasis role="bold">Example: Get a filtered set of meta-data that was updated since August 1 2012</emphasis>
-    </para>
-      <para>As described in the last section, there is a number of options you can apply to <emphasis role="italic">/api/metaData</emphasis> to give you a filtered view. The use-case we will
-        be looking into here is where you want a nightly job that synchronizes organisation units.
-        We will be using <emphasis role="italic">cURL</emphasis> as the HTTP
+        <emphasis role="bold">Example: Get a filtered set of meta-data that was updated since August
+          1, 2014</emphasis>
+      </para>
+      <para>As described in the last section, there is a number of options you can apply to
+          <emphasis role="italic">/api/metaData</emphasis> to give you a filtered view. The use-case
+        we will be looking into here is where you want a nightly job that synchronizes organisation
+        units. We will be using <emphasis role="italic">cURL</emphasis> as the HTTP
         client.<screen>curl -H &quot;Accept: application/xml&quot; -u admin:district
-  &quot;https://apps.dhis2.org/demo/api/metaData?assumeTrue=false&amp;organisationUnits=true&amp;lastUpdated=2012-08-01&quot;</screen></para>
-      <para><emphasis role="bold">Example: Get meta-data that was updated since February 2012</emphasis></para>
-      <para>This example will just the default <emphasis role="italic">assumeTrue</emphasis> setting,
-        along with getting the last updates from February 2012. This means that every single type
-        that has been updated will be
-        retrieved.<screen>curl -H &quot;Accept: application/xml&quot; -u admin:district &quot;https://apps.dhis2.org/demo/api/metaData?lastUpdated=2012-02&quot;</screen></para>
+  &quot;https://apps.dhis2.org/demo/api/metaData?assumeTrue=false&amp;organisationUnits=true&amp;lastUpdated=2014-08-01&quot;</screen></para>
+      <para><emphasis role="bold">Example: Get meta-data that was updated since February
+          2014</emphasis></para>
+      <para>This example will just the default <emphasis role="italic">assumeTrue</emphasis>
+        setting, along with getting the last updates from February 2014. This means that every
+        single type that has been updated will be
+        retrieved.<screen>curl -H &quot;Accept: application/xml&quot; -u admin:district &quot;https://apps.dhis2.org/demo/api/metaData?lastUpdated=2014-02&quot;</screen></para>
       <para><emphasis role="bold">Example: Create meta-data</emphasis></para>
       <para>The meta-data resource can also be used to create or update meta-data by using the POST
       HTTP method. The meta-data content can be both XML and JSON, using &quot;application/xml&quot; and
@@ -674,13 +678,16 @@ http://server/api/constants/ID</screen></para>
     <section>
       <title>Sending data values</title>
       <para>A common use-case for system integration is the need to send a set of data values from a
-      third-party system into DHIS. In this example we will use the DHIS 2 demo on <ulink url="http://apps.dhis2.org/demo"/> as basis and we recommend that you follow the provided
-      links with a web browser while reading (log in with <emphasis role="italic">admin</emphasis><emphasis role="italic">/district</emphasis> as username/password). We
-      assume that we have collected case-based data using a simple software client running on mobile
-      phones for the <emphasis role="italic">Mortality &lt;5 years</emphasis> data set in the
-      community of <emphasis role="italic">Ngelehun CHC</emphasis> (in <emphasis role="italic">Badjia</emphasis> chiefdom, <emphasis role="italic">Bo</emphasis> district) for the month
-      of January 2012. We have now aggregated our data into a statistical report and want to send
-      that data to the national DHIS 2 instance.</para>
+        third-party system into DHIS. In this example we will use the DHIS 2 demo on <ulink
+          url="http://apps.dhis2.org/demo"/> as basis and we recommend that you follow the provided
+        links with a web browser while reading (log in with <emphasis role="italic"
+          >admin</emphasis><emphasis role="italic">/district</emphasis> as username/password). We
+        assume that we have collected case-based data using a simple software client running on
+        mobile phones for the <emphasis role="italic">Mortality &lt;5 years</emphasis> data set in
+        the community of <emphasis role="italic">Ngelehun CHC</emphasis> (in <emphasis role="italic"
+          >Badjia</emphasis> chiefdom, <emphasis role="italic">Bo</emphasis> district) for the month
+        of January 2014. We have now aggregated our data into a statistical report and want to send
+        that data to the national DHIS 2 instance.</para>
       <para>The resource which is most appropriate for our purpose of sending data values is the
           <emphasis role="italic">dataValueSets</emphasis> resource. A data value set represents a
         set of data values which have a logical relationship, usually from being captured off the
@@ -693,7 +700,7 @@ http://server/api/constants/ID</screen></para>
   &lt;dataValue dataElement=&quot;dataElementID&quot; categoryOptionCombo=&quot;cocID&quot; value=&quot;2&quot;/&gt;
   &lt;dataValue dataElement=&quot;dataElementID&quot; categoryOptionCombo=&quot;cocID&quot; value=&quot;3&quot;/&gt;
 &lt;/dataValueSet&gt;</screen>
-      <para>We also support sending JSON payloads using this
+      <para>JSON is supported in this
         format:<screen>{
   &quot;dataSet&quot;: &quot;dataSetID&quot;,
   &quot;completeDate&quot;: &quot;date&quot;,
@@ -706,6 +713,11 @@ http://server/api/constants/ID</screen></para>
     { &quot;dataElement&quot;: &quot;dataElementID&quot;, &quot;categoryOptionCombo&quot;: &quot;cocID&quot;, &quot;value&quot;: &quot;3&quot; }
   ]
 }</screen></para>
+      <para>CSV is supported in this
+        format:<screen>"dataelement","period","orgunit","categoryoptioncombo","attributeoptioncombo","value"
+"dataElementID","period","orgUnitID","cocID","aocID","1"
+"dataElementID","period","orgUnitID","cocID","aocID","2"
+"dataElementID","period","orgUnitID","cocID","aocID","3"</screen></para>
       <para><emphasis role="italic">Note:</emphasis> Please refer to the date and period section above
         for time formats.</para>
       <para>From the example we can see that we need to identify the period, the data set, the org
@@ -725,16 +737,16 @@ http://server/api/constants/ID</screen></para>
         the identifier of this org unit is <emphasis role="italic">DiszpKrYNg8</emphasis>.</para>
       <para>From our case-based data we assume that we have 12 cases of measles, 14 cases of dysentery and 16 cases of cholera. We have now gathered enough information to be able to put together the XML data value set message:</para>
       <screen language="xml">&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;pBOMPrpg1QX&quot;
-  completeDate=&quot;2012-02-03&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot;&gt;
+  completeDate=&quot;2014-02-03&quot; period=&quot;201401&quot; orgUnit=&quot;DiszpKrYNg8&quot;&gt;
   &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; value=&quot;12&quot;/&gt;
   &lt;dataValue dataElement=&quot;Ix2HsbDMLea&quot; value=&quot;14&quot;/&gt;
   &lt;dataValue dataElement=&quot;eY5ehpbEsB7&quot; value=&quot;16&quot;/&gt;
 &lt;/dataValueSet&gt;</screen>
-      <para>Or we can use
-        JSON:<screen language="json">{
+      <para>In JSON
+        format:<screen language="json">{
   &quot;dataSet&quot;: &quot;pBOMPrpg1QX&quot;,
-  &quot;completeData&quot;: &quot;2012-02-03&quot;,
-  &quot;period&quot;: &quot;201201&quot;,
+  &quot;completeData&quot;: &quot;2014-02-03&quot;,
+  &quot;period&quot;: &quot;201401&quot;,
   &quot;orgUnit&quot;: &quot;DiszpKrYNg8&quot;,
   &quot;dataValues&quot;: [
     { &quot;dataElement&quot;: &quot;f7n9E0hX8qk&quot;, &quot;value&quot;: &quot;1&quot; },
@@ -746,6 +758,8 @@ http://server/api/constants/ID</screen></para>
       set XML content in a file called <emphasis role="italic">datavalueset.xml</emphasis> . From
       the directory where this file resides we invoke the following from the command line:</para>
       <screen>curl -d @datavalueset.xml &quot;https://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</screen>
+      <para>For sending JSON content you must set the content-type header
+        accordingly:<screen>curl -d @datavalueset.xml &quot;https://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/json&quot; -u admin:district -v</screen></para>
       <para>The command will dispatch a request to the demo Web API,  set <emphasis role="italic">application/xml</emphasis> as the content-type and  authenticate using admin/district as username/password.   If all goes well this will return a <emphasis role="italic">200 OK</emphasis> HTTP status code. You can verify that the data has been received by opening the data entry module in DHIS 2 and select the org unit, data set and period used in this example.</para>
       <para>The API follows normal semantics for error handling and HTTP status codes. If you supply an invalid username or password, <emphasis role="italic">401 Unauthorized</emphasis> is returned. If you supply a content-type other than application/xml, <emphasis role="italic">415 Unsupported Media Type</emphasis> is returned. If the XML content is invalid according to the DXF namespace, <emphasis role="italic">400 Bad Request</emphasis> is returned. If you provide an invalid identifier in the XML content, <emphasis role="italic">409 Conflict</emphasis> is returned together with a descriptive message.</para>
       <para>In this example, cURL will authenticate to the server through Basic authentication using
@@ -757,22 +771,30 @@ http://server/api/constants/ID</screen></para>
       <para>The previous example showed us how to send a set of related data values sharing the same period and organisation unit. This example will show us how to send large bulks of data values which don&apos;t necessarily are logically related.</para>
       <para>Again we will interact with the with <ulink url="http://apps.dhis2.org/demo/api/dataValueSets"/> resource. This time we will not specify the dataSet and completeDate attributes. Also, we will specify the period and orgUnit attributes on the individual data value elements instead of on the outer data value set element. This will enable us to send data values for various periods and org units:</para>
       <screen>&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
-  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot; value=&quot;12&quot;/&gt;
-  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201201&quot; orgUnit=&quot;FNnj3jKGS7i&quot; value=&quot;14&quot;/&gt;
-  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201202&quot; orgUnit=&quot;DiszpKrYNg8&quot; value=&quot;16&quot;/&gt;
-  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201202&quot; orgUnit=&quot;Jkhdsf8sdf4&quot; value=&quot;18&quot;/&gt;
+  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201401&quot; orgUnit=&quot;DiszpKrYNg8&quot; value=&quot;12&quot;/&gt;
+  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201401&quot; orgUnit=&quot;FNnj3jKGS7i&quot; value=&quot;14&quot;/&gt;
+  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201402&quot; orgUnit=&quot;DiszpKrYNg8&quot; value=&quot;16&quot;/&gt;
+  &lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201402&quot; orgUnit=&quot;Jkhdsf8sdf4&quot; value=&quot;18&quot;/&gt;
 &lt;/dataValueSet&gt;</screen>
-      <para>Or we can use
-        JSON:<screen>{
+      <para>In JSON
+        format:<screen>{
   &quot;dataValues&quot;: [
-    { &quot;dataElement&quot;: &quot;f7n9E0hX8qk&quot;, &quot;period&quot;: &quot;201201&quot;, &quot;orgUnit&quot;: &quot;DiszpKrYNg8&quot;, &quot;value&quot;: &quot;12&quot; },
-    { &quot;dataElement&quot;: &quot;f7n9E0hX8qk&quot;, &quot;period&quot;: &quot;201201&quot;, &quot;orgUnit&quot;: &quot;FNnj3jKGS7i&quot;, &quot;value&quot;: &quot;14&quot; },
-    { &quot;dataElement&quot;: &quot;f7n9E0hX8qk&quot;, &quot;period&quot;: &quot;201202&quot;, &quot;orgUnit&quot;: &quot;DiszpKrYNg8&quot;, &quot;value&quot;: &quot;16&quot; },
-    { &quot;dataElement&quot;: &quot;f7n9E0hX8qk&quot;, &quot;period&quot;: &quot;201202&quot;, &quot;orgUnit&quot;: &quot;Jkhdsf8sdf4&quot;, &quot;value&quot;: &quot;18&quot; }
+    { &quot;dataElement&quot;: &quot;f7n9E0hX8qk&quot;, &quot;period&quot;: &quot;201401&quot;, &quot;orgUnit&quot;: &quot;DiszpKrYNg8&quot;, &quot;value&quot;: &quot;12&quot; },
+    { &quot;dataElement&quot;: &quot;f7n9E0hX8qk&quot;, &quot;period&quot;: &quot;201401&quot;, &quot;orgUnit&quot;: &quot;FNnj3jKGS7i&quot;, &quot;value&quot;: &quot;14&quot; },
+    { &quot;dataElement&quot;: &quot;f7n9E0hX8qk&quot;, &quot;period&quot;: &quot;201402&quot;, &quot;orgUnit&quot;: &quot;DiszpKrYNg8&quot;, &quot;value&quot;: &quot;16&quot; },
+    { &quot;dataElement&quot;: &quot;f7n9E0hX8qk&quot;, &quot;period&quot;: &quot;201402&quot;, &quot;orgUnit&quot;: &quot;Jkhdsf8sdf4&quot;, &quot;value&quot;: &quot;18&quot; }
   ]
 }</screen></para>
-      <para>We test by using cURL  to send the data values:</para>
+      <para>In CSV
+        format:<screen>"dataelement","period","orgunit","categoryoptioncombo","attributeoptioncombo","value","storedby","timestamp","comment","followup"
+"f7n9E0hX8qk","201401","DiszpKrYNg8","bRowv6yZOF2","bRowv6yZOF2","1"
+"Ix2HsbDMLea","201401","DiszpKrYNg8","bRowv6yZOF2","bRowv6yZOF2","2"
+"eY5ehpbEsB7","201401","DiszpKrYNg8","bRowv6yZOF2","bRowv6yZOF2","3"</screen></para>
+      <para>We test by using cURL to send the data values in XML format:</para>
       <screen>curl -d @datavalueset.xml &quot;https://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</screen>
+      <para>Note that when using CSV format you must use the binary data option to preserve the
+        line-breaks in the CSV
+        file:<screen>curl --data-binary @datavalueset.xml &quot;https://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/csv&quot; -u admin:district -v</screen></para>
       <para>The data value set resource provides an XML response which is useful when you want to verify the impact your request had. The first time we send the data value set request above the server will respond with the following<emphasis role="italic"> import summary</emphasis>:</para>
       <screen>&lt;importSummary&gt;
   &lt;dataValueCount imported=&quot;2&quot; updated=&quot;1&quot; ignored=&quot;1&quot;/&gt;
@@ -973,7 +995,14 @@ http://server/api/constants/ID</screen></para>
     </section>
     <section>
       <title>Reading data values</title>
-      <para>This section explains how to retrieve data values from the Web API by interacting with the dataValueSets resource. Data values can currently be retrieved in XML format. Since we want to read data we will use the <emphasis role="italic">GET</emphasis> HTTP verb. We will also specify that we are interested in the XML resource representation by including an <emphasis role="italic">Accept</emphasis> HTTP header with our request. The following query parameters are required:</para>
+      <para>This section explains how to retrieve data values from the Web API by interacting with
+        the <emphasis role="italic">dataValueSets</emphasis> resource. Data values can be retrieved
+        in <emphasis role="italic">XML</emphasis>, <emphasis role="italic">JSON</emphasis> and
+          <emphasis role="italic">CSV</emphasis> format. Since we want to read data we will use the
+          <emphasis role="italic">GET</emphasis> HTTP verb. We will also specify that we are
+        interested in the XML resource representation by including an <emphasis role="italic"
+          >Accept</emphasis> HTTP header with our request. The following query parameters are
+        required:</para>
       <table>
         <title>Data value set query parameters</title>
         <tgroup cols="2">
@@ -1000,45 +1029,50 @@ http://server/api/constants/ID</screen></para>
         </tgroup>
       </table>
       <para>It is assumed that we have posted data values to DHIS according to the previous section called &quot;Sending data values&quot;. We can now put together our request and send it using cURL:</para>
-      <screen>curl &quot;https://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;period=201201&amp;orgUnit=DiszpKrYNg8&quot; -H &quot;Accept:application/xml&quot; -u admin:district -v</screen>
-      <para>The  response will look something like this:</para>
+      <screen>curl &quot;https://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;period=201401&amp;orgUnit=DiszpKrYNg8&quot; -H &quot;Accept:application/xml&quot; -u admin:district -v</screen>
+      <para>The response will look like this:</para>
       <screen>HTTP/1.1 200 OK
 Content-Type: application/xml
 
 &lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;
 &lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;pBOMPrpg1QX&quot;
-  completeDate=&quot;2012-01-02&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot;&gt;
-&lt;dataValue dataElement=&quot;eY5ehpbEsB7&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot;
+  completeDate=&quot;2014-01-02&quot; period=&quot;201401&quot; orgUnit=&quot;DiszpKrYNg8&quot;&gt;
+&lt;dataValue dataElement=&quot;eY5ehpbEsB7&quot; period=&quot;201401&quot; orgUnit=&quot;DiszpKrYNg8&quot;
   categoryOptionCombo=&quot;bRowv6yZOF2&quot; value=&quot;10003&quot;/&gt;
-&lt;dataValue dataElement=&quot;Ix2HsbDMLea&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot;
+&lt;dataValue dataElement=&quot;Ix2HsbDMLea&quot; period=&quot;201401&quot; orgUnit=&quot;DiszpKrYNg8&quot;
   categoryOptionCombo=&quot;bRowv6yZOF2&quot; value=&quot;10002&quot;/&gt;
-&lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201201&quot; orgUnit=&quot;DiszpKrYNg8&quot;
+&lt;dataValue dataElement=&quot;f7n9E0hX8qk&quot; period=&quot;201401&quot; orgUnit=&quot;DiszpKrYNg8&quot;
   categoryOptionCombo=&quot;bRowv6yZOF2&quot; value=&quot;10001&quot;/&gt;
 &lt;/dataValueSet&gt;</screen>
-      <para>The header tells us that the request was processed successfully and that we are receiving a response in XML format. The XML message looks familiar - it is the data values we sent in the previous section.</para>
-      <para>You can also request the same data with a JSON
-        payload:<screen>curl &quot;https://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;period=201201&amp;orgUnit=DiszpKrYNg8&quot; -H &quot;Accept:application/json&quot; -u admin:district -v</screen></para>
+      <para>The header tells us that the request was processed successfully and that we are
+        receiving a response in XML format.</para>
+      <para>You can request the data in JSON
+        format:<screen>curl &quot;https://apps.dhis2.org/demo/api/dataValueSets.json?dataSet=pBOMPrpg1QX&amp;period=201401&amp;orgUnit=DiszpKrYNg8&quot; -u admin:district -v</screen></para>
       <para>The response will look something like
         this:<screen>{
   &quot;dataSet&quot;: &quot;pBOMPrpg1QX&quot;,
-  &quot;completeData&quot;: &quot;2012-02-03&quot;,
-  &quot;period&quot;: &quot;201201&quot;,
+  &quot;completeData&quot;: &quot;2014-02-03&quot;,
+  &quot;period&quot;: &quot;201401&quot;,
   &quot;orgUnit&quot;: &quot;DiszpKrYNg8&quot;,
   &quot;dataValues&quot;: [
-    { &quot;dataElement&quot;: &quot;eY5ehpbEsB7&quot;, &quot;categoryOptionCombo&quot;: &quot;bRowv6yZOF2&quot;, &quot;period&quot;: &quot;201201&quot;,
+    { &quot;dataElement&quot;: &quot;eY5ehpbEsB7&quot;, &quot;categoryOptionCombo&quot;: &quot;bRowv6yZOF2&quot;, &quot;period&quot;: &quot;201401&quot;,
       &quot;orgUnit&quot;: &quot;DiszpKrYNg8&quot;, &quot;value&quot;: &quot;10003&quot; },
-    { &quot;dataElement&quot;: &quot;Ix2HsbDMLea&quot;, &quot;categoryOptionCombo&quot;: &quot;bRowv6yZOF2&quot;, &quot;period&quot;: &quot;201201&quot;, 
+    { &quot;dataElement&quot;: &quot;Ix2HsbDMLea&quot;, &quot;categoryOptionCombo&quot;: &quot;bRowv6yZOF2&quot;, &quot;period&quot;: &quot;201401&quot;, 
       &quot;orgUnit&quot;: &quot;DiszpKrYNg8&quot;, &quot;value&quot;: &quot;10002&quot; },
-    { &quot;dataElement&quot;: &quot;f7n9E0hX8qk&quot;, &quot;categoryOptionCombo&quot;: &quot;bRowv6yZOF2&quot;, &quot;period&quot;: &quot;201201&quot;, 
+    { &quot;dataElement&quot;: &quot;f7n9E0hX8qk&quot;, &quot;categoryOptionCombo&quot;: &quot;bRowv6yZOF2&quot;, &quot;period&quot;: &quot;201401&quot;, 
       &quot;orgUnit&quot;: &quot;DiszpKrYNg8&quot;, &quot;value&quot;: &quot;10001&quot; }
   ]
 }</screen></para>
+      <para>You can request data in CSV
+        format:<screen>curl &quot;https://apps.dhis2.org/demo/api/dataValueSets.csv?dataSet=pBOMPrpg1QX&amp;period=201401&amp;orgUnit=DiszpKrYNg8&quot; -u admin:district -v</screen></para>
     </section>
     <section>
       <title>Reading large bulks of data values</title>
       <para>This section explains how to retrieve large bulks of data values which not necessarily
-      belong in a single data value set. We will, like in the previous section, interact with the
-      dataValueSets resource. The query parameters to use are these:</para>
+        belong in a single data value set. Data values can be retrieved in <emphasis role="italic"
+          >XML</emphasis>, <emphasis role="italic">JSON</emphasis> and <emphasis role="italic"
+          >CSV</emphasis> format. We will interact with the <emphasis role="italic"
+          >dataValueSets</emphasis> resource. The query parameters to use are these:</para>
       <table frame="all">
         <title>Data value set query parameters</title>
         <tgroup cols="2">
@@ -1074,13 +1108,17 @@ Content-Type: application/xml
           </tbody>
         </tgroup>
       </table>
-      <para>The dataSet and orgUnit parameters can be repeated in order to include multiple data sets
-      and organisation units. An example request looks like this:</para>
+      <para>The dataSet and orgUnit parameters can be repeated in order to include multiple data
+        sets and organisation units. An example request for XML format looks like this:</para>
       <screen>curl &quot;https://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;dataSet=BfMAe6Itzgt&amp;startDate=2013-01-01&amp;endDate=2013-01-31&amp;
 orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Accept:application/xml&quot; -u admin:district -v</screen>
-      <para>You can get the response in <emphasis role="italic">xml</emphasis> and <emphasis role="italic">csv</emphasis> format. You can indicate which response format you prefer
-      through the <emphasis role="italic">Accept</emphasis> HTTP header like in the example above.
-      For XML you use <emphasis role="italic">application/xml</emphasis>; for CSV you use <emphasis role="italic">application/csv</emphasis>.</para>
+      <para>You can get the response in <emphasis role="italic">xml</emphasis>, <emphasis
+          role="italic">json</emphasis> and <emphasis role="italic">csv</emphasis> format. You can
+        indicate which response format you prefer through the <emphasis role="italic"
+          >Accept</emphasis> HTTP header like in the example above. For XML you use <emphasis
+          role="italic">application/xml</emphasis>, for JSON you use <emphasis role="italic"
+          >application/json</emphasis> and for CSV you use <emphasis role="italic"
+          >application/csv</emphasis>.</para>
     </section>
   </section>
   <section>
@@ -1948,10 +1986,10 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
         user at <ulink url="http://apps.dhis2.org/demo/api/users/PhzytPW3g2J"/> where we learn that
         her identifier is <emphasis role="italic">PhzytPW3g2J</emphasis>. We are now ready to put
         our XML message together to form a message where we want to ask the mobile user whether she
-        has reported data for January 2012:</para>
+        has reported data for January 2014:</para>
       <screen>&lt;message xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
   &lt;subject&gt;Mortality data reporting&lt;/subject&gt;
-  &lt;text&gt;Have you reported data for the Mortality data set for January 2012?&lt;/text&gt;
+  &lt;text&gt;Have you reported data for the Mortality data set for January 2014?&lt;/text&gt;
   &lt;users&gt;
     &lt;user id=&quot;PhzytPW3g2J&quot; /&gt;
   &lt;/users&gt;
@@ -2101,18 +2139,18 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
         interpretation, the response will look like this:</para>
       <screen>{
     &quot;created&quot;: &quot;2013-10-07T11:37:19.273+0000&quot;,
-    &quot;lastUpdated&quot;: &quot;2013-10-07T12:08:58.028+0000&quot;,
+    &quot;lastUpdated&quot;: &quot;2014-10-07T12:08:58.028+0000&quot;,
     &quot;map&quot;: {
         &quot;name&quot;: &quot;ANC: ANC 2 Coverage&quot;,
-        &quot;created&quot;: &quot;2012-11-13T12:01:21.918+0000&quot;,
-        &quot;lastUpdated&quot;: &quot;2012-11-13T12:01:21.918+0000&quot;,
+        &quot;created&quot;: &quot;2014-11-13T12:01:21.918+0000&quot;,
+        &quot;lastUpdated&quot;: &quot;2014-11-13T12:01:21.918+0000&quot;,
         &quot;href&quot;: &quot;https://apps.dhis2.org/demo/api/maps/bhmHJ4ZCdCd&quot;,
         &quot;id&quot;: &quot;bhmHJ4ZCdCd&quot;
     },
     &quot;text&quot;: &quot;We can see that the ANC 2 coverage of Kasonko and Lei districts are under 40 %. What could be the cause for this?&quot;,
     &quot;comments&quot;: [{
-        &quot;created&quot;: &quot;2013-10-07T12:08:58.026+0000&quot;,
-        &quot;lastUpdated&quot;: &quot;2013-10-07T12:08:58.026+0000&quot;,
+        &quot;created&quot;: &quot;2014-10-07T12:08:58.026+0000&quot;,
+        &quot;lastUpdated&quot;: &quot;2014-10-07T12:08:58.026+0000&quot;,
         &quot;text&quot;: &quot;Due to the rural environment, getting women to the facilities is a challenge. Outreach campaigns might be helpful.&quot;,
         &quot;href&quot;: &quot;https://apps.dhis2.org/demo/api/null/iB4Etq8yTE6&quot;,
         &quot;id&quot;: &quot;iB4Etq8yTE6&quot;
@@ -2285,7 +2323,7 @@ api/maps/DHE98Gsynpr/data
 api/maps/DHE98Gsynpr/data?date=2013-07-01
 
 api/reports/OeJsA6K1Otx/data.pdf
-api/reports/OeJsA6K1Otx/data.pdf?date=2012-01-01</screen>
+api/reports/OeJsA6K1Otx/data.pdf?date=2014-01-01</screen>
   </section>
   <section>
     <title>Plugins</title>
@@ -3212,12 +3250,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
     &quot;reportTable&quot;: null,
     &quot;reports&quot;: [{
       &quot;name&quot;: &quot;ANC: 1st Visit Cumulative Chart&quot;,
-      &quot;created&quot;: &quot;2012-11-13T13:49:45.007+0000&quot;,
+      &quot;created&quot;: &quot;2014-11-13T13:49:45.007+0000&quot;,
       &quot;href&quot;: &quot;https://apps.dhis2.org/demo/api/reports/Kvg1AhYHM8Q&quot;,
       &quot;id&quot;: &quot;Kvg1AhYHM8Q&quot;
     }, {
       &quot;name&quot;: &quot;ANC: Coverages This Year&quot;,
-      &quot;created&quot;: &quot;2012-11-13T13:52:01.630+0000&quot;,
+      &quot;created&quot;: &quot;2014-11-13T13:52:01.630+0000&quot;,
       &quot;href&quot;: &quot;https://apps.dhis2.org/demo/api/reports/qYVNH1wkZR0&quot;,
       &quot;id&quot;: &quot;qYVNH1wkZR0&quot;
     }],
@@ -3254,7 +3292,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
         &quot;name&quot;: &quot;ANC: 1st visit at facility (fixed) 2013&quot;,
         &quot;id&quot;: &quot;YOEGBvxjAY0&quot;
     }, {
-        &quot;name&quot;: &quot;ANC: 3rd visit coverage 2012 by district&quot;,
+        &quot;name&quot;: &quot;ANC: 3rd visit coverage 2014 by district&quot;,
         &quot;id&quot;: &quot;ytkZY3ChM6J&quot;
     }],
     &quot;reportTables&quot;: [{
@@ -3442,23 +3480,23 @@ ORDER BY oul.level, par.name, ou.name</screen>
       items are separated by semi-colons. As an example, a query for two data elements, two periods
       and two organisation units can be done with the following URL:</para>
     <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU
-&amp;dimension=pe:2012Q1;2012Q2
+&amp;dimension=pe:2014Q1;2014Q2
 &amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
     <para>To query for data broken down by category option combinations instead of data element
       totals you can include the category dimension in the query string, for instance like
       this:</para>
     <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU
-&amp;dimension=co&amp;dimension=pe:201201
+&amp;dimension=co&amp;dimension=pe:201401
 &amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
     <para>To query for organisation unit group sets and data elements you can use the following URL
       - notice how the group set identifier is used as dimension identifier and the groups as
       dimension items:</para>
     <screen>api/analytics?dimension=Bpx0589u8y0:oRVt7g429ZO;MAs88nJc9nL
-&amp;dimension=pe:2012&amp;dimension=ou:ImspTQPwCqd</screen>
+&amp;dimension=pe:2014&amp;dimension=ou:ImspTQPwCqd</screen>
     <para>To query for data elements and categories you can use this URL - use the category
       identifier as dimension identifier and the category options as dimension items:</para>
     <screen>api/analytics?dimension=dx:s46m5MS0hxu;fClA2Erf6IO
-&amp;dimension=pe:2012
+&amp;dimension=pe:2014
 &amp;dimension=YNZyaJHiHYq:btOyqprQ9e8;GEqzEKCHoGA
 &amp;filter=ou:ImspTQPwCqd</screen>
     <para>To query using relative periods and organisation units associated with the current user
@@ -3470,18 +3508,18 @@ ORDER BY oul.level, par.name, ou.name</screen>
       syntax. Boundary refers to a top node in a sub-hierarchy, meaning that all organisation units
       at the given level below the given boundary organisation unit in the hierarchy will be
       included in the response, and is provided as regular organisation unit dimension items:</para>
-    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2014
 &amp;dimension=ou:LEVEL-3</screen>
-    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2014
 &amp;dimension=ou:LEVEL-3;LEVEL-4;O6uvpzGd5pu;lc3eMKXaEf</screen>
     <para>When selecting organisation units you can also select all organisation units in an
       organisation unit group to be included as dimension items using the OU_GROUP-&lt;id&gt; syntax.
       The organisation units in the groups can optionally be constrained by any number of boundary
       organisation units. Both the level and the group items can be repeated any number of
       times:</para>
-    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2014
 &amp;dimension=ou:OU_GROUP-w0gFTTmsUcF;O6uvpzGd5pu</screen>
-    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2014
 &amp;dimension=ou:OU_GROUP-w0gFTTmsUcF;OU_GROUP-EYbopBOJWsW;
 O6uvpzGd5pu;lc3eMKXaEf</screen>
     <para>A few things to be aware of when using the analytics resource are listed below.</para>
@@ -3642,7 +3680,7 @@ O6uvpzGd5pu;lc3eMKXaEf</screen>
         dimensions, but the filters will not be included as dimensions in the actual response. As an
         example, to query for certain data elements filtered by the periods and organisation units
         you can use the following URL:</para>
-      <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;filter=pe:2012Q1;2012Q2&amp;filter=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
+      <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;filter=pe:2014Q1;2014Q2&amp;filter=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
       <para>The <emphasis role="italic">aggregationType</emphasis> query parameter lets you define
         which aggregation operator should be used for the query. By default the aggregation operator
         defined for data elements included in the query will be used. If your query does not contain
@@ -3651,7 +3689,7 @@ O6uvpzGd5pu;lc3eMKXaEf</screen>
         undefined. This query parameter allows you to override the default and specify a specific
         aggregation operator. As an example you can set the aggregation operator to &quot;count&quot; with the
         following URL:</para>
-      <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2012Q1&amp;dimension=ou:O6uvpzGd5pu&amp;aggregationType=COUNT</screen>
+      <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2014Q1&amp;dimension=ou:O6uvpzGd5pu&amp;aggregationType=COUNT</screen>
       <para>The <emphasis role="italic">measureCriteria</emphasis> query parameter lets you filter out
       ranges of data records to return. You can instruct the system to return only records where the
       aggregated data value is equal, greater than, greater or equal, less than or less or equal to
@@ -3662,7 +3700,7 @@ O6uvpzGd5pu;lc3eMKXaEf</screen>
       <para>As an example, the following query will return only records where the data value is
         greater or equal to 6500 and less than 33000:</para>
       <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU
-&amp;dimension=pe:2012&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw
+&amp;dimension=pe:2014&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw
 &amp;measureCriteria=GE:6500;LT:33000</screen>
       <para>In order to have the analytics resource generate the data in the shape of a ready-made
         table, you can provide the <emphasis role="italic">tableLayout</emphasis> parameter with
@@ -3672,7 +3710,7 @@ O6uvpzGd5pu;lc3eMKXaEf</screen>
         columns and rows. The column and rows dimensions must be present as a data dimension in the
         query (not a filter). Such a request can look like this:</para>
       <screen>api/analytics.html?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU
-&amp;dimension=pe:2012Q1;2012Q2&amp;dimension=ou:O6uvpzGd5pu
+&amp;dimension=pe:2014Q1;2014Q2&amp;dimension=ou:O6uvpzGd5pu
 &amp;tableLayout=true&amp;columns=dx;ou&amp;rows=pe</screen>
     </section>
     <section>
@@ -3708,12 +3746,12 @@ O6uvpzGd5pu;lc3eMKXaEf</screen>
       <para>As an example, to request an analytics response in XML format you can use the following
         URL:</para>
       <screen>api/analytics.xml?dimension=dx:fbfJHSPpUQD
-&amp;dimension=pe:2012&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
+&amp;dimension=pe:2014&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
       <para>The analytics responses must be retrieved using the HTTP <emphasis role="italic">GET</emphasis> method. This allows for direct linking to analytics responses from Web
         pages as well as other HTTP-enabled clients. To do functional testing we can use the cURL
         library. By executing this command against the demo database you will get an analytics
         response in JSON format:</para>
-      <screen>curl &quot;apps.dhis2.org/demo/api/analytics.json?dimension=dx:eTDtyyaSA7f;FbKK4ofIv5R&amp;dimension=pe:2012Q1;2012Q2&amp;filter=ou:ImspTQPwCqd&quot; -u admin:district</screen>
+      <screen>curl &quot;apps.dhis2.org/demo/api/analytics.json?dimension=dx:eTDtyyaSA7f;FbKK4ofIv5R&amp;dimension=pe:2014Q1;2014Q2&amp;filter=ou:ImspTQPwCqd&quot; -u admin:district</screen>
       <para>The JSON response will look like this:</para>
       <screen>{
     &quot;headers&quot;: [
@@ -3739,15 +3777,15 @@ O6uvpzGd5pu;lc3eMKXaEf</screen>
     &quot;height&quot;: 4,
     &quot;metaData&quot;: {
         &quot;pe&quot;: [
-            &quot;2012Q1&quot;,
-            &quot;2012Q2&quot;
+            &quot;2014Q1&quot;,
+            &quot;2014Q2&quot;
         ],
         &quot;ou&quot;: [
             &quot;ImspTQPwCqd&quot;
         ],
         &quot;names&quot;: {
-            &quot;2012Q1&quot;: &quot;Jan to Mar 2012&quot;,
-            &quot;2012Q2&quot;: &quot;Apr to Jun 2012&quot;,
+            &quot;2014Q1&quot;: &quot;Jan to Mar 2014&quot;,
+            &quot;2014Q2&quot;: &quot;Apr to Jun 2014&quot;,
             &quot;FbKK4ofIv5R&quot;: &quot;Measles Coverage &lt;1 y&quot;,
             &quot;ImspTQPwCqd&quot;: &quot;Sierra Leone&quot;,
             &quot;eTDtyyaSA7f&quot;: &quot;Fully Immunized Coverage&quot;
@@ -3756,22 +3794,22 @@ O6uvpzGd5pu;lc3eMKXaEf</screen>
     &quot;rows&quot;: [
         [
             &quot;eTDtyyaSA7f&quot;,
-            &quot;2012Q2&quot;,
+            &quot;2014Q2&quot;,
             &quot;81.1&quot;
         ],
         [
             &quot;eTDtyyaSA7f&quot;,
-            &quot;2012Q1&quot;,
+            &quot;2014Q1&quot;,
             &quot;74.7&quot;
         ],
         [
             &quot;FbKK4ofIv5R&quot;,
-            &quot;2012Q2&quot;,
+            &quot;2014Q2&quot;,
             &quot;88.9&quot;
         ],
         [
             &quot;FbKK4ofIv5R&quot;,
-            &quot;2012Q1&quot;,
+            &quot;2014Q1&quot;,
             &quot;84.0&quot;
         ]
     ],
@@ -4069,15 +4107,16 @@ O6uvpzGd5pu;lc3eMKXaEf</screen>
       <screen>api/analytics/events/query/&lt;program-id&gt;?startDate=yyyy-MM-dd
 &amp;endDate=yyyy-MM-dd&amp;dimension=ou:&lt;ou-id&gt;;&lt;ou-id&gt;
 &amp;dimension=&lt;item-id&gt;&amp;dimension=&lt;item-id&gt;:&lt;operator&gt;:&lt;filter&gt;</screen>
-      <para>For example, to retrieve events from the &quot;Inpatient morbidity and mortality&quot; program
-        between January and October 2012, where the &quot;Gender&quot; and &quot;Age&quot; data elements are included
-        and the &quot;Age&quot; dimension is filtered on &quot;18&quot;, you can use the following query:</para>
+      <para>For example, to retrieve events from the &quot;Inpatient morbidity and mortality&quot;
+        program between January and October 2014, where the &quot;Gender&quot; and &quot;Age&quot;
+        data elements are included and the &quot;Age&quot; dimension is filtered on &quot;18&quot;,
+        you can use the following query:</para>
       <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2014-01-01
 &amp;endDate=2014-10-31&amp;dimension=ou:O6uvpzGd5pu;fdc6uOvgoji
 &amp;dimension=oZg33kd9taw&amp;dimension=qrur9Dvnyt5:EQ:18</screen>
-      <para>To retrieve events for the &quot;Birth&quot; program stage of the &quot;Child programme&quot; program between
-        March and December 2012, where the &quot;Weight&quot; data element, filtered for values larger than
-        2000:</para>
+      <para>To retrieve events for the &quot;Birth&quot; program stage of the &quot;Child
+        programme&quot; program between March and December 2014, where the &quot;Weight&quot; data
+        element, filtered for values larger than 2000:</para>
       <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR
 &amp;startDate=2014-03-01&amp;endDate=2014-12-31
 &amp;dimension=ou:O6uvpzGd5pu&amp;dimension=UXz7xuGCEhU:GT:2000</screen>
@@ -4266,10 +4305,10 @@ startDate=2014-01-01&amp;endDate=2014-10-31
     &quot;width&quot;: 8,
     &quot;height&quot;: 25,
     &quot;rows&quot;: [
-        [&quot;yx9IDINf82o&quot;, &quot;Zj7UnCAulEk&quot;, &quot;2012-08-05&quot;, &quot;[5.12, 1.23]&quot;, &quot;Ngelehun CHC&quot;, &quot;OU_559&quot;, &quot;YuQRtpLP10I&quot;, &quot;Female&quot;, &quot;50&quot;],
-        [&quot;IPNa7AsCyFt&quot;, &quot;Zj7UnCAulEk&quot;, &quot;2012-06-12&quot;, &quot;[5.22, 1.43]&quot;, &quot;Ngelehun CHC&quot;, &quot;OU_559&quot;, &quot;YuQRtpLP10I&quot;, &quot;Female&quot;, &quot;50&quot;],
-        [&quot;ZY9JL9dkhD2&quot;, &quot;Zj7UnCAulEk&quot;, &quot;2012-06-15&quot;, &quot;[5.42, 1.33]&quot;, &quot;Ngelehun CHC&quot;, &quot;OU_559&quot;, &quot;YuQRtpLP10I&quot;, &quot;Female&quot;, &quot;50&quot;],
-        [&quot;MYvh4WAUdWt&quot;, &quot;Zj7UnCAulEk&quot;, &quot;2012-06-16&quot;, &quot;[5.32, 1.53]&quot;, &quot;Ngelehun CHC&quot;, &quot;OU_559&quot;, &quot;YuQRtpLP10I&quot;, &quot;Female&quot;, &quot;50&quot;]
+        [&quot;yx9IDINf82o&quot;, &quot;Zj7UnCAulEk&quot;, &quot;2014-08-05&quot;, &quot;[5.12, 1.23]&quot;, &quot;Ngelehun CHC&quot;, &quot;OU_559&quot;, &quot;YuQRtpLP10I&quot;, &quot;Female&quot;, &quot;50&quot;],
+        [&quot;IPNa7AsCyFt&quot;, &quot;Zj7UnCAulEk&quot;, &quot;2014-06-12&quot;, &quot;[5.22, 1.43]&quot;, &quot;Ngelehun CHC&quot;, &quot;OU_559&quot;, &quot;YuQRtpLP10I&quot;, &quot;Female&quot;, &quot;50&quot;],
+        [&quot;ZY9JL9dkhD2&quot;, &quot;Zj7UnCAulEk&quot;, &quot;2014-06-15&quot;, &quot;[5.42, 1.33]&quot;, &quot;Ngelehun CHC&quot;, &quot;OU_559&quot;, &quot;YuQRtpLP10I&quot;, &quot;Female&quot;, &quot;50&quot;],
+        [&quot;MYvh4WAUdWt&quot;, &quot;Zj7UnCAulEk&quot;, &quot;2014-06-16&quot;, &quot;[5.32, 1.53]&quot;, &quot;Ngelehun CHC&quot;, &quot;OU_559&quot;, &quot;YuQRtpLP10I&quot;, &quot;Female&quot;, &quot;50&quot;]
     ]
 }</screen>
         <para>The <emphasis role="italic">headers</emphasis> section of the response describes the
@@ -4300,16 +4339,17 @@ startDate=2014-01-01&amp;endDate=2014-10-31
         elements, person attributes, person identifiers, periods and organisation units.</para>
       <para>Aggregate event queries should be on the format described below.</para>
       <screen>api/analytics/events/aggregate/&lt;program-id&gt;?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd&amp;dimension=ou:&lt;ou-id&gt;;&lt;ou-id&gt;&amp;dimension=&lt;item-id&gt;&amp;dimension=&lt;item-id&gt;:&lt;operator&gt;:&lt;filter&gt;</screen>
-      <para>For example, to retrieve aggregate numbers for events from the &quot;Inpatient morbidity and
-        mortality&quot; program between January and October 2012, where the &quot;Gender&quot; and &quot;Age&quot; data
-        elements are included, the &quot;Age&quot; dimension item is filtered on &quot;18&quot; and the &quot;Gender&quot; item is
-        filtered on &quot;Female&quot;, you can use the following query:</para>
+      <para>For example, to retrieve aggregate numbers for events from the &quot;Inpatient morbidity
+        and mortality&quot; program between January and October 2014, where the &quot;Gender&quot;
+        and &quot;Age&quot; data elements are included, the &quot;Age&quot; dimension item is
+        filtered on &quot;18&quot; and the &quot;Gender&quot; item is filtered on
+        &quot;Female&quot;, you can use the following query:</para>
       <screen>api/analytics/events/aggregate/eBAyeGv0exc
 ?startDate=2014-01-01&amp;endDate=2014-10-31
 &amp;dimension=ou:O6uvpzGd5pu&amp;dimension=oZg33kd9taw:EQ:Female
 &amp;dimension=qrur9Dvnyt5:GT:50</screen>
       <para>To retrieve data for fixed and relative periods instead of start and end date, in this
-        case May 2012 and last 12 months, and the organisation unit associated with the current
+        case May 2014 and last 12 months, and the organisation unit associated with the current
         user, you can use the following query:</para>
       <screen>api/analytics/events/aggregate/eBAyeGv0exc
 ?dimension=pe:201405;LAST_12_MONTHS
@@ -4321,9 +4361,10 @@ startDate=2014-01-01&amp;endDate=2014-10-31
       <screen>api/analytics/events/aggregate/eBAyeGv0exc
 ?dimension=pe:2014;&amp;dimension=ou:O6uvpzGd5pu
 &amp;filter=oZg33kd9taw:EQ:Female</screen>
-      <para>To specify the &quot;Bo&quot; organisation unit and the period &quot;2012&quot; as filters, and the &quot;Mode of
-        discharge&quot; and Gender&quot; as dimensions, where &quot;Gender&quot; is filtered on the &quot;Male&quot; item, you can
-        use a query like this:</para>
+      <para>To specify the &quot;Bo&quot; organisation unit and the period &quot;2014&quot; as
+        filters, and the &quot;Mode of discharge&quot; and Gender&quot; as dimensions, where
+        &quot;Gender&quot; is filtered on the &quot;Male&quot; item, you can use a query like
+        this:</para>
       <screen>api/analytics/events/aggregate/eBAyeGv0exc?filter=pe:2014&amp;filter=ou:O6uvpzGd5pu&amp;dimension=fWIAEtYVEGk
 &amp;dimension=oZg33kd9taw:EQ:Male</screen>
       <para>To create a &quot;Top 3 report&quot; for &quot;Mode of discharge&quot; you can use the limit and sortOrder
@@ -4380,42 +4421,42 @@ startDate=2014-01-01&amp;endDate=2014-10-31
         [
             &quot;Female&quot;,
             &quot;95&quot;,
-            &quot;201205&quot;,
+            &quot;201405&quot;,
             &quot;O6uvpzGd5pu&quot;,
             &quot;2&quot;
         ],
         [
             &quot;Female&quot;,
             &quot;63&quot;,
-            &quot;201205&quot;,
+            &quot;201405&quot;,
             &quot;O6uvpzGd5pu&quot;,
             &quot;2&quot;
         ],
         [
             &quot;Female&quot;,
             &quot;67&quot;,
-            &quot;201205&quot;,
+            &quot;201405&quot;,
             &quot;O6uvpzGd5pu&quot;,
             &quot;1&quot;
         ],
         [
             &quot;Female&quot;,
             &quot;71&quot;,
-            &quot;201205&quot;,
+            &quot;201405&quot;,
             &quot;O6uvpzGd5pu&quot;,
             &quot;1&quot;
         ],
         [
             &quot;Female&quot;,
             &quot;75&quot;,
-            &quot;201205&quot;,
+            &quot;201405&quot;,
             &quot;O6uvpzGd5pu&quot;,
             &quot;14&quot;
         ],
         [
             &quot;Female&quot;,
             &quot;73&quot;,
-            &quot;201205&quot;,
+            &quot;201405&quot;,
             &quot;O6uvpzGd5pu&quot;,
             &quot;5&quot;
         ],
