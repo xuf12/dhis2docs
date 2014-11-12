@@ -533,6 +533,10 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
           <row>
             <entry>nameable</entry>
             <entry>Includes id, name, shortName, code, description, created and lastUpdated fields</entry>
+          </row>          
+          <row>
+            <entry>persisted</entry>
+            <entry>Returns all persisted properties, make the payload smaller for cases where you just want the parts you can update</entry>
           </row>
         </tbody>
       </tgroup>
