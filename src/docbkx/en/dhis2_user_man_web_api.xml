@@ -4626,6 +4626,8 @@ startDate=2014-01-01&amp;endDate=2014-10-31
       functions. These tables are also valuable for users writing advanced SQL reports. They can be
       generated with a POST or PUT request to the following URL:</para>
     <screen>api/resourceTables</screen>
+    <para>Example using curl:</para>
+    <screen>curl "localhost/api/resourceTables" -X POST -u admin:district -v</screen>
     <para>The analytics tables are optimized for data aggregation and used currently in DHIS 2 for
       the pivot table module. The analytics tables can be generated with a POST or PUT request
       to:</para>
