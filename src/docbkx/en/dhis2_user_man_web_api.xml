@@ -536,7 +536,11 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
           </row>          
           <row>
             <entry>persisted</entry>
-            <entry>Returns all persisted properties, make the payload smaller for cases where you just want the parts you can update</entry>
+            <entry>Returns all persisted property on a object, does not take into consideration if the object is the owner of the relation.</entry>
+          </row>
+          <row>
+            <entry>owner</entry>
+            <entry>Returns all persisted property on a object where the object is the owner of all properties, this payload can be used to update through the web-api.</entry>
           </row>
         </tbody>
       </tgroup>
