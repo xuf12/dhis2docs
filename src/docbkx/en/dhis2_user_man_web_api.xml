@@ -446,7 +446,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para><emphasis role="bold">Example</emphasis>: Get all data elements which has the dataSet with
       id ID1:<screen>/api/dataElements?filter=dataSets.id:eq:ID1</screen></para>
     <para>Example 3: Get all data elements with aggregation operator &quot;sum&quot; and value type
-      &quot;int&quot;:<screen>/api/dataElements.json?filter=aggregationOperator:eq:sum&amp;type:eq:int</screen></para>
+      &quot;int&quot;:<screen>/api/dataElements.json?filter=aggregationOperator:eq:sum&amp;filter=type:eq:int</screen></para>
   </section>
   <section>
     <title>Meta-data field filter</title>
