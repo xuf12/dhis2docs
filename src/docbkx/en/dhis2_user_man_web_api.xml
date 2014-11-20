@@ -1204,7 +1204,6 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Acc
       look like this: </para>
       <screen>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;events&gt;
-  &lt;eventList&gt;
     &lt;event program=&quot;eBAyeGv0exc&quot; orgUnit=&quot;DiszpKrYNg8&quot; eventDate=&quot;2013-05-17&quot; status=&quot;COMPLETED&quot; storedBy=&quot;admin&quot;&gt;
       &lt;coordinate latitude=&quot;59.8&quot; longitude=&quot;10.9&quot; /&gt;
       &lt;dataValues&gt;
@@ -1219,13 +1218,12 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Acc
         &lt;dataValue dataElement=&quot;oZg33kd9taw&quot; value=&quot;Female&quot; /&gt;
       &lt;/dataValues&gt;
     &lt;/event&gt;
-  &lt;/eventList&gt;
 &lt;/events&gt;</screen>
       <para>You will receive an import summary with the response which can be inspected in order to
       get information about the outcome of the request, like how many values were imported
       successfully. The payload in JSON format looks like this:</para>
       <screen>{
-  &quot;eventList&quot;: [
+  &quot;events&quot;: [
   {
     &quot;program&quot;: &quot;eBAyeGv0exc&quot;,
     &quot;orgUnit&quot;: &quot;DiszpKrYNg8&quot;,
