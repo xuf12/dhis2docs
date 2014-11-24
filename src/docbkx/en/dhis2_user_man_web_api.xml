@@ -4619,6 +4619,9 @@ startDate=2014-01-01&amp;endDate=2014-10-31
         <screen>api/organisationUnits.geojson?level=2&amp;level=4</screen></para>
       <para>Get all features at level 3 with a boundary organisation
         unit:<screen>api/organisationUnits.geojson?parent=fdc6uOvgoji&amp;level=3</screen></para>
+      <para>To have a smaller payload, you can also add the <emphasis role="bold"
+          >properties</emphasis> query parameter, and set it to
+        false.<screen>api/organisationUnits.geojson?parent=fdc6uOvgoji&amp;level=3&amp;properties=false</screen></para>
     </section>
   </section>
   <section>
