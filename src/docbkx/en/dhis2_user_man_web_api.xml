@@ -446,7 +446,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para><emphasis role="bold">Example</emphasis>: Get all data elements which has the dataSet with
       id ID1:<screen>/api/dataElements?filter=dataSets.id:eq:ID1</screen></para>
     <para>Example 3: Get all data elements with aggregation operator &quot;sum&quot; and value type
-      &quot;int&quot;:<screen>/api/dataElements.json?filter=aggregationOperator:eq:sum&amp;type:eq:int</screen></para>
+      &quot;int&quot;:<screen>/api/dataElements.json?filter=aggregationOperator:eq:sum&amp;filter=type:eq:int</screen></para>
   </section>
   <section>
     <title>Meta-data field filter</title>
@@ -533,6 +533,14 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
           <row>
             <entry>nameable</entry>
             <entry>Includes id, name, shortName, code, description, created and lastUpdated fields</entry>
+          </row>          
+          <row>
+            <entry>persisted</entry>
+            <entry>Returns all persisted property on a object, does not take into consideration if the object is the owner of the relation.</entry>
+          </row>
+          <row>
+            <entry>owner</entry>
+            <entry>Returns all persisted property on a object where the object is the owner of all properties, this payload can be used to update through the web-api.</entry>
           </row>
         </tbody>
       </tgroup>
@@ -1196,7 +1204,6 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Acc
       look like this: </para>
       <screen>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;events&gt;
-  &lt;eventList&gt;
     &lt;event program=&quot;eBAyeGv0exc&quot; orgUnit=&quot;DiszpKrYNg8&quot; eventDate=&quot;2013-05-17&quot; status=&quot;COMPLETED&quot; storedBy=&quot;admin&quot;&gt;
       &lt;coordinate latitude=&quot;59.8&quot; longitude=&quot;10.9&quot; /&gt;
       &lt;dataValues&gt;
@@ -1211,13 +1218,12 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Acc
         &lt;dataValue dataElement=&quot;oZg33kd9taw&quot; value=&quot;Female&quot; /&gt;
       &lt;/dataValues&gt;
     &lt;/event&gt;
-  &lt;/eventList&gt;
 &lt;/events&gt;</screen>
       <para>You will receive an import summary with the response which can be inspected in order to
       get information about the outcome of the request, like how many values were imported
       successfully. The payload in JSON format looks like this:</para>
       <screen>{
-  &quot;eventList&quot;: [
+  &quot;events&quot;: [
   {
     &quot;program&quot;: &quot;eBAyeGv0exc&quot;,
     &quot;orgUnit&quot;: &quot;DiszpKrYNg8&quot;,
@@ -4613,6 +4619,9 @@ startDate=2014-01-01&amp;endDate=2014-10-31
         <screen>api/organisationUnits.geojson?level=2&amp;level=4</screen></para>
       <para>Get all features at level 3 with a boundary organisation
         unit:<screen>api/organisationUnits.geojson?parent=fdc6uOvgoji&amp;level=3</screen></para>
+      <para>To have a smaller payload, you can also add the <emphasis role="bold"
+          >properties</emphasis> query parameter, and set it to
+        false.<screen>api/organisationUnits.geojson?parent=fdc6uOvgoji&amp;level=3&amp;properties=false</screen></para>
     </section>
   </section>
   <section>
