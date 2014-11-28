@@ -552,6 +552,12 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       units:<screen>/api/dataSets/BfMAe6Itzgt?fields=id,name,organisationUnits[:all,!id]</screen></para>
     <para><emphasis role="bold">Example</emphasis>: Include nameable properties from all
       indicators:<screen>/api/indicators.json?fields=:nameable</screen></para>
+    <para>The owner preset is particularly useful for exporting arbitrary objects and later import
+      them using the meta-data importer. As an example, you can easily export data elements which
+      include the word "ANC" int the
+      name:<screen>/api/dataElements?query=ANC&amp;fields:owner</screen></para>
+    <para>Later you can go to the import-export app on another system and import the data elements
+      through the meta-data import screen.</para>
     <section>
       <title>Field transformers</title>
       <para>In DHIS 2.17 we introduced field transformers, the idea is to allow further
