@@ -1,28 +1,28 @@
-<?xml version='1.0' encoding='UTF-8'?>
+ï»¿<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
-  <title>Saisie de données</title>
+  <title>Saisie de donnÃ©es</title>
   <section id="dataEntry">
-    <title>Saisie des données avec DHIS 2</title>
-    <para>Pour accéder à la page de saisie de données, vous devez cliquer sur l'onglet services du menu principal.  Un menu déroulant s’affiche avec la liste des services fournis par DHIS 2. Cliquez sur l’élément <guibutton>saisie de données</guibutton>.</para>
-    <para>Le module de saisie de données est l'endroit où les données peuvent être manuellement enregistrées dans la base de données de DHIS 2. Les données sont enregistrées pour une unité d'organisation, une période, et un ensemble d'éléments de données (jeu de données) à la fois. Un ensemble de données correspond souvent à un outil de collecte de données basé sur le papier (formulaire papier par exemple).</para>
+    <title>Saisie des donnÃ©es avec DHIS 2</title>
+    <para>Pour accÃ©der Ã  la page de saisie de donnÃ©es, vous devez cliquer sur l'onglet services du menu principal.  Un menu dÃ©roulant sâ€™affiche avec la liste des services fournis par DHIS 2. Cliquez sur lâ€™Ã©lÃ©ment <guibutton>saisie de donnÃ©es</guibutton>.</para>
+    <para>Le module de saisie de donnÃ©es est l'endroit oÃ¹ les donnÃ©es peuvent Ãªtre manuellement enregistrÃ©es dans la base de donnÃ©es de DHIS 2. Les donnÃ©es sont enregistrÃ©es pour une unitÃ© d'organisation, une pÃ©riode, et un ensemble d'Ã©lÃ©ments de donnÃ©es (jeu de donnÃ©es) Ã  la fois. Un ensemble de donnÃ©es correspond souvent Ã  un outil de collecte de donnÃ©es basÃ© sur le papier (formulaire papier par exemple).</para>
     <section>
-      <title>Sélection du formulaire de saisie de données</title>
-      <para>Pour commencer à saisir des données, il faut au préalable accéder au bon formulaire en suivant notamment les étapes suivantes :</para>
+      <title>SÃ©lection du formulaire de saisie de donnÃ©es</title>
+      <para>Pour commencer Ã  saisir des donnÃ©es, il faut au prÃ©alable accÃ©der au bon formulaire en suivant notamment les Ã©tapes suivantes :</para>
       <orderedlist>
         <listitem>
-          <para>Localiser l’unité d’organisation pour laquelle vous souhaitez enregistrer les données dans l'arborescence de gauche. Développer et réduisez les branches de navigation en cliquant sur les symboles +/-. Un moyen rapide de trouver une unité d’organisation est d'utiliser la boîte de recherche juste au-dessus de l'arbre (symbole vert) ; seul inconvénient : vous devrez écrire le nom complet pour obtenir une correspondance.</para>
+          <para>Localiser lâ€™unitÃ© dâ€™organisation pour laquelle vous souhaitez enregistrer les donnÃ©es dans l'arborescence de gauche. DÃ©velopper et rÃ©duisez les branches de navigation en cliquant sur les symboles +/-. Un moyen rapide de trouver une unitÃ© dâ€™organisation est d'utiliser la boÃ®te de recherche juste au-dessus de l'arbre (symbole vert) ; seul inconvÃ©nient : vous devrez Ã©crire le nom complet pour obtenir une correspondance.</para>
         </listitem>
         <listitem>
-          <para>Choisir un ensemble de données dans la liste déroulante des ensembles de données disponibles pour l’unité d’organisation que vous avez sélectionnée.</para>
+          <para>Choisir un ensemble de donnÃ©es dans la liste dÃ©roulante des ensembles de donnÃ©es disponibles pour lâ€™unitÃ© dâ€™organisation que vous avez sÃ©lectionnÃ©e.</para>
         </listitem>
         <listitem>
-          <para>Choisir une période pour laquelle vous souhaitez enregistrer des données. Les périodes disponibles dépendent du type de période de l'ensemble de données (fréquence de saisie). Vous pouvez passer à une année en avant ou en arrière en utilisant les flèches au-dessus de la période.</para>
+          <para>Choisir une pÃ©riode pour laquelle vous souhaitez enregistrer des donnÃ©es. Les pÃ©riodes disponibles dÃ©pendent du type de pÃ©riode de l'ensemble de donnÃ©es (frÃ©quence de saisie). Vous pouvez passer Ã  une annÃ©e en avant ou en arriÃ¨re en utilisant les flÃ¨ches au-dessus de la pÃ©riode.</para>
         </listitem>
       </orderedlist>
-      <para>A présent, vous devriez voir le formulaire de saisie de données. Du point de vue conceptuel, il existe trois types de formulaires: les formulaires par défaut, les formulaires à section et les formulaires personnalisés. Si un formulaire personnalisé existe, il sera affiché ; autrement, le formulaire à section sera affiché ou, s’il n’existe pas, le formulaire par défaut.</para>
+      <para>A prÃ©sent, vous devriez voir le formulaire de saisie de donnÃ©es. Du point de vue conceptuel, il existe trois types de formulaires: les formulaires par dÃ©faut, les formulaires Ã  section et les formulaires personnalisÃ©s. Si un formulaire personnalisÃ© existe, il sera affichÃ© ; autrement, le formulaire Ã  section sera affichÃ© ou, sâ€™il nâ€™existe pas, le formulaire par dÃ©faut.</para>
       <screenshot>
-        <screeninfo>Ecran principal de la saisie de données</screeninfo>
+        <screeninfo>Ecran principal de la saisie de donnÃ©es</screeninfo>
         <mediaobject>
           <imageobject>
             <imagedata width="100%" fileref="resources/images/data_entry/data_entry_overview.png" format="PNG"/>
@@ -31,32 +31,32 @@
       </screenshot>
     </section>
     <section>
-      <title>Procédure de saisie de données</title>
-      <para>Vous pouvez commencer à saisir les données en cliquant dans le premier champ et en tapant sur le clavier la valeur correspondant à ce champ. Vous pouvez passer au champ suivant avec la touche Tab de votre clavier. La touche « Maj + Tab » vous permet de revenir sur le champ précédent. Vous pouvez également utiliser les flèches "bas" et "haut" de votre clavier pour naviguer entre les cellules du formulaire. Les valeurs sont enregistrées immédiatement sans  nécessiter d'être enregistrées à une étape ultérieure. Une cellule mise en couleur verte est une indication que la valeur a effectivement été enregistrée dans le système (c’est-à-dire sur le serveur qui héberge l’application).</para>
-      <para><emphasis role="bold">Validation d'entrée:</emphasis>Si vous saisissez une valeur non valide (par exemple : un caractère dans un champ qui n'accepte que des valeurs numériques), vous obtiendrez une fenêtre pop-up qui vous informera du problème, et la couleur de la cellule passera à la couleur jaune (indication que la valeur n’a pas été enregistrée) jusqu'à ce que vous corrigiez la valeur. Si vous avez défini des valeurs minimales et maximales pour un (combinaison d'éléments de données + unité d'organisation), une fenêtre pop-up vous avertira lorsque la valeur sera en dehors de cet intervalle ; de même, la valeur restera non enregistrée jusqu'à ce que vous changez la valeur (ou mis à jour les valeurs de l’intervalle et saisi de nouveau la valeur).</para>
-      <para><emphasis role="bold">Champs désactivés:</emphasis>Si un champ est désactivé (gris), cela signifie que le champ peut être renseigné mais qu’il ne doit pas l’être. Le curseur passera automatiquement à la prochaine cellule disponible.</para>
-      <para><emphasis role="bold">Historique des données:</emphasis>En double-cliquant sur n'importe quelle cellule de saisie du formulaire, une fenêtre d'historique des données s'affiche et liste les 12 dernières valeurs enregistrées pour la cellule courante (unité d'organisation + élément de données + combinaison de catégories d’options) à l’aide d’un graphique à barres. Cette fenêtre affiche également les valeurs minimales et maximales définies pour ce champ et permet d'ajuster cette plage de valeurs pour cette unité d'organisation et cet élément de données spécifiques.</para>
+      <title>ProcÃ©dure de saisie de donnÃ©es</title>
+      <para>Vous pouvez commencer Ã  saisir les donnÃ©es en cliquant dans le premier champ et en tapant sur le clavier la valeur correspondant Ã  ce champ. Vous pouvez passer au champ suivant avec la touche Tab de votre clavier. La touche Â« Maj + Tab Â» vous permet de revenir sur le champ prÃ©cÃ©dent. Vous pouvez Ã©galement utiliser les flÃ¨ches "bas" et "haut" de votre clavier pour naviguer entre les cellules du formulaire. Les valeurs sont enregistrÃ©es immÃ©diatement sans  nÃ©cessiter d'Ãªtre enregistrÃ©es Ã  une Ã©tape ultÃ©rieure. Une cellule mise en couleur verte est une indication que la valeur a effectivement Ã©tÃ© enregistrÃ©e dans le systÃ¨me (câ€™est-Ã -dire sur le serveur qui hÃ©berge lâ€™application).</para>
+      <para><emphasis role="bold">Validation d'entrÃ©e:</emphasis>Si vous saisissez une valeur non valide (par exemple : un caractÃ¨re dans un champ qui n'accepte que des valeurs numÃ©riques), vous obtiendrez une fenÃªtre pop-up qui vous informera du problÃ¨me, et la couleur de la cellule passera Ã  la couleur jaune (indication que la valeur nâ€™a pas Ã©tÃ© enregistrÃ©e) jusqu'Ã  ce que vous corrigiez la valeur. Si vous avez dÃ©fini des valeurs minimales et maximales pour un (combinaison d'Ã©lÃ©ments de donnÃ©es + unitÃ© d'organisation), une fenÃªtre pop-up vous avertira lorsque la valeur sera en dehors de cet intervalle ; de mÃªme, la valeur restera non enregistrÃ©e jusqu'Ã  ce que vous changez la valeur (ou mis Ã  jour les valeurs de lâ€™intervalle et saisi de nouveau la valeur).</para>
+      <para><emphasis role="bold">Champs dÃ©sactivÃ©s:</emphasis>Si un champ est dÃ©sactivÃ© (gris), cela signifie que le champ peut Ãªtre renseignÃ© mais quâ€™il ne doit pas lâ€™Ãªtre. Le curseur passera automatiquement Ã  la prochaine cellule disponible.</para>
+      <para><emphasis role="bold">Historique des donnÃ©es:</emphasis>En double-cliquant sur n'importe quelle cellule de saisie du formulaire, une fenÃªtre d'historique des donnÃ©es s'affiche et liste les 12 derniÃ¨res valeurs enregistrÃ©es pour la cellule courante (unitÃ© d'organisation + Ã©lÃ©ment de donnÃ©es + combinaison de catÃ©gories dâ€™options) Ã  lâ€™aide dâ€™un graphique Ã  barres. Cette fenÃªtre affiche Ã©galement les valeurs minimales et maximales dÃ©finies pour ce champ et permet d'ajuster cette plage de valeurs pour cette unitÃ© d'organisation et cet Ã©lÃ©ment de donnÃ©es spÃ©cifiques.</para>
       <screenshot>
-        <screeninfo>Formulaire de saisie de données à section avec ouverture de l'historique sur une fenêtre pop-up</screeninfo>
+        <screeninfo>Formulaire de saisie de donnÃ©es Ã  section avec ouverture de l'historique sur une fenÃªtre pop-up</screeninfo>
         <mediaobject>
           <imageobject>
             <imagedata width="100%" fileref="resources/images/dhis2UserManual/data_entry_section_history.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para><emphasis role="bold">Suivi:</emphasis>Dans la fenêtre d'historique des données, il y’a également une fonctionnalité qui permet de marquer une valeur. Par exemple, une valeur suspecte qui nécessite une investigation supplémentaire peut être conservée dans le système, mais marquée pour suivi. Dans le module qualité des données, vous pourrez exécuter une analyse de suivi et afficher toutes les valeurs marquées pour suivi, puis plus tard modifier ces valeurs si elles s’avéraient incorrectes.</para>
+      <para><emphasis role="bold">Suivi:</emphasis>Dans la fenÃªtre d'historique des donnÃ©es, il yâ€™a Ã©galement une fonctionnalitÃ© qui permet de marquer une valeur. Par exemple, une valeur suspecte qui nÃ©cessite une investigation supplÃ©mentaire peut Ãªtre conservÃ©e dans le systÃ¨me, mais marquÃ©e pour suivi. Dans le module qualitÃ© des donnÃ©es, vous pourrez exÃ©cuter une analyse de suivi et afficher toutes les valeurs marquÃ©es pour suivi, puis plus tard modifier ces valeurs si elles sâ€™avÃ©raient incorrectes.</para>
     </section>
     <section>
-      <title>Modification et suppression de données</title>
-      <para>Si vous souhaitez saisir des données à la place de celles qui ont déjà été enregistrées, il vous suffit de remplacer les valeurs des données courantes par les nouvelles valeurs.</para>
-      <para>Si vous voulez définitivement supprimer une valeur de données précédemment saisie, vous devez sélectionner la valeur qui vous intéresse, et appuyez sur la touche "Supprimer" de votre clavier. Attention : Si vous saisissez la valeur zéro et que l'élément de données a été configuré pour ne pas stocker de zéros, la valeur de données précédente (cad celle que vous souhaitez modifier) ne sera pas remplacée par la nouvelle valeur. Par conséquent, il vaut mieux en pratique supprimer en premier lieu la valeur de données, comme il a été vu plus haut (attendre que la couleur de la cellule passe au vert), avant de saisir la nouvelle valeur.</para>
+      <title>Modification et suppression de donnÃ©es</title>
+      <para>Si vous souhaitez saisir des donnÃ©es Ã  la place de celles qui ont dÃ©jÃ  Ã©tÃ© enregistrÃ©es, il vous suffit de remplacer les valeurs des donnÃ©es courantes par les nouvelles valeurs.</para>
+      <para>Si vous voulez dÃ©finitivement supprimer une valeur de donnÃ©es prÃ©cÃ©demment saisie, vous devez sÃ©lectionner la valeur qui vous intÃ©resse, et appuyez sur la touche "Supprimer" de votre clavier. Attention : Si vous saisissez la valeur zÃ©ro et que l'Ã©lÃ©ment de donnÃ©es a Ã©tÃ© configurÃ© pour ne pas stocker de zÃ©ros, la valeur de donnÃ©es prÃ©cÃ©dente (cad celle que vous souhaitez modifier) ne sera pas remplacÃ©e par la nouvelle valeur. Par consÃ©quent, il vaut mieux en pratique supprimer en premier lieu la valeur de donnÃ©es, comme il a Ã©tÃ© vu plus haut (attendre que la couleur de la cellule passe au vert), avant de saisir la nouvelle valeur.</para>
     </section>
     <section id="dataEntry_1">
-      <title>Validation des données du formulaire</title>
-      <para>Lorsque toutes les valeurs du formulaire ont été saisies dans le formulaire, vous pouvez exécuter un contrôle de validation sur les données du formulaire. Cliquez sur le bouton "Exécuter la validation" qui est situé dans le coin supérieur droit. Toutes les règles de validation qui concernent les éléments de données du formulaire actuel (ensemble de données) seront exécutées avec les nouvelles données. À la fin du processus de validation, vous obtiendrez une liste des violations constatées ou tout simplement un message vous informant que : "L'écran de saisie des données a passé avec succès la validation". Voir le chapitre intitulé Qualité des données pour plus d'informations sur la façon de définir ces règles de validation.</para>
-      <para>Lorsque vous avez corrigé les valeurs erronées et fini avec le formulaire, une bonne règle de conduite que nous vous recommandons consiste à cliquer sur le bouton Terminé en-dessous du formulaire de saisi pour signifier que le formulaire est terminé. Cette information est en effet utilisée lors de la génération des rapports de complétude pour les districts, comtés, provinces ou au niveau national.</para>
+      <title>Validation des donnÃ©es du formulaire</title>
+      <para>Lorsque toutes les valeurs du formulaire ont Ã©tÃ© saisies dans le formulaire, vous pouvez exÃ©cuter un contrÃ´le de validation sur les donnÃ©es du formulaire. Cliquez sur le bouton "ExÃ©cuter la validation" qui est situÃ© dans le coin supÃ©rieur droit. Toutes les rÃ¨gles de validation qui concernent les Ã©lÃ©ments de donnÃ©es du formulaire actuel (ensemble de donnÃ©es) seront exÃ©cutÃ©es avec les nouvelles donnÃ©es. Ã€ la fin du processus de validation, vous obtiendrez une liste des violations constatÃ©es ou tout simplement un message vous informant que : "L'Ã©cran de saisie des donnÃ©es a passÃ© avec succÃ¨s la validation". Voir le chapitre intitulÃ© QualitÃ© des donnÃ©es pour plus d'informations sur la faÃ§on de dÃ©finir ces rÃ¨gles de validation.</para>
+      <para>Lorsque vous avez corrigÃ© les valeurs erronÃ©es et fini avec le formulaire, une bonne rÃ¨gle de conduite que nous vous recommandons consiste Ã  cliquer sur le bouton TerminÃ© en-dessous du formulaire de saisi pour signifier que le formulaire est terminÃ©. Cette information est en effet utilisÃ©e lors de la gÃ©nÃ©ration des rapports de complÃ©tude pour les districts, comtÃ©s, provinces ou au niveau national.</para>
       <screenshot>
-        <screeninfo>Résultat de validation des saisies de données</screeninfo>
+        <screeninfo>RÃ©sultat de validation des saisies de donnÃ©es</screeninfo>
         <mediaobject>
           <imageobject>
             <imagedata width="100%" fileref="resources/images/dhis2UserManual/data_entry_validation_result.png" format="PNG"/>
@@ -65,9 +65,9 @@
       </screenshot>
     </section>
     <section>
-      <title>Saisie de données en cas de déconnexion</title>
-      <para>Il est important d’avoir à l’esprit que le module de saisie de données fonctionne même si, au cours de vos saisies, la connexion Internet venait à partir. Pour utiliser cette fonctionnalité, vous devez vous connecter au serveur au moment où vous avez une connexion disponible ; ainsi, même si au cours de la saisie de données le lien Internet entre votre ordinateur et le serveur devenait instable, les données pourront encore être saisies dans le formulaire de saisie de données, enregistrées sur votre ordinateur local, puis transmises au serveur lorsque la connexion Internet sera rétablie. En d’autres termes, les données peuvent être saisies et stockées localement sur votre ordinateur (lorsque vous êtes hors ligne) puis transmises au serveur central lorsque vous êtes de nouveau en ligne. Cela signifie que la stratégie de déploiement en ligne est rendue plus sûre dans les zones ayant une connexion Internet instable. L'utilisation de la bande passante totale diminue aussi considérablement puisque les formulaires ne sont plus récupérés à partir du serveur pour chaque affichage.</para>
-      <para>Lorsque le serveur peut de nouveau être accédé par la connexion Internet, un message est affiché en haut de l'écran de saisie des données comme ci-dessous. </para>
+      <title>Saisie de donnÃ©es en cas de dÃ©connexion</title>
+      <para>Il est important dâ€™avoir Ã  lâ€™esprit que le module de saisie de donnÃ©es fonctionne mÃªme si, au cours de vos saisies, la connexion Internet venait Ã  partir. Pour utiliser cette fonctionnalitÃ©, vous devez vous connecter au serveur au moment oÃ¹ vous avez une connexion disponible ; ainsi, mÃªme si au cours de la saisie de donnÃ©es le lien Internet entre votre ordinateur et le serveur devenait instable, les donnÃ©es pourront encore Ãªtre saisies dans le formulaire de saisie de donnÃ©es, enregistrÃ©es sur votre ordinateur local, puis transmises au serveur lorsque la connexion Internet sera rÃ©tablie. En dâ€™autres termes, les donnÃ©es peuvent Ãªtre saisies et stockÃ©es localement sur votre ordinateur (lorsque vous Ãªtes hors ligne) puis transmises au serveur central lorsque vous Ãªtes de nouveau en ligne. Cela signifie que la stratÃ©gie de dÃ©ploiement en ligne est rendue plus sÃ»re dans les zones ayant une connexion Internet instable. L'utilisation de la bande passante totale diminue aussi considÃ©rablement puisque les formulaires ne sont plus rÃ©cupÃ©rÃ©s Ã  partir du serveur pour chaque affichage.</para>
+      <para>Lorsque le serveur peut de nouveau Ãªtre accÃ©dÃ© par la connexion Internet, un message est affichÃ© en haut de l'Ã©cran de saisie des donnÃ©es comme ci-dessous. </para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -75,7 +75,7 @@
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>Si la connexion Internet se perd pour une raison quelconque au cours du processus de saisie des données, cette perte de connexion sera détectée par l'application, et vous serez informé que vos données seront stockées localement.</para>
+      <para>Si la connexion Internet se perd pour une raison quelconque au cours du processus de saisie des donnÃ©es, cette perte de connexion sera dÃ©tectÃ©e par l'application, et vous serez informÃ© que vos donnÃ©es seront stockÃ©es localement.</para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -83,7 +83,7 @@
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>La saisie des données peut se poursuivre normalement. Une fois que vous avez saisi toutes les données nécessaires, et que l'application détecte que le serveur est de nouveau en ligne, vous serez informé que vous avez des données qui doivent être synchronisées avec le serveur.</para>
+      <para>La saisie des donnÃ©es peut se poursuivre normalement. Une fois que vous avez saisi toutes les donnÃ©es nÃ©cessaires, et que l'application dÃ©tecte que le serveur est de nouveau en ligne, vous serez informÃ© que vous avez des donnÃ©es qui doivent Ãªtre synchronisÃ©es avec le serveur.</para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -91,7 +91,7 @@
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>Une fois les données synchronisées avec le serveur, vous recevrez un message de confirmation que les données ont été transmises avec succès au serveur.</para>
+      <para>Une fois les donnÃ©es synchronisÃ©es avec le serveur, vous recevrez un message de confirmation que les donnÃ©es ont Ã©tÃ© transmises avec succÃ¨s au serveur.</para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -101,8 +101,8 @@
       </screenshot>
     </section>
     <section>
-      <title>Saisie de données multi-organisations</title>
-      <para>Dans certains cas de figure, il peut être avantageux de saisir les données de plusieurs unités d'organisation dans le même formulaire de saisie de données ; par exemple, s’il n’y a que quelques éléments de données dans le formulaire et un grand nombre d'unités d'organisation dans la hiérarchie. Dans ce cas, vous pouvez activer la saisie d’organisations multiples en allant dans "Paramètres système" et cochant l'option «Activer les formulaires multi-organisation ". Puis, dans la saisie de données, vous sélectionnerez l'unité d'organisation qui se trouve immédiatement au-dessus de l'unité de l'organisation pour laquelle vous souhaitez saisir des données. Notez que cela fonctionne uniquement sur des formulaires à section. Vous devriez maintenant voir les éléments de données figurant dans les colonnes et les unités d'organisation apparaitre dans des lignes du formulaire. Notez que les formulaires de saisie de données devront toujours être assignés aux centres de santé pour lesquels vous saisissez des données, c'est à dire les unités d'organisation qui apparaissent dans le formulaire que vous obtenez.</para>
+      <title>Saisie de donnÃ©es multi-organisations</title>
+      <para>Dans certains cas de figure, il peut Ãªtre avantageux de saisir les donnÃ©es de plusieurs unitÃ©s d'organisation dans le mÃªme formulaire de saisie de donnÃ©es ; par exemple, sâ€™il nâ€™y a que quelques Ã©lÃ©ments de donnÃ©es dans le formulaire et un grand nombre d'unitÃ©s d'organisation dans la hiÃ©rarchie. Dans ce cas, vous pouvez activer la saisie dâ€™organisations multiples en allant dans "ParamÃ¨tres systÃ¨me" et cochant l'option Â«Activer les formulaires multi-organisation ". Puis, dans la saisie de donnÃ©es, vous sÃ©lectionnerez l'unitÃ© d'organisation qui se trouve immÃ©diatement au-dessus de l'unitÃ© de l'organisation pour laquelle vous souhaitez saisir des donnÃ©es. Notez que cela fonctionne uniquement sur des formulaires Ã  section. Vous devriez maintenant voir les Ã©lÃ©ments de donnÃ©es figurant dans les colonnes et les unitÃ©s d'organisation apparaitre dans des lignes du formulaire. Notez que les formulaires de saisie de donnÃ©es devront toujours Ãªtre assignÃ©s aux centres de santÃ© pour lesquels vous saisissez des donnÃ©es, c'est Ã  dire les unitÃ©s d'organisation qui apparaissent dans le formulaire que vous obtenez.</para>
     </section>
   </section>
 </chapter>
