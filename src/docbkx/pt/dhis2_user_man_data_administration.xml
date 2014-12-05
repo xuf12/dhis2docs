@@ -2,10 +2,10 @@
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.5/docbookx.dtd" []>
 <chapter>
   <title>Administração de dados</title>
-  <para>O módulo de gestão de dados fornece um conjunto de funções para assegurar que os dados armazenados no banco de dados DHIS2 é parte integrante e que a base de dados de desempenho é optimizado. Estas funções devem ser executadas numa base regular por um administrador de dados para assegurar que a qualidade dos dados armazenados é óptima. </para>
+  <para>O módulo de gestão de dados fornece um conjunto de funções para assegurar que os dados armazenados na base de dados DHIS2 está integrada e que o desempenho da base de dados é optimizado. Estas funções devem ser executadas regularmente por um administrador de dados para assegurar que a qualidade dos dados armazenados é ideal. </para>
   <section id="dataBrowser">
     <title>Navegador de dados</title>
-    <para>O módulo de manutenção e análise de dados do navegador, que permite ao usuário produzir um resumo dos dados contidos no banco de dados DHIS2. A visualização de resumo fornece uma contagem de elementos de dados que foram inseridos na unidade de organização seleccionada, bem como seus descendentes. Os dados brutos para todos os elementos de dados para uma série de períodos de tempo e uma determinada unidade organizacional pode ser pesquisado e exportados para o Excel, CSV ou PDF. Existem quatro modos de navegador de dados, que determinam como os dados são resumidos:</para>
+    <para>A manutenção do navegador de dados e módulo de análise permite ao usuário produzir um resumo dos dados contidos na base de dados DHIS2. A visualização sumária fornece uma contagem de elementos de dados que foram inseridos na unidade de organização seleccionada, bem como seus descendentes. Os dados brutos para todos os elementos de dados para uma série de períodos de tempo e uma determinada unidade organizacional pode ser pesquisado e exportados em formatos Excel, CSV ou PDF. Existem quatro modos de navegador de dados, que determinam como os dados são resumidos</para>
     <itemizedlist>
       <listitem>
         <para>Conjunto de dados</para>
@@ -14,14 +14,14 @@
         <para>Grupos de elementos de dados</para>
       </listitem>
       <listitem>
-        <para>Grupos de unidades organizacionais</para>
+        <para>Grupos de unidades organicas</para>
       </listitem>
       <listitem>
-        <para>Unidades organizacionais</para>
+        <para>Unidades orgânicas</para>
       </listitem>
     </itemizedlist>
-    <para>Cada uma dessas opções pode ser acessada selecionando a opção desejada  <guilabel>&quot;Navegar por&quot; </guilabel>no menu drop-down. </para>
-    <para>A fim de produzir um resumo dos dados apresentados por um determinado período e agrupadas por conjuntos de dados, o usuário deve seguir este procedimento. Comece por seleccionar um determinado tipo de periodicidade (por exemplo, semanal, mensal, anual, etc) e, em seguida, uma &quot;Da data&quot; e &quot;Até o momento&quot;. (por exemplo, janeiro de 2009 a Março de 2009). Selecione o tipo de resumo a ser produzido (por exemplo Dataset) a partir do &quot;Procurar por&quot; menu drop-down. Clique no botão &quot;Browse&quot; para visualizar o resumo. </para>
+    <para>Cada uma destas opções podem ser acedidas selecionando a opção desejada  <guilabel>&quot;Procura por&quot; </guilabel>menu drop-down. </para>
+    <para>Para produzir um resumo dos dados submetidos durante um determinado período e agrupados em conjunto, o usuário deve seguir o seguinte procedimento. Comece por seleccionar um determinado tipo de periodicidade (por exemplo, semanal, mensal, anual, etc) e, em seguida, uma &quot;Da data&quot; e &quot;Até o momento&quot;. (por exemplo, janeiro de 2009 a Março de 2009). Selecione o tipo de resumo a ser produzido (por exemplo Dataset) a partir do &quot;Procurar por&quot; menu drop-down. Clique no botão &quot;Browse&quot; para visualizar o resumo. </para>
     <screenshot>
       <mediaobject>
         <imageobject>
@@ -29,7 +29,7 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>Um resumo do número de valores de elementos de dados que tenham sido submetidos ao longo do período de tempo seleccionado de utilizador é mostrada abaixo. </para>
+    <para>Um resumo do número de valores de elementos de dados que foram submetidas durante o período de tempo seleccionado pelo utilizador é mostrado abaixo. </para>
     <screenshot>
       <mediaobject>
         <imageobject>
@@ -37,7 +37,7 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para> Ao clicar no nome do conjunto de dados individual, um resumo mais detalhado de cada elemento de dados podem ser obtidos como mostrado abaixo. Uma tabela de referência cruzada que resume cada período de tempo serão mostrados. </para>
+    <para> Ao clicar no nome do conjunto de dados individuais, um resumo mais detalhado de cada elemento de dados podem ser obtidos, como mostrado abaixo. Uma tabela de referência cruzada resumindo cada período de tempo serão mostrados. </para>
     <screenshot>
       <mediaobject>
         <imageobject>
@@ -45,8 +45,8 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>A funcionalidade do agrupamento por conjuntos de dados, grupos de elementos de dados e grupos de organização é essencialmente o mesmo.. </para>
-    <para>A funcionalidade do agrupamento de unidades de organização será discutido abaixo. Comece selecionando &quot;unidades&quot; Organização do &quot;Navegar por&quot; menu drop-down. A hierarquia organizacional presente no banco de dados será exibido. Unidades organizacionais pode ser expandida clicando no sinal de mais na exibição em árvore organizacional..</para>
+    <para>A funcionalidade de agrupamento por conjuntos de dados, grupos de elementos de dados e grupos de organização é essencialmente o mesmo. </para>
+    <para>A funcionalidade de agrupamento por unidades orgânicas será demonstrado abaixo. Comece por seleccionar &quot;Unidade orgânica&quot; de&quot;Procurado pelo&quot; menu suspenso. A hierarquia organizacional presente na base de dados será agora apresentada. Unidades orgânicas podem ser expandidas clicando no símbolo mais (+) na visualização organizacional em árvore.</para>
     <screenshot>
       <mediaobject>
         <imageobject>
@@ -54,7 +54,7 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para> Clicando em uma unidade organizacional, e clique no botão &quot;Procurar&quot;, um resumo dos elementos de dados apresentados presentes no banco de dados é retornado para todos os filhos imediatos do organizacional selecionado como mostrado abaixo:</para>
+    <para> Ao clicar em uma unidade orgânica, e clicando na &quot;tecla&quot; procura, um resumo dos elementos dos dados submetidos presentes na base de dados é retornado para todos filiados imediatos da organização selecionada como mostrado abaixo:</para>
     <screenshot>
       <mediaobject>
         <imageobject>
@@ -62,13 +62,13 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>Ao clicar em uma das unidades organizacionais, os modos de dois detalhar são apresentados ao usuário. </para>
+    <para>Ao clicar em uma das unidades orgânicas, dois modos de detalhamento são apresentados ao usuário. </para>
     <itemizedlist>
       <listitem>
-        <para>Drill down-Resumo Drill down para as unidades organizacionais crianças selecionadas para ver a contagem de elementos de dados. </para>
+        <para>Summary drill down- Vá até as unidades orgânicas de crianças selecionadas para ver a contagem de elementos de dados. </para>
       </listitem>
       <listitem>
-        <para>Ver dados brutos, a este nível: Visualizar os dados brutos reais na unidade organizacional selecionada. Uma visão típica da exportação de dados brutos pode ser visto abaixo.</para>
+        <para>Ver dados brutos a este nível: Veja os dados brutos reais na unidade orgânica selecionada. A visão típica da exportação de dados brutos pode ser visto abaixo.</para>
         <screenshot>
           <mediaobject>
             <imageobject>
@@ -76,183 +76,194 @@
             </imageobject>
           </mediaobject>
         </screenshot>
-        <para>Os dados podem ser exportados para Excel, CSV e como um relatório em PDF, clicando no botão apropriado.</para>
+        <para>Os dados podem ser exportados para o Excel, CSV e como um relatório em PDF clicando no botão adequado.</para>
       </listitem>
     </itemizedlist>
   </section>
   <section id="dataIntegrity">
-    <title>Integridade dos dados</title>
-    <para>DHIS2 pode executar uma ampla gama de verificações de integridade de dados sobre os dados contidos no banco de dados. Identificar e corrigir problemas de integridade de dados é extremamente importante para garantir que os dados utilizados para fins de análise é válido. Cada um dos controlos de integridade de dados, que são executadas pelo sistema irá ser descrito, juntamente com os procedimentos gerais que podem ser realizadas para resolver estes problemas. </para>
+    <title>A integridade dos Dados</title>
+    <para>DHIS2 pode executar uma grande variedade de verificação de integridade de dados contidos na base de dados. Identificar e corrigir problemas de integridade de dados é extremamente importante para garantir que os dados utilizados para fins de análise é válido. Cada uma das verificações de integridade de dados que são executadas pelo sistema irá ser descrito, juntamente com os procedimentos gerais que podem ser realizadas para resolver estes problemas. </para>
     <section>
-      <title>elementos de dados sem conjunto de dados</title>
-      <para>Cada elemento de dados deve ser atribuído a um conjunto de dados. Os valores de elementos de dados não irá ser capaz de ser introduzido no sistema se um elemento de dados não é atribuída a um conjunto de dados. Escolha Manutenção-&gt; Conjuntos de Dados-&gt; Editar no menu principal e, em seguida, adicionar o &quot;órfão&quot; elemento de dados para o conjunto de dados apropriado. </para>
+      <title>Os elementos de dados sem ficha ou formulário de programa</title>
+      <para>Cada elemento de dados deve ser atribuído a um formulário ou ficha de programa de saúde. Os valores de elementos de dados não poderão ser inseridos no sistema, se um elemento de dados não é atribuído a uma ficha. Selecione Manutenção-&gt;Ficha-&gt;Edite a partir do menu principal e em seguida adicione o &quot;órfão&quot; elementos de dados para a ficha ou formulário adequado. </para>
     </section>
     <section>
       <title>Elementos de dados sem grupos</title>
-      <para>Alguns elementos de dados foram atribuídos a vários grupos de dados do elemento. Este momento não é permitido, porque vai resultar em duplicação de registros de dados vinculados no PivotSource conjuntos de registros que `` alimentar as tabelas dinâmicas. Ir para Manutenção -&gt; Elemento grupos de dados para analisar cada elemento de dados identificados e remover as atribuições do Grupo incorretas.</para>
+      <para>Alguns elementos de dados que foram atribuídos a vários grupos de elemento de dados. Isto não é actualmente permitido, porque vai resultar em duplicação de registros de dados ligados as fichas ou formularios de fonte pivot que alimenta as tabelas pivot. Selecione Manutenção -&gt; Grupo de elementos de dados a avaliar cada elemento de dados identificados e remover as atribuições dos Grupos incorretos.</para>
     </section>
     <section>
-      <title>Elementos de dados que violem sets grupo exclusivo</title>
+      <title>Elementos de dados que violam um conjunto de grupos exclusivos</title>
       <para>
-alguns elementos de dados foram atribuídos a vários grupos de elementos de dados que são membros do mesmo conjunto grupo de elementos de dados. Todos os conjuntos de grupos em DHIS são definidos como exclusivo, o que significa que um elemento de dados pode  <emphasis role="italic">somente</emphasis>  ser alocado para  <emphasis role="italic">um</emphasis>  grupo de elementos de dados dentro desse conjunto grupo. Ir para Manutenção -&gt; elementos e indicadores de Dados -&gt; grupos de elementos de dados para analisar cada elemento de dados identificados na verificação de integridade. Remova o elemento de dados de todos os grupos, exceto o que ele deve ser alocado, ou ver se um dos grupos deve ser colocado em um conjunto de grupo diferente..
+      Alguns elementos de dados que foram atribuídos a vários grupos de elementos que são membros do mesmo conjunto de grupo de elementos de dados. Todos os conjuntos de grupos em DHIS são definidos como exclusivo, o que significa que um elemento de dado pode ser <emphasis>somente</emphasis> alocado para <emphasis>um</emphasis> grupo de elementos de dados dentro do conjunto de grupos. Selecione Manutenção -&gt; Elementos de dados e Indicadores -&gt;Grupos de elementos de dados para analisar cada elemento de dados identificados na verificação de integridade. Pode remover o elemento de dados de todos os grupos, excepto o que deve ser atribuído a, ou para ver se um dos grupos deve ser colocado em um diferente conjunto de grupo.
       </para>
     </section>
     <section>
-      <title>Elementos de dados atribuídos a conjuntos de dados com diferentes tipos de período</title>
-      <para>Elementos de dados não deve ser atribuído a dois conjuntos de dados separados cujos tipos período diferentes. A abordagem recomendada seria a criação de dois elementos de dados separados (por exemplo, um elemento de dados mensal e anual) e atribuí-los aos respectivos conjuntos de dados. </para>
+      <title>Os elementos de dados atribuídos a conjuntos de dados com diferentes tipos de período</title>
+      <para>Elementos dados não devem ser atribuído a duas fichas de dados separadas cuja as períodicidades diferem. A abordagem recomendada seria de criar de dois elementos de dados separados (por exemplo, um elemento de dados mensal e outro anual) e atribuí-los as respectivas fichas ou formulário de programa. </para>
     </section>
     <section>
-      <title>Conjuntos de dados não atribuídos a unidades organizacionais</title>
-      <para>Todos os conjuntos de dados deve ser atribuída a pelo menos uma unidade de organização.</para>
+      <title>Ficha ou formulário de programa de saúde não atribuído a unidade orgânica</title>
+      <para>Todas as fichas devem ser atribuídas a pelo menos uma unidade orgânica. </para>
     </section>
     <section>
-      <title>Indicatores com fórmulas identicas</title>
-      <para>Embora esta regra não afetará a qualidade dos dados, que, geralmente, não faz sentido ter dois indicadores com a mesma definição exata. Analise os indicadores identificados e suas fórmulas e excluir ou modificar qualquer indicador que parece ser o duplicado.</para>
+      <title>Indicadores com fórmulas idênticas</title>
+      <para>Embora esta regra não vai afectar a qualidade dos dados, geralmente, não faz sentido ter dois indicadores com a mesma exacta definição. Reveja os indicadores identificados e suas fórmulas e excluir ou modificar qualquer indicador que parece ser o duplicado.</para>
     </section>
     <section>
-      <title>Indicadores sem grupos</title>
-      <para>Todos os elementos e indicadores de dados deve ser atribuído a pelo menos um grupo, assim que estes indicadores devem ser alocados para o seu Elemento de dados correto e Indicator. Ir para Manutenção -&gt; Indicador de grupos, e alocar cada um dos `` Indicadores Orphaned ao seu grupo correto.</para>
+      <title>Indicadores sem grupo</title>
+      <para>Todos os elementos de dados e indicadores devem ser atribuídos a pelo menos um grupo, assim que estes indicadores devem ser alocados para o seu grupo de elemento de dados e Indicator correcto. Selecione Manutenção -&gt; Grupo de indicadores, e alocar cada um dos `Indicadores Orfãos` ao seu grupo correcto.</para>
     </section>
     <section>
-      <title>Numeradores indicador inválidos</title>
-      <para>Violações desta regra pode ser causada por uma referência incorreta a um elemento de dados apagados ou modificados. Comente o indicador e fazer as correções para a definição numerador. </para>
+      <title>Numeradores inválidos de indicadores</title>
+      <para>Violações desta regra pode ser causada por uma referência incorreta a um elemento de dados apagados ou modificados. Reveja o indicador e faça as correções para a definição do numerador. </para>
     </section>
     <section>
-      <title>Denominadores indicador inválidos</title>
-      <para>Violações desta regra pode ser causada por uma referência incorreta a um elemento de dados apagados ou modificados. Comente o indicador e fazer as correções para a definição denominador. </para>
+      <title>Denominadores inválidos de indicadores</title>
+      <para>A violação desta regra pode ser causada por uma referência incorreta a um elemento de dados apagados ou modificados. Reveja o indicador e faça as correções para a definição denominador. </para>
     </section>
     <section>
-      <title>Indicadores violem conjunto de grupos exclusivos</title>
+      <title>Indicadores que não respeitam o conjunto exclusivo de grupos</title>
       <para>
-Alguns indicadores foram atribuídos a vários grupos de indicadores que são membros do mesmo conjunto grupo indicador. Todos os conjuntos de grupos em DHIS são definidos como exclusivo, o que significa que um indicador pode  <emphasis role="italic">somente</emphasis>  ser alocados para  <emphasis role="italic">um</emphasis>  grupo indicador dentro desse conjunto grupo. Ir para Manutenção -&gt; elementos e indicadores de Dados -&gt; grupos de indicadores para analisar cada indicador identificado na verificação de integridade. Remova o indicador de todos os grupos, exceto o que ele deve ser alocado, ou ver se um dos grupos deve ser colocado em um conjunto grupo diferente      </para>
+      Alguns indicadores foram atribuídos a vários grupos de indicadores que são membros do mesmo conjunto de grupos indicadores. Todos conjuntos de grupos no DHIS estão definidos como exclusivos, isso significa que um indicador pode <emphasis>somente</emphasis> ser alocado para <emphasis>um</emphasis> grupo de indicador dentro desse conjunto grupos. Selecione Manutenção -&gt; Elementos de dados e Indicadores -&gt;Grupos de indicadores para analisar cada indicador identificado na verificação de integridade. Remova o indicador de todos os grupos, excepto ao que deve ser atribuído, ou certifique se um dos grupos deve ser colocado em um conjunto diferente de grupo.
+      </para>
     </section>
     <section>
-      <title> nidades da Organização com referências cíclicas</title>
-      <para>Unidades da Organização não pode ser ao mesmo tempo pai e os filhos do outro, directa ou indirectamente</para>
+      <title> Unidades orgânicas com referência cíclicas</title>
+      <para>Unidades orgânicas não pode ser ao mesmo tempo pai e filho da outra, directa ou indirectamente.</para>
     </section>
     <section>
-      <title>Unidades organizacionais Órfãs</title>
-      <para>Deve existir Todas as unidades organizacionais dentro da hierarquia de unidade organizacional. Ir para Organização-&gt; Operações de hierarquia e mova a unidade de organização ofensiva para a posição adequada na hierarquia.. </para>
+      <title>Unidades orgânicas orfãs</title>
+      <para>todas as unidades orgânicas devem existir dentro da hierarquia da unidade orgânica. Selecione Unidades orgânica-&gt;Operações hierarquia e mova a unidade orgânica incorrecta para a posição adequada na hierarquia. </para>
     </section>
     <section>
-      <title>Unidades organizacionais sem grupos</title>
-      <para>Todas as unidades de organização <emphasis role="italic"> deve</emphasis>  ser atribuídas a pelo menos <emphasis role="italic">um</emphasis>  grupo. O problema pode ser tanto que você não tenha definido qualquer `obrigatório` OrgUnit Set Grupo de todo, ou que há violações da regra &apos;obrigatório&apos; para alguns OrgUnits. NOTA: Se você tiver definido nenhum `` Conjuntos OrgUnit Grupo obrigatórias, então você deve primeiro defini-los, indo para Manutenção -&gt; Organização unidades&gt; agrupar conjuntos unidade Organização e definir pelo menos um `obrigatório &apos;Grupo Set (o conjunto grupo `` OrgUnitType são quase universalmente relevante). Se você tem os conjuntos de grupos relevantes, ir para Manutenção -&gt; Grupos OrgUnit para rever cada OrgUnit identificados e adicionar a alocação Grupo relevante.</para>
+      <title>Unidades orgânicas sem grupos</title>
+      <para>Todas Unidades orgânicas <emphasis>devem</emphasis>ser alocados para pelo menos <emphasis>um</emphasis> grupo. O problema pode ser que não tenha definido qualquer conjunto 'obrigatório' da unidade orgânica, ou que há violações da regra 'obrigatória' para algumas Unidades Orgânicas. NOTA: Se não tiver definido nenhum conjunto de grupo de unidade orgânicas obrigatórias, então deve primeiro definir-los, selecionando Manutenção -&gt; Unidades Orgânicas-&gt;Grupo conjuntos unitários Organização e definir pelo menos um 'conjunto de grupo obrigatório' (os conjuntos de grupos `tipo unidade orgânica` são quase universalmente relevante). Se tiver os conjuntos de grupos relevantes, Selecione Manutenção -&gt; Grupo OrgUnit para rever cada OrgUnit identificados e adicionar a alocação Grupo relevante.</para>
     </section>
     <section>
-      <title>Unidades Organização violem conjunto de grupos obrigatórias</title>
-      <para>Estas unidades organizacionais não foram atribuídos ao grupo qualquer unidade organizacional dentro de um dos  <emphasis role="italic">agrupar conjuntos unidade de organização</emphasis> obrigatório. Quando um conjunto de grupo é definido como &apos;obrigatório&apos;, isso significa que uma unidade de organização devem ser alocados para pelo menos um grupo de unidades organização dentro desse conjunto grupo. Por exemplo, todas as unidades da organização deve pertencer a um dos grupos na organização UnitType `` set grupo. Pode pertencer ao Hospital `` ou o `Clinic` ou qualquer outro grupo `type` - mas deve pertencer a exatamente um deles. Ir para Manutenção -&gt; organização da unidade-&gt; grupos de unidades Organização para rever cada unidade de organização identificada na verificação de integridade. Alocar todas as unidades da organização a exatamente um grupo.. </para>
+      <title>Unidades orgânicas violando conjuntos obrigatorios de grupos</title>
+      <para>Essas unidades orgânicas não foram atribuídas a nenhum grupo de unidade orgânica dentro de um dos  <emphasis>obrigatório</emphasis> conjunto de grupo de unidade orgânica. Quando um conjunto de grupo é definido como `obrigatório`, isso significa que uma unidade orgânica deve ser atribuída a pelo menos um grupo de unidades orgânicas dentro desse conjunto grupo. Por exemplo, todas as unidades orgânicas devem pertencer a um dos grupos do `Tipo unidades orgânicas`. Pode pertencer ao `Hospital` ou a 'Clínica' ou qualquer outro grupo`Tipo` - mas deve pertencer a exatamente um deles.  Selecione Manutenção -&gt; Unidades orgânicas-&gt;Grupos de Unidades orgânicas para rever cada unidade orgânica identificada na verificação de integridade. Alocar todas unidades orgânicas a um grupo exacto. </para>
     </section>
     <section>
-      <title>Unidades Organização violem conjunto de grupos exclusivo</title>
-      <para>Algumas unidades de organização foram atribuídos a vários grupos de unidades da organização que são membros da mesma organização set grupo de unidades. Todos os conjuntos de grupos em DHIS são definidos como exclusivo, o que significa que uma unidade organizacional pode  somente  ser alocados para  um grupo de unidades organizacionais  dentro desse grupo definido. Por exemplo, uma unidade de organização normalmente não pode pertencer ao grupo  &apos;Hospital&apos; e grupo &apos;Clinica&apos;, mas sim apenas com um deles. Ir para Manutenção -&gt; organização da unidade-&gt; grupos de unidades Organização para rever cada unidade de organização identificada na verificação de integridade. Remova a unidade de organização de todos os grupos, exceto o que ele deve ser alocado para</para>
+      <title>Unidades orgânicas violando conjuntos exclusivos de grupos</title>
+      <para>Algumas unidades orgânicas foram alocadas a varios grupos de unidades orgânicas que são membros do mesmo conjunto de grupos de unidades orgânicas. Todos os conjuntos de grupos em DHIS são definidos como exclusivo, o que significa que uma unidade orgânica pode <emphasis>somente</emphasis> ser alocados a <emphasis>um</emphasis> grupo de unidade orgânica dentro dos conjuntos de grupos. Por exemplo, uma unidade orgânica não pode, normalmente, pertencer tanto ao &apos;Hospital&apos; e &apos;Clínica&apos; groups, mas sim pra somente um deles. Selecione Manutenção -&gt; Unidades orgânicas-&gt;grupos de unidades orgânicas para rever cada unidade orgânica identificada na verificação de integridade. Remova a unidade orgânica de todos os grupos, excepto a aquele que devem ser atribuídos.</para>
     </section>
     <section>
-      <title> Grupos de unidades organizacionais sem grupos</title>
-      <para>Os grupos de unidades da organização listados aqui não foram atribuídos a um conjunto de grupo. Ir para Manutenção-&gt; Organização&gt; unidade de agrupar conjuntos unidade Organização e alocar o grupo de unidade de organização para o conjunto grupo apropriado. </para>
+      <title> Unidades orgânicas sem conjunto de grupos</title>
+      <para>Os grupos de Unidades orgânicas listados aqui não foram alocados a um conjunto de grupo. Selecione Manutenção-&gt;Unidades orgânicas-&gt;Conjunto de grupos de Unidades orgânicas e alocar o grupo de Unidade orgânica para o conjunto de grupo apropriado. </para>
     </section>
     <section>
       <title>Regras de validação sem grupos</title>
-      <para>Todas as regras de validação devem ser atribuídos a um grupo. Ir para  <emphasis role="bold">Serviços-&gt; Dados qualidade-&gt; grupo de regras de validação</emphasis>  e atribuir a regra de validação de ofensa a um grupo.. </para>
+      <para>Todas as regras de validação deve ser atribuído a um grupo. Selecione <command>Serviços-&gt;Qualidade de dados-&gt;Grupo de Regra de validação</command> e atribuir a regra de validação de incorrecta a um grupo. </para>
     </section>
     <section>
-      <title>Regra de validação inválido esquerda expressões colaterais</title>
-      <para>aeclique no ícone Editar  na regra de ofensa. Carregue  Editar deixado de lado e fazer as correções que são necessárias <command>Serviços-&gt;Qualidade de dados-&gt;Regra de validação</command> e clique no ícone &quot;Editar&quot; na regra de ofensa. Pressione o botão &quot;Editar lado esquerdo&quot; e fazer as correções que são necessárias. </para>
+      <title>Regra de validação inválida expressa do lado esquerdo</title>
+      <para>Existe um erro no lado esquerdo da definição da regra de validação. Selecione <command>Serviços-&gt;Qualidade de dados-&gt;Regra de validação</command> e clica no &quot;Edit&quot; Ícone na regra não respeitada. Clica &quot;Editar lado esquerdo&quot; e fazer as correções necessárias. </para>
     </section>
     <section>
-      <title>Regra de validação inválido expressões lado direito</title>
-      <para>Existe um erro no lado esquerdo da definição da regra de validação. Ir a <command>Serviços-&gt;Qualidade de dados-&gt;REgras de validação</command> e clique no ícone &quot;Editar&quot; na regra de ofensa. Pressione o botão &quot;Editar lado direito&quot; e fazer as correções que são necessárias.</para>
+      <title>Regra de validação inválida expressa do lado direito</title>
+      <para>Existe um erro no lado esquerdo da definição da regra de validação. Selecione <command>Serviços-&gt;Qualidade de dados-&gt;Regra de validação</command> e clica no &quot;Edit&quot; Ícone na regra não respeitada. Clica &quot;Editar lado direito&quot; e fazer as correções necessárias.</para>
     </section>
-  </section>
-  <section id="dataArchive">
-    <title>Arquivo de dados</title>
-    <para>O objetivo da função de arquivo de dados é mover dados que não está sendo usado para a análise de um local de armazenamento secundário, a fim de melhorar o desempenho da aplicação. Os dados podem ser tanto arquivada e desarquivada. Ao arquivar dados se move-lo do armazenamento principal para o local de armazenamento secundário, enquanto desarmazenando move-o do local de armazenamento secundário para o primário. Análise de funcionalidade DHIS 2 fortemente utiliza a tabela de consultas de base de dados do valor de dados, e por reduzir o tamanho da tabela estas operações serão significativamente mais rápida. Normalmente alguém iria querer arquivar dados que são mais de dois anos.</para>
-    <para>Para arquivar dados, entra pela primeira vez a data de início e uma data final para o intervalo de tempo dos dados que devem ser arquivados. Em seguida, pressione o botão de arquivamento. A operação pode demorar alguns minutos..</para>
-    <para>Para desarquivar dados, entra pela primeira vez a data de início e uma data final para o intervalo de tempo dos dados que devem ser desarquivados. Em seguida, pressione o botão desarquivar. A operação pode demorar alguns minutos.</para>
-    <para>Em alguns casos você pode acabar com dados sobrepostos. Por exemplo, um pode arquivar dados para um determinado período de tempo, e depois inserir os dados por um período em que período de tempo. Nesses casos, o sistema substituirá automaticamente o mais antigo dos valores que se sobrepõem com o mais novo durante o arquivo ou operação desarquivar</para>
-  </section>
-  <section id="patientDataArchive">
-    <title>Arquivo de dados beneficiários</title>
-    <para>O objetivo da função de arquivo de dados beneficiário é mover valor de dados beneficiário que não estam sendo usados para a análise de um local de armazenamento secundário, a fim de melhorar o desempenho da aplicação. Os dados podem ser tanto arquivada e desarquivada. Ao arquivar dados se move-lo do armazenamento principal para o local de armazenamento secundário, enquanto desarmazenando move-o do local de armazenamento secundário para o primário. Análise de funcionalidade DHIS 2 fortemente utiliza a tabela de consultas de base de dados do valor de dados, e por reduzir o tamanho da tabela estas operações serão significativamente mais rápida. Normalmente alguém iria querer arquivar dados dos beneficiários que é mais velho do que dois anos..</para>
-    <para>Para arquivar dados dos beneficiários, primeiro entre a data de início e uma data final para o intervalo de tempo dos dados que devem ser arquivados. Em seguida, pressione o botão de arquivamento. A operação pode demorar alguns minutos.</para>
-    <para>Para desarquivar dados dos beneficiários, entra pela primeira vez uma data de início e uma data final para o intervalo de tempo dos dados que devem ser desarquivados. Em seguida, pressione o botão desarquivar. A operação pode demorar alguns minutos..</para>
-    <para>Em alguns casos você pode acabar com dados sobrepostos. Por exemplo, um pode arquivar dados dos beneficiários para um determinado período de tempo, e depois inserir os dados por um período em que período de tempo. Nesses casos, o sistema substituirá automaticamente o mais antigo dos valores que se sobrepõem com o mais novo durante o arquivo ou operação desarquivar.</para>
   </section>
   <section id="maintenance">
     <title>Manutenção</title>
-    <para>O módulo de manutenção de dados tem cinco opções, cada um descrito adiante. </para>
+    <para>O módulo de manutenção de dados tem cinco opções, cada descritas abaixo. </para>
     <itemizedlist>
       <listitem>
-        <para>Limpar data mart (DataValues ​​agregados)</para>
-        <para>A data mart é onde dhis 2 lojas dados produzidos durante o processo de exportação para mart dados agregados. Essa função limpa a tabela de banco de dados que contém valores de elementos de dados agregados.</para>
+        <para>Tabelas de análise limpas</para>
+        <para>Apaga completamente as tabelas de análise, usados para gerar dados agregados para tabelas de pivot, SIG e relatórios. </para>
       </listitem>
       <listitem>
-        <para>Limpar data mart (indicadores ​​agregados)</para>
-        <para>A data mart é onde dhis 2 lojas dados produzidos durante o processo de exportação para mart dados agregados. Essa função limpa a tabela de banco de dados que contém valores dos indicadores agregados.</para>
+        <para>Dados mart limpos (valor do indicador e dados agregados)</para>
+        <para>Os dados mart é onde o DHIS 2 guarda os dados agregados produzidos durante o processo de exportação para dados mart. Essa função limpa a tabela de base de dados que contém indicador agregado e valores de elementos de dados.</para>
       </listitem>
       <listitem>
-        <para>Limpar valores nulos</para>
-        <para>TEsta função remove os valores de dados de zero a partir da base de dados. Os valores registrados para os elementos de dados com operador de agregação  <emphasis role="italic">média</emphasis>  não for removido, uma vez que tais valores serão significativos ao agregar os dados, contrários aos valores registrados para elementos de dados com operador de agregação  <emphasis role="italic">soma</emphasis> . A redução do número de valores de dados e melhorando o desempenho do sistema.</para>
+        <para>Reconstruir índice de data mart</para>
+        <para>Reconstruir os indices de base de dados nos dados agregados gerados durante o processo de data mart. </para>
       </listitem>
       <listitem>
-        <para>Limpar integridade do conjunto de dados</para>
-        <para>Esta função remove valores completude do conjunto de dados agregados. Estes dados poderão ser produzidos e utilizados por tabelas do relatório..</para>
+        <para>Valores Zero limpos</para>
+        <para>Esta função remove dados de valores zero a partir da base de dados. Os valores registrados para elementos de dados, com operador de agregação<emphasis role="italic">média</emphasis> não é removido, uma vez que tais valores serão significativos ao agregar os dados, ao contrários dos valores registrados para elementos de dados, com operador de agregação <emphasis role="italic">soma</emphasis>. A redução do número de valores de dados irá melhorar o desempenho do sistema.</para>
       </listitem>
       <listitem>
-        <para>Períodos prune</para>
-        <para>Esta função remove todos os períodos que não têm valores de dados registados. Reduzir o número de períodos irá melhorar o desempenho do sistema..</para>
+        <para>Integralidade do conjunto de dados limpos</para>
+        <para>Esta função remove valores de integridade do conjunto de dados agregados. Os dados são produzidos e utilizados por tabelas de relatório.</para>
+      </listitem>
+      <listitem>
+        <para>Períodos Prune</para>
+        <para>Essa funcionalidade remove todos períodos que nao tem nenhum valor ou dado registrado. Reduzir o numero de períodos vai melhorar a performance do sistema.</para>
+      </listitem>
+      <listitem>
+        <para>Actualização de Combinações de opções de categoria</para>
+        <para>Reconstrói as combinações de opções de categoria. Isso pode ser necessário depois de alterar as opções de categoria que pertencem a uma determinada categoria. </para>
       </listitem>
     </itemizedlist>
   </section>
   <section id="resourceTables">
-    <title>Tabelas de Recursos</title>
-    <para>Tabelas de recursos estão apoiando tabelas que são usadas durante a análise dos dados. Tipicamente Seria juntar o conteúdo dessas tabelas com a tabela de valores de dados ao fazer consultas a partir de aplicativos de terceiros, como o Microsoft Excel. Basta selecionar as tabelas que devem ser regenerados e pressione &quot;Gerar tabelas&quot;. Regeneração das tabelas de recursos deve ser feito apenas uma vez todos os problemas de integridade de dados são resolvidos.</para>
+    <title>Tabelas de recursos</title>
+    <para>Tabelas de recursos apoiam tabelas que são utilizadas durante a análise dos dados. alguém poderia
+        tipicamente juntar os conteúdos dessas tabelas com a tabela de valor de dados ao fazer consultas a partir de
+       aplicativos de terceiros, como o Microsoft Excel. Eles também são usados extensivamente pelos módulos de análise de DHIS2. Regeneração das tabelas de recursos deve
+       ser apenas feito uma vez todos os problemas de integridade de dados são resolvidos. As tabelas de recursos também são gerados automaticamente, toda vez que o processo de análise é executado pelo sistema. </para>
     <itemizedlist>
       <listitem>
-        <para>Estrutura da unidade organizacional (_orgunitstructure)</para>
-        <para>Esta tabela deve ser regenerado qualquer momento tenha havido qualquer alteração feita à hierarquia unidade organizacional. Esta tabela fornece informações sobre a hierarquia de unidade organizacional. Ele tem uma linha para cada unidade de organização, uma coluna para cada nível da unidade de organização e os identificadores de unidade de organização para todos os pais na linhagem como valores.</para>
+        <para>Estrutura das Unidades orgânicas (_orgunitstructure)</para>
+        <para>Essa tabela deve ser regenerada sempre que houver mudança na hierarquia das unidades orgânicas. Essa tabela fornece informação sobre a hierarquia das unidades orgânicas. Tem uma linha para cada unidade orgânica, uma coluna para cada nivel de unidade orgânica e identificadores de unidade orgânica para todas linhagens relacionadas com valores.</para>
       </listitem>
       <listitem>
-        <para>Configuração da estrutura do grupo de elemento de dados (_dataelementgroupsetstructure)</para>
-        <para>Esta tabela fornece informações sobre quais os indicadores que são membros do grupo que os conjuntos de indicadores. A tabela tem uma linha para cada indicador, uma coluna para cada grupo de conjunto de indicadores e os nomes do grupo indicador como valores</para>
+        <para>Estrutura de conjunto de grupos de elementos de dados (_dataelementgroupsetstructure)</para>
+        <para>Essa tabela fornece informação qual elementos de dados são membros de qual conjunto de grupos de elementos de dados. Essa tabela contém uma linha de cada elemento de dado,  uma coluna para cada conjunto de grupo de elementos de dados e o nome do grupo de elementos de dados como valores.</para>
       </listitem>
       <listitem>
-        <para>Configura a estrutura do grupo de indicadores (_indicatorgroupsetstructure)</para>
-        <para>Esta tabela fornece informações sobre quais os indicadores que são membros do grupo que os conjuntos de indicadores. A tabela tem uma linha para cada indicador, uma coluna para cada grupo conjunto de indicadores e os nomes do grupo indicador como valores.</para>
+        <para>Estrutura de conjunto grupos de indicadores (_indicatorgroupsetstructure)</para>
+        <para>Essa tabela forneçe informação sobre quais os indicadores que são membros de quais conjuntos de grupo indicador. A tabela tem uma linha para cada indicador, uma coluna para cada conjunto de grupo de indicadores e os nomes do grupo de indicador de como valores.</para>
       </listitem>
       <listitem>
-        <para>Organisation unit group set structure (_organisationunitgroupsetstructure)</para>
-        <para>This table provides information about which organisation units are members of which organisation unit group sets. The table has one row for each organisation unit, one column for each organisation unit group set and the names of the organisation unit groups as values.</para>
+        <para>Unidades orgânicas group set structure (_organisationunitgroupsetstructure)</para>
+        <para>Essa tabela forneçe informação sobre quais unidades orgânicas são membros de quais conjuntos de grupos de unidade orgânica. A tabela possui uma linha para cada unidade orgânica, uma coluna para cada conjunto de grupo de unidade orgânica e os nomes dos grupos de unidades orgânicas como valores.</para>
       </listitem>
       <listitem>
-        <para>Estrutura de categorias (_categorystructure)</para>
-        <para>Esta tabela fornece informações sobre quais elementos de dados são membros de quais categorias. A tabela tem uma linha para cada elemento de dados, uma coluna para cada categoria e os nomes das opções de categoria como valores.</para>
+        <para>Estrutura de categoria (_categorystructure)</para>
+        <para>Essa tabela forneçe informação de qual elementos de dados são membros de qual categoria. Essa tabela tem uma linha para cada elemento de dado, uma coluna para cada categoria e os nomes das opções de categoria como valores.</para>
       </listitem>
       <listitem>
-        <para>Opção categoria de elemento de dados nome de combinação (_categoryoptioncomboname)</para>
-        <para>Esta tabela deve ser regenerado qualquer momento houve mudanças feitas nos nomes de combinação categoria. Ele contém nomes legíveis para as várias combinações de categorias.</para>
+        <para>Nome de combinaçãode da opção de categoria de elemento de dados (_categoryoptioncomboname)</para>
+        <para>Este quadro deve ser regenerado a qualquer momento que tenha havido alterações feitas para a categoria nomes de combinação. Contém nomes de leitura óptica para as várias combinações de Categorias.</para>
       </listitem>
       <listitem>
-        <para>Estrutura de elementos de dados (_dataelementstructure)</para>
-        <para>This table provides information about all data elements and which period type
-          (frequency) they capture data at. The period type is determined through the data set
-          membership and hence relies on data elements to be member of data sets with similar period
-          types to have a defined behavior.</para>
+        <para>Estrutura de elemento de dado (_dataelementstructure)</para>
+        <para>Esta tabela fornece informações sobre todos os elementos de dados e que tipo de período (frequência) os dados são capturados. O tipo de período é calculado por meio da adesão do conjunto de dados e, portanto, baseia-se em elementos de dados para ser membro de conjuntos de dados com igual tipos de período e com um comportamento definido.</para>
       </listitem>
       <listitem>
-        <para>Period structure (_periodstructure)</para>
-        <para>Esta tabela fornece informações sobre todos os elementos de dados e que tipo de período (frequência) eles capturam dados em. O tipo de exercício é calculado através da adesão conjunto de dados e, portanto, baseia-se em elementos de dados para ser membro de conjuntos de dados com tipos similares de época para ter um comportamento definido..</para>
+        <para>Estrutura de período (_dataperiodstructure)</para>
+        <para>Esta tabela fornece informações sobre todos os períodos e que tipo de período estão associados. Para cada tipo de período com menor frequência do que a própria, que contém informações sobre qual período será aplicável.</para>
+      </listitem>
+      <listitem>
+        <para>Combinações de opções de categoria de elemento de dados (_dataelementcategoryoptioncombo)</para>
+        <para>Essa tabela fornece um mapeamento entre os elementos de dados e todas categorias e opções de combinações possíveis. </para>
       </listitem>
     </itemizedlist>
   </section>
+  <section>
+    <title>Gestão de local</title>
+    <para>É possível criar locais customizados em DHIS2. Adicionalmente aos locais já disponíveis no sistema, poderá também adicionar locais cutomizados como &quot;Ingles&quot; e &quot;Zambia&quot; no sistema. Isso permitirá traduzir objectos de meta dados a linguagem local, ou para incluir pequenas variações entre paises que usam uma definição de meta dados comum. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="30%" align="center" fileref="resources/images/maintainence/locale_management.png"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>Um local é composto por uma língua e um País. Selecione o valor desejado e clica &quot;Adicionar&quot;. Esse local customizado estará agora disponível no sistema como um dos pontos de tradução. </para>
+  </section>
   <section id="sqlView">
-    <title>Vista SQL </title>
-    <para>O SQL Ver funcionalidade do DHIS2 irá armazenar a definição da vista SQL internamente, e, em seguida, materializar a visão, quando solicitado. </para>
-    <para>Os administradores de banco de dados deve ter cuidado com a criação de vistas de banco de dados diretamente no banco de dados DHIS 2. Por exemplo, quando as tabelas de recursos são gerados, todos eles vão primeiro ser abandonada e, em seguida, re-criado. Se os pontos de vista de SQL dependem dessas tabelas, uma violação de integridade exceção será lançada eo processo será abortado.</para>
-    <para>Os pontos de vista de SQL são descartados em ordem alfabética inversa com base em seus nomes em DHIS 2 e criado em ordem alfabética regular. Isso permite que você tenha dependências entre visualizações SQL, dado que as opiniões só dependem de outros pontos de vista que entram mais cedo na ordem alfabética. Por exemplo, &quot;viewB&quot; pode depender de forma segura em &quot;viewa&quot;. Caso contrário, ter vista dependendo do outro resultado vista em um erro de violação de integridade..</para>
+    <title>Visualização SQL</title>
+    <para>A funcionalidade de visualização de SQL de DHIS2 irá armazenar a definição da exibição SQL internamente, e depois materializar a visão quando solicitado. </para>
+    <para>Administradores da base de dados deve ter cuidado com criar modos de exibição base de dados diretamente na base de dados DHIS2. Por exemplo, quando as tabelas de recursos são gerados, todos eles, em primeiro lugar ser suprimido e depois re-criada. Se os pontos de vista SQL dependem dessas tabelas, uma exceção na violação de integridade será lançada e o processo será abortado.</para>
+    <para>As visualizações de SQL são indicadas em ordem alfabética inversa, com base em seus nomes em DHIS2, e criadas em ordem alfabética regular. Isso permite que tenha dependências entre visualizações SQL, dado que as visualizações só dependem de outras visualizações que vêm no início em ordem alfabética. Por exemplo, &quot;VisualizaçãoB&quot; pode seguramente depender da &quot;VisualizaçãoA&quot;. Porque ter visualizações dependentes de outras visualizações resultará em um erro de violação de integridade.</para>
     <para/>
     <section>
-      <title>Criação de uma nova vista SQL </title>
-      <para>Para criar uma nova vista de SQL, escolha-&gt; Manutenção modo SQL e clique no botão &quot;Adicionar novo&quot;. </para>
+      <title>Criação de uma nova visão SQL</title>
+      <para>Para criar uma nova visão SQL, selecione Manutenção-&gt;Visão SQL e clica &quot;Adcionar novo&quot; botão. </para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -260,29 +271,28 @@ Alguns indicadores foram atribuídos a vários grupos de indicadores que são me
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>O atributo &quot;nome&quot; do modo SQL será usada para determinar o nome da tabela que DHIS2 criará quando a vista é materializado pelo usuário. A &quot;Description&quot; atributo permite fornecer um texto descritivo sobre o que a vista SQL realmente faz. Finalmente, a &quot;declaração de SQL&quot; deve conter a definição da vista SQL. Somente SQL &quot;SELECT&quot; declarações são permitidas e alguns quadros sensíveis (ie informações do usuário) não são acessíveis Pressione &quot;Salvar&quot; para armazenar a definição de modo SQL.</para>
+      <para>O &quot;Nome&quot; atributo ao modo SQL vai ser utilizado para determinar o nome da tabela que DHIS2 criará quando a vista é materializado pelo utilizador. A &quot;descrição do&quot; atributo permite fornecer algum texto descritivo sobre o que a vista SQL realmente faz. Finalmente, o &quot;comando SQL&quot; deve conter a definição da exibição SQL. Somente SQL  &quot;SELEÇÃO&quot; instruções são permitidos e certas tabelas sensíveis (informações do usuário) não são acessíveis Clique &quot;Salver&quot; para armazenar a definição da exibição SQL.</para>
     </section>
     <section>
-      <title>Gestão da vista SQL </title>
-      <para>A fim de utilizar os pontos de vista de SQL, basta pressionar o botão &quot;Executar consulta&quot; <inlinegraphic fileref="resources/images/dhis2_images/start_process.png"/> a partir da página de exibição SQL gestão &quot;. Assim que o processo for concluído, você será informado de que uma tabela foi criada. O nome da tabela será fornecido, e é composta a partir da &quot;Description&quot; atributo fornecido na definição de exibição SQL. Uma vez que a visão tem sido materializado, clique no botão &quot;Exibir&quot; <inlinegraphic fileref="resources/images/dhis2_images/view_sections.png"/>.</para>
+      <title>Gestão da visão SQL</title>
+      <para>Para usar a visualização SQL clique &quot;Executar query&quot; botão <inlinegraphic fileref="resources/images/dhis2_images/start_process.png"/> a partir do &quot;página de gerenciamento da visualização de SQL. Assim que o processo for concluído, será informado que a tabela foi criada. O nome da tabela que vai ser fornecido, e é composto a partir da &quot;descrição&quot; atributo fornecido na definição de exibição SQL. Uma vez que o ponto de vista foi materializada, clique no &quot;Exibir&quot; botão <inlinegraphic fileref="resources/images/dhis2_images/view_sections.png"/>.</para>
     </section>
   </section>
   <section id="organisationUnitMerge">
-    <title>Fundir unidades organizacionais</title>
-    <para>Esta função é útil quando duas unidades de organização precisa ser incorporada, por exemplo, é decidido que uma instalação será encerrado e os seus serviços serão prestados por uma instalação nas proximidades.</para>
-    <para>Comece selecionando a unidade de organização para eliminar da árvore e clique <emphasis role="italic"> confirmar</emphasis> . Em seguida, selecione a unidade de organização para manter e clique <emphasis role="italic">confirmar</emphasis>  novamente. Por fim, verifique se a seleção e clique em <emphasis role="italic"> fundir</emphasis> .  </para>
-    <para>Na situação em que existem dados para a unidade de organização para eliminar e não para o
-&#160;&#160;&#160;&#160;&#160;&#160; um para manter, os dados serão movidos para o manter. Quando existirem dados para ambas as unidades de organização, os dados serão resumidos e mudou-se para o manter. Quando os dados só existe para o manter, nenhuma ação será tomada. A unidade de organização para eliminar acabará por ser eliminado.</para>
+    <title>Combinação de Unidades orgânicas</title>
+    <para>Essa função é útil quando duas Unidades orgânicas necessitam de ser combinadas, p.ex. foi decidido que uma unidade sanitária vai ser fechada e que os serviços passaram a ser fornecidos pela unidade sanitária mais próxima.</para>
+    <para>Comece por selecionar a Unidade orgânica a ser eliminada da árvore e clica <emphasis role="italic">confirma</emphasis>.  Depois selecione a Unidade orgânica a ser mantida e clica <emphasis role="italic">confirma</emphasis> outra vez. Finalmente, verifique a seleção e clica <emphasis role="italic">combinar</emphasis>.  </para>
+    <para>Em casos onde já exista dados para a unidade orgânica a ser eliminada e não exista dados na unidade orgânica a ser mantida, os dados serão movidos para a unidade orgânica a ser mantida. No caso de houver dados nas duas unidades orgânicas, os dados seram resumidos e movidos para a unidade orgânica a ser mantida. No caso de dados existirem somente na unidade orgânica a ser mantida nenhuma acção será efectuada. a Unidade orgânica a ser eliminada será eventualmente apagada.</para>
   </section>
   <section id="duplicateDataElimination">
-    <title>Eliminação de dados duplicados data elimination</title>
-    <para>Esta função é útil quando os dados foi digitado erroneamente por dois elementos de dados que representa o mesmo fenômeno.</para>
-    <para>Comece por seleccionar o elemento de dados para eliminar a partir da lista e clique em confirmar. Em seguida, selecione o elemento de dados para manter e clique em confirmar novamente. Por fim, verifique se a seleção e clique em merge.</para>
-    <para>Na situação em que existe de dados para o elemento de dados de eliminar e não para o de manter, os dados vão ser transferidos para a manter. Quando os dados existe para ambos os elementos de dados, os dados que foi atualizada pela última vez será usado. Quando os dados só existe para o manter, será tomada nenhuma ação. O elemento de dados para eliminar acabará por ser excluído, exceto quando é um elemento de dados multidimensional e tem outros dados registrados.</para>
+    <title>Eliminação de dados duplicados</title>
+    <para>Esta função é útil quando os dados foram digitados por engano por dois elementos de dados que representa o mesmo fenômeno.</para>
+    <para>Comece selecionando o elemento de dados para eliminar da lista e clique em confirmar. Em seguida, selecione o elemento de dados para manter e clique em confirmar novamente. Finalmente, verificar a seleção e clique em combinar.</para>
+    <para>Na caso em que existe dados para o elemento de dados para eliminar e não para o elemento de dado a manter, os dados serão transferidos para o manter. Quando existem dados para ambos os elementos de dados, os dados que foi atualizado pela última vez será usado. Quando os dados só existe para o único a manter, será tomada nenhuma acção. O elemento de dados para eliminar acabará por ser excluído, excepto quando for um elemento de dados multidimensional e tem outros dados registrados.</para>
   </section>
   <section id="dataStatistics">
     <title>Estatísticas de dados</title>
-    <para>O módulo de estatísticas de dados fornece uma visão geral do número de objetos armazenados no banco de dados DHIS2.. </para>
+    <para>O módulo de estatísticas de dados fornece uma visão geral de número de objectos guardados na base de dados do DHIS2. </para>
     <screenshot>
       <mediaobject>
         <imageobject>
