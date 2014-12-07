@@ -760,7 +760,7 @@ http://server/api/constants/ID</screen></para>
       the directory where this file resides we invoke the following from the command line:</para>
       <screen>curl -d @datavalueset.xml &quot;https://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</screen>
       <para>For sending JSON content you must set the content-type header
-        accordingly:<screen>curl -d @datavalueset.xml &quot;https://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/json&quot; -u admin:district -v</screen></para>
+        accordingly:<screen>curl -d @datavalueset.json &quot;https://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/json&quot; -u admin:district -v</screen></para>
       <para>The command will dispatch a request to the demo Web API,  set <emphasis role="italic">application/xml</emphasis> as the content-type and  authenticate using admin/district as username/password.   If all goes well this will return a <emphasis role="italic">200 OK</emphasis> HTTP status code. You can verify that the data has been received by opening the data entry module in DHIS 2 and select the org unit, data set and period used in this example.</para>
       <para>The API follows normal semantics for error handling and HTTP status codes. If you supply an invalid username or password, <emphasis role="italic">401 Unauthorized</emphasis> is returned. If you supply a content-type other than application/xml, <emphasis role="italic">415 Unsupported Media Type</emphasis> is returned. If the XML content is invalid according to the DXF namespace, <emphasis role="italic">400 Bad Request</emphasis> is returned. If you provide an invalid identifier in the XML content, <emphasis role="italic">409 Conflict</emphasis> is returned together with a descriptive message.</para>
       <para>In this example, cURL will authenticate to the server through Basic authentication using
@@ -795,7 +795,7 @@ http://server/api/constants/ID</screen></para>
       <screen>curl -d @datavalueset.xml &quot;https://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</screen>
       <para>Note that when using CSV format you must use the binary data option to preserve the
         line-breaks in the CSV
-        file:<screen>curl --data-binary @datavalueset.xml &quot;https://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/csv&quot; -u admin:district -v</screen></para>
+        file:<screen>curl --data-binary @datavalueset.csv &quot;https://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/csv&quot; -u admin:district -v</screen></para>
       <para>The data value set resource provides an XML response which is useful when you want to verify the impact your request had. The first time we send the data value set request above the server will respond with the following<emphasis role="italic"> import summary</emphasis>:</para>
       <screen>&lt;importSummary&gt;
   &lt;dataValueCount imported=&quot;2&quot; updated=&quot;1&quot; ignored=&quot;1&quot;/&gt;
