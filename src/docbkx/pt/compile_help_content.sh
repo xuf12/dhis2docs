@@ -4,7 +4,7 @@
 
 CONTENT_FILE="help_content.xml"
 
-INCLUDE_FILES="find . -name dhis2_user_man_*xml -type f -printf %f\n"
+INCLUDE_FILES="find . -name 'dhis2_user_man_*xml'"
 
 echo "Including the following files:"
 echo ${INCLUDE_FILES[@]}
