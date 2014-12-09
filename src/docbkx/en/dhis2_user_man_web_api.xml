@@ -827,7 +827,8 @@ http://server/api/constants/ID</screen></para>
             <row>
               <entry>idScheme</entry>
               <entry>id | name | code</entry>
-              <entry>Property of both data element and org unit object to use to map the data values. Overrides the previous parameters.</entry>
+              <entry>Property of all objects including data elements, org units and category option
+                combos, to use to map the data values.</entry>
             </row>
             <row>
               <entry>dryRun</entry>
@@ -859,13 +860,37 @@ http://server/api/constants/ID</screen></para>
   orgUnitIdScheme=&quot;name&quot; dryRun=&quot;true&quot; importStrategy=&quot;new&quot;&gt;
   ..
 &lt;/dataValueSet&gt;</screen>
-      <para>Regarding the id schemes, by default the identifiers used in the XML messages refer to the
-      DHIS stable object identifiers. In certain interoperability situations we might experience
-      that the external system decides the identifiers of the objects. In that case we can use the
-        <emphasis role="italic">code</emphasis> property of the organisation unit and data element
-      objects to set fixed identifiers dictated by the other system. When importing data values we
-      hence need to reference the code property instead of the identfier property, and can do so
-      using the dataElementIScheme and orgUnitIdScheme paramaters.</para>
+      <section>
+        <title>Identifier schemes</title>
+        <para>Regarding the id schemes, by default the identifiers used in the XML messages uses the
+          DHIS 2 stable object identifiers referred to as <emphasis role="italic">uid</emphasis>. In
+          certain interoperability situations we might experience that external system decides the
+          identifiers of the objects. In that case we can use the <emphasis role="italic"
+            >code</emphasis> property of the organisation units and other objects to set fixed
+          identifiers. When importing data values we hence need to reference the code property
+          instead of the identfier property of these meta-data objects. Identifier schemes can be
+          specified in the XML message as well as in the request as query parameters. To specify it
+          in the XML payload you can do this:</para>
+        <screen>&lt;dataValueSet xmlns="http://dhis2.org/schema/dxf/2.0" dataElementIdScheme="CODE" orgUnitIdScheme="UID" idScheme="CODE">
+  ..
+&lt;/dataValueSet></screen>
+        <para>The parameter table above explains how the id schemes can be specified as query
+          parameters. The following rules apply for what takes precedence:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Id schemes defined in the XML or JSON payload take precedence over id schemes
+              defined as URL query parameters.</para>
+          </listitem>
+          <listitem>
+            <para>Specific id schemes including dataElementIdScheme and orgUnitIdScheme take
+              precedence over the general idScheme.</para>
+          </listitem>
+          <listitem>
+            <para>The default id scheme is UID, which will be used if no explicit id scheme is
+              defined.</para>
+          </listitem>
+        </itemizedlist>
+      </section>
     </section>
     <section>
       <title>Generating data value set template</title>

@@ -124,12 +124,19 @@
       endpoint can be used for installing, deleting, listing apps.</para>
     <para>To list all installed apps (mediatypes works as usual, accept header or file extension,
       xml and json):
-      <screen>curl -X GET -u user:pass -H &quot;Accept: application/json&quot; http://server/api/apps</screen></para>
+      <screen>curl -X GET -u user:pass -H &quot;Accept: application/json&quot; http://server.com/api/apps</screen></para>
     <para>To install an app, the following command can be issued:
-      <screen>curl -X POST -u user:pass -F file=@app.zip http://server/api/apps</screen></para>
+      <screen>curl -X POST -u user:pass -F file=@app.zip http://server.com/api/apps</screen></para>
     <para>To delete an app, you can issue the following command:
-      <screen>curl -X DELETE -u user:pass http://server/api/apps/&lt;app-name&gt;</screen></para>
-    <para>To force a reload of currently installed apps , you can issue the following command. This is useful if you added a file manually directly to the file system, instead of uploading through the DHIS2 user interface. <programlisting>curl -X PUT -u user:pass http://server/api/apps</programlisting></para>
+      <screen>curl -X DELETE -u user:pass http://server.com/api/apps/&lt;app-name&gt;</screen></para>
+    <para>To force a reload of currently installed apps , you can issue the following command. This
+      is useful if you added a file manually directly to the file system, instead of uploading
+      through the DHIS 2 user interface.
+      <screen>curl -X PUT -u user:pass http://server.com/api/apps</screen></para>
+    <para>To let DHIS 2 serve apps from the Web API make sure to set the "App base URL" to point to
+      the apps resource, e.g.:<screen>http://server.com/api/apps</screen></para>
+    <para>The "App installation folder" should be set as normal to the location on the file system
+      of where the apps should be stored.</para>
   </section>
   <section>
     <title>Adding the DHIS 2 menu to your app</title>
