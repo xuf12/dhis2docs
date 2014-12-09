@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
-  <title>Setting up GIS</title>
+  <title>Configurar o GIS</title>
   <section>
     <title>Contexto</title>
     <para>Configurando o GIS significa simplesmente armazenar as coordenadas para as unidades organizacionais que você deseja mostrar no mapa no banco de dados. As coordenadas são frequentemente distribuídos em formatos proprietários e terão de ser convertidos para um formato que DHIS2 entende. Shapefiles ESRI são o formato de dados geoespaciais vetoriais mais comum para aplicações desktop. Você pode achar shapefiles para seu país &quot;http://www.diva-gis.org/gdata&quot; aqui  ou em muitos outros repositórios de dados geoespaciais na web. Uma certa quantidade de trabalho precisa ser feito, a fim de usar essas coordenadas em DHIS 2 GIS, ou seja, transformar os dados em um formato adequado e garantir o nome que estão contidas no jogo de dados geoespaciais exatamente com os nomes das unidades organizacionais que deveriam ser combinados para. </para>
