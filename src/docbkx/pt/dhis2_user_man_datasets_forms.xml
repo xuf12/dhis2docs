@@ -7,63 +7,37 @@
     <para>Todas entrada de dados no DHIS2 são organizadas através da utilização das fichas.  Você pode adicionar e editar as fichas em   Manutenção-&gt;Ficha. Uma Ficha é um conjunto de elementos de dados agrupados para recolha de dados e exportação de dados entre instâncias do DHIS2 (por exemplo, a partir de uma instalação local  do distrito para um servidor nacional). </para>
     <para>Uma Ficha tem uma freqüência de coleta de dados, que pode ser definida através da  propriedade tipo de período. A freqüência pode ser diário, semanal, mensal, trimestral, semestral ou anual. Ambos os elementos de dados para incluir no conjunto de dados e a freqüência é definida na janela Adicionar/ Editar Ficha, juntamente com um nome, nome curto e código. Para usar um conjunto de dados para recolha de dados para uma unidade organizacional específica deve-se atribuir a unidade organizacional ao conjunto de dados, e este mecanismo  controla que  unidades organizacional estão associados
 as Fichas. </para>
-    <para>As Fichas também são atribuídos a unidades organizacionais específicas que serão autorizados a entrar dados para todos os elementos de dados dessa ficha. Você pode atribuir unidades organizacionais a uma ficha na gestão de fichas, clicando no ícone de pasta azul, o primeiro ícone no âmbito das operações, ao lado da ficha que você gostaria de modificar. Alternativamente, você pode gerenciar as atribuições para as unidades organizacionais para todas as fichas no Editor de fichas  (disponível no menu do lado direito).</para>
-    <para>A data set has several properties that must be entered when creating a new one. Name,
-      short name, code and description should be used to identify and describe the data set. The
-      other properties deserve an explanation:</para>
+    <para>As fichas também são atribuídos a unidades organizacionais específicas que serão autorizados a entrar dados para todos os elementos de dados dessa ficha. Você pode atribuir unidades organizacionais a uma ficha na gestão de fichas, clicando no ícone de pasta azul, o primeiro ícone no âmbito das operações, ao lado da ficha que você gostaria de modificar. Alternativamente, você pode gerenciar as atribuições para as unidades organizacionais para todas as fichas no Editor de fichas  (disponível no menu do lado direito).</para>
+    <para>Uma ficha tem várias propriedades que devem ser inseridos ao criar um novo. Nome, nome abreviado, código e descrição devem ser usados para identificar e descrever a ficha. As demais propriedades merecem uma explicação:</para>
     <itemizedlist>
       <listitem>
-        <para>Expiry days: Controls for how long it should be possible to enter data in data entry
-          for this data set. Expiry days refer to the number of days after the end date of the
-          selected data entry period where the data entry form should be open for entry. After the
-          number of days has expired, the data set will be locked for further entry. You can set
-          manual exceptions to this using the lock exception functionality in data administration
-          module.</para>
+        <para>Dias de expiração: Controla para quanto tempo deverá ser possível inserir dados na entrada de dados
+ para a ficha. Dias de expiração referem-se ao número de dias após a data final do período seleccionado na entrada de dados onde  o formulário  de entrada de dados deve ser aberto para a entrada. Após o número de dias expirar, o conjunto de dados será bloqueado para posterior entrada. Você pode definir exceções manuais para isso utilizando a funcionalidade de bloqueio de exceção no módulo de administração de dados.</para>
         <note>
-          <para>If the number of expiry days is set to zero, this will  allow data entry into all possible historical time periods. </para>
+          <para>Se o numero de dias é colocado em zero, isso irá permitir entrada de dados em todos periodos possiveis de histórico. </para>
         </note>
       </listitem>
       <listitem>
-        <para>Complete notification recipients: Sets which users should receive a message with a
-          notification about this data set being marked as complete in data entry. In this list you
-          can select a user group, and all members in this group will receive a notification. The
-          message will be delivered through the DHIS messaging system.</para>
+        <para>Notificação completa para destinatários: Define quais usuários devem receber uma mensagem com uma notificação sobre esta ficha sendo marcado como completa na entrada de dados. Nesta lista, você pode selecionar um grupo de usuários, e todos os membros deste grupo irão receber uma notificação. A mensagem será entregue através   do sistema de mensagens do DHIS.</para>
       </listitem>
       <listitem>
-        <para>Approve data: Define whether data for this data set should be Approved. (See the Data
-          approval chapter.)</para>
+        <para>Aprovação de dados: Define se os dados para esta ficha devem ser aprovados. (Consulte o capítulo de aprovação de dados).</para>
       </listitem>
       <listitem>
-        <para>Skip aggregation: Define whether data for this data set should be skipped during data
-          mart generation. You should leave this on no, which is the default behavior, in most
-          situations. Can be useful if you have limited server resources and are setting up new
-          experimental data sets.</para>
+        <para>Ignorar agregação: Define se os dados para esta ficha devem ser ignorados durante a geração de data mart. Você deve deixar  em não, que é o comportamento padrão, na maioria das situações. Pode ser útil se você tiver  recursos limitado no servidor e estarem a criar novas fichas experimentais.</para>
       </listitem>
       <listitem>
-        <para>Allow future periods: Defines whether it should be possible to enter data for future
-          periods for this data set in data entry. The default behavior is to allow data entry only
-          for periods which have passed, i.e. the end date is after today&apos;s date. If set to yes
-          you can enter data for future periods, which is useful e.g. for population, target and
-          planning data.&apos;</para>
+        <para>Permitir períodos futuros: define se deve ser possível inserir dados para períodos futuros para esta ficha  na entrada de dados. O comportamento padrão é permitir a introdução de dados apenas para períodos que passaram, ou seja, a data final é depois de data de hoje. Se definido como sim, você pode inserir dados para períodos futuros, o que é útil, por exemplo para a população, alvo e dados de planejamento.</para>
       </listitem>
       <listitem>
-        <para>All fields for data elements required: Defines whether it is mandatory to fill all
-          values for a data element in data entry if one or more values have been filled. This means
-          that if the user enters one data value for a data element in an entry field (i.e. for a
-          category option combination), then she must enter data for all fields belonging to that
-          data element (i.e. all category option combinations).</para>
+        <para>Todos os campos de dados são necessários: Define se é obrigatório o preenchimento de todos os valores para os elemento de dados na entrada de dados, se um ou mais valores tenham sido preenchidas. Isto significa que se o usuário digita um valor de dados para um elemento de dados em um campo de entrada (ou seja, para uma combinação de opções de categoria), então ela deve inserir dados para todos os campos que pertencem a esse elemento de dados (ou seja, todas as combinações de opções de categoria).</para>
       </listitem>
       <listitem>
-        <para>Complete allowed only if validation passes: Controls whether it should be possible to
-          mark a data entry form as complete only if the validation of that form is successful.
-          Default behavior is yes. If set to no, then a user cannot mark the form complete if
-          validation fails.</para>
+        <para>Completo permitido somente se a validação passou: Controla se  deve ser possível marcar um formulário de entrada de dados como completa só se a validação do formulário foi bem sucedida.
+O comportamento padrão é sim. Se definido como não, em seguida, um utilizador não pode marcar o formulário como completo se a validação falhar.</para>
       </listitem>
       <listitem>
-        <para>Skip Offline: Controls whether this data entry form should be downloaded and saved in
-          the user&apos;s web browser. Normally you should leave this on no, which is the default
-          behavior. If you have forms which are rarely used and are very big you can consider
-          setting it to yes to speed up initial loading of the data entry module.</para>
+        <para>Ignorar offline: Controla se o formulário de entrada de dados deve ser baixado e salvo no navegador de internet de utilizadores . Normalmente, você deve deixar esta em não, que é o comportamento padrão. Se você tem formulários que são raramente usados e são muito grande você pode defini-lo como considerar sim a acelerar o carregamento inicial do módulo de entrada de dados.</para>
       </listitem>
     </itemizedlist>
     <para>Seu conjunto de dados será, então, pronto para ser usado em Serviços -&gt; Entrada de Dados para as unidades organizacionais que você atribuiu e por períodos de acordo com sua freqüência selecionada (tipo de período)</para>
@@ -111,10 +85,9 @@ as Fichas. </para>
           <para> Apagar:
 Remove completamente um conjunto de dados do sistema. </para>
           <warning>
-            <para>Any data set which is deleted from the system is irrevocably lost. All data entry
-              forms, and section forms which may have been developed will also be removed. Ensure
-              that you have made a backup of your database before deleting any data set in case you
-              need to restore it at some point in time.</para>
+            <para>Qualquer ficha que é apagado do sistema é completamente perdido. toda a entrada de dados, secções de formulários que foram desenvolvidos serão apagados.
+              Garante que faça um backup de base de dados antes de apagar qualquer formulario para restauração em algum perido de tempo.
+              </para>
           </warning>
         </listitem>
         <listitem>
@@ -124,27 +97,12 @@ Informação: Mostra algumas informações  sobre o conjunto de dados, incluindo
       </itemizedlist>
     </section>
     <section>
-      <title>Data set categories</title>
-      <para>Before reading this section it is recommended to familiarize oneself with the sections
-        on categories in the data element chapter. Whereas data element categories can be used for
-        capturing disaggregations of data elements, data set categories are used to capture
-        information which is common to an entire form.</para>
-      <para>To set up categories for data set, start by creating category options, categories and
-        category combinations like described in the data element chapter. Make sure that you set the
-        type of categories and category combinations to &quot;Attribute&quot;. To assign a category
-        combination to a data set, you can select it while creating or updating the data set from
-        the &quot;Combination of categories&quot; drop-down box.</para>
-      <para>When a data set is linked to a category combination, those categories will be displayed
-        as drop-down boxes in the data entry module. Data captured in the form will then be linked
-        to the selected category options from those drop-down boxes.</para>
-      <para>An scenario for when data set categories are useful is when you need to capture a data
-        entry form for a implementer partner organisation and a project. In that case, start by
-        creating category options and categories for all partner organisations and projects, before
-        linking these in a new category combination. Then, link the category combination to the data
-        set (form) for which you need to capture this information. When opening this data set in
-        data entry module, the partner organisation and project categories will automatically be
-        rendered as drop-down boxes, allowing you to select a specific implementing partner
-        organisation and project before continuing to do data entry.</para>
+      <title>Categorias de fichas</title>
+      <para>Antes de ler esta seção é recomendável familiarizar-se com as seções sobre categorias no capítulo elemento de dados. Considerando categorias de elementos de dados pode ser utilizado para capturar desagregações de elementos de dados, as categorias de conjuntos de dados são utilizados para capturar informação que é comum para uma formulário inteiro.</para>
+      <para>Para configurar categorias para fichas, comece por criar opções de categoria, categorias e combinações de categoria, como descrito no capítulo elemento de dados. Certifique-se de definir o tipo de categorias e combinações de categoria para &quot;atributo&quot;. Para atribuir uma categoria
+combinação de um conjunto de dados, você pode selecioná-lo ao criar ou actualizar a ficha  a partir da &quot;combinação de categorias de&quot; caixa suspensas.</para>
+      <para>Quando uma ficha está ligado a uma combinação categoria, as categorias serão exibidos como caixas suspensas no módulo de entrada de dados. Os dados capturados no formulário, então, serão ligados às opções de categoria seleccionados a partir desses caixas suspensas.</para>
+      <para>Um cenário para definir quando as fichas de  categorias são úteis é quando você precisa capturar um formulário de entrada de dados para uma organização parceira implementador e um projeto. Nesse caso, comece por criar opções de categoria e categorias para todas as organizações parceiras e projetos, antes de ligar estes em uma nova combinação categoria. Em seguida, ligar a combinação categoria para a ficha (formulário) para a qual você precisa para capturar essas informações. Ao abrir esta ficha no módulo de entrada de dados, a organização parceira e categorias de projetos será automaticamente processado como caixas suspensas, permitindo que você selecione um específico para uma organização parceira implementador e projeto antes de continuar a fazer a entrada de dados.</para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -155,21 +113,13 @@ Informação: Mostra algumas informações  sobre o conjunto de dados, incluindo
     </section>
   </section>
   <section>
-    <title>Data Entry Forms</title>
-    <para>Once you have assigned a data set to an orgunit that data set will be made available in
-      Data Entry for the orgunits you have assigned it to.  A default data entry form will then be
-      shown, which is simply a list of the data elements belonging to the data set together with a
-      column for inputting the values. If your data set contains data elements with a non-default
-      categorycombination, such as age groups or gender then additional columns will be
-      automatically generated in the default form based on the different options/dimensions. </para>
-    <para>If you use more than one dataelement category combination you will get multiple columns in the data entry form with different column headings for the options. In addition to the default list-based data entry form there are two more alternatives, the section-based form and the custom form.</para>
+    <title>Formulário de entrada de dados</title>
+    <para>Depois de ter atribuído um conjunto de dados a um orgunit desse conjunto de dados será disponibilizado na entrada de dados para os orgunits que atribuiu a ele. Uma forma de entrada de dados padrão então será mostrado, que é simplesmente uma lista dos elementos de dados pertencentes ao conjunto de dados, juntamente com uma coluna para introduzir os valores. Se o conjunto de dados contém elementos de dados com um categorycombination não-padrão, tais como grupos de idade ou sexo, em seguida, colunas adicionais será gerado automaticamente no formulário padrão com base nas diferentes opções / dimensões. </para>
+    <para>Se você usar mais de uma combinação categoria dataelement você vai ter várias colunas, sob a forma de entrada de dados com diferentes títulos de coluna para as opções. Além do formulário de entrada de dados com base em lista padrão há mais duas alternativas, a forma à base de seção e o formulário personalizado.</para>
     <section>
-      <title>Section forms</title>
-      <para>Section forms allow for a bit more flexibility when it comes to using tabular forms and
-        are quick and simple to design. Often your data entry form will need multiple tables with
-        subheadings, and sometimes you need to disable (grey out) a few fields in the table, both of
-        these functions are supported in section forms. This function can be access by choosing
-        Maintenance-&gt;Data set Section. </para>
+      <title>Secção de formulário</title>
+      <para>Formas Seção permitir um pouco mais de flexibilidade quando se trata de usar formas tabulares e
+são rápidos e simples para projetar. Muitas vezes, o seu formulário de entrada de dados vai precisar de várias tabelas com subtítulos, e às vezes você precisa desativar (cinza para fora) alguns campos na tabela, essas duas funções são suportadas em formas de seção. Esta função pode ser o acesso ao escolher Maintenance- & gt; Conjunto de dados Seção. </para>
     </section>
     <section id="dataSetSection">
       <title>Adicionando uma nova secção ao formulário</title>
@@ -219,10 +169,8 @@ Informação: Mostra algumas informações  sobre o conjunto de dados, incluindo
       <para>Uma das grandes vantagens de formulários personalizados, é que eles podem ser criados para imitar Formulários de agregação de papel existentes. Isso faz com que a entrada de dados seja muito mais fácil para os usuários, e deve reduzir o número de elementos de dados que são inseridos incorretamente, pois eles são mais facilmente identificáveis ao digitar os dados a partir de um formulário de papel. </para>
       <para>Uma vez que um formulário personalizado foi adicionado a um conjunto de dados estará disponível na entrada de dados e automaticamente usado. </para>
       <note>
-        <para>Custom forms are preferentially displayed over section forms. If a data set has both a
-          section form and a custom form, the custom form will be displayed during data entry. Users
-          will not be able to select which method they wish to input data, so be sure that your
-          custom form contains all data elements which may be required.</para>
+        <para>Os formulários personalizados são exibidas preferencialmente sobre as formas de seção. Se um conjunto de dados tem tanto um
+formulário de seção e um formulário personalizado, o formulário personalizado será exibido durante a entrada de dados. Os usuários não serão capazes de escolher qual o método que deseja dados de entrada, para ter certeza de que o seu formulário personalizado contém todos os elementos de dados que podem ser exigidas.</para>
       </note>
       <para>Para adicionar um desenho personalizado  a uma ficha então primeiro deve-se localizar a ficha na janela Gestão de Fichas e clicar no ícone do formulário de entrada de dados do projeto no âmbito das operações (o quinto ícone) de dados, consulte o texto mouse-over para ter certeza.</para>
       <para>Primeiro fornecer um nome para o formulário. Existem alguns botões importantes do Editor que você deve prestar especial atenção. O ícone do monitor azul é o modo de tela cheia botão ligar / desligar, o que pode ser muito útil. E existe um botão código que mostra o código HTML para o formulário. </para>
@@ -239,13 +187,8 @@ Informação: Mostra algumas informações  sobre o conjunto de dados, incluindo
       <para>Quando tiver terminado ou quiser testar seu formulário na entrada de dados,  clique em &lt;Savar e fechar&gt;.</para>
     </section>
     <section>
-      <title>Scripting in custom forms</title>
-      <para>In custom data entry form you can use javascript to create dynamic behavior and
-        customziations. The DHIS 2 data entry module provides a range of events which you can
-        register for and use to perform actions at certain times. The events are registered on the
-        document element. The jQuery event object and the data set identifier are always the first
-        two arguments provided to the callback functions. The table below provides an overview of
-        the events and when they are triggered.</para>
+      <title>Scripts em formulários costumizados</title>
+      <para>Na entrada de dados personalizado formar você pode usar javascript para criar comportamento dinâmico e personalizações. O módulo de entrada de dados DHIS 2 fornece uma série de eventos que você pode registrar e utilizar para realizar ações em determinados momentos. Os eventos são registrados no elemento documento. O objeto de evento jQuery e o identificador do conjunto de dados são sempre os primeiros dois argumentos fornecidos para as funções de retorno de chamada. A tabela abaixo fornece uma visão geral dos eventos e quando eles são acionados.</para>
       <table frame="all">
         <title>Data entry events</title>
         <tgroup cols="3">
