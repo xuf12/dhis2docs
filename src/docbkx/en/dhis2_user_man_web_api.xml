@@ -5452,8 +5452,25 @@ startDate=2014-01-01&amp;endDate=2014-10-31
     <para>To create multiple invites you can post the payload to the api/users/invites resource like
       this:</para>
     <screen>curl -d @invites.json &quot;localhost/api/users/invites&quot; -H &quot;Content-Type:application/json&quot; -u admin:district -v</screen>
-    <para>Note that you cannot invite user with user roles that contains "critical" authorities for
-      security reasons. The critical authorities include:<itemizedlist>
+    <para>There are certain requirements for user account invitations to be sent out:<itemizedlist>
+        <listitem>
+          <para>Email SMTP server must be configured properly on the server.</para>
+        </listitem>
+        <listitem>
+          <para>The user to be invited must have specified a valid email.</para>
+        </listitem>
+        <listitem>
+          <para>The user to be invited must not be granted user roles with critical authorities (see
+            below).</para>
+        </listitem>
+        <listitem>
+          <para>If username is specified it must not be already taken by another existing
+            user.</para>
+        </listitem>
+      </itemizedlist>If any of these requirements are not met the invite resource will return with a
+        <emphasis role="italic">409 Conflict</emphasis> status code together with a descriptive
+      message. </para>
+    <para>The critical authorities which cannot be granted with invites include:<itemizedlist>
         <listitem>
           <para>ALL</para>
         </listitem>
