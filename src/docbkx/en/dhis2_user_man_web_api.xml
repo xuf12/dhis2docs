@@ -5388,30 +5388,65 @@ startDate=2014-01-01&amp;endDate=2014-10-31
   </section>
   <section>
     <title>User account invitations</title>
-    <para>The Web API supports inviting people to create user accounts through the <emphasis role="italic">invite</emphasis> resource. To create an invitation you shoudl POST a user in
+    <para>The Web API supports inviting people to create user accounts through the <emphasis
+        role="italic">invite</emphasis> resource. To create an invitation you should POST a user in
       XML or JSON format to the invite resource. A specific username can be forced by defining the
       username in the posted entity. By omitting the username, the person will be able to specify it
       herself. The system will send out an invitation through email. This requires that email
       settings have been properly configured. The invite resource is useful in order to securely
       allow people to create accounts without anyone else knowing the password or by transferring
-      the password in plain text. The user entity can be posted like this:</para>
-    <screen>curl -d @user.json &quot;localhost/api/users/invite&quot; -H &quot;Content-Type:application/json&quot; -u admin:district -v</screen>
-    <para>To send out invites for multiple users at the same time, you must use a slight different
-      format.</para>
-    <para>For
+      the password in plain text. The payload to use for the invite is the same as for creating
+      users. An example payload looks like this:</para>
+    <screen>{
+  "firstName": "John",
+  "surname": "Doe",
+  "email": "johndoe@gmail.com",
+  "userCredentials": {
+    "username": "johndoe",
+    "userRoles": [ {
+      "id": "Euq3XfEIEbx"
+    } ]
+  },
+  "organisationUnits": [ {
+    "id": "ImspTQPwCqd"
+  } ]
+}
+</screen>
+    <para>The user entity can be posted like this:</para>
+    <screen>curl -d @invite.json &quot;localhost/api/users/invite&quot; -H &quot;Content-Type:application/json&quot; -u admin:district -v</screen>
+    <para>To send out invites for multiple users at the same time, you must use a slightly different
+      format. For
       JSON:<screen>{
   &quot;users&quot;: [
-    { user payload as normal },
-    { user payload as normal }
+    { user payload },
+    { user payload }
   ]
 }</screen></para>
     <para>For XML:</para>
     <screen>&lt;users xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
-  &lt;user&gt; ... user payload as normal &lt;/user&gt;
-  &lt;user&gt; ... user payload as normal &lt;/user&gt;
+  &lt;user&gt; user payload &lt;/user&gt;
+  &lt;user&gt; user payload &lt;/user&gt;
 &lt;/users&gt;</screen>
-    <para>And then use the endpoint <emphasis role="italic">/api/users/invites</emphasis>
-      instead.</para>
+    <para>For inviting multiple users you should use the endpoint <emphasis role="italic"
+        >/api/users/invites</emphasis>. </para>
+    <para>Note that you cannot invite user with user roles that contains "critical" authorities for
+      security reasons. The critical authorities include:<itemizedlist>
+        <listitem>
+          <para>ALL</para>
+        </listitem>
+        <listitem>
+          <para>Scheduling administration</para>
+        </listitem>
+        <listitem>
+          <para>Set system settings</para>
+        </listitem>
+        <listitem>
+          <para>Add, update, delete and list user roles</para>
+        </listitem>
+        <listitem>
+          <para>Add, update, delete and view SQL views</para>
+        </listitem>
+      </itemizedlist></para>
   </section>
   <section>
     <title>Sharing</title>
