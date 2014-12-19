@@ -5396,11 +5396,11 @@ startDate=2014-01-01&amp;endDate=2014-10-31
       settings have been properly configured. The invite resource is useful in order to securely
       allow people to create accounts without anyone else knowing the password or by transferring
       the password in plain text. The payload to use for the invite is the same as for creating
-      users. An example payload looks like this:</para>
+      users. An example payload in JSON looks like this:</para>
     <screen>{
   "firstName": "John",
   "surname": "Doe",
-  "email": "johndoe@gmail.com",
+  "email": "johndoe@mail.com",
   "userCredentials": {
     "username": "johndoe",
     "userRoles": [ {
@@ -5412,23 +5412,43 @@ startDate=2014-01-01&amp;endDate=2014-10-31
   } ]
 }
 </screen>
-    <para>The user entity can be posted like this:</para>
+    <para>The user invite entity can be posted like this:</para>
     <screen>curl -d @invite.json &quot;localhost/api/users/invite&quot; -H &quot;Content-Type:application/json&quot; -u admin:district -v</screen>
-    <para>To send out invites for multiple users at the same time, you must use a slightly different
+    <para>To send out invites for multiple users at the same time you must use a slightly different
       format. For
       JSON:<screen>{
-  &quot;users&quot;: [
-    { user payload },
-    { user payload }
+  "users": [ {
+    "firstName": "John",
+    "surname": "Doe",
+    "email": "johndoe@mail.com",
+    "userCredentials": {
+      "username": "johndoe",
+      "userRoles": [ {
+        "id": "Euq3XfEIEbx"
+      } ]
+    },
+    "organisationUnits": [ {
+      "id": "ImspTQPwCqd"
+      } ]
+    }, {
+    "firstName": "Tom",
+    "surname": "Johnson",
+    "email": "tomj@mail.com",
+    "userCredentials": {
+      "userRoles": [ {
+        "id": "Euq3XfEIEbx"
+      } ]
+    },
+    "organisationUnits": [ {
+      "id": "ImspTQPwCqd"
+      } ]
+    }
   ]
-}</screen></para>
-    <para>For XML:</para>
-    <screen>&lt;users xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
-  &lt;user&gt; user payload &lt;/user&gt;
-  &lt;user&gt; user payload &lt;/user&gt;
-&lt;/users&gt;</screen>
-    <para>For inviting multiple users you should use the endpoint <emphasis role="italic"
-        >/api/users/invites</emphasis>. </para>
+}
+</screen></para>
+    <para>To create multiple invites you can post the payload to the api/users/invites resource like
+      this:</para>
+    <screen>curl -d @invites.json &quot;localhost/api/users/invites&quot; -H &quot;Content-Type:application/json&quot; -u admin:district -v</screen>
     <para>Note that you cannot invite user with user roles that contains "critical" authorities for
       security reasons. The critical authorities include:<itemizedlist>
         <listitem>
