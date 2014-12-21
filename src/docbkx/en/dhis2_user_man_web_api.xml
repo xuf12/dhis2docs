@@ -5502,9 +5502,9 @@ startDate=2014-01-01&amp;endDate=2014-10-31
         address specified as notification email address in DHIS 2 under system general
         settings:</para>
       <screen>{
-    "subject": "Integrity check summary",
-    "text": "All checks ran successfully"
-  }</screen>
+  "subject": "Integrity check summary",
+  "text": "All checks ran successfully"
+}</screen>
       <para>You can send a system email notification by posting to the notification resource like
         this:</para>
       <screen>curl -d @email.json "localhost/api/email/notification" -X POST -H "Content-Type:application/json" -u admin:district -v</screen>
