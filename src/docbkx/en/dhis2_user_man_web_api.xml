@@ -5489,6 +5489,26 @@ startDate=2014-01-01&amp;endDate=2014-10-31
       </itemizedlist></para>
   </section>
   <section>
+    <title>Email</title>
+    <para>The Web API features a resource for sending emails. For emails to be sent it is required
+      that the SMPT configuration has been properly set up and that a system notification email
+      address for the DHIS 2 instance has been defined. You can set SMTP settings from the email
+      settings screen and system notification email address from the general settings screen in DHIS
+      2. The <emphasis role="italic">notification</emphasis> resource lets you send system email
+      notifications with a given subject and text in JSON or XML:</para>
+    <screen>{
+  "subject": "Integrity check summary",
+  "text": "All checks ran successfully"
+}</screen>
+    <para>You can send a system email notification by posting to the notification resource like
+      this:</para>
+    <screen>curl -d @email.json "localhost/api/email/notification" -X POST -H "Content-Type:application/json" -u admin:district -v</screen>
+    <para>To test whether the SMTP setup is correct by sending a test email to yourself you can
+      interact with the test resource. To send test emails it is required that your DHIS 2 user
+      account has a valid email associated with it. You can send a test email like this:</para>
+    <screen>curl "localhost/api/email/test" -X POST -H "Content-Type:application/json" -u admin:district -v</screen>
+  </section>
+  <section>
     <title>Sharing</title>
     <para>The sharing solution allows you to share most objects in the system with specific user
       groups and to define whether objects should be public and private. To get and set sharing for
