@@ -5491,7 +5491,7 @@ startDate=2014-01-01&amp;endDate=2014-10-31
   <section>
     <title>Email</title>
     <para>The Web API features a resource for sending emails. For emails to be sent it is required
-      that the SMPT configuration has been properly set up and that a system notification email
+      that the SMTP configuration has been properly set up and that a system notification email
       address for the DHIS 2 instance has been defined. You can set SMTP settings from the email
       settings screen and system notification email address from the general settings screen in DHIS
       2. </para>
@@ -5499,8 +5499,7 @@ startDate=2014-01-01&amp;endDate=2014-10-31
       <title>System notification</title>
       <para>The <emphasis role="italic">notification</emphasis> resource lets you send system email
         notifications with a given subject and text in JSON or XML. The email will be sent to the
-        address specified as notification email address in DHIS 2 under system general
-        settings:</para>
+         notification email address as defined in the DHIS2 general system settings:</para>
       <screen>{
   "subject": "Integrity check summary",
   "text": "All checks ran successfully"
