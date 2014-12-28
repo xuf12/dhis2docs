@@ -90,7 +90,7 @@
                 <para>Number: Numeric values.</para>
               </listitem>
               <listitem>
-                <para>Text: Textual values.</para>
+                <para>Text: Textual values. The maximum number of characters which are allowed by the system is 60,000. </para>
               </listitem>
               <listitem>
                 <para>Yes/No: Boolean values, will render as drop-down lists in data entry.</para>
@@ -100,6 +100,9 @@
               </listitem>
               <listitem>
                 <para>Date: Dates, will render as calendar widget in data entry.</para>
+              </listitem>
+              <listitem>
+                <para>User name: This will be populated with the username of the user which performs data entry automatically during the data entry process. </para>
               </listitem>
             </itemizedlist>
           </listitem>
@@ -168,7 +171,7 @@
                 <para>Count: Count of data values.</para>
               </listitem>
               <listitem>
-                <para>Standar deviation: Standard deviation (population-based) of data values.</para>
+                <para>Standard deviation: Standard deviation (population-based) of data values.</para>
               </listitem>
               <listitem>
                 <para>Variance: Variance (population-based) of data values.</para>
