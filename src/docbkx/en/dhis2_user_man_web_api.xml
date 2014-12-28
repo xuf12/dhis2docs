@@ -4795,6 +4795,93 @@ startDate=2014-01-01&amp;endDate=2014-10-31
     </section>
   </section>
   <section>
+    <title>Users</title>
+    <para>The <emphasis role="italic">users</emphasis> resource offers additional query parameters
+      beyond the standard parameters (e.g. paging). To query for users at the users resource you can
+      use the following parameters.</para>
+    <para>
+      <table frame="all">
+        <title>User query parameters</title>
+        <tgroup cols="3">
+          <colspec colname="c1" colnum="1" colwidth="1.45*"/>
+          <colspec colname="newCol2" colnum="2" colwidth="1*"/>
+          <colspec colname="c2" colnum="3" colwidth="8.35*"/>
+          <thead>
+            <row>
+              <entry>Parameter</entry>
+              <entry>Type</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>query</entry>
+              <entry>Text</entry>
+              <entry>Query value for first name, surname, username and email, case
+                in-sensitive.</entry>
+            </row>
+            <row>
+              <entry>phoneNumber</entry>
+              <entry>Text</entry>
+              <entry>Query for phone number.</entry>
+            </row>
+            <row>
+              <entry>canManage</entry>
+              <entry>false | true</entry>
+              <entry>Filter on whether the current user can manage the returned users through the
+                managed user group relationships.</entry>
+            </row>
+            <row>
+              <entry>authSubset</entry>
+              <entry>false | true</entry>
+              <entry>Filter on whether the returned users have a subset of the authorities of the
+                current user.</entry>
+            </row>
+            <row>
+              <entry>lastLogin</entry>
+              <entry>Date</entry>
+              <entry>Filter on users who have logged in later than the given date.</entry>
+            </row>
+            <row>
+              <entry>inactiveMonths</entry>
+              <entry>Number</entry>
+              <entry>Filter on users who have not logged in for the given number of months.</entry>
+            </row>
+            <row>
+              <entry>inactiveSince</entry>
+              <entry>Date</entry>
+              <entry>Filter on users who have not logged in later than the given date.</entry>
+            </row>
+            <row>
+              <entry>selfRegistered</entry>
+              <entry>false | true</entry>
+              <entry>Filter on users who have self-registered their user account.</entry>
+            </row>
+            <row>
+              <entry>ou</entry>
+              <entry>Identifier</entry>
+              <entry>Filter on users who are associated with the organisation unit with the given
+                identifier.</entry>
+            </row>
+            <row>
+              <entry>page</entry>
+              <entry>Number</entry>
+              <entry>The page number.</entry>
+            </row>
+            <row>
+              <entry>pageSize</entry>
+              <entry>Number</entry>
+              <entry>The page size.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </para>
+    <para>A query for max 10 users with "konan" as first name or surname (case in-sensitive) who
+      have a subset of authorities compared to the current user:</para>
+    <screen>/api/users?query=konan&amp;authSubset=true&amp;pageSize=10</screen>
+  </section>
+  <section>
     <title>Current user information and associations</title>
     <para>In order to get information about the currently authenticated user and its associations to other resources you can work with the <emphasis role="italic">me</emphasis> resource (you can also refer to it by its old name <emphasis role="italic">currentUser</emphasis>). The current user related
       resources gives your information which is useful when building clients for instance for data entry and user management. The following describes these
