@@ -26,7 +26,7 @@
     <title>Meta-data import</title>
     <section>
       <title>Meta-data import</title>
-      <para>Meta-data objects can be easily imported by accessing Import-Export-&gt;Meta-Data import. Select the file to import  by pressing &quot;Select&quot; and choose the file from your local file system. When importing XML and JSON files, the system will automatically detect which type of objects which should be imported. When importing CSV metadata, you will need to specify the object type. Consult the DHIS2 Developers manual for more information on the specific format requirements for each type.  </para>
+      <para>Meta-data objects can be easily imported by accessing Import-Export-&gt;Meta-Data import. Select the file to import  by pressing &quot;Select&quot; and choose the file from your local file system. When importing XML and JSON files, the system will automatically detect which type of objects which should be imported. When importing CSV metadata, you will need to specify the object type. Consult the corresponding section in this manual on &quot;CSV Metadata import&quot; for more specific information on how the CSV file should be created.  </para>
       <screenshot>
         <screeninfo>Default import screen</screeninfo>
         <mediaobject>
@@ -66,7 +66,7 @@
           </imageobject>
         </mediaobject>
         <para>Here you can see a short summary of what was contained in your import file. To see
-          further details, please click on the &quot;display import summary&quot; link.</para>
+          further details, please click on the &quot;Display import summary&quot; link.</para>
         <mediaobject>
           <imageobject>
             <imagedata width="80%" align="center" fileref="resources/images/import_export/import_summary.png" format="PNG"/>
@@ -81,11 +81,11 @@
             <imagedata width="80%" align="center" fileref="resources/images/import_export/import_summary_conflicts.png" format="PNG"/>
           </imageobject>
         </mediaobject>
-        <para>Here you can see that the organisation unit Nduvuibu MCHP had a unknown reference to
+        <para>Here you can see that the organisation unit &quot;Nduvuibu MCHP&quot; had a unknown reference to
           an object with ID &quot;aaaU6Kr7Gtpidn&quot;, which means that an object with this ID was not
           present in your imported file, and it could not be found in the existing database. Its
           important to note that even if a reference could not be found, the object will still be
-          imported, but you might have to fix this directly in DHIS 2 later, if the reference should
+          imported, but you might have to fix this directly in DHIS2 later, if the reference should
           have pointed to something else.</para>
       </section>
       <section>
