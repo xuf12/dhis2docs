@@ -24,7 +24,16 @@
             setting it to &quot;Cache for two weeks&quot;.</para>
         </listitem>
         <listitem>
-          <para>Infrastructural data elements: This setting defines a data element group where the member data elements should describe data about the infrastructure of organisation units. Examples of such infrastructural data elements could be population, doctors, beds, internet connectivity and climate. This infrastructural data can currently be viewed in the GIS module in the facility information sheet.</para>
+          <para>Maximum number of analytics records: This number can be increased to provide more records from the analytics. The default is 50,000 and can be increased. </para>
+          <warning>
+            <para>You should be exceedingly careful when increasing the maximum number of analytics records, for instance to &quot;Unlimited&quot;. This could result in severe server instability, due to clients requesting large amounts of data from the system. </para>
+          </warning>
+        </listitem>
+        <listitem>
+          <para>Number of database server CPUs: The number of CPU cores of your database server can be configured as a system setting. This allows the system to perform optimally when the database is hosted on a different server than the application server, as the analytics engine scales linearly on the number of available cores. </para>
+        </listitem>
+        <listitem>
+          <para>Infrastructural data elements: This setting defines a data element group where the member data elements should describe data about the infrastructure of organisation units. Examples of such infrastructural data elements could be population, doctors, beds, Internet connectivity and climate. This infrastructural data can currently be viewed in the GIS module in the facility information sheet.</para>
         </listitem>
         <listitem>
           <para>Infrastructural period type: Sets the frequency for which the data elements in the
@@ -43,8 +52,11 @@
             the organisation unit hierarchy will be available offline in the organisation unit tree
             widget. Under normal circumstances you can leaves this on the lowest level, which is
             default behavior. Setting it to a higher level might be useful in order to reduce
-            initial load time in cases where you have extremely many organisation units, typically
+            initial load time in cases where you have a large number of organisation units, typically
             more than 30 000.</para>
+        </listitem>
+        <listitem>
+          <para>System notifications email address: An email address can be specified to receive system notifications. Notifications about failures in processes such as analytics table generation will be sent here. This is useful for application monitoring.</para>
         </listitem>
         <listitem>
           <para>Data analysis std dev factor: Sets the number of standard deviations for use in the outlier analysis performed on the captured data in the data entry module. The default value is 2; a high value will catch less outlier values than a low value.</para>
@@ -54,7 +66,10 @@
         </listitem>
         <listitem>
           <para>Phone number area code: The area code for the area in which your deployment is located. Used for sending and receiving
-            SMS.</para>
+            SMS.Typically, this would be a country code, for instance , +260 , which is the country code for Zambia. </para>
+        </listitem>
+        <listitem>
+          <para>Help page link: A URL can be provided for an alternative help source. This defines the URL which users will see when selecting Profile-&gt;Help.  </para>
         </listitem>
         <listitem>
           <para>Google Analytics (Universal Analytics) Key: Set your Google UA key here to provide analytics for your DHIS 2 instance. Most
@@ -82,7 +97,7 @@
             maintenance mode, implying that 503 Service Unavailable will be returned for all
             requests. This is useful when you need to perform maintenance on the server like
             rebuilding indexes while the server is running in production, in order to reduce load
-            and more efficiently carry out the maintenanec.</para>
+            and more efficiently carry out the maintenance.</para>
         </listitem>
       </itemizedlist>
     </section>
@@ -201,7 +216,7 @@
           <para>Remote server URL: The URL of the remote server running DHIS 2 to upload data values
             to. Use of SSL/HTTPS is recommended since username and password is sent with the request
             (using basic authentication). The system will attempt to synchronize data once every
-            minute. Note that you must enable data synch from Data administration >
+            minute. Note that you must enable data synch from Data administration &gt;
             Scheduling.</para>
         </listitem>
         <listitem>
