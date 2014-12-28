@@ -264,7 +264,7 @@
   </section>
   <section>
     <title>Locale Management</title>
-    <para>It is posible to create custom locales in DHIS2. In addition to the locales available through the system, you might want to add a custom locale such as &quot;English&quot; and &quot;Zambia&quot; to the system. This would allow you to translate metadata objects to local languages, or to account for slight variants between countries which use a common metadata definition. </para>
+    <para>It is possible to create custom locales in DHIS2. In addition to the locales available through the system, you might want to add a custom locale such as &quot;English&quot; and &quot;Zambia&quot; to the system. This would allow you to translate metadata objects to local languages, or to account for slight variants between countries which use a common metadata definition. </para>
     <screenshot>
       <mediaobject>
         <imageobject>
@@ -286,7 +286,6 @@
       views, given that views only depend on other views which come earlier in the alphabetical
       order. For instance, &quot;ViewB&quot; can safely depend on &quot;ViewA&quot;. Otherwise, having views depending
       on other view result in an integrity violation error.</para>
-    <para/>
     <section>
       <title>Creating a new SQL view</title>
       <para>To create a new SQL view, choose Maintenance-&gt;SQL view and click the &quot;Add new&quot; button. </para>
@@ -332,7 +331,7 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>The total number of each type of object is presented in a table, as well as a graph. </para>
+    <para>The total number of each type of object is presented in a series of tables with summary statistics of each object. </para>
   </section>
   <section id="lockException">
     <title>Lock exceptions</title>
