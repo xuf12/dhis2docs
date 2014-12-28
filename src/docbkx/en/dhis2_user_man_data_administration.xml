@@ -369,13 +369,20 @@
   </section>
   <section id="optionSet">
     <title>Option sets</title>
-    <para> Option sets can be associated with data elements in the add / update data element interface for name-based data elements. You can define any kind of options, for instance an option set
+    <para>Option sets provide a pre-defined dropdown (enumerated) list for use in DHIS2.  You can define any kind of options, for instance an option set
 called &quot;Delivery type&quot; where &quot;Normal&quot;, &quot;Breach&quot;, &quot;Caesarian&quot; and
-&quot;Assisted&quot; would be the options. This option set can later be
-associated with any number of data elements. When doing data entry in
-name-based records module those elements will then appear in the form
-as drop-down lists with auto-completion support.
-</para>
+&quot;Assisted&quot; would be the options. To define a new option set, simply click &quot;Add new&quot;. Once you have defined the option set itself, you will need to define the options in the set, by clicking the name of the option set and selecting &quot;Option management&quot; from the context menu. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata align="center" fileref="resources/images/maintainence/option_sets.png" width="50%" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>Press &quot;Add new&quot; to enter a new option and its code. You can sort the options within the option set by using the &quot;Sort options&quot; dialog button.</para>
+    <important>
+      <para>Option sets must have a code as well as a name. Codes of options cannot be changed, while the names can. Both names as well as codes of all options must be unique, even across different option sets.</para>
+    </important>
   </section>
   <section id="cacheStatistics">
     <title>Cache Statistics </title>
