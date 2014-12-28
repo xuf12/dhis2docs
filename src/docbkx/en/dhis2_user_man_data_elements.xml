@@ -158,14 +158,17 @@
                 <para>Sum: Sum of data values in the period and organisation unit dimension</para>
               </listitem>
               <listitem>
-                <para>Average: Average of data values in the period dimension, sum in the
+                <para>Average (sum in orgunit hierarchy): Average of data values in the period dimension, sum in the
                   organisation unit dimensions.</para>
+              </listitem>
+              <listitem>
+                <para>Average: Average the values in both the period as well as the orgunit dimensions. </para>
               </listitem>
               <listitem>
                 <para>Count: Count of data values.</para>
               </listitem>
               <listitem>
-                <para>Std dev: Standard deviation (population-based) of data values.</para>
+                <para>Standar deviation: Standard deviation (population-based) of data values.</para>
               </listitem>
               <listitem>
                 <para>Variance: Variance (population-based) of data values.</para>
@@ -185,7 +188,7 @@
             <para><emphasis role="bold">URL:</emphasis> A URL having an in-depth description of the data element can be entered in the ‘URL’ field. This could be for instance, a link to a metadata repository or registry that contains detailed technical information about the definition and measurement of the data element. </para>
           </listitem>
           <listitem>
-            <para><emphasis role="bold">Combination of categories:</emphasis> Defines which category combination the data element should have. </para>
+            <para><emphasis role="bold">Category Combination:</emphasis> Defines which category combination the data element should have, also known as the &quot;disaggregation&quot;. </para>
           </listitem>
           <listitem>
             <para><emphasis role="bold">Aggregation levels:</emphasis>  The Aggregation Levels option allows the data element to be aggregated at one or more levels. When the user clicks on the Aggregation levels option, a drop down menu appears which displays available aggregation levels. The desired aggregation level is then selected by clicking the ‘Add Selected’ button. By default, the aggregation will start at the lowest assigned organisation unit. If e.g. Chiefdom is selected below it means that Chiefdom, District, and National aggregates will use Chiefdom (the  highest aggregation level available) as the data source, and PHU data will not be included. PHU data will still be available for the PHU level, but not included in aggregations to the levels above. If District and Chiefdom are both selected then the District and National level aggregates will use District data as their source, Chiefdom will use Chiefdom, and PHU will use PHU. Read more about aggregation levels in the Reporting chapter i the section on data sources for reporting.</para>
@@ -321,7 +324,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="resources/images/maintainence/data_element_category_combo_add_new.png" format="PNG" width="80%"/>
+            <imagedata width="80%" fileref="resources/images/maintainence/data_element_category_combo_add_new.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -336,7 +339,7 @@
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata align="center" fileref="resources/images/maintainence/categories_dataset_attributes.png" width="80%"/>
+            <imagedata width="80%" align="center" fileref="resources/images/maintainence/categories_dataset_attributes.png"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -371,7 +374,7 @@
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="resources/images/maintainence/data_element_translate.png" format="PNG" width="80%"/>
+              <imagedata width="80%" fileref="resources/images/maintainence/data_element_translate.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
