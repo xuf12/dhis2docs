@@ -3483,7 +3483,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
           <row>
             <entry>Data elements, indicators and data set reporting rates</entry>
             <entry>dx</entry>
-            <entry>Data elements, indicators and data set identifiers</entry>
+            <entry>Data elements, indicators, data set identifiers, keyword
+              DE_GROUP-&lt;group-id></entry>
           </row>
           <row>
             <entry>Periods (time)</entry>
@@ -3543,6 +3544,10 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU
 &amp;dimension=co&amp;dimension=pe:201401
 &amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
+    <para>When selecting data elements you can also select all data elements in a group as items by
+      using the DE_GROUP-&lt;id> syntax:</para>
+    <screen>api/analytics?dimension=dx:DE_GROUP-h9cuJOkOwY2
+&amp;dimension=pe:201401&amp;dimension=ou:O6uvpzGd5pu</screen>
     <para>To query for organisation unit group sets and data elements you can use the following URL
       - notice how the group set identifier is used as dimension identifier and the groups as
       dimension items:</para>
@@ -5578,7 +5583,7 @@ startDate=2014-01-01&amp;endDate=2014-10-31
   <section>
     <title>Email</title>
     <para>The Web API features a resource for sending emails. For emails to be sent it is required
-      that the SMPT configuration has been properly set up and that a system notification email
+      that the SMTP configuration has been properly set up and that a system notification email
       address for the DHIS 2 instance has been defined. You can set SMTP settings from the email
       settings screen and system notification email address from the general settings screen in DHIS
       2. </para>
@@ -5586,8 +5591,7 @@ startDate=2014-01-01&amp;endDate=2014-10-31
       <title>System notification</title>
       <para>The <emphasis role="italic">notification</emphasis> resource lets you send system email
         notifications with a given subject and text in JSON or XML. The email will be sent to the
-        address specified as notification email address in DHIS 2 under system general
-        settings:</para>
+         notification email address as defined in the DHIS2 general system settings:</para>
       <screen>{
   "subject": "Integrity check summary",
   "text": "All checks ran successfully"
