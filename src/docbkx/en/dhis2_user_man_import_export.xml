@@ -837,7 +837,7 @@
     </section>
     <section>
       <title>Data export</title>
-      <para>To export  raw data from DHIS2, choose &quot;Services-&gt;Import-export-&gt;Data export&quot;. Select the organisation unit(s), the start and end date,  and dataset or data sets for which data export should be selected. Click &quot;Export as XML&quot; to export data as XML and &quot;Export as CSV&quot; to export data in CSV format. </para>
+      <para>To export  raw data from DHIS2, choose &quot;Import-export-&gt;Data export&quot;. Select the organisation unit(s), the start and end date,  and dataset or data sets for which data export should be selected. You can also select which types of identifiers which will be exported by pressing &quot;More options&quot; and then selecting either UID, Code, or Name for data elements, organisation units and category options. Once you have specified all options as required, press &quot;Export as...&quot; along with the format which you would like to export the data as (XML, JSON or CSV).</para>
       <screenshot>
         <mediaobject>
           <imageobject>
