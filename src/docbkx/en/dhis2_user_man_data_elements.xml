@@ -335,7 +335,7 @@
       <para>Categories can only be added to a category combination at this step. Categories can be removed from category combinations later by editing the category combination, however, it is not allowed to add additional categories once the combination has been created. Ensure that the category combination and its respective categories is final before you create the category combination and assign it to a data element. </para>
     </section>
     <section>
-      <title>Using categories as attributes</title>
+      <title>Using category combinations as attributes</title>
       <para>In some deployments of DHIS2, information on attributes such as &quot;Implementing partner&quot; and &quot;Project&quot; are important to record as an attribute of each data value. To provide an example, let us suppose that an NGO is providing ART services in a given facility. They would need to report each month on the &quot;ART monthly summary&quot;, which would be reported monthly and contain a number of data elements.  The NGO and project could potentially change over time. In order to be able to effectively attribute data to a given NGO and project at any point in time, this information would need to be recorded along with each data value at the time of data entry. </para>
       <para>When categories and category combinations have a type of &quot;Attribute&quot;, they can serve as a means of applying a common set of attributes (e.g. Implementing partner and project) to a related set of data values contained in a dataset. Let us suppose we create two categories called &quot;Implementing partner&quot; and &quot;Projects&quot;. Each of these categories would be created with a dimension type of &quot;Attribute.&quot;   Finally, a category combination called &quot;Implementing partners and projects&quot; would be created with these two categories and assigned a dimension type of &quot;Attribute&quot;. Finally, we can use this dimension to apply an attribute to the dataset &quot;ART monthly summary&quot;, by choosing  the &quot;Implementing partners and projects&quot; as the &quot;Combination of categories&quot;. </para>
       <para>The following screen shot of an example data entry screen illustrates all of these concepts. </para>
@@ -347,6 +347,10 @@
         </mediaobject>
       </screenshot>
       <para>Note that when data is entered, an &quot;Implementing partner&quot; and &quot;Project&quot; can be selected. Each data value recorded in this data entry screen, would be assigned a specific combination of these categories as an attribute. These attributes (when specified as a dimension) can be used in the analysis modules similar to other dimensions, such as the period and orgunit.  In summary, when category combinations are used as attribute, they effectively serve as another dimension (similar to &quot;Period&quot; and &quot;Organisationion unit&quot;) which can be used for analysis. </para>
+    </section>
+    <section>
+      <title>Category option combination maintenance</title>
+      <para>Category option combinations can be assigned a code, which allows for easier data exchange between DHIS2 and external systems. Simply select the category option combination from the list, and provide the code. Note that all codes of category option combinations must be unique. </para>
     </section>
     <section>
       <title>Category option groups and group sets</title>
