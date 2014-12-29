@@ -49,7 +49,7 @@
   </section>
   <section id="report_tables">
     <title>Using report tables</title>
-    <para>Report tables are a simple-to-use tool for creating tabular analysis. To run a report table first navigate to the list of available report tables in Services-&gt;Reports-&gt;Report Tables and then the name of the report table you wish to use. Select &quot;Create&quot; from the contextual menu. If the report table has any pre-defined paramaters, you will need to select them in the next screen. Finally, press &quot;Get report&quot; to view the report table. </para>
+    <para>Report tables are a simple-to-use tool for creating tabular analysis. To run a report table first navigate to the list of available report tables in Reports-&gt;Report Tables and then the name of the report table you wish to use. Select &quot;Create&quot; from the contextual menu. If the report table has any pre-defined parameters, you will need to select them in the next screen. Finally, press &quot;Create&quot; to view the report table. Report tables are created through the PivoTable app. Consult the relevant section for more information on creating new report tables.</para>
     <para><emphasis role="bold">Report parameters:</emphasis> Most report tables have parameters, which means that you can filter which orgunits and/or periods you want in the report. This makes the reports much more reusable. When you run the report table a Report parameter window will open and ask the user to input values for the selected parameters. The possible parameters are Reporting Month and Organisation Unit, and either one of these or both will show in the window.    After selecting the values click on the Get Report button.</para>
     <screenshot>
       <screeninfo>Report table parameters</screeninfo>
@@ -73,7 +73,7 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para> You can also share a comment or intepretation about this report table from the report table view, by simply writing a comment in the box and pressing &quot;Share&quot;.</para>
+    <para> You can also share a comment or interpretation about this report table from the report table view, by simply writing a comment in the box and pressing &quot;Share&quot;.</para>
   </section>
   <section id="dataset_reports">
     <title>Using dataset reports</title>
@@ -84,7 +84,7 @@
     <para><emphasis role="bold">Reporting period: </emphasis>The actual period you want data for. This can be aggregated as well as raw periods. This means that you can ask for a quarterly or annual report even though the data set is collected monthly. A data set&apos;s period type (collection frequency) is defined in data set maintenance. First select the period type (Monthly, Quarterly, Yearly etc.) in the drop down next to Prev and Next buttons, and then select one of the available periods from the dropdown list below. Use Prev and Next to jump one year back or forward.</para>
     <para><emphasis role="bold">Use data for selected unit only:</emphasis> Use this option if you want a report for an orgunit that has children, but only want the data collected directly for this unit and not the data collected by its children. If you want a typical aggregated report for an orgunit you do not want to tick this option.</para>
     <para><emphasis role="bold">Reporting Organisation unit:</emphasis> Here you select the orgunit you want the report for. This can be at any level in the hierarchy as the data will be aggregated up to this level automatically (if you do not tick the option above).</para>
-    <para>When you are done filling in the report criteria you click on &quot;Generate&quot;. The report will appear in html view in a printer-friendly format. Use print and save as functions in the browser to print or save (as html) the report.</para>
+    <para>When you are done filling in the report criteria you click on &quot;Generate&quot;. The report will appear as HTML in a printer-friendly format. Use  the print and save as functions in the browser to print or save (as HTML) the report.You can also export the data set report in Excel and PDF formats.</para>
   </section>
   <section id="resource">
     <title>Using resources</title>
@@ -163,7 +163,7 @@
       <screeninfo>Reporting rate summary</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="resources/images/dhis2UserManual/completeness_report.png" format="PNG" align="center" width="80%"/>
+          <imagedata width="80%" align="center" fileref="resources/images/dhis2UserManual/completeness_report.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>

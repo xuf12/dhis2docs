@@ -1,30 +1,30 @@
-<?xml version='1.0' encoding='UTF-8'?>
+ï»¿<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
-  <title>Utilisation des tableaux croisés dynamiques</title>
+  <title>Utilisation des tableaux croisÃ©s dynamiques</title>
   <section>
-    <title>Vue d’ensemble des tableaux croisés dynamiques</title>
-    <para>Le module de tableau croisé dynamique permet aux utilisateurs de créer des tableaux croisés dynamiques, en utilisant toutes les 
-        <emphasis role="italic">dimensions</emphasis> de données disponibles dans DHIS 2. Un tableau croisé dynamique est un outil dynamique servant à l'analyse des données qui vous permet d’effectuer rapidement une synthèse de vos données et de les organiser en fonction de leurs dimensions. Des exemples de dimensions de données dans DHIS 2 sont les éléments de données (expliquant ce que sont les données, le Quoi), les périodes (représentant l'aspect temporel, le Quand) et la hiérarchie organisationnelle (représentant l'emplacement géographique des données, le Où). A partir de ces dimensions, vous pouvez sélectionner librement des 
-        <emphasis role="italic">éléments</emphasis>de dimension à inclure dans la création du tableau croisé dynamique.</para>
-    <para>Un tableau croisé dynamique peut disposer les dimensions de données en <emphasis role="italic">colonnes</emphasis>,
+    <title>Vue dâ€™ensemble des tableaux croisÃ©s dynamiques</title>
+    <para>Le module de tableau croisÃ© dynamique permet aux utilisateurs de crÃ©er des tableaux croisÃ©s dynamiques, en utilisant toutes les 
+        <emphasis role="italic">dimensions</emphasis> de donnÃ©es disponibles dans DHIS 2. Un tableau croisÃ© dynamique est un outil dynamique servant Ã  l'analyse des donnÃ©es qui vous permet dâ€™effectuer rapidement une synthÃ¨se de vos donnÃ©es et de les organiser en fonction de leurs dimensions. Des exemples de dimensions de donnÃ©es dans DHIS 2 sont les Ã©lÃ©ments de donnÃ©es (expliquant ce que sont les donnÃ©es, le Quoi), les pÃ©riodes (reprÃ©sentant l'aspect temporel, le Quand) et la hiÃ©rarchie organisationnelle (reprÃ©sentant l'emplacement gÃ©ographique des donnÃ©es, le OÃ¹). A partir de ces dimensions, vous pouvez sÃ©lectionner librement des 
+        <emphasis role="italic">Ã©lÃ©ments</emphasis>de dimension Ã  inclure dans la crÃ©ation du tableau croisÃ© dynamique.</para>
+    <para>Un tableau croisÃ© dynamique peut disposer les dimensions de donnÃ©es en <emphasis role="italic">colonnes</emphasis>,
         <emphasis role="italic">lignes</emphasis>, et comme <emphasis role="italic">filtres</emphasis>.
-      Lorsque vous placez une dimension de données sur des colonnes, le tableau croisé dynamique affiche une colonne par élément de la dimension. Si vous placez plusieurs dimensions de données sur des colonnes, le tableau croisé dynamique affiche une colonne pour toutes les combinaisons des éléments pour les dimensions sélectionnées. Lorsque vous placez une dimension de données sur des lignes, le tableau croisé dynamique affiche une ligne par élément de la dimension sur le même principe. Les dimensions que vous sélectionnez comme filtres ne seront pas incluses dans le tableau croisé dynamique, mais seront regroupées et filtreront les données de la table sur la base des éléments de filtre sélectionnés.</para>
-    <para>Les étapes à suivre pour concevoir un tableau croisé dynamique simple sont les suivantes:</para>
+      Lorsque vous placez une dimension de donnÃ©es sur des colonnes, le tableau croisÃ© dynamique affiche une colonne par Ã©lÃ©ment de la dimension. Si vous placez plusieurs dimensions de donnÃ©es sur des colonnes, le tableau croisÃ© dynamique affiche une colonne pour toutes les combinaisons des Ã©lÃ©ments pour les dimensions sÃ©lectionnÃ©es. Lorsque vous placez une dimension de donnÃ©es sur des lignes, le tableau croisÃ© dynamique affiche une ligne par Ã©lÃ©ment de la dimension sur le mÃªme principe. Les dimensions que vous sÃ©lectionnez comme filtres ne seront pas incluses dans le tableau croisÃ© dynamique, mais seront regroupÃ©es et filtreront les donnÃ©es de la table sur la base des Ã©lÃ©ments de filtre sÃ©lectionnÃ©s.</para>
+    <para>Les Ã©tapes Ã  suivre pour concevoir un tableau croisÃ© dynamique simple sont les suivantes:</para>
     <orderedlist>
       <listitem>
-        <para>Sélectionnez les éléments de dimension dans le menu de gauche, par exemple quelques éléments de données.</para>
+        <para>SÃ©lectionnez les Ã©lÃ©ments de dimension dans le menu de gauche, par exemple quelques Ã©lÃ©ments de donnÃ©es.</para>
       </listitem>
       <listitem>
-        <para>Cliquez sur "Mise en page" dans le menu en haut et positionnez les dimensions de données en colonnes, lignes ou filtres. Vous pouvez laisser le choix qui vous est proposé par défaut.</para>
+        <para>Cliquez sur "Mise en page" dans le menu en haut et positionnez les dimensions de donnÃ©es en colonnes, lignes ou filtres. Vous pouvez laisser le choix qui vous est proposÃ© par dÃ©faut.</para>
       </listitem>
       <listitem>
-        <para>Cliquez sur "Mise à jour".</para>
+        <para>Cliquez sur "Mise Ã  jour".</para>
       </listitem>
     </orderedlist>
-    <para>En utilisant la base de données de démonstration, un tableau croisé dynamique ressemblant à celui-ci-dessous sera affiché. Notez comment les indicateurs sont positionnés en colonnes et les périodes en lignes.</para>
+    <para>En utilisant la base de donnÃ©es de dÃ©monstration, un tableau croisÃ© dynamique ressemblant Ã  celui-ci-dessous sera affichÃ©. Notez comment les indicateurs sont positionnÃ©s en colonnes et les pÃ©riodes en lignes.</para>
     <screenshot>
-      <screeninfo>Example de tableau croisé dynamique avec les indicateurs en colonnes et les périodes en ligne.</screeninfo>
+      <screeninfo>Example de tableau croisÃ© dynamique avec les indicateurs en colonnes et les pÃ©riodes en ligne.</screeninfo>
       <mediaobject>
         <imageobject>
           <imagedata width="85%" fileref="resources/images/pivot_table/basic_pivot.png" format="PNG"/>
@@ -33,13 +33,13 @@
     </screenshot>
   </section>
   <section>
-    <title>Sélection des éléments de dimension</title>
-    <para>Le menu de gauche affiche en catégories la liste de toutes les dimensions de données disponibles. Dans chaque catégorie, vous pouvez sélectionner n'importe quel nombre d'éléments de dimension. Par exemple, vous pouvez ouvrir la catégorie des éléments de données et sélectionner n'importe quel nombre d'éléments de données de la liste. Vous pouvez sélectionner un élément en cliquant dessus pour le mettre en surbrillance puis en cliquant sur la flèche au-dessus, ou encore plus simplement en double-cliquant sur l'élément. Avant de pouvoir utiliser une dimension de données dans votre tableau croisé dynamique, vous devez sélectionner au moins un élément de dimension. Si vous positionnez une dimension en colonnes ou en lignes, mais ne sélectionnez aucun élément de dimension, la dimension sera ignorée.</para>
-    <para>Pour les dimensions des indicateurs et des éléments de données, vous devez d'abord sélectionner un ou tous les groupes dans la liste des groupes. Vous pouvez ensuite sélectionner les éléments de données à partir des éléments de la liste qui s’affiche.</para>
-    <para>Pour la dimension de période, vous pouvez choisir entre utiliser des périodes fixes ou des périodes relatives. Un exemple de période fixe est "Janvier 2012". Pour sélectionner des périodes fixes, commencez par sélectionner un type de période dans la liste Type de période. Vous pouvez alors sélectionner les périodes à partir de la liste des périodes. Les périodes relatives sont des périodes relatives par rapport à la date actuelle. Des exemples de périodes relatives sont "Le mois dernier", "Les 12 derniers mois", "Les 5 dernières années". Les périodes relatives peuvent être sélectionnées en cochant les cases à cocher qui sont à côté de chaque période. Le principal avantage de l'utilisation de périodes relatives, c'est que lorsque vous enregistrez un tableau croisé dynamique comme favori, il sera maintenu à jour avec les données les plus récentes au fur et à mesure sans qu’il soit nécessaire de constamment le mettre à jour.</para>
-    <para>Pour la dimension d’unité d'organisation, vous pouvez sélectionner n'importe quel nombre d'unités d’organisations de la hiérarchie organisationnelle. Pour sélectionner toutes les unités d'organisation en-dessous d’une unité d'organisation parente spécifique, faites un clic droit et cliquez sur "Sélectionner tous les enfants". Pour sélectionner manuellement plusieurs unités d'organisation, cliquez une fois sur une unité d’organisation puis, en maintenant la touche Ctrl de votre clavier enfoncée, cliquez sur les autres unités d'organisation que vous voulez ajouter. Vous pouvez cocher sur la case "unité d'organisation de l’utilisateur", ou sur la case "enfants de l'unité d'organisation de l'utilisateur" ou encore sur la case "petits-enfants de l’unité d'organisation de l'utilisateur " pour insérer dynamiquement l'unité d'organisation ou les unités associées à votre compte utilisateur. Cette fonction est utile lorsque vous enregistrez un tableau croisé dynamique comme favori et que vous souhaitez le partager avec d'autres utilisateurs, sachant que les unités d'organisation liées au compte des autres utilisateurs seront utilisées lorsqu’ils afficheront le tableau croisé dynamique mis dans les favoris.</para>
+    <title>SÃ©lection des Ã©lÃ©ments de dimension</title>
+    <para>Le menu de gauche affiche en catÃ©gories la liste de toutes les dimensions de donnÃ©es disponibles. Dans chaque catÃ©gorie, vous pouvez sÃ©lectionner n'importe quel nombre d'Ã©lÃ©ments de dimension. Par exemple, vous pouvez ouvrir la catÃ©gorie des Ã©lÃ©ments de donnÃ©es et sÃ©lectionner n'importe quel nombre d'Ã©lÃ©ments de donnÃ©es de la liste. Vous pouvez sÃ©lectionner un Ã©lÃ©ment en cliquant dessus pour le mettre en surbrillance puis en cliquant sur la flÃ¨che au-dessus, ou encore plus simplement en double-cliquant sur l'Ã©lÃ©ment. Avant de pouvoir utiliser une dimension de donnÃ©es dans votre tableau croisÃ© dynamique, vous devez sÃ©lectionner au moins un Ã©lÃ©ment de dimension. Si vous positionnez une dimension en colonnes ou en lignes, mais ne sÃ©lectionnez aucun Ã©lÃ©ment de dimension, la dimension sera ignorÃ©e.</para>
+    <para>Pour les dimensions des indicateurs et des Ã©lÃ©ments de donnÃ©es, vous devez d'abord sÃ©lectionner un ou tous les groupes dans la liste des groupes. Vous pouvez ensuite sÃ©lectionner les Ã©lÃ©ments de donnÃ©es Ã  partir des Ã©lÃ©ments de la liste qui sâ€™affiche.</para>
+    <para>Pour la dimension de pÃ©riode, vous pouvez choisir entre utiliser des pÃ©riodes fixes ou des pÃ©riodes relatives. Un exemple de pÃ©riode fixe est "Janvier 2012". Pour sÃ©lectionner des pÃ©riodes fixes, commencez par sÃ©lectionner un type de pÃ©riode dans la liste Type de pÃ©riode. Vous pouvez alors sÃ©lectionner les pÃ©riodes Ã  partir de la liste des pÃ©riodes. Les pÃ©riodes relatives sont des pÃ©riodes relatives par rapport Ã  la date actuelle. Des exemples de pÃ©riodes relatives sont "Le mois dernier", "Les 12 derniers mois", "Les 5 derniÃ¨res annÃ©es". Les pÃ©riodes relatives peuvent Ãªtre sÃ©lectionnÃ©es en cochant les cases Ã  cocher qui sont Ã  cÃ´tÃ© de chaque pÃ©riode. Le principal avantage de l'utilisation de pÃ©riodes relatives, c'est que lorsque vous enregistrez un tableau croisÃ© dynamique comme favori, il sera maintenu Ã  jour avec les donnÃ©es les plus rÃ©centes au fur et Ã  mesure sans quâ€™il soit nÃ©cessaire de constamment le mettre Ã  jour.</para>
+    <para>Pour la dimension dâ€™unitÃ© d'organisation, vous pouvez sÃ©lectionner n'importe quel nombre d'unitÃ©s dâ€™organisations de la hiÃ©rarchie organisationnelle. Pour sÃ©lectionner toutes les unitÃ©s d'organisation en-dessous dâ€™une unitÃ© d'organisation parente spÃ©cifique, faites un clic droit et cliquez sur "SÃ©lectionner tous les enfants". Pour sÃ©lectionner manuellement plusieurs unitÃ©s d'organisation, cliquez une fois sur une unitÃ© dâ€™organisation puis, en maintenant la touche Ctrl de votre clavier enfoncÃ©e, cliquez sur les autres unitÃ©s d'organisation que vous voulez ajouter. Vous pouvez cocher sur la case "unitÃ© d'organisation de lâ€™utilisateur", ou sur la case "enfants de l'unitÃ© d'organisation de l'utilisateur" ou encore sur la case "petits-enfants de lâ€™unitÃ© d'organisation de l'utilisateur " pour insÃ©rer dynamiquement l'unitÃ© d'organisation ou les unitÃ©s associÃ©es Ã  votre compte utilisateur. Cette fonction est utile lorsque vous enregistrez un tableau croisÃ© dynamique comme favori et que vous souhaitez le partager avec d'autres utilisateurs, sachant que les unitÃ©s d'organisation liÃ©es au compte des autres utilisateurs seront utilisÃ©es lorsquâ€™ils afficheront le tableau croisÃ© dynamique mis dans les favoris.</para>
     <screenshot>
-      <screeninfo>Sélection de périodes fixes et relatives.</screeninfo>
+      <screeninfo>SÃ©lection de pÃ©riodes fixes et relatives.</screeninfo>
       <mediaobject>
         <imageobject>
           <imagedata width="40%" fileref="resources/images/pivot_table/period_dimension.png" format="PNG"/>
@@ -49,18 +49,18 @@
   </section>
   <section>
     <title>Organisation de la disposition du tableau</title>
-    <para>Après la sélection des dimensions de données, vous pouvez passer à la présentation de votre tableau croisé dynamique. Cliquez sur "Mise en page" dans le menu du haut pour afficher l'écran de présentation. Sur cet écran, vous pouvez disposer vos dimensions de données en colonnes, en lignes ou sous forme de filtres de table, en cliquant et en faisant glisser les dimensions de la liste des dimensions vers les listes des colonnes, lignes et filtres respectivement. Vous pouvez définir n'importe quel nombre de dimensions dans chacune des listes. Par exemple, vous pouvez cliquer sur "unités d'organisation" et le faire glisser vers la liste des lignes afin de présenter la dimension de l'unité d'organisation sur les lignes du tableau. Notez que les indicateurs, les éléments de données et les taux de reportage des ensembles de données font partie de la dimension commune "Données" et seront affichés ensemble dans le tableau croisé dynamique. Par exemple, après avoir sélectionné les indicateurs et les éléments de données dans le menu de gauche, vous pouvez faire glisser "Données" de la liste des dimensions disponibles vers la liste de dimension de ligne afin qu’elles soient présentées en lignes dans le tableau croisé dynamique.</para>
+    <para>AprÃ¨s la sÃ©lection des dimensions de donnÃ©es, vous pouvez passer Ã  la prÃ©sentation de votre tableau croisÃ© dynamique. Cliquez sur "Mise en page" dans le menu du haut pour afficher l'Ã©cran de prÃ©sentation. Sur cet Ã©cran, vous pouvez disposer vos dimensions de donnÃ©es en colonnes, en lignes ou sous forme de filtres de table, en cliquant et en faisant glisser les dimensions de la liste des dimensions vers les listes des colonnes, lignes et filtres respectivement. Vous pouvez dÃ©finir n'importe quel nombre de dimensions dans chacune des listes. Par exemple, vous pouvez cliquer sur "unitÃ©s d'organisation" et le faire glisser vers la liste des lignes afin de prÃ©senter la dimension de l'unitÃ© d'organisation sur les lignes du tableau. Notez que les indicateurs, les Ã©lÃ©ments de donnÃ©es et les taux de reportage des ensembles de donnÃ©es font partie de la dimension commune "DonnÃ©es" et seront affichÃ©s ensemble dans le tableau croisÃ© dynamique. Par exemple, aprÃ¨s avoir sÃ©lectionnÃ© les indicateurs et les Ã©lÃ©ments de donnÃ©es dans le menu de gauche, vous pouvez faire glisser "DonnÃ©es" de la liste des dimensions disponibles vers la liste de dimension de ligne afin quâ€™elles soient prÃ©sentÃ©es en lignes dans le tableau croisÃ© dynamique.</para>
       <screenshot>
-      <screeninfo>L'écran de présentation du tableau.</screeninfo>
+      <screeninfo>L'Ã©cran de prÃ©sentation du tableau.</screeninfo>
       <mediaobject>
         <imageobject>
           <imagedata width="45%" fileref="resources/images/pivot_table/table_layout.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>Après avoir défini votre tableau croisé dynamique, vous pouvez cliquer sur "Mise à jour" pour afficher votre tableau, ou cliquer sur "Masquer" pour masquer l'écran de présentation des données, sans aucune modification. Etant donné que nous avons dans notre exemple choisi de présenter les dimensions de période et d'unité d'organisation en lignes, le tableau croisé dynamique va générer toutes les combinaisons des éléments de ces dimensions et produire un tableau comme celui-ci:</para>
+    <para>AprÃ¨s avoir dÃ©fini votre tableau croisÃ© dynamique, vous pouvez cliquer sur "Mise Ã  jour" pour afficher votre tableau, ou cliquer sur "Masquer" pour masquer l'Ã©cran de prÃ©sentation des donnÃ©es, sans aucune modification. Etant donnÃ© que nous avons dans notre exemple choisi de prÃ©senter les dimensions de pÃ©riode et d'unitÃ© d'organisation en lignes, le tableau croisÃ© dynamique va gÃ©nÃ©rer toutes les combinaisons des Ã©lÃ©ments de ces dimensions et produire un tableau comme celui-ci:</para>
     <screenshot>
-      <screeninfo>Tableau croisé dynamique avec unités d'organisation et périodes répétées en lignes.</screeninfo>
+      <screeninfo>Tableau croisÃ© dynamique avec unitÃ©s d'organisation et pÃ©riodes rÃ©pÃ©tÃ©es en lignes.</screeninfo>
       <mediaobject>
         <imageobject>
           <imagedata width="90%" fileref="resources/images/pivot_table/pivot_rows.png" format="PNG"/>
@@ -70,38 +70,38 @@
   </section>
   <section>
     <title>Utilisation des options de table</title>
-    <para>Plusieurs options de tables sont mis à votre disposition lorsque vous travaillez sur un tableau croisé dynamique. Ouvrez l'écran des options en cliquant sur "Options" dans le menu supérieur. Les options suivantes sont mises à votre disposition:</para>
+    <para>Plusieurs options de tables sont mis Ã  votre disposition lorsque vous travaillez sur un tableau croisÃ© dynamique. Ouvrez l'Ã©cran des options en cliquant sur "Options" dans le menu supÃ©rieur. Les options suivantes sont mises Ã  votre disposition:</para>
     <itemizedlist>
 	  <listitem>
-	    <para>Afficher les totaux: Permet d’afficher les valeurs totales dans la table pour chaque ligne et colonne, ainsi qu'un total général pour toutes les valeurs du tableau.</para>
+	    <para>Afficher les totaux: Permet dâ€™afficher les valeurs totales dans la table pour chaque ligne et colonne, ainsi qu'un total gÃ©nÃ©ral pour toutes les valeurs du tableau.</para>
 	  </listitem>
       <listitem>
-        <para>Afficher les sous-totaux: Permet d’afficher les sous-totaux dans le tableau pour chaque dimension. Dans la capture d'écran ci-dessus, remarquez comment les sous-totaux sont générés pour chacune des périodes de la dimension de période. Notez que les sous-totaux seront masqués pour les colonnes ou les lignes s'il n'y a qu'une seule dimension sélectionnée, étant donné en effet que les valeurs de ces données affichées correspondent aux sous-totaux.</para>
+        <para>Afficher les sous-totaux: Permet dâ€™afficher les sous-totaux dans le tableau pour chaque dimension. Dans la capture d'Ã©cran ci-dessus, remarquez comment les sous-totaux sont gÃ©nÃ©rÃ©s pour chacune des pÃ©riodes de la dimension de pÃ©riode. Notez que les sous-totaux seront masquÃ©s pour les colonnes ou les lignes s'il n'y a qu'une seule dimension sÃ©lectionnÃ©e, Ã©tant donnÃ© en effet que les valeurs de ces donnÃ©es affichÃ©es correspondent aux sous-totaux.</para>
       </listitem>
       <listitem>
-        <para>Masquer les lignes vides: Permet de masquer les lignes vides de la table, ce qui est utile lors de la recherche sur de grandes tables où une grande partie des éléments de dimension ne disposent pas de données ; option utile pour rendre le tableau plus lisible.</para>
+        <para>Masquer les lignes vides: Permet de masquer les lignes vides de la table, ce qui est utile lors de la recherche sur de grandes tables oÃ¹ une grande partie des Ã©lÃ©ments de dimension ne disposent pas de donnÃ©es ; option utile pour rendre le tableau plus lisible.</para>
       </listitem>
       <listitem>
-        <para>Afficher la hiérarchie: Affiche le nom de tous les parents des unités d'organisation, par exemple, «Sierra Leone / Bombali / Tamabaka / Sanya CHP" pour Sanya CHP. Les unités d'organisation sont ensuite triées par ordre alphabétique, ce qui va ordonner l’affichage des unités d’organisation sur la hiérarchie.</para>
+        <para>Afficher la hiÃ©rarchie: Affiche le nom de tous les parents des unitÃ©s d'organisation, par exemple, Â«Sierra Leone / Bombali / Tamabaka / Sanya CHP" pour Sanya CHP. Les unitÃ©s d'organisation sont ensuite triÃ©es par ordre alphabÃ©tique, ce qui va ordonner lâ€™affichage des unitÃ©s dâ€™organisation sur la hiÃ©rarchie.</para>
       </listitem>
       <listitem>
-        <para>Densité d'affichage: Permet de contrôler la taille des cellules du tableau. Les valeurs possibles pour cette option sont : "confortable", "normal" et "compact". La valeur "compact" est idéale lors du traitement de grandes tables afin d’optimiser l’écran du navigateur.</para>
+        <para>DensitÃ© d'affichage: Permet de contrÃ´ler la taille des cellules du tableau. Les valeurs possibles pour cette option sont : "confortable", "normal" et "compact". La valeur "compact" est idÃ©ale lors du traitement de grandes tables afin dâ€™optimiser lâ€™Ã©cran du navigateur.</para>
       </listitem>
       <listitem>
-        <para>Taille de la police: Permet de contrôler la taille de la police du texte de la table. Les valeurs possibles pour cette option sont : "large", "normal" et "petit".</para>
+        <para>Taille de la police: Permet de contrÃ´ler la taille de la police du texte de la table. Les valeurs possibles pour cette option sont : "large", "normal" et "petit".</para>
       </listitem>
       <listitem>
-        <para>Séparateur de groupe de chiffres: Permet de définir le caractère utilisé pour séparer les groupes de chiffres ou "milliers". Les valeurs possibles pour cette option sont : "virgule", "espace" et "aucun".</para>
+        <para>SÃ©parateur de groupe de chiffres: Permet de dÃ©finir le caractÃ¨re utilisÃ© pour sÃ©parer les groupes de chiffres ou "milliers". Les valeurs possibles pour cette option sont : "virgule", "espace" et "aucun".</para>
       </listitem>
       <listitem>
-        <para>Ensemble de légende: Affiche un indicateur de couleur à côté des valeurs. Au stade actuel, ce sont les jeux de légende du SIG qui sont utilisés lorsque cette option est activée.</para>
+        <para>Ensemble de lÃ©gende: Affiche un indicateur de couleur Ã  cÃ´tÃ© des valeurs. Au stade actuel, ce sont les jeux de lÃ©gende du SIG qui sont utilisÃ©s lorsque cette option est activÃ©e.</para>
       </listitem>
     </itemizedlist>
   </section>
   <section>
-    <title>Création d'un favori</title>
-    <para>Une fois que vous avez conçu un tableau croisé dynamique, il est recommandé de l'enregistrer en tant que favori – pour pouvoir le réutiliser ultérieurement. Pour ce faire, cliquez sur le lien "Favoris" dans le menu supérieur, puis sur "Ajouter", saisissez un nom et une description pour le favori et cliquez sur "Créer". Vous pouvez effectuer une recherche dans les favoris avec le champ recherche en haut. Pour charger un favori existant, cliquez simplement sur le nom du favori qui apparait dans la liste.</para>
-    <para>Pour renommer un favori, cliquez sur l'icône grise "Renommer" à côté du favori dans la liste, modifiez ensuite le nom et cliquez sur "Mise à jour". Pour remplacer un favori existant par le tableau croisé dynamique courant, cliquez sur l'icône verte "Ecraser". Pour partager un favori avec tout le monde ou un groupe d'utilisateurs, cliquez sur l'icône bleue "Partager". Enfin pour supprimer un favori, cliquez sur l'icône rouge "Supprimer".</para>
+    <title>CrÃ©ation d'un favori</title>
+    <para>Une fois que vous avez conÃ§u un tableau croisÃ© dynamique, il est recommandÃ© de l'enregistrer en tant que favori â€“ pour pouvoir le rÃ©utiliser ultÃ©rieurement. Pour ce faire, cliquez sur le lien "Favoris" dans le menu supÃ©rieur, puis sur "Ajouter", saisissez un nom et une description pour le favori et cliquez sur "CrÃ©er". Vous pouvez effectuer une recherche dans les favoris avec le champ recherche en haut. Pour charger un favori existant, cliquez simplement sur le nom du favori qui apparait dans la liste.</para>
+    <para>Pour renommer un favori, cliquez sur l'icÃ´ne grise "Renommer" Ã  cÃ´tÃ© du favori dans la liste, modifiez ensuite le nom et cliquez sur "Mise Ã  jour". Pour remplacer un favori existant par le tableau croisÃ© dynamique courant, cliquez sur l'icÃ´ne verte "Ecraser". Pour partager un favori avec tout le monde ou un groupe d'utilisateurs, cliquez sur l'icÃ´ne bleue "Partager". Enfin pour supprimer un favori, cliquez sur l'icÃ´ne rouge "Supprimer".</para>
     <screenshot>
       <screeninfo>Ecran des favoris.</screeninfo>
       <mediaobject>
@@ -112,19 +112,19 @@
     </screenshot>
   </section>
   <section>
-    <title>Intégration de l'analyse</title>
-    <para>Les applications d'analyse en DHIS 2 sont complètement intégrés, de sorte que vous pouvez facilement basculer entre les tableaux croisés dynamiques, les graphiques et les visualisations des données à travers des cartes. Une fois que vous avez conçu un tableau croisé dynamique, vous pouvez cliquer par exemple sur "Carte" dans le coin supérieur droit, puis sélectionner "Ouvrir ce tableau croisé dynamique comme carte" pour l’analyser à l’aide du module SIG.</para>
+    <title>IntÃ©gration de l'analyse</title>
+    <para>Les applications d'analyse en DHIS 2 sont complÃ¨tement intÃ©grÃ©s, de sorte que vous pouvez facilement basculer entre les tableaux croisÃ©s dynamiques, les graphiques et les visualisations des donnÃ©es Ã  travers des cartes. Une fois que vous avez conÃ§u un tableau croisÃ© dynamique, vous pouvez cliquer par exemple sur "Carte" dans le coin supÃ©rieur droit, puis sÃ©lectionner "Ouvrir ce tableau croisÃ© dynamique comme carte" pour lâ€™analyser Ã  lâ€™aide du module SIG.</para>
     <screenshot>
-      <screeninfo>Intégration de l'analyse</screeninfo>
+      <screeninfo>IntÃ©gration de l'analyse</screeninfo>
       <mediaobject>
         <imageobject>
           <imagedata width="25%" fileref="resources/images/pivot_table/pivot_integration.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>    
-    <para>Si vous voulez juste visualiser une petite partie de votre tableau croisé dynamique sous forme de graphique, vous pouvez cliquer directement sur une valeur dans le tableau. Un menu s'affiche. Si vous passez la souris sur le lien "Ouvrir cette sélection en tant que graphique", vous pouvez voir que certains en-têtes de dimension dans la table ont été mis en évidence, indiquant quelles données seront visualisées dans les graphiques.</para>
+    <para>Si vous voulez juste visualiser une petite partie de votre tableau croisÃ© dynamique sous forme de graphique, vous pouvez cliquer directement sur une valeur dans le tableau. Un menu s'affiche. Si vous passez la souris sur le lien "Ouvrir cette sÃ©lection en tant que graphique", vous pouvez voir que certains en-tÃªtes de dimension dans la table ont Ã©tÃ© mis en Ã©vidence, indiquant quelles donnÃ©es seront visualisÃ©es dans les graphiques.</para>
     <screenshot>
-      <screeninfo>Intégration des tables</screeninfo>
+      <screeninfo>IntÃ©gration des tables</screeninfo>
       <mediaobject>
         <imageobject>
           <imagedata width="90%" fileref="resources/images/pivot_table/pivot_integration_table.png" format="PNG"/>
@@ -133,33 +133,33 @@
     </screenshot>
   </section>
   <section>
-    <title>Téléchargement des données</title>
-    <para>Vous pouvez télécharger les données du tableau croisé dynamique courant en cliquant sur le lien "Télécharger" dans le menu supérieur. Les données peuvent être téléchargées aux formats MS Excel ou CSV. Le tableau de données aura une colonne par dimension et contiendra les noms des éléments de dimension. Vous pouvez facilement créer un tableau croisé dynamique dans Microsoft Excel à partir du fichier Excel téléchargé en cliquant sur le lien "tableau croisé dynamique" dans le panneau supérieur, puis sur "créer un tableau croisé dynamique", puis en marquant la plage de données dans la feuille de calcul avant de cliquer sur "OK".</para>
-    <para>Les données peuvent également être téléchargées au format JSON et XML. Le format de données est spécifié dans le chapitre traitant de l'API Web dans la rubrique "Analyses". Le document de données se servira des identifiants des éléments de dimension et sera affiché dans une nouvelle fenêtre du navigateur en passant l'URL de la requête à l'API Web dans la barre d'adresse. Cette fonctionnalité est utile pour les développeurs d'applications et pour les autres modules clients qui sont basés sur l’API Web de DHIS 2.</para>
+    <title>TÃ©lÃ©chargement des donnÃ©es</title>
+    <para>Vous pouvez tÃ©lÃ©charger les donnÃ©es du tableau croisÃ© dynamique courant en cliquant sur le lien "TÃ©lÃ©charger" dans le menu supÃ©rieur. Les donnÃ©es peuvent Ãªtre tÃ©lÃ©chargÃ©es aux formats MS Excel ou CSV. Le tableau de donnÃ©es aura une colonne par dimension et contiendra les noms des Ã©lÃ©ments de dimension. Vous pouvez facilement crÃ©er un tableau croisÃ© dynamique dans Microsoft Excel Ã  partir du fichier Excel tÃ©lÃ©chargÃ© en cliquant sur le lien "tableau croisÃ© dynamique" dans le panneau supÃ©rieur, puis sur "crÃ©er un tableau croisÃ© dynamique", puis en marquant la plage de donnÃ©es dans la feuille de calcul avant de cliquer sur "OK".</para>
+    <para>Les donnÃ©es peuvent Ã©galement Ãªtre tÃ©lÃ©chargÃ©es au format JSON et XML. Le format de donnÃ©es est spÃ©cifiÃ© dans le chapitre traitant de l'API Web dans la rubrique "Analyses". Le document de donnÃ©es se servira des identifiants des Ã©lÃ©ments de dimension et sera affichÃ© dans une nouvelle fenÃªtre du navigateur en passant l'URL de la requÃªte Ã  l'API Web dans la barre d'adresse. Cette fonctionnalitÃ© est utile pour les dÃ©veloppeurs d'applications et pour les autres modules clients qui sont basÃ©s sur lâ€™API Web de DHIS 2.</para>
   </section>
   <section>
-    <title>Partage des interprétations</title>
-    <para>Il est possible, pour certaines ressources associées à l'analyse sous DHIS 2, de faire une interprétation des données et de partager celle-ci ; sont concernées par cette possibilité les ressources suivantes : les tableaux croisés dynamiques, les graphiques et les cartes. Une interprétation est tout simplement un lien vers la ressource avec un texte exprimant une idée sur les données. Si vous voulez partager une interprétation du tableau croisé dynamique, vous devez d'abord enregistrer le tableau que vous souhaitez partager en tant que favori. Puis, sans apporter de modifications au tableau, cliquez sur le bouton "Partager" dans la barre d'outils. Une fenêtre s'ouvre vous donnant la possibilité de rédiger votre interprétation. Lorsque vous avez terminé, cliquez sur le bouton de partage dans le coin inférieur droit de la fenêtre. La fenêtre se ferme automatiquement ; et si l'interprétation a été correctement partagée, vous verrez une notification sur la barre d'outils en bas.</para>
+    <title>Partage des interprÃ©tations</title>
+    <para>Il est possible, pour certaines ressources associÃ©es Ã  l'analyse sous DHIS 2, de faire une interprÃ©tation des donnÃ©es et de partager celle-ci ; sont concernÃ©es par cette possibilitÃ© les ressources suivantes : les tableaux croisÃ©s dynamiques, les graphiques et les cartes. Une interprÃ©tation est tout simplement un lien vers la ressource avec un texte exprimant une idÃ©e sur les donnÃ©es. Si vous voulez partager une interprÃ©tation du tableau croisÃ© dynamique, vous devez d'abord enregistrer le tableau que vous souhaitez partager en tant que favori. Puis, sans apporter de modifications au tableau, cliquez sur le bouton "Partager" dans la barre d'outils. Une fenÃªtre s'ouvre vous donnant la possibilitÃ© de rÃ©diger votre interprÃ©tation. Lorsque vous avez terminÃ©, cliquez sur le bouton de partage dans le coin infÃ©rieur droit de la fenÃªtre. La fenÃªtre se ferme automatiquement ; et si l'interprÃ©tation a Ã©tÃ© correctement partagÃ©e, vous verrez une notification sur la barre d'outils en bas.</para>
   </section>
   <section>
     <title>Insertion des tableaux dans une page web</title>
-    <para>Certaines ressources liées à l'analyse de DHIS 2, comme des tableaux croisés dynamiques, des graphiques et des cartes, peuvent être insérées dans une page Web à l'aide d'un plugin. Si vous avez créé un tableau avec le module de tableau croisé dynamique, vous obtiendrez la configuration du plug-in pour ce tableau en cliquant sur le bouton "Partager" dans la barre d'outils, puis "Insérer comme plug-in". Vous trouverez plus d'informations sur les plugins dans le chapitre traitant de l’API web.</para>
+    <para>Certaines ressources liÃ©es Ã  l'analyse de DHIS 2, comme des tableaux croisÃ©s dynamiques, des graphiques et des cartes, peuvent Ãªtre insÃ©rÃ©es dans une page Web Ã  l'aide d'un plugin. Si vous avez crÃ©Ã© un tableau avec le module de tableau croisÃ© dynamique, vous obtiendrez la configuration du plug-in pour ce tableau en cliquant sur le bouton "Partager" dans la barre d'outils, puis "InsÃ©rer comme plug-in". Vous trouverez plus d'informations sur les plugins dans le chapitre traitant de lâ€™API web.</para>
   </section>  
   <section>
     <title>Contraintes</title>
-    <para>Lors de la sélection et de l'organisation des dimensions, quelques contraintes sont à prendre en considération. DHIS 2 procède à la validation de toutes ces contraintes et le module de tableau croisé dynamique vous signalera une anomalie si une des contraintes n’est pas respectée. Ces contraintes sont les suivantes :</para>
+    <para>Lors de la sÃ©lection et de l'organisation des dimensions, quelques contraintes sont Ã  prendre en considÃ©ration. DHIS 2 procÃ¨de Ã  la validation de toutes ces contraintes et le module de tableau croisÃ© dynamique vous signalera une anomalie si une des contraintes nâ€™est pas respectÃ©e. Ces contraintes sont les suivantes :</para>
     <itemizedlist>
       <listitem>
-        <para>Au moins une dimension doit être sélectionnée sur les colonnes ou les lignes.</para>
+        <para>Au moins une dimension doit Ãªtre sÃ©lectionnÃ©e sur les colonnes ou les lignes.</para>
       </listitem>
       <listitem>
-        <para>Au moins une période doit être incluse dans le tableau croisé dynamique.</para>
+        <para>Au moins une pÃ©riode doit Ãªtre incluse dans le tableau croisÃ© dynamique.</para>
       </listitem>
       <listitem>
-        <para>Les ensembles de groupe d'éléments de données et les taux de rapportage ne peuvent pas apparaître dans le même tableau croisé dynamique.</para>
+        <para>Les ensembles de groupe d'Ã©lÃ©ments de donnÃ©es et les taux de rapportage ne peuvent pas apparaÃ®tre dans le mÃªme tableau croisÃ© dynamique.</para>
       </listitem>
       <listitem>
-        <para>Un tableau ne peut pas contenir plus de 10 000 cellules pour des raisons liées à la performance.</para>
+        <para>Un tableau ne peut pas contenir plus de 10 000 cellules pour des raisons liÃ©es Ã  la performance.</para>
       </listitem>
     </itemizedlist>
   </section>

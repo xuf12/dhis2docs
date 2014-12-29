@@ -18,15 +18,15 @@
   <screenshot>
     <mediaobject>
       <imageobject>
-        <imagedata width="80%" align="center" fileref="resources/images/import_export/import_export_overview.png" entityref="" format="PNG"/>
+        <imagedata width="80%" align="center" entityref="" fileref="resources/images/import_export/import_export_overview.png" format="PNG"/>
       </imageobject>
     </mediaobject>
   </screenshot>
   <section>
     <title>Meta-data import</title>
     <section>
-      <title>XML Meta-data import</title>
-      <para>Meta-data in the XML format known as DXF2 can be easily imported by accessing Services-&gt;Import-Export-&gt;Meta-Data import. Select the XML file by pressing &quot;Select&quot; and choose the file from your local file system. Both raw XML as well as a ZIP archive of the XML are supported.  </para>
+      <title>Meta-data import</title>
+      <para>Meta-data objects can be easily imported by accessing Import-Export-&gt;Meta-Data import. Select the file to import  by pressing &quot;Select&quot; and choose the file from your local file system. When importing XML and JSON files, the system will automatically detect which type of objects which should be imported. When importing CSV metadata, you will need to specify the object type. Consult the corresponding section in this manual on &quot;CSV Metadata import&quot; for more specific information on how the CSV file should be created.  </para>
       <screenshot>
         <screeninfo>Default import screen</screeninfo>
         <mediaobject>
@@ -51,8 +51,7 @@
       </itemizedlist>
       <note>
         <para><emphasis role="bold">It is highly recommend always using the Dry run option</emphasis> when importing data to make sure you keep control over any changes
-            to your meta-data and databases being out of synch on data elements or orgunit
-            names</para>
+            to your meta-data and databases being out of synch on data elements or organisation unit            names</para>
       </note>
       <section>
         <title>Dry run before importing</title>
@@ -67,7 +66,7 @@
           </imageobject>
         </mediaobject>
         <para>Here you can see a short summary of what was contained in your import file. To see
-          further details, please click on the &quot;display import summary&quot; link.</para>
+          further details, please click on the &quot;Display import summary&quot; link.</para>
         <mediaobject>
           <imageobject>
             <imagedata width="80%" align="center" fileref="resources/images/import_export/import_summary.png" format="PNG"/>
@@ -82,11 +81,11 @@
             <imagedata width="80%" align="center" fileref="resources/images/import_export/import_summary_conflicts.png" format="PNG"/>
           </imageobject>
         </mediaobject>
-        <para>Here you can see that the organisation unit Nduvuibu MCHP had a unknown reference to
+        <para>Here you can see that the organisation unit &quot;Nduvuibu MCHP&quot; had a unknown reference to
           an object with ID &quot;aaaU6Kr7Gtpidn&quot;, which means that an object with this ID was not
           present in your imported file, and it could not be found in the existing database. Its
           important to note that even if a reference could not be found, the object will still be
-          imported, but you might have to fix this directly in DHIS 2 later, if the reference should
+          imported, but you might have to fix this directly in DHIS2 later, if the reference should
           have pointed to something else.</para>
       </section>
       <section>
@@ -838,7 +837,7 @@
     </section>
     <section>
       <title>Data export</title>
-      <para>To export  raw data from DHIS2, choose &quot;Services-&gt;Import-export-&gt;Data export&quot;. Select the organisation unit(s), the start and end date,  and dataset or data sets for which data export should be selected. Click &quot;Export as XML&quot; to export data as XML and &quot;Export as CSV&quot; to export data in CSV format. </para>
+      <para>To export  raw data from DHIS2, choose &quot;Import-export-&gt;Data export&quot;. Select the organisation unit(s), the start and end date,  and dataset or data sets for which data export should be selected. You can also select which types of identifiers which will be exported by pressing &quot;More options&quot; and then selecting either UID, Code, or Name for data elements, organisation units and category options. Once you have specified all options as required, press &quot;Export as...&quot; along with the format which you would like to export the data as (XML, JSON or CSV).</para>
       <screenshot>
         <mediaobject>
           <imageobject>
@@ -873,7 +872,7 @@
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata align="center" format="PNG" fileref="resources/images/dhis2UserManual/dhis14_xml_metadata_export.png" width="40%"/>
+              <imagedata width="40%" align="center" fileref="resources/images/dhis2UserManual/dhis14_xml_metadata_export.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot>
@@ -883,7 +882,7 @@
         <para>The DHIS 1.4 Metadata export functionality provides the same functionality as the detailed DHIS 2 metadata export, except that the resulting file can be used to transmit meta-data information to DHIS 1.4 systems. Simply select the data elements and indicators that you want and click &quot;Export&quot; to begin the export process.<screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata align="center" fileref="resources/images/dhis2UserManual/dhis14_xml_metadata_detailed_export.png" width="70%" format="PNG"/>
+                <imagedata width="70%" align="center" fileref="resources/images/dhis2UserManual/dhis14_xml_metadata_detailed_export.png" format="PNG"/>
               </imageobject>
             </mediaobject>
           </screenshot></para>
@@ -894,7 +893,7 @@
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata align="center" fileref="resources/images/dhis2UserManual/dhis14_data_export.png" width="60%" format="PNG"/>
+              <imagedata width="60%" align="center" fileref="resources/images/dhis2UserManual/dhis14_data_export.png" format="PNG"/>
             </imageobject>
           </mediaobject>
         </screenshot>

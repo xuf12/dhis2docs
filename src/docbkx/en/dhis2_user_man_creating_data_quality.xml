@@ -76,20 +76,30 @@
         <para>Select the <emphasis role="italic">Period type</emphasis> for the data being validated.</para>
       </listitem>
       <listitem>
-        <para>Select an <emphasis role="italic">Operator</emphasis>. The operator options are <emphasis role="italic">equal</emphasis>, <emphasis role="italic">not equal</emphasis>, <emphasis role="italic">greater than</emphasis>, <emphasis role="italic">greater than or equal</emphasis>, <emphasis role="italic">less than</emphasis>, <emphasis role="italic">less than or equal to</emphasis> and <emphasis role="italic">compulsory pair</emphasis>.</para>
+        <para>Select an <emphasis role="italic">Operator</emphasis>. The operator options are <emphasis role="italic">equal</emphasis> (==), <emphasis role="italic">not equal</emphasis> (!=), <emphasis role="italic">greater than</emphasis> (&gt;), <emphasis role="italic">greater than or equal</emphasis> (&gt;=), <emphasis role="italic">less than</emphasis> (&lt;), <emphasis role="italic">less than or equal to</emphasis> (&gt;=) and <emphasis role="italic">compulsory pair</emphasis>.</para>
+        <para>The compulsory pair operator allows you to require that data values must be entered for a form for both left and right sides of the expression, or for neither side. In other words, you can require that if one field in a form is filled, then one or more other fields must also be filled.</para>
       </listitem>
       <listitem>
         <para>Define the <emphasis role="italic">left side</emphasis> and <emphasis role="italic">right side</emphasis> of the validation rule expression. First, provide a description for the expression. Second, build the expression with the expression builder. The expression is mathematical and contain data elements as well as integers and mathematical operators. Data elements can be included by double-clicking one in the available data elements list to the right. Alternatively one can select a data element and click the insert button. Mathematical operators can be included by clicking the corresponding button under the expression builder area.</para>
-      </listitem>
-      <listitem>
-        <para>Save each expression by clicking <emphasis role="italic">Save</emphasis>, then save the validation rule by clicking <emphasis role="italic">Save</emphasis>.</para>
+        <para>There are three states which can be set to alter how the validation rule will be evaluated if there is any missing data. </para>
+        <itemizedlist>
+          <listitem>
+            <para>Skip if any value is missing: The rule will be skipped if any of the values which compose the expression are missing. This is the default option. </para>
+          </listitem>
+          <listitem>
+            <para>Skip if all values are missing: The rule will be skipped only if all of the operands which compose it are missing. </para>
+          </listitem>
+          <listitem>
+            <para>Never skip: The rule will never be skipped in case of missing data, and all missing operands will be treated effectively as a zero.</para>
+          </listitem>
+        </itemizedlist>
       </listitem>
     </itemizedlist>
-    <para>When editing an expression, check the setting <emphasis role="italic">skip for missing values</emphasis> to require that all data element values in the expression must be present. If any values are missing, the validation rule will be skipped. If this setting is unchecked it means that the expression will be evaluated even if some of the values are missing.</para>
-    <para>The compulsory pair operator allows you to require that data values must be entered for a form for both left and right sides of the expression, or for neither side. In other words, you can require that if one field in a form is filled, then one or more other fields must also be filled.</para>
-    <para>To edit a validation rule, click the <emphasis role="italic">edit</emphasis>icon next to the relevant validation rule in the list. Then follow the same procedures as above.</para>
-    <para>To delete a validation rule, click the <emphasis role="italic">delete</emphasis>icon next to the relevant validation rule in the list.</para>
-    <para>To view validation rule details, click the <emphasis role="italic">view details</emphasis>icon next to the relevant validation rule in the list.</para>
+    <para>Save each expression by clicking <emphasis role="italic">Save</emphasis>, then save the validation rule by clicking <emphasis role="italic">Save</emphasis>.</para>
+    <para>To edit a validation rule, click the name the relevant validation rule in the list  and select &quot;Edit&quot; from the context menu. Then follow the same procedures as above when creating a new rule.</para>
+    <para>To delete a validation rule, click the name of the validation rule to be deleted, and select &quot;Remove&quot; from the context menu.</para>
+    <para>Validation rule names can be translated to other languages by selecting the name of the validation rule and selecting &quot;Translate&quot; from the context menu. </para>
+    <para>To view validation rule details, click the name of the validation rule, and then select &quot;Show details&quot; from the context menu. </para>
   </section>
   <section>
     <title>Surveillance Rule</title>

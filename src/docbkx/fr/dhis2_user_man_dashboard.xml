@@ -1,11 +1,11 @@
-<?xml version='1.0' encoding='UTF-8'?>
+ï»¿<?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <chapter>
   <title id="dashboards">Tableaux de bord</title>
-  <para>Les tableaux de bord sont conçus pour donner, à des utilisateurs individuels, un accès rapide aux données qui ont été stockées dans DHIS2. Les tableaux de bord sont constitués de plusieurs sections, dont certaines fournissent des liens vers des rapports ou des cartes qui ont déjà été définis. D'autres sections du tableau de bord permettent aux utilisateurs d'ajouter des graphiques qui ont été créés au préalable et disponibles à partir du module de graphiques.</para>
+  <para>Les tableaux de bord sont conÃ§us pour donner, Ã  des utilisateurs individuels, un accÃ¨s rapide aux donnÃ©es qui ont Ã©tÃ© stockÃ©es dans DHIS2. Les tableaux de bord sont constituÃ©s de plusieurs sections, dont certaines fournissent des liens vers des rapports ou des cartes qui ont dÃ©jÃ  Ã©tÃ© dÃ©finis. D'autres sections du tableau de bord permettent aux utilisateurs d'ajouter des graphiques qui ont Ã©tÃ© crÃ©Ã©s au prÃ©alable et disponibles Ã  partir du module de graphiques.</para>
   <section id="dashboards_setup">
     <title>Mise en place du tableau de bord</title>
-    <para>Le tableau de bord est divisé en deux sections principales. Le volet de droite (notée A sur la capture d'écran ci-dessous) peut être utilisé pour contenir des liens vers des rapports, des documents (rapports statiques), des tableaux de rapport, des cartes, et une ressource RSS sur la santé. La zone de gauche (notée B dans la capture d'écran) peut être utilisée pour contenir jusqu'à six tableaux distincts qui ont déjà été créés dans le module de graphique.</para>
+    <para>Le tableau de bord est divisÃ© en deux sections principales. Le volet de droite (notÃ©e A sur la capture d'Ã©cran ci-dessous) peut Ãªtre utilisÃ© pour contenir des liens vers des rapports, des documents (rapports statiques), des tableaux de rapport, des cartes, et une ressource RSS sur la santÃ©. La zone de gauche (notÃ©e B dans la capture d'Ã©cran) peut Ãªtre utilisÃ©e pour contenir jusqu'Ã  six tableaux distincts qui ont dÃ©jÃ  Ã©tÃ© crÃ©Ã©s dans le module de graphique.</para>
     <screenshot>
       <mediaobject>
         <imageobject>
@@ -13,23 +13,23 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>Dans cette capture d'écran, le tableau de bord a déjà été rempli avec un certain nombre de rapports et cartes. Il suffit de cliquer sur l'un des liens de couleur bleue pour accéder directement au rapport ou à la carte qui correspond. En cliquant sur l'un des graphiques vous obtenez un graphique plus grand, que vous pouvez enregistrer comme une image, et inclure par exemple dans un rapport ou un autre document.</para>
+    <para>Dans cette capture d'Ã©cran, le tableau de bord a dÃ©jÃ  Ã©tÃ© rempli avec un certain nombre de rapports et cartes. Il suffit de cliquer sur l'un des liens de couleur bleue pour accÃ©der directement au rapport ou Ã  la carte qui correspond. En cliquant sur l'un des graphiques vous obtenez un graphique plus grand, que vous pouvez enregistrer comme une image, et inclure par exemple dans un rapport ou un autre document.</para>
 
-    <para>Vous pouvez redéfinir la structure du tableau de bord en effaçant chacune des fenêtres en cliquant sur le lien "Effacer". En cliquant de nouveau sur "Insérer", vous pouvez sélectionner un nouveau tableau et le faire apparaître dans la fenêtre.</para>
+    <para>Vous pouvez redÃ©finir la structure du tableau de bord en effaÃ§ant chacune des fenÃªtres en cliquant sur le lien "Effacer". En cliquant de nouveau sur "InsÃ©rer", vous pouvez sÃ©lectionner un nouveau tableau et le faire apparaÃ®tre dans la fenÃªtre.</para>
 
-    <para>Tous les rapports, documents, tableaux et graphiques peuvent être ajoutés à la liste des options disponibles en cliquant sur l'icône "Ajouter au tableau de bord" <inlinegraphic fileref="resources/images/dhis2_images/add_to_dashboard.png"/> à partir de leur module respectif. Référez vous aux sections de chacune des sections de ce manuel pour des instructions plus détaillées sur la manière de procéder. Une fois que vous avez ajouté l'objet à la liste des objets disponibles, vous pouvez l’"Insérer" au tableau de bord.</para>
+    <para>Tous les rapports, documents, tableaux et graphiques peuvent Ãªtre ajoutÃ©s Ã  la liste des options disponibles en cliquant sur l'icÃ´ne "Ajouter au tableau de bord" <inlinegraphic fileref="resources/images/dhis2_images/add_to_dashboard.png"/> Ã  partir de leur module respectif. RÃ©fÃ©rez vous aux sections de chacune des sections de ce manuel pour des instructions plus dÃ©taillÃ©es sur la maniÃ¨re de procÃ©der. Une fois que vous avez ajoutÃ© l'objet Ã  la liste des objets disponibles, vous pouvez lâ€™"InsÃ©rer" au tableau de bord.</para>
     <note>
-      <para>Les tableaux de bord sont configurés individuellement pour chaque utilisateur. </para>
+      <para>Les tableaux de bord sont configurÃ©s individuellement pour chaque utilisateur. </para>
     </note>
   </section>
   <section>
     <title id="dashboard_messages">Messages et commentaires</title>
-    <para>DHIS2 dispose de certaines fonctions pour faciliter la communication entre les différents utilisateurs et groupes d'utilisateurs. Ce type de communication est important pour faciliter une rétroaction sur la qualité des données, la rapidité des soumissions, ou tout simplement pour répondre à une question qu’un utilisateur particulier pourrait avoir. </para>
-    <para>Les messages de rétroaction sont envoyés à un groupe particulier d'utilisateurs et peuvent être envoyées par tous les utilisateurs qui ont accès au module de tableau de bord. Pour permettre la réception de messages de rétroaction envoyés depuis le tableau de bord, vous devez définir le paramètre "Destinataire des messages de rétroaction", qui est accessible à partir de Maintenance -> Page des paramètres du système. Assurez-vous d’avoir défini un groupe d'utilisateurs (par exemple, "Destinataires des commentaires") avec l'ensemble des utilisateurs qui recevront des messages de rétroaction. Reportez-vous à la section sur les "groupes d'utilisateurs" de ce manuel pour plus d'informations sur la façon de le faire. Une fois que le groupe d'utilisateurs "Destinataires des commentaires" a été défini, à chaque fois qu'un message de rétroaction sera envoyé, il apparaîtra comme un message dans chacun des destinataires des commentaires dans DHIS 2. Notez que les messages ne seront pas envoyés aux adresses e-mail des utilisateurs, mais ne s'afficheront que dans l'application DHIS2.</para>
+    <para>DHIS2 dispose de certaines fonctions pour faciliter la communication entre les diffÃ©rents utilisateurs et groupes d'utilisateurs. Ce type de communication est important pour faciliter une rÃ©troaction sur la qualitÃ© des donnÃ©es, la rapiditÃ© des soumissions, ou tout simplement pour rÃ©pondre Ã  une question quâ€™un utilisateur particulier pourrait avoir. </para>
+    <para>Les messages de rÃ©troaction sont envoyÃ©s Ã  un groupe particulier d'utilisateurs et peuvent Ãªtre envoyÃ©es par tous les utilisateurs qui ont accÃ¨s au module de tableau de bord. Pour permettre la rÃ©ception de messages de rÃ©troaction envoyÃ©s depuis le tableau de bord, vous devez dÃ©finir le paramÃ¨tre "Destinataire des messages de rÃ©troaction", qui est accessible Ã  partir de Maintenance -> Page des paramÃ¨tres du systÃ¨me. Assurez-vous dâ€™avoir dÃ©fini un groupe d'utilisateurs (par exemple, "Destinataires des commentaires") avec l'ensemble des utilisateurs qui recevront des messages de rÃ©troaction. Reportez-vous Ã  la section sur les "groupes d'utilisateurs" de ce manuel pour plus d'informations sur la faÃ§on de le faire. Une fois que le groupe d'utilisateurs "Destinataires des commentaires" a Ã©tÃ© dÃ©fini, Ã  chaque fois qu'un message de rÃ©troaction sera envoyÃ©, il apparaÃ®tra comme un message dans chacun des destinataires des commentaires dans DHIS 2. Notez que les messages ne seront pas envoyÃ©s aux adresses e-mail des utilisateurs, mais ne s'afficheront que dans l'application DHIS2.</para>
 
-    <para>Pour envoyer un nouveau message de rétroaction, il suffit de cliquer sur "Ecrivez un commentaire" du tableau de bord. Saisissez un sujet et le corps de votre message dans les zones de texte respectives. Le message sera alors listé dans la file d'attente de tous les utilisateurs pour lesquels le message est destiné.</para>
+    <para>Pour envoyer un nouveau message de rÃ©troaction, il suffit de cliquer sur "Ecrivez un commentaire" du tableau de bord. Saisissez un sujet et le corps de votre message dans les zones de texte respectives. Le message sera alors listÃ© dans la file d'attente de tous les utilisateurs pour lesquels le message est destinÃ©.</para>
 
-    <para>Les messages peuvent être envoyés aux groupes spécifiques d'utilisateurs qui ont été assignés à certaines unités d'organisation. Pour écrire un nouveau message, cliquez simplement sur "Messages" dans l'écran du tableau de bord puis sur le bouton "Ecrire un message"… Sélectionnez une unité d'organisation (ou groupe d'unités d'organisation) à partir de l’arbre des unités d’organisation du "Destinataire". Saisissez un sujet et le corps de votre message dans les zones de texte respectives. Pour envoyer le message, appuyez sur le bouton "Envoyer". Vous pouvez supprimer le message en appuyant sur le bouton "Supprimer" comme dans la capture d'écran ci-dessous.</para>
+    <para>Les messages peuvent Ãªtre envoyÃ©s aux groupes spÃ©cifiques d'utilisateurs qui ont Ã©tÃ© assignÃ©s Ã  certaines unitÃ©s d'organisation. Pour Ã©crire un nouveau message, cliquez simplement sur "Messages" dans l'Ã©cran du tableau de bord puis sur le bouton "Ecrire un message"â€¦ SÃ©lectionnez une unitÃ© d'organisation (ou groupe d'unitÃ©s d'organisation) Ã  partir de lâ€™arbre des unitÃ©s dâ€™organisation du "Destinataire". Saisissez un sujet et le corps de votre message dans les zones de texte respectives. Pour envoyer le message, appuyez sur le bouton "Envoyer". Vous pouvez supprimer le message en appuyant sur le bouton "Supprimer" comme dans la capture d'Ã©cran ci-dessous.</para>
 
     <screenshot>
       <mediaobject>
@@ -38,7 +38,7 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>Pour lire les messages qui vous ont été envoyés, cliquez sur "Messages" à partir du "tableau de bord". Vos messages seront affichés sous forme de liste. Cliquez sur le message désiré pour lire tous les messages de cette conversation particulière.</para>
+    <para>Pour lire les messages qui vous ont Ã©tÃ© envoyÃ©s, cliquez sur "Messages" Ã  partir du "tableau de bord". Vos messages seront affichÃ©s sous forme de liste. Cliquez sur le message dÃ©sirÃ© pour lire tous les messages de cette conversation particuliÃ¨re.</para>
     <screenshot>
       <mediaobject>
         <imageobject>

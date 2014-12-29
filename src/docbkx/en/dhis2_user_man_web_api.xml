@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd"[]>
 <chapter>
   <title>Web API</title>
   <para>The Web API is a component which makes it possible for external systems  to access and manipulate  data stored in an instance of DHIS 2. More precisely, it provides a   programmatic interface to a wide range of exposed data and service methods for applications such as third-party software clients, web portals and  internal DHIS 2 modules.</para>
@@ -39,7 +39,8 @@
     <title>Date and period format</title>
     <para>Throughout the Web API we refer to dates and periods. The date format  is:</para>
     <screen>yyyy-MM-dd</screen>
-    <para>For instance, if you want to express March 20, 2014 you must use <emphasis role="italic">2014-03-20</emphasis>.</para>
+    <para>For instance, if you want to express March 20, 2014 you must use <emphasis role="italic"
+        >2014-03-20</emphasis>.</para>
     <para>The period format is described in the following table. </para>
     <table>
       <title>Period format</title>
@@ -331,7 +332,8 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <section>
       <title>Examples</title>
       <para>
-        <emphasis role="bold">Example: Get a filtered set of meta-data that was updated since August 1, 2014</emphasis>
+        <emphasis role="bold">Example: Get a filtered set of meta-data that was updated since August
+          1, 2014</emphasis>
       </para>
       <para>As described in the last section, there is a number of options you can apply to
           <emphasis role="italic">/api/metaData</emphasis> to give you a filtered view. The use-case
@@ -339,7 +341,8 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
         units. We will be using <emphasis role="italic">cURL</emphasis> as the HTTP
         client.<screen>curl -H &quot;Accept: application/xml&quot; -u admin:district
   &quot;https://apps.dhis2.org/demo/api/metaData?assumeTrue=false&amp;organisationUnits=true&amp;lastUpdated=2014-08-01&quot;</screen></para>
-      <para><emphasis role="bold">Example: Get meta-data that was updated since February 2014</emphasis></para>
+      <para><emphasis role="bold">Example: Get meta-data that was updated since February
+          2014</emphasis></para>
       <para>This example will just the default <emphasis role="italic">assumeTrue</emphasis>
         setting, along with getting the last updates from February 2014. This means that every
         single type that has been updated will be
@@ -530,7 +533,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
           <row>
             <entry>nameable</entry>
             <entry>Includes id, name, shortName, code, description, created and lastUpdated fields</entry>
-          </row>
+          </row>          
           <row>
             <entry>persisted</entry>
             <entry>Returns all persisted property on a object, does not take into consideration if the object is the owner of the relation.</entry>
@@ -673,7 +676,8 @@ http://server/api/constants/ID</screen></para>
       <para>To add a category option with identifier IDB to a category with identifier IDA you can
         do a POST request:<screen>POST /api/categories/IDA/categoryOptions/IDB</screen></para>
       <para>Please be aware that the collection object must be the owner of that relationship. This
-        can be checked at the <emphasis role="italic">/api/schemas</emphasis> or <emphasis role="italic">/api/schemas/type</emphasis> endpoint.</para>
+        can be checked at the <emphasis role="italic">/api/schemas</emphasis> or <emphasis
+          role="italic">/api/schemas/type</emphasis> endpoint.</para>
     </section>
   </section>
   <section>
@@ -682,11 +686,14 @@ http://server/api/constants/ID</screen></para>
     <section>
       <title>Sending data values</title>
       <para>A common use-case for system integration is the need to send a set of data values from a
-        third-party system into DHIS. In this example we will use the DHIS 2 demo on <ulink url="http://apps.dhis2.org/demo"/> as basis and we recommend that you follow the provided
-        links with a web browser while reading (log in with <emphasis role="italic">admin</emphasis><emphasis role="italic">/district</emphasis> as username/password). We
+        third-party system into DHIS. In this example we will use the DHIS 2 demo on <ulink
+          url="http://apps.dhis2.org/demo"/> as basis and we recommend that you follow the provided
+        links with a web browser while reading (log in with <emphasis role="italic"
+          >admin</emphasis><emphasis role="italic">/district</emphasis> as username/password). We
         assume that we have collected case-based data using a simple software client running on
         mobile phones for the <emphasis role="italic">Mortality &lt;5 years</emphasis> data set in
-        the community of <emphasis role="italic">Ngelehun CHC</emphasis> (in <emphasis role="italic">Badjia</emphasis> chiefdom, <emphasis role="italic">Bo</emphasis> district) for the month
+        the community of <emphasis role="italic">Ngelehun CHC</emphasis> (in <emphasis role="italic"
+          >Badjia</emphasis> chiefdom, <emphasis role="italic">Bo</emphasis> district) for the month
         of January 2014. We have now aggregated our data into a statistical report and want to send
         that data to the national DHIS 2 instance.</para>
       <para>The resource which is most appropriate for our purpose of sending data values is the
@@ -715,10 +722,10 @@ http://server/api/constants/ID</screen></para>
   ]
 }</screen></para>
       <para>CSV is supported in this
-        format:<screen>&quot;dataelement&quot;,&quot;period&quot;,&quot;orgunit&quot;,&quot;categoryoptioncombo&quot;,&quot;attributeoptioncombo&quot;,&quot;value&quot;
-&quot;dataElementID&quot;,&quot;period&quot;,&quot;orgUnitID&quot;,&quot;cocID&quot;,&quot;aocID&quot;,&quot;1&quot;
-&quot;dataElementID&quot;,&quot;period&quot;,&quot;orgUnitID&quot;,&quot;cocID&quot;,&quot;aocID&quot;,&quot;2&quot;
-&quot;dataElementID&quot;,&quot;period&quot;,&quot;orgUnitID&quot;,&quot;cocID&quot;,&quot;aocID&quot;,&quot;3&quot;</screen></para>
+        format:<screen>"dataelement","period","orgunit","categoryoptioncombo","attributeoptioncombo","value"
+"dataElementID","period","orgUnitID","cocID","aocID","1"
+"dataElementID","period","orgUnitID","cocID","aocID","2"
+"dataElementID","period","orgUnitID","cocID","aocID","3"</screen></para>
       <para><emphasis role="italic">Note:</emphasis> Please refer to the date and period section above
         for time formats.</para>
       <para>From the example we can see that we need to identify the period, the data set, the org
@@ -787,10 +794,10 @@ http://server/api/constants/ID</screen></para>
   ]
 }</screen></para>
       <para>In CSV
-        format:<screen>&quot;dataelement&quot;,&quot;period&quot;,&quot;orgunit&quot;,&quot;categoryoptioncombo&quot;,&quot;attributeoptioncombo&quot;,&quot;value&quot;
-&quot;f7n9E0hX8qk&quot;,&quot;201401&quot;,&quot;DiszpKrYNg8&quot;,&quot;bRowv6yZOF2&quot;,&quot;bRowv6yZOF2&quot;,&quot;1&quot;
-&quot;Ix2HsbDMLea&quot;,&quot;201401&quot;,&quot;DiszpKrYNg8&quot;,&quot;bRowv6yZOF2&quot;,&quot;bRowv6yZOF2&quot;,&quot;2&quot;
-&quot;eY5ehpbEsB7&quot;,&quot;201401&quot;,&quot;DiszpKrYNg8&quot;,&quot;bRowv6yZOF2&quot;,&quot;bRowv6yZOF2&quot;,&quot;3&quot;</screen></para>
+        format:<screen>"dataelement","period","orgunit","categoryoptioncombo","attributeoptioncombo","value"
+"f7n9E0hX8qk","201401","DiszpKrYNg8","bRowv6yZOF2","bRowv6yZOF2","1"
+"Ix2HsbDMLea","201401","DiszpKrYNg8","bRowv6yZOF2","bRowv6yZOF2","2"
+"eY5ehpbEsB7","201401","DiszpKrYNg8","bRowv6yZOF2","bRowv6yZOF2","3"</screen></para>
       <para>We test by using cURL to send the data values in XML format:</para>
       <screen>curl -d @datavalueset.xml &quot;https://apps.dhis2.org/demo/api/dataValueSets&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</screen>
       <para>Note that when using CSV format you must use the binary data option to preserve the
@@ -827,7 +834,8 @@ http://server/api/constants/ID</screen></para>
             <row>
               <entry>idScheme</entry>
               <entry>id | name | code</entry>
-              <entry>Property of both data element and org unit object to use to map the data values. Overrides the previous parameters.</entry>
+              <entry>Property of both data element and org unit object to use to map the data
+                values. Overrides the previous parameters.</entry>
             </row>
             <row>
               <entry>dryRun</entry>
@@ -1006,7 +1014,8 @@ http://server/api/constants/ID</screen></para>
         in <emphasis role="italic">XML</emphasis>, <emphasis role="italic">JSON</emphasis> and
           <emphasis role="italic">CSV</emphasis> format. Since we want to read data we will use the
           <emphasis role="italic">GET</emphasis> HTTP verb. We will also specify that we are
-        interested in the XML resource representation by including an <emphasis role="italic">Accept</emphasis> HTTP header with our request. The following query parameters are
+        interested in the XML resource representation by including an <emphasis role="italic"
+          >Accept</emphasis> HTTP header with our request. The following query parameters are
         required:</para>
       <table frame="all">
         <title>Data value set query parameters</title>
@@ -1088,7 +1097,10 @@ Content-Type: application/xml
     <section>
       <title>Reading large bulks of data values</title>
       <para>This section explains how to retrieve large bulks of data values which not necessarily
-        belong in a single data value set. Data values can be retrieved in <emphasis role="italic">XML</emphasis>, <emphasis role="italic">JSON</emphasis> and <emphasis role="italic">CSV</emphasis> format. We will interact with the <emphasis role="italic">dataValueSets</emphasis> resource. The query parameters to use are these:</para>
+        belong in a single data value set. Data values can be retrieved in <emphasis role="italic"
+          >XML</emphasis>, <emphasis role="italic">JSON</emphasis> and <emphasis role="italic"
+          >CSV</emphasis> format. We will interact with the <emphasis role="italic"
+          >dataValueSets</emphasis> resource. The query parameters to use are these:</para>
       <table frame="all">
         <title>Data value set query parameters</title>
         <tgroup cols="2">
@@ -1119,7 +1131,8 @@ Content-Type: application/xml
             </row>
             <row>
               <entry>children</entry>
-              <entry>Whether to include the children in the hierarchy of the organisation units</entry>
+              <entry>Whether to include the children in the hierarchy of the organisation
+                units</entry>
             </row>
           </tbody>
         </tgroup>
@@ -1128,8 +1141,13 @@ Content-Type: application/xml
         sets and organisation units. An example request for XML format looks like this:</para>
       <screen>curl &quot;https://apps.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&amp;dataSet=BfMAe6Itzgt&amp;startDate=2013-01-01&amp;endDate=2013-01-31&amp;
 orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Accept:application/xml&quot; -u admin:district -v</screen>
-      <para>You can get the response in <emphasis role="italic">xml</emphasis>, <emphasis role="italic">json</emphasis> and <emphasis role="italic">csv</emphasis> format. You can
-        indicate which response format you prefer through the <emphasis role="italic">Accept</emphasis> HTTP header like in the example above. For XML you use <emphasis role="italic">application/xml</emphasis>, for JSON you use <emphasis role="italic">application/json</emphasis> and for CSV you use <emphasis role="italic">application/csv</emphasis>.</para>
+      <para>You can get the response in <emphasis role="italic">xml</emphasis>, <emphasis
+          role="italic">json</emphasis> and <emphasis role="italic">csv</emphasis> format. You can
+        indicate which response format you prefer through the <emphasis role="italic"
+          >Accept</emphasis> HTTP header like in the example above. For XML you use <emphasis
+          role="italic">application/xml</emphasis>, for JSON you use <emphasis role="italic"
+          >application/json</emphasis> and for CSV you use <emphasis role="italic"
+          >application/csv</emphasis>.</para>
     </section>
   </section>
   <section>
@@ -1333,7 +1351,8 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Acc
       <para>In addition to XML and JSON for event import/export, in DHIS 2.17 we introduced support
         for the CSV format. Support for this format builds on what was described in the last
         section, so here we will only write about what the CSV specific parts are.</para>
-      <para>To use the CSV format you must either use the <emphasis role="italic">/api/events.csv</emphasis> endpoint, or add <emphasis role="italic">content-type: text/csv</emphasis> for import, and <emphasis role="italic">accept: text/csv</emphasis>
+      <para>To use the CSV format you must either use the <emphasis role="italic">/api/events.csv</emphasis> endpoint, or add <emphasis role="italic">content-type:
+          text/csv</emphasis> for import, and <emphasis role="italic">accept: text/csv</emphasis>
         for export when using the <emphasis role="italic">/api/events</emphasis> endpoint.</para>
       <para>The order of column in the CSV which are used for both export and import is as
         follows:</para>
@@ -1360,7 +1379,8 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Acc
                 <entry>2</entry>
                 <entry>status</entry>
                 <entry>enum</entry>
-                <entry>Status of event, can be ACTIVE | COMPLETED | VISITED | FUTURE_VISIT | LATE_VISIT | SKIPPED</entry>
+                <entry>Status of event, can be ACTIVE | COMPLETED | VISITED | FUTURE_VISIT |
+                  LATE_VISIT | SKIPPED</entry>
               </row>
               <row>
                 <entry>3</entry>
@@ -1612,88 +1632,90 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
     <section>
       <title>Sending complete data set registrations</title>
       <para>This section explains how to send complete data set registrations. To send registrations
-        you can issue a POST request to the <emphasis role="italic">completeDataSetRegistrations</emphasis> resource. Completing a data set is per data set,
+        you can issue a POST request to the <emphasis role="italic"
+          >completeDataSetRegistrations</emphasis> resource. Completing a data set is per data set,
         period and organisation unit. You can optionally specify attribute option combo. You must
         specify the date of when the data set was completed. The format is as
-        follows:<screen>&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;
-&lt;completeDataSetRegistrations xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
-    &lt;completeDataSetRegistration&gt;
-        &lt;dataSet id=&quot;pBOMPrpg1QX&quot; /&gt;
-        &lt;period id=&quot;201401&quot; /&gt;
-        &lt;attributeOptionCombo id=&quot;bRowv6yZOF2&quot; /&gt;
-        &lt;date&gt;2014-01-01&lt;/date&gt;
-        &lt;organisationUnit id=&quot;DiszpKrYNg8&quot; /&gt;
-    &lt;/completeDataSetRegistration&gt;
-    &lt;completeDataSetRegistration&gt;
-        &lt;dataSet id=&quot;pBOMPrpg1QX&quot; /&gt;
-        &lt;period id=&quot;201401&quot; /&gt;
-        &lt;attributeOptionCombo id=&quot;bRowv6yZOF2&quot; /&gt;
-        &lt;date&gt;2014-01-01&lt;/date&gt;
-        &lt;organisationUnit id=&quot;g8upMTyEZGZ&quot; /&gt;
-    &lt;/completeDataSetRegistration&gt;
-    &lt;completeDataSetRegistration&gt;
-        &lt;dataSet id=&quot;pBOMPrpg1QX&quot; /&gt;
-        &lt;period id=&quot;201401&quot; /&gt;
-        &lt;attributeOptionCombo id=&quot;bRowv6yZOF2&quot; /&gt;
-        &lt;date&gt;2010-01-01&lt;/date&gt;
-        &lt;organisationUnit id=&quot;jNb63DIHuwU&quot; /&gt;
-    &lt;/completeDataSetRegistration&gt;
-&lt;/completeDataSetRegistrations&gt;</screen></para>
+        follows:<screen>&lt;?xml version='1.0' encoding='UTF-8'?>
+&lt;completeDataSetRegistrations xmlns="http://dhis2.org/schema/dxf/2.0">
+    &lt;completeDataSetRegistration>
+        &lt;dataSet id="pBOMPrpg1QX" />
+        &lt;period id="201401" />
+        &lt;attributeOptionCombo id="bRowv6yZOF2" />
+        &lt;date>2014-01-01&lt;/date>
+        &lt;organisationUnit id="DiszpKrYNg8" />
+    &lt;/completeDataSetRegistration>
+    &lt;completeDataSetRegistration>
+        &lt;dataSet id="pBOMPrpg1QX" />
+        &lt;period id="201401" />
+        &lt;attributeOptionCombo id="bRowv6yZOF2" />
+        &lt;date>2014-01-01&lt;/date>
+        &lt;organisationUnit id="g8upMTyEZGZ" />
+    &lt;/completeDataSetRegistration>
+    &lt;completeDataSetRegistration>
+        &lt;dataSet id="pBOMPrpg1QX" />
+        &lt;period id="201401" />
+        &lt;attributeOptionCombo id="bRowv6yZOF2" />
+        &lt;date>2010-01-01&lt;/date>
+        &lt;organisationUnit id="jNb63DIHuwU" />
+    &lt;/completeDataSetRegistration>
+&lt;/completeDataSetRegistrations></screen></para>
       <para>To test the resource you can issue a request using
-        curl:<screen>curl -d @completereg.xml &quot;https://apps.dhis2.org/demo/api/completeDataSetRegistrations&quot; -H &quot;Content-Type:application/xml&quot; -u admin:district -v</screen></para>
+        curl:<screen>curl -d @completereg.xml "https://apps.dhis2.org/demo/api/completeDataSetRegistrations" -H "Content-Type:application/xml" -u admin:district -v</screen></para>
     </section>
-    <section>
-      <title>Reading complete data set registrations</title>
-      <para>This section explains how to retrieve data set completeness registrations. We will be
+  <section>
+    <title>Reading complete data set registrations</title>
+    <para>This section explains how to retrieve data set completeness registrations. We will be
         using the <emphasis role="italic">completeDataSetRegistrations</emphasis> resource. The
         query parameters to use are these:</para>
-      <table frame="all">
-        <title>Data value set query parameters</title>
-        <tgroup cols="2">
-          <colspec colnum="1" colname="c1" colwidth="95pt"/>
-          <colspec colnum="2" colname="c2" colwidth="425pt"/>
-          <thead>
-            <row>
-              <entry>Parameter</entry>
-              <entry>Description</entry>
-            </row>
-          </thead>
-          <tbody>
-            <row>
-              <entry>dataSet</entry>
-              <entry>Data set identifier, can be specified multiple times</entry>
-            </row>
-            <row>
-              <entry>period</entry>
-              <entry>PeriodType</entry>
-            </row>
-            <row>
-              <entry>startDate</entry>
-              <entry>Start date for the time span of the values to export</entry>
-            </row>
-            <row>
-              <entry>endDate</entry>
-              <entry>End date for the time span of the values to export</entry>
-            </row>
-            <row>
-              <entry>orgUnit</entry>
-              <entry>Organisation unit identifier, can be specified multiple times</entry>
-            </row>
-            <row>
-              <entry>children</entry>
-              <entry>Whether to include the children in the hierarchy of the organisation units</entry>
-            </row>
-          </tbody>
-        </tgroup>
-      </table>
-      <para>The dataSet and orgUnit parameters can be repeated in order to include multiple data sets
+    <table frame="all">
+      <title>Data value set query parameters</title>
+      <tgroup cols="2">
+        <colspec colnum="1" colname="c1" colwidth="95pt"/>
+        <colspec colnum="2" colname="c2" colwidth="425pt"/>
+        <thead>
+          <row>
+            <entry>Parameter</entry>
+            <entry>Description</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>dataSet</entry>
+            <entry>Data set identifier, can be specified multiple times</entry>
+          </row>
+          <row>
+            <entry>period</entry>
+            <entry>PeriodType</entry>
+          </row>
+          <row>
+            <entry>startDate</entry>
+            <entry>Start date for the time span of the values to export</entry>
+          </row>
+          <row>
+            <entry>endDate</entry>
+            <entry>End date for the time span of the values to export</entry>
+          </row>
+          <row>
+            <entry>orgUnit</entry>
+            <entry>Organisation unit identifier, can be specified multiple times</entry>
+          </row>
+          <row>
+            <entry>children</entry>
+            <entry>Whether to include the children in the hierarchy of the organisation
+              units</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>The dataSet and orgUnit parameters can be repeated in order to include multiple data sets
         and organisation units. An example request looks like
         this:<screen>curl &quot;https://apps.dhis2.org/demo/api/completeDataSetRegistrations?dataSet=pBOMPrpg1QX&amp;dataSet=pBOMPrpg1QX&amp;startDate=2014-01-01&amp;endDate=2014-01-31
 &amp;orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Accept:application/xml&quot; -u admin:district -v</screen></para>
-      <para>You can get the response in <emphasis role="italic">xml</emphasis> and <emphasis role="italic">json</emphasis> format. You can indicate which response format you prefer
+    <para>You can get the response in <emphasis role="italic">xml</emphasis> and <emphasis role="italic">json</emphasis> format. You can indicate which response format you prefer
       through the <emphasis role="italic">Accept</emphasis> HTTP header like in the example above.
       For xml you use <emphasis role="italic">application/xml</emphasis>; for json you use <emphasis role="italic">application/json</emphasis>.</para>
-    </section>
+  </section>
   </section>
   <section>
     <title>Completing and un-completing data sets</title>
@@ -1982,7 +2004,7 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
     <title>Messages</title>
     <para>DHIS 2 features a mechanism for sending messages for purposes such as user feedback,
       notifications and general information to users. Messages are delivered to the DHIS 2 message
-      inbox but can also be sent to the user&apos;s email addresses and mobile phones as SMS. In this
+      inbox but can also be sent to the user's email addresses and mobile phones as SMS. In this
       example we will see how we can utilize the Web API to send, read and manage messages. We will
       pretend to be the <emphasis role="italic">DHIS Administrator</emphasis> user and send a
       message to the <emphasis role="italic">Mobile</emphasis> user. We will then pretend to be the
@@ -2026,7 +2048,8 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
 &lt;/message&gt;</screen></para>
       <para>Since we want to send a message to our friend the mobile user we need to look up her
         identifier. We do so by going to the Web API entry point and follow the link to the
-          <emphasis role="italic">users</emphasis> resource at <ulink url="http://apps.dhis2.org/demo/api/users"/>. We continue by following link to the mobile
+          <emphasis role="italic">users</emphasis> resource at <ulink
+          url="http://apps.dhis2.org/demo/api/users"/>. We continue by following link to the mobile
         user at <ulink url="http://apps.dhis2.org/demo/api/users/PhzytPW3g2J"/> where we learn that
         her identifier is <emphasis role="italic">PhzytPW3g2J</emphasis>. We are now ready to put
         our XML message together to form a message where we want to ask the mobile user whether she
@@ -2068,8 +2091,10 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
       <para>If all is well we receive a <emphasis role="italic">201 Created</emphasis> HTTP status code. Also note that we receive a <emphasis role="italic">Location </emphasis>HTTP header which value  informs us of the URL of the newly  created message conversation resource - this can be used by a consumer to perform further action.</para>
       <para>We will now pretend to be the mobile user and read te message which was just sent by
       dispatching a GET request to the <emphasis role="italic">messageConversations</emphasis>
-      resource. We supply an <emphasis role="italic">Accept</emphasis> header with <emphasis role="italic">application/xml</emphasis> as the value to indicate that we are interested in
-      the XML resource representation and we authenticate as the <emphasis role="italic">mobile</emphasis> user:</para>
+      resource. We supply an <emphasis role="italic">Accept</emphasis> header with <emphasis
+        role="italic">application/xml</emphasis> as the value to indicate that we are interested in
+      the XML resource representation and we authenticate as the <emphasis role="italic"
+        >mobile</emphasis> user:</para>
       <screen>curl &quot;https://apps.dhis2.org/demo/api/messageConversations&quot; -H &quot;Accept:application/xml&quot; -u mobile:district -X GET -v</screen>
       <para>In response we get the following XML:</para>
       <screen>&lt;messageConversations xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;
@@ -2085,33 +2110,41 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
     </section>
     <section>
       <title>Managing messages</title>
-      <para><emphasis>Note: the Web-API calls discussed in this section were introduced in DHIS 2.17</emphasis></para>
+      <para><emphasis>Note: the Web-API calls discussed in this section were introduced in DHIS
+          2.17</emphasis></para>
       <para>As users receive and send messages, conversations will start to pile up in their
         inboxes, eventually becoming laborious to track. We will now have a look at managing a users
         message inbox by removing and marking conversations through the Web-API. We will do so by
-        performing some maintenance in the inbox of the <emphasis role="italic">DHIS Administrator</emphasis> user.</para>
-      <para>First, let&apos;s have a look at removing a few messages from the inbox. Be sure to note that
+        performing some maintenance in the inbox of the <emphasis role="italic">DHIS
+          Administrator</emphasis> user.</para>
+      <para>First, let's have a look at removing a few messages from the inbox. Be sure to note that
         all removal operations described here only remove the relation between a user and a message
         conversation. In practical terms this means that we are not deleting the messages themselves
         (or any content for that matter) but are simply removing the message thread from the user
-        such that it is not longer listed in the <emphasis role="italic">/api/messageConversations</emphasis> resource.</para>
-      <para>To remove a message conversation from a users inbox we need to issue a <emphasis role="italic">DELETE</emphasis> request to the resource identified by the id of the
+        such that it is not longer listed in the <emphasis role="italic"
+          >/api/messageConversations</emphasis> resource.</para>
+      <para>To remove a message conversation from a users inbox we need to issue a <emphasis
+          role="italic">DELETE</emphasis> request to the resource identified by the id of the
         message conversation and the participating user. For example, to remove the user with id
-          <emphasis role="italic">xE7jOejl9FI</emphasis> from the conversation with id <emphasis role="italic">jMe43trzrdi</emphasis>:<screen>curl https://apps.dhis2.org/demo/api/messageConversations/jMe43</screen></para>
-      <para>If the request was successful the server will reply with a <emphasis role="italic">200 OK</emphasis>. The response body contains an XML or JSON object (according to the accept
+          <emphasis role="italic">xE7jOejl9FI</emphasis> from the conversation with id <emphasis
+          role="italic"
+        >jMe43trzrdi</emphasis>:<screen>curl https://apps.dhis2.org/demo/api/messageConversations/jMe43</screen></para>
+      <para>If the request was successful the server will reply with a <emphasis role="italic">200
+          OK</emphasis>. The response body contains an XML or JSON object (according to the accept
         header of the request) containing the id of the removed
-        user.<screen>{ &quot;removed&quot; : [&quot;xE7jOejl9FI&quot;] }</screen></para>
+        user.<screen>{ "removed" : ["xE7jOejl9FI"] }</screen></para>
       <para>On failure the returned object will contain a message payload which describes the
-        error.<screen>{ &quot;message&quot; : &quot;No user with uid: dMV6G0tPAEa&quot; }</screen></para>
+        error.<screen>{ "message" : "No user with uid: dMV6G0tPAEa" }</screen></para>
       <para>The observant reader will already have noticed that the object returned on success in
         our example is actually a list of ids (containing a single entry). This is due to the
-        endpoint also supporting batch removals. The request is made to the same <emphasis role="italic">messageConversations</emphasis> resource but follows slightly different
+        endpoint also supporting batch removals. The request is made to the same <emphasis
+          role="italic">messageConversations</emphasis> resource but follows slightly different
         semantics. For batch operations the conversation ids are given as query string parameters.
         The following example removes two separate message conversations for the current
-        user:<screen>curl &quot;https://apps.dhis2.org/demo/api/messageConversations?mc=WzMRrCosqc0&amp;mc=lxCjiigqrJm&quot; -X DELETE -u admin:district -v</screen></para>
+        user:<screen>curl "https://apps.dhis2.org/demo/api/messageConversations?mc=WzMRrCosqc0&amp;mc=lxCjiigqrJm" -X DELETE -u admin:district -v</screen></para>
       <para>If you have sufficient permissions, conversations can be removed on behalf of another
         user by giving an optional user id
-        parameter.<screen>curl &quot;https://apps.dhis2.org/demo/api/messageConversations?mc=WzMRrCosqc0&amp;mc=lxCjiigqrJm&amp;user=PhzytPW3g2J&quot; -X DELETE -u admin:district -v</screen></para>
+        parameter.<screen>curl "https://apps.dhis2.org/demo/api/messageConversations?mc=WzMRrCosqc0&amp;mc=lxCjiigqrJm&amp;user=PhzytPW3g2J" -X DELETE -u admin:district -v</screen></para>
       <para>As indicated, batch removals will return the same message format as for single
         operations. The list of removed objects will reflect successful removals performed.
         Partially errorenous requests (i.e. non-existing id) will therefore not cancel the entire
@@ -2122,14 +2155,16 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
         opens it for the first time. However, users might want to manage the read or unread status
         of their messages in order to keep track of certains conversations.</para>
       <para>Marking messages read or unread follows similar semantics as batch removals, and also
-        supports batch operations. To mark messages as read we issue a <emphasis role="italic">POST</emphasis> to the <emphasis role="italic">messageConversations/read</emphasis>
+        supports batch operations. To mark messages as read we issue a <emphasis role="italic"
+          >POST</emphasis> to the <emphasis role="italic">messageConversations/read</emphasis>
         resource with a request body containing one or more message ids. To mark messages as unread
-        we issue an identical request to the <emphasis role="italic">messageConversations/unread</emphasis> resource. As is the case for removals, an optional
+        we issue an identical request to the <emphasis role="italic"
+          >messageConversations/unread</emphasis> resource. As is the case for removals, an optional
           <emphasis role="italic">user</emphasis> request parameter can be given.</para>
-      <para>Let&apos;s mark a couple of messages as read by the current
-        user:<screen>curl &quot;https://apps.dhis2.org/dev/api/messageConversations/read&quot; -d &apos;[&quot;ZrKML5WiyFm&quot;,&quot;Gc03smoTm6q&quot;]&apos;  -X POST -H &quot;Content-Type: application/json&quot; -u admin:district -v</screen></para>
+      <para>Let's mark a couple of messages as read by the current
+        user:<screen>curl "https://apps.dhis2.org/dev/api/messageConversations/read" -d '["ZrKML5WiyFm","Gc03smoTm6q"]'  -X POST -H "Content-Type: application/json" -u admin:district -v</screen></para>
       <para>The response is a <emphasis role="italic">200 OK</emphasis> with the following JSON
-        body:<screen>{ &quot;markedRead&quot; : [ &quot;ZrKML5WiyFm&quot;, &quot;Gc03smoTm6q&quot; ] }</screen></para>
+        body:<screen>{ "markedRead" : [ "ZrKML5WiyFm", "Gc03smoTm6q" ] }</screen></para>
     </section>
   </section>
   <section>
@@ -3255,45 +3290,47 @@ ORDER BY oul.level, par.name, ou.name</screen>
         this:</para>
       <screen>api/dashboards/vQFhmLJU5sK.json</screen>
       <para>A dashboard contains information like name and creation date and an array of dashboard
-        items. The response in JSON format will look similar to this response (certain information has been removed for the sake of brevity).<screen>{
-&quot;lastUpdated&quot; : &quot;2013-10-15T18:17:34.084+0000&quot;,
-&quot;id&quot; : &quot;vQFhmLJU5sK&quot;,
-&quot;created&quot; : &quot;2013-09-08T20:55:58.060+0000&quot;,
-&quot;name&quot; : &quot;Mother and Child Health&quot;,
-&quot;href&quot; : &quot;https://apps.dhis2.org/demo/api/dashboards/vQFhmLJU5sK&quot;,
-&quot;publicAccess&quot; : &quot;--------&quot;,
-&quot;externalAccess&quot; : false,
-&quot;itemCount&quot; : 17,
-&quot;displayName&quot; : &quot;Mother and Child Health&quot;,
-&quot;access&quot; : {
-&quot;update&quot; : true,
-&quot;externalize&quot; : true,
-&quot;delete&quot; : true,
-&quot;write&quot; : true,
-&quot;read&quot; : true,
-&quot;manage&quot; : true
-},
-&quot;user&quot; : {
-&quot;id&quot; : &quot;xE7jOejl9FI&quot;,
-&quot;name&quot; : &quot;John Traore&quot;,
-&quot;created&quot; : &quot;2013-04-18T15:15:08.407+0000&quot;,
-&quot;lastUpdated&quot; : &quot;2014-12-05T03:50:04.148+0000&quot;,
-&quot;href&quot; : &quot;https://apps.dhis2.org/demo/api/users/xE7jOejl9FI&quot;
-},
-&quot;dashboardItems&quot; : [{
-&quot;id&quot; : &quot;bu1IAnPFa9H&quot;,
-&quot;created&quot; : &quot;2013-09-09T12:12:58.095+0000&quot;,
-&quot;lastUpdated&quot; : &quot;2013-09-09T12:12:58.095+0000&quot;
-}, {
-&quot;id&quot; : &quot;ppFEJmWWDa1&quot;,
-&quot;created&quot; : &quot;2013-09-10T13:57:02.480+0000&quot;,
-&quot;lastUpdated&quot; : &quot;2013-09-10T13:57:02.480+0000&quot;
-}
-],
-&quot;userGroupAccesses&quot; : []
+        items. The response in JSON format will look something like this (access and user attributes
+        omitted for
+        brevity):<screen>{
+  &quot;name&quot;: &quot;Antenatal Care&quot;,
+  &quot;created&quot;: &quot;2013-09-08T20:55:58.060+0000&quot;,
+  &quot;items&quot;: [{
+    &quot;created&quot;: &quot;2013-09-09T18:28:37.813+0000&quot;,
+    &quot;chart&quot;: {
+      &quot;name&quot;: &quot;ANC: Visits by facility type&quot;,
+      &quot;created&quot;: &quot;2013-05-30T09:58:42.023+0000&quot;,
+      &quot;href&quot;: &quot;https://apps.dhis2.org/demo/api/charts/iRCGbznvyG8&quot;,
+      &quot;id&quot;: &quot;iRCGbznvyG8&quot;
+    },
+    &quot;map&quot;: null,
+    &quot;reportTable&quot;: null,
+    &quot;type&quot;: &quot;chart&quot;,
+    &quot;contentCount&quot;: 1,
+    &quot;id&quot;: &quot;FeQp4qJ63M8&quot;
+  },
+  {
+    &quot;created&quot;: &quot;2013-09-08T21:00:07.266+0000&quot;,
+    &quot;user&quot;: null,
+    &quot;chart&quot;: null,
+    &quot;map&quot;: null,
+    &quot;reportTable&quot;: null,
+    &quot;reports&quot;: [{
+      &quot;name&quot;: &quot;ANC: 1st Visit Cumulative Chart&quot;,
+      &quot;created&quot;: &quot;2014-11-13T13:49:45.007+0000&quot;,
+      &quot;href&quot;: &quot;https://apps.dhis2.org/demo/api/reports/Kvg1AhYHM8Q&quot;,
+      &quot;id&quot;: &quot;Kvg1AhYHM8Q&quot;
+    }, {
+      &quot;name&quot;: &quot;ANC: Coverages This Year&quot;,
+      &quot;created&quot;: &quot;2014-11-13T13:52:01.630+0000&quot;,
+      &quot;href&quot;: &quot;https://apps.dhis2.org/demo/api/reports/qYVNH1wkZR0&quot;,
+      &quot;id&quot;: &quot;qYVNH1wkZR0&quot;
+    }],
+    &quot;type&quot;: &quot;reports&quot;,
+    &quot;contentCount&quot;: 2,
+    &quot;id&quot;: &quot;AWUUWkPzops&quot;
+  }]
 }</screen></para>
-      <para>A more tailored response can be obtained by specifying specific fields in the request. An example is provided below, which would return more detailed information about each object on a users dashboard. </para>
-      <screen>api/dashboards/vQFhmLJU5sK/?fields=:all,dashboardItems[:all]</screen>
     </section>
     <section>
       <title>Searching dashboards</title>
@@ -4571,7 +4608,10 @@ startDate=2014-01-01&amp;endDate=2014-10-31
     <section>
       <title>GeoJSON</title>
       <para>Support for GeoJSON output was added in 2.17, to export GeoJSON, you can simple add
-          <emphasis role="italic">.geosjon</emphasis> as an extension to the endpoint <emphasis role="italic">/api/organisationUnits</emphasis>, or you can use the <emphasis role="italic">Accept</emphasis> header <emphasis role="italic">application/json+geojson</emphasis>.</para>
+          <emphasis role="italic">.geosjon</emphasis> as an extension to the endpoint <emphasis
+          role="italic">/api/organisationUnits</emphasis>, or you can use the <emphasis
+          role="italic">Accept</emphasis> header <emphasis role="italic"
+          >application/json+geojson</emphasis>.</para>
       <para>Two parameters are supported <emphasis role="bold">level</emphasis> (defaults to 1) and
           <emphasis role="bold">parent</emphasis> (defaults to root organisation units), both can be
         added multiple times, some examples follow.</para>
@@ -5375,16 +5415,16 @@ startDate=2014-01-01&amp;endDate=2014-10-31
       format.</para>
     <para>For
       JSON:<screen>{
-  &quot;users&quot;: [
+  "users": [
     { user payload as normal },
     { user payload as normal }
   ]
 }</screen></para>
     <para>For XML:</para>
-    <screen>&lt;users xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot;&gt;
-  &lt;user&gt; ... user payload as normal &lt;/user&gt;
-  &lt;user&gt; ... user payload as normal &lt;/user&gt;
-&lt;/users&gt;</screen>
+    <screen>&lt;users xmlns="http://dhis2.org/schema/dxf/2.0">
+  &lt;user> ... user payload as normal &lt;/user>
+  &lt;user> ... user payload as normal &lt;/user>
+&lt;/users></screen>
     <para>And then use the endpoint <emphasis role="italic">/api/users/invites</emphasis>
       instead.</para>
   </section>

@@ -12,345 +12,353 @@
     </mediaobject>
   </screenshot>
   <para>From the left side menu or by clicking on the sections listed in the central area you can access the various sections on data elements and indicators.</para>
-  <section>
-    <title>Data element maintenance</title>
-    <para>Each of the options for maintenance of  data elements will be described in the following section.</para>
-    <itemizedlist>
-      <listitem>
-        <para>Data element</para>
-        <para>Create, modify, view and delete data elements. </para>
-      </listitem>
-      <listitem>
-        <para>Data element group</para>
-        <para>Create, modify, view and delete data element groups. </para>
-      </listitem>
-      <listitem>
-        <para>Data element group editor</para>
-        <para>Easily add or remove data elements to and from data element groups. </para>
-      </listitem>
-      <listitem>
-        <para>Data element group set editor</para>
-        <para>Create, modify, view and delete data elements group sets.   </para>
-      </listitem>
-      <listitem>
-        <para>Data element category options, categories and category combinations</para>
-        <para>Create, modify, view and delete data element categories. </para>
-      </listitem>
-    </itemizedlist>
-    <section id="dataElement">
-      <title>Data elements</title>
-      <para><?inline true?>Data elements form the basis of DHIS2. Data elements define what is actually recorded in system, e.g. number of immunisations or number of cases of malaria. The actual creation and definition of the data elements themselves are far beyond the scope of this manual to describe, but it is assumed that an administrator will be provided with a list of standardised data elements for inclusion into the DHIS2 system. </para>
-      <para>To access the data element maintenance module, choose Maintenance -&gt; Data elements and Indicators -&gt; Data element. </para>
-      <para>The &apos;Filter by name&apos; will allow you to filter a range of data elements if you know either the full name of the data element, or just a part of it. Type the name
+  <para>Each of the options for maintenance of  data elements will be described in the following section.</para>
+  <itemizedlist>
+    <listitem>
+      <para>Data element</para>
+      <para>Create, modify, view and delete data elements. </para>
+    </listitem>
+    <listitem>
+      <para>Data element group</para>
+      <para>Create, modify, view and delete data element groups. </para>
+    </listitem>
+    <listitem>
+      <para>Data element group editor</para>
+      <para>Easily add or remove data elements to and from data element groups. </para>
+    </listitem>
+    <listitem>
+      <para>Data element group set editor</para>
+      <para>Create, modify, view and delete data elements group sets.   </para>
+    </listitem>
+    <listitem>
+      <para>Data element category options, categories and category combinations</para>
+      <para>Create, modify, view and delete data element categories. </para>
+    </listitem>
+  </itemizedlist>
+  <section id="dataElement">
+    <title>Data elements</title>
+    <para><?inline true?>Data elements form the basis of DHIS2. Data elements define what is actually recorded in system, e.g. number of immunisations or number of cases of malaria. The actual creation and definition of the data elements themselves are far beyond the scope of this manual to describe, but it is assumed that an administrator will be provided with a list of standardised data elements for inclusion into the DHIS2 system. </para>
+    <para>To access the data element maintenance module, choose Maintenance -&gt; Data elements and Indicators -&gt; Data element. </para>
+    <para>The &apos;Filter by name&apos; will allow you to filter a range of data elements if you know either the full name of the data element, or just a part of it. Type the name
                into the search field and any matching data elements are displayed below.
 
  The &apos;Sort&apos; button can be used to sort the data elements into alphabetical order. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="80%" fileref="resources/images/maintainence/data_element_main2.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>To add a new data element, click the &apos;Add new&apos; button. There are various options available from this page that allow the user to modify data elements already present in the database. Each of the options are described below in the &quot;Editing data elements&quot;. </para>
+    <section>
+      <title>Editing data elements</title>
+      <para>To edit an existing data element, click the name of data element you wish to modify, and then select &quot;Edit&quot; from the context menu which will appear.</para>
       <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata width="80%" fileref="resources/images/maintainence/data_element_main2.png" format="PNG"/>
+            <imagedata fileref="resources/images/maintainence/data_element_edit.png" format="PNG"/>
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>To add a new data element, click the &apos;Add new&apos; button. There are various options available from this page that allow the user to modify data elements already present in the database. Each of the options are described below in the &quot;Editing data elements&quot;. </para>
-      <section>
-        <title>Editing data elements</title>
-        <para>To edit an existing data element, click the name of data element you wish to modify, and then select &quot;Edit&quot; from the context menu which will appear.</para>
-        <screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="resources/images/maintainence/data_element_edit.png" format="PNG"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-        <itemizedlist>
-          <listitem>
-            <para><emphasis role="bold">Name:</emphasis> Define the precise name of the data element in this field. Each data element must have a unique name. </para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="bold">Short name:</emphasis> Typically, an abbreviation of the full data element name. This attribute is often used in reports to display the name of the data element, where there is limited space available. </para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="bold">Code:</emphasis> In many countries, data elements are assigned a code. This code can be entered in this field. </para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="bold">Description:</emphasis> Allows a full textual description of the data element to be entered. The user should be as precise as possible, and include full information on how the data element is measured and what its meaning is. </para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="bold">Active:</emphasis> Defines whether a given data element is active or not. Data elements marked as inactive, will not be displayed in the data entry screens. </para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="bold">Domain type:</emphasis> Defines whether a data element is an aggregate or patient type of data element. </para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="bold">Value type: </emphasis>Defines the type of data this data
+      <itemizedlist>
+        <listitem>
+          <para><emphasis role="bold">Name:</emphasis> Define the precise name of the data element in this field. Each data element must have a unique name. </para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Short name:</emphasis> Typically, an abbreviation of the full data element name. This attribute is often used in reports to display the name of the data element, where there is limited space available. </para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Code:</emphasis> In many countries, data elements are assigned a code. This code can be entered in this field. </para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Description:</emphasis> Allows a full textual description of the data element to be entered. The user should be as precise as possible, and include full information on how the data element is measured and what its meaning is. </para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Active:</emphasis> Defines whether a given data element is active or not. Data elements marked as inactive, will not be displayed in the data entry screens. </para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Domain type:</emphasis> Defines whether a data element is an aggregate or patient type of data element. </para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Value type: </emphasis>Defines the type of data this data
               element will be used to record. Currently there are five options:</para>
-            <itemizedlist>
-              <listitem>
-                <para>Number: Numeric values.</para>
-              </listitem>
-              <listitem>
-                <para>Text: Textual values.</para>
-              </listitem>
-              <listitem>
-                <para>Yes/No: Boolean values, will render as drop-down lists in data entry.</para>
-              </listitem>
-              <listitem>
-                <para>Yes only: True values, will render as check-boxes in data entry.</para>
-              </listitem>
-              <listitem>
-                <para>Date: Dates, will render as calendar widget in data entry.</para>
-              </listitem>
-            </itemizedlist>
-          </listitem>
-          <listitem>
-            <para><emphasis role="bold">Number type:</emphasis> DHIS 2 supports several different
+          <itemizedlist>
+            <listitem>
+              <para>Number: Numeric values.</para>
+            </listitem>
+            <listitem>
+              <para>Text: Textual values. The maximum number of characters which are allowed by the system is 60,000. </para>
+            </listitem>
+            <listitem>
+              <para>Yes/No: Boolean values, will render as drop-down lists in data entry.</para>
+            </listitem>
+            <listitem>
+              <para>Yes only: True values, will render as check-boxes in data entry.</para>
+            </listitem>
+            <listitem>
+              <para>Date: Dates, will render as calendar widget in data entry.</para>
+            </listitem>
+            <listitem>
+              <para>User name: This will be populated with the username of the user which performs data entry automatically during the data entry process. </para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Number type:</emphasis> DHIS 2 supports several different
               number types. During data entry, users will be restricted to enter the defined number
               types only. Each of the available options are described below. </para>
-            <itemizedlist>
-              <listitem>
-                <para>Number: This number type supports any real value with a single decimal point,
+          <itemizedlist>
+            <listitem>
+              <para>Number: This number type supports any real value with a single decimal point,
                   an optional negative sign, and no thousands separators. </para>
-              </listitem>
-              <listitem>
-                <para>Integer: Any whole number (positive and negative), including zero.</para>
-              </listitem>
-              <listitem>
-                <para>Positive integer: Any whole number greater than (but not including) zero.</para>
-              </listitem>
-              <listitem>
-                <para>Negative integer: Any whole number less than (but not including) zero.</para>
-              </listitem>
-              <listitem>
-                <para>Positive or zero integer: Any whole number greater than or equal to
+            </listitem>
+            <listitem>
+              <para>Integer: Any whole number (positive and negative), including zero.</para>
+            </listitem>
+            <listitem>
+              <para>Positive integer: Any whole number greater than (but not including) zero.</para>
+            </listitem>
+            <listitem>
+              <para>Negative integer: Any whole number less than (but not including) zero.</para>
+            </listitem>
+            <listitem>
+              <para>Positive or zero integer: Any whole number greater than or equal to
                   zero.</para>
-              </listitem>
-              <listitem>
-                <para>Unit interval: Continuous number between 0 and 1.</para>
-              </listitem>
-              <listitem>
-                <para>Percentage: Whole number inclusive between 0 and 100.</para>
-              </listitem>
-            </itemizedlist>
-          </listitem>
-          <listitem>
-            <para><emphasis role="bold">Text type:</emphasis> The detailed type relevant to text
+            </listitem>
+            <listitem>
+              <para>Unit interval: Continuous number between 0 and 1.</para>
+            </listitem>
+            <listitem>
+              <para>Percentage: Whole number inclusive between 0 and 100.</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Text type:</emphasis> The detailed type relevant to text
               value type.</para>
-            <itemizedlist>
-              <listitem>
-                <para>Text: Free text, rendered as standard input field.</para>
-              </listitem>
-              <listitem>
-                <para>Long text: Free text, rendered as text area in data entry.</para>
-              </listitem>
-            </itemizedlist>
-          </listitem>
-          <listitem>
-            <para><emphasis role="bold">Aggregation operator: </emphasis>Defines the default
+          <itemizedlist>
+            <listitem>
+              <para>Text: Free text, rendered as standard input field.</para>
+            </listitem>
+            <listitem>
+              <para>Long text: Free text, rendered as text area in data entry.</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Aggregation operator: </emphasis>Defines the default
               aggregation operation that will be used on this data element. Most data elements
               should have the &quot;SUM&quot; option set. This includes all data elements which
               should be added together. Other data elements, such as staffing levels, should be set
               to use the &quot;AVERAGE&quot; operator, when values along the time dimension should
               not be added together, but rather averaged. The complete list of aggregation
               operators:</para>
-            <itemizedlist>
-              <listitem>
-                <para>Sum: Sum of data values in the period and organisation unit dimension</para>
-              </listitem>
-              <listitem>
-                <para>Average: Average of data values in the period dimension, sum in the
+          <itemizedlist>
+            <listitem>
+              <para>Sum: Sum of data values in the period and organisation unit dimension</para>
+            </listitem>
+            <listitem>
+              <para>Average (sum in orgunit hierarchy): Average of data values in the period dimension, sum in the
                   organisation unit dimensions.</para>
-              </listitem>
-              <listitem>
-                <para>Count: Count of data values.</para>
-              </listitem>
-              <listitem>
-                <para>Std dev: Standard deviation (population-based) of data values.</para>
-              </listitem>
-              <listitem>
-                <para>Variance: Variance (population-based) of data values.</para>
-              </listitem>
-              <listitem>
-                <para>Min: Minimum of data values.</para>
-              </listitem>
-              <listitem>
-                <para>Max: Maximum of data values.</para>
-              </listitem>
-            </itemizedlist>
-          </listitem>
-          <listitem>
-            <para><emphasis role="bold">Store Zero Data Value</emphasis>: By default, DHIS2 will not store zeros which are entered in the data entry module. If zeros need to be saved for a particular reason, this option can be set to &quot;Yes&quot;. </para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="bold">URL:</emphasis> A URL having an in-depth description of the data element can be entered in the ‘URL’ field. This could be for instance, a link to a metadata repository or registry that contains detailed technical information about the definition and measurement of the data element. </para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="bold">Combination of categories:</emphasis> Defines which category combination the data element should have. </para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="bold">Aggregation levels:</emphasis>  The Aggregation Levels option allows the data element to be aggregated at one or more levels. When the user clicks on the Aggregation levels option, a drop down menu appears which displays available aggregation levels. The desired aggregation level is then selected by clicking the ‘Add Selected’ button. By default, the aggregation will start at the lowest assigned organisation unit. If e.g. Chiefdom is selected below it means that Chiefdom, District, and National aggregates will use Chiefdom (the  highest aggregation level available) as the data source, and PHU data will not be included. PHU data will still be available for the PHU level, but not included in aggregations to the levels above. If District and Chiefdom are both selected then the District and National level aggregates will use District data as their source, Chiefdom will use Chiefdom, and PHU will use PHU. Read more about aggregation levels in the Reporting chapter i the section on data sources for reporting.</para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="bold">Option set for data values: </emphasis> Option sets are
+            </listitem>
+            <listitem>
+              <para>Average: Average the values in both the period as well as the orgunit dimensions. </para>
+            </listitem>
+            <listitem>
+              <para>Count: Count of data values.</para>
+            </listitem>
+            <listitem>
+              <para>Standard deviation: Standard deviation (population-based) of data values.</para>
+            </listitem>
+            <listitem>
+              <para>Variance: Variance (population-based) of data values.</para>
+            </listitem>
+            <listitem>
+              <para>Min: Minimum of data values.</para>
+            </listitem>
+            <listitem>
+              <para>Max: Maximum of data values.</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Store Zero Data Value</emphasis>: By default, DHIS2 will not store zeros which are entered in the data entry module. If zeros need to be saved for a particular reason, this option can be set to &quot;Yes&quot;. </para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">URL:</emphasis> A URL having an in-depth description of the data element can be entered in the ‘URL’ field. This could be for instance, a link to a metadata repository or registry that contains detailed technical information about the definition and measurement of the data element. </para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Category Combination:</emphasis> Defines which category combination the data element should have, also known as the &quot;disaggregation&quot;. </para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Aggregation levels:</emphasis>  The Aggregation Levels option allows the data element to be aggregated at one or more levels. When the user clicks on the Aggregation levels option, a drop down menu appears which displays available aggregation levels. The desired aggregation level is then selected by clicking the ‘Add Selected’ button. By default, the aggregation will start at the lowest assigned organisation unit. If e.g. Chiefdom is selected below it means that Chiefdom, District, and National aggregates will use Chiefdom (the  highest aggregation level available) as the data source, and PHU data will not be included. PHU data will still be available for the PHU level, but not included in aggregations to the levels above. If District and Chiefdom are both selected then the District and National level aggregates will use District data as their source, Chiefdom will use Chiefdom, and PHU will use PHU. Read more about aggregation levels in the Reporting chapter i the section on data sources for reporting.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Option set for data values: </emphasis> Option sets are
               predefined lists of options which can be used in data entry.</para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="bold">Option set for comments</emphasis>:  Option sets for
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Option set for comments</emphasis>:  Option sets for
               comments are predefined list of options which can be used to specify standardized
               comments for data values in data entry.</para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="bold">Legend set</emphasis>: Legend sets can be used in the GIS
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Legend set</emphasis>: Legend sets can be used in the GIS
               module to display certain data elements with certain icons. Refer to the GIS module
               documentation for more information on legend sets. </para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="bold">Attributes</emphasis>: Data element attributes (if they have been defined) can be defined. In this example, &quot;Rationale&quot; and &quot;Unit of measure&quot; are both data element attributes. </para>
-          </listitem>
-          <listitem>
-            <para><emphasis role="bold">Data element group sets: </emphasis>If data element group sets have been defined, each will appear in the &quot;Data element groups&quot; section. Select each data element group from the list of group sets provided. </para>
-          </listitem>
-        </itemizedlist>
-        <para>After making all the required changes, click ‘Save’. The ‘Cancel’ button aborts all changes made.</para>
-      </section>
-      <section>
-        <title>Deleting a data element</title>
-        <para>In order to delete a data element, click the name of the data element you wish to delete, and then select &quot;Remove&quot; from the context menu. Note that this operation is only possible if there is no data attached to the data element itself.  The user will be prompted to ensure that the data element should be deleted.</para>
-      </section>
-      <section>
-        <title>Displaying data element details</title>
-        <para>This operation displays an in-line panel in the browser which displays all metadata about a given data element. Click the name of the data element and then select &quot;Show details&quot; from the context menu. </para>
-      </section>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Attributes</emphasis>: Data element attributes (if they have been defined) can be defined. In this example, &quot;Rationale&quot; and &quot;Unit of measure&quot; are both data element attributes. </para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Data element group sets: </emphasis>If data element group sets have been defined, each will appear in the &quot;Data element groups&quot; section. Select each data element group from the list of group sets provided. </para>
+        </listitem>
+      </itemizedlist>
+      <para>After making all the required changes, click ‘Save’. The ‘Cancel’ button aborts all changes made.</para>
     </section>
-    <section id="dataElementGroup">
-      <title>Data element groups</title>
-      <para>Data element groups provide a mechanism for classifying related data elements into a common theme. For instance, two data elements &quot;Measles immunisation&quot; and  &quot;BCG Immunisation&quot; might be grouped together into a data element group &quot;Childhood immunisation&quot;. To access the data element group maintenance page, click Maintenance -&gt; Data elements and Indicators -&gt; Data Element Group.</para>
-      <para>Similar to the &quot;Data element&quot; maintenance page, data elements groups can be searched with by entering a search string in the &quot;Filter by name&quot; field. </para>
-      <para>To add a new data element group, click the <guibutton>&quot;Add new&quot;</guibutton> button and the following screen will be displayed:</para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="80%" fileref="resources/images/maintainence/data_element_group_add.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Fill in the &quot;Name&quot; field and then select all data elements that should belong to the group from the left panel. Click the &quot;Move selected&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/>button to add the selected data elements to the data element group. Click the &quot;Remove selected&quot; button to remove all data elements from the group that have been selected in the right panel.  Finally, click the &quot;Add&quot; button to save changes, or the &quot;Cancel&quot; button to discard any changes. </para>
+    <section>
+      <title>Deleting a data element</title>
+      <para>In order to delete a data element, click the name of the data element you wish to delete, and then select &quot;Remove&quot; from the context menu. Note that this operation is only possible if there is no data attached to the data element itself.  The user will be prompted to ensure that the data element should be deleted.</para>
     </section>
-    <section id="dataElementGroupEditor">
-      <title>Data element group editor</title>
-      <para>The data element group editor provides advanced functionality to the administrator to allow multiple data elements to be added or removed from a group. It is also possible to create new data element groups, rename existing groups, and delete groups entirely. To access the data element group editor, go to <guimenu>&quot;Maintenance -&gt; Data elements and Indicators -&gt; Data Element Group Editor&quot;</guimenu>. The following screen will appear.</para>
-      <para>Data element groups area listed alphabetically in the leftmost panel. By clicking on a data element group, the current members of that group (data elements) are listed in the centre panel. Available data elements that can be added to the data element group appear are listed alphabetically in the rightmost panel. To remove an existing data element from the group, click the name of the data element in the centre panel, and then press the &quot;Move right&quot;  <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/> button. To add data elements to the group, select them from the leftmost panel, and click the &quot;Move left&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_left.png" align="center"/> button. Press the <guibutton>&quot;Update data element group member&quot;</guibutton> button to save your changes.</para>
+    <section>
+      <title>Displaying data element details</title>
+      <para>This operation displays an in-line panel in the browser which displays all metadata about a given data element. Click the name of the data element and then select &quot;Show details&quot; from the context menu. </para>
     </section>
-    <section id="dataElementGroupSet">
-      <title>Data element group sets</title>
-      <para>Data element group sets allow multiple data element groups to be categorised into a set. Data element group sets are used during analysis and reporting to combine similar data element groups into a common theme. To access the data element group set maintenance module, choose &quot;Maintenance -&gt; Data elements and Indicators -&gt; Data Element Group Set&quot;.  Similar to the other data element maintenance modules, new data element group sets can be added by pressing the &quot;Add new button&quot;.  Other operations include Edit, Translate, Delete and Information, similar to data elements and data element groups as described in the previous sections.</para>
-      <para>Existing data element group  set members can be edited by clicking the name  and selecting &quot;Edit&quot; from the context menu of the desired data element group set as seen below.</para>
+  </section>
+  <section id="dataElementGroup">
+    <title>Data element groups</title>
+    <para>Data element groups provide a mechanism for classifying related data elements into a common theme. For instance, two data elements &quot;Measles immunisation&quot; and  &quot;BCG Immunisation&quot; might be grouped together into a data element group &quot;Childhood immunisation&quot;. To access the data element group maintenance page, click Maintenance -&gt; Data elements and Indicators -&gt; Data Element Group.</para>
+    <para>Similar to the &quot;Data element&quot; maintenance page, data elements groups can be searched with by entering a search string in the &quot;Filter by name&quot; field. </para>
+    <para>To add a new data element group, click the <guibutton>&quot;Add new&quot;</guibutton> button and the following screen will be displayed:</para>
+    <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata width="80%" fileref="resources/images/maintainence/data_element_group_set.png" format="PNG"/>
+          <imagedata width="80%" fileref="resources/images/maintainence/data_element_group_add.png" format="PNG"/>
         </imageobject>
       </mediaobject>
-      <para>Available data element groups are displayed in the left panel. They can be moved into the selected data element group set by pressing the &quot;Move right&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/> button. Data element groups that are currently members of the data element group set are displayed in the right hand panel. They can be removed from the data element group set by clicking the desired data element group and pressing the &quot;Move left&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_left.png" align="center"/> button.  The ordering of the data element groups can be set with the &quot;Move Up&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_up.png" align="center"/> and &quot;Move Down&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_down.png" align="center"/>arrows. This ordering will be used in the datamart and reports to order the data element groups.  Press the <guibutton>&quot;Update&quot;</guibutton> button to save any changes and the <guibutton>&quot;Cancel&quot;</guibutton> button to discard all changes. </para>
-    </section>
-    <section id="dataElementCategory">
-      <title>Categories</title>
-      <para>Categories can be used to disaggregate data elements into individual atomic components. They can also be used to assign attributes to all data recorded in a specific dataset, such as &quot;Implementing partner&quot; and &quot;Funding agency.&quot; </para>
-      <para> Data element categories are typically a concept, such as Gender, Age or  Disease Status. Data elements such as &quot;Number of cases of confirmed malaria&quot; are often broken into smaller component parts to determine, for instance, the number of confirmed malaria cases of particular age groups. As an example, three data element categories: Under 1, 1-5 and Over 5 could be created. They could be assigned as categories to the data element, which would then create in the data entry screens, three separate fields for this data element namely: </para>
-      <itemizedlist>
-        <listitem>
-          <para>Number of confirmed malaria cases (Under 1)</para>
-        </listitem>
-        <listitem>
-          <para>Number of confirmed malaria cases (1-5)</para>
-        </listitem>
-        <listitem>
-          <para>Number of confirmed malaria cases (Over 5)</para>
-        </listitem>
-      </itemizedlist>
-      <para>Effective use of data element categories greatly simplifies the process of setting up the DHIS2 system, as the data element categories can be reused to disaggregate many different data elements. Otherwise, each of the data elements listed above, would need to be created separately. Judicious use of data element categories will greatly simplify the DHIS2 implementation, and allow for subsequent advanced analysis. </para>
-      <para>Where possible, category options should be recycled. For instance, there might be two categories which might share a particular category option (e.g. &lt;1 year of age). When creating the  categories, this category option could be reused. This is important if particular category options (or category option combinations) need to be analyzed together. </para>
-      <orderedlist>
-        <listitem>
-          <para> All possible category options should be defined.</para>
-        </listitem>
-        <listitem>
-          <para>Categories should be composed of multiple category options created in Step 1. </para>
-        </listitem>
-        <listitem>
-          <para>Category combinations should be composed of either one, or multiple categories.</para>
-        </listitem>
-        <listitem>
-          <para>Data elements should be created and assigned a particular category combination. </para>
-        </listitem>
-      </orderedlist>
-      <para>A  category option consists of a name, along with an optional code, and a concept. </para>
-      <para>Categories can be added by accessing the &quot;Data Element Category Option&quot; dialog. (Maintenance -&gt; Data Elements and Indicators-&gt;Data Element Category Options&quot; as seen below. The category option must consist of a name, an optional code, and a concept. </para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="50%" align="center" fileref="resources/images/maintainence/data_element_category_options.PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Once all category options have been defined for a particular category, the category can be defined with the &quot;Data Element Category&quot; dialog.(Maintenance -&gt; Data Elements and Indicators-&gt;Data Element Category). Enter the name of the data element category and press &quot;Save&quot;. Once you have defined the name of the category, you can assign category options to it by selecting the category which you have just defined, clicking its name, and then selecting &quot;Edit&quot; from the context menu as seen below. </para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata width="80%" fileref="resources/images/maintainence/data_element_categories_add_new.png" format="PNG"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Type the name of the new data element category in the &quot;Name&quot; field in the &quot;Details&quot; region and assign a concept to the category.  Category options can be added by moving category options from the left-side pane (Available category options) into the right-side pane(Selected category options). Category options can be reordered using the &quot;Move Up&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_up.png" align="center"/> and &quot;Move Down&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_down.png" align="center"/> buttons. . Once all data element categories options have been added to the data element category, press the <guibutton>&quot;Add&quot;</guibutton> button to save all changes or the <guibutton>&quot;Cancel&quot;</guibutton>  button to discard any changes.</para>
-      <para>A  category can have two types &quot;Disaggregation&quot; or &quot;Attribute&quot;. For disaggregation of data elements, you should select &quot;Disaggregation&quot;.  A dimension type of &quot;Attribute&quot; will allow the category to be used to assign a combination of categories to data recorded through a dataset.</para>
-      <para>If the &quot;Use as data dimension&quot; box is ticked, the category will be available to the analytics as another dimension, in addition to the standard dimensions of &quot;Period&quot; and &quot;Organisation unit&quot;. </para>
-    </section>
-    <section id="dataElementCategoryCombo">
-      <title>Category combinations</title>
-      <para>Category combinations allow multiple categories to be combined into a related set. As an example, a data element &quot;Number of new HIV infections&quot; might be disaggregated according to the following categories. </para>
-      <itemizedlist>
-        <listitem>
-          <para>Age: &quot;Under 5&quot;, &quot;5-15&quot;, &quot;15-24&quot;, &quot;24 and above&quot;</para>
-        </listitem>
-        <listitem>
-          <para>Gender: Male, Female</para>
-        </listitem>
-      </itemizedlist>
-      <para> In this example, there would be two levels of disaggregation, consisting of two separate data element categories, each consisting of several data element category options. In most HMIS systems, different data elements are disaggregated according to a common set of categories. By combining these different categories into a category combination and assigning these combinations to data elements, the appropriate disaggregation levels can be applied efficiently and quickly to a large number of data elements. </para>
-      <para>To access the  category combination maintenance module, select &quot;Maintenance-&gt;Data element and indicators-&gt;Data element category combinations&quot; from the main DHIS2 menu. As with the  other maintains modules, you can filter the listed category combinations by entering the name (or portion thereof) of the category combination. Other operations such as &quot;Edit&quot;, &quot;Delete&quot; and &quot;Information&quot; should be familiar to the reader. </para>
-      <para>To add a new category combination, click the &quot;Add new&quot; button. The following dialogue will be displayed. </para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="resources/images/maintainence/data_element_category_combo_add_new.png" format="PNG" width="80%"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Type the name of the category combination in the &quot;Name&quot; field, and then select the desired categories from the left panel. Press the &quot;Move right&quot; button to add the selected categories to the category combination. Press &quot;Move left&quot; to remove any categories that should not be part of the category combination. </para>
-      <para>Categories can only be added to a category combination at this step. Categories can be removed from category combinations later by editing the category combination, however, it is not allowed to add additional categories once the combination has been created. Ensure that the category combination and its respective categories is final before you create the category combination and assign it to a data element. </para>
-    </section>
-    <section>
-      <title>Using categories as attributes</title>
-      <para>In some deployments of DHIS2, information on attributes such as &quot;Implementing partner&quot; and &quot;Project&quot; are important to record as an attribute of each data value. To provide an example, let us suppose that an NGO is providing ART services in a given facility. They would need to report each month on the &quot;ART monthly summary&quot;, which would be reported monthly and contain a number of data elements.  The NGO and project could potentially change over time. In order to be able to effectively attribute data to a given NGO and project at any point in time, this information would need to be recorded along with each data value at the time of data entry. </para>
-      <para>When categories and category combinations have a type of &quot;Attribute&quot;, they can serve as a means of applying a common set of attributes (e.g. Implementing partner and project) to a related set of data values contained in a dataset. Let us suppose we create two categories called &quot;Implementing partner&quot; and &quot;Projects&quot;. Each of these categories would be created with a dimension type of &quot;Attribute.&quot;   Finally, a category combination called &quot;Implementing partners and projects&quot; would be created with these two categories and assigned a dimension type of &quot;Attribute&quot;. Finally, we can use this dimension to apply an attribute to the dataset &quot;ART monthly summary&quot;, by choosing  the &quot;Implementing partners and projects&quot; as the &quot;Combination of categories&quot;. </para>
-      <para>The following screen shot of an example data entry screen illustrates all of these concepts. </para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata align="center" fileref="resources/images/maintainence/categories_dataset_attributes.png" width="80%"/>
-          </imageobject>
-        </mediaobject>
-      </screenshot>
-      <para>Note that when data is entered, an &quot;Implementing partner&quot; and &quot;Project&quot; can be selected. Each data value recorded in this data entry screen, would be assigned a specific combination of these categories as an attribute. These attributes (when specified as a dimension) can be used in the analysis modules similar to other dimensions, such as the period and orgunit.  In summary, when category combinations are used as attribute, they effectively serve as another dimension (similar to &quot;Period&quot; and &quot;Organisationion unit&quot;) which can be used for analysis. </para>
-    </section>
-    <section>
-      <title>Category option groups and group sets</title>
-      <para>Category options can be groups and classified using category option groups. Category
+    </screenshot>
+    <para>Fill in the &quot;Name&quot; field and then select all data elements that should belong to the group from the left panel. Click the &quot;Move selected&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/>button to add the selected data elements to the data element group. Click the &quot;Remove selected&quot; button to remove all data elements from the group that have been selected in the right panel.  Finally, click the &quot;Add&quot; button to save changes, or the &quot;Cancel&quot; button to discard any changes. </para>
+  </section>
+  <section id="dataElementGroupEditor">
+    <title>Data element group editor</title>
+    <para>The data element group editor provides advanced functionality to the administrator to allow multiple data elements to be added or removed from a group. It is also possible to create new data element groups, rename existing groups, and delete groups entirely. To access the data element group editor, go to <guimenu>&quot;Maintenance -&gt; Data elements and Indicators -&gt; Data Element Group Editor&quot;</guimenu>. The following screen will appear.</para>
+    <para>Data element groups area listed alphabetically in the leftmost panel. By clicking on a data element group, the current members of that group (data elements) are listed in the centre panel. Available data elements that can be added to the data element group appear are listed alphabetically in the rightmost panel. To remove an existing data element from the group, click the name of the data element in the centre panel, and then press the &quot;Move right&quot;  <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/> button. To add data elements to the group, select them from the leftmost panel, and click the &quot;Move left&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_left.png" align="center"/> button. Press the <guibutton>&quot;Update data element group member&quot;</guibutton> button to save your changes.</para>
+  </section>
+  <section id="dataElementGroupSet">
+    <title>Data element group sets</title>
+    <para>Data element group sets allow multiple data element groups to be categorised into a set. Data element group sets are used during analysis and reporting to combine similar data element groups into a common theme. To access the data element group set maintenance module, choose &quot;Maintenance -&gt; Data elements and Indicators -&gt; Data Element Group Set&quot;.  Similar to the other data element maintenance modules, new data element group sets can be added by pressing the &quot;Add new button&quot;.  Other operations include Edit, Translate, Delete and Information, similar to data elements and data element groups as described in the previous sections.</para>
+    <para>Existing data element group  set members can be edited by clicking the name  and selecting &quot;Edit&quot; from the context menu of the desired data element group set as seen below.</para>
+    <mediaobject>
+      <imageobject>
+        <imagedata width="80%" fileref="resources/images/maintainence/data_element_group_set.png" format="PNG"/>
+      </imageobject>
+    </mediaobject>
+    <para>Available data element groups are displayed in the left panel. They can be moved into the selected data element group set by pressing the &quot;Move right&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_right.png" align="center"/> button. Data element groups that are currently members of the data element group set are displayed in the right hand panel. They can be removed from the data element group set by clicking the desired data element group and pressing the &quot;Move left&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_left.png" align="center"/> button.  The ordering of the data element groups can be set with the &quot;Move Up&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_up.png" align="center"/> and &quot;Move Down&quot; <inlinegraphic fileref="resources/images/dhis2_images/move_down.png" align="center"/>arrows. This ordering will be used in the datamart and reports to order the data element groups.  Press the <guibutton>&quot;Update&quot;</guibutton> button to save any changes and the <guibutton>&quot;Cancel&quot;</guibutton> button to discard all changes. </para>
+  </section>
+  <section id="dataElementCategory">
+    <title>Categories</title>
+    <para>Categories can be used to disaggregate data elements into individual atomic components. They can also be used to assign attributes to all data recorded in a specific dataset, such as &quot;Implementing partner&quot; and &quot;Funding agency.&quot; </para>
+    <para> Data element categories are typically a concept, such as Gender, Age or  Disease Status. Data elements such as &quot;Number of cases of confirmed malaria&quot; are often broken into smaller component parts to determine, for instance, the number of confirmed malaria cases of particular age groups. As an example, three data element categories: Under 1, 1-5 and Over 5 could be created. They could be assigned as categories to the data element, which would then create in the data entry screens, three separate fields for this data element namely: </para>
+    <itemizedlist>
+      <listitem>
+        <para>Number of confirmed malaria cases (Under 1)</para>
+      </listitem>
+      <listitem>
+        <para>Number of confirmed malaria cases (1-5)</para>
+      </listitem>
+      <listitem>
+        <para>Number of confirmed malaria cases (Over 5)</para>
+      </listitem>
+    </itemizedlist>
+    <para>Effective use of data element categories greatly simplifies the process of setting up the DHIS2 system, as the data element categories can be reused to disaggregate many different data elements. Otherwise, each of the data elements listed above, would need to be created separately. Judicious use of data element categories will greatly simplify the DHIS2 implementation, and allow for subsequent advanced analysis. </para>
+    <para>Where possible, category options should be recycled. For instance, there might be two categories which might share a particular category option (e.g. &lt;1 year of age). When creating the  categories, this category option could be reused. This is important if particular category options (or category option combinations) need to be analyzed together. </para>
+    <orderedlist>
+      <listitem>
+        <para> All possible category options should be defined.</para>
+      </listitem>
+      <listitem>
+        <para>Categories should be composed of multiple category options created in Step 1. </para>
+      </listitem>
+      <listitem>
+        <para>Category combinations should be composed of either one, or multiple categories.</para>
+      </listitem>
+      <listitem>
+        <para>Data elements should be created and assigned a particular category combination. </para>
+      </listitem>
+    </orderedlist>
+    <para>A  category option consists of a name, along with an optional code, and a concept. </para>
+    <para>Categories can be added by accessing the &quot;Data Element Category Option&quot; dialog. (Maintenance -&gt; Data Elements and Indicators-&gt;Data Element Category Options&quot; as seen below. The category option must consist of a name, an optional code, and a concept. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="50%" align="center" fileref="resources/images/maintainence/data_element_category_options.PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>Once all category options have been defined for a particular category, the category can be defined with the &quot;Data Element Category&quot; dialog.(Maintenance -&gt; Data Elements and Indicators-&gt;Data Element Category). Enter the name of the data element category and press &quot;Save&quot;. Once you have defined the name of the category, you can assign category options to it by selecting the category which you have just defined, clicking its name, and then selecting &quot;Edit&quot; from the context menu as seen below. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="80%" fileref="resources/images/maintainence/data_element_categories_add_new.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>Type the name of the new data element category in the &quot;Name&quot; field in the &quot;Details&quot; region and assign a concept to the category.  Category options can be added by moving category options from the left-side pane (Available category options) into the right-side pane(Selected category options). Category options can be reordered using the &quot;Move Up&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_up.png" align="center"/> and &quot;Move Down&quot;<inlinegraphic fileref="resources/images/dhis2_images/move_down.png" align="center"/> buttons. . Once all data element categories options have been added to the data element category, press the <guibutton>&quot;Add&quot;</guibutton> button to save all changes or the <guibutton>&quot;Cancel&quot;</guibutton>  button to discard any changes.</para>
+    <para>A  category can have two types &quot;Disaggregation&quot; or &quot;Attribute&quot;. For disaggregation of data elements, you should select &quot;Disaggregation&quot;.  A dimension type of &quot;Attribute&quot; will allow the category to be used to assign a combination of categories to data recorded through a dataset.</para>
+    <para>If the &quot;Use as data dimension&quot; box is ticked, the category will be available to the analytics as another dimension, in addition to the standard dimensions of &quot;Period&quot; and &quot;Organisation unit&quot;. </para>
+  </section>
+  <section id="dataElementCategoryCombo">
+    <title>Category combinations</title>
+    <para>Category combinations allow multiple categories to be combined into a related set. As an example, a data element &quot;Number of new HIV infections&quot; might be disaggregated according to the following categories. </para>
+    <itemizedlist>
+      <listitem>
+        <para>Age: &quot;Under 5&quot;, &quot;5-15&quot;, &quot;15-24&quot;, &quot;24 and above&quot;</para>
+      </listitem>
+      <listitem>
+        <para>Gender: Male, Female</para>
+      </listitem>
+    </itemizedlist>
+    <para> In this example, there would be two levels of disaggregation, consisting of two separate data element categories, each consisting of several data element category options. In most HMIS systems, different data elements are disaggregated according to a common set of categories. By combining these different categories into a category combination and assigning these combinations to data elements, the appropriate disaggregation levels can be applied efficiently and quickly to a large number of data elements. </para>
+    <para>To access the  category combination maintenance module, select &quot;Maintenance-&gt;Data element and indicators-&gt;Data element category combinations&quot; from the main DHIS2 menu. As with the  other maintains modules, you can filter the listed category combinations by entering the name (or portion thereof) of the category combination. Other operations such as &quot;Edit&quot;, &quot;Delete&quot; and &quot;Information&quot; should be familiar to the reader. </para>
+    <para>To add a new category combination, click the &quot;Add new&quot; button. The following dialogue will be displayed. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="80%" fileref="resources/images/maintainence/data_element_category_combo_add_new.png" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>Type the name of the category combination in the &quot;Name&quot; field, and then select the desired categories from the left panel. Press the &quot;Move right&quot; button to add the selected categories to the category combination. Press &quot;Move left&quot; to remove any categories that should not be part of the category combination. </para>
+    <para>Categories can only be added to a category combination at this step. Categories can be removed from category combinations later by editing the category combination, however, it is not allowed to add additional categories once the combination has been created. Ensure that the category combination and its respective categories is final before you create the category combination and assign it to a data element. </para>
+  </section>
+  <section>
+    <title>Using category combinations as attributes</title>
+    <para>In some deployments of DHIS2, information on attributes such as &quot;Implementing partner&quot; and &quot;Project&quot; are important to record as an attribute of each data value. To provide an example, let us suppose that an NGO is providing ART services in a given facility. They would need to report each month on the &quot;ART monthly summary&quot;, which would be reported monthly and contain a number of data elements.  The NGO and project could potentially change over time. In order to be able to effectively attribute data to a given NGO and project at any point in time, this information would need to be recorded along with each data value at the time of data entry. </para>
+    <para>When categories and category combinations have a type of &quot;Attribute&quot;, they can serve as a means of applying a common set of attributes (e.g. Implementing partner and project) to a related set of data values contained in a dataset. Let us suppose we create two categories called &quot;Implementing partner&quot; and &quot;Projects&quot;. Each of these categories would be created with a dimension type of &quot;Attribute.&quot;   Finally, a category combination called &quot;Implementing partners and projects&quot; would be created with these two categories and assigned a dimension type of &quot;Attribute&quot;. Finally, we can use this dimension to apply an attribute to the dataset &quot;ART monthly summary&quot;, by choosing  the &quot;Implementing partners and projects&quot; as the &quot;Combination of categories&quot;. </para>
+    <para>The following screen shot of an example data entry screen illustrates all of these concepts. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="80%" align="center" fileref="resources/images/maintainence/categories_dataset_attributes.png"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>Note that when data is entered, an &quot;Implementing partner&quot; and &quot;Project&quot; can be selected. Each data value recorded in this data entry screen, would be assigned a specific combination of these categories as an attribute. These attributes (when specified as a dimension) can be used in the analysis modules similar to other dimensions, such as the period and orgunit.  In summary, when category combinations are used as attribute, they effectively serve as another dimension (similar to &quot;Period&quot; and &quot;Organisationion unit&quot;) which can be used for analysis. </para>
+  </section>
+  <section>
+    <title>Category option combination maintenance</title>
+    <para>Category option combinations can be assigned a code, which allows for easier data exchange between DHIS2 and external systems. Simply select the category option combination from the list, and provide the code. Note that all codes of category option combinations must be unique. </para>
+  </section>
+  <section>
+    <title>Category option groups and group sets</title>
+    <para>Category options can be groups and classified using category option groups. Category
         option groups can be created from &quot;Category option group&quot; &gt; &quot;Add new&quot;, and contains a set of
         category options.</para>
-      <para>Category option groups can be included in category option group sets. Category option
+    <para>Category option groups can be included in category option group sets. Category option
         group sets can be created from &quot;Category option group set&quot; &gt; &quot;Add new&quot;, and contains a set
         of category option groups.</para>
-      <para>The main purpose of the these entities is to be able to add more dimensionality to your
+    <para>The main purpose of the these entities is to be able to add more dimensionality to your
         captured data for analysis in apps such as pivot table and data visualizer. An example of
         where this becomes useful: In a system, data is collected by &quot;projects&quot;, where projects is
         modeled as category options. The system is required to do data analysis according to which
@@ -359,24 +367,23 @@
         project is put in the appropriate group. In data analysis apps, the &quot;Donor&quot; group set will
         appear as a data dimension, while each donor appear as dimension items, ready for inclusion
         in reports.</para>
-    </section>
-    <section id="translation">
-      <title>Translations of data elements and other objects</title>
-      <para>DHIS 2 provides functionality for translations of database content like data elements, data element groups, indicators, indicator groups, validation rules and more.  These elements can be translated to any number of locales. A locale  represents a specific geographical, political, or cultural region. </para>
-      <para>To add a translation click the Translate icon next to the element you would like to translate. Start by selecting the desired locale from the Locale select box. In the Translate screen, select your locale and enter values for the available element properties. The reference property values are shown on the right. These values are the values which have been entered in the regular add or update user interface for the current object.</para>
-      <para>Translations can be enabled by selecting the desired locale under Database Language under User General Settings in the Settings module.</para>
-      <section>
-        <title>Data element translation</title>
-        <para>DHIS2 provides functionality to translate existing data elements into other languages. Click the name of the data element you wish to translate, and select &quot;Translate&quot; from the context menu which will appear.. The following dialogue will be displayed.</para>
-        <screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="resources/images/maintainence/data_element_translate.png" format="PNG" width="80%"/>
-            </imageobject>
-          </mediaobject>
-        </screenshot>
-        <para>The reference language is displayed in the upper right portion of the dialogue. Choose a locale to translate the data element into by selecting an option from the locale drop-down menu. Specify the name, short-name, description and form name in the target language. Press &quot;Save&quot; to save your changes. </para>
-      </section>
+  </section>
+  <section id="translation">
+    <title>Translations of data elements and other objects</title>
+    <para>DHIS 2 provides functionality for translations of database content like data elements, data element groups, indicators, indicator groups, validation rules and more.  These elements can be translated to any number of locales. A locale  represents a specific geographical, political, or cultural region. </para>
+    <para>To add a translation click the Translate icon next to the element you would like to translate. Start by selecting the desired locale from the Locale select box. In the Translate screen, select your locale and enter values for the available element properties. The reference property values are shown on the right. These values are the values which have been entered in the regular add or update user interface for the current object.</para>
+    <para>Translations can be enabled by selecting the desired locale under Database Language under User General Settings in the Settings module.</para>
+    <section>
+      <title>Data element translation</title>
+      <para>DHIS2 provides functionality to translate existing data elements into other languages. Click the name of the data element you wish to translate, and select &quot;Translate&quot; from the context menu which will appear.. The following dialogue will be displayed.</para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" fileref="resources/images/maintainence/data_element_translate.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>The reference language is displayed in the upper right portion of the dialogue. Choose a locale to translate the data element into by selecting an option from the locale drop-down menu. Specify the name, short-name, description and form name in the target language. Press &quot;Save&quot; to save your changes. </para>
     </section>
   </section>
 </chapter>

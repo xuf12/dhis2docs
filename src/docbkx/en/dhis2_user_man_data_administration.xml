@@ -50,7 +50,7 @@
     <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata width="60%" fileref="resources/images/maintainence/data_browser_org_unit1.png" format="PNG"/>
+          <imagedata width="50%" align="center" fileref="resources/images/maintainence/data_browser_org_unit1.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -76,7 +76,7 @@
             </imageobject>
           </mediaobject>
         </screenshot>
-        <para>Data can be exported into Excel, CSV and as a PDF report by clicking the appropriate button.</para>
+        <para>Data can be exported into Excel, CSV and as a PDF report by clicking the appropriate button. Note that only data for the current page is downloaded. </para>
       </listitem>
     </itemizedlist>
   </section>
@@ -89,21 +89,29 @@
     </section>
     <section>
       <title>Data elements without groups</title>
-      <para>Some Data Elements have been allocated to several Data Element Groups. This is currently not allowed, because it will result in duplication of linked data records in the PivotSource recordsets that `feed` the pivot tables. Go to Maintenance -&gt; Data Element Groups to review each Data Element identified and remove the incorrect Group allocations.</para>
+      <para>Some Data Elements have been allocated to several Data Element Groups. This is currently not allowed, because it will result in duplication of linked data records in the analytics record sets that provide aggregated data. Go to Maintenance -&gt; Data Element Groups to review each Data Element identified and remove the incorrect Group allocations.</para>
     </section>
     <section>
       <title>Data elements violating exclusive group sets</title>
       <para>
-      Some data elements have been allocated to several data element groups that are members of the same data element group set. All group sets in DHIS are defined as exclusive, which means that a data element can <emphasis>only</emphasis> be allocated to <emphasis>one</emphasis> data element group within that group set. Go to Maintenance -&gt; Data elements and indicators -&gt;Data element groups to review each data element identified in the integrity check. Either remove the data element from all groups except the one that it should be allocated to, or see if one of the groups should be placed in a different group set.
+      Some data elements have been allocated to several data element groups that are members of the same data element group set. All group sets in DHIS2 are defined as exclusive, which means that a data element can <emphasis>only</emphasis> be allocated to <emphasis>one</emphasis> data element group within that group set. Go to Maintenance -&gt; Data elements and indicators -&gt;Data element groups to review each data element identified in the integrity check. Either remove the data element from all groups except the one that it should be allocated to, or see if one of the groups should be placed in a different group set.
       </para>
     </section>
     <section>
+      <title>Data elements in data set but not in form or sections</title>
+      <para>Data elements have been assigned to a data set, but have not been assigned to any sections of the data set forms. All data sets which use section forms, should generally have all data elements in the data set assigned to exactly one section of the dataset. </para>
+    </section>
+    <section>
       <title>Data elements assigned to data sets with different period types</title>
-      <para>Data Elements should not be assigned to two separate data sets whose period types differ. The recommended approach would be to create two separate data elements (for instance a monthly and yearly data element) and assign these to respective datasets. </para>
+      <para>Data elements should not be assigned to two separate data sets whose period types differ. The recommended approach would be to create two separate data elements (for instance a monthly and yearly data element) and assign these to respective datasets. </para>
     </section>
     <section>
       <title>Data sets not assigned to organisation units</title>
       <para>All data sets should be assigned to at least one organisation unit. </para>
+    </section>
+    <section>
+      <title>Sections with invalid category combinations </title>
+      <para>Data sets which use section forms should only have a single category combination within each section. This violation could result from assigning a data element to a section, but then changing the category combination of this data element at a later point in time. </para>
     </section>
     <section>
       <title>Indicators with identical formulas</title>
@@ -111,7 +119,7 @@
     </section>
     <section>
       <title>Indicators without groups</title>
-      <para>All Data Elements and Indicators must be assigned to at least one group, so these Indicators need to be allocated to their correct Data Element and Indicator Group. Go to Maintenance -&gt; Indicator Groups, and allocate each of the `Orphaned` Indicators to its correct group.</para>
+      <para>All data elements and indicators must be assigned to at least one group, so these Indicators need to be allocated to their correct Data Element and Indicator Group. From the main menu, go to Data elements/Indicators -&gt; Indicator Groups, and allocate each of the `Orphaned` indicators to its correct group.</para>
     </section>
     <section>
       <title>Invalid indicator numerators</title>
@@ -124,28 +132,32 @@
     <section>
       <title>Indicators violating exclusive group sets</title>
       <para>
-      Some indicators have been allocated to several indicator groups that are members of the same indicator group set. All group sets in DHIS are defined as exclusive, which means that an indicator can <emphasis>only</emphasis> be allocated to <emphasis>one</emphasis> indicator group within that group set. Go to Maintenance -&gt; Data elements and indicators -&gt;Indicator groups to review each indicator identified in the integrity check. Either remove the indicator from all groups except the one that it should be allocated to, or see if one of the groups should be placed in a different group set.
+      Some indicators have been allocated to several indicator groups that are members of the same indicator group set. All group sets in DHIS2 are defined as exclusive, which means that an indicator can <emphasis>only</emphasis> be allocated to <emphasis>one</emphasis> indicator group within that group set. Go to Maintenance -&gt; Data elements and indicators -&gt;Indicator groups to review each indicator identified in the integrity check. Either remove the indicator from all groups except the one that it should be allocated to, or see if one of the groups should be placed in a different group set.
       </para>
     </section>
     <section>
+      <title>Duplicate periods</title>
+      <para>If periods have been imported from external applications, it may be possible that some periods will be duplicated. If you have any periods which appear to be duplicated here, you will need to resolve these directly in the DHIS2 database. All data which has been assigned to the duplicated period, should be moved to the correct period, and the duplicate period should be removed. </para>
+    </section>
+    <section>
       <title> Organisation units with cyclic references</title>
-      <para>Organisation units cannot be both parent and children of each other, directly nor indirectly.</para>
+      <para>Organisation units cannot be both parent and children of each other, directly nor indirectly. If this situation occurs, you will need to resolve the cyclic reference directly in the DHIS2 datrabase in the &quot;organisationunit&quot; table, by reassigning the &quot;parentid&quot; field of the organisation units. </para>
     </section>
     <section>
       <title>Orphaned organisation units</title>
-      <para>All organisation units must exist within the organisation unit hierarchy. Go to Organisation-&gt;Hierarchy Operations and move the offending organisation unit into the proper position in the hierarchy. </para>
+      <para>All organisation units must exist within the organisation unit hierarchy. Go to Organisation- units &gt;Hierarchy Operations and move the offending organisation unit into the proper position in the hierarchy. </para>
     </section>
     <section>
       <title>Organisation units without groups</title>
-      <para>All organisation units <emphasis>must</emphasis> be allocated to at least <emphasis>one</emphasis> group. The problem might either be that you have not defined any `compulsory` OrgUnit Group Set at all, or that there are violations of the `compulsory` rule for some OrgUnits . NOTE: If you have defined no `compulsory` OrgUnit Group Sets, then you must first define them by going to  Maintenance -&gt; Organisation units-&gt;Organisation unit group sets and define at least one `compulsory` Group Set (the group set `OrgUnitType` are nearly universally relevant). If you have the relevant group sets, go to Maintenance -&gt; OrgUnit Groups to review each OrgUnit identified and add the relevant Group allocation.</para>
+      <para>All organisation units <emphasis>must</emphasis> be allocated to at least <emphasis>one</emphasis> group. The problem might either be that you have not defined any compulsory OrgUnit Group Set at all, or that there are violations of the compulsory rule for some OrgUnits . NOTE: If you have defined no compulsory OrgUnit Group Sets, then you must first define them by going to Organisation units-&gt;Organisation unit group sets and define at least one compulsory Group Set (the group set &apos;Type&apos; are nearly universally relevant). If you have the relevant group sets, go to Maintenance -&gt; OrgUnit Groups to review each OrgUnit identified and add the relevant Group allocation.</para>
     </section>
     <section>
       <title>Organisation units violating compulsory group sets</title>
-      <para>These organisation units have not been assigned to the any organisation unit group within one of the  <emphasis>compulsory</emphasis> organisation unit group sets. When a group set is defined as `compulsory`, it means that an organisation unit must be allocated to at least one organisation unit group within that group set. For instance, all organisation units must belong to one of the groups in the `organisation unitType` group set. It might belong to  the `Hospital` or the `Clinic` or any other `type` group - but it must belong to exactly one of them.  Go to Maintenance -&gt; organisation unit-&gt;Organisation unit groups to review each organisation unit identified in the integrity check. Allocate all organisation units to exactly one group. </para>
+      <para>These organisation units have not been assigned to the any organisation unit group within one of the  <emphasis>compulsory</emphasis> organisation unit group sets. When a group set is defined as compulsory, it means that an organisation unit must be allocated to at least one organisation unit group within that group set. For instance, all organisation units must belong to one of the groups in the &apos;Type&apos; group set. It might belong to  the `Hospital` or the `Clinic` or any other &apos;type&apos; group - but it must belong to exactly one of them.  Go to Organisation units-&gt;Organisation unit groups to review each organisation unit identified in the integrity check. Allocate all organisation units to exactly one compulsory group. </para>
     </section>
     <section>
       <title>Organisation units violating exclusive group sets</title>
-      <para>Some organisation units have been allocated to several organisation unit groups that are members of the same organisation unit group set. All group sets in DHIS are defined as exclusive, which means that an organisation unit can <emphasis>only</emphasis> be allocated to <emphasis>one</emphasis> organisation unit group within that Group Set. For instance, one organisation unit cannot normally belong to the both the &apos;Hospital&apos; and &apos;Clinic&apos; groups , but rather to only to one of them. Go to Maintenance -&gt; organisation unit-&gt;Organisation unit groups to review each organisation unit identified in the integrity check. Remove the organisation unit from all groups except the one that it should be allocated to.</para>
+      <para>Some organisation units have been allocated to several organisation unit groups that are members of the same organisation unit group set. All group sets in DHIS are defined as exclusive, which means that an organisation unit can <emphasis>only</emphasis> be allocated to <emphasis>one</emphasis> organisation unit group within that Group Set. For instance, one organisation unit cannot normally belong to the both the &apos;Hospital&apos; and &apos;Clinic&apos; groups , but rather to only to one of them. Go to Organisation unit-&gt;Organisation unit groups to review each organisation unit identified in the integrity check. Remove the organisation units from all groups except the one that it should be allocated to.</para>
     </section>
     <section>
       <title> Organisation unit groups without group sets</title>
@@ -153,15 +165,15 @@
     </section>
     <section>
       <title>Validation rules without groups</title>
-      <para>All validation rules must be assigned to a group. Go to <command>Services-&gt;Data quality-&gt;Validation rule group</command> and assign the offending validation rule to a group. </para>
+      <para>All validation rules must be assigned to a group. Go to <command>Data quality-&gt;Validation rule group</command> and assign the offending validation rule to a group. </para>
     </section>
     <section>
       <title>Invalid validation rule left side expressions</title>
-      <para>An error exists in the left-side validation rule definition. Go to <command>Services-&gt;Data quality-&gt;Validation rule</command> and click the &quot;Edit&quot; icon on the offending rule. Press &quot;Edit left side&quot; and make the corrections that are required. </para>
+      <para>An error exists in the left-side validation rule definition. Go to <command>Data quality-&gt;Validation rule</command> and click the &quot;Edit&quot; icon on the offending rule. Press &quot;Edit left side&quot; and make the corrections that are required. </para>
     </section>
     <section>
       <title>Invalid validation rule right side expressions</title>
-      <para>An error exists in the left-side validation rule definition. Go to <command>Services-&gt;Data quality-&gt;Validation rule</command> and click the &quot;Edit&quot; icon on the offending rule. Press &quot;Edit right side&quot; and make the corrections that are required.</para>
+      <para>An error exists in the left-side validation rule definition. Go to <command>Data quality-&gt;Validation rule</command> and click the &quot;Edit&quot; icon on the offending rule. Press &quot;Edit right side&quot; and make the corrections that are required.</para>
     </section>
   </section>
   <section id="maintenance">
@@ -242,7 +254,7 @@
         <para>Period structure (_dataperiodstructure)</para>
         <para>This table provides information about all periods and which period type they are
           associated with. For each period type with lower frequency than itself, it contains
-          information about which period if will fall within.</para>
+          information about which period it will fall within.</para>
       </listitem>
       <listitem>
         <para>Data element category option combinations (_dataelementcategoryoptioncombo)</para>
@@ -252,7 +264,7 @@
   </section>
   <section>
     <title>Locale Management</title>
-    <para>It is posible to create custom locales in DHIS2. In addition to the locales available through the system, you might want to add a custom locale such as &quot;English&quot; and &quot;Zambia&quot; to the system. This would allow you to translate metadata objects to local languages, or to account for slight variants between countries which use a common metadata definition. </para>
+    <para>It is possible to create custom locales in DHIS2. In addition to the locales available through the system, you might want to add a custom locale such as &quot;English&quot; and &quot;Zambia&quot; to the system. This would allow you to translate metadata objects to local languages, or to account for slight variants between countries which use a common metadata definition. </para>
     <screenshot>
       <mediaobject>
         <imageobject>
@@ -274,7 +286,6 @@
       views, given that views only depend on other views which come earlier in the alphabetical
       order. For instance, &quot;ViewB&quot; can safely depend on &quot;ViewA&quot;. Otherwise, having views depending
       on other view result in an integrity violation error.</para>
-    <para/>
     <section>
       <title>Creating a new SQL view</title>
       <para>To create a new SQL view, choose Maintenance-&gt;SQL view and click the &quot;Add new&quot; button. </para>
@@ -320,7 +331,7 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>The total number of each type of object is presented in a table, as well as a graph. </para>
+    <para>The total number of each type of object is presented in a series of tables with summary statistics of each object. </para>
   </section>
   <section id="lockException">
     <title>Lock exceptions</title>
@@ -358,13 +369,20 @@
   </section>
   <section id="optionSet">
     <title>Option sets</title>
-    <para> Option sets can be associated with data elements in the add / update data element interface for name-based data elements. You can define any kind of options, for instance an option set
+    <para>Option sets provide a pre-defined dropdown (enumerated) list for use in DHIS2.  You can define any kind of options, for instance an option set
 called &quot;Delivery type&quot; where &quot;Normal&quot;, &quot;Breach&quot;, &quot;Caesarian&quot; and
-&quot;Assisted&quot; would be the options. This option set can later be
-associated with any number of data elements. When doing data entry in
-name-based records module those elements will then appear in the form
-as drop-down lists with auto-completion support.
-</para>
+&quot;Assisted&quot; would be the options. To define a new option set, simply click &quot;Add new&quot;. Once you have defined the option set itself, you will need to define the options in the set, by clicking the name of the option set and selecting &quot;Option management&quot; from the context menu. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata align="center" fileref="resources/images/maintainence/option_sets.png" width="50%" format="PNG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+    <para>Press &quot;Add new&quot; to enter a new option and its code. You can sort the options within the option set by using the &quot;Sort options&quot; dialog button.</para>
+    <important>
+      <para>Option sets must have a code as well as a name. Codes of options cannot be changed, while the names can. Both names as well as codes of all options must be unique, even across different option sets.</para>
+    </important>
   </section>
   <section id="cacheStatistics">
     <title>Cache Statistics </title>

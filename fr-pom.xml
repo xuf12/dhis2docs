@@ -1,10 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+﻿<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.hisp.dhis</groupId>
 	<artifactId>dhis-documentation-docbook</artifactId>
-	<name>DHIS 2 Documentation</name>
+	<name>DHIS2 Documentation</name>
 	<version>2.17</version>
 	<description>DHIS 2 Documentation</description>
 	<packaging>pom</packaging>
@@ -28,22 +27,37 @@
 	</properties>
 	<build>
 		<plugins>
-			<!--This section dynamically builds the build.properites which is replaced inside the document preface -->
+			<!--This section dynamically builds the build.properties which is replaced inside the document preface -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
 					<execution>
+						<id>revision</id>
 						<phase>package</phase>
 						<configuration>
 							<tasks>
 								<tstamp>
 									<format property="now" pattern="yyyy-MM-dd HH:mm:ss"/>
 								</tstamp>
-								<exec executable="bzr" outputproperty="revision" failifexecutionfails="false">
-									<arg line="revno -q"/>
+								<exec executable="git" outputproperty="revision" failifexecutionfails="false">
+									<arg line="rev-list --count HEAD"/>
 								</exec>
-								<echo file="${project.basedir}/src/docbkx/build.properties" message="&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;&lt;revhistory&gt;&lt;revision&gt;&lt;revnumber&gt; ${revision}&lt;/revnumber&gt;&lt;revremark&gt;Version ${project.version} ${now}&lt;/revremark&gt;&lt;/revision&gt;&lt;/revhistory&gt;" />
+								<echo file="${project.basedir}/src/docbkx/build.properties" message="&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;&lt;revhistory&gt;&lt;revision&gt;&lt;revnumber&gt;Revision  ${revision}&lt;/revnumber&gt;&lt;revremark&gt;Version ${project.version} ${now}&lt;/revremark&gt;&lt;/revision&gt;&lt;/revhistory&gt;" />
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>submodules</id>
+						<phase>package</phase>
+						<configuration>
+							<tasks>
+								<exec executable ="git" failifexecutionfails="true">
+									<arg line="submodule update --init --recursive"/>
+								</exec>
 							</tasks>
 						</configuration>
 						<goals>
@@ -59,10 +73,51 @@
 				<configuration>
 					<xincludeSupported>true</xincludeSupported>
 				</configuration>
+				<!-- Chunked HTML User docs-->
 				<executions>
-					<!--French Implementation guide, Chunked HTML -->
+					<!-- <execution>
+						<id>chunked-html-docs-user</id>
+						<phase>package</phase>
+						<goals>
+							<goal>generate-html</goal>
+						</goals>
+						<configuration>
+							<sourceDirectory>${docbook.source}/fr/</sourceDirectory>
+							<targetDirectory>${docbook.target}/fr/user/html/</targetDirectory>
+							<admonGraphics>1</admonGraphics>
+							<admonGraphicsPath>resources/images/admon/</admonGraphicsPath>
+							<htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
+							<glossaryCollection>resources/glossary.xml</glossaryCollection>
+							<sectionAutolabel>1</sectionAutolabel>
+							<sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
+							<chunkedOutput>true</chunkedOutput>
+							<useEmbedForSvg>1</useEmbedForSvg>							
+							<collectXrefTargets>yes</collectXrefTargets> 
+							<targetsFilename>${docbook.target}/fr/user/html/dhis2_user_manual_fr.html.target.db</targetsFilename>
+							<olinkBaseUri>dhis2_user_manual_fr.html</olinkBaseUri>
+							<targetDatabaseDocument>olinkdb.xml</targetDatabaseDocument>							
+							<includes>dhis2_user_manual_fr.xml</includes>
+							<postProcess>
+								<copy todir="${docbook.target}/fr/user/html/resources/images">
+									<fileset dir="src/docbkx/fr/resources/images">
+										<include name="**/*.png" />
+										<include name="**/*.PNG" />
+										<include name="**/*.gif" />
+										<include name="**/*.jpg" />
+										<include name="**/*.svg" />
+									</fileset>
+								</copy>
+								<copy todir="${docbook.target}/fr/user/html/resources/css">
+									<fileset dir="src/docbkx/fr/resources/css">
+										<include name="**/*.css" />
+									</fileset>
+								</copy>
+							</postProcess>
+						</configuration>
+					</execution> -->
+					<!-- Chunked HTML End User docs-->
 					<execution>
-						<id>chunked-html-docs-implementer-fr</id>
+						<id>chunked-html-docs-end-user</id>
 						<phase>package</phase>
 						<goals>
 							<goal>generate-html</goal>
@@ -71,7 +126,43 @@
 							<admonGraphics>1</admonGraphics>
 							<admonGraphicsPath>resources/images/admon/</admonGraphicsPath>
 							<htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
-							<glossaryCollection>resources/glossary_es.xml</glossaryCollection>
+							<glossaryCollection>resources/glossary.xml</glossaryCollection>
+							<sectionAutolabel>1</sectionAutolabel>
+							<sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
+							<chunkedOutput>true</chunkedOutput>
+							<includes>dhis2_end_user_manual.xml</includes>
+							<sourceDirectory>${docbook.source}/fr/</sourceDirectory>
+							<targetDirectory>${docbook.target}/fr/end-user/html</targetDirectory>
+							<postProcess>
+								<copy todir="${docbook.target}/fr/end-user/html/resources/images">
+									<fileset dir="src/docbkx/fr/resources/images">
+										<include name="**/*.png" />
+										<include name="**/*.PNG" />
+										<include name="**/*.gif" />
+										<include name="**/*.jpg" />
+										<include name="**/*.svg" />
+									</fileset>
+								</copy>
+								<copy todir="${docbook.target}/fr/end-user/html/resources/css">
+									<fileset dir="src/docbkx/fr/resources/css">
+										<include name="**/*.css" />
+									</fileset>
+								</copy>
+							</postProcess>
+						</configuration>
+					</execution>
+					<!-- Chunked HTML Implementer docs-->
+					<execution>
+						<id>chunked-html-docs-implementer</id>
+						<phase>package</phase>
+						<goals>
+							<goal>generate-html</goal>
+						</goals>
+						<configuration>
+							<admonGraphics>1</admonGraphics>
+							<admonGraphicsPath>resources/images/admon/</admonGraphicsPath>
+							<htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
+							<glossaryCollection>resources/glossary_fr.xml</glossaryCollection>
 							<sectionAutolabel>1</sectionAutolabel>
 							<sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
 							<chunkedOutput>true</chunkedOutput>
@@ -88,6 +179,15 @@
 										<include name="**/*.svg" />
 									</fileset>
 								</copy>
+								<copy todir="${docbook.target}/fr/implementer/html/">
+									<fileset dir="src/docbkx/fr/dhis2tools/docs">
+										<include name="**/*.png" />
+										<include name="**/*.PNG" />
+										<include name="**/*.gif" />
+										<include name="**/*.jpg" />
+										<include name="**/*.svg" />
+									</fileset>
+								</copy>
 								<copy todir="${docbook.target}/fr/implementer/html/resources/css">
 									<fileset dir="src/docbkx/fr/resources/css">
 										<include name="**/*.css" />
@@ -96,7 +196,105 @@
 							</postProcess>
 						</configuration>
 					</execution>
-					<!--French Implementation guide, PDF -->
+					<!-- <execution>
+						<id>chunked-html-docs-developer</id>
+						<phase>package</phase>
+						<goals>
+							<goal>generate-html</goal>
+						</goals>
+						<configuration>
+							<admonGraphics>1</admonGraphics>
+							<admonGraphicsPath>resources/images/admon/</admonGraphicsPath>
+							<htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
+							<sectionAutolabel>1</sectionAutolabel>
+							<sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
+							<chunkedOutput>true</chunkedOutput>
+							<includes>dhis2_developer_manual.xml</includes>
+							<sourceDirectory>${docbook.source}/fr/</sourceDirectory>
+							<targetDirectory>${docbook.target}/fr/developer/html</targetDirectory>
+							<postProcess>
+								<copy todir="${docbook.target}/fr/developer/html/resources/images">
+									<fileset dir="src/docbkx/fr/resources/images">
+										<include name="**/*.png" />
+										<include name="**/*.PNG" />
+										<include name="**/*.gif" />
+										<include name="**/*.jpg" />
+										<include name="**/*.svg" />
+									</fileset>
+								</copy>
+								<copy todir="${docbook.target}/fr/developer/html/resources/css">
+									<fileset dir="src/docbkx/fr/resources/css">
+										<include name="**/*.css" />
+									</fileset>
+								</copy>
+							</postProcess>
+						</configuration>
+					</execution> -->
+					<!-- Single page HTML -->
+					<execution>
+						<id>html-docs-en</id>
+						<phase>package</phase>
+						<goals>
+							<goal>generate-html</goal>
+						</goals>
+						<configuration>
+							<admonGraphics>1</admonGraphics>
+							<admonGraphicsPath>resources/images/admon/</admonGraphicsPath>
+							<htmlStylesheet>resources/css/docbook_bsd.css</htmlStylesheet>
+							<glossaryCollection>resources/glossary.xml</glossaryCollection>
+							<sectionAutolabel>1</sectionAutolabel>
+							<sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
+							<chunkedOutput>false</chunkedOutput>
+							<includes>dhis2_end_user_manual.xml,dhis2_implementation_guide.xml</includes>
+							<sourceDirectory>${docbook.source}/fr/</sourceDirectory>
+							<postProcess>
+								<!-- <copy file="target/docbkx/html/dhis2_user_manual_en.html" tofile="${docbook.target}/fr/user/html/dhis2_user_manual_en_full.html" /> -->				
+								<copy file="target/docbkx/html/dhis2_end_user_manual.html" tofile="${docbook.target}/fr/end-user/html/dhis2_end_user_manual_full.html" />
+								<copy file="target/docbkx/html/dhis2_implementation_guide.html" tofile="${docbook.target}/fr/implementer/html/dhis2_implementation_guide_full.html" />
+							</postProcess>
+						</configuration>
+					</execution>
+
+					<!-- PDF User docs-->
+					<!-- <execution>
+						<id>pdf-docs-en-user</id>
+						<phase>package</phase>
+						<goals>
+							<goal>generate-pdf</goal>
+						</goals>
+						<configuration>
+							<argLine>-Xmx1024m</argLine>
+							<foCustomization>${docbook.source}/fr/resources/xsl/fop-cust.xsl</foCustomization>
+							<doubleSided>1</doubleSided>
+							<paperType>A4</paperType>
+							<includes>dhis2_user_manual_en.xml</includes>
+							<sourceDirectory>${docbook.source}/fr/</sourceDirectory>
+							<postProcess>
+								<copy file="target/docbkx/pdf/dhis2_user_manual_en.pdf" todir="${docbook.target}/fr/user" />
+							</postProcess>
+						</configuration>
+					</execution> -->
+
+					<!-- PDF CCEI User docs-->
+					<!-- <execution>
+						<id>pdf-docs-en-ccei-user</id>
+						<phase>package</phase>
+						<goals>
+							<goal>generate-pdf</goal>
+						</goals>
+						<configuration>
+							<argLine>-Xmx1024m</argLine>
+							<foCustomization>${docbook.source}/fr/resources/xsl/fop-cust.xsl</foCustomization>
+							<doubleSided>1</doubleSided>
+							<paperType>A4</paperType>
+							<includes>ccei_user_manual_en.xml</includes>
+							<sourceDirectory>${docbook.source}/fr/</sourceDirectory>
+							<postProcess>
+								<copy file="target/docbkx/pdf/ccei_user_manual_en.pdf" todir="${docbook.target}/fr/ccei-user" />
+							</postProcess>
+						</configuration>
+					</execution> -->
+					<!-- PDF Implementer docs-->
 					<execution>
 						<id>pdf-docs-fr-implementer</id>
 						<phase>package</phase>
@@ -108,16 +306,16 @@
 							<foCustomization>${docbook.source}/fr/resources/xsl/fop-cust.xsl</foCustomization>
 							<doubleSided>1</doubleSided>
 							<paperType>A4</paperType>
-							<includes>dhis2_implementation_guide_fr.xml</includes>
+							<includes>dhis2_implementation_guide.xml</includes>
 							<sourceDirectory>${docbook.source}/fr/</sourceDirectory>
 							<postProcess>
-								<copy file="target/docbkx/pdf/dhis2_implementation_guide_fr.pdf" todir="${docbook.target}/fr/implementer" />
+								<copy file="target/docbkx/pdf/dhis2_implementation_guide.pdf" todir="${docbook.target}/fr/implementer" />
 							</postProcess>
 						</configuration>
 					</execution>
-					<!--French Documentation guide, PDF -->
+					<!-- PDF End User docs-->
 					<execution>
-						<id>pdf-documentation-guide-fr</id>
+						<id>pdf-docs-fr-end-user</id>
 						<phase>package</phase>
 						<goals>
 							<goal>generate-pdf</goal>
@@ -127,10 +325,29 @@
 							<foCustomization>${docbook.source}/fr/resources/xsl/fop-cust.xsl</foCustomization>
 							<doubleSided>1</doubleSided>
 							<paperType>A4</paperType>
-							<includes>dhis2_documentation_guide_book_fr.xml</includes>
+							<includes>dhis2_end_user_manual.xml</includes>
 							<sourceDirectory>${docbook.source}/fr/</sourceDirectory>
 							<postProcess>
-								<copy file="target/docbkx/pdf/dhis2_documentation_guide_book_fr.pdf" tofile="${docbook.target}/es/implementer/dhis2_documentation_guide_fr.pdf" />
+								<copy file="target/docbkx/pdf/dhis2_end_user_manual.pdf" todir="${docbook.target}/fr/end-user" />
+							</postProcess>
+						</configuration>
+					</execution>
+					<!-- PDF Documentation docs-->
+					<execution>
+						<id>pdf-fr-documentation-guide</id>
+						<phase>package</phase>
+						<goals>
+							<goal>generate-pdf</goal>
+						</goals>
+						<configuration>
+							<argLine>-Xmx1024m</argLine>
+							<foCustomization>${docbook.source}/fr/resources/xsl/fop-cust.xsl</foCustomization>
+							<doubleSided>1</doubleSided>
+							<paperType>A4</paperType>
+							<includes>dhis2_documentation_guide_book.xml</includes>
+							<sourceDirectory>${docbook.source}/fr/</sourceDirectory>
+							<postProcess>
+								<copy file="target/docbkx/pdf/dhis2_documentation_guide_book.pdf" tofile="${docbook.target}/fr/implementer/dhis2_documentation_guide.pdf" />
 							</postProcess>
 						</configuration>
 					</execution>

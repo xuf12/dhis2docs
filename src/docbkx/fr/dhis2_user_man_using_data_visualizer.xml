@@ -1,23 +1,23 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+ï»¿<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
 <chapter>
-  <title>Utilisation du Visualiseur de Données</title>
+  <title>Utilisation du Visualiseur de DonnÃ©es</title>
   <section id="dvIntro">
-    <title>Le module visualiseur de données permet aux utilisateurs de créer facilement des analyses de données et de les visualiser à travers des graphiques et des tableaux de données. Vous pouvez choisir en toute liberté le contenu (indicateurs, périodes et unités d'organisation) à utiliser pour votre analyse. Ce module est accessible en cliquant sur l’élément "Services -> Visualiseur de Données" dans le menu principal. L'image ci-dessous montre la fenêtre du module. Voici comment procéder pour obtenir rapidement une visualisation de données:</para>
+    <para>Le module visualiseur de donnÃ©es permet aux utilisateurs de crÃ©er facilement des analyses de donnÃ©es et de les visualiser Ã  travers des graphiques et des tableaux de donnÃ©es. Vous pouvez choisir en toute libertÃ© le contenu (indicateurs, pÃ©riodes et unitÃ©s d'organisation) Ã  utiliser pour votre analyse. Ce module est accessible en cliquant sur lâ€™Ã©lÃ©ment "Services -> Visualiseur de DonnÃ©es" dans le menu principal. L'image ci-dessous montre la fenÃªtre du module. Voici comment procÃ©der pour obtenir rapidement une visualisation de donnÃ©es:</para>
     <orderedlist>
       <listitem>
-        <para>Consultez la rubrique "Indicateur" et sélectionnez un groupe d’indicateur dans la liste des groupes.</para>
+        <para>Consultez la rubrique "Indicateur" et sÃ©lectionnez un groupe dâ€™indicateur dans la liste des groupes.</para>
       </listitem>
       <listitem>
-        <para>Consultez la partie "indicateurs disponibles" et sélectionnez quelques indicateurs de la liste en double-cliquant sur les éléments que vous souhaitez utiliser.</para>
+        <para>Consultez la partie "indicateurs disponibles" et sÃ©lectionnez quelques indicateurs de la liste en double-cliquant sur les Ã©lÃ©ments que vous souhaitez utiliser.</para>
       </listitem>
       <listitem>
-        <para>Cliquez sur "Mise à jour" dans la barre du haut et observez le graphique apparaître.</para>
+        <para>Cliquez sur "Mise Ã  jour" dans la barre du haut et observez le graphique apparaÃ®tre.</para>
       </listitem>
     </orderedlist>
-    <para>Le visualiseur de données est conçu d'abord pour être simple à utiliser – il doit juste suffire de sélectionner les indicateurs, les éléments de données, les périodes et les unités d'organisation qui font l’objet de votre analyse, et cliquer sur "Mettre à jour" pour obtenir votre visualisation. Ensuite, il a été conçu pour être rapide et pour fonctionner correctement sur des connexions Internet médiocres – les graphiques sont en effet générés au niveau de votre navigateur et très peu de données sont transférées sur Internet durant le processus de création de la visualisation.</para>
+    <para>Le visualiseur de donnÃ©es est conÃ§u d'abord pour Ãªtre simple Ã  utiliser â€“ il doit juste suffire de sÃ©lectionner les indicateurs, les Ã©lÃ©ments de donnÃ©es, les pÃ©riodes et les unitÃ©s d'organisation qui font lâ€™objet de votre analyse, et cliquer sur "Mettre Ã  jour" pour obtenir votre visualisation. Ensuite, il a Ã©tÃ© conÃ§u pour Ãªtre rapide et pour fonctionner correctement sur des connexions Internet mÃ©diocres â€“ les graphiques sont en effet gÃ©nÃ©rÃ©s au niveau de votre navigateur et trÃ¨s peu de donnÃ©es sont transfÃ©rÃ©es sur Internet durant le processus de crÃ©ation de la visualisation.</para>
     <screenshot>
-      <screeninfo>Module visualiseur de données affichant un graphique en colonnes.</screeninfo>
+      <screeninfo>Module visualiseur de donnÃ©es affichant un graphique en colonnes.</screeninfo>
       <mediaobject>
         <imageobject>
           <imagedata width="100%" height="100%" fileref="resources/images/visualizer/column_chart.png" format="PNG"/>
@@ -26,153 +26,153 @@
     </screenshot>
   </section>
   <section id="dvChartTypes">
-    <title>Sélection du type de graphique</title>
-    <para>Le module visualiseur fournit sept types de graphiques différents, chacun ayant des caractéristiques différentes. Vous pouvez sélectionner le type de votre graphique en cliquant sur l'une des icônes de la barre supérieure gauche portant la mention "Type de graphique".</para>
+    <title>SÃ©lection du type de graphique</title>
+    <para>Le module visualiseur fournit sept types de graphiques diffÃ©rents, chacun ayant des caractÃ©ristiques diffÃ©rentes. Vous pouvez sÃ©lectionner le type de votre graphique en cliquant sur l'une des icÃ´nes de la barre supÃ©rieure gauche portant la mention "Type de graphique".</para>
     <orderedlist>
       <listitem>
-        <para>Graphique à colonnes: Il s’agit de graphiques qui affichent les informations sous forme de colonnes verticales rectangulaires ayant des longueurs proportionnelles aux valeurs qu'elles représentent. Utile par exemple pour comparer les performances des différents districts.</para>
+        <para>Graphique Ã  colonnes: Il sâ€™agit de graphiques qui affichent les informations sous forme de colonnes verticales rectangulaires ayant des longueurs proportionnelles aux valeurs qu'elles reprÃ©sentent. Utile par exemple pour comparer les performances des diffÃ©rents districts.</para>
       </listitem>
       <listitem>
-        <para>Graphique à colonnes empilées: Il s’agit de graphiques avec des colonnes rectangulaires verticales, mais où les barres représentant plusieurs catégories sont empilées les unes sur les autres. Utile par exemple pour afficher des tendances ou des sommes d'éléments de données associés.</para>
+        <para>Graphique Ã  colonnes empilÃ©es: Il sâ€™agit de graphiques avec des colonnes rectangulaires verticales, mais oÃ¹ les barres reprÃ©sentant plusieurs catÃ©gories sont empilÃ©es les unes sur les autres. Utile par exemple pour afficher des tendances ou des sommes d'Ã©lÃ©ments de donnÃ©es associÃ©s.</para>
       </listitem>
       <listitem>
-        <para>Diagramme à barres: Idem que les graphiques à colonnes, mais avec des barres horizontales.</para>
+        <para>Diagramme Ã  barres: Idem que les graphiques Ã  colonnes, mais avec des barres horizontales.</para>
       </listitem>
       <listitem>
-        <para>Graphiques à barres empilées: Idem que les graphiques à colonnes empilées, mais avec des barres horizontales.</para>
+        <para>Graphiques Ã  barres empilÃ©es: Idem que les graphiques Ã  colonnes empilÃ©es, mais avec des barres horizontales.</para>
       </listitem>
       <listitem>
-        <para>Graphique en ligne: Il s’agit de graphiques qui affichent les informations comme une série de points reliés par des lignes droites. On parle aussi de séries chronologiques. Utiles par exemple pour visualiser les tendances des données de l'indicateur sur plusieurs périodes.</para>
+        <para>Graphique en ligne: Il sâ€™agit de graphiques qui affichent les informations comme une sÃ©rie de points reliÃ©s par des lignes droites. On parle aussi de sÃ©ries chronologiques. Utiles par exemple pour visualiser les tendances des donnÃ©es de l'indicateur sur plusieurs pÃ©riodes.</para>
       </listitem>
       <listitem>
-        <para>Graphique en aire: Il s’agit de graphiques basés sur les graphiques en ligne, avec l'espace entre l'axe horizontal et la ligne rempli de couleurs, et les lignes empilées les unes sur les autres. Utile pour comparer les tendances d’indicateurs associés.</para>
+        <para>Graphique en aire: Il sâ€™agit de graphiques basÃ©s sur les graphiques en ligne, avec l'espace entre l'axe horizontal et la ligne rempli de couleurs, et les lignes empilÃ©es les unes sur les autres. Utile pour comparer les tendances dâ€™indicateurs associÃ©s.</para>
       </listitem>
       <listitem>
-        <para>Graphique camembert: Il s’agit de diagrammes circulaires divisés en secteurs (ou tranches). Utiles par exemple pour visualiser les données en proportion d'éléments de données individuels par rapport à la somme totale de tous les éléments de données.</para>
+        <para>Graphique camembert: Il sâ€™agit de diagrammes circulaires divisÃ©s en secteurs (ou tranches). Utiles par exemple pour visualiser les donnÃ©es en proportion d'Ã©lÃ©ments de donnÃ©es individuels par rapport Ã  la somme totale de tous les Ã©lÃ©ments de donnÃ©es.</para>
       </listitem>
       <listitem>
-        <para>Graphique radar: Il s’agit d’afficher des données multidimensionnelles sur des axes à partir du même point. Egalement connu sous le nom de graphique en araignée.</para>
+        <para>Graphique radar: Il sâ€™agit dâ€™afficher des donnÃ©es multidimensionnelles sur des axes Ã  partir du mÃªme point. Egalement connu sous le nom de graphique en araignÃ©e.</para>
       </listitem>
     </orderedlist>
   </section>
   <section id="dvSeriesCategoryFilter">
-    <title>Sélection de la série, de la catégorie et du filtre</title>
-    <para>Cette section vous permet de définir la dimension des données que vous souhaitez voir représenter en série, catégorie ou filtre. Une petite explication est nécessaire. Par dimension il est fait référence aux éléments qui décrivent les valeurs de données dans le système. Le système dispose de trois principales dimensions:</para>
+    <title>SÃ©lection de la sÃ©rie, de la catÃ©gorie et du filtre</title>
+    <para>Cette section vous permet de dÃ©finir la dimension des donnÃ©es que vous souhaitez voir reprÃ©senter en sÃ©rie, catÃ©gorie ou filtre. Une petite explication est nÃ©cessaire. Par dimension il est fait rÃ©fÃ©rence aux Ã©lÃ©ments qui dÃ©crivent les valeurs de donnÃ©es dans le systÃ¨me. Le systÃ¨me dispose de trois principales dimensions:</para>
     <orderedlist>
       <listitem>
-        <para>Les données: Cette dimension comprend les éléments de données, les indicateurs et les ensembles de données (taux de reportage), et sert à décrire les phénomènes ou les événements des données. Dimension Quoi.</para>
+        <para>Les donnÃ©es: Cette dimension comprend les Ã©lÃ©ments de donnÃ©es, les indicateurs et les ensembles de donnÃ©es (taux de reportage), et sert Ã  dÃ©crire les phÃ©nomÃ¨nes ou les Ã©vÃ©nements des donnÃ©es. Dimension Quoi.</para>
       </listitem>
       <listitem>
-        <para>Les périodes: Cette dimension sert à décrire quand l'événement a eu lieu. Dimension Quand.</para>
+        <para>Les pÃ©riodes: Cette dimension sert Ã  dÃ©crire quand l'Ã©vÃ©nement a eu lieu. Dimension Quand.</para>
       </listitem>
       <listitem>
-        <para>Les unités d’organisation: Cette dimension sert à décrire où l'événement a eu lieu. Dimension Où.</para>
+        <para>Les unitÃ©s dâ€™organisation: Cette dimension sert Ã  dÃ©crire oÃ¹ l'Ã©vÃ©nement a eu lieu. Dimension OÃ¹.</para>
       </listitem>
     </orderedlist>
-    <para>Le module de visualisation de données vous permet d'utiliser ces dimensions et vous laisse la liberté de choisir ce que vous voulez représenter comme séries, catégories et filtre. Il est possible de comprendre ces concepts en regardant la capture d'écran de la page ci-dessous:</para>
+    <para>Le module de visualisation de donnÃ©es vous permet d'utiliser ces dimensions et vous laisse la libertÃ© de choisir ce que vous voulez reprÃ©senter comme sÃ©ries, catÃ©gories et filtre. Il est possible de comprendre ces concepts en regardant la capture d'Ã©cran de la page ci-dessous:</para>
     <screenshot>
-      <screeninfo>Exemple de graphique illustrant le concept de série, catégories et filtre.</screeninfo>
+      <screeninfo>Exemple de graphique illustrant le concept de sÃ©rie, catÃ©gories et filtre.</screeninfo>
       <mediaobject>
         <imageobject>
           <imagedata width="70%" fileref="resources/images/visualizer/series_category_filter.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>Plus formellement, ces concepts peuvent être décrits de la manière suivante:</para>
+    <para>Plus formellement, ces concepts peuvent Ãªtre dÃ©crits de la maniÃ¨re suivante:</para>
     <orderedlist>
       <listitem>
-        <para>Séries: Une série est un ensemble d'éléments continus ayant un lien commun (par exemple, les périodes ou les éléments de données) que vous souhaitez visualiser dans le but de mettre en évidence les tendances ou les relations dans ses données.</para>
+        <para>SÃ©ries: Une sÃ©rie est un ensemble d'Ã©lÃ©ments continus ayant un lien commun (par exemple, les pÃ©riodes ou les Ã©lÃ©ments de donnÃ©es) que vous souhaitez visualiser dans le but de mettre en Ã©vidence les tendances ou les relations dans ses donnÃ©es.</para>
       </listitem>
       <listitem>
-        <para>Catégories: Une catégorie est un ensemble d'éléments (par exemple des indicateurs ou des unités d'organisation) pour lequel vous souhaitez comparer les données.</para>
+        <para>CatÃ©gories: Une catÃ©gorie est un ensemble d'Ã©lÃ©ments (par exemple des indicateurs ou des unitÃ©s d'organisation) pour lequel vous souhaitez comparer les donnÃ©es.</para>
       </listitem>
       <listitem>
-        <para>Filtre: Comme la plupart des graphiques sont en deux dimensions, un filtre doit être utilisé comme une troisième.</para>
+        <para>Filtre: Comme la plupart des graphiques sont en deux dimensions, un filtre doit Ãªtre utilisÃ© comme une troisiÃ¨me.</para>
       </listitem>
     </orderedlist>
   </section>
   <section>
-    <title>Sélection des indicateurs et des éléments de données</title>
-    <para>Le module visualiseur de données peut afficher n'importe quel nombre d'indicateurs et éléments de données sur un graphique ou une table de données. Il est possible de sélectionner aussi bien des indicateurs que des éléments de données et les faire apparaître ensemble sur le même graphique. Vous pouvez choisir des indicateurs en cliquant sur la catégorie "Indicateurs" et sélectionnant un groupe indicateur dans la liste déroulante qui s’affiche. Cela fera apparaître tous les indicateurs du groupe sélectionné dans la liste de la rubrique "Indicateurs disponibles" à gauche. De cette liste, vous pouvez double-cliquer sur n'importe quel indicateur pour le sélectionner, et le déplacer vers la liste de la rubrique "indicateurs sélectionnés" à droite. Sinon, vous pouvez cliquer une fois sur un ou plusieurs indicateurs pour les sélectionner, puis cliquer sur le bouton en forme de flèche pour les déplacer dans la rubrique de droite. Pour sélectionner tous les indicateurs et les déplacer, il suffit de cliquer sur le bouton à double flèche. Si par contre vous souhaitez ôter des indicateurs de la catégorie des "indicateurs sélectionnés", vous pouvez faire l’opération inverse.</para>
-    <para>Pour sélectionner des éléments de données, cliquez sur la catégorie "Eléments de données". Le même principe de sélection et de désélection que pour les indicateurs s'applique aussi ici.</para>
+    <title>SÃ©lection des indicateurs et des Ã©lÃ©ments de donnÃ©es</title>
+    <para>Le module visualiseur de donnÃ©es peut afficher n'importe quel nombre d'indicateurs et Ã©lÃ©ments de donnÃ©es sur un graphique ou une table de donnÃ©es. Il est possible de sÃ©lectionner aussi bien des indicateurs que des Ã©lÃ©ments de donnÃ©es et les faire apparaÃ®tre ensemble sur le mÃªme graphique. Vous pouvez choisir des indicateurs en cliquant sur la catÃ©gorie "Indicateurs" et sÃ©lectionnant un groupe indicateur dans la liste dÃ©roulante qui sâ€™affiche. Cela fera apparaÃ®tre tous les indicateurs du groupe sÃ©lectionnÃ© dans la liste de la rubrique "Indicateurs disponibles" Ã  gauche. De cette liste, vous pouvez double-cliquer sur n'importe quel indicateur pour le sÃ©lectionner, et le dÃ©placer vers la liste de la rubrique "indicateurs sÃ©lectionnÃ©s" Ã  droite. Sinon, vous pouvez cliquer une fois sur un ou plusieurs indicateurs pour les sÃ©lectionner, puis cliquer sur le bouton en forme de flÃ¨che pour les dÃ©placer dans la rubrique de droite. Pour sÃ©lectionner tous les indicateurs et les dÃ©placer, il suffit de cliquer sur le bouton Ã  double flÃ¨che. Si par contre vous souhaitez Ã´ter des indicateurs de la catÃ©gorie des "indicateurs sÃ©lectionnÃ©s", vous pouvez faire lâ€™opÃ©ration inverse.</para>
+    <para>Pour sÃ©lectionner des Ã©lÃ©ments de donnÃ©es, cliquez sur la catÃ©gorie "ElÃ©ments de donnÃ©es". Le mÃªme principe de sÃ©lection et de dÃ©sÃ©lection que pour les indicateurs s'applique aussi ici.</para>
   </section>
   <section>
-    <title>Sélection des taux de rapportage</title>
-    <para>Le visualiseur permet d'afficher des taux de rapportage sur un graphique, le taux lui-seul ou en combinaison avec des indicateurs et des éléments de données. Les taux de rapportage peuvent être sélectionnés en cliquant sur la rubrique "taux de rapportage". Les taux de rapportage sont définis pour des ensembles de données. L’ensemble de donnée pour lequel vous souhaitez visualiser le taux de rapportage peut être sélectionné en double-cliquant dans la liste des ensembles de données affichés dans la catégorie de gauche.</para>
+    <title>SÃ©lection des taux de rapportage</title>
+    <para>Le visualiseur permet d'afficher des taux de rapportage sur un graphique, le taux lui-seul ou en combinaison avec des indicateurs et des Ã©lÃ©ments de donnÃ©es. Les taux de rapportage peuvent Ãªtre sÃ©lectionnÃ©s en cliquant sur la rubrique "taux de rapportage". Les taux de rapportage sont dÃ©finis pour des ensembles de donnÃ©es. Lâ€™ensemble de donnÃ©e pour lequel vous souhaitez visualiser le taux de rapportage peut Ãªtre sÃ©lectionnÃ© en double-cliquant dans la liste des ensembles de donnÃ©es affichÃ©s dans la catÃ©gorie de gauche.</para>
   </section>
   <section>
-    <title>Sélection des périodes fixes et relatives</title>
-    <para>Cliquez sur la section "Périodes". Pour utiliser des périodes fixes, sélectionnez un type de période dans la liste déroulante. Vous pouvez sélectionner autant de périodes fixes que vous le souhaitez pour chaque type de période. En-dessous des périodes fixes, vous trouverez les cases à cocher pour les périodes relatives et vous pouvez en sélectionner autant que vous le souhaitez. Les noms sont suffisamment clairs et ils sont liés à la date courante, ce qui signifie que si le mois courant est Mars et que vous sélectionnez "Le mois dernier", le mois de Février sera inclus dans le tableau. Vous êtes également libre de combiner des périodes fixes et des périodes relatives dans le même tableau. Les périodes qui se chevauchent seront automatiquement filtrées afin qu'elles ne soient présentées qu'une seule fois.</para>
+    <title>SÃ©lection des pÃ©riodes fixes et relatives</title>
+    <para>Cliquez sur la section "PÃ©riodes". Pour utiliser des pÃ©riodes fixes, sÃ©lectionnez un type de pÃ©riode dans la liste dÃ©roulante. Vous pouvez sÃ©lectionner autant de pÃ©riodes fixes que vous le souhaitez pour chaque type de pÃ©riode. En-dessous des pÃ©riodes fixes, vous trouverez les cases Ã  cocher pour les pÃ©riodes relatives et vous pouvez en sÃ©lectionner autant que vous le souhaitez. Les noms sont suffisamment clairs et ils sont liÃ©s Ã  la date courante, ce qui signifie que si le mois courant est Mars et que vous sÃ©lectionnez "Le mois dernier", le mois de FÃ©vrier sera inclus dans le tableau. Vous Ãªtes Ã©galement libre de combiner des pÃ©riodes fixes et des pÃ©riodes relatives dans le mÃªme tableau. Les pÃ©riodes qui se chevauchent seront automatiquement filtrÃ©es afin qu'elles ne soient prÃ©sentÃ©es qu'une seule fois.</para>
   </section>
   <section>
-    <title>Sélection des unités d'organisation</title>
-    <para>Vous pouvez sélectionner les unités d’organisation à inclure dans le graphique en cliquant sur la section "Unités d’organisation". Cette section vous propose trois manières de sélectionner les unités d'organisation. Le mode par défaut, appelé "Unités d'organisation", vous permet de sélectionner les unités d'organisation que vous souhaitez voir apparaître dans le graphique en les sélectionnant à partir de l'arbre. Ce mode dispose également de trois cases à cocher. En cochant la case "unité organisationnelle de l'utilisateur", vous désactivez l'arborescence de l'unité d'organisation et vous obtenez à la place l'unité d'organisation qui est liée à l’utilisateur actuellement connecté connecté. Cela est également utile pour les administrateurs car ils peuvent créer un favori "système" pertinent en cochant cette option, car tous les utilisateurs trouveront leur unité d'organisation respective quand ils afficheront ce graphique avec leur compte utilisateur. Le même concept s’applique pour "Enfants de l’unité organisationnelle" et "Petits enfants de l’unité organisationnelle". Le deuxième mode a pour intitulé "Sélectionner les niveaux". Avec ce mode, vous pouvez sélectionner toutes les unités d'organisation sur un ou plusieurs niveaux. Vous avez également la possibilité de sélectionner les parents des unités d'organisation dans l'arborescence, ce qui est idéal lorsqu’il s’agit par exemple de sélectionner tous les centres de santé à l’intérieur d’un ou de plusieurs districts. Le même concept s’applique pour le troisième mode appelé "Sélectionner des groupes". Ici, vous pouvez sélectionner toutes les unités d'organisation à l'intérieur d'un ou plusieurs groupes ainsi que les parents des unités d'organisation parent en même temps.</para>
+    <title>SÃ©lection des unitÃ©s d'organisation</title>
+    <para>Vous pouvez sÃ©lectionner les unitÃ©s dâ€™organisation Ã  inclure dans le graphique en cliquant sur la section "UnitÃ©s dâ€™organisation". Cette section vous propose trois maniÃ¨res de sÃ©lectionner les unitÃ©s d'organisation. Le mode par dÃ©faut, appelÃ© "UnitÃ©s d'organisation", vous permet de sÃ©lectionner les unitÃ©s d'organisation que vous souhaitez voir apparaÃ®tre dans le graphique en les sÃ©lectionnant Ã  partir de l'arbre. Ce mode dispose Ã©galement de trois cases Ã  cocher. En cochant la case "unitÃ© organisationnelle de l'utilisateur", vous dÃ©sactivez l'arborescence de l'unitÃ© d'organisation et vous obtenez Ã  la place l'unitÃ© d'organisation qui est liÃ©e Ã  lâ€™utilisateur actuellement connectÃ© connectÃ©. Cela est Ã©galement utile pour les administrateurs car ils peuvent crÃ©er un favori "systÃ¨me" pertinent en cochant cette option, car tous les utilisateurs trouveront leur unitÃ© d'organisation respective quand ils afficheront ce graphique avec leur compte utilisateur. Le mÃªme concept sâ€™applique pour "Enfants de lâ€™unitÃ© organisationnelle" et "Petits enfants de lâ€™unitÃ© organisationnelle". Le deuxiÃ¨me mode a pour intitulÃ© "SÃ©lectionner les niveaux". Avec ce mode, vous pouvez sÃ©lectionner toutes les unitÃ©s d'organisation sur un ou plusieurs niveaux. Vous avez Ã©galement la possibilitÃ© de sÃ©lectionner les parents des unitÃ©s d'organisation dans l'arborescence, ce qui est idÃ©al lorsquâ€™il sâ€™agit par exemple de sÃ©lectionner tous les centres de santÃ© Ã  lâ€™intÃ©rieur dâ€™un ou de plusieurs districts. Le mÃªme concept sâ€™applique pour le troisiÃ¨me mode appelÃ© "SÃ©lectionner des groupes". Ici, vous pouvez sÃ©lectionner toutes les unitÃ©s d'organisation Ã  l'intÃ©rieur d'un ou plusieurs groupes ainsi que les parents des unitÃ©s d'organisation parent en mÃªme temps.</para>
   </section>
   <section>
-	<title>Sélection des ensembles de groupes d’unités d’organisation et des ensembles de groupes d'éléments de données</title>
-	<para>Tous les onglets de dimension répertoriés sous "Unités d’organisation" sont des ensembles de groupes d’unités d'organisation et des ensembles de groupes d’éléments de données. Vous êtes libre de sélectionner des groupes de l'un de ces ensembles de groupe pour les ajouter dans votre graphique. Souvenez vous d’ajouter l’ensemble de groupe au niveau des listes déroulantes des séries, des catégories ou des filtres.</para>
+	<title>SÃ©lection des ensembles de groupes dâ€™unitÃ©s dâ€™organisation et des ensembles de groupes d'Ã©lÃ©ments de donnÃ©es</title>
+	<para>Tous les onglets de dimension rÃ©pertoriÃ©s sous "UnitÃ©s dâ€™organisation" sont des ensembles de groupes dâ€™unitÃ©s d'organisation et des ensembles de groupes dâ€™Ã©lÃ©ments de donnÃ©es. Vous Ãªtes libre de sÃ©lectionner des groupes de l'un de ces ensembles de groupe pour les ajouter dans votre graphique. Souvenez vous dâ€™ajouter lâ€™ensemble de groupe au niveau des listes dÃ©roulantes des sÃ©ries, des catÃ©gories ou des filtres.</para>
   </section>
   <section>
-    <title>Sélection des options de graphique</title>
-    <para>Vous pouvez définir plusieurs options pour votre graphique en cliquant sur le bouton "Options" de la barre d'outils graphique.</para>
+    <title>SÃ©lection des options de graphique</title>
+    <para>Vous pouvez dÃ©finir plusieurs options pour votre graphique en cliquant sur le bouton "Options" de la barre d'outils graphique.</para>
     <itemizedlist>
       <listitem>
-        <para>Afficher les valeurs: Cette option permet d’afficher les valeurs de la série en les positionnant au-dessus du graphique.</para>
+        <para>Afficher les valeurs: Cette option permet dâ€™afficher les valeurs de la sÃ©rie en les positionnant au-dessus du graphique.</para>
       </listitem>
       <listitem>
-        <para>Masquer les éléments de catégorie vide: Cette option permet de masquer du graphique les éléments de catégorie n’ayant pas de données.</para>
+        <para>Masquer les Ã©lÃ©ments de catÃ©gorie vide: Cette option permet de masquer du graphique les Ã©lÃ©ments de catÃ©gorie nâ€™ayant pas de donnÃ©es.</para>
       </listitem>
       <listitem>
-        <para>Afficher les lignes de tendance: La ligne de tendance permet de visualiser comment vos données évoluent au fil du temps – utilisé par exemple pour voir si la performance s’améliore ou se détériore. Pertinent lorsque les périodes sont sélectionnées en tant que catégorie.</para>
+        <para>Afficher les lignes de tendance: La ligne de tendance permet de visualiser comment vos donnÃ©es Ã©voluent au fil du temps â€“ utilisÃ© par exemple pour voir si la performance sâ€™amÃ©liore ou se dÃ©tÃ©riore. Pertinent lorsque les pÃ©riodes sont sÃ©lectionnÃ©es en tant que catÃ©gorie.</para>
       </listitem>
       <listitem>
-        <para>Ligne cible : Cette option permet d’afficher une ligne horizontale à la valeur spécifiée. Utile lorsque vous voulez comparer votre performance avec la valeur de la cible spécifiée.</para>
+        <para>Ligne cible : Cette option permet dâ€™afficher une ligne horizontale Ã  la valeur spÃ©cifiÃ©e. Utile lorsque vous voulez comparer votre performance avec la valeur de la cible spÃ©cifiÃ©e.</para>
       </listitem>
       <listitem>
-        <para>Ligne de base : Affiche une ligne horizontale à la valeur spécifiée. Utile par exemple utile vous voulez visualiser comment votre performance a évolué depuis le début d'un processus.</para>
+        <para>Ligne de base : Affiche une ligne horizontale Ã  la valeur spÃ©cifiÃ©e. Utile par exemple utile vous voulez visualiser comment votre performance a Ã©voluÃ© depuis le dÃ©but d'un processus.</para>
       </listitem>
       <listitem>
-        <para>Intervalle min/max: Définit les valeurs maximale et minimale qui seront affichées sur l'axe des intervalles.</para>
+        <para>Intervalle min/max: DÃ©finit les valeurs maximale et minimale qui seront affichÃ©es sur l'axe des intervalles.</para>
       </listitem>
       <listitem>
-        <para>Pas de l’axe: Définit le nombre de pas qui seront visibles sur l'axe.</para>
+        <para>Pas de lâ€™axe: DÃ©finit le nombre de pas qui seront visibles sur l'axe.</para>
       </listitem>
       <listitem>
-        <para>Décimales: Définit le nombre de décimales qui seront utilisées pour afficher les valeurs sur l’axe.</para>
+        <para>DÃ©cimales: DÃ©finit le nombre de dÃ©cimales qui seront utilisÃ©es pour afficher les valeurs sur lâ€™axe.</para>
       </listitem>
       <listitem>
-        <para>Titre de l’axe des ordonnées: Affiche une étiquette à côté de l'axe de gamme (aussi appelée l'axe Y). Peut donner des informations de contexte à la carte, par exemple l'unité de mesure utilisée.</para>
+        <para>Titre de lâ€™axe des ordonnÃ©es: Affiche une Ã©tiquette Ã  cÃ´tÃ© de l'axe de gamme (aussi appelÃ©e l'axe Y). Peut donner des informations de contexte Ã  la carte, par exemple l'unitÃ© de mesure utilisÃ©e.</para>
       </listitem>
       <listitem>
-        <para>Titre de l’axe des abscisses: Affiche une étiquette en-dessous de l'axe de domaine (également appelé axe des X). Peut donner des informations de contexte à la carte, par exemple le type de périodes qui est utilisé.</para>
+        <para>Titre de lâ€™axe des abscisses: Affiche une Ã©tiquette en-dessous de l'axe de domaine (Ã©galement appelÃ© axe des X). Peut donner des informations de contexte Ã  la carte, par exemple le type de pÃ©riodes qui est utilisÃ©.</para>
       </listitem>
       <listitem>
-        <para>Masquer la légende du graphique: Masque la légende et laisse plus de place pour le graphique lui-même.</para>
+        <para>Masquer la lÃ©gende du graphique: Masque la lÃ©gende et laisse plus de place pour le graphique lui-mÃªme.</para>
       </listitem>
       <listitem>
         <para>Masquer le titre du graphique : Masque le titre de votre graphique.</para>
       </listitem>
       <listitem>
-        <para>Titre du graphique: Tapez le titre que vous voulez donner à votre graphique et il sera affiché au-dessus du graphique.</para>
+        <para>Titre du graphique: Tapez le titre que vous voulez donner Ã  votre graphique et il sera affichÃ© au-dessus du graphique.</para>
       </listitem>
     </itemizedlist>
   </section>
   <section id="dvDisplayChart">
     <title>Affichage d'un graphique</title>
-    <para>Vous pouvez afficher un graphique en cliquant simplement sur le bouton "Mettre à jour" dans le menu en haut au centre. Cela exige que vous avez sélectionné un ou plusieurs des éléments de toutes les trois dimensions - données (indicateurs, éléments de données, taux de rapportage), périodes (relatives, fixes) et unités d'organisation (unités ou groupes). Notez que par défaut ce sont les valeurs "mois de l'année en cours" de la dimension de période et l'unité d'organisation de racine qui sont sélectionnés par défaut pour l’affichage des graphiques.</para>
-    <para>Notez que vous pouvez afficher ou masquer une série de données spécifique dans le graphique en cliquant directement sur l'étiquette de la série – ces étiquettes sont généralement positionnées en haut ou à droite du graphique.</para>
-    <para>Si vous voulez donner au graphique plus d'espace sur votre écran, vous pouvez cliquer sur le bouton à flèches triples sur le menu en haut. Cela aura pour effet de faire disparaitre le menu de gauche (et offrir par conséquent plus d’espace pour votre graphique). Vous pouvez refaire apparaître ce menu en cliquant sur le même bouton.</para>
+    <para>Vous pouvez afficher un graphique en cliquant simplement sur le bouton "Mettre Ã  jour" dans le menu en haut au centre. Cela exige que vous avez sÃ©lectionnÃ© un ou plusieurs des Ã©lÃ©ments de toutes les trois dimensions - donnÃ©es (indicateurs, Ã©lÃ©ments de donnÃ©es, taux de rapportage), pÃ©riodes (relatives, fixes) et unitÃ©s d'organisation (unitÃ©s ou groupes). Notez que par dÃ©faut ce sont les valeurs "mois de l'annÃ©e en cours" de la dimension de pÃ©riode et l'unitÃ© d'organisation de racine qui sont sÃ©lectionnÃ©s par dÃ©faut pour lâ€™affichage des graphiques.</para>
+    <para>Notez que vous pouvez afficher ou masquer une sÃ©rie de donnÃ©es spÃ©cifique dans le graphique en cliquant directement sur l'Ã©tiquette de la sÃ©rie â€“ ces Ã©tiquettes sont gÃ©nÃ©ralement positionnÃ©es en haut ou Ã  droite du graphique.</para>
+    <para>Si vous voulez donner au graphique plus d'espace sur votre Ã©cran, vous pouvez cliquer sur le bouton Ã  flÃ¨ches triples sur le menu en haut. Cela aura pour effet de faire disparaitre le menu de gauche (et offrir par consÃ©quent plus dâ€™espace pour votre graphique). Vous pouvez refaire apparaÃ®tre ce menu en cliquant sur le mÃªme bouton.</para>
   </section>
   <section id="dvSaveChart">
-    <title>Télécharger le graphique comme image ou PDF</title>
-    <para>Après avoir conçu un graphique, vous pouvez le télécharger sur votre ordinateur local en tant qu’image ou fichier pdf, simplement en cliquant sur le lien "Télécharger" dans le menu en haut au centre. Le fichier sera alors téléchargé sur votre ordinateur – à présent vous pouvez par exemple intégrer le fichier image dans un document texte pour les besoins d'un rapport. Vous pouvez également télécharger la source de données du graphique aux formats JSON, XML, CSV ou au format plus classique de Microsoft Excel.</para>
+    <title>TÃ©lÃ©charger le graphique comme image ou PDF</title>
+    <para>AprÃ¨s avoir conÃ§u un graphique, vous pouvez le tÃ©lÃ©charger sur votre ordinateur local en tant quâ€™image ou fichier pdf, simplement en cliquant sur le lien "TÃ©lÃ©charger" dans le menu en haut au centre. Le fichier sera alors tÃ©lÃ©chargÃ© sur votre ordinateur â€“ Ã  prÃ©sent vous pouvez par exemple intÃ©grer le fichier image dans un document texte pour les besoins d'un rapport. Vous pouvez Ã©galement tÃ©lÃ©charger la source de donnÃ©es du graphique aux formats JSON, XML, CSV ou au format plus classique de Microsoft Excel.</para>
   </section>
   <section id="dvFavorites">
     <title>Enregistrement du graphique comme favori</title>
-    <para>Une fois que vous avez fait conçu votre graphique, vous pouvez l'enregistrer comme favori pour y accéder plus facilement à un stade ultérieur. Cliquez sur le bouton "Favoris" dans le menu du haut pour ouvrir la fenêtre des favoris. Cliquez ensuite sur "Ajouter" ; puis dans le champ qui se présente, saisissez le nom que vous voulez donner à votre graphique. Le graphique ne sera accessible que par vous. Pour chaque élément de favori de cette liste, vous disposez de quatre options à droite. Vous pouvez renommer le graphique (bouton gris), remplacer le graphique (bouton vert), modifier les paramètres de partage du graphique (bouton bleu) ou supprimer le graphique (bouton rouge).</para>
-    <para>Ces graphiques préférés peuvent par la suite être ajoutés à votre tableau de bord personnel. Après enregistrement, vous pouvez aller sur le module de tableau de bord, cliquer sur le lien "Insérer" dans la zone des graphiques et sélectionner le graphique dans la liste des graphiques favoris.</para>
+    <para>Une fois que vous avez fait conÃ§u votre graphique, vous pouvez l'enregistrer comme favori pour y accÃ©der plus facilement Ã  un stade ultÃ©rieur. Cliquez sur le bouton "Favoris" dans le menu du haut pour ouvrir la fenÃªtre des favoris. Cliquez ensuite sur "Ajouter" ; puis dans le champ qui se prÃ©sente, saisissez le nom que vous voulez donner Ã  votre graphique. Le graphique ne sera accessible que par vous. Pour chaque Ã©lÃ©ment de favori de cette liste, vous disposez de quatre options Ã  droite. Vous pouvez renommer le graphique (bouton gris), remplacer le graphique (bouton vert), modifier les paramÃ¨tres de partage du graphique (bouton bleu) ou supprimer le graphique (bouton rouge).</para>
+    <para>Ces graphiques prÃ©fÃ©rÃ©s peuvent par la suite Ãªtre ajoutÃ©s Ã  votre tableau de bord personnel. AprÃ¨s enregistrement, vous pouvez aller sur le module de tableau de bord, cliquer sur le lien "InsÃ©rer" dans la zone des graphiques et sÃ©lectionner le graphique dans la liste des graphiques favoris.</para>
     <screenshot>
-      <screeninfo>Module visualiseur de données affichant un graphique en colonne.</screeninfo>
+      <screeninfo>Module visualiseur de donnÃ©es affichant un graphique en colonne.</screeninfo>
       <mediaobject>
         <imageobject>
           <imagedata width="100%" fileref="resources/images/visualizer/favorites.png" format="PNG"/>
@@ -181,18 +181,18 @@
     </screenshot>
   </section>
   <section id="dvInterpretations">
-    <title>Partage des interprétations</title>
-    <para>Il est possible, pour certaines ressources associées à l'analyse sous DHIS 2, de faire une interprétation des données et de partager celle-ci ; sont concernées par cette possibilité les ressources suivantes : les tableaux croisés dynamiques, les graphiques et les cartes. Une interprétation est tout simplement un lien vers la ressource avec un texte exprimant une idée sur les données. Si vous voulez partager une interprétation graphique vous devez d'abord enregistrer le graphique que vous souhaitez partager en tant que favori. Puis, sans apporter de modifications à la carte, cliquez sur le bouton "Partager" la barre d'outils. Une fenêtre s'ouvre vous donnant la possibilité de rédiger votre interprétation. Lorsque vous avez terminé, cliquez sur le bouton de partage dans le coin inférieur droit de la fenêtre. La fenêtre se ferme automatiquement ; et si l'interprétation a été correctement partagée, vous verrez une notification sur la barre d'outils en bas.</para>
+    <title>Partage des interprÃ©tations</title>
+    <para>Il est possible, pour certaines ressources associÃ©es Ã  l'analyse sous DHIS 2, de faire une interprÃ©tation des donnÃ©es et de partager celle-ci ; sont concernÃ©es par cette possibilitÃ© les ressources suivantes : les tableaux croisÃ©s dynamiques, les graphiques et les cartes. Une interprÃ©tation est tout simplement un lien vers la ressource avec un texte exprimant une idÃ©e sur les donnÃ©es. Si vous voulez partager une interprÃ©tation graphique vous devez d'abord enregistrer le graphique que vous souhaitez partager en tant que favori. Puis, sans apporter de modifications Ã  la carte, cliquez sur le bouton "Partager" la barre d'outils. Une fenÃªtre s'ouvre vous donnant la possibilitÃ© de rÃ©diger votre interprÃ©tation. Lorsque vous avez terminÃ©, cliquez sur le bouton de partage dans le coin infÃ©rieur droit de la fenÃªtre. La fenÃªtre se ferme automatiquement ; et si l'interprÃ©tation a Ã©tÃ© correctement partagÃ©e, vous verrez une notification sur la barre d'outils en bas.</para>
   </section>
   <section id="dvEmbed">
-    <title>Insérer des graphiques dans une page web</title>
-    <para>Certaines ressources liées à l'analyse de DHIS 2, comme des tableaux croisés dynamiques, des graphiques et des cartes, peuvent être insérées dans une page Web à l'aide d'un plugin. Si vous avez créé un graphique avec le visualiseur de données, vous obtiendrez la configuration du plug-in pour ce graphique en cliquant sur le bouton "Partager" dans la barre d'outils, puis "Insérer comme plug-in". Vous trouverez plus d'informations sur les plugins dans le chapitre traitant de l’API web.</para>
+    <title>InsÃ©rer des graphiques dans une page web</title>
+    <para>Certaines ressources liÃ©es Ã  l'analyse de DHIS 2, comme des tableaux croisÃ©s dynamiques, des graphiques et des cartes, peuvent Ãªtre insÃ©rÃ©es dans une page Web Ã  l'aide d'un plugin. Si vous avez crÃ©Ã© un graphique avec le visualiseur de donnÃ©es, vous obtiendrez la configuration du plug-in pour ce graphique en cliquant sur le bouton "Partager" dans la barre d'outils, puis "InsÃ©rer comme plug-in". Vous trouverez plus d'informations sur les plugins dans le chapitre traitant de lâ€™API web.</para>
   </section>
   <section>
-    <title>Intégration de l’analyse</title>
-    <para>Les applications d'analyse en DHIS 2 sont complètement intégrés, de sorte que vous pouvez facilement basculer entre les tableaux croisés dynamiques, les graphiques et les visualisations des données à travers des cartes. Une fois que vous avez conçu un graphique, vous pouvez cliquer par exemple sur "Carte" dans le coin supérieur droit, puis sélectionner "Ouvrir ce graphique comme carte" pour l’analyser à l’aide du module SIG.</para>
+    <title>IntÃ©gration de lâ€™analyse</title>
+    <para>Les applications d'analyse en DHIS 2 sont complÃ¨tement intÃ©grÃ©s, de sorte que vous pouvez facilement basculer entre les tableaux croisÃ©s dynamiques, les graphiques et les visualisations des donnÃ©es Ã  travers des cartes. Une fois que vous avez conÃ§u un graphique, vous pouvez cliquer par exemple sur "Carte" dans le coin supÃ©rieur droit, puis sÃ©lectionner "Ouvrir ce graphique comme carte" pour lâ€™analyser Ã  lâ€™aide du module SIG.</para>
     <screenshot>
-      <screeninfo>Intégration de l'analyse</screeninfo>
+      <screeninfo>IntÃ©gration de l'analyse</screeninfo>
       <mediaobject>
         <imageobject>
           <imagedata width="25%" fileref="resources/images/visualizer/chart_integration.png" format="PNG"/>
@@ -201,7 +201,7 @@
     </screenshot>  
   </section>
   <section>
-    <title>Quitter le module visualiseur de données</title>
-    <para>Si vous voulez quitter le module et revenir à la page d'accueil de DHIS 2 vous pouvez cliquer sur le bouton "Accueil" sur le côté droit du menu en haut au centre.</para>
+    <title>Quitter le module visualiseur de donnÃ©es</title>
+    <para>Si vous voulez quitter le module et revenir Ã  la page d'accueil de DHIS 2 vous pouvez cliquer sur le bouton "Accueil" sur le cÃ´tÃ© droit du menu en haut au centre.</para>
   </section>
 </chapter>
