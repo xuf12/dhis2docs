@@ -36,7 +36,7 @@
         <screeninfo>Main data entry screen</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" fileref="resources/images/data_entry/data_entry_overview.png" format="PNG"/>
+            <imagedata width="80%" fileref="resources/images/data_entry/data_entry_overview.png" format="PNG" align="center"/>
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -63,11 +63,19 @@
         <screeninfo>Data entry section form with history pop-up</screeninfo>
         <mediaobject>
           <imageobject>
-            <imagedata width="100%" fileref="resources/images/dhis2UserManual/data_entry_section_history.png" format="PNG"/>
+            <imagedata width="50%" fileref="resources/images/data_entry/data_entry_section_history.png" format="PNG" align="center"/>
           </imageobject>
         </mediaobject>
       </screenshot>
       <para><emphasis role="bold">Follow Up:</emphasis>  In the data history window there is also a feature to tag or star a value. E.g. a suspicious value that needs further investigation can be kept in the system, but marked for Follow-Up. In the Data Quality module you can run a Follow-Up analysis and view all values marked for Follow-Up, and then later edit the values if proved incorrect.  </para>
+      <para><emphasis role="bold">Audit trail: </emphasis>The audit trail allows you to view other data values which have been entered prior to the current value. As an example, the following data element was changed from its original value  to 120. The audit trail shows when the data value was altered along with which user made the changes.</para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata align="center" fileref="resources/images/data_entry/data_entry_audit_trail.png" format="PNG" width="40%"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
     </section>
     <section>
       <title>Editing and deleting data</title>
