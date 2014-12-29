@@ -2,10 +2,10 @@
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "docbookV4.4/docbookx.dtd" []>
 <chapter>
   <title id="dashboards">Dashboards</title>
-  <para>Dashboards are intended to provide quick access to individual users to the data which has been stored in DHIS2. Dashboards consist of several sections, some of which provide links to reports or mapview which have already been defined. Other sections of the dashboard allow users to add charts which have been defined and made available through the charting module. </para>
+  <para>Dashboards are intended to provide quick access to different analytical objects (maps, charts, reports, tables, etc) to an individual user. Dashboards can also be shared with user groups. For instance, a user or administrator could create a dashboard called &quot;Malaria&quot; which might contain all relevant information on malaria. This dashboard could then be shared with the user group called &quot;Malaria contol&quot;, which might consist of all users of the malaria control programme. All users within this group would then be able to view the same dashboard.</para>
   <section id="dashboards_setup">
     <title>Setting up the dashboard</title>
-    <para>The dashboard is divided into two main sections. The right-side pane (denoted as A in the screenshot below) can be used to contain links to reports, documents (static reports), report tables, map views, and an RSS Health feed. The left-side zone (denoted as B in the screen shot)  can be used to contain up to six separate charts which have been previously created in the charting reporting module. </para>
+    <para>The dashboard can contain any number of objects (charts, maps, reports, tables, resources, etc). These can be freely arranged on the dashboard as you wish.  </para>
     <screenshot>
       <mediaobject>
         <imageobject>
@@ -13,13 +13,11 @@
         </imageobject>
       </mediaobject>
     </screenshot>
-    <para>In this screen shot, the dashboard has already been populated with a number of reports and mapviews. Simply clicking on one of the blue links will bring you automatically to the report or map view. Clicking on one of the charts will display a larger chart, which you can save as an image, and include in a report or other document. </para>
-    <para>You can redefine the structure of the dashboard by clearing the each of the windows by clicking the &quot;Clear&quot; link. By clicking &quot;Insert&quot; again, you can then select a new chart to appear in the window. </para>
-    <para>All reports, documents, report tables and charts can be added to the list of available options by clicking on the &quot;Add to dashboard&quot; icon <inlinegraphic fileref="resources/images/dhis2_images/add_to_dashboard.png"/> in each of the respective modules. Please refer to the sections to each of the sections in this manual for more detailed instructions. Once you have added the object to the list of available objects, you can&quot;Insert&quot; it on the dashboard.</para>
-    <note>
-      <para>Dashboard are configured for each individual user. </para>
-    </note>
+    <para>In this screen shot, the dashboard has already been populated with a number of objects, such as charts, map views, tables and messages. Simply clicking on one of the blue links will bring you automatically to the object. Maps, charts and tables can be viewed as full size as images (in the case of charts and map views) or as HTML resources (in the case of reports, tables and messages). </para>
+    <para>To reorder how the dashboard appears, simply drag-and-drop any of the objects to a new position. </para>
+    <para>If you would like to share an interpretation of an object (such as a chart of map), click &quot;Share interpretation&quot;. You interpretation will be shared publicly with other users of the DHIS2 system, in the &quot;Interpretation&quot; section of the dashboard. </para>
   </section>
+  <section id="dashboards_setup_1"/>
   <section>
     <title id="dashboard_messages">Messages and feedback</title>
     <para>DHIS2 has certain functions to facilitate communication between different users and user groups. This type of communication is important to facilitate feedback regarding data quality,  timeliness of submissions, or to simply answer a question which a particular user may have. </para>
