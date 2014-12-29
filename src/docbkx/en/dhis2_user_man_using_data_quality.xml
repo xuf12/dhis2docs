@@ -54,7 +54,7 @@
       <screeninfo>Run validation rule selection</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata width="100%" fileref="resources/images/dhis2UserManual/run_validation_rules_selection.png" format="PNG"/>
+          <imagedata width="85%" fileref="resources/images/data_quality/run_validation_rules_selection.png" format="PNG" align="center"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -67,7 +67,7 @@
       <screeninfo>Run validation rule results</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata width="100%" fileref="resources/images/dhis2UserManual/validation_rule_result.png" format="PNG"/>
+          <imagedata width="90%" fileref="resources/images/data_quality/validation_rule_result.png" format="PNG" align="center"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -93,7 +93,7 @@
       <screeninfo>Outlier analysis rule selection</screeninfo>
       <mediaobject>
         <imageobject>
-          <imagedata width="100%" fileref="resources/images/dhis2UserManual/outlier_analysis_selection.png" format="PNG"/>
+          <imagedata width="100%" fileref="resources/images/data_quality/outlier_analysis_selection.png" format="PNG"/>
         </imageobject>
       </mediaobject>
     </screenshot>
@@ -114,6 +114,13 @@
     <title>Follow-Up Analysis</title>
     <para>The follow-up analysis function will list all data values which are marked for follow-up.
       A data value can be marked for follow-up in the data entry module and in the other validation
-      analysis variants in this module.</para>
+      analysis variants in this module.As can be seen in the screen shot below, simply select an organisation unit from the tree. All data values with a follow-up status will be displayed here for the descendants of the selected organisation unit. </para>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata align="center" fileref="resources/images/data_quality/data_quality_follow_up.png" width="90%"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
   </section>
 </chapter>
