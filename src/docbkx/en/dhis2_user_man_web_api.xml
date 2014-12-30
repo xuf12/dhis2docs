@@ -4808,9 +4808,9 @@ startDate=2014-01-01&amp;endDate=2014-10-31
       <table frame="all">
         <title>User query parameters</title>
         <tgroup cols="3">
-          <colspec colname="c1" colnum="1" colwidth="1.45*"/>
+          <colspec colname="c1" colnum="1" colwidth="1.01*"/>
           <colspec colname="newCol2" colnum="2" colwidth="1*"/>
-          <colspec colname="c2" colnum="3" colwidth="8.35*"/>
+          <colspec colname="c2" colnum="3" colwidth="5.52*"/>
           <thead>
             <row>
               <entry>Parameter</entry>
@@ -4861,6 +4861,11 @@ startDate=2014-01-01&amp;endDate=2014-10-31
               <entry>selfRegistered</entry>
               <entry>false | true</entry>
               <entry>Filter on users who have self-registered their user account.</entry>
+            </row>
+            <row>
+              <entry>invitationStatus</entry>
+              <entry>none | all | expired</entry>
+              <entry>Filter on user invitations, including all or expired invitations.</entry>
             </row>
             <row>
               <entry>ou</entry>
