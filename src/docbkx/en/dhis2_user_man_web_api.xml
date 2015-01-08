@@ -3536,14 +3536,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
       items are separated by semi-colons. As an example, a query for two data elements, two periods
       and two organisation units can be done with the following URL:</para>
     <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU
-&amp;dimension=pe:2014Q1;2014Q2
-&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
+&amp;dimension=pe:2014Q1;2014Q2&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
     <para>To query for data broken down by category option combinations instead of data element
       totals you can include the category dimension in the query string, for instance like
       this:</para>
     <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU
-&amp;dimension=co&amp;dimension=pe:201401
-&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
+&amp;dimension=co&amp;dimension=pe:201401&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw</screen>
     <para>When selecting data elements you can also select all data elements in a group as items by
       using the DE_GROUP-&lt;id> syntax:</para>
     <screen>api/analytics?dimension=dx:DE_GROUP-h9cuJOkOwY2
@@ -3555,10 +3553,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
 &amp;dimension=pe:2014&amp;dimension=ou:ImspTQPwCqd</screen>
     <para>To query for data elements and categories you can use this URL - use the category
       identifier as dimension identifier and the category options as dimension items:</para>
-    <screen>api/analytics?dimension=dx:s46m5MS0hxu;fClA2Erf6IO
-&amp;dimension=pe:2014
-&amp;dimension=YNZyaJHiHYq:btOyqprQ9e8;GEqzEKCHoGA
-&amp;filter=ou:ImspTQPwCqd</screen>
+    <screen>api/analytics?dimension=dx:s46m5MS0hxu;fClA2Erf6IO&amp;dimension=pe:2014
+&amp;dimension=YNZyaJHiHYq:btOyqprQ9e8;GEqzEKCHoGA&amp;filter=ou:ImspTQPwCqd</screen>
     <para>To query using relative periods and organisation units associated with the current user
       you can use a URL like this:</para>
     <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU
@@ -3568,8 +3564,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
       syntax. Boundary refers to a top node in a sub-hierarchy, meaning that all organisation units
       at the given level below the given boundary organisation unit in the hierarchy will be
       included in the response, and is provided as regular organisation unit dimension items:</para>
-    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2014
-&amp;dimension=ou:LEVEL-3</screen>
+    <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2014&amp;dimension=ou:LEVEL-3</screen>
     <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2014
 &amp;dimension=ou:LEVEL-3;LEVEL-4;O6uvpzGd5pu;lc3eMKXaEf</screen>
     <para>When selecting organisation units you can also select all organisation units in an
@@ -3580,8 +3575,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2014
 &amp;dimension=ou:OU_GROUP-w0gFTTmsUcF;O6uvpzGd5pu</screen>
     <screen>api/analytics?dimension=dx:fbfJHSPpUQD&amp;dimension=pe:2014
-&amp;dimension=ou:OU_GROUP-w0gFTTmsUcF;OU_GROUP-EYbopBOJWsW;
-O6uvpzGd5pu;lc3eMKXaEf</screen>
+&amp;dimension=ou:OU_GROUP-w0gFTTmsUcF;OU_GROUP-EYbopBOJWsW;O6uvpzGd5pu;lc3eMKXaEf</screen>
     <para>A few things to be aware of when using the analytics resource are listed below.</para>
     <itemizedlist>
       <listitem>
@@ -3759,9 +3753,8 @@ O6uvpzGd5pu;lc3eMKXaEf</screen>
       <screen>api/analytics?measureCriteria=criteria:value;criteria:value</screen>
       <para>As an example, the following query will return only records where the data value is
         greater or equal to 6500 and less than 33000:</para>
-      <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU
-&amp;dimension=pe:2014&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw
-&amp;measureCriteria=GE:6500;LT:33000</screen>
+      <screen>api/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;dimension=pe:2014
+&amp;dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw&amp;measureCriteria=GE:6500;LT:33000</screen>
       <para>In order to have the analytics resource generate the data in the shape of a ready-made
         table, you can provide the <emphasis role="italic">tableLayout</emphasis> parameter with
         true as value. Instead of generating a plain, normalized data source, the analytics resource
@@ -3769,9 +3762,8 @@ O6uvpzGd5pu;lc3eMKXaEf</screen>
         identifiers separated by semi-colons as values to indicate which ones to use as table
         columns and rows. The column and rows dimensions must be present as a data dimension in the
         query (not a filter). Such a request can look like this:</para>
-      <screen>api/analytics.html?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU
-&amp;dimension=pe:2014Q1;2014Q2&amp;dimension=ou:O6uvpzGd5pu
-&amp;tableLayout=true&amp;columns=dx;ou&amp;rows=pe</screen>
+      <screen>api/analytics.html?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&amp;dimension=pe:2014Q1;2014Q2
+&amp;dimension=ou:O6uvpzGd5pu&amp;tableLayout=true&amp;columns=dx;ou&amp;rows=pe</screen>
     </section>
     <section>
       <title>Response formats</title>
@@ -4274,15 +4266,12 @@ O6uvpzGd5pu;lc3eMKXaEf</screen>
         </itemizedlist>
         <para>As an example, to get a response in Excel format you can use a file extension in the
         request URL like this:</para>
-        <screen>api/analytics/events/query/eBAyeGv0exc.xls?
-startDate=2014-01-01&amp;endDate=2014-10-31
-&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=oZg33kd9taw
-&amp;dimension=qrur9Dvnyt5</screen>
+        <screen>api/analytics/events/query/eBAyeGv0exc.xls?startDate=2014-01-01&amp;endDate=2014-10-31
+&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=oZg33kd9taw&amp;dimension=qrur9Dvnyt5</screen>
         <para>You can set the hierarchyMeta query parameter to true in order to include names of all
           ancestor organisation units in the meta-section of the response:</para>
-        <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2014-01-01
-&amp;endDate=2014-10-31&amp;dimension=ou:YuQRtpLP10I
-&amp;dimension=qrur9Dvnyt5:EQ:50&amp;hierarchyMeta=true</screen>
+        <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2014-01-01&amp;endDate=2014-10-31
+&amp;dimension=ou:YuQRtpLP10I&amp;dimension=qrur9Dvnyt5:EQ:50&amp;hierarchyMeta=true</screen>
         <para>The default response JSON format will look similar to this:</para>
         <screen>{
     &quot;headers&quot;: [
@@ -4404,33 +4393,27 @@ startDate=2014-01-01&amp;endDate=2014-10-31
         and &quot;Age&quot; data elements are included, the &quot;Age&quot; dimension item is
         filtered on &quot;18&quot; and the &quot;Gender&quot; item is filtered on
         &quot;Female&quot;, you can use the following query:</para>
-      <screen>api/analytics/events/aggregate/eBAyeGv0exc
-?startDate=2014-01-01&amp;endDate=2014-10-31
-&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=oZg33kd9taw:EQ:Female
-&amp;dimension=qrur9Dvnyt5:GT:50</screen>
+      <screen>api/analytics/events/aggregate/eBAyeGv0exc?startDate=2014-01-01&amp;endDate=2014-10-31
+&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=oZg33kd9taw:EQ:Female&amp;dimension=qrur9Dvnyt5:GT:50</screen>
       <para>To retrieve data for fixed and relative periods instead of start and end date, in this
         case May 2014 and last 12 months, and the organisation unit associated with the current
         user, you can use the following query:</para>
-      <screen>api/analytics/events/aggregate/eBAyeGv0exc
-?dimension=pe:201405;LAST_12_MONTHS
-&amp;dimension=ou:USER_ORGUNIT;fdc6uOvgo7ji
-&amp;dimension=oZg33kd9taw</screen>
+      <screen>api/analytics/events/aggregate/eBAyeGv0exc?dimension=pe:201405;LAST_12_MONTHS
+&amp;dimension=ou:USER_ORGUNIT;fdc6uOvgo7ji&amp;dimension=oZg33kd9taw</screen>
       <para>In order to specify &quot;Female&quot; as a filter for &quot;Gender&quot; for the data response, meaning
         &quot;Gender&quot; will not be part of the response but will filter the aggregate numbers in it, you
         can use the following syntax:</para>
-      <screen>api/analytics/events/aggregate/eBAyeGv0exc
-?dimension=pe:2014;&amp;dimension=ou:O6uvpzGd5pu
-&amp;filter=oZg33kd9taw:EQ:Female</screen>
+      <screen>api/analytics/events/aggregate/eBAyeGv0exc?dimension=pe:2014;
+&amp;dimension=ou:O6uvpzGd5pu&amp;filter=oZg33kd9taw:EQ:Female</screen>
       <para>To specify the &quot;Bo&quot; organisation unit and the period &quot;2014&quot; as
         filters, and the &quot;Mode of discharge&quot; and Gender&quot; as dimensions, where
         &quot;Gender&quot; is filtered on the &quot;Male&quot; item, you can use a query like
         this:</para>
-      <screen>api/analytics/events/aggregate/eBAyeGv0exc?filter=pe:2014&amp;filter=ou:O6uvpzGd5pu&amp;dimension=fWIAEtYVEGk
-&amp;dimension=oZg33kd9taw:EQ:Male</screen>
+      <screen>api/analytics/events/aggregate/eBAyeGv0exc?filter=pe:2014&amp;filter=ou:O6uvpzGd5pu
+&amp;dimension=fWIAEtYVEGk&amp;dimension=oZg33kd9taw:EQ:Male</screen>
       <para>To create a &quot;Top 3 report&quot; for &quot;Mode of discharge&quot; you can use the limit and sortOrder
         query parameters similar to this:</para>
-      <screen>api/analytics/events/aggregate/eBAyeGv0exc
-?filter=pe:2014&amp;filter=ou:O6uvpzGd5pu
+      <screen>api/analytics/events/aggregate/eBAyeGv0exc?filter=pe:2014&amp;filter=ou:O6uvpzGd5pu
 &amp;dimension=fWIAEtYVEGk&amp;limit=3&amp;sortOrder=DESC</screen>
       <section>
         <title>Response formats</title>
@@ -5350,8 +5333,7 @@ startDate=2014-01-01&amp;endDate=2014-10-31
       <para>To constrain the response to instances of a specific tracked entity you can include a
         tracked entity query parameter:</para>
       <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A
-&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS
-&amp;trackedEntity=cyl5vuJ5ETQ</screen>
+&amp;ou=O6uvpzGd5pu&amp;ouMode=DESCENDANTS&amp;trackedEntity=cyl5vuJ5ETQ</screen>
       <para>By default the instances are returned in pages of size 50, to change this you can use the
         page and pageSize query parameters:</para>
       <screen>api/trackedEntityInstances.json?attribute=zHXD5Ve1Efw:EQ:A
