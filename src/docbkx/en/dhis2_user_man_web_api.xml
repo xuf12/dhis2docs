@@ -4784,6 +4784,9 @@ ORDER BY oul.level, par.name, ou.name</screen>
   </section>
   <section>
     <title>Users</title>
+    <para>This section covers the user resource methods.</para>
+    <section>
+    <title>User query</title>
     <para>The <emphasis role="italic">users</emphasis> resource offers additional query parameters
       beyond the standard parameters (e.g. paging). To query for users at the users resource you can
       use the following parameters.</para>
@@ -4873,6 +4876,126 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>A query for max 10 users with "konan" as first name or surname (case in-sensitive) who
       have a subset of authorities compared to the current user:</para>
     <screen>/api/users?query=konan&amp;authSubset=true&amp;pageSize=10</screen>
+    </section>
+    <section>
+      <title>User account invitations</title>
+      <para>The Web API supports inviting people to create user accounts through the <emphasis
+          role="italic">invite</emphasis> resource. To create an invitation you should POST a user
+        in XML or JSON format to the invite resource. A specific username can be forced by defining
+        the username in the posted entity. By omitting the username, the person will be able to
+        specify it herself. The system will send out an invitation through email. This requires that
+        email settings have been properly configured. The invite resource is useful in order to
+        securely allow people to create accounts without anyone else knowing the password or by
+        transferring the password in plain text. The payload to use for the invite is the same as
+        for creating users. An example payload in JSON looks like this:</para>
+      <screen>{
+  "firstName": "John",
+  "surname": "Doe",
+  "email": "johndoe@mail.com",
+  "userCredentials": {
+    "username": "johndoe",
+    "userRoles": [ {
+      "id": "Euq3XfEIEbx"
+    } ]
+  },
+  "organisationUnits": [ {
+    "id": "ImspTQPwCqd"
+  } ],
+  "userGroups": [ {
+    "id": "vAvEltyXGbD"
+  } ]
+}
+</screen>
+      <para>The user invite entity can be posted like this:</para>
+      <screen>curl -d @invite.json &quot;localhost/api/users/invite&quot; -H &quot;Content-Type:application/json&quot; -u admin:district -v</screen>
+      <para>To send out invites for multiple users at the same time you must use a slightly
+        different format. For
+        JSON:<screen>{
+  "users": [ {
+    "firstName": "John",
+    "surname": "Doe",
+    "email": "johndoe@mail.com",
+    "userCredentials": {
+      "username": "johndoe",
+      "userRoles": [ {
+        "id": "Euq3XfEIEbx"
+      } ]
+    },
+    "organisationUnits": [ {
+      "id": "ImspTQPwCqd"
+      } ]
+    }, {
+    "firstName": "Tom",
+    "surname": "Johnson",
+    "email": "tomj@mail.com",
+    "userCredentials": {
+      "userRoles": [ {
+        "id": "Euq3XfEIEbx"
+      } ]
+    },
+    "organisationUnits": [ {
+      "id": "ImspTQPwCqd"
+      } ]
+    }
+  ]
+}
+</screen></para>
+      <para>To create multiple invites you can post the payload to the api/users/invites resource
+        like this:</para>
+      <screen>curl -d @invites.json &quot;localhost/api/users/invites&quot; -H &quot;Content-Type:application/json&quot; -u admin:district -v</screen>
+      <para>There are certain requirements for user account invitations to be sent out:<itemizedlist>
+          <listitem>
+            <para>Email SMTP server must be configured properly on the server.</para>
+          </listitem>
+          <listitem>
+            <para>The user to be invited must have specified a valid email.</para>
+          </listitem>
+          <listitem>
+            <para>The user to be invited must not be granted user roles with critical authorities
+              (see below).</para>
+          </listitem>
+          <listitem>
+            <para>If username is specified it must not be already taken by another existing
+              user.</para>
+          </listitem>
+        </itemizedlist>If any of these requirements are not met the invite resource will return with
+        a <emphasis role="italic">409 Conflict</emphasis> status code together with a descriptive
+        message. </para>
+      <para>The critical authorities which cannot be granted with invites include:<itemizedlist>
+          <listitem>
+            <para>ALL</para>
+          </listitem>
+          <listitem>
+            <para>Scheduling administration</para>
+          </listitem>
+          <listitem>
+            <para>Set system settings</para>
+          </listitem>
+          <listitem>
+            <para>Add, update, delete and list user roles</para>
+          </listitem>
+          <listitem>
+            <para>Add, update, delete and view SQL views</para>
+          </listitem>
+        </itemizedlist></para>
+    </section>
+    <section>
+      <title>User replication</title>
+      <para>To replicate a user you can use the <emphasis role="italic">replica</emphasis> resource.
+        Replicating a user can be useful when debugging or reproducing issues reported by a
+        particular user. You need to provide a new username and password for the replicated user
+        which you will use to authenticate later. Note that you need the ALL authority to perform
+        this action. To replicate a user you can post a JSON payload looking like below:</para>
+      <screen>{
+  "username": "replica",
+  "password": "Replica.1234"
+}</screen>
+      <para>This payload can be posted to the replica resource, where you provide the identifier of
+        the user to replicate in the URL:</para>
+      <screen>/api/users/&lt;uid>/replica</screen>
+      <para>An example of replicating a user using curl looks like this:</para>
+      <screen>curl -d @replica.json "localhost/api/users/N3PZBUlN8vq/replica" -H "Content-Type:application/json" -u admin:district -v</screen>
+    </section>
   </section>
   <section>
     <title>Current user information and associations</title>
@@ -5464,108 +5587,6 @@ ORDER BY oul.level, par.name, ou.name</screen>
     ]
 }</screen>
     </section>
-  </section>
-  <section>
-    <title>User account invitations</title>
-    <para>The Web API supports inviting people to create user accounts through the <emphasis
-        role="italic">invite</emphasis> resource. To create an invitation you should POST a user in
-      XML or JSON format to the invite resource. A specific username can be forced by defining the
-      username in the posted entity. By omitting the username, the person will be able to specify it
-      herself. The system will send out an invitation through email. This requires that email
-      settings have been properly configured. The invite resource is useful in order to securely
-      allow people to create accounts without anyone else knowing the password or by transferring
-      the password in plain text. The payload to use for the invite is the same as for creating
-      users. An example payload in JSON looks like this:</para>
-    <screen>{
-  "firstName": "John",
-  "surname": "Doe",
-  "email": "johndoe@mail.com",
-  "userCredentials": {
-    "username": "johndoe",
-    "userRoles": [ {
-      "id": "Euq3XfEIEbx"
-    } ]
-  },
-  "organisationUnits": [ {
-    "id": "ImspTQPwCqd"
-  } ],
-  "userGroups": [ {
-    "id": "vAvEltyXGbD"
-  } ]
-}
-</screen>
-    <para>The user invite entity can be posted like this:</para>
-    <screen>curl -d @invite.json &quot;localhost/api/users/invite&quot; -H &quot;Content-Type:application/json&quot; -u admin:district -v</screen>
-    <para>To send out invites for multiple users at the same time you must use a slightly different
-      format. For
-      JSON:<screen>{
-  "users": [ {
-    "firstName": "John",
-    "surname": "Doe",
-    "email": "johndoe@mail.com",
-    "userCredentials": {
-      "username": "johndoe",
-      "userRoles": [ {
-        "id": "Euq3XfEIEbx"
-      } ]
-    },
-    "organisationUnits": [ {
-      "id": "ImspTQPwCqd"
-      } ]
-    }, {
-    "firstName": "Tom",
-    "surname": "Johnson",
-    "email": "tomj@mail.com",
-    "userCredentials": {
-      "userRoles": [ {
-        "id": "Euq3XfEIEbx"
-      } ]
-    },
-    "organisationUnits": [ {
-      "id": "ImspTQPwCqd"
-      } ]
-    }
-  ]
-}
-</screen></para>
-    <para>To create multiple invites you can post the payload to the api/users/invites resource like
-      this:</para>
-    <screen>curl -d @invites.json &quot;localhost/api/users/invites&quot; -H &quot;Content-Type:application/json&quot; -u admin:district -v</screen>
-    <para>There are certain requirements for user account invitations to be sent out:<itemizedlist>
-        <listitem>
-          <para>Email SMTP server must be configured properly on the server.</para>
-        </listitem>
-        <listitem>
-          <para>The user to be invited must have specified a valid email.</para>
-        </listitem>
-        <listitem>
-          <para>The user to be invited must not be granted user roles with critical authorities (see
-            below).</para>
-        </listitem>
-        <listitem>
-          <para>If username is specified it must not be already taken by another existing
-            user.</para>
-        </listitem>
-      </itemizedlist>If any of these requirements are not met the invite resource will return with a
-        <emphasis role="italic">409 Conflict</emphasis> status code together with a descriptive
-      message. </para>
-    <para>The critical authorities which cannot be granted with invites include:<itemizedlist>
-        <listitem>
-          <para>ALL</para>
-        </listitem>
-        <listitem>
-          <para>Scheduling administration</para>
-        </listitem>
-        <listitem>
-          <para>Set system settings</para>
-        </listitem>
-        <listitem>
-          <para>Add, update, delete and list user roles</para>
-        </listitem>
-        <listitem>
-          <para>Add, update, delete and view SQL views</para>
-        </listitem>
-      </itemizedlist></para>
   </section>
   <section>
     <title>Email</title>
