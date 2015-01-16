@@ -120,21 +120,22 @@
   </section>
   <section>
     <title>Web-API for Apps</title>
-    <para>From version 2.14 there is also additional support for apps through the web-api. The <emphasis role="italic">/api/apps</emphasis>
-      endpoint can be used for installing, deleting, listing apps.</para>
-    <para>To list all installed apps (mediatypes works as usual, accept header or file extension,
-      xml and json):
-      <screen>curl -X GET -u user:pass -H &quot;Accept: application/json&quot; http://server.com/api/apps</screen></para>
+    <para>From version 2.14 there is also additional support for apps through the web-api. The
+        <emphasis role="italic">/api/apps</emphasis> endpoint can be used for installing, deleting,
+      listing apps. The app name is taken from the name of the ZIP archive, exluding the file
+      extension.</para>
+    <para>To list all installed apps in
+      JSON:<screen>curl -X GET -u user:pass -H &quot;Accept: application/json&quot; http://server.com/api/apps</screen></para>
     <para>To install an app, the following command can be issued:
       <screen>curl -X POST -u user:pass -F file=@app.zip http://server.com/api/apps</screen></para>
     <para>To delete an app, you can issue the following command:
       <screen>curl -X DELETE -u user:pass http://server.com/api/apps/&lt;app-name&gt;</screen></para>
-    <para>To force a reload of currently installed apps , you can issue the following command. This
+    <para>To force a reload of currently installed apps, you can issue the following command. This
       is useful if you added a file manually directly to the file system, instead of uploading
       through the DHIS 2 user interface.
       <screen>curl -X PUT -u user:pass http://server.com/api/apps</screen></para>
     <para>To let DHIS 2 serve apps from the Web API make sure to set the "App base URL" to point to
-      the apps resource, e.g.:<screen>http://server.com/api/apps</screen></para>
+      the apps resource, i.e.:<screen>http://server.com/api/apps</screen></para>
     <para>The "App installation folder" should be set as normal to the location on the file system
       of where the apps should be stored.</para>
   </section>
