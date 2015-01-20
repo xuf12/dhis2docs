@@ -16,7 +16,7 @@
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>User names already registered will appear as a list as seen in the screen shot below.</para>
+      <para>User acconts already registered will appear as a list as seen below.</para>
       <screenshot>
         <screeninfo>Search by user name</screeninfo>
         <mediaobject>
@@ -25,9 +25,18 @@
           </imageobject>
         </mediaobject>
       </screenshot>
-      <para>You can search for specific user names in the user list by
-      entering the name in the <emphasis role="italic">Filter by name</emphasis> field as shown
-      above.</para>
+      <para>You can search for specific user names in the user list by entering the name in the
+          <emphasis role="italic">Filter by name</emphasis> field as shown above. Some non-standard
+        functions are available by clicking on each user in the list:<itemizedlist>
+          <listitem>
+            <para>Replicate: This will create an exact copy of the user. You will be asked to enter
+              a new username and password for the replicated account.</para>
+          </listitem>
+          <listitem>
+            <para>Disable: This will disable the user, meaning that the account is not deleted, but
+              the user will not be able to log in or use it.</para>
+          </listitem>
+        </itemizedlist></para>
     </section>
     <section id="user_user_roles">
       <title>User role management</title>
