@@ -470,13 +470,16 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       client might want only need a few fields from each object and want to remove unnecessary ones.
       To discover which fields are available for each object please see the <emphasis role="italic">schema</emphasis> section.</para>
     <para>The format for include/exclude is very simple and allows for infinite recursion. To filter
-      at the &quot;root&quot; level you can just use the name of the field, i.e. <emphasis role="italic">?include=id,name</emphasis> which would only display the <emphasis role="italic">id</emphasis> and <emphasis role="italic">name</emphasis> for every object. For objects
-      that are either collections or complex objects with properties on their own you can use the
-      format <emphasis role="italic">?fields=id,name,dataSets[id,name]</emphasis> which would return
-        <emphasis role="italic">id</emphasis>, <emphasis role="italic">name</emphasis> of the root,
-      and the <emphasis role="italic">id</emphasis> and <emphasis role="italic">name</emphasis> of
-      every data set on that object. Negation can be done with the exclamation operator, and we have
-      a set of presets of field select (see below). Both XML and JSON are supported.</para>
+      at the &quot;root&quot; level you can just use the name of the field, i.e. <emphasis
+        role="italic">?fields=id,name</emphasis> which would only display the <emphasis
+        role="italic">id</emphasis> and <emphasis role="italic">name</emphasis> for every object.
+      For objects that are either collections or complex objects with properties on their own you
+      can use the format <emphasis role="italic">?fields=id,name,dataSets[id,name]</emphasis> which
+      would return <emphasis role="italic">id</emphasis>, <emphasis role="italic">name</emphasis> of
+      the root, and the <emphasis role="italic">id</emphasis> and <emphasis role="italic"
+        >name</emphasis> of every data set on that object. Negation can be done with the exclamation
+      operator, and we have a set of presets of field select (see below). Both XML and JSON are
+      supported.</para>
     <para><emphasis role="bold">Example</emphasis>: Get <emphasis role="italic">id</emphasis> and
         <emphasis role="italic">name</emphasis> on the indicators
       resource:<screen>/api/indicators?fields=id,name</screen></para>
