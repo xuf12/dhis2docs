@@ -208,6 +208,35 @@
       <para>The <emphasis role="italic">User by organisation unit</emphasis> function allows you see which users have been assigned to a particular organisation unit. Simply select the organisation unit from the tree on the left, and a list of users which have been assigned to this particular organisation unit will be displayed</para>
     </section>
     <section>
+      <title>Managed users</title>
+      <para>DHIS 2 supports a concept for user management referred to as <emphasis role="italic"
+          >managed users</emphasis> which which allows to explicitly define which users should be
+        allowed to manage or modify which users. To "manage a user" implies that you can see and
+        modify that user. The basic concept for user management is that you can see and modify users
+        which you have been granted all of the authorities; in other words you can modify users
+        which have a subset of your own authorities. The managed users concept gives you greater
+        control over this.</para>
+      <para>The managed users concept allows you to define which users should be able to manage
+        which users. This is configured through user groups and memberships within such groups. A
+        user group can be configured to be allowed to manage other user groups from the standard add
+        and update user interface. The effect is that a specific user can manage all users which are
+        members of user groups which can be managed by a user group that the user is member of. In
+        other words, users can be managed by all members of user groups which are managing user
+        groups they are member of.</para>
+      <para>To enable this concept you should grant users the authority to "Add/update users within
+        managed groups", and <emphasis role="italic">not</emphasis> grant access to the standard
+        "Add/update users" authority. An implication of the managed users concept is that when
+        creating a user with the "Add/update users within managed groups" only, the user must be
+        made a member of at least one user group that the current user can manage. If not, the
+        current user would lose access to the user being created immediately. This is validated by
+        the system.</para>
+      <para>When granted the "Add/update users within managed groups" authority, the system lets a
+        user add members to user groups for which the have read-only access to. The purpose of this
+        is to allow for desentralized user management. You may define a range of user groups where
+        other users may add or remove members, but not remove or change the name of the
+        group.</para>
+    </section>
+    <section>
       <title>OpenID Support</title>
       <para>DHIS 2 supports the OpenID standard, which allows third party login using a OpenID
         provider, please see <ulink url="http://openid.net">http://openid.net</ulink> for more
