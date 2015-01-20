@@ -380,7 +380,8 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
           <tbody>
             <row>
               <entry>eq</entry>
-              <entry> string | boolean | integer | float | collection (checks for size) | date </entry>
+              <entry> string | boolean | integer | float | enum | collection (checks for size) |
+                date </entry>
               <entry>true</entry>
               <entry>Equality</entry>
             </row>
