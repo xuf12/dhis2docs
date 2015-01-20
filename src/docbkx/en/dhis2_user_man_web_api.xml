@@ -494,7 +494,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
         <title>Property operators</title>
         <tgroup cols="2">
           <colspec colnum="1" colname="c1" colwidth="1*"/>
-          <colspec colnum="2" colname="c2" colwidth="3.54*"/>
+          <colspec colnum="2" colname="c2" colwidth="2.99*"/>
           <thead>
             <row>
               <entry>Operator</entry>
@@ -508,19 +508,23 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
             </row>
             <row>
               <entry>&lt;object&gt;[&lt;field-name&gt;, ...]</entry>
-              <entry>Includes a field within either a collection (will be applied to every object in that collection), or just on a single object.</entry>
+              <entry>Includes a field within either a collection (will be applied to every object in
+                that collection), or just on a single object.</entry>
             </row>
             <row>
               <entry>!&lt;field-name&gt;, &lt;object&gt;[!&lt;field-name&gt;</entry>
-              <entry>Do not include this field name, also works inside objects/collections. Useful when you use a preset to inlude fields.</entry>
+              <entry>Do not include this field name, also works inside objects/collections. Useful
+                when you use a preset to inlude fields.</entry>
             </row>
             <row>
               <entry>*, &lt;object&gt;[*]</entry>
-              <entry>Include all fields on a certain object, if applied to a collection, it will include all fields on all objects on that collection.</entry>
+              <entry>Include all fields on a certain object, if applied to a collection, it will
+                include all fields on all objects on that collection.</entry>
             </row>
             <row>
               <entry>:&lt;preset&gt;</entry>
-              <entry>Alias to select multiple fields. Three presets are currently available, see table below for descriptions.</entry>
+              <entry>Alias to select multiple fields. Three presets are currently available, see
+                table below for descriptions.</entry>
             </row>
           </tbody>
         </tgroup>
@@ -528,8 +532,8 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <table frame="all">
       <title>Field presets</title>
       <tgroup cols="2">
-        <colspec colnum="1" colname="c1" colwidth="1.0*"/>
-        <colspec colnum="2" colname="c2" colwidth="1.0*"/>
+        <colspec colnum="1" colname="c1" colwidth="1*"/>
+        <colspec colnum="2" colname="c2" colwidth="2.96*"/>
         <thead>
           <row>
             <entry>Preset</entry>
@@ -551,15 +555,18 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
           </row>
           <row>
             <entry>nameable</entry>
-            <entry>Includes id, name, shortName, code, description, created and lastUpdated fields</entry>
+            <entry>Includes id, name, shortName, code, description, created and lastUpdated
+              fields</entry>
           </row>
           <row>
             <entry>persisted</entry>
-            <entry>Returns all persisted property on a object, does not take into consideration if the object is the owner of the relation.</entry>
+            <entry>Returns all persisted property on a object, does not take into consideration if
+              the object is the owner of the relation.</entry>
           </row>
           <row>
             <entry>owner</entry>
-            <entry>Returns all persisted property on a object where the object is the owner of all properties, this payload can be used to update through the web-api.</entry>
+            <entry>Returns all persisted property on a object where the object is the owner of all
+              properties, this payload can be used to update through the web-api.</entry>
           </row>
         </tbody>
       </tgroup>
@@ -617,7 +624,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     </section>
   </section>
   <section>
-    <title>Meta-data create, read, update, delete</title>
+    <title>Meta-data create, read, update, delete, validate</title>
     <para>While some of the web-api endpoints already contains support for CRUD (create, read, update, delete), from version 2.15 this is
       now supported on all endpoints. It should work as you expect, and the subsections will give more detailed information about create,
       update, and delete (read is already covered elsewhere, and have been supported for a long time).</para>
@@ -696,6 +703,35 @@ http://server/api/constants/ID</screen></para>
         do a POST request:<screen>POST /api/categories/IDA/categoryOptions/IDB</screen></para>
       <para>Please be aware that the collection object must be the owner of that relationship. This
         can be checked at the <emphasis role="italic">/api/schemas</emphasis> or <emphasis role="italic">/api/schemas/type</emphasis> endpoint.</para>
+    </section>
+    <section>
+      <title>Validating payloads</title>
+      <para>System wide validation of metadata payloads are not yet enabled (it will be in 2.19),
+        but you can validate your payload manually by sending it to the proper schema endpoint. If
+        you wanted to validate the constant from the create section before, you would send it like
+        this:<screen>POST /api/schemas/constant
+{ payload }</screen></para>
+      <para>A simple (non-validating) example would
+        be:<screen>curl -X POST -d "{\"name\": \"some name\"}" -H "Content-Type: application/json" -u admin:district https://apps.dhis2.org/dev/api/schemas/dataElement</screen></para>
+      <para>Which would yield the
+        result:<screen>[
+   {
+      "message" : "Required property missing.",
+      "property" : "type"
+   },
+   {
+      "property" : "aggregationOperator",
+      "message" : "Required property missing."
+   },
+   {
+      "property" : "domainType",
+      "message" : "Required property missing."
+   },
+   {
+      "property" : "shortName",
+      "message" : "Required property missing."
+   }
+]</screen></para>
     </section>
   </section>
   <section>
