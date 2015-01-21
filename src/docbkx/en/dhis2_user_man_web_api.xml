@@ -203,6 +203,9 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
     <para>By default, interacting with<emphasis role="italic"> /api/metaData</emphasis> using the
       GET HTTP method will give you all meta-data rendered as XML. You can also be more specific
       about the meta-data elements you are interested in.</para>
+    <section>
+      <title>Content types</title>
+      <para>The Web API offers several content types for meta-data.</para>
     <para>
       <table>
         <title>Available Content-Types</title>
@@ -247,6 +250,9 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
         </tgroup>
       </table>
     </para>
+    </section>
+    <section>
+      <title>Query parameters</title>
     <para>The following query parameters are available for customizing your request.</para>
     <para>
       <table>
@@ -315,8 +321,11 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
         </tgroup>
       </table>
     </para>
+    </section>
     <section>
       <title>Available strategies for import</title>
+      <para>When importing data using the metaData resource you can define various strategies for
+        import.</para>
       <para>
     <table>
           <title>Available Strategies</title>
@@ -334,15 +343,15 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
               </row>
               <row>
                 <entry>CREATE</entry>
-                <entry>Allows creation of objects.</entry>
+                <entry>Allows creation of objects only.</entry>
               </row>
               <row>
                 <entry>UPDATE</entry>
-                <entry>Allows update of objects.</entry>
+                <entry>Allows update of objects only.</entry>
               </row>
               <row>
                 <entry>DELETE</entry>
-                <entry>Allows deletes of objects.</entry>
+                <entry>Allows deletes of objects only.</entry>
               </row>
             </tbody>
           </tgroup>
