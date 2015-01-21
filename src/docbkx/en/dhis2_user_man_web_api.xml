@@ -311,6 +311,16 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
               <entry>CREATE_AND_UPDATE | CREATE | UPDATE | DELETE</entry>
               <entry>Import strategy to use, see below for more information.</entry>
             </row>
+            <row>
+              <entry>sharing</entry>
+              <entry>boolean</entry>
+              <entry>false</entry>
+              <entry>false | true</entry>
+              <entry>Should sharing be supported or not. The default is false, which is the old
+                behavior. You can set this to true to allow updating user, publicAccess and
+                userGroupAccesses fields (if not they are cleared out on create, and not touched on
+                update).</entry>
+            </row>
           </tbody>
         </tgroup>
       </table>
