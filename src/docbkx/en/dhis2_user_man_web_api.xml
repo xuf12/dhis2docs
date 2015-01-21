@@ -5335,6 +5335,38 @@ ORDER BY oul.level, par.name, ou.name</screen>
     </section>
   </section>
   <section>
+    <title>Update strategies</title>
+    <para>From 2.18 we support two strategies for tracked entity instance, enrollment and event
+      creation. This is due to the fact that there might be cases where you have generated a ID
+      client side, and are not sure if it was created or not on the server. What you can do to
+      rememdy this, is to switch to a strategy that will update instead of create if there was a ID
+        match.<table frame="all">
+        <title>Available tracker strategies</title>
+        <tgroup cols="2">
+          <colspec colname="c1" colnum="1" colwidth="1*"/>
+          <colspec colname="c2" colnum="2" colwidth="3.08*"/>
+          <thead>
+            <row>
+              <entry>Parameter</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>CREATE</entry>
+              <entry>Create only, this is the default behavior.</entry>
+            </row>
+            <row>
+              <entry>CREATE_AND_UPDATE</entry>
+              <entry>Try and match the ID, if it exist then update, if not create.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table></para>
+    <para>To change the parameter, please use the strategy
+      parameter:<screen>POST /api/trackedEntityInstances?strategy=CREATE_AND_UPDATE</screen></para>
+  </section>
+  <section>
     <title>Tracked entity instance query</title>
     <para>To query for tracked entity instances you can interact with the <emphasis role="italic">/api/trackedEntityInstances</emphasis> resource. There are two types of queries: One where
       a <emphasis role="italic">query</emphasis> query parameter and optionally <emphasis role="italic">attribute</emphasis> parameters are defined, and one where <emphasis role="italic">attribute</emphasis> and <emphasis role="italic">filter</emphasis> parameters
