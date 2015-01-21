@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" []>
+<chapter>
+  <title>Infrastructure</title>
+  <para></para>
+  <section>
+    <title>Release process</title>
+    <para>Checklist for release.<itemizedlist>
+        <listitem>
+          <para>Tag trunk source code with new release. First temporarily add a dependency to
+            dhis-web in the root pom.xml:<screen>&lt;module>dhis-web&lt;/module></screen>Use the mvn
+            version plugin with:</para>
+          <screen>mvn versions:set</screen>
+          <para>This will prompt you to enter the version. Remove the dhis-web dependency and
+            commit.</para>
+        </listitem>
+        <listitem>
+          <para>Push a release branch to Launchad, e.g. with:</para>
+          <screen>bzr push https://code.launchpad.net/~dhis2-devs-core/dhis2/2.18</screen>
+        </listitem>
+        <listitem>
+          <para>Tag source code with SNAPSHOT release.</para>
+        </listitem>
+        <listitem>
+          <para>Create Jenkins for build for the release WAR file.</para>
+        </listitem>
+        <listitem>
+          <para>Create automatic copy job from Jenkins to dhis2.org.</para>
+        </listitem>
+        <listitem>
+          <para>Create automatic update of apps.dhis2.org/demo and apps.dhis2.org/dev
+            systems.</para>
+        </listitem>
+        <listitem>
+          <para>Update the database and WAR file apps.dhis2.org/demo and apps.dhis2.org/dev
+            systems.</para>
+        </listitem>
+        <listitem>
+          <para>Create a new DHIS 2 Live package on dhis2.org and place it in download/live
+            directory. Only the WAR file must be updated.</para>
+        </listitem>
+        <listitem>
+          <para>Create Javadoc with:</para>
+          <screen>mvn javadoc:aggregate</screen>
+          <para>The doc will be put in target folder. Zip it, upload to dhis2.org, unzip and place
+            it in download directory.</para>
+        </listitem>
+        <listitem>
+          <para>Upload sample database to dhis2.org and place it in download/resources
+            directory.</para>
+        </listitem>
+        <listitem>
+          <para>Update download page at www.dhis2.org/downloads with links to new Live package, WAR
+            file, source code branch page and sample data including version.</para>
+        </listitem>
+        <listitem>
+          <para>Write and send release email.</para>
+        </listitem>
+      </itemizedlist></para>
+  </section>
+</chapter>
