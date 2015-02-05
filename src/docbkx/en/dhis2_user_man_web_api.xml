@@ -327,6 +327,15 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
                 userGroupAccesses fields (if not they are cleared out on create, and not touched on
                 update).</entry>
             </row>
+              <row>
+                <entry>mergeStrategy</entry>
+                <entry>enum</entry>
+                <entry>false</entry>
+                <entry>MERGE_ALWAYS, MERGE_IF_NOT_NULL</entry>
+                <entry>Strategy for merging of objects when doing updates. MERGE_ALWAYS will just
+                  overwrite the propery with the new value provided, MERGE_IF_NOT_NULL will only set
+                  the property if its not null (only if the property was provided).</entry>
+              </row>
           </tbody>
         </tgroup>
       </table>
