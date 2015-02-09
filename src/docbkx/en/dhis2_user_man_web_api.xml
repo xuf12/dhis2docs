@@ -1753,6 +1753,16 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
     <screen>curl -d @form.html &quot;localhost/api/dataSets/BfMAe6Itzgt/form&quot; -H &quot;Content-Type:text/html&quot; -u admin:district -X PUT -v</screen>
   </section>
   <section>
+    <title>Validation</title>
+    <para>To generate a data validation summary you can interact with the validation resource. The
+      dataSet resource is optimized for data entry clients for validating a data set / form, and can
+      be accessed like
+      this:<screen>api/validation/dataSet/QX4ZTUbOt3a.json?pe=201501&amp;ou=DiszpKrYNg8</screen></para>
+    <para>The first path variable is an identifier referring to the data set to validate. XML and
+      JSON resource representations are supported. The response contains violations to validation
+      rules. This will be extended with more validation types in coming versions.</para>
+  </section>
+  <section>
     <title>Complete data set registrations</title>
     <para>This section is about complete data set registrations for data sets. A registration marks
       as a data set as completely captured.</para>
