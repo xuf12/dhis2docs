@@ -224,7 +224,8 @@
               <entry>Category combination UID</entry>
               <entry>No</entry>
               <entry>UID</entry>
-              <entry>Stable identifier. Max 11 char. Will default to default category combination if not specified.</entry>
+              <entry>UID of category combination. Will default to default category combination if
+                not specified.</entry>
             </row>
             <row>
               <entry>Url</entry>
@@ -237,6 +238,18 @@
               <entry>No</entry>
               <entry>false | true</entry>
               <entry>Indicates whether zero values will be stored for this data element.</entry>
+            </row>
+            <row>
+              <entry>Option set</entry>
+              <entry>No</entry>
+              <entry>UID</entry>
+              <entry>UID of option set to use for data.</entry>
+            </row>
+            <row>
+              <entry>Comment option set</entry>
+              <entry>No</entry>
+              <entry>UID</entry>
+              <entry>UID of option set to use for comments.</entry>
             </row>
           </tbody>
         </tgroup>
@@ -279,7 +292,7 @@
               <entry>Parent UID</entry>
               <entry>No</entry>
               <entry>UID</entry>
-              <entry>Stable identifier. Max 11 char.</entry>
+              <entry>UID of parent organisation unit.</entry>
             </row>
             <row>
               <entry>Short name</entry>
