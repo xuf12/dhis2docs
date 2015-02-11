@@ -819,9 +819,9 @@ http://server/api/constants/ID</screen></para>
         this:</para>
       <screen language="xml">&lt;dataValueSet xmlns=&quot;http://dhis2.org/schema/dxf/2.0&quot; dataSet=&quot;dataSetID&quot;
   completeDate=&quot;date&quot; period=&quot;period&quot; orgUnit=&quot;orgUnitID&quot; attributeOptionCombo=&quot;aocID&quot;&gt;
-  &lt;dataValue dataElement=&quot;dataElementID&quot; categoryOptionCombo=&quot;cocID&quot; value=&quot;1&quot;/&gt;
-  &lt;dataValue dataElement=&quot;dataElementID&quot; categoryOptionCombo=&quot;cocID&quot; value=&quot;2&quot;/&gt;
-  &lt;dataValue dataElement=&quot;dataElementID&quot; categoryOptionCombo=&quot;cocID&quot; value=&quot;3&quot;/&gt;
+  &lt;dataValue dataElement=&quot;dataElementID&quot; categoryOptionCombo=&quot;cocID&quot; value=&quot;1&quot; comment=&quot;comment1&quot;/&gt;
+  &lt;dataValue dataElement=&quot;dataElementID&quot; categoryOptionCombo=&quot;cocID&quot; value=&quot;2&quot; comment=&quot;comment2&quot;/&gt;
+  &lt;dataValue dataElement=&quot;dataElementID&quot; categoryOptionCombo=&quot;cocID&quot; value=&quot;3&quot; comment=&quot;comment3&quot;/&gt;
 &lt;/dataValueSet&gt;</screen>
       <para>JSON is supported in this
         format:<screen>{
@@ -831,16 +831,16 @@ http://server/api/constants/ID</screen></para>
   &quot;orgUnit&quot;: &quot;orgUnitID&quot;,
   &quot;attributeOptionCombo&quot;, &quot;aocID&quot;,
   &quot;dataValues&quot;: [
-    { &quot;dataElement&quot;: &quot;dataElementID&quot;, &quot;categoryOptionCombo&quot;: &quot;cocID&quot;, &quot;value&quot;: &quot;1&quot; },
-    { &quot;dataElement&quot;: &quot;dataElementID&quot;, &quot;categoryOptionCombo&quot;: &quot;cocID&quot;, &quot;value&quot;: &quot;2&quot; },
-    { &quot;dataElement&quot;: &quot;dataElementID&quot;, &quot;categoryOptionCombo&quot;: &quot;cocID&quot;, &quot;value&quot;: &quot;3&quot; }
+    { &quot;dataElement&quot;: &quot;dataElementID&quot;, &quot;categoryOptionCombo&quot;: &quot;cocID&quot;, &quot;value&quot;: &quot;1&quot;, &quot;comment&quot;: &quot;comment1&quot; },
+    { &quot;dataElement&quot;: &quot;dataElementID&quot;, &quot;categoryOptionCombo&quot;: &quot;cocID&quot;, &quot;value&quot;: &quot;2&quot;, &quot;comment&quot;: &quot;comment2&quot; },
+    { &quot;dataElement&quot;: &quot;dataElementID&quot;, &quot;categoryOptionCombo&quot;: &quot;cocID&quot;, &quot;value&quot;: &quot;3&quot;, &quot;comment&quot;: &quot;comment3&quot; }
   ]
 }</screen></para>
       <para>CSV is supported in this
-        format:<screen>&quot;dataelement&quot;,&quot;period&quot;,&quot;orgunit&quot;,&quot;categoryoptioncombo&quot;,&quot;attributeoptioncombo&quot;,&quot;value&quot;
-&quot;dataElementID&quot;,&quot;period&quot;,&quot;orgUnitID&quot;,&quot;cocID&quot;,&quot;aocID&quot;,&quot;1&quot;
-&quot;dataElementID&quot;,&quot;period&quot;,&quot;orgUnitID&quot;,&quot;cocID&quot;,&quot;aocID&quot;,&quot;2&quot;
-&quot;dataElementID&quot;,&quot;period&quot;,&quot;orgUnitID&quot;,&quot;cocID&quot;,&quot;aocID&quot;,&quot;3&quot;</screen></para>
+        format:<screen>&quot;dataelement&quot;,&quot;period&quot;,&quot;orgunit&quot;,&quot;catoptcombo&quot;,&quot;attroptcombo&quot;,&quot;value&quot;,&quot;storedby&quot;,&quot;lastupd&quot;,&quot;comment&quot;
+&quot;dataElementID&quot;,&quot;period&quot;,&quot;orgUnitID&quot;,&quot;cocID&quot;,&quot;aocID&quot;,&quot;1&quot;,&quot;username&quot;,&quot;2015-04-01&quot;,&quot;comment1&quot;
+&quot;dataElementID&quot;,&quot;period&quot;,&quot;orgUnitID&quot;,&quot;cocID&quot;,&quot;aocID&quot;,&quot;2&quot;,&quot;username&quot;,&quot;2015-04-01&quot;,&quot;comment2&quot;
+&quot;dataElementID&quot;,&quot;period&quot;,&quot;orgUnitID&quot;,&quot;cocID&quot;,&quot;aocID&quot;,&quot;3&quot;,&quot;username&quot;,&quot;2015-04-01&quot;,&quot;comment3&quot;</screen></para>
       <para><emphasis role="italic">Note:</emphasis> Please refer to the date and period section above
         for time formats.</para>
       <para>From the example we can see that we need to identify the period, the data set, the org
@@ -1761,6 +1761,10 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
     <para>The first path variable is an identifier referring to the data set to validate. XML and
       JSON resource representations are supported. The response contains violations to validation
       rules. This will be extended with more validation types in coming versions.</para>
+    <para>To retrieve validation rules which are relevant for a specific data set, meaning
+      validation rules with formulas where all data elements are part of the specific data set, you
+      can make a GET request to to validationRules resource like
+      this:<screen>api/validationRules?dataSet=&lt;dataset-id></screen></para>
   </section>
   <section>
     <title>Complete data set registrations</title>
