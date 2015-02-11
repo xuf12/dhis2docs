@@ -5,7 +5,7 @@
   <para>In a primary health system, the HMIS typically involves a distributed application, where the
     same application is running in different geographical locations (PHCs,CHCs, hospitals,
     districts, and state). Most of these physical locations do not have Internet connectivity, and
-    hence they work offline. At some point (normally at the district level), the data needs to be
+    hence they work off-line. At some point (normally at the district level), the data needs to be
     synchronised in order to have a consolidated database for the a particular geographical region.
     For this, it is important to be able to export data from one location (which is working offline,
     say at the health facility level) to another one say at the district level where the data would
@@ -18,7 +18,7 @@
   <screenshot>
     <mediaobject>
       <imageobject>
-        <imagedata width="80%" align="center" entityref="" fileref="resources/images/import_export/import_export_overview.png" format="PNG"/>
+        <imagedata width="80%" align="center"  fileref="resources/images/import_export/import_export_overview.png" format="PNG"/>
       </imageobject>
     </mediaobject>
   </screenshot>
@@ -224,7 +224,8 @@
               <entry>Category combination UID</entry>
               <entry>No</entry>
               <entry>UID</entry>
-              <entry>Stable identifier. Max 11 char. Will default to default category combination if not specified.</entry>
+              <entry>UID of category combination. Will default to default category combination if
+                not specified.</entry>
             </row>
             <row>
               <entry>Url</entry>
@@ -237,6 +238,18 @@
               <entry>No</entry>
               <entry>false | true</entry>
               <entry>Indicates whether zero values will be stored for this data element.</entry>
+            </row>
+            <row>
+              <entry>Option set</entry>
+              <entry>No</entry>
+              <entry>UID</entry>
+              <entry>UID of option set to use for data.</entry>
+            </row>
+            <row>
+              <entry>Comment option set</entry>
+              <entry>No</entry>
+              <entry>UID</entry>
+              <entry>UID of option set to use for comments.</entry>
             </row>
           </tbody>
         </tgroup>
@@ -279,7 +292,7 @@
               <entry>Parent UID</entry>
               <entry>No</entry>
               <entry>UID</entry>
-              <entry>Stable identifier. Max 11 char.</entry>
+              <entry>UID of parent organisation unit.</entry>
             </row>
             <row>
               <entry>Short name</entry>
