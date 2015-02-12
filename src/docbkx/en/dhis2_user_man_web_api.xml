@@ -3382,11 +3382,11 @@ new Ext.ux.carousel.Carousel( &apos;chartCarousel&apos;, {
   </section>
   <section>
     <title>Working with SQL views</title>
-    <para>SQL views are useful for presenting certain data views externally, which may be more
-      easily constructed with SQL than by combining the multiple objects of the Web API. As an
-      example, lets assume we have been asked to provide a view of all organization units with their
-      names, parent names, organization unit level and name, and the coordinates listed in the
-      database. The view might look something like this: </para>
+    <para>SQL views are useful for creating data views which may be more easily constructed with SQL
+      compared combining the multiple objects of the Web API. As an example, lets assume we have
+      been asked to provide a view of all organization units with their names, parent names,
+      organization unit level and name, and the coordinates listed in the database. The view might
+      look something like this: </para>
     <screen>SELECT ou.name as orgunit, par.name as parent, ou.coordinates, ous.level, oul.name from organisationunit ou
 INNER JOIN _orgunitstructure ous ON ou.organisationunitid = ous.organisationunitid
 INNER JOIN organisationunit par ON ou.parentid = par.organisationunitid
@@ -3402,17 +3402,40 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <screen>http://{server}/api/sqlViews/{id}/data(.csv)</screen>
     <para>The <parameter>{server}</parameter> parameter should be replaced with your own server. The
       next part of the URL <parameter>/api/sqlViews/</parameter> should be appended with the
-      specific unique identifier (not the internal ID of the view). Append either
-        <parameter>data</parameter> for XML data or <parameter>data.csv</parameter> for comma
-      delimited values. As an example, the following command would retrieve XML data for the SQL
-      view defined
+      specific SQL view identifier. Append either <parameter>data</parameter> for XML data or
+        <parameter>data.csv</parameter> for comma delimited values. Support response formats are
+      json, xml, csv, xls, html and html+css. As an example, the following command would retrieve
+      XML data for the SQL view defined
       above.<screen>curl &quot;https://apps.dhis2.org/demo/api/sqlViews/dI68mLkP1wN/data.csv&quot; -u admin:district -v</screen></para>
+    <section>
+    <title>Criteria</title>
     <para>You can do simple filtering on the columns in the result set by appending <emphasis role="italic">criteria</emphasis> query parameters to the URL, using the column names and
       filter values separated by columns as parameter values, on the following format:</para>
-    <screen>/data?criteria=col1:value1&amp;criteria=col2:value2</screen>
+    <screen>/api/sqlViews/{id}/data?criteria=col1:value1&amp;criteria=col2:value2</screen>
     <para>As an example, to filter the SQL view result set above to only return organisation units
       at level 4 you can use the following URL:</para>
     <screen>https://apps.dhis2.org/demo/api/sqlViews/dI68mLkP1wN/data.csv?criteria=level:4</screen>
+    </section>
+    <section>
+    <title>Variables</title>
+    <para>SQL views support variable subsitution. Variable subsitition is only available for SQL
+        view of type <emphasis role="italic">query</emphasis>, meaning SQL views which are not
+        created in the database but simply executed as regular SQL queries. Variables can be
+        inserted directly into the SQL query and must be on this
+        format:<screen>${variable-key}</screen></para>
+      <para>As an example, an SQL query that retrieves all data elements of a given value type where
+        the value type can be defined through a variable can look like
+        this:<screen>select * from dataelement where valuetype = '${valueType}';</screen></para>
+      <para>These variables can then be supplied as part of the URL when requested through the
+          <emphasis role="italic">sqlViews</emphasis> Web API resource. Variables can be supplied on
+        the following
+        format:<screen>/api/sqlViews/{id}/data?var=key1:value1&amp;var=key2:value2</screen></para>
+      <para>An example query correponding to the example above can look like
+        this:<screen>/api/sqlViews/dI68mLkP1wN/data.json?var=valueType:int</screen></para>
+      <para>The <emphasis role="italic">valueType</emphasis> variable will be subsituted with the
+          <emphasis role="italic">int</emphasis> value, and the query will return data elements with
+        int value type.</para>
+    </section>
   </section>
   <section>
     <title>Dashboard</title>
