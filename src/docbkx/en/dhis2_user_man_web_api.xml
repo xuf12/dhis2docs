@@ -3381,7 +3381,7 @@ new Ext.ux.carousel.Carousel( &apos;chartCarousel&apos;, {
     </section>
   </section>
   <section>
-    <title>Working with SQL views</title>
+    <title>SQL views</title>
     <para>SQL views are useful for creating data views which may be more easily constructed with SQL
       compared combining the multiple objects of the Web API. As an example, lets assume we have
       been asked to provide a view of all organization units with their names, parent names,
@@ -3424,13 +3424,13 @@ ORDER BY oul.level, par.name, ou.name</screen>
         inserted directly into the SQL query and must be on this
         format:<screen>${variable-key}</screen></para>
       <para>As an example, an SQL query that retrieves all data elements of a given value type where
-        the value type can be defined through a variable can look like
+        the value type is defined through a variable can look like
         this:<screen>select * from dataelement where valuetype = '${valueType}';</screen></para>
       <para>These variables can then be supplied as part of the URL when requested through the
           <emphasis role="italic">sqlViews</emphasis> Web API resource. Variables can be supplied on
         the following
         format:<screen>/api/sqlViews/{id}/data?var=key1:value1&amp;var=key2:value2</screen></para>
-      <para>An example query correponding to the example above can look like
+      <para>An example query corresponding to the example above can look like
         this:<screen>/api/sqlViews/dI68mLkP1wN/data.json?var=valueType:int</screen></para>
       <para>The <emphasis role="italic">valueType</emphasis> variable will be subsituted with the
           <emphasis role="italic">int</emphasis> value, and the query will return data elements with
