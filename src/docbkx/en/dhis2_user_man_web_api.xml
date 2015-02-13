@@ -1765,6 +1765,86 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
       validation rules with formulas where all data elements are part of the specific data set, you
       can make a GET request to to <emphasis role="italic">validationRules</emphasis> resource like
       this:<screen>api/validationRules?dataSet=&lt;dataset-id></screen></para>
+    <para>The validation rules have a left side and a right side, which is compared for validity
+      according to an operator. The valid operator values are found in the table below.</para>
+    <para>
+      <table frame="all">
+        <title>Operators</title>
+        <tgroup cols="2">
+          <colspec colname="c1" colnum="1" colwidth="1*"/>
+          <colspec colname="c2" colnum="2" colwidth="2.45*"/>
+          <thead>
+            <row>
+              <entry>Value</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>equal_to</entry>
+              <entry>Equal to</entry>
+            </row>
+            <row>
+              <entry>not_equal_to</entry>
+              <entry>Not equal to</entry>
+            </row>
+            <row>
+              <entry>greater_than</entry>
+              <entry>Greater than</entry>
+            </row>
+            <row>
+              <entry>greater_than_or_equal_to</entry>
+              <entry>Greater than or equal to</entry>
+            </row>
+            <row>
+              <entry>less_than</entry>
+              <entry>Less than</entry>
+            </row>
+            <row>
+              <entry>less_than_or_equal_to</entry>
+              <entry>Less than or equal to</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </para>
+    <para>The left side and right side expressions are mathematical expressions which can contain
+      references to data elements and category option combinations on the following
+      format:<screen>${&lt;dataelement-id>.&lt;catoptcombo-id>}</screen></para>
+    <para>The left side and right side expressions have a <emphasis role="italic">missing value
+        strategy</emphasis>. This refers to how the system should treat data values which are
+      missing for data elements / category option combination references in the formula in terms of
+      whether the validation rule should be checked for validity or skipped. The valid missing value
+      strategies are found in the table below.</para>
+    <para>
+      <table frame="all">
+        <title>Missing value strategies</title>
+        <tgroup cols="2">
+          <colspec colname="c1" colnum="1" colwidth="1*"/>
+          <colspec colname="c2" colnum="2" colwidth="2.57*"/>
+          <thead>
+            <row>
+              <entry>Value</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>SKIP_IF_ANY_VALUE_MISSING</entry>
+              <entry>Skip validation rule if any data value is missing</entry>
+            </row>
+            <row>
+              <entry>SKIP_IF_ALL_VALUES_MISSING</entry>
+              <entry>Skip validation rule if all data values are missing</entry>
+            </row>
+            <row>
+              <entry>NEVER_SKIP</entry>
+              <entry>Never skip validation rule irrespective of missing data values</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </para>
   </section>
   <section>
     <title>Indicators</title>
