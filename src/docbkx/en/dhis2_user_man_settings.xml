@@ -108,21 +108,30 @@
           <para>Application title: Sets the application title on the top menu.</para>
         </listitem>
         <listitem>
-          <para>Application introduction: Sets an introduction of the system. Will be visible on the
-            login page.</para>
+          <para>Application introduction: Sets an introduction of the system which will be visible
+            on the top-left part of the login page.</para>
         </listitem>
         <listitem>
           <para>Application notification: Sets a notification which should be displayed to users.
-            Will be visible on the front page.</para>
+            Will be visible on the front page under the login area.</para>
+        </listitem>
+        <listitem>
+          <para>Application footer: Sets a text in the footer area of the login page.</para>
         </listitem>
         <listitem>
           <para>Style: Sets the style / look-and-feel of the system. The corresponding user style setting overrides this.</para>
         </listitem>
         <listitem>
+          <para>Start page: Sets page / module which the user will be redirected to after logging
+            in. The dashboard module is the recommended start module.</para>
+        </listitem>
+        <listitem>
           <para>Flag: Sets the flag which is displayed in the left menu of the dashboard module.</para>
         </listitem>
         <listitem>
-          <para>Start page: Sets page / module which the user will be redirected to after logging in. The dashboard module is the recommended start module.</para>
+          <para>Require authority to add to view object lists: Will hide menu and index page items /
+            links to lists of objects if the current user does not have the authority to create the
+            type of objects (privately or publicly).</para>
         </listitem>
       </itemizedlist>
     </section>

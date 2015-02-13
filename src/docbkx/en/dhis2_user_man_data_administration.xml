@@ -182,11 +182,14 @@
     <itemizedlist>
       <listitem>
         <para>Clear analytics tables</para>
-        <para>Completely deletes the analytics tables, used to generate aggregate data for the pivot tables, GIS and reports. </para>
+        <para>Completely empties the analytics tables. These tables are used to generate aggregate
+          data for the pivot tables, GIS and reports. </para>
       </listitem>
       <listitem>
         <para>Clear data mart (aggregated indicator and data value values)</para>
-        <para>The data mart is where DHIS 2 stores aggregated data produced during the export to data mart process. This function clears the database table which contains aggregated indicator  and data element values.</para>
+        <para>The data mart is where DHIS 2 stores aggregated data produced during the export to
+          data mart process. This function empties the database table which contains aggregated
+          indicator and data element values.</para>
       </listitem>
       <listitem>
         <para>Rebuild data mart index</para>
@@ -198,7 +201,8 @@
       </listitem>
       <listitem>
         <para>Clear dataset completeness</para>
-        <para>This function removes aggregated dataset completeness values. This data is produced and used by report tables.</para>
+        <para>This function empties the aggregated dataset completeness value table. This data is
+          produced and used by report tables.</para>
       </listitem>
       <listitem>
         <para>Prune periods</para>
@@ -208,6 +212,12 @@
         <para>Remove expired invitations</para>
         <para>Will delete users which represent user account invitations that now have gone past
           their expiry date.</para>
+      </listitem>
+      <listitem>
+        <para>Create SQL views</para>
+      </listitem>
+      <listitem>
+        <para>Will recreate all SQL views in the database.</para>
       </listitem>
       <listitem>
         <para>Update category option combinations</para>

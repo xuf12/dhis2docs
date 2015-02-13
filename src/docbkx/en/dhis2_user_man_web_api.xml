@@ -4840,6 +4840,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
     <para>Zero data value removal will delete zero data values linked to data elements where zero
       data is defined as not significant:</para>
     <screen>api/maintenance/zeroDataValueRemoval</screen>
+    <para>Create SQL view will recreate all SQL views in the database.</para>
+    <screen>api/maintenance/createSqlViews</screen>
     <para>Category option combo update will remove obsolete and generate missing category option
       combos for all category combinations:</para>
     <screen>api/maintenance/categoryOptionComboUpdate</screen>
