@@ -4390,10 +4390,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
               <entry>Numeric positive value</entry>
             </row>
             <row>
-              <entry>uniqueInstances</entry>
+              <entry>outputType</entry>
               <entry>No</entry>
-              <entry>Returns number of distinct tracked entity instances in the events, as opposed to number of events. Applies to programs with registration only.</entry>
-              <entry>false | true</entry>
+              <entry>Specify output type for analytical data which can be events, enrollments or
+                tracked entity instances. The two last options apply to programs with registration
+                only.</entry>
+              <entry>EVENT | ENROLLMENT | TRACKED_ENTITY_INSTANCE</entry>
             </row>
             <row>
               <entry>skipMeta</entry>
