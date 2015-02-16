@@ -405,6 +405,38 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
       return as soon as the process is started. The response status code to be expected is 204 No
       Content.</para>
     </section>
+    <section>
+      <title>Translation</title>
+      <para>Support for I18n translation in the web-api was added in 2.19 release. It is supported
+        by two parameters:<table frame="all">
+          <title>Translate options</title>
+          <tgroup cols="3">
+            <colspec colname="c1" colnum="1" colwidth="1.28*"/>
+            <colspec colname="newCol2" colnum="2" colwidth="1*"/>
+            <colspec colname="c2" colnum="3" colwidth="3.82*"/>
+            <thead>
+              <row>
+                <entry>Parameter</entry>
+                <entry>Values</entry>
+                <entry>Description</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>translate</entry>
+                <entry>true/false</entry>
+                <entry>Translate web-api output, display* properties will be used (displayName,
+                  displayShortName, displayDescription)</entry>
+              </row>
+              <row>
+                <entry>locale</entry>
+                <entry>Locale to use</entry>
+                <entry>Translate web-api using a specified locale (implies translate=true)</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table></para>
+    </section>
   </section>
   <section>
     <title>Meta-data filtering</title>
