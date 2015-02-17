@@ -4727,6 +4727,12 @@ ORDER BY oul.level, par.name, ou.name</screen>
         query parameters similar to this:</para>
       <screen>api/analytics/events/aggregate/eBAyeGv0exc?filter=pe:2014&amp;filter=ou:O6uvpzGd5pu
 &amp;dimension=fWIAEtYVEGk&amp;limit=3&amp;sortOrder=DESC</screen>
+      <para>To specify a value dimension with a corresponding aggregation type you can use the value
+        and aggregationType query parameters. Specifying a value dimension will make the analytics
+        engine return aggregate values for the values of that dimension in the response as opposed
+        to counts of events.</para>
+      <screen>api/analytics/events/aggregate/eBAyeGv0exc.json?stage=Zj7UnCAulEk&amp;dimension=ou:ImspTQPwCqd
+&amp;dimension=pe:LAST_12_MONTHS&amp;dimension=fWIAEtYVEGk&amp;value=qrur9Dvnyt5&amp;aggregationType=AVERAGE</screen>
       <section>
         <title>Response formats</title>
         <para>The default response representation format is JSON. The requests must be using the HTTP
