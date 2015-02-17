@@ -4292,6 +4292,19 @@ ORDER BY oul.level, par.name, ou.name</screen>
           </thead>
           <tbody>
             <row>
+              <entry>value</entry>
+              <entry>No</entry>
+              <entry>Value dimension identifier. Can be a data element or an attribute which must be
+                of numeric value type.</entry>
+              <entry>Data element or attribute identifier.</entry>
+            </row>
+            <row>
+              <entry>aggregationType</entry>
+              <entry>No</entry>
+              <entry>Aggregation type for the value dimension. Default is AVERAGE.</entry>
+              <entry>AVERAGE | SUM | COUNT | STDDEV | VARIANCE | MIN | MAX</entry>
+            </row>
+            <row>
               <entry>displayProperty</entry>
               <entry>No</entry>
               <entry>Property to display for meta-data.</entry>
