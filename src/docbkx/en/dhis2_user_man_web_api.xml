@@ -5565,38 +5565,36 @@ ORDER BY oul.level, par.name, ou.name</screen>
       <para>For deleting a enrollment, you can make a <emphasis role="bold">DELETE</emphasis> request to the following
         URL:<screen>/api/enrollments/&lt;enrollment-id&gt;</screen></para>
     </section>
-  </section>
-  <section>
-    <title>Update strategies</title>
-    <para>From 2.18 we support two strategies for tracked entity instance, enrollment and event
-      creation. This is due to the fact that there might be cases where you have generated a ID
-      client side, and are not sure if it was created or not on the server. What you can do to
-      rememdy this, is to switch to a strategy that will update instead of create if there was a ID
-        match.<table frame="all">
-        <title>Available tracker strategies</title>
-        <tgroup cols="2">
-          <colspec colname="c1" colnum="1" colwidth="1*"/>
-          <colspec colname="c2" colnum="2" colwidth="3.08*"/>
-          <thead>
-            <row>
-              <entry>Parameter</entry>
-              <entry>Description</entry>
-            </row>
-          </thead>
-          <tbody>
-            <row>
-              <entry>CREATE</entry>
-              <entry>Create only, this is the default behavior.</entry>
-            </row>
-            <row>
-              <entry>CREATE_AND_UPDATE</entry>
-              <entry>Try and match the ID, if it exist then update, if not create.</entry>
-            </row>
-          </tbody>
-        </tgroup>
-      </table></para>
-    <para>To change the parameter, please use the strategy
-      parameter:<screen>POST /api/trackedEntityInstances?strategy=CREATE_AND_UPDATE</screen></para>
+    <section>
+      <title>Update strategies</title>
+      <para>Two update strategies for tracked entity instance are supported: enrollment and event
+        creation. This is useful when you have generated an identifier on the client side and are
+        not sure if it was created or not on the server.<table frame="all">
+          <title>Available tracker strategies</title>
+          <tgroup cols="2">
+            <colspec colname="c1" colnum="1" colwidth="1*"/>
+            <colspec colname="c2" colnum="2" colwidth="3.08*"/>
+            <thead>
+              <row>
+                <entry>Parameter</entry>
+                <entry>Description</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>CREATE</entry>
+                <entry>Create only, this is the default behavior.</entry>
+              </row>
+              <row>
+                <entry>CREATE_AND_UPDATE</entry>
+                <entry>Try and match the ID, if it exist then update, if not create.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table></para>
+      <para>To change the parameter, please use the strategy
+        parameter:<screen>POST /api/trackedEntityInstances?strategy=CREATE_AND_UPDATE</screen></para>
+    </section>
   </section>
   <section>
     <title>Tracked entity instance query</title>
@@ -6011,6 +6009,22 @@ ORDER BY oul.level, par.name, ou.name</screen>
       external access (without login), read-write access to one user group and read-only access to
       another user group. You can submit this to the sharing resource using curl:</para>
     <screen>curl -d @sharing.json &quot;localhost/api/sharing?type=dataElement&amp;id=fbfJHSPpUQD&quot; -H &quot;Content-Type:application/json&quot; -u admin:district -v</screen>
+  </section>
+  <section>
+    <title>Scheduling</title>
+    <para>To schedule tasks to run at fixed intervals you can interact with the scheduling resource.
+      To configure tasks you can do a POST request to the following
+      resource:<screen>/api/scheduling</screen></para>
+    <para>The payload in JSON format is described
+      below.<screen>{
+    "resourceTableStrategy": "allDaily",
+    "analyticsStrategy": "allDaily",
+    "dataMartStrategy": "allDaily",
+    "monitoringStrategy": "allDaily",
+    "dataSynchStrategy": "enabled"
+}</screen></para>
+    <para>An example using
+      curl:<screen>curl "localhost/dhis/api/scheduling" -d @scheduling.json -X POST -u admin:district -H "Content-Type:application/json" -v</screen></para>
   </section>
   <section>
     <title>Schema Resource</title>
