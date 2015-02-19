@@ -6025,6 +6025,41 @@ ORDER BY oul.level, par.name, ou.name</screen>
 }</screen></para>
     <para>An example using
       curl:<screen>curl "localhost/dhis/api/scheduling" -d @scheduling.json -X POST -u admin:district -H "Content-Type:application/json" -v</screen></para>
+    <para>The table below lists available task strategies.<table frame="all">
+        <title>Task strategies</title>
+        <tgroup cols="2">
+          <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+          <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+          <thead>
+            <row>
+              <entry>Task</entry>
+              <entry>Strategies</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Resource table task</entry>
+              <entry>allDaily | allEvery15Min</entry>
+            </row>
+            <row>
+              <entry>Analytics task</entry>
+              <entry>allDaily | last3YearsDaily</entry>
+            </row>
+            <row>
+              <entry>Data mart task</entry>
+              <entry>allDaily</entry>
+            </row>
+            <row>
+              <entry>Monitoring</entry>
+              <entry>allDaily</entry>
+            </row>
+            <row>
+              <entry>Data synch task</entry>
+              <entry>enabled</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table></para>
   </section>
   <section>
     <title>Schema Resource</title>
