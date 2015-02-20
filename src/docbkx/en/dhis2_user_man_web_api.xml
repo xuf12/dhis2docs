@@ -4416,36 +4416,31 @@ ORDER BY oul.level, par.name, ou.name</screen>
         attributes, person identifiers, fixed and relative periods and organisation units.
         Dimensions can optionally have a query operator and a filter. Event queries should be on the
         format described below.</para>
-      <screen>api/analytics/events/query/&lt;program-id&gt;?startDate=yyyy-MM-dd
-&amp;endDate=yyyy-MM-dd&amp;dimension=ou:&lt;ou-id&gt;;&lt;ou-id&gt;
-&amp;dimension=&lt;item-id&gt;&amp;dimension=&lt;item-id&gt;:&lt;operator&gt;:&lt;filter&gt;</screen>
+      <screen>api/analytics/events/query/&lt;program-id&gt;?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd
+&amp;dimension=ou:&lt;ou-id&gt;;&lt;ou-id&gt;&amp;dimension=&lt;item-id&gt;&amp;dimension=&lt;item-id&gt;:&lt;operator&gt;:&lt;filter&gt;</screen>
       <para>For example, to retrieve events from the &quot;Inpatient morbidity and mortality&quot;
         program between January and October 2014, where the &quot;Gender&quot; and &quot;Age&quot;
         data elements are included and the &quot;Age&quot; dimension is filtered on &quot;18&quot;,
         you can use the following query:</para>
-      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2014-01-01
-&amp;endDate=2014-10-31&amp;dimension=ou:O6uvpzGd5pu;fdc6uOvgoji
-&amp;dimension=oZg33kd9taw&amp;dimension=qrur9Dvnyt5:EQ:18</screen>
+      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2014-01-01&amp;endDate=2014-10-31
+&amp;dimension=ou:O6uvpzGd5pu;fdc6uOvgoji&amp;dimension=oZg33kd9taw&amp;dimension=qrur9Dvnyt5:EQ:18</screen>
       <para>To retrieve events for the &quot;Birth&quot; program stage of the &quot;Child
         programme&quot; program between March and December 2014, where the &quot;Weight&quot; data
         element, filtered for values larger than 2000:</para>
-      <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR
-&amp;startDate=2014-03-01&amp;endDate=2014-12-31
+      <screen>api/analytics/events/query/IpHINAT79UW?stage=A03MvHHogjR&amp;startDate=2014-03-01&amp;endDate=2014-12-31
 &amp;dimension=ou:O6uvpzGd5pu&amp;dimension=UXz7xuGCEhU:GT:2000</screen>
       <para>Sorting can be applied to the query for the event date of the event and any dimensions.
         To sort descending on the event date and ascending on the &quot;Age&quot; data element dimension you
         can use:</para>
-      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2014-01-01
-&amp;endDate=2014-10-31&amp;dimension=ou:O6uvpzGd5pu
-&amp;dimension=qrur9Dvnyt5&amp;desc=EVENTDATE&amp;asc=qrur9Dvnyt5</screen>
+      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2014-01-01&amp;endDate=2014-10-31
+&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=qrur9Dvnyt5&amp;desc=EVENTDATE&amp;asc=qrur9Dvnyt5</screen>
       <para>Paging can be applied to the query by specifying the page number and the page size
         parameters. If page number is specified but page size is not, a page size of 50 will be
         used. If page size is specified but page number is not, a page number of 1 will be used. To
         get the third page of the response with a page size of 20 you can use a query like
         this:</para>
-      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2014-01-01
-&amp;endDate=2014-10-31&amp;dimension=ou:O6uvpzGd5pu
-&amp;dimension=qrur9Dvnyt5&amp;page=3&amp;pageSize=20</screen>
+      <screen>api/analytics/events/query/eBAyeGv0exc?startDate=2014-01-01&amp;endDate=2014-10-31
+&amp;dimension=ou:O6uvpzGd5pu&amp;dimension=qrur9Dvnyt5&amp;page=3&amp;pageSize=20</screen>
       <section>
         <title>Filtering</title>
         <para>Filters can be applied to data elements, person attributes and person identifiers. The
