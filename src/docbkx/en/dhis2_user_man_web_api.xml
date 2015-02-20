@@ -474,13 +474,13 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
               <entry>Equality</entry>
             </row>
             <row>
-              <entry>neq</entry>
+              <entry>ne</entry>
               <entry> string | boolean | integer | float | collection (checks for size) | date </entry>
               <entry>true</entry>
               <entry>Inequality</entry>
             </row>
             <row>
-              <entry>like</entry>
+              <entry>like / ilike</entry>
               <entry> string</entry>
               <entry>true</entry>
               <entry>Case insensitive string matching</entry>
@@ -510,7 +510,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
               <entry>Greater than</entry>
             </row>
             <row>
-              <entry>gte</entry>
+              <entry>ge</entry>
               <entry> string | boolean | integer | float | collection (checks for size) | date </entry>
               <entry>true</entry>
               <entry>Greater than or equal</entry>
@@ -522,7 +522,7 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS, LAST_WEEK, LAST_4_WEEKS, LAST_12_WE
               <entry>Less than</entry>
             </row>
             <row>
-              <entry>lte</entry>
+              <entry>le</entry>
               <entry> string | boolean | integer | float | collection (checks for size) | date </entry>
               <entry>true</entry>
               <entry>Less than or equal</entry>
