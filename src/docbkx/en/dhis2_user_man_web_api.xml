@@ -5186,7 +5186,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
         aggregate numbers of events matching the request query. Event dimensions include data
         elements, person attributes, person identifiers, periods and organisation units.</para>
       <para>Aggregate event queries should be on the format described below.</para>
-      <screen>api/analytics/events/aggregate/&lt;program-id&gt;?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd&amp;dimension=ou:&lt;ou-id&gt;;&lt;ou-id&gt;&amp;dimension=&lt;item-id&gt;&amp;dimension=&lt;item-id&gt;:&lt;operator&gt;:&lt;filter&gt;</screen>
+      <screen>api/analytics/events/aggregate/&lt;program-id&gt;?startDate=yyyy-MM-dd&amp;endDate=yyyy-MM-dd
+&amp;dimension=ou:&lt;ou-id&gt;;&lt;ou-id&gt;&amp;dimension=&lt;item-id&gt;&amp;dimension=&lt;item-id&gt;:&lt;operator&gt;:&lt;filter&gt;</screen>
       <para>For example, to retrieve aggregate numbers for events from the &quot;Inpatient morbidity
         and mortality&quot; program between January and October 2014, where the &quot;Gender&quot;
         and &quot;Age&quot; data elements are included, the &quot;Age&quot; dimension item is
