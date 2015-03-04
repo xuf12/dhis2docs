@@ -3758,6 +3758,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
       elements, periods and organisation units. Also, you can retrieve the aggregated data for a
       combination of any number of dimensions based on data elements and organisation unit group
       sets.</para>
+    <section>
+      <title>Dimensions and items</title>
     <para>DHIS 2 features a multi-dimensional data model with several fixed and dynamic data
       dimensions. The fixed dimensions are the data element, period (time) and organisation unit
       dimension. You can dynamically add dimensions through categories, data element group sets and
@@ -3881,9 +3883,8 @@ ORDER BY oul.level, par.name, ou.name</screen>
           identifiers together with the &quot;dx&quot; dimension identifier in a query.</para>
       </listitem>
       <listitem>
-        <para>For the data element group set and organisation unit group set dimensions, all
-          dimension items will be used in the query if no dimension items are given for the
-          dimension.</para>
+        <para>For the category, data element group set and organisation unit group set dimensions,
+          all dimension items will be used in the query if no dimension items are specified.</para>
       </listitem>
       <listitem>
         <para>For the period dimension, the dimension items are ISO period identifiers and/or
@@ -3913,6 +3914,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
           Instead the response will contain the items which are linked to the data values.</para>
       </listitem>
     </itemizedlist>
+    </section>
     <section>
       <title>Request query parameters</title>
       <para>The analytics resource lets you specify a range of query parameters:<table frame="all">
