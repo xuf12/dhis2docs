@@ -5016,6 +5016,13 @@ ORDER BY oul.level, par.name, ou.name</screen>
               <entry>EVENT | ENROLLMENT | TRACKED_ENTITY_INSTANCE</entry>
             </row>
             <row>
+              <entry>collapseDataDimensions</entry>
+              <entry>No</entry>
+              <entry>Collapse all data dimensions (data elements and attributes) into a single
+                dimension in the response.</entry>
+              <entry>false | true</entry>
+            </row>
+            <row>
               <entry>skipMeta</entry>
               <entry>No</entry>
               <entry>Exclude the meta data part of response (improves performance)</entry>
