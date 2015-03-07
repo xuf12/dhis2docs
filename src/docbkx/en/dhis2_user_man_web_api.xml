@@ -4493,85 +4493,93 @@ ORDER BY oul.level, par.name, ou.name</screen>
               <row>
                 <entry>dimension</entry>
                 <entry>Yes</entry>
-                <entry>Dimensions to be retrieved, repeated for each</entry>
+                <entry>Dimensions to be retrieved, repeated for each.</entry>
                 <entry>Any dimension</entry>
               </row>
               <row>
                 <entry>filter</entry>
                 <entry>No</entry>
-                <entry>Filters to apply to the query, repeated for each</entry>
+                <entry>Filters to apply to the query, repeated for each.</entry>
                 <entry>Any dimension</entry>
               </row>
               <row>
                 <entry>aggregationType</entry>
                 <entry>No</entry>
-                <entry>Aggregation type to use in the aggregation process</entry>
+                <entry>Aggregation type to use in the aggregation process.</entry>
                 <entry>SUM | AVERAGE_INT | AVERAGE_INT_DISAGGREGATION | AVERAGE_BOOL | COUNT | STDDEV | VARIANCE</entry>
               </row>
               <row>
                 <entry>measureCriteria</entry>
                 <entry>No</entry>
-                <entry>Filters for the data/measures</entry>
+                <entry>Filters for the data/measures.</entry>
                 <entry>EQ | GT | GE | LT | LE</entry>
               </row>
               <row>
                 <entry>skipMeta</entry>
                 <entry>No</entry>
-                <entry>Exclude the meta data part of response (improves performance)</entry>
+                <entry>Exclude the meta data part of response (improves performance).</entry>
                 <entry>false | true</entry>
               </row>
               <row>
                 <entry>skipRounding</entry>
                 <entry>No</entry>
-                <entry>Skip rounding of data values, i.e. provide full precision</entry>
+                <entry>Skip rounding of data values, i.e. provide full precision.</entry>
                 <entry>false | true</entry>
               </row>
               <row>
                 <entry>hierarchyMeta</entry>
                 <entry>No</entry>
-                <entry>Include names of organisation unit ancestors and hierarchy paths of organisation units in the meta-data</entry>
+                <entry>Include names of organisation unit ancestors and hierarchy paths of
+                  organisation units in the meta-data.</entry>
                 <entry>false | true</entry>
               </row>
               <row>
                 <entry>ignoreLimit</entry>
                 <entry>No</entry>
-                <entry>Ignore limit on max 50 000 records in response - use with care</entry>
+                <entry>Ignore limit on max 50 000 records in response - use with care.</entry>
                 <entry>false | true</entry>
               </row>
               <row>
                 <entry>tableLayout</entry>
                 <entry>No</entry>
-                <entry>Use plain data source or table layout for response</entry>
+                <entry>Use plain data source or table layout for response.</entry>
                 <entry>false | true</entry>
               </row>
               <row>
                 <entry>hideEmptyRows</entry>
                 <entry>No</entry>
-                <entry>Hides empty rows in response, applicable when table layout is true</entry>
+                <entry>Hides empty rows in response, applicable when table layout is true.</entry>
                 <entry>false | true</entry>
               </row>
               <row>
                 <entry>showHierarchy</entry>
                 <entry>No</entry>
-                <entry>Display full org unit hierarchy path together with org unit name</entry>
+                <entry>Display full org unit hierarchy path together with org unit name.</entry>
                 <entry>false | true</entry>
               </row>
               <row>
                 <entry>displayProperty</entry>
                 <entry>No</entry>
-                <entry>Property to display for meta-data</entry>
+                <entry>Property to display for meta-data.</entry>
                 <entry>NAME | SHORTNAME</entry>
+              </row>
+              <row>
+                <entry>outputIdScheme</entry>
+                <entry>No</entry>
+                <entry>Property to use for meta-data items the query response, can be identifier,
+                  code or name.</entry>
+                <entry>UID | CODE | NAME</entry>
               </row>
               <row>
                 <entry>columns</entry>
                 <entry>No</entry>
-                <entry>Dimensions to use as columns for table layout</entry>
+                <entry>Dimensions to use as columns for table layout.</entry>
                 <entry>Any dimension (must be query dimension)</entry>
               </row>
               <row>
                 <entry>rows</entry>
                 <entry>No</entry>
-                <entry>Dimensions to use as rows for table layout</entry>
+                <entry>Dimensions to use as rows for table layout.</entry>
                 <entry>Any dimension (must be query dimension)</entry>
               </row>
             </tbody>
