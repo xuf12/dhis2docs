@@ -4794,12 +4794,18 @@ ORDER BY oul.level, par.name, ou.name</screen>
   </section>
   <section>
     <title>Event analytics</title>
-    <para>The event analytics API lets you query <emphasis role="italic">events</emphasis> captured
-      in DHIS 2. This resource lets you retrieve events based on a program and optionally a program
-      stage, and lets you retrieve and filter events on any event dimensions. Event dimensions
-      include data elements, attributes, organisation units and periods. The query analytics
-      resource will simply return events matching a set of criteria and does not perform any
-      aggregation. The event dimensions are listed in the table below.</para>
+    <para>The event analytics API lets you access aggregated event data and query <emphasis
+        role="italic">events</emphasis> captured in DHIS 2. This resource lets you retrieve events
+      based on a program and optionally a program stage, and lets you retrieve and filter events on
+      any event dimensions. </para>
+    <section>
+      <title>Dimensions and items</title>
+    <para>Event dimensions include data elements, attributes, organisation units and periods. The
+      aggregated event analytics resource will return aggregated information such as counts or
+      averages. The query analytics resource will simply return events matching a set of criteria
+      and does not perform any aggregation. You can specify dimension items in the form of options
+      from option sets and legends from legend sets for data elements and attributes which are
+      associated with such. The event dimensions are listed in the table below.</para>
     <table frame="all">
       <title>Event dimensions</title>
       <tgroup cols="3">
@@ -4842,6 +4848,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
         </tbody>
       </tgroup>
     </table>
+    </section>
     <section>
       <title>Request query parameters</title>
       <para>The analytics event API let you specify a range of query parameters.</para>
@@ -5015,6 +5022,13 @@ ORDER BY oul.level, par.name, ou.name</screen>
                 tracked entity instances. The two last options apply to programs with registration
                 only.</entry>
               <entry>EVENT | ENROLLMENT | TRACKED_ENTITY_INSTANCE</entry>
+            </row>
+            <row>
+              <entry>collapseDataDimensions</entry>
+              <entry>No</entry>
+              <entry>Collapse all data dimensions (data elements and attributes) into a single
+                dimension in the response.</entry>
+              <entry>false | true</entry>
             </row>
             <row>
               <entry>skipMeta</entry>
