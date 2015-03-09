@@ -789,8 +789,6 @@ http://server/api/constants/ID</screen></para>
         request:<screen>DELETE /api/dataElementGroups/IDA/dataElements/IDB</screen></para>
       <para>To add a category option with identifier IDB to a category with identifier IDA you can
         do a POST request:<screen>POST /api/categories/IDA/categoryOptions/IDB</screen></para>
-      <para>Please be aware that the collection object must be the owner of that relationship. This
-        can be checked at the <emphasis role="italic">/api/schemas</emphasis> or <emphasis role="italic">/api/schemas/type</emphasis> endpoint.</para>
     </section>
     <section>
       <title>Validating payloads</title>
