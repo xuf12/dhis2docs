@@ -5135,18 +5135,6 @@ ORDER BY oul.level, par.name, ou.name</screen>
         </table>
       </section>
       <section>
-        <title>Ranges / legend sets</title>
-        <para>For aggregate queries you can specify a range / legend set for numeric data element
-          and attribute dimensions. The purpose is to group the numeric values into ranges. As an
-          example, instead of generating data for an "Age" data element for distinct years, you can
-          group the information into age groups. To achieve this, the data element or attribute must
-          be associated with the legend set. The format is described below:</para>
-        <screen>?dimension=&lt;item-id>-&lt;legend-set-id></screen>
-        <para>An example looks like this:</para>
-        <screen>api/analytics/events/aggregate/eBAyeGv0exc.json?stage=Zj7UnCAulEk&amp;dimension=qrur9Dvnyt5-Yf6UHoPkdS6
-&amp;dimension=ou:ImspTQPwCqd&amp;dimension=pe:LAST_12_MONTHS</screen>
-      </section>
-      <section>
         <title>Response formats</title>
         <para>The default response representation format is JSON. The requests must be using the HTTP
           <emphasis role="italic">GET</emphasis> method. The following response formats are
@@ -5320,6 +5308,18 @@ ORDER BY oul.level, par.name, ou.name</screen>
         to counts of events.</para>
       <screen>api/analytics/events/aggregate/eBAyeGv0exc.json?stage=Zj7UnCAulEk&amp;dimension=ou:ImspTQPwCqd
 &amp;dimension=pe:LAST_12_MONTHS&amp;dimension=fWIAEtYVEGk&amp;value=qrur9Dvnyt5&amp;aggregationType=AVERAGE</screen>
+      <section>
+        <title>Ranges / legend sets</title>
+        <para>For aggregate queries you can specify a range / legend set for numeric data element
+          and attribute dimensions. The purpose is to group the numeric values into ranges. As an
+          example, instead of generating data for an "Age" data element for distinct years, you can
+          group the information into age groups. To achieve this, the data element or attribute must
+          be associated with the legend set. The format is described below:</para>
+        <screen>?dimension=&lt;item-id>-&lt;legend-set-id></screen>
+        <para>An example looks like this:</para>
+        <screen>api/analytics/events/aggregate/eBAyeGv0exc.json?stage=Zj7UnCAulEk&amp;dimension=qrur9Dvnyt5-Yf6UHoPkdS6
+&amp;dimension=ou:ImspTQPwCqd&amp;dimension=pe:LAST_12_MONTHS</screen>
+      </section>
       <section>
         <title>Response formats</title>
         <para>The default response representation format is JSON. The requests must be using the HTTP
