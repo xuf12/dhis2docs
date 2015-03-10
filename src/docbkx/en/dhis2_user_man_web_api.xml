@@ -2260,6 +2260,12 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Acc
                 <entry>Status of event, can be ACTIVE | COMPLETED | VISITED | FUTURE_VISIT | LATE_VISIT | SKIPPED</entry>
               </row>
               <row>
+                <entry>lastUpdated</entry>
+                <entry>date</entry>
+                <entry>false</entry>
+                <entry>Filter for events which were updated after this date.</entry>
+              </row>
+              <row>
                 <entry>skipMeta</entry>
                 <entry>boolean</entry>
                 <entry>false</entry>
