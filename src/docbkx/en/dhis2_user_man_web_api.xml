@@ -2203,7 +2203,7 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Acc
                 <entry>program</entry>
                 <entry>identifier</entry>
                 <entry>true (if not programStage is provided)</entry>
-                <entry>Identifier of program.</entry>
+                <entry>Identifier of program</entry>
               </row>
               <row>
                 <entry>programStage</entry>
@@ -2264,6 +2264,18 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Acc
                 <entry>date</entry>
                 <entry>false</entry>
                 <entry>Filter for events which were updated after this date.</entry>
+              </row>
+              <row>
+                <entry>page</entry>
+                <entry>integer</entry>
+                <entry>false</entry>
+                <entry>Page number</entry>
+              </row>
+              <row>
+                <entry>pageSize</entry>
+                <entry>integer</entry>
+                <entry>falase</entry>
+                <entry>Number of items in each page</entry>
               </row>
               <row>
                 <entry>skipMeta</entry>
