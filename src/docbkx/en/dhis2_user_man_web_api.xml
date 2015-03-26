@@ -4587,6 +4587,13 @@ ORDER BY oul.level, par.name, ou.name</screen>
                 <entry>UID | CODE | NAME</entry>
               </row>
               <row>
+                <entry>approvalLevel</entry>
+                <entry>No</entry>
+                <entry>Include data which has been approved at least up to the given approval level,
+                  refers to identfier of approval level.</entry>
+                <entry>Identifier of approval level</entry>
+              </row>
+              <row>
                 <entry>columns</entry>
                 <entry>No</entry>
                 <entry>Dimensions to use as columns for table layout.</entry>
