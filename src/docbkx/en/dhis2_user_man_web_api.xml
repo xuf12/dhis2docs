@@ -1271,7 +1271,7 @@ http://server/api/constants/ID</screen></para>
           </row>
           <row>
             <entry>OptionCode</entry>
-            <entry>No</entry>
+            <entry>Yes</entry>
             <entry/>
             <entry>Stable code. Max 50 char.</entry>
           </row>
@@ -1333,9 +1333,9 @@ http://server/api/constants/ID</screen></para>
 "Color",,"COLOR","Blue",,"BLUE"
 "Color",,"COLOR","Green",,"GREEN"
 "Color",,"COLOR","Yellow",,"YELLOW"
-"Sex",,,"Male"
-"Sex",,,"Female"
-"Sex",,,"Unknown"
+"Sex",,,"Male",,"MALE"
+"Sex",,,"Female",,"FEMALE"
+"Sex",,,"Uknown",,"UNKNOWN"
 "Result",,,"High",,"HIGH"
 "Result",,,"Medium",,"MEDIUM"
 "Result",,,"Low",,"LOW"
