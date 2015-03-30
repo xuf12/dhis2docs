@@ -2545,7 +2545,6 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
     <para>Expressions can be any kind of valid mathematical expression, as an
       example:<screen>( 2 * #{P3jJH5Tu5VC.S34ULMcHMca} ) / ( #{FQ2o8UBlcrS.S34ULMcHMca} - 200 ) * 25</screen></para>
   </section>
-  </section>
   <section>
     <title>Program indicators</title>
     <para>To retrieve program indicators you can make a GET request to the program indicators
@@ -2592,6 +2591,7 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
       this:<screen>#{&lt;programstage-id>.&lt;dataelement-id>} + #{&lt;attribute-id>} + V{&lt;varible-id>} + C{&lt;constant-id>}</screen></para>
     <para>A corresponding example looks like this:
       <screen>#{A03MvHHogjR.a3kGcGDCuk6} + A{OvY4VVhSDeJ} + V{incident_date} + C{bCqvfPR02Im}</screen></para>
+  </section>
   </section>
   <section>
     <title>Complete data set registrations</title>
