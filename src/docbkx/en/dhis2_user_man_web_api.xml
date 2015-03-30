@@ -2488,12 +2488,54 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
   </section>
   <section>
     <title>Indicators</title>
+    <para>This section describes indicators and indicator expressions.</para>
+    <section>
+    <title>Aggregate indicators</title>
     <para>To retrieve indicators you can make a GET request to the indicators resource like
       this:<screen>api/indicators</screen></para>
-    <para>The indicators represent expressions which can be calculated and presented as a result.
-      The indicator expressions are split into a numerator and denominator. The numerators and
-      denominators are mathematical expressions which can contain variables for data elements,
-      constants and organisation unit grups. The syntax looks like
+    <para>Indicators represent expressions which can be calculated and presented as a result. The
+        indicator expressions are split into a numerator and denominator. The numerators and
+        denominators are mathematical expressions which can contain references to data elements,
+        constants and organisation unit grups. The variables will be substituted with data values
+        when used e.g. in reports. Variables which are allowed in expressions are described in the
+        following table.</para>
+    <para>
+      <table frame="all">
+        <title>Indicator variables</title>
+        <tgroup cols="2">
+          <colspec colname="c1" colnum="1" colwidth="1*"/>
+          <colspec colname="c2" colnum="2" colwidth="2.32*"/>
+          <thead>
+            <row>
+              <entry>Variable</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>${&lt;dataelement-id>.&lt;catoptcombo-id>}</entry>
+              <entry>Refers to a combination of a data element and a category option
+                combination.</entry>
+            </row>
+            <row>
+              <entry>${&lt;dataelement-id>}</entry>
+              <entry>Refers to the total value of a data element across all category option
+                combinations.</entry>
+            </row>
+            <row>
+              <entry>C{&lt;constant-id>}</entry>
+              <entry>Refers to a constant.</entry>
+            </row>
+            <row>
+              <entry>OUG{&lt;orgunitgroup-id>}</entry>
+              <entry>Refers to the count of organisation units in an organisation unit
+                group.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </para>
+    <para>The syntax looks like
       this:<screen>${&lt;dataelement-id>.&lt;catoptcombo-id>} + C{&lt;constant-id>} + OUG{&lt;orgunitgroup-id>}</screen></para>
     <para>A corresponding example looks like
       this:<screen>#{P3jJH5Tu5VC.S34ULMcHMca} + C{Gfd3ppDfq8E} + OUG{CXw2yu5fodb}</screen></para>
@@ -2502,6 +2544,54 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
       option combos. Example:<screen>#{P3jJH5Tu5VC} + 2</screen></para>
     <para>Expressions can be any kind of valid mathematical expression, as an
       example:<screen>( 2 * #{P3jJH5Tu5VC.S34ULMcHMca} ) / ( #{FQ2o8UBlcrS.S34ULMcHMca} - 200 ) * 25</screen></para>
+  </section>
+  </section>
+  <section>
+    <title>Program indicators</title>
+    <para>To retrieve program indicators you can make a GET request to the program indicators
+      resource like this:<screen>api/programIndicators</screen></para>
+    <para>Program indicators can contain information collected in a program. Indicators have an
+      expression which can contain references to data elements, attributes, constants and program
+      variables. Variables which are allowed in expressions are described in the following
+      table.</para>
+    <para>
+      <table frame="all">
+        <title>Program indicator variables</title>
+        <tgroup cols="2">
+          <colspec colname="c1" colnum="1" colwidth="1*"/>
+          <colspec colname="c2" colnum="2" colwidth="2.22*"/>
+          <thead>
+            <row>
+              <entry>Variable</entry>
+              <entry>Description</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>#{&lt;programstage-id>.&lt;dataelement-id>}</entry>
+              <entry>Refers to a combination of program stage and data element id.</entry>
+            </row>
+            <row>
+              <entry>#{&lt;attribute-id>}</entry>
+              <entry>Refers to a tracked entity attribute.</entry>
+            </row>
+            <row>
+              <entry>V{&lt;varible-id>}</entry>
+              <entry>Refers to a program variable, can be "incident_date", "enrollment_date",
+                "current_date".</entry>
+            </row>
+            <row>
+              <entry>C{&lt;constant-id>}</entry>
+              <entry>Refers to a constant.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </para>
+    <para>The syntax looks like
+      this:<screen>#{&lt;programstage-id>.&lt;dataelement-id>} + #{&lt;attribute-id>} + V{&lt;varible-id>} + C{&lt;constant-id>}</screen></para>
+    <para>A corresponding example looks like this:
+      <screen>#{A03MvHHogjR.a3kGcGDCuk6} + A{OvY4VVhSDeJ} + V{incident_date} + C{bCqvfPR02Im}</screen></para>
   </section>
   <section>
     <title>Complete data set registrations</title>
