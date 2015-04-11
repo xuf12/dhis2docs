@@ -2487,6 +2487,36 @@ program=eBAyeGv0exc&amp;trackedEntityInstance=gfVxE3ALA9m</screen></para>
     </para>
   </section>
   <section>
+    <title>Data integrity</title>
+    <para>The data integrity capabilities of the data administration module are available through
+      the web API. This section describes how to run the data integrity process as well as
+      retrieving the result. The details of the analysis performed are described in the user
+      manual.</para>
+    <section>
+      <title>Running data integrity</title>
+      <para>The operation of measuring data integrity is a fairly resource (and time) demanding
+        task. It is therefore run as an asynchronous process and only when explicitly requested.
+        Starting the task is done by forming an empty POST request to the <emphasis role="italic"
+          >dataIntegrity</emphasis> endpoint like so (demonstrated in curl
+        syntax):<screen>curl -X POST https://dhis.domain/api/dataIntegrity</screen></para>
+      <para>If successful the request will return HTTP 202 immediately. The location header of the
+        response points to the resource used to check the status of the request. Forming a GET
+        request to the given location yields an empty JSON response if the task has not yet
+        completed and a JSON taskSummary object when the task is done. Polling (conservatively) to
+        this resource can hence be used to wait for the task to finish.</para>
+    </section>
+    <section>
+      <title>Fetching the result</title>
+      <para>Once data integrity is finished running the result can be fetched from the <emphasis
+          role="italic">system/taskSummaries</emphasis> resource like
+        so:<screen>curl -X GET https://dhis.domain/api/system/taskSummaries/DATAINTEGRITY</screen></para>
+      <para>The returned object contains a summary for each point of analysis, listing the names of
+        the relevant integrity violations. As stated in the leading paragraph for this section the
+        details of the analysis (and the resulting data) can be found in the user manual chapter on
+        Data Administration.</para>
+    </section>
+  </section>
+  <section>
     <title>Indicators</title>
     <para>This section describes indicators and indicator expressions.</para>
     <section>
