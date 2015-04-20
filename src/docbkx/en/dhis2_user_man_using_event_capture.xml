@@ -32,43 +32,44 @@
     <para>All event related operations are accessible from the screen shown above. The operations
       currently available are: <orderedlist>
         <listitem>
-          <para>Capturing data: this available by clicking the "Register event" button.</para>
+          <para><emphasis role="bold">Capturing data:</emphasis> this available by clicking the
+            "Register event" button.</para>
         </listitem>
         <listitem>
-          <para>Showing/hiding colums: this is to allow users decide which columns to show/hide in
-            the table of events. This feature is especially important when we have a long list of
-            data elements assigned to a program stage.</para>
+          <para><emphasis role="bold">Showing/hiding colums: </emphasis>this is to allow users
+            decide which columns to show/hide in the table of events. This feature is especially
+            important when we have a long list of data elements assigned to a program stage.</para>
         </listitem>
         <listitem>
-          <para>Editing - the rows in the table are clickable. Clicking them shows three menus -
-              <emphasis role="bold">Edit</emphasis>, <emphasis role="bold">Edit in grid</emphasis>
-            and <emphasis role="bold">Remove.</emphasis> The edit function takes you to a new page
-            where information for the selected event can be updated. The edit in grid function
-            allows you to edit the selected event within the table but only those columns (data
-            elements) visible in the grid. If more columns are required it is possible to add using
-            the "Show/Hide columns" button to speficy which columns should be displayed in the
-            list.</para>
+          <para><emphasis role="bold">Editing:</emphasis> the rows in the table are clickable,
+            clicking them shows three menus - <emphasis role="bold">Edit</emphasis>, <emphasis
+              role="bold">Edit in grid</emphasis> and <emphasis role="bold">Remove.</emphasis> The
+            edit function takes you to a new page where information for the selected event can be
+            updated. The edit in grid function allows you to edit the selected event within the
+            table but only those columns (data elements) visible in the grid. If more columns are
+            required it is possible to add using the "Show/Hide columns" button to speficy which
+            columns should be displayed in the list.</para>
         </listitem>
         <listitem>
-          <para>Sorting: this can be done by clicking the sorting icon of each column header. A red
-            sorting icon implies the current sorting column. </para>
+          <para><emphasis role="bold">Sorting:</emphasis> this can be done by clicking the sorting
+            icon of each column header. A red sorting icon implies the current sorting column. </para>
         </listitem>
         <listitem>
-          <para>Filtering: this is done by clicking the small search icon shown to the right of each
-            column header. Clicking them provides an input field to type a filtering criteria. The
-            system starts applying the filter the moment a user starts to type. During filtering it
-            is possible to define start and end dates for date type data elements and lower and
-            upper limits for number types.</para>
+          <para><emphasis role="bold">Filtering:</emphasis> this is done by clicking the small
+            search icon shown to the right of each column header. Clicking them provides an input
+            field to type a filtering criteria. The system starts applying the filter the moment a
+            user starts to type. During filtering it is possible to define start and end dates for
+            date type data elements and lower and upper limits for number types.</para>
         </listitem>
         <listitem>
-          <para>Paging: The list of events can be paged by using the paging section at the bootom of
-            the list. Paging allows you to quickly move between pages of events and to change the
-            page size, i.e. the number of events per page.</para>
+          <para><emphasis role="bold">Paging:</emphasis> The list of events can be paged by using
+            the paging section at the bootom of the list. Paging allows you to quickly move between
+            pages of events and to change the page size, i.e. the number of events per page.</para>
         </listitem>
         <listitem>
-          <para>Printing: The "Print list" button allows to print the list of events. This button
-            also changes its label accordingly - for example "Print details" and "Print form" - and
-            does the printing functionality.</para>
+          <para><emphasis role="bold">Printing:</emphasis> The "Print list" button allows to print
+            the list of events. This button also changes its label accordingly - for example "Print
+            details" and "Print form" - and does the printing functionality.</para>
         </listitem>
       </orderedlist></para>
     <para>The event capture app works offline, in the sense that if Internet connectivity drops
