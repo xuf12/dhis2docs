@@ -2315,6 +2315,47 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Acc
                 <entry>false</entry>
                 <entry>Exclude the meta data part of response (improves performance)</entry>
               </row>
+              <row>
+                <entry>dataElementIdScheme</entry>
+                <entry>string</entry>
+                <entry>false</entry>
+                <entry>Data element ID scheme to use for export, valid options are UID and
+                  CODE</entry>
+              </row>
+              <row>
+                <entry>categoryOptionComboIdScheme</entry>
+                <entry>string</entry>
+                <entry>false</entry>
+                <entry>Category Option Combo ID scheme to use for export, valid options are UID and
+                  CODE</entry>
+              </row>
+              <row>
+                <entry>orgUnitIdScheme</entry>
+                <entry>string</entry>
+                <entry>false</entry>
+                <entry>Organisation Unit ID scheme to use for export, valid options are UID and
+                  CODE</entry>
+              </row>
+              <row>
+                <entry>programIdScheme</entry>
+                <entry>string</entry>
+                <entry>false</entry>
+                <entry>Program ID scheme to use for export, valid options are UID and CODE</entry>
+              </row>
+              <row>
+                <entry>programStageIdScheme</entry>
+                <entry>string</entry>
+                <entry>false</entry>
+                <entry>Program Stage ID scheme to use for export, valid options are UID and
+                  CODE</entry>
+              </row>
+              <row>
+                <entry>idScheme</entry>
+                <entry>string</entry>
+                <entry>false</entry>
+                <entry>Allows to set id scheme for data element, category option combo, orgUnit,
+                  program and program stage at once.</entry>
+              </row>
             </tbody>
           </tgroup>
         </table>
