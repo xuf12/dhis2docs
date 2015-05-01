@@ -2331,6 +2331,47 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Acc
                 <entry>false</entry>
                 <entry>Indicates whether to skip paging in the query and return all events.</entry>
               </row>
+              <row>
+                <entry>dataElementIdScheme</entry>
+                <entry>string</entry>
+                <entry>false</entry>
+                <entry>Data element ID scheme to use for export, valid options are UID and
+                  CODE</entry>
+              </row>
+              <row>
+                <entry>categoryOptionComboIdScheme</entry>
+                <entry>string</entry>
+                <entry>false</entry>
+                <entry>Category Option Combo ID scheme to use for export, valid options are UID and
+                  CODE</entry>
+              </row>
+              <row>
+                <entry>orgUnitIdScheme</entry>
+                <entry>string</entry>
+                <entry>false</entry>
+                <entry>Organisation Unit ID scheme to use for export, valid options are UID and
+                  CODE</entry>
+              </row>
+              <row>
+                <entry>programIdScheme</entry>
+                <entry>string</entry>
+                <entry>false</entry>
+                <entry>Program ID scheme to use for export, valid options are UID and CODE</entry>
+              </row>
+              <row>
+                <entry>programStageIdScheme</entry>
+                <entry>string</entry>
+                <entry>false</entry>
+                <entry>Program Stage ID scheme to use for export, valid options are UID and
+                  CODE</entry>
+              </row>
+              <row>
+                <entry>idScheme</entry>
+                <entry>string</entry>
+                <entry>false</entry>
+                <entry>Allows to set id scheme for data element, category option combo, orgUnit,
+                  program and program stage at once.</entry>
+              </row>
             </tbody>
           </tgroup>
         </table>
@@ -6347,9 +6388,13 @@ ORDER BY oul.level, par.name, ou.name</screen>
     </section>
     <section>
       <title>Enrolling a tracked entity instance into a program</title>
-      <para>For enrolling persons into a program, you will need to first get the identifier of the person from the <emphasis role="italic">trackedEntityInstances</emphasis> resource. Then, you will need to get the program identifier from the <emphasis role="italic">programs</emphasis> resource. A template payload can be seen
+      <para>For enrolling persons into a program, you will need to first get the identifier of the
+        person from the <emphasis role="italic">trackedEntityInstances</emphasis> resource. Then,
+        you will need to get the program identifier from the <emphasis role="italic"
+          >programs</emphasis> resource. A template payload can be seen
         below:<screen>{
     &quot;trackedEntityInstance&quot;: &quot;ZRyCnJ1qUXS&quot;,
+    &quot;orgUnit&quot;: &quot;ImspTQPwCqd&quot;,
     &quot;program&quot;: &quot;S8uo8AlvYMz&quot;,
     &quot;dateOfEnrollment&quot;: &quot;2013-09-17&quot;,
     &quot;dateOfIncident&quot;: &quot;2013-09-17&quot;
