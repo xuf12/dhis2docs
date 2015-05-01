@@ -2214,10 +2214,13 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Acc
     </section>
     <section>
       <title>Querying and reading events</title>
-      <para>This section explains how to read out the events that have been stored in the DHIS2 instance. For more advanced uses of the event
-      data, please see the section on event analytics. The output format from the <emphasis role="italic">/api/events</emphasis> endpoint
-      will match the format that is used to send events to it (which the analytics event api does not support). Both XML and JSON are
-      supported, either through adding .json/.xml or by setting the appropriate <emphasis role="italic">Accept</emphasis> header.</para>
+      <para>This section explains how to read out the events that have been stored in the DHIS2
+        instance. For more advanced uses of the event data, please see the section on event
+        analytics. The output format from the <emphasis role="italic">/api/events</emphasis>
+        endpoint will match the format that is used to send events to it (which the analytics event
+        api does not support). Both XML and JSON are supported, either through adding .json/.xml or
+        by setting the appropriate <emphasis role="italic">Accept</emphasis> header. The query is
+        paged by default and the default page size is 50 events.</para>
       <para>
       <table>
           <title>Events resource query parameters</title>
@@ -2298,6 +2301,12 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Acc
                 <entry>Filter for events which were updated after this date.</entry>
               </row>
               <row>
+                <entry>skipMeta</entry>
+                <entry>boolean</entry>
+                <entry>false</entry>
+                <entry>Exclude the meta data part of response (improves performance)</entry>
+              </row>
+              <row>
                 <entry>page</entry>
                 <entry>integer</entry>
                 <entry>false</entry>
@@ -2310,10 +2319,17 @@ orgUnit=YuQRtpLP10I&amp;orgUnit=vWbkYPRmKyS&amp;children=true&quot; -H &quot;Acc
                 <entry>Number of items in each page</entry>
               </row>
               <row>
-                <entry>skipMeta</entry>
+                <entry>totalPages</entry>
                 <entry>boolean</entry>
                 <entry>false</entry>
-                <entry>Exclude the meta data part of response (improves performance)</entry>
+                <entry>Indicates whether to include the total number of pages in the paging
+                  response.</entry>
+              </row>
+              <row>
+                <entry>skipPaging</entry>
+                <entry>boolean</entry>
+                <entry>false</entry>
+                <entry>Indicates whether to skip paging in the query and return all events.</entry>
               </row>
             </tbody>
           </tgroup>
@@ -6465,6 +6481,11 @@ ORDER BY oul.level, par.name, ou.name</screen>
             <row>
               <entry>pageSize</entry>
               <entry>The page size. Default size is 50 rows per page.</entry>
+            </row>
+            <row>
+              <entry>totalPages</entry>
+              <entry>Indicates whether to include the total number of pages in the paging response
+                (implies higher response time).</entry>
             </row>
             <row>
               <entry>skipPaging</entry>
